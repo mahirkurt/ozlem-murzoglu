@@ -75,13 +75,13 @@ export const navigation: NavItem[] = [
   },
 ]
 
-export const socialLinks = {
-  instagram: 'https://instagram.com/drozlemmurzoglu',
-  facebook: 'https://facebook.com/drozlemmurzoglu',
-  twitter: 'https://twitter.com/drozlemmurzoglu',
-  linkedin: 'https://linkedin.com/in/drozlemmurzoglu',
-  youtube: 'https://youtube.com/@drozlemmurzoglu',
-}
+export const socialLinks = [
+  { platform: 'instagram', url: 'https://instagram.com/drozlemmurzoglu' },
+  { platform: 'facebook', url: 'https://facebook.com/drozlemmurzoglu' },
+  { platform: 'twitter', url: 'https://twitter.com/drozlemmurzoglu' },
+  { platform: 'linkedin', url: 'https://linkedin.com/in/drozlemmurzoglu' },
+  { platform: 'youtube', url: 'https://youtube.com/@drozlemmurzoglu' },
+]
 
 export const contactInfo = {
   phone: '0216 688 44 83',
