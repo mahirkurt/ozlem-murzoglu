@@ -1,0 +1,185 @@
+{
+  "common": {
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "workingHours": "Working Hours",
+    "appointment": "Book Appointment",
+    "contact": "Contact",
+    "readMore": "Read More",
+    "backToHome": "Back to Home",
+    "emergency": "Emergency",
+    "services": "Our Services",
+    "about": "About Us",
+    "team": "Our Team",
+    "articles": "Articles",
+    "gallery": "Gallery",
+    "faq": "FAQ",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "articles": "Articles",
+    "tributes": "Tributes",
+    "drOzlem": "Dr. Özlem Murzoğlu",
+    "brightFutures": "Bright Futures",
+    "emergency": "Emergency"
+  },
+  "home": {
+    "hero": {
+      "title": "For Your Child's Healthy Future",
+      "subtitle": "Dr. Özlem Murzoğlu Pediatric Clinic",
+      "description": "Trusted pediatric services with Dr. Özlem Murzoğlu. Comprehensive child health and disease specialist care for ages 0-18.",
+      "cta": {
+        "appointment": "Book Appointment",
+        "services": "Explore Our Services",
+        "emergency": "Emergency Hotline"
+      },
+      "stats": {
+        "experience": "15+ Years Experience",
+        "patients": "10,000+ Happy Patients",
+        "services": "50+ Services",
+        "availability": "24/7 Availability"
+      }
+    },
+    "features": {
+      "title": "Why Choose Us?",
+      "items": [
+        {
+          "title": "Expert Pediatric Services",
+          "description": "Comprehensive health services for all children aged 0-18"
+        },
+        {
+          "title": "Modern Medical Equipment",
+          "description": "Our clinic equipped with the latest technology"
+        },
+        {
+          "title": "Friendly Service",
+          "description": "Warm environment where children feel comfortable"
+        },
+        {
+          "title": "Online Appointment",
+          "description": "Easy and fast online appointment system"
+        }
+      ]
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive pediatric services for your child's health",
+      "items": [
+        {
+          "title": "Routine Check-ups",
+          "description": "Growth and development monitoring, periodic examinations"
+        },
+        {
+          "title": "Vaccination",
+          "description": "Ministry of Health vaccination schedule and special vaccines"
+        },
+        {
+          "title": "Baby Follow-up",
+          "description": "Close monitoring from the newborn period"
+        },
+        {
+          "title": "Nutrition Counseling",
+          "description": "Breastfeeding, complementary feeding and nutrition programs"
+        },
+        {
+          "title": "Chronic Disease Management",
+          "description": "Follow-up of chronic diseases such as asthma, allergies, diabetes"
+        },
+        {
+          "title": "Development Assessment",
+          "description": "Physical and mental development monitoring"
+        }
+      ],
+      "cta": "View All Services"
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "Our approach to children's health",
+      "items": [
+        {
+          "title": "Trust",
+          "description": "We build long-term, trust-based relationships with families"
+        },
+        {
+          "title": "Compassion",
+          "description": "We treat every child as our own"
+        },
+        {
+          "title": "Scientific Approach",
+          "description": "Current medical knowledge and evidence-based treatment approaches"
+        },
+        {
+          "title": "Accessibility",
+          "description": "24/7 accessible service in emergencies"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Book an Appointment for Your Child's Health Now",
+      "description": "We are here with our expert team for your child's healthy growth",
+      "button": "Book Online Appointment",
+      "phone": "or call now"
+    },
+    "testimonials": {
+      "title": "Patient Reviews",
+      "subtitle": "Experiences of our families"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "description": "As Dr. Özlem Murzoğlu Pediatric Clinic, we provide services with our expert staff in the field of child health."
+  },
+  "services": {
+    "title": "Our Services",
+    "description": "Comprehensive services we offer for your child's health"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Get in touch with us",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "phone": "Your Phone",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send"
+    }
+  },
+  "footer": {
+    "description": "Trusted pediatric services for your child's healthy growth",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "copyright": "© 2025 Dr. Özlem Murzoğlu - All rights reserved.",
+    "emergencyLine": "Emergency Hotline"
+  },
+  "error": {
+    "notFound": {
+      "title": "404 - Page Not Found",
+      "description": "The page you are looking for could not be found or may have been moved."
+    },
+    "general": {
+      "title": "An Error Occurred",
+      "description": "An unexpected error occurred. Please try again later."
+    }
+  },
+  "articles": {
+    "title": "Articles",
+    "description": "Useful information about child health",
+    "readMore": "Read More",
+    "publishedOn": "Published On",
+    "author": "Author"
+  },
+  "tributes": {
+    "title": "Tributes",
+    "description": "Valuable names who left their mark on medical history",
+    "readMore": "Read More"
+  }
+}
