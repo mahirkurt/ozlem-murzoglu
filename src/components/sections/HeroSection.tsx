@@ -474,3 +474,4 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
 }
 
 export default HeroSection
+export { HeroSection }
