@@ -6,6 +6,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import '@/styles/globals.css'
+import '@/styles/layout.css'
 
 const figtree = Figtree({ 
   subsets: ['latin'],
@@ -104,45 +105,6 @@ export default async function RootLayout({
             </div>
           </NextIntlClientProvider>
         </ThemeProvider>
-
-        <style jsx global>{`
-          body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            font-family: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
-            background-color: var(--md-sys-color-background);
-            color: var(--md-sys-color-on-background);
-          }
-
-          .app-layout {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-          }
-
-          .main-content {
-            flex: 1;
-            padding-top: 120px;
-            min-height: calc(100vh - 120px);
-          }
-
-          .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-            padding: 8px 16px;
-            text-decoration: none;
-            z-index: 100;
-            border-radius: 0 0 8px 0;
-          }
-
-          .skip-link:focus {
-            top: 0;
-          }
-        `}</style>
       </body>
     </html>
   )
