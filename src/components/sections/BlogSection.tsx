@@ -85,7 +85,7 @@ const BlogSection: React.FC = () => {
 
       <style jsx>{`
         .blog-section {
-          padding: 5rem 0;
+          padding: 4rem 0;
           background: var(--md-sys-color-surface-container-low);
         }
 

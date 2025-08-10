@@ -114,7 +114,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
           display: flex;
           align-items: center;
           overflow: hidden;
-          margin-top: 80px;
+          margin-top: 0;
+          padding-top: 80px;
         }
 
         .hero-background {

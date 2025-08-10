@@ -89,7 +89,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ locale }) => {
   ]
 
   return (
-    <section ref={ref} className="py-16 bg-surface">
+    <section ref={ref} className="py-12 bg-surface">
       <div className="container mx-auto px-4">
         <motion.div
           variants={stagger}
