@@ -67,29 +67,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
           <div className="hero-image">
             <div className="image-container">
               <div className="image-card">
-                <svg className="doctor-illustration" viewBox="0 0 400 500" fill="none">
-                  <defs>
-                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="var(--md-sys-color-secondary)" stopOpacity="0.8"/>
-                      <stop offset="100%" stopColor="var(--md-sys-color-tertiary)" stopOpacity="0.8"/>
-                    </linearGradient>
-                  </defs>
-                  
-                  {/* Doctor Silhouette */}
-                  <ellipse cx="200" cy="150" rx="60" ry="70" fill="var(--md-sys-color-secondary-container)"/>
-                  <rect x="140" y="200" width="120" height="180" rx="20" fill="url(#grad1)"/>
-                  <rect x="120" y="230" width="40" height="120" rx="10" fill="var(--md-sys-color-secondary-container)"/>
-                  <rect x="240" y="230" width="40" height="120" rx="10" fill="var(--md-sys-color-secondary-container)"/>
-                  
-                  {/* Stethoscope */}
-                  <path d="M180 250 Q200 270 220 250" stroke="var(--md-sys-color-on-secondary-container)" strokeWidth="4" fill="none"/>
-                  <circle cx="180" cy="250" r="8" fill="var(--md-sys-color-on-secondary-container)"/>
-                  <circle cx="220" cy="250" r="8" fill="var(--md-sys-color-on-secondary-container)"/>
-                  
-                  {/* Medical Cross */}
-                  <rect x="190" y="300" width="20" height="50" fill="var(--md-sys-color-on-secondary)"/>
-                  <rect x="175" y="315" width="50" height="20" fill="var(--md-sys-color-on-secondary)"/>
-                </svg>
+                <img 
+                  src="/logos/OM-Square-Color.svg" 
+                  alt="Dr. Özlem Murzoğlu" 
+                  className="doctor-illustration"
+                />
                 
                 <div className="floating-card card-1">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--md-sys-color-tertiary)">
@@ -400,8 +382,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
         }
 
         .doctor-illustration {
-          width: 80%;
+          width: 60%;
           height: auto;
+          max-width: 250px;
         }
 
         .floating-card {

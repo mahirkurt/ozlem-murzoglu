@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Ana Sayfa',
   description: 'Dr. Özlem Murzoğlu Pediatri Kliniği - Çocuğunuzun sağlıklı büyümesi için güvenilir adres. Modern tıp ile sevgi dolu yaklaşımı birleştiren uzman pediatri hizmetleri.',
   openGraph: {
-    title: 'Dr. Özlem Murzoğlu Pediatri Kliniği - Sağlık Peteğim',
+    title: 'Dr. Özlem Murzoğlu Pediatri Kliniği',
     description: 'Çocuğunuzun sağlıklı büyümesi için güvenilir pediatri hizmetleri',
     images: ['/og-home.jpg'],
   },

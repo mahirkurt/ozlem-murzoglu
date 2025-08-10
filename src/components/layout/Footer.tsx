@@ -19,15 +19,11 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
             {/* Brand Section */}
             <div className="footer-brand-section">
               <div className="footer-brand">
-                <svg className="footer-logo" viewBox="0 0 48 48" fill="currentColor">
-                  <circle cx="24" cy="24" r="3" fill="var(--md-sys-color-tertiary)"/>
-                  <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 30c-5.52 0-10-4.48-10-10s4.48-10 10-10 10 4.48 10 10-4.48 10-10 10z"/>
-                  <path d="M24 2C11.85 2 2 11.85 2 24s9.85 22 22 22 22-9.85 22-22S36.15 2 24 2zm0 40C14.06 42 6 33.94 6 24S14.06 6 24 6s18 8.06 18 18-8.06 18-18 18z" opacity="0.3"/>
-                </svg>
-                <div className="footer-brand-text">
-                  <h3 className="footer-brand-title">Dr. Özlem Murzoğlu</h3>
-                  <p className="footer-brand-subtitle">Pediatri Uzmanı</p>
-                </div>
+                <img 
+                  src="/logos/OM-Wide-Color.svg" 
+                  alt="Dr. Özlem Murzoğlu" 
+                  className="footer-logo"
+                />
               </div>
               
               <p className="footer-description">
@@ -198,34 +194,11 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
         .footer-brand {
           display: flex;
           align-items: center;
-          gap: 1rem;
         }
 
         .footer-logo {
-          width: 56px;
           height: 56px;
-          color: var(--md-sys-color-secondary);
-          background: var(--md-sys-color-secondary-container);
-          padding: 12px;
-          border-radius: 16px;
-        }
-
-        .footer-brand-text {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .footer-brand-title {
-          font-size: 1.25rem;
-          font-weight: 600;
-          color: var(--md-sys-color-on-surface);
-          margin: 0;
-        }
-
-        .footer-brand-subtitle {
-          font-size: 0.875rem;
-          color: var(--md-sys-color-secondary);
-          margin: 0;
+          width: auto;
         }
 
         .footer-description {

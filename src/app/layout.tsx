@@ -23,12 +23,12 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: {
     template: '%s | Dr. Özlem Murzoğlu Pediatri Kliniği',
-    default: 'Dr. Özlem Murzoğlu Pediatri Kliniği - Sağlık Peteğim',
+    default: 'Dr. Özlem Murzoğlu Pediatri Kliniği',
   },
   description: 'Dr. Özlem Murzoğlu ile çocuğunuzun sağlıklı büyümesi için güvenilir pediatri hizmetleri. 0-18 yaş arası kapsamlı çocuk sağlığı ve hastalıkları uzman bakımı.',
   keywords: 'pediatri, çocuk doktoru, çocuk sağlığı, aşı, gelişim takibi, Dr. Özlem Murzoğlu, İstanbul',
   authors: [{ name: 'Dr. Özlem Murzoğlu' }],
-  creator: 'Sağlık Peteğim',
+  creator: 'Dr. Özlem Murzoğlu',
   publisher: 'Dr. Özlem Murzoğlu Pediatri Kliniği',
   robots: {
     index: true,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'tr_TR',
     url: process.env.NEXT_PUBLIC_SITE_URL,
-    siteName: 'Sağlık Peteğim',
+    siteName: 'Dr. Özlem Murzoğlu Pediatri Kliniği',
     title: 'Dr. Özlem Murzoğlu Pediatri Kliniği',
     description: 'Çocuğunuzun sağlıklı büyümesi için güvenilir pediatri hizmetleri',
     images: [
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@saglikpetegim',
-    creator: '@saglikpetegim',
+    site: '@drOzlemMurzoglu',
+    creator: '@drOzlemMurzoglu',
   },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
