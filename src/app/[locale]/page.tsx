@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { HeroSection } from '@/components/sections/HeroSection'
+import { ApproachSection } from '@/components/sections/ApproachSection'
+import { BlogSection } from '@/components/sections/BlogSection'
+import { TestimonialSection } from '@/components/sections/TestimonialSection'
 import { ValuesSection } from '@/components/sections/ValuesSection'
 import { ServicesSection } from '@/components/sections/ServicesSection'
 
@@ -11,7 +14,7 @@ interface HomePageProps {
 
 export const metadata: Metadata = {
   title: 'Ana Sayfa',
-  description: 'Dr. Özlem Murzoğlu Pediatri Kliniği - Çocuğunuzun sağlıklı büyümesi için güvenilir adres. Modern tıp ile sevgi dolu yaklaşımı birleştiren uzman pediatri hizmetleri.',
+  description: 'Dr. Özlem Murzoğlu Pediatri Kliniği - Sosyal Pediatri ve Çocuk Gelişimi uzmanlıklarını bütünleştiren, çocuğunuza özel bütüncül bakım.',
   openGraph: {
     title: 'Dr. Özlem Murzoğlu Pediatri Kliniği',
     description: 'Çocuğunuzun sağlıklı büyümesi için güvenilir pediatri hizmetleri',
@@ -24,44 +27,160 @@ export default function HomePage({ params: { locale } }: HomePageProps) {
   unstable_setRequestLocale(locale)
   
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
+    <div className="homepage">
+      {/* Hero Section with Welcome Message */}
       <HeroSection locale={locale} />
+      
+      {/* Approach & Navigation Blocks */}
+      <ApproachSection />
       
       {/* Values Section */}
       <ValuesSection />
       
-      {/* Services Section */}
+      {/* Blog Posts Section */}
+      <BlogSection />
+      
+      {/* Google Reviews Testimonial */}
+      <TestimonialSection />
+      
+      {/* Services Overview */}
       <ServicesSection locale={locale} />
       
-      {/* CTA Section */}
-      <section className="py-16 bg-primary-container">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-on-primary-container mb-4">
-              {locale === 'tr' 
-                ? 'Çocuğunuzun Sağlığı İçin Bugün Başlayın'
-                : 'Start Today for Your Child\'s Health'
-              }
+      {/* Final CTA Section */}
+      <section className="final-cta">
+        <div className="container">
+          <div className="cta-content">
+            <h2 className="cta-title">
+              Çocuğunuzun Sağlığı İçin İlk Adımı Atın
             </h2>
-            <p className="text-xl text-on-primary-container/80 mb-8 max-w-2xl mx-auto">
-              {locale === 'tr'
-                ? 'Uzman pediatrist Dr. Özlem Murzoğlu ile randevu alın ve çocuğunuzun sağlıklı büyümesine destek olun.'
-                : 'Book an appointment with pediatric specialist Dr. Özlem Murzoğlu and support your child\'s healthy growth.'
-              }
+            <p className="cta-subtitle">
+              15 yıllık deneyimimizle, çocuğunuzun sağlıklı büyümesi ve gelişimi için yanınızdayız.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn btn-primary text-lg px-8 py-4">
-                {locale === 'tr' ? 'Randevu Al' : 'Book Appointment'}
-              </button>
-              <button className="btn btn-outline text-lg px-8 py-4 border-on-primary-container text-on-primary-container hover:bg-on-primary-container hover:text-primary-container">
-                {locale === 'tr' ? 'Ücretsiz Danışmanlık' : 'Free Consultation'}
-              </button>
+            <div className="cta-buttons">
+              <a href="/randevu" className="btn-cta-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
+                <span>Hemen Randevu Al</span>
+              </a>
+              
+              <a href="https://saglikpetegim.com" target="_blank" rel="noopener noreferrer" className="btn-cta-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <span>Hasta Girişi</span>
+              </a>
             </div>
           </div>
         </div>
       </section>
+
+      <style jsx>{`
+        .homepage {
+          min-height: 100vh;
+          background: var(--md-sys-color-surface);
+        }
+
+        .final-cta {
+          padding: 5rem 0;
+          background: linear-gradient(135deg, 
+            var(--md-sys-color-primary-container) 0%, 
+            var(--md-sys-color-secondary-container) 100%
+          );
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+        }
+
+        .cta-content {
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+
+        .cta-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: var(--md-sys-color-on-primary-container);
+          margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+          font-size: 1.25rem;
+          color: var(--md-sys-color-on-primary-container);
+          opacity: 0.9;
+          margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .btn-cta-primary,
+        .btn-cta-secondary {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 1rem 2rem;
+          border-radius: 28px;
+          font-weight: 600;
+          font-size: 1rem;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        .btn-cta-primary {
+          background: var(--md-sys-color-primary);
+          color: var(--md-sys-color-on-primary);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-cta-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-cta-secondary {
+          background: white;
+          color: var(--md-sys-color-primary);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-cta-secondary:hover {
+          background: var(--md-sys-color-surface);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        @media (max-width: 768px) {
+          .cta-title {
+            font-size: 2rem;
+          }
+
+          .cta-subtitle {
+            font-size: 1.125rem;
+          }
+
+          .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .btn-cta-primary,
+          .btn-cta-secondary {
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+          }
+        }
+      `}</style>
     </div>
   )
 }

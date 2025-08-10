@@ -10,321 +10,322 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
   return (
     <section className="hero-section">
+      {/* Video/Image Background */}
       <div className="hero-background">
-        <div className="hero-shape hero-shape-1"></div>
-        <div className="hero-shape hero-shape-2"></div>
-        <div className="hero-shape hero-shape-3"></div>
+        <div className="hero-overlay"></div>
+        <div className="hero-media">
+          {/* Placeholder for video or image gallery */}
+          <div className="hero-image-placeholder">
+            <img 
+              src="/images/dr-murzoglu-with-child.jpg" 
+              alt="Dr. Özlem Murzoğlu ile çocuk" 
+              className="hero-image"
+              loading="eager"
+            />
+          </div>
+        </div>
       </div>
-      
-      <div className="container">
-        <div className="hero-grid">
-          <div className="hero-content">
-            <h1 className="hero-title">
-              Çocuğunuzun <span className="hero-highlight">Sağlıklı Geleceği</span> İçin
-            </h1>
-            
-            <h2 className="hero-subtitle">
-              Dr. Özlem Murzoğlu Pediatri Kliniği
-            </h2>
-            
-            <p className="hero-description">
-              0-18 yaş arası çocukların sağlıklı büyümesi ve gelişimi için modern tıp ve sevgi dolu yaklaşımı birleştiren uzman pediatri hizmetleri sunuyoruz.
-            </p>
 
-            <div className="hero-actions">
-              <Link href="/randevu" className="btn-hero btn-primary">
-                <span>Online Randevu Al</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                </svg>
-              </Link>
-              
-              <Link href="/hizmetlerimiz" className="btn-hero btn-secondary">
-                <span>Hizmetlerimizi Keşfedin</span>
-              </Link>
+      {/* Main Content */}
+      <div className="hero-content">
+        <div className="container">
+          {/* Main Value Proposition */}
+          <div className="hero-main">
+            <h1 className="hero-title">
+              Sosyal Pediatri ve Çocuk Gelişimi Uzmanlıklarını Bütünleştiren,
+              <span className="hero-highlight"> Çocuğunuza Özel Bütüncül Bakım</span>
+            </h1>
+
+            {/* Welcome Message from Dr. Murzoğlu */}
+            <div className="welcome-message">
+              <div className="message-avatar">
+                <img src="/logos/OM-Icon-Color.svg" alt="Dr. Özlem Murzoğlu" />
+              </div>
+              <div className="message-content">
+                <p className="message-text">
+                  "Kliniğimize hoş geldiniz. Amacımız, çocuğunuzun sadece sağlığını değil, 
+                  tüm potansiyelini desteklemektir."
+                </p>
+                <p className="message-author">Dr. Özlem Murzoğlu</p>
+              </div>
             </div>
 
-            <div className="hero-stats">
-              <div className="stat-item">
-                <div className="stat-value">15+</div>
-                <div className="stat-label">Yıl Deneyim</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-value">10K+</div>
-                <div className="stat-label">Mutlu Hasta</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-value">50+</div>
-                <div className="stat-label">Hizmet</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-value">7/24</div>
-                <div className="stat-label">Erişilebilirlik</div>
-              </div>
+            {/* Primary CTAs */}
+            <div className="hero-ctas">
+              <Link href="/randevu" className="btn-primary-cta">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
+                <span>Hemen Randevu Al</span>
+                <span className="cta-badge">Yeni Hastalar</span>
+              </Link>
+              
+              <a href="https://saglikpetegim.com" target="_blank" rel="noopener noreferrer" className="btn-secondary-cta">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <span>Hasta Girişi</span>
+                <span className="cta-badge">Sağlık Peteğim</span>
+              </a>
             </div>
           </div>
 
-          <div className="hero-image">
-            <div className="image-container">
-              <div className="image-card">
-                <img 
-                  src="/logos/OM-Square-Color.svg" 
-                  alt="Dr. Özlem Murzoğlu" 
-                  className="doctor-illustration"
-                />
-                
-                <div className="floating-card card-1">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--md-sys-color-tertiary)">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                  <span>Uzman Kadro</span>
-                </div>
-                
-                <div className="floating-card card-2">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--md-sys-color-secondary)">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                  <span>Sevgi & Şefkat</span>
-                </div>
-                
-                <div className="floating-card card-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--md-sys-color-primary)">
-                    <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
-                  </svg>
-                  <span>7/24 Randevu</span>
-                </div>
-              </div>
+          {/* Trust Indicators */}
+          <div className="trust-indicators">
+            <div className="indicator">
+              <span className="indicator-value">15+</span>
+              <span className="indicator-label">Yıl Deneyim</span>
+            </div>
+            <div className="indicator">
+              <span className="indicator-value">10K+</span>
+              <span className="indicator-label">Mutlu Aile</span>
+            </div>
+            <div className="indicator">
+              <span className="indicator-value">4.9</span>
+              <span className="indicator-label">Google Puanı</span>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Scroll Indicator */}
+      <div className="scroll-indicator">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+        </svg>
+      </div>
+
       <style jsx>{`
         .hero-section {
           position: relative;
-          min-height: calc(100vh - 80px);
-          margin-top: 80px;
+          min-height: 100vh;
           display: flex;
           align-items: center;
           overflow: hidden;
-          background: linear-gradient(135deg, 
-            var(--md-sys-color-surface) 0%,
-            var(--md-sys-color-surface-container-low) 50%,
-            var(--md-sys-color-secondary-container) 100%
-          );
+          margin-top: 80px;
         }
 
         .hero-background {
           position: absolute;
           inset: 0;
-          overflow: hidden;
+          z-index: 0;
         }
 
-        .hero-shape {
+        .hero-overlay {
           position: absolute;
-          border-radius: 50%;
-          filter: blur(60px);
+          inset: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(0, 95, 115, 0.95) 0%,
+            rgba(0, 95, 115, 0.85) 50%,
+            rgba(148, 187, 233, 0.9) 100%
+          );
+          z-index: 1;
+        }
+
+        .hero-media {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .hero-image-placeholder {
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #005F73 0%, #94BBE9 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .hero-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
           opacity: 0.3;
-          animation: float 20s infinite ease-in-out;
         }
 
-        .hero-shape-1 {
-          width: 400px;
-          height: 400px;
-          background: var(--md-sys-color-secondary);
-          top: -200px;
-          right: -100px;
-        }
-
-        .hero-shape-2 {
-          width: 300px;
-          height: 300px;
-          background: var(--md-sys-color-tertiary);
-          bottom: -150px;
-          left: -50px;
-          animation-delay: 5s;
-        }
-
-        .hero-shape-3 {
-          width: 200px;
-          height: 200px;
-          background: var(--md-sys-color-primary);
-          top: 50%;
-          left: 30%;
-          animation-delay: 10s;
-        }
-
-        @keyframes float {
-          0%, 100% { transform: translate(0, 0) rotate(0deg); }
-          25% { transform: translate(30px, -30px) rotate(90deg); }
-          50% { transform: translate(-20px, 20px) rotate(180deg); }
-          75% { transform: translate(-30px, -10px) rotate(270deg); }
+        .hero-content {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          padding: 4rem 0;
         }
 
         .container {
           max-width: 1200px;
           margin: 0 auto;
-          padding: 4rem 1.5rem;
-          position: relative;
-          z-index: 1;
+          padding: 0 1.5rem;
         }
 
-        .hero-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 4rem;
-          align-items: center;
-        }
-
-        .hero-content {
-          animation: slideInLeft 0.8s ease-out;
-        }
-
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
+        .hero-main {
+          text-align: center;
+          max-width: 900px;
+          margin: 0 auto;
         }
 
         .hero-title {
-          font-size: clamp(2.5rem, 5vw, 3.5rem);
+          font-size: clamp(2rem, 4vw, 3rem);
           font-weight: 700;
-          line-height: 1.2;
-          color: var(--md-sys-color-on-surface);
-          margin-bottom: 1rem;
-          letter-spacing: -0.02em;
+          color: white;
+          line-height: 1.3;
+          margin-bottom: 2rem;
+          animation: fadeInUp 0.8s ease-out;
         }
 
         .hero-highlight {
-          color: var(--md-sys-color-secondary);
-          position: relative;
+          display: block;
+          color: #F8F9FA;
+          margin-top: 0.5rem;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        .hero-highlight::after {
-          content: '';
-          position: absolute;
-          bottom: -4px;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: linear-gradient(90deg, 
-            var(--md-sys-color-secondary) 0%, 
-            var(--md-sys-color-tertiary) 100%
-          );
-          border-radius: 2px;
-        }
-
-        .hero-subtitle {
-          font-size: 1.5rem;
-          font-weight: 500;
-          color: var(--md-sys-color-primary);
-          margin-bottom: 1.5rem;
-        }
-
-        .hero-description {
-          font-size: 1.125rem;
-          line-height: 1.7;
-          color: var(--md-sys-color-on-surface-variant);
-          margin-bottom: 2rem;
-          max-width: 600px;
-        }
-
-        .hero-actions {
+        .welcome-message {
           display: flex;
-          gap: 1rem;
-          margin-bottom: 3rem;
-          flex-wrap: wrap;
-        }
-
-        .btn-hero {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 1rem 2rem;
-          border-radius: 28px;
-          font-weight: 600;
-          font-size: 1rem;
-          text-decoration: none;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          position: relative;
-          overflow: hidden;
-        }
-
-        .btn-primary {
-          background: linear-gradient(135deg, 
-            var(--md-sys-color-secondary) 0%, 
-            var(--md-sys-color-tertiary) 100%
-          );
-          color: var(--md-sys-color-on-secondary);
-          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .btn-primary::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(135deg, 
-            var(--md-sys-color-tertiary) 0%, 
-            var(--md-sys-color-secondary) 100%
-          );
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        .btn-primary:hover::before {
-          opacity: 1;
-        }
-
-        .btn-primary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        .btn-primary span,
-        .btn-primary svg {
-          position: relative;
-          z-index: 1;
-        }
-
-        .btn-secondary {
-          background: var(--md-sys-color-surface-container);
-          color: var(--md-sys-color-secondary);
-          border: 2px solid var(--md-sys-color-secondary-container);
-        }
-
-        .btn-secondary:hover {
-          background: var(--md-sys-color-secondary-container);
-          color: var(--md-sys-color-on-secondary-container);
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .hero-stats {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 2rem;
-        }
-
-        .stat-item {
-          text-align: center;
-          animation: fadeInUp 0.8s ease-out;
+          align-items: flex-start;
+          gap: 1.5rem;
+          background: white;
+          border-radius: 20px;
+          padding: 1.5rem;
+          margin: 2rem auto;
+          max-width: 700px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          animation: fadeInUp 0.8s ease-out 0.2s;
           animation-fill-mode: both;
         }
 
-        .stat-item:nth-child(1) { animation-delay: 0.1s; }
-        .stat-item:nth-child(2) { animation-delay: 0.2s; }
-        .stat-item:nth-child(3) { animation-delay: 0.3s; }
-        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+        .message-avatar {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: var(--md-sys-color-secondary-container);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .message-avatar img {
+          width: 40px;
+          height: 40px;
+        }
+
+        .message-content {
+          flex: 1;
+          text-align: left;
+        }
+
+        .message-text {
+          font-size: 1.125rem;
+          color: var(--md-sys-color-on-surface);
+          line-height: 1.6;
+          margin-bottom: 0.5rem;
+          font-style: italic;
+        }
+
+        .message-author {
+          font-size: 0.875rem;
+          color: var(--md-sys-color-secondary);
+          font-weight: 600;
+        }
+
+        .hero-ctas {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          margin: 2rem 0;
+          flex-wrap: wrap;
+          animation: fadeInUp 0.8s ease-out 0.4s;
+          animation-fill-mode: both;
+        }
+
+        .btn-primary-cta,
+        .btn-secondary-cta {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 1rem 2rem;
+          border-radius: 30px;
+          font-weight: 600;
+          font-size: 1rem;
+          text-decoration: none;
+          position: relative;
+          transition: all 0.3s ease;
+        }
+
+        .btn-primary-cta {
+          background: #F8F9FA;
+          color: #005F73;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary-cta:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+          background: white;
+        }
+
+        .btn-secondary-cta {
+          background: rgba(255,255,255,0.2);
+          color: white;
+          border: 2px solid white;
+          backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary-cta:hover {
+          background: white;
+          color: #005F73;
+          transform: translateY(-2px);
+        }
+
+        .cta-badge {
+          font-size: 0.75rem;
+          padding: 0.25rem 0.5rem;
+          background: rgba(0,0,0,0.1);
+          border-radius: 10px;
+          margin-left: 0.5rem;
+        }
+
+        .trust-indicators {
+          display: flex;
+          justify-content: center;
+          gap: 3rem;
+          margin-top: 3rem;
+          animation: fadeInUp 0.8s ease-out 0.6s;
+          animation-fill-mode: both;
+        }
+
+        .indicator {
+          text-align: center;
+          color: white;
+        }
+
+        .indicator-value {
+          display: block;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 0.25rem;
+        }
+
+        .indicator-label {
+          font-size: 0.875rem;
+          opacity: 0.9;
+        }
+
+        .scroll-indicator {
+          position: absolute;
+          bottom: 2rem;
+          left: 50%;
+          transform: translateX(-50%);
+          color: white;
+          animation: bounce 2s infinite;
+        }
 
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
           }
           to {
             opacity: 1;
@@ -332,140 +333,50 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
           }
         }
 
-        .stat-value {
-          font-size: 2rem;
-          font-weight: 700;
-          color: var(--md-sys-color-secondary);
-          margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-          font-size: 0.875rem;
-          color: var(--md-sys-color-on-surface-variant);
-        }
-
-        .hero-image {
-          position: relative;
-          animation: slideInRight 0.8s ease-out;
-        }
-
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(30px);
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: translateX(-50%) translateY(0);
           }
-          to {
-            opacity: 1;
-            transform: translateX(0);
+          40% {
+            transform: translateX(-50%) translateY(-10px);
+          }
+          60% {
+            transform: translateX(-50%) translateY(-5px);
           }
         }
 
-        .image-container {
-          position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .image-card {
-          position: relative;
-          width: 100%;
-          max-width: 400px;
-          height: 500px;
-          background: var(--md-sys-color-surface-container);
-          border-radius: 24px;
-          box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: visible;
-        }
-
-        .doctor-illustration {
-          width: 60%;
-          height: auto;
-          max-width: 250px;
-        }
-
-        .floating-card {
-          position: absolute;
-          background: var(--md-sys-color-surface);
-          border-radius: 16px;
-          padding: 1rem;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          font-size: 0.875rem;
-          font-weight: 500;
-          color: var(--md-sys-color-on-surface);
-          animation: floatCard 3s infinite ease-in-out;
-        }
-
-        .card-1 {
-          top: 20px;
-          right: -40px;
-          animation-delay: 0s;
-        }
-
-        .card-2 {
-          bottom: 80px;
-          left: -40px;
-          animation-delay: 1s;
-        }
-
-        .card-3 {
-          bottom: 20px;
-          right: -20px;
-          animation-delay: 2s;
-        }
-
-        @keyframes floatCard {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-
-        @media (max-width: 968px) {
-          .hero-grid {
-            grid-template-columns: 1fr;
-            gap: 3rem;
+        @media (max-width: 768px) {
+          .hero-title {
+            font-size: 1.75rem;
           }
 
-          .hero-image {
-            order: -1;
-          }
-
-          .image-card {
-            max-width: 300px;
-            height: 400px;
-          }
-
-          .floating-card {
-            display: none;
-          }
-        }
-
-        @media (max-width: 640px) {
-          .hero-stats {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-          }
-
-          .hero-actions {
+          .welcome-message {
             flex-direction: column;
+            text-align: center;
           }
 
-          .btn-hero {
+          .message-content {
+            text-align: center;
+          }
+
+          .hero-ctas {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .btn-primary-cta,
+          .btn-secondary-cta {
             width: 100%;
+            max-width: 300px;
             justify-content: center;
           }
 
-          .hero-title {
-            font-size: 2rem;
+          .trust-indicators {
+            gap: 1.5rem;
           }
 
-          .hero-subtitle {
-            font-size: 1.25rem;
+          .indicator-value {
+            font-size: 1.5rem;
           }
         }
       `}</style>
