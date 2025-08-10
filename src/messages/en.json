@@ -70,55 +70,47 @@
     "services": {
       "title": "Our Services",
       "subtitle": "Comprehensive pediatric services for your child's health",
-      "items": [
-        {
-          "title": "Routine Check-ups",
-          "description": "Growth and development monitoring, periodic examinations"
-        },
-        {
-          "title": "Vaccination",
-          "description": "Ministry of Health vaccination schedule and special vaccines"
-        },
-        {
-          "title": "Baby Follow-up",
-          "description": "Close monitoring from the newborn period"
-        },
-        {
-          "title": "Nutrition Counseling",
-          "description": "Breastfeeding, complementary feeding and nutrition programs"
-        },
-        {
-          "title": "Chronic Disease Management",
-          "description": "Follow-up of chronic diseases such as asthma, allergies, diabetes"
-        },
-        {
-          "title": "Development Assessment",
-          "description": "Physical and mental development monitoring"
-        }
-      ],
-      "cta": "View All Services"
+      "checkup": {
+        "title": "Routine Check-ups",
+        "description": "Growth and development monitoring, periodic examinations"
+      },
+      "vaccination": {
+        "title": "Vaccination",
+        "description": "Ministry of Health vaccination schedule and special vaccines"
+      },
+      "illness": {
+        "title": "Illness Treatment",
+        "description": "Diagnosis and treatment of acute and chronic childhood diseases"
+      },
+      "nutrition": {
+        "title": "Nutrition Counseling",
+        "description": "Breastfeeding, complementary feeding and nutrition programs"
+      },
+      "development": {
+        "title": "Development Assessment",
+        "description": "Physical and mental development monitoring"
+      },
+      "emergency": {
+        "title": "Emergency Services",
+        "description": "24/7 emergency support and consultation"
+      },
+      "viewAll": "View All Services"
     },
     "values": {
       "title": "Our Values",
       "subtitle": "Our approach to children's health",
-      "items": [
-        {
-          "title": "Trust",
-          "description": "We build long-term, trust-based relationships with families"
-        },
-        {
-          "title": "Compassion",
-          "description": "We treat every child as our own"
-        },
-        {
-          "title": "Scientific Approach",
-          "description": "Current medical knowledge and evidence-based treatment approaches"
-        },
-        {
-          "title": "Accessibility",
-          "description": "24/7 accessible service in emergencies"
-        }
-      ]
+      "calming": {
+        "title": "Calming Environment",
+        "description": "We create an environment where children feel safe and comfortable"
+      },
+      "empathy": {
+        "title": "Empathy and Compassion",
+        "description": "We approach every child with love and understanding as our own"
+      },
+      "professional": {
+        "title": "Professional Approach",
+        "description": "We apply current medical knowledge and evidence-based treatment methods"
+      }
     },
     "cta": {
       "title": "Book an Appointment for Your Child's Health Now",

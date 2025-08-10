@@ -70,55 +70,47 @@
     "services": {
       "title": "Hizmetlerimiz",
       "subtitle": "Çocuğunuzun sağlığı için kapsamlı pediatri hizmetleri",
-      "items": [
-        {
-          "title": "Rutin Kontroller",
-          "description": "Büyüme ve gelişim takibi, periyodik muayeneler"
-        },
-        {
-          "title": "Aşılama",
-          "description": "Sağlık Bakanlığı aşı takvimi ve özel aşılar"
-        },
-        {
-          "title": "Bebek Takibi",
-          "description": "Yenidoğan döneminden itibaren yakın takip"
-        },
-        {
-          "title": "Beslenme Danışmanlığı",
-          "description": "Anne sütü, ek gıda ve beslenme programları"
-        },
-        {
-          "title": "Kronik Hastalık Yönetimi",
-          "description": "Astım, alerji, diyabet gibi kronik hastalıkların takibi"
-        },
-        {
-          "title": "Gelişim Değerlendirmesi",
-          "description": "Fiziksel ve zihinsel gelişim takibi"
-        }
-      ],
-      "cta": "Tüm Hizmetleri Görüntüle"
+      "checkup": {
+        "title": "Rutin Kontroller",
+        "description": "Büyüme ve gelişim takibi, periyodik muayeneler"
+      },
+      "vaccination": {
+        "title": "Aşılama",
+        "description": "Sağlık Bakanlığı aşı takvimi ve özel aşılar"
+      },
+      "illness": {
+        "title": "Hastalık Tedavisi",
+        "description": "Akut ve kronik çocuk hastalıklarının tanı ve tedavisi"
+      },
+      "nutrition": {
+        "title": "Beslenme Danışmanlığı",
+        "description": "Anne sütü, ek gıda ve beslenme programları"
+      },
+      "development": {
+        "title": "Gelişim Değerlendirmesi",
+        "description": "Fiziksel ve zihinsel gelişim takibi"
+      },
+      "emergency": {
+        "title": "Acil Hizmetler",
+        "description": "7/24 acil durum desteği ve danışmanlık"
+      },
+      "viewAll": "Tüm Hizmetleri Görüntüle"
     },
     "values": {
       "title": "Değerlerimiz",
       "subtitle": "Çocuk sağlığına yaklaşımımız",
-      "items": [
-        {
-          "title": "Güven",
-          "description": "Ailelerle güvene dayalı, uzun vadeli ilişkiler kuruyoruz"
-        },
-        {
-          "title": "Şefkat",
-          "description": "Her çocuğa kendi çocuğumuz gibi yaklaşıyoruz"
-        },
-        {
-          "title": "Bilimsellik",
-          "description": "Güncel tıbbi bilgi ve kanıta dayalı tedavi yaklaşımları"
-        },
-        {
-          "title": "Erişilebilirlik",
-          "description": "Acil durumlarda 7/24 ulaşılabilir hizmet"
-        }
-      ]
+      "calming": {
+        "title": "Sakinleştirici Ortam",
+        "description": "Çocukların kendini güvende ve rahat hissettiği bir ortam yaratıyoruz"
+      },
+      "empathy": {
+        "title": "Empati ve Şefkat",
+        "description": "Her çocuğa kendi çocuğumuz gibi sevgi ve anlayışla yaklaşıyoruz"
+      },
+      "professional": {
+        "title": "Profesyonel Yaklaşım",
+        "description": "Güncel tıbbi bilgi ve kanıta dayalı tedavi yöntemleri uyguluyoruz"
+      }
     },
     "cta": {
       "title": "Çocuğunuzun Sağlığı İçin Hemen Randevu Alın",
