@@ -14,7 +14,10 @@
     "react-dom": "18.2.0",
     "next-intl": "3.25.2",
     "clsx": "2.1.1",
-    "sharp": "0.33.5"
+    "sharp": "0.33.5",
+    "framer-motion": "11.18.1",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.5.3"
   },
   "devDependencies": {
     "@types/node": "20.17.9",
