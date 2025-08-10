@@ -558,3 +558,4 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
 }
 
 export default Header
+export { Header }
