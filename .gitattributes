@@ -1,0 +1,4 @@
+all-images/videos/*.mp4 filter=lfs diff=lfs merge=lfs -text
+all-images/videos/processed/*.mp4 filter=lfs diff=lfs merge=lfs -text
+src/assets/videos/*.mp4 filter=lfs diff=lfs merge=lfs -text
+src/assets/videos/*.webm filter=lfs diff=lfs merge=lfs -text

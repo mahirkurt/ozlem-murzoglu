@@ -1,0 +1,272 @@
+{
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "retry": "Tekrar dene",
+    "close": "Kapat",
+    "cancel": "İptal",
+    "confirm": "Onayla",
+    "save": "Kaydet",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "sort": "Sırala",
+    "more": "Daha fazla",
+    "less": "Daha az",
+    "showMore": "Daha fazla göster",
+    "showLess": "Daha az göster",
+    "readMore": "Devamını oku",
+    "readLess": "Daha az göster"
+  },
+  "navigation": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetlerimiz",
+    "appointment": "Randevu",
+    "contact": "İletişim",
+    "blog": "Blog",
+    "faq": "SSS",
+    "vaccination": "Aşı Takvimi",
+    "development": "Gelişim Takibi",
+    "nutrition": "Beslenme",
+    "emergency": "Acil Durumlar"
+  },
+  "header": {
+    "emergency": "Acil Durum",
+    "appointment": "Randevu Al",
+    "call": "Ara",
+    "language": "Dil",
+    "theme": "Tema",
+    "menu": "Menü"
+  },
+  "footer": {
+    "clinic": {
+      "title": "Klinik",
+      "about": "Hakkımızda",
+      "services": "Hizmetlerimiz",
+      "team": "Ekibimiz",
+      "appointment": "Randevu Al"
+    },
+    "information": {
+      "title": "Bilgi",
+      "vaccination": "Aşı Takvimi",
+      "development": "Gelişim Takibi",
+      "nutrition": "Beslenme Rehberi",
+      "faq": "Sık Sorulan Sorular"
+    },
+    "contact": {
+      "title": "İletişim",
+      "address": "Adres",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "hours": "Çalışma Saatleri"
+    },
+    "social": {
+      "title": "Sosyal Medya",
+      "follow": "Bizi takip edin"
+    },
+    "copyright": "© 2024 Dr. Özlem Murzoğlu Pediatri Kliniği. Tüm hakları saklıdır.",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Şartları"
+  },
+  "home": {
+    "hero": {
+      "title": "Çocuğunuzun Sağlığı İçin Güvenilir Adres",
+      "subtitle": "Dr. Özlem Murzoğlu ile 0-18 yaş aralığındaki çocukların kapsamlı sağlık hizmetleri",
+      "description": "Modern tıbbın imkanlarını sevgi dolu bir yaklaşımla birleştiriyoruz. Çocuğunuzun sağlıklı büyümesi için uzman bakım.",
+      "cta": {
+        "appointment": "Randevu Al",
+        "emergency": "Acil Durum",
+        "services": "Hizmetlerimiz"
+      },
+      "stats": {
+        "experience": "15+ Yıl Deneyim",
+        "patients": "5000+ Mutlu Çocuk",
+        "services": "20+ Özel Hizmet",
+        "availability": "7/24 Danışmanlık"
+      }
+    },
+    "values": {
+      "title": "Değerlerimiz",
+      "subtitle": "Çocuğunuzun sağlığı için benimsediğimiz yaklaşımlar",
+      "calming": {
+        "title": "Sakinleştirici Netlik",
+        "description": "Karmaşık tıbbi bilgileri aileler için anlaşılır hale getiriyoruz"
+      },
+      "empathy": {
+        "title": "Güçlendiren Empati",
+        "description": "Her çocuk ve aileye özel yaklaşımlarla güven verici destek sağlıyoruz"
+      },
+      "professional": {
+        "title": "Oyuncu Profesyonellik",
+        "description": "Ciddi tıbbi bakımı çocuk dostu bir ortamda eğlenceli hale getiriyoruz"
+      }
+    },
+    "services": {
+      "title": "Hizmetlerimiz",
+      "subtitle": "Çocuğunuzun her yaşta ihtiyaç duyduğu kapsamlı sağlık hizmetleri",
+      "viewAll": "Tüm Hizmetleri Gör",
+      "checkup": {
+        "title": "Düzenli Kontroller",
+        "description": "Yaş gruplarına özel düzenli sağlık kontrolü ve gelişim takibi"
+      },
+      "vaccination": {
+        "title": "Aşılama",
+        "description": "Güncel aşı takvimi ile çocuğunuzun bağışıklık sistemini koruyoruz"
+      },
+      "illness": {
+        "title": "Hastalık Takibi",
+        "description": "Çocukluk dönemi hastalıklarının tanı ve tedavisi"
+      },
+      "nutrition": {
+        "title": "Beslenme Danışmanlığı",
+        "description": "Yaş gruplarına uygun beslenme rehberliği ve diyet planları"
+      },
+      "development": {
+        "title": "Gelişim Takibi",
+        "description": "Fiziksel ve zihinsel gelişimin izlenmesi ve desteklenmesi"
+      },
+      "emergency": {
+        "title": "Acil Durum",
+        "description": "7/24 acil durum danışmanlığı ve müdahale hizmeti"
+      }
+    },
+    "testimonials": {
+      "title": "Ailelerimizin Deneyimleri",
+      "subtitle": "Dr. Özlem Murzoğlu ile tanışan ailelerin gerçek hikayeleri"
+    },
+    "cta": {
+      "title": "Çocuğunuzun Sağlığı İçin Bugün Başlayın",
+      "subtitle": "Uzman pediatrist Dr. Özlem Murzoğlu ile randevu alın ve çocuğunuzun sağlıklı büyümesine destek olun.",
+      "appointment": "Randevu Al",
+      "consultation": "Ücretsiz Danışmanlık"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Dr. Özlem Murzoğlu",
+      "subtitle": "Çocuk Sağlığı ve Hastalıkları Uzmanı",
+      "description": "15 yılı aşkın deneyimle çocuklarınızın sağlıklı büyümesi için buradayım."
+    },
+    "story": {
+      "title": "Hikayemiz",
+      "content": "Dr. Özlem Murzoğlu olarak, çocuk sağlığı alanında 15 yılı aşkın deneyime sahip bir pediatrist olarak, her çocuğun benzersiz olduğuna ve özel yaklaşım gerektirdiğine inanıyorum. Meslek hayatım boyunca binlerce çocuk ve aileyle çalışarak, modern tıbbın imkanlarını sevgi dolu bir yaklaşımla birleştirmenin önemini öğrendim."
+    },
+    "education": {
+      "title": "Eğitim ve Deneyim",
+      "items": [
+        "İstanbul Üniversitesi Tıp Fakültesi - 2005",
+        "Çocuk Sağlığı ve Hastalıkları Uzmanı - 2010",
+        "Çocuk Gastroenterolojisi Yan Dal Uzmanlığı - 2013",
+        "Avrupa Pediatri Derneği Üyesi - 2015"
+      ]
+    },
+    "philosophy": {
+      "title": "Yaklaşımımız",
+      "content": "Kliniğimizde üç temel değer üzerine kurulu bir yaklaşım benimsiyoruz: Sakinleştirici Netlik ile karmaşık tıbbi durumları aileler için anlaşılır hale getiriyoruz. Güçlendiren Empati ile her aile ile güçlü bağlar kurarak destekleyici bir ortam yaratıyoruz. Oyuncu Profesyonellik ile ciddi tıbbi bakımı çocuk dostu ve eğlenceli hale getiriyoruz."
+    }
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "subtitle": "Çocuğunuzun sağlığı için kapsamlı hizmet yelpazesi"
+  },
+  "appointment": {
+    "title": "Randevu Al",
+    "subtitle": "Dr. Özlem Murzoğlu ile randevu almak için formu doldurun",
+    "form": {
+      "parentName": "Veli Adı Soyadı",
+      "parentPhone": "Telefon Numarası",
+      "parentEmail": "E-posta Adresi",
+      "childName": "Çocuğun Adı Soyadı",
+      "childAge": "Çocuğun Yaşı",
+      "appointmentType": "Randevu Türü",
+      "preferredDate": "Tercih Edilen Tarih",
+      "preferredTime": "Tercih Edilen Saat",
+      "notes": "Ek Notlar",
+      "submit": "Randevu Talebi Gönder",
+      "required": "Bu alan zorunludur"
+    },
+    "types": {
+      "checkup": "Genel Kontrol",
+      "vaccination": "Aşılama",
+      "illness": "Hastalık Muayenesi",
+      "consultation": "Danışmanlık",
+      "follow-up": "Kontrol Muayenesi"
+    }
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Bizimle iletişime geçmek için aşağıdaki bilgileri kullanabilirsiniz",
+    "info": {
+      "address": {
+        "title": "Adres",
+        "value": "Örnek Mahallesi, Sağlık Sokak No: 123\n34000 Fatih, İstanbul"
+      },
+      "phone": {
+        "title": "Telefon",
+        "value": "+90 555 123 4567"
+      },
+      "email": {
+        "title": "E-posta",
+        "value": "info@saglikpetegim.com"
+      },
+      "hours": {
+        "title": "Çalışma Saatleri",
+        "weekdays": "Pazartesi - Cuma: 09:00 - 18:00",
+        "weekend": "Cumartesi: 09:00 - 14:00",
+        "sunday": "Pazar: Kapalı"
+      },
+      "emergency": {
+        "title": "Acil Durum",
+        "value": "+90 555 123 4568",
+        "note": "7/24 Acil Danışmanlık Hattı"
+      }
+    },
+    "form": {
+      "title": "Mesaj Gönderin",
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "subject": "Konu",
+      "message": "Mesaj",
+      "submit": "Mesajı Gönder",
+      "success": "Mesajınız başarıyla gönderildi!",
+      "error": "Mesaj gönderilirken bir hata oluştu."
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Çocuk sağlığı hakkında faydalı bilgiler ve güncel gelişmeler",
+    "readMore": "Devamını Oku",
+    "categories": {
+      "all": "Tümü",
+      "health": "Sağlık",
+      "nutrition": "Beslenme",
+      "development": "Gelişim",
+      "vaccination": "Aşılama",
+      "emergency": "Acil Durumlar"
+    }
+  },
+  "faq": {
+    "title": "Sık Sorulan Sorular",
+    "subtitle": "Merak ettiğiniz konularda detaylı yanıtlar"
+  },
+  "forms": {
+    "validation": {
+      "required": "Bu alan zorunludur",
+      "email": "Geçerli bir e-posta adresi girin",
+      "phone": "Geçerli bir telefon numarası girin",
+      "minLength": "En az {min} karakter olmalıdır",
+      "maxLength": "En fazla {max} karakter olabilir"
+    },
+    "success": "Form başarıyla gönderildi!",
+    "error": "Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.",
+    "sending": "Gönderiliyor..."
+  },
+  "theme": {
+    "light": "Açık Tema",
+    "dark": "Koyu Tema",
+    "system": "Sistem Teması"
+  }
+}
