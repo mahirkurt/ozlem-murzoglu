@@ -31,17 +31,16 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
           <div className="navbar-content">
             {/* Logo */}
             <Link href="/" className="navbar-brand">
-              <div className="logo-container">
-                <svg className="logo" viewBox="0 0 48 48" fill="currentColor">
-                  <circle cx="24" cy="24" r="3" fill="var(--md-sys-color-secondary)"/>
-                  <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 30c-5.52 0-10-4.48-10-10s4.48-10 10-10 10 4.48 10 10-4.48 10-10 10z"/>
-                  <path d="M24 2C11.85 2 2 11.85 2 24s9.85 22 22 22 22-9.85 22-22S36.15 2 24 2zm0 40C14.06 42 6 33.94 6 24S14.06 6 24 6s18 8.06 18 18-8.06 18-18 18z" opacity="0.3"/>
-                </svg>
-              </div>
-              <div className="brand-text">
-                <span className="brand-title">Dr. Özlem Murzoğlu</span>
-                <span className="brand-subtitle">Pediatri Uzmanı</span>
-              </div>
+              <img 
+                src="/logos/OM-Wide-Color.svg" 
+                alt="Dr. Özlem Murzoğlu" 
+                className="logo-wide"
+              />
+              <img 
+                src="/logos/OM-Icon-Color.svg" 
+                alt="Dr. Özlem Murzoğlu" 
+                className="logo-mobile"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -190,59 +189,25 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
         .navbar-brand {
           display: flex;
           align-items: center;
-          gap: 1rem;
           text-decoration: none;
-          color: var(--md-sys-color-on-surface);
           transition: transform 0.2s ease;
         }
 
         .navbar-brand:hover {
           transform: translateX(2px);
+          opacity: 0.9;
         }
 
-        .logo-container {
-          width: 48px;
+        .logo-wide {
           height: 48px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: var(--md-sys-color-secondary-container);
-          border-radius: 12px;
-          transition: all 0.3s ease;
+          width: auto;
+          display: block;
         }
 
-        .navbar-brand:hover .logo-container {
-          background: var(--md-sys-color-secondary);
-          transform: rotate(10deg);
-        }
-
-        .logo {
-          width: 32px;
-          height: 32px;
-          color: var(--md-sys-color-on-secondary-container);
-          transition: color 0.3s ease;
-        }
-
-        .navbar-brand:hover .logo {
-          color: var(--md-sys-color-on-secondary);
-        }
-
-        .brand-text {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .brand-title {
-          font-size: 1.125rem;
-          font-weight: 600;
-          color: var(--md-sys-color-on-surface);
-          letter-spacing: -0.02em;
-        }
-
-        .brand-subtitle {
-          font-size: 0.875rem;
-          color: var(--md-sys-color-on-surface-variant);
-          opacity: 0.8;
+        .logo-mobile {
+          height: 48px;
+          width: auto;
+          display: none;
         }
 
         .navbar-menu {
@@ -578,18 +543,13 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
         }
 
         @media (max-width: 640px) {
-          .brand-subtitle {
+          .logo-wide {
             display: none;
           }
 
-          .logo-container {
-            width: 40px;
+          .logo-mobile {
+            display: block;
             height: 40px;
-          }
-
-          .logo {
-            width: 28px;
-            height: 28px;
           }
         }
       `}</style>
