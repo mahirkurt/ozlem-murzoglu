@@ -59,7 +59,7 @@ const ApproachSection: React.FC = () => {
 
       <style jsx>{`
         .approach-section {
-          padding: 5rem 0;
+          padding: 4rem 0;
           background: var(--md-sys-color-surface);
         }
 

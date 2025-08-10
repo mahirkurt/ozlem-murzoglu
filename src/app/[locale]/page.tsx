@@ -66,7 +66,7 @@ export default function HomePage({ params: { locale } }: HomePageProps) {
         }
 
         .final-cta {
-          padding: 5rem 0;
+          padding: 4rem 0;
           background: linear-gradient(135deg, 
             var(--md-sys-color-primary-container) 0%, 
             var(--md-sys-color-secondary-container) 100%
