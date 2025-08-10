@@ -4,7 +4,6 @@ import { HeroSection } from '@/components/sections/HeroSection'
 import { ApproachSection } from '@/components/sections/ApproachSection'
 import { BlogSection } from '@/components/sections/BlogSection'
 import { TestimonialSection } from '@/components/sections/TestimonialSection'
-import { ValuesSection } from '@/components/sections/ValuesSection'
 import { ServicesSection } from '@/components/sections/ServicesSection'
 
 interface HomePageProps {
@@ -20,9 +19,6 @@ export default function HomePage({ params: { locale } }: HomePageProps) {
       
       {/* Approach & Navigation Blocks */}
       <ApproachSection />
-      
-      {/* Values Section */}
-      <ValuesSection />
       
       {/* Blog Posts Section */}
       <BlogSection />

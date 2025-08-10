@@ -53,19 +53,31 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
             {/* Primary CTAs */}
             <div className="hero-ctas">
               <Link href="/randevu" className="btn-primary-cta">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                </svg>
-                <span>Hemen Randevu Al</span>
-                <span className="cta-badge">Yeni Hastalar</span>
+                <div className="btn-content">
+                  <div className="btn-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                    </svg>
+                  </div>
+                  <div className="btn-text-group">
+                    <span className="btn-main-text">Hemen Randevu Al</span>
+                    <span className="btn-sub-text">Yeni Hastalar İçin</span>
+                  </div>
+                </div>
               </Link>
               
               <a href="https://saglikpetegim.com" target="_blank" rel="noopener noreferrer" className="btn-secondary-cta">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-                <span>Hasta Girişi</span>
-                <span className="cta-badge">Sağlık Peteğim</span>
+                <div className="btn-content">
+                  <div className="btn-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </div>
+                  <div className="btn-text-group">
+                    <span className="btn-main-text">Hasta Girişi</span>
+                    <span className="btn-sub-text">Sağlık Peteğim Portalı</span>
+                  </div>
+                </div>
               </a>
             </div>
           </div>
@@ -232,9 +244,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
 
         .hero-ctas {
           display: flex;
-          gap: 1rem;
+          gap: 1.5rem;
           justify-content: center;
-          margin: 2rem 0;
+          margin: 3rem 0;
           flex-wrap: wrap;
           animation: fadeInUp 0.8s ease-out 0.4s;
           animation-fill-mode: both;
@@ -242,49 +254,96 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
 
         .btn-primary-cta,
         .btn-secondary-cta {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.75rem;
-          padding: 1rem 2rem;
-          border-radius: 30px;
-          font-weight: 600;
-          font-size: 1rem;
           text-decoration: none;
           position: relative;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          overflow: hidden;
+        }
+
+        .btn-content {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1.25rem 2rem;
+        }
+
+        .btn-icon {
+          width: 48px;
+          height: 48px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           transition: all 0.3s ease;
         }
 
+        .btn-text-group {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.25rem;
+        }
+
+        .btn-main-text {
+          font-size: 1.125rem;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+        }
+
+        .btn-sub-text {
+          font-size: 0.875rem;
+          opacity: 0.8;
+          font-weight: 400;
+        }
+
         .btn-primary-cta {
-          background: #F8F9FA;
+          background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
           color: #005F73;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+          border-radius: 20px;
+          box-shadow: 0 8px 24px rgba(0, 95, 115, 0.25);
+          border: 1px solid rgba(0, 95, 115, 0.1);
+        }
+
+        .btn-primary-cta .btn-icon {
+          background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+          color: white;
         }
 
         .btn-primary-cta:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-          background: white;
+          transform: translateY(-3px) scale(1.02);
+          box-shadow: 0 12px 32px rgba(0, 95, 115, 0.35);
+        }
+
+        .btn-primary-cta:hover .btn-icon {
+          transform: rotate(5deg);
         }
 
         .btn-secondary-cta {
-          background: rgba(255,255,255,0.2);
+          background: rgba(255, 255, 255, 0.15);
           color: white;
-          border: 2px solid white;
-          backdrop-filter: blur(10px);
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          border-radius: 20px;
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+        }
+
+        .btn-secondary-cta .btn-icon {
+          background: rgba(255, 255, 255, 0.2);
+          color: white;
         }
 
         .btn-secondary-cta:hover {
-          background: white;
+          background: rgba(255, 255, 255, 0.95);
           color: #005F73;
-          transform: translateY(-2px);
+          border-color: rgba(255, 255, 255, 0.95);
+          transform: translateY(-3px) scale(1.02);
+          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
         }
 
-        .cta-badge {
-          font-size: 0.75rem;
-          padding: 0.25rem 0.5rem;
-          background: rgba(0,0,0,0.1);
-          border-radius: 10px;
-          margin-left: 0.5rem;
+        .btn-secondary-cta:hover .btn-icon {
+          background: #005F73;
+          color: white;
+          transform: rotate(-5deg);
         }
 
         .trust-indicators {
@@ -362,13 +421,30 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
           .hero-ctas {
             flex-direction: column;
             align-items: center;
+            gap: 1rem;
           }
 
           .btn-primary-cta,
           .btn-secondary-cta {
             width: 100%;
-            max-width: 300px;
-            justify-content: center;
+            max-width: 340px;
+          }
+
+          .btn-content {
+            padding: 1rem 1.5rem;
+          }
+
+          .btn-icon {
+            width: 40px;
+            height: 40px;
+          }
+
+          .btn-main-text {
+            font-size: 1rem;
+          }
+
+          .btn-sub-text {
+            font-size: 0.8125rem;
           }
 
           .trust-indicators {
