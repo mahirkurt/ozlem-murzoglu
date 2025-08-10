@@ -13,23 +13,25 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
 
   return (
     <footer className="footer">
-      {/* Main Footer Content */}
-      <div className="footer-main">
+      <div className="footer-top">
         <div className="container">
           <div className="footer-grid">
             {/* Brand Section */}
-            <div className="footer-section">
+            <div className="footer-brand-section">
               <div className="footer-brand">
                 <svg className="footer-logo" viewBox="0 0 48 48" fill="currentColor">
+                  <circle cx="24" cy="24" r="3" fill="var(--md-sys-color-tertiary)"/>
                   <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 30c-5.52 0-10-4.48-10-10s4.48-10 10-10 10 4.48 10 10-4.48 10-10 10z"/>
+                  <path d="M24 2C11.85 2 2 11.85 2 24s9.85 22 22 22 22-9.85 22-22S36.15 2 24 2zm0 40C14.06 42 6 33.94 6 24S14.06 6 24 6s18 8.06 18 18-8.06 18-18 18z" opacity="0.3"/>
                 </svg>
-                <div>
-                  <h3 className="footer-brand-title">Sağlık Peteğim</h3>
-                  <p className="footer-brand-subtitle">Dr. Özlem Murzoğlu Pediatri Kliniği</p>
+                <div className="footer-brand-text">
+                  <h3 className="footer-brand-title">Dr. Özlem Murzoğlu</h3>
+                  <p className="footer-brand-subtitle">Pediatri Uzmanı</p>
                 </div>
               </div>
+              
               <p className="footer-description">
-                Çocuğunuzun sağlıklı büyümesi ve gelişimi için güvenilir pediatri hizmetleri sunuyoruz.
+                Çocuğunuzun sağlıklı büyümesi ve gelişimi için modern tıp ve sevgi dolu yaklaşımı birleştiren uzman pediatri hizmetleri.
               </p>
               
               {/* Social Links */}
@@ -77,7 +79,7 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
             <div className="footer-section">
               <h4 className="footer-title">Hızlı Linkler</h4>
               <ul className="footer-list">
-                {navigation.map((item) => (
+                {navigation.slice(0, 5).map((item) => (
                   <li key={item.href}>
                     <Link href={item.href} className="footer-link">
                       {item.label}
@@ -91,11 +93,9 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
             <div className="footer-section">
               <h4 className="footer-title">Hizmetlerimiz</h4>
               <ul className="footer-list">
-                <li><Link href="/hizmetlerimiz/genel-pediatri" className="footer-link">Genel Pediatri</Link></li>
-                <li><Link href="/hizmetlerimiz/uyku-danismanligi" className="footer-link">Uyku Danışmanlığı</Link></li>
-                <li><Link href="/hizmetlerimiz/triple-p" className="footer-link">Triple P Programı</Link></li>
+                <li><Link href="/hizmetlerimiz/bright-futures" className="footer-link">Sağlıklı Çocuk İzlemi</Link></li>
                 <li><Link href="/hizmetlerimiz/asilama" className="footer-link">Aşılama</Link></li>
-                <li><Link href="/hizmetlerimiz/laboratuvar" className="footer-link">Laboratuvar</Link></li>
+                <li><Link href="/hizmetlerimiz/triple-p" className="footer-link">Ebeveyn Danışmanlığı</Link></li>
                 <li><Link href="/hizmetlerimiz/online-konsultasyon" className="footer-link">Online Konsültasyon</Link></li>
               </ul>
             </div>
@@ -105,40 +105,37 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
               <h4 className="footer-title">İletişim</h4>
               <div className="contact-info">
                 <div className="contact-item">
-                  <svg className="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <svg className="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1.01A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
                   </svg>
                   <div>
-                    <p className="contact-text">{contactInfo.address.street}</p>
-                    <p className="contact-text">{contactInfo.address.district}, {contactInfo.address.city}</p>
+                    <a href={`tel:${contactInfo.phone}`} className="contact-link">
+                      {contactInfo.phone}
+                    </a>
                   </div>
                 </div>
-
+                
                 <div className="contact-item">
-                  <svg className="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <svg className="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                   </svg>
                   <div>
-                    <a href={`tel:${contactInfo.phone}`} className="contact-link">{contactInfo.phone}</a>
-                    <a href={`tel:${contactInfo.mobile}`} className="contact-link">{contactInfo.mobile}</a>
+                    <a href={`mailto:${contactInfo.email}`} className="contact-link">
+                      {contactInfo.email}
+                    </a>
                   </div>
                 </div>
-
+                
                 <div className="contact-item">
-                  <svg className="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <a href={`mailto:${contactInfo.email}`} className="contact-link">{contactInfo.email}</a>
-                </div>
-
-                <div className="contact-item">
-                  <svg className="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg className="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                   </svg>
                   <div>
-                    <p className="contact-text">Pazartesi - Cuma: 09:00 - 18:00</p>
-                    <p className="contact-text">Cumartesi: 09:00 - 14:00</p>
+                    <p className="contact-text">
+                      {contactInfo.address.street}<br/>
+                      {contactInfo.address.building}<br/>
+                      {contactInfo.address.district}, {contactInfo.address.city}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -147,12 +144,12 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/* Footer Bottom */}
       <div className="footer-bottom">
         <div className="container">
           <div className="footer-bottom-content">
             <p className="copyright">
-              © {currentYear} Sağlık Peteğim - Dr. Özlem Murzoğlu. Tüm hakları saklıdır.
+              © {currentYear} Dr. Özlem Murzoğlu - Tüm hakları saklıdır.
             </p>
             <div className="footer-bottom-links">
               <Link href="/gizlilik-politikasi" className="footer-bottom-link">
@@ -161,9 +158,6 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
               <Link href="/kullanim-kosullari" className="footer-bottom-link">
                 Kullanım Koşulları
               </Link>
-              <Link href="/kvkk" className="footer-bottom-link">
-                KVKK
-              </Link>
             </div>
           </div>
         </div>
@@ -171,62 +165,73 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
 
       <style jsx>{`
         .footer {
-          background-color: var(--md-sys-color-surface-container);
-          color: var(--md-sys-color-on-surface);
-          margin-top: auto;
+          background: linear-gradient(180deg, 
+            var(--md-sys-color-surface) 0%,
+            var(--md-sys-color-surface-container) 100%
+          );
+          border-top: 1px solid var(--md-sys-color-outline-variant);
+          margin-top: 4rem;
         }
 
-        .footer-main {
-          padding: 3rem 0 2rem;
-          border-top: 1px solid var(--md-sys-color-outline-variant);
+        .footer-top {
+          padding: 4rem 0 3rem;
         }
 
         .container {
-          max-width: 1280px;
+          max-width: 1200px;
           margin: 0 auto;
-          padding: 0 1rem;
+          padding: 0 1.5rem;
         }
 
         .footer-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 2rem;
+          grid-template-columns: 2fr 1fr 1fr 1.5fr;
+          gap: 3rem;
         }
 
-        .footer-section {
-          min-width: 0;
+        .footer-brand-section {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
         }
 
         .footer-brand {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
-          margin-bottom: 1rem;
+          gap: 1rem;
         }
 
         .footer-logo {
-          width: 40px;
-          height: 40px;
-          color: var(--md-sys-color-primary);
+          width: 56px;
+          height: 56px;
+          color: var(--md-sys-color-secondary);
+          background: var(--md-sys-color-secondary-container);
+          padding: 12px;
+          border-radius: 16px;
+        }
+
+        .footer-brand-text {
+          display: flex;
+          flex-direction: column;
         }
 
         .footer-brand-title {
-          font-size: 1.125rem;
-          font-weight: 700;
+          font-size: 1.25rem;
+          font-weight: 600;
           color: var(--md-sys-color-on-surface);
           margin: 0;
         }
 
         .footer-brand-subtitle {
-          font-size: 0.75rem;
-          color: var(--md-sys-color-on-surface-variant);
+          font-size: 0.875rem;
+          color: var(--md-sys-color-secondary);
           margin: 0;
         }
 
         .footer-description {
           color: var(--md-sys-color-on-surface-variant);
           line-height: 1.6;
-          margin-bottom: 1.5rem;
+          max-width: 400px;
         }
 
         .social-links {
@@ -235,60 +240,86 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
         }
 
         .social-link {
+          width: 44px;
+          height: 44px;
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background-color: var(--md-sys-color-surface-container-high);
-          color: var(--md-sys-color-on-surface-variant);
-          transition: all 0.2s ease;
+          background: var(--md-sys-color-secondary-container);
+          border-radius: 12px;
+          transition: all 0.3s ease;
         }
 
         .social-link:hover {
-          background-color: var(--md-sys-color-primary-container);
-          color: var(--md-sys-color-on-primary-container);
-          transform: translateY(-2px);
+          background: var(--md-sys-color-secondary);
+          transform: translateY(-4px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .social-icon {
           width: 20px;
           height: 20px;
+          color: var(--md-sys-color-on-secondary-container);
+          transition: color 0.3s ease;
+        }
+
+        .social-link:hover .social-icon {
+          color: var(--md-sys-color-on-secondary);
+        }
+
+        .footer-section {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
         }
 
         .footer-title {
           font-size: 1rem;
           font-weight: 600;
           color: var(--md-sys-color-on-surface);
-          margin-bottom: 1rem;
+          margin: 0;
+          position: relative;
+          padding-bottom: 0.75rem;
+        }
+
+        .footer-title::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 40px;
+          height: 3px;
+          background: var(--md-sys-color-tertiary);
+          border-radius: 2px;
         }
 
         .footer-list {
           list-style: none;
           padding: 0;
           margin: 0;
-        }
-
-        .footer-list li {
-          margin-bottom: 0.75rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
         }
 
         .footer-link {
           color: var(--md-sys-color-on-surface-variant);
           text-decoration: none;
-          transition: color 0.2s ease;
-          font-size: 0.875rem;
+          font-size: 0.9375rem;
+          transition: all 0.2s ease;
+          position: relative;
+          padding-left: 0;
         }
 
         .footer-link:hover {
-          color: var(--md-sys-color-primary);
+          color: var(--md-sys-color-secondary);
+          padding-left: 8px;
         }
 
         .contact-info {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 1.25rem;
         }
 
         .contact-item {
@@ -300,35 +331,33 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
         .contact-icon {
           width: 20px;
           height: 20px;
-          color: var(--md-sys-color-primary);
+          color: var(--md-sys-color-tertiary);
           flex-shrink: 0;
           margin-top: 2px;
         }
 
-        .contact-text {
-          color: var(--md-sys-color-on-surface-variant);
-          font-size: 0.875rem;
-          line-height: 1.5;
-          margin: 0;
-        }
-
         .contact-link {
-          display: block;
           color: var(--md-sys-color-on-surface-variant);
           text-decoration: none;
-          font-size: 0.875rem;
-          line-height: 1.5;
+          font-size: 0.9375rem;
           transition: color 0.2s ease;
         }
 
         .contact-link:hover {
-          color: var(--md-sys-color-primary);
+          color: var(--md-sys-color-secondary);
+        }
+
+        .contact-text {
+          color: var(--md-sys-color-on-surface-variant);
+          font-size: 0.9375rem;
+          line-height: 1.5;
+          margin: 0;
         }
 
         .footer-bottom {
-          background-color: var(--md-sys-color-surface-container-highest);
-          padding: 1.5rem 0;
+          background: var(--md-sys-color-surface-container-high);
           border-top: 1px solid var(--md-sys-color-outline-variant);
+          padding: 1.5rem 0;
         }
 
         .footer-bottom-content {
@@ -347,7 +376,7 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
 
         .footer-bottom-links {
           display: flex;
-          gap: 1.5rem;
+          gap: 2rem;
         }
 
         .footer-bottom-link {
@@ -358,12 +387,24 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
         }
 
         .footer-bottom-link:hover {
-          color: var(--md-sys-color-primary);
+          color: var(--md-sys-color-secondary);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 968px) {
+          .footer-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+          }
+
+          .footer-brand-section {
+            grid-column: 1 / -1;
+          }
+        }
+
+        @media (max-width: 640px) {
           .footer-grid {
             grid-template-columns: 1fr;
+            gap: 2rem;
           }
 
           .footer-bottom-content {
@@ -372,7 +413,8 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
           }
 
           .footer-bottom-links {
-            justify-content: center;
+            flex-direction: column;
+            gap: 0.5rem;
           }
         }
       `}</style>
@@ -380,4 +422,4 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
   )
 }
 
-export { Footer }
+export default Footer
