@@ -1,0 +1,23 @@
+{
+  "common": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetlerimiz",
+    "contact": "İletişim",
+    "appointment": "Randevu",
+    "articles": "Makaleler",
+    "tribute": "Saygıyla"
+  },
+  "home": {
+    "hero": {
+      "title": "Dr. Özlem Murzoğlu Pediatri Kliniği",
+      "subtitle": "Çocuğunuzun sağlıklı büyümesi için güvenilir pediatri hizmetleri",
+      "cta": "Randevu Al"
+    }
+  },
+  "footer": {
+    "copyright": "Tüm hakları saklıdır",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları"
+  }
+}

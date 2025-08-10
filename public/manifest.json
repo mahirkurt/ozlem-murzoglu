@@ -1,0 +1,87 @@
+{
+  "name": "Dr. Özlem Murzoğlu Pediatri Kliniği",
+  "short_name": "Sağlık Peteğim",
+  "description": "Çocuğunuzun sağlıklı büyümesi için güvenilir pediatri hizmetleri",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFCFD",
+  "theme_color": "#005F73",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["health", "medical", "pediatric"],
+  "lang": "tr",
+  "dir": "ltr",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Randevu Al",
+      "short_name": "Randevu",
+      "description": "Hızlı randevu alma",
+      "url": "/appointment",
+      "icons": [{ "src": "/icons/appointment-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Acil Durum",
+      "short_name": "Acil",
+      "description": "Acil durum iletişim",
+      "url": "/emergency",
+      "icons": [{ "src": "/icons/emergency-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "İletişim",
+      "short_name": "İletişim",
+      "description": "Bizimle iletişime geçin",
+      "url": "/contact",
+      "icons": [{ "src": "/icons/contact-icon.png", "sizes": "96x96" }]
+    }
+  ]
+}

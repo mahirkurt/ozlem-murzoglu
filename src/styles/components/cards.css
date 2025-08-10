@@ -1,0 +1,281 @@
+/* ============================================
+   Material Design 3 Card Components
+   ============================================ */
+
+/* Base Card */
+.card {
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+/* Card Variants */
+.card-elevated {
+  background-color: var(--md-sys-color-surface-container-low);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+.card-elevated:hover {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), 0 4px 5px 1px rgba(0, 0, 0, 0.15);
+}
+
+.card-filled {
+  background-color: var(--md-sys-color-surface-container-highest);
+}
+
+.card-outlined {
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: none;
+}
+
+/* Card Sections */
+.card-header {
+  padding: 1rem 1rem 0.5rem;
+}
+
+.card-body {
+  padding: 0 1rem 1rem;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-footer {
+  padding: 0.5rem 1rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Card Image */
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-image-top {
+  border-radius: 12px 12px 0 0;
+}
+
+.card-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  color: white;
+}
+
+/* Card Title and Text */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 0.25rem;
+}
+
+.card-subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Interactive Cards */
+.card-clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card-clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-clickable:active {
+  transform: translateY(0);
+}
+
+/* Card List Item */
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-list-item {
+  padding: 1rem;
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.card-list-item:hover {
+  background-color: var(--md-sys-color-surface-container-high);
+}
+
+.card-list-item-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.card-list-item-content {
+  flex: 1;
+}
+
+.card-list-item-action {
+  flex-shrink: 0;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.card-grid-2 {
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.card-grid-3 {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .card-grid,
+  .card-grid-2,
+  .card-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Compact Card */
+.card-compact {
+  padding: 0.75rem;
+}
+
+.card-compact .card-title {
+  font-size: 1rem;
+  margin-bottom: 0.125rem;
+}
+
+.card-compact .card-text {
+  font-size: 0.8125rem;
+}
+
+/* Card with Avatar */
+.card-avatar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card-avatar-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--md-sys-color-surface-container-highest);
+}
+
+.card-avatar-content {
+  flex: 1;
+}
+
+/* Card Badge */
+.card-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Card Skeleton Loading */
+.card-skeleton {
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.skeleton-text {
+  height: 1rem;
+  background-color: var(--md-sys-color-surface-container-highest);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.skeleton-text-lg {
+  height: 1.5rem;
+}
+
+.skeleton-text-sm {
+  height: 0.875rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+/* Card States */
+.card-selected {
+  border: 2px solid var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary-container);
+}
+
+.card-disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.card-error {
+  border: 1px solid var(--md-sys-color-error);
+  background-color: var(--md-sys-color-error-container);
+}
+
+.card-success {
+  border: 1px solid var(--md-sys-color-tertiary);
+  background-color: var(--md-sys-color-tertiary-container);
+}

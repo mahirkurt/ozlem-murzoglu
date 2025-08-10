@@ -1,0 +1,12 @@
+# This is a placeholder for the hero doctor image
+# In a real implementation, this would be a high-quality photo of Dr. Özlem Murzoğlu
+# For now, we'll create a small placeholder SVG
+
+<svg width="600" height="800" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="800" fill="#E8F5E8"/>
+  <circle cx="300" cy="300" r="100" fill="#005F73"/>
+  <rect x="200" y="450" width="200" height="250" rx="8" fill="#4A6267"/>
+  <text x="300" y="500" text-anchor="middle" fill="white" font-family="Arial" font-size="16">Dr. Özlem</text>
+  <text x="300" y="520" text-anchor="middle" fill="white" font-family="Arial" font-size="16">Murzoğlu</text>
+  <text x="300" y="750" text-anchor="middle" fill="#005F73" font-family="Arial" font-size="14">Pediatric Specialist</text>
+</svg>

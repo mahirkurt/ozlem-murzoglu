@@ -1,0 +1,52 @@
+/* ============================================
+   Material Design 3 Theme System
+   ============================================ */
+
+/* Import Material Theme Builder CSS Files */
+@import './css/light.css';
+@import './css/dark.css';
+
+/* Optional: High Contrast Modes (uncomment when needed) */
+/* @import './css/light-hc.css'; */
+/* @import './css/dark-hc.css'; */
+
+/* Optional: Medium Contrast Modes (uncomment when needed) */
+/* @import './css/light-mc.css'; */
+/* @import './css/dark-mc.css'; */
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+/* Import component styles */
+@import './base/reset.css';
+@import './base/typography.css';
+@import './components/buttons.css';
+@import './components/cards.css';
+@import './components/forms.css';
+@import './utilities/helpers.css';
+
+/* ============================================
+   Theme Application
+   ============================================ */
+
+/* Default to light theme */
+:root {
+  color-scheme: light;
+}
+
+/* System dark mode preference */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+  }
+}
+
+/* Explicit theme classes */
+:root.dark {
+  color-scheme: dark;
+}
+
+:root.light {
+  color-scheme: light;
+}
