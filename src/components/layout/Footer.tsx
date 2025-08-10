@@ -396,3 +396,4 @@ const Footer: React.FC<FooterProps> = ({ locale = 'tr' }) => {
 }
 
 export default Footer
+export { Footer }
