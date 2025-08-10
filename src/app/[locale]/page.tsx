@@ -1,6 +1,5 @@
-import type { Metadata } from 'next'
-import { useTranslations } from 'next-intl'
-import { unstable_setRequestLocale } from 'next-intl/server'
+'use client'
+
 import { HeroSection } from '@/components/sections/HeroSection'
 import { ApproachSection } from '@/components/sections/ApproachSection'
 import { BlogSection } from '@/components/sections/BlogSection'
@@ -12,19 +11,7 @@ interface HomePageProps {
   params: { locale: string }
 }
 
-export const metadata: Metadata = {
-  title: 'Ana Sayfa',
-  description: 'Dr. Özlem Murzoğlu Pediatri Kliniği - Sosyal Pediatri ve Çocuk Gelişimi uzmanlıklarını bütünleştiren, çocuğunuza özel bütüncül bakım.',
-  openGraph: {
-    title: 'Dr. Özlem Murzoğlu Pediatri Kliniği',
-    description: 'Çocuğunuzun sağlıklı büyümesi için güvenilir pediatri hizmetleri',
-    images: ['/og-home.jpg'],
-  },
-}
-
 export default function HomePage({ params: { locale } }: HomePageProps) {
-  // Enable static rendering
-  unstable_setRequestLocale(locale)
   
   return (
     <div className="homepage">
