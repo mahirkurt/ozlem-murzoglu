@@ -63,10 +63,18 @@ export default function HomePage({ params: { locale } }: HomePageProps) {
         .homepage {
           min-height: 100vh;
           background: var(--md-sys-color-surface);
+          padding-top: 120px; /* Header offset */
+        }
+
+        @media (min-width: 968px) {
+          .homepage {
+            padding-top: 140px; /* Desktop header with top bar */
+          }
         }
 
         .final-cta {
           padding: 4rem 0;
+          margin-top: 0; /* Remove any margin */
           background: linear-gradient(135deg, 
             var(--md-sys-color-primary-container) 0%, 
             var(--md-sys-color-secondary-container) 100%

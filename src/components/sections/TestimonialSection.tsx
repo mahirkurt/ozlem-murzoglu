@@ -70,10 +70,11 @@ const TestimonialSection: React.FC = () => {
 
       <style jsx>{`
         .testimonial-section {
-          padding: 4rem 0 3rem;
-          background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+          padding: 5rem 0;
+          background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-tertiary) 100%);
           position: relative;
           overflow: hidden;
+          margin: 0; /* Remove any default margins */
         }
 
         .testimonial-section::before {
