@@ -317,7 +317,7 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
         .nav-menu {
           display: none;
           align-items: center;
-          gap: 0;
+          gap: 8px;
           flex: 1;
           justify-content: center;
         }
@@ -336,7 +336,8 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
           display: flex;
           align-items: center;
           gap: 4px;
-          padding: 12px 20px;
+          padding: 10px 16px;
+          margin: 0 4px;
           color: var(--md-sys-color-on-surface);
           text-decoration: none;
           font-size: 15px;
@@ -350,12 +351,13 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
         .nav-link::after {
           content: '';
           position: absolute;
-          bottom: 8px;
-          left: 50%;
-          transform: translateX(-50%) scaleX(0);
-          width: calc(100% - 32px);
-          height: 2px;
+          bottom: 4px;
+          left: 16px;
+          right: 16px;
+          height: 3px;
           background: linear-gradient(90deg, #FFB74D, #FFA726);
+          border-radius: 2px;
+          transform: scaleX(0);
           transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -365,7 +367,7 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
         }
 
         .nav-link:hover::after {
-          transform: translateX(-50%) scaleX(1);
+          transform: scaleX(1);
         }
 
         .dropdown-icon {
@@ -380,19 +382,19 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
         /* Dropdown Menu */
         .dropdown-menu {
           position: absolute;
-          top: 100%;
+          top: calc(100% + 8px);
           left: 50%;
           transform: translateX(-50%);
           background: white;
           border-radius: 16px;
           box-shadow: 0 8px 32px rgba(0, 95, 115, 0.15);
-          padding: 12px;
-          min-width: 240px;
-          margin-top: 8px;
+          padding: 8px;
+          min-width: 260px;
           opacity: 0;
           transform: translateX(-50%) translateY(-10px);
           animation: dropdownSlide 0.3s ease forwards;
           border: 1px solid rgba(0, 95, 115, 0.08);
+          z-index: 1000;
         }
 
         @keyframes dropdownSlide {
@@ -404,13 +406,14 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
 
         .dropdown-link {
           display: block;
-          padding: 10px 16px;
+          padding: 12px 16px;
+          margin: 2px 0;
           color: var(--md-sys-color-on-surface);
           text-decoration: none;
           font-size: 14px;
           border-radius: 8px;
           transition: all 0.2s;
-          white-space: normal;
+          white-space: nowrap;
           line-height: 1.4;
         }
 
