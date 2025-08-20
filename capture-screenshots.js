@@ -6,14 +6,14 @@ const puppeteer = require('puppeteer');
   // Desktop screenshot
   const desktopPage = await browser.newPage();
   await desktopPage.setViewport({ width: 1920, height: 1080 });
-  await desktopPage.goto('http://localhost:3000', { waitUntil: 'networkidle2' });
+  await desktopPage.goto('http://localhost:3000', { waitUntil: 'networkidle2', timeout: 60000 });
   await desktopPage.screenshot({ path: 'screenshot-desktop.png', fullPage: true });
   console.log('Desktop screenshot saved');
   
   // Mobile screenshot
   const mobilePage = await browser.newPage();
   await mobilePage.setViewport({ width: 375, height: 812 });
-  await mobilePage.goto('http://localhost:3000', { waitUntil: 'networkidle2' });
+  await mobilePage.goto('http://localhost:3000', { waitUntil: 'networkidle2', timeout: 60000 });
   await mobilePage.screenshot({ path: 'screenshot-mobile.png', fullPage: true });
   console.log('Mobile screenshot saved');
   
