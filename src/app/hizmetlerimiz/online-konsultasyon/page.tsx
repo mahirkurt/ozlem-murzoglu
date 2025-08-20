@@ -1,3 +1,5 @@
+'use client'
+
 export default function OnlineKonsultasyonPage() {
   return (
     <div className="page-container">
