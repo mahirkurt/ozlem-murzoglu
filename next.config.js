@@ -28,6 +28,14 @@ const nextConfig = {
         source: '/api/backend/:path*',
         destination: `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api/v1/:path*`,
       },
+      {
+        source: '/manifest.json',
+        destination: '/manifest.json',
+      },
+      {
+        source: '/:locale/manifest.json',
+        destination: '/manifest.json',
+      },
     ]
   },
   eslint: {

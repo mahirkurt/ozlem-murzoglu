@@ -66,7 +66,7 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 // Generate static params for all locales
@@ -76,8 +76,10 @@ export function generateStaticParams() {
 
 export default async function RootLayout({
   children,
-  params: { locale = 'tr' }
+  params
 }: RootLayoutProps) {
+  const { locale = 'tr' } = await params
+  
   // Enable static rendering
   unstable_setRequestLocale(locale)
   
