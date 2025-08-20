@@ -220,12 +220,25 @@ const TestimonialSection: React.FC = () => {
         }
 
         @media (max-width: 768px) {
+          .testimonial-section {
+            padding: 3rem 0;
+          }
+
+          .container {
+            padding: 0 1rem;
+          }
+
+          .section-header h2 {
+            font-size: 1.75rem;
+          }
+
           .testimonial-card {
             padding: 2rem 1.5rem;
           }
 
           .testimonial-text {
-            font-size: 1.125rem;
+            font-size: 1rem;
+            line-height: 1.6;
           }
 
           .testimonial-author {

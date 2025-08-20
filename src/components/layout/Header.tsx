@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { navigation, contactInfo } from '@/lib/navigation'
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 
 interface HeaderProps {
   locale?: string
@@ -32,118 +33,127 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
     }
   }, [isMobileMenuOpen])
 
+  // Menü öğelerini grupla
+  const primaryMenu = navigation.filter(item => 
+    ['Ana Sayfa', 'Hakkımızda', 'Hizmetlerimiz', 'Makaleler'].includes(item.label)
+  )
+  const secondaryMenu = navigation.filter(item => 
+    ['Sıkça Sorulan Sorular', 'İletişim'].includes(item.label)
+  )
+
   return (
     <>
-      <header className={`md-header ${isScrolled ? 'md-header--scrolled' : ''}`}>
-        {/* Top Bar - Desktop Only */}
-        <div className="md-top-bar">
-          <div className="md-container">
-            <div className="md-top-bar__content">
-              <div className="md-top-bar__info">
-                <a href={`tel:${contactInfo.phone}`} className="md-info-chip">
-                  <svg className="md-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <header className={`modern-header ${isScrolled ? 'scrolled' : ''}`}>
+        {/* Top Info Bar - Minimal */}
+        <div className="top-bar">
+          <div className="container">
+            <div className="top-bar-content">
+              <div className="contact-info">
+                <a href={`tel:${contactInfo.phone}`} className="contact-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1.01A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
                   </svg>
-                  <span>{contactInfo.phone}</span>
+                  {contactInfo.phone}
                 </a>
-                <a href={`mailto:${contactInfo.email}`} className="md-info-chip">
-                  <svg className="md-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <span className="separator">•</span>
+                <a href={`mailto:${contactInfo.email}`} className="contact-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                   </svg>
-                  <span>{contactInfo.email}</span>
+                  {contactInfo.email}
                 </a>
               </div>
-              <a href="https://saglikpetegim.com" target="_blank" rel="noopener noreferrer" className="md-button md-button--tonal md-button--small">
-                <span>Hasta Portalı</span>
-                <svg className="md-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                </svg>
+              <a href="https://saglikpetegim.com" target="_blank" rel="noopener noreferrer" className="portal-link">
+                Hasta Portalı →
               </a>
             </div>
           </div>
         </div>
 
         {/* Main Navigation */}
-        <nav className="md-navbar">
-          <div className="md-container">
-            <div className="md-navbar__content">
+        <nav className="main-nav">
+          <div className="container">
+            <div className="nav-content">
               {/* Logo */}
-              <Link href="/" className="md-navbar__brand">
+              <Link href="/" className="logo">
                 <img 
                   src="/logos/OM-Wide-Color.svg" 
                   alt="Dr. Özlem Murzoğlu" 
-                  className="md-logo md-logo--wide"
+                  className="logo-wide"
                 />
                 <img 
                   src="/logos/OM-Icon-Color.svg" 
                   alt="Dr. Özlem Murzoğlu" 
-                  className="md-logo md-logo--mobile"
+                  className="logo-icon"
                 />
               </Link>
 
-              {/* Desktop Navigation */}
-              <div className="md-navbar__menu">
-                {navigation.map((item) => (
+              {/* Center Menu - Horizontal */}
+              <div className="nav-menu">
+                {primaryMenu.map((item) => (
                   <div
                     key={item.href}
-                    className="md-navbar__item"
+                    className="nav-item"
                     onMouseEnter={() => item.children && setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <Link href={item.href} className="md-navbar__link">
-                      <span>{item.label}</span>
-                      {item.children && (
-                        <svg className="md-icon md-icon--dropdown" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M7 10l5 5 5-5z"/>
-                        </svg>
-                      )}
+                    <Link href={item.href} className="nav-link">
+                      {item.label}
                     </Link>
                     
+                    {/* Mega Menu Style Dropdown */}
                     {item.children && activeDropdown === item.label && (
-                      <div className="md-dropdown">
-                        {item.children.map((child) => (
-                          <Link 
-                            key={child.href} 
-                            href={child.href} 
-                            className="md-dropdown__item"
-                          >
-                            <div className="md-dropdown__content">
-                              <span className="md-dropdown__title">{child.label}</span>
-                              {child.description && (
-                                <span className="md-dropdown__description">{child.description}</span>
-                              )}
-                            </div>
-                            <svg className="md-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                            </svg>
-                          </Link>
-                        ))}
+                      <div className="mega-dropdown">
+                        <div className="dropdown-container">
+                          <div className="dropdown-grid">
+                            {item.children.map((child) => (
+                              <Link 
+                                key={child.href} 
+                                href={child.href} 
+                                className="dropdown-card"
+                              >
+                                <div className="card-icon">
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                  </svg>
+                                </div>
+                                <div className="card-content">
+                                  <h3>{child.label}</h3>
+                                  {child.description && (
+                                    <p>{child.description}</p>
+                                  )}
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     )}
                   </div>
                 ))}
               </div>
 
-              {/* Actions */}
-              <div className="md-navbar__actions">
-                <Link href="/randevu" className="md-button md-button--filled">
-                  <svg className="md-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                  </svg>
-                  <span>Randevu Al</span>
+              {/* Right Actions */}
+              <div className="nav-actions">
+                {secondaryMenu.map((item) => (
+                  <Link key={item.href} href={item.href} className="action-link">
+                    {item.label}
+                  </Link>
+                ))}
+                <LanguageSwitcher locale={locale} />
+                <Link href="/randevu" className="appointment-btn">
+                  Randevu Al
                 </Link>
-
-                {/* Mobile Menu Toggle */}
+                
+                {/* Mobile Toggle */}
                 <button
-                  className={`md-icon-button md-navbar__toggle ${isMobileMenuOpen ? 'md-navbar__toggle--active' : ''}`}
+                  className={`mobile-toggle ${isMobileMenuOpen ? 'active' : ''}`}
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  aria-label="Menu"
+                  aria-label="Menü"
                 >
-                  <span className="md-navbar__toggle-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </button>
               </div>
             </div>
@@ -151,45 +161,34 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
         </nav>
       </header>
 
-      {/* Mobile Menu */}
-      <div className={`md-mobile-overlay ${isMobileMenuOpen ? 'md-mobile-overlay--active' : ''}`} onClick={() => setIsMobileMenuOpen(false)} />
-      
-      <div className={`md-mobile-menu ${isMobileMenuOpen ? 'md-mobile-menu--active' : ''}`}>
-        <div className="md-mobile-menu__header">
-          <img src="/logos/OM-Wide-Color.svg" alt="Dr. Özlem Murzoğlu" className="md-logo" />
-          <button 
-            className="md-icon-button"
-            onClick={() => setIsMobileMenuOpen(false)}
-            aria-label="Kapat"
-          >
+      {/* Mobile Menu - Full Screen */}
+      <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+        <div className="mobile-header">
+          <img src="/logos/OM-Wide-Color.svg" alt="Dr. Özlem Murzoğlu" />
+          <button onClick={() => setIsMobileMenuOpen(false)} className="close-btn">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
             </svg>
           </button>
         </div>
         
-        <div className="md-mobile-menu__content">
+        <div className="mobile-content">
           {navigation.map((item) => (
-            <div key={item.href} className="md-mobile-menu__item">
+            <div key={item.href} className="mobile-item">
               <Link
                 href={item.href}
-                className="md-mobile-menu__link"
+                className="mobile-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span>{item.label}</span>
-                {item.children && (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M7 10l5 5 5-5z"/>
-                  </svg>
-                )}
+                {item.label}
               </Link>
               {item.children && (
-                <div className="md-mobile-menu__submenu">
+                <div className="mobile-submenu">
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="md-mobile-menu__sublink"
+                      className="mobile-sublink"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {child.label}
@@ -201,498 +200,489 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
           ))}
         </div>
 
-        <div className="md-mobile-menu__footer">
-          <Link href="/randevu" className="md-button md-button--filled md-button--block" onClick={() => setIsMobileMenuOpen(false)}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-            </svg>
-            <span>Randevu Al</span>
+        <div className="mobile-footer">
+          <div className="mobile-language">
+            <LanguageSwitcher locale={locale} />
+          </div>
+          <Link href="/randevu" className="mobile-appointment" onClick={() => setIsMobileMenuOpen(false)}>
+            Randevu Al
           </Link>
+          <div className="mobile-contacts">
+            <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a>
+            <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+          </div>
         </div>
       </div>
 
       <style jsx>{`
-        /* Header Base */
-        .md-header {
+        /* Modern Header Design */
+        .modern-header {
           position: fixed;
           top: 0;
           left: 0;
           right: 0;
           z-index: 1000;
-          background: var(--md-sys-color-surface);
-          transition: all var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
+          background: white;
+          transition: all 0.3s ease;
         }
 
-        .md-header--scrolled {
-          box-shadow: var(--md-sys-elevation-level2);
+        .modern-header.scrolled {
+          box-shadow: 0 2px 20px rgba(0, 95, 115, 0.1);
         }
 
-        .md-container {
-          max-width: 1200px;
+        .container {
+          max-width: 1400px;
           margin: 0 auto;
-          padding: 0 24px;
+          padding: 0 20px;
         }
 
-        /* Top Bar */
-        .md-top-bar {
+        /* Top Bar - Minimal */
+        .top-bar {
           background: var(--md-sys-color-surface-container);
           border-bottom: 1px solid var(--md-sys-color-outline-variant);
           display: none;
         }
 
-        @media (min-width: 968px) {
-          .md-top-bar {
+        @media (min-width: 1024px) {
+          .top-bar {
             display: block;
           }
         }
 
-        .md-top-bar__content {
+        .top-bar-content {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 8px 0;
+          height: 36px;
+          font-size: 13px;
         }
 
-        .md-top-bar__info {
-          display: flex;
-          gap: 24px;
-        }
-
-        .md-info-chip {
+        .contact-info {
           display: flex;
           align-items: center;
           gap: 8px;
-          color: var(--md-sys-color-on-surface-variant);
-          text-decoration: none;
-          font-size: 14px;
-          transition: color var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
         }
 
-        .md-info-chip:hover {
+        .contact-link {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          color: var(--md-sys-color-on-surface-variant);
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+
+        .contact-link:hover {
           color: var(--md-sys-color-primary);
         }
 
-        /* Navigation Bar */
-        .md-navbar {
-          background: var(--md-sys-color-surface);
+        .separator {
+          color: var(--md-sys-color-outline-variant);
+          margin: 0 8px;
         }
 
-        .md-navbar__content {
+        .portal-link {
+          padding: 4px 16px;
+          background: var(--md-sys-color-primary);
+          color: white;
+          text-decoration: none;
+          border-radius: 16px;
+          font-size: 12px;
+          font-weight: 500;
+          transition: all 0.2s;
+        }
+
+        .portal-link:hover {
+          background: var(--md-sys-color-primary);
+          transform: translateX(2px);
+        }
+
+        /* Main Navigation */
+        .main-nav {
+          background: white;
+          position: relative;
+        }
+
+        .nav-content {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          height: 72px;
-          gap: 48px;
+          height: 80px;
+          gap: 40px;
         }
 
-        .md-header--scrolled .md-navbar__content {
-          height: 64px;
+        .modern-header.scrolled .nav-content {
+          height: 70px;
         }
 
-        .md-navbar__brand {
+        /* Logo */
+        .logo {
           display: flex;
           align-items: center;
           flex-shrink: 0;
         }
 
-        .md-logo {
-          height: 48px;
-          width: auto;
-          transition: height var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+        .logo img {
+          height: 50px;
+          transition: height 0.3s;
         }
 
-        .md-header--scrolled .md-logo {
-          height: 40px;
+        .modern-header.scrolled .logo img {
+          height: 42px;
         }
 
-        .md-logo--wide {
+        .logo-wide {
           display: block;
         }
 
-        .md-logo--mobile {
+        .logo-icon {
           display: none;
         }
 
-        /* Desktop Menu */
-        .md-navbar__menu {
+        /* Center Menu */
+        .nav-menu {
           display: none;
           align-items: center;
-          gap: 4px;
-          flex: 1;
-          justify-content: center;
+          gap: 8px;
         }
 
-        @media (min-width: 968px) {
-          .md-navbar__menu {
+        @media (min-width: 1024px) {
+          .nav-menu {
             display: flex;
           }
         }
 
-        .md-navbar__item {
+        .nav-item {
           position: relative;
         }
 
-        .md-navbar__link {
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          padding: 8px 12px;
-          height: 40px;
+        .nav-link {
+          display: block;
+          padding: 10px 16px;
           color: var(--md-sys-color-on-surface);
           text-decoration: none;
-          font-size: 14px;
+          font-size: 15px;
           font-weight: 500;
-          border-radius: var(--md-sys-shape-corner-full);
-          transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
-          position: relative;
+          white-space: nowrap;
+          border-radius: 8px;
+          transition: all 0.2s;
         }
 
-        .md-navbar__link::before {
-          content: '';
+        .nav-link:hover {
+          background: var(--md-sys-color-primary-container);
+          color: var(--md-sys-color-on-primary-container);
+        }
+
+        /* Mega Dropdown */
+        .mega-dropdown {
           position: absolute;
-          inset: 0;
-          background: currentColor;
-          opacity: 0;
-          border-radius: inherit;
-          transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-        }
-
-        .md-navbar__link:hover::before {
-          opacity: var(--md-sys-state-hover-opacity);
-        }
-
-        .md-navbar__link:focus-visible {
-          outline: 2px solid var(--md-sys-color-primary);
-          outline-offset: 2px;
-        }
-
-        /* Dropdown */
-        .md-dropdown {
-          position: absolute;
-          top: calc(100% + 4px);
+          top: calc(100% + 8px);
           left: 50%;
           transform: translateX(-50%);
-          min-width: 280px;
-          background: var(--md-sys-color-surface-container);
-          border-radius: var(--md-sys-shape-corner-large);
-          box-shadow: var(--md-sys-elevation-level2);
-          padding: 8px;
+          background: white;
+          border-radius: 16px;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+          padding: 24px;
+          min-width: 600px;
           opacity: 0;
           visibility: hidden;
-          transform: translateX(-50%) translateY(-8px);
-          transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-decelerate);
+          transform: translateX(-50%) translateY(-10px);
+          transition: all 0.3s ease;
         }
 
-        .md-navbar__item:hover .md-dropdown {
+        .nav-item:hover .mega-dropdown {
           opacity: 1;
           visibility: visible;
           transform: translateX(-50%) translateY(0);
         }
 
-        .md-dropdown__item {
+        .dropdown-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+        }
+
+        .dropdown-card {
           display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 12px 16px;
-          color: var(--md-sys-color-on-surface);
+          align-items: flex-start;
+          gap: 16px;
+          padding: 16px;
           text-decoration: none;
-          border-radius: var(--md-sys-shape-corner-medium);
-          transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+          border-radius: 12px;
+          transition: all 0.2s;
         }
 
-        .md-dropdown__item:hover {
-          background: var(--md-sys-color-secondary-container);
+        .dropdown-card:hover {
+          background: var(--md-sys-color-surface-container);
         }
 
-        .md-dropdown__content {
+        .card-icon {
+          width: 40px;
+          height: 40px;
+          background: var(--md-sys-color-primary-container);
+          border-radius: 10px;
           display: flex;
-          flex-direction: column;
-          gap: 2px;
-        }
-
-        .md-dropdown__title {
-          font-size: 14px;
-          font-weight: 500;
-        }
-
-        .md-dropdown__description {
-          font-size: 12px;
-          color: var(--md-sys-color-on-surface-variant);
-        }
-
-        /* Actions */
-        .md-navbar__actions {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        /* Buttons */
-        .md-button {
-          display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 8px;
-          padding: 0 24px;
-          height: 40px;
-          border: none;
-          border-radius: var(--md-sys-shape-corner-full);
-          font-size: 14px;
-          font-weight: 500;
-          text-decoration: none;
-          cursor: pointer;
-          transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
-          position: relative;
-          overflow: hidden;
+          flex-shrink: 0;
         }
 
-        .md-button::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: currentColor;
-          opacity: 0;
-          transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+        .card-icon svg {
+          color: var(--md-sys-color-on-primary-container);
         }
 
-        .md-button:hover::before {
-          opacity: var(--md-sys-state-hover-opacity);
+        .card-content h3 {
+          font-size: 15px;
+          font-weight: 600;
+          color: var(--md-sys-color-on-surface);
+          margin: 0 0 4px 0;
         }
 
-        .md-button--filled {
-          background: var(--md-sys-color-primary);
-          color: var(--md-sys-color-on-primary);
-          display: none;
+        .card-content p {
+          font-size: 13px;
+          color: var(--md-sys-color-on-surface-variant);
+          margin: 0;
+          line-height: 1.4;
         }
 
-        @media (min-width: 968px) {
-          .md-button--filled {
-            display: inline-flex;
+        /* Right Actions */
+        .nav-actions {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        
+        @media (min-width: 768px) {
+          .nav-actions {
+            gap: 24px;
           }
         }
 
-        .md-button--filled:hover {
-          box-shadow: var(--md-sys-elevation-level1);
+        .action-link {
+          color: var(--md-sys-color-on-surface-variant);
+          text-decoration: none;
+          font-size: 15px;
+          font-weight: 500;
+          white-space: nowrap;
+          transition: color 0.2s;
+          display: none;
         }
 
-        .md-button--tonal {
-          background: var(--md-sys-color-secondary-container);
-          color: var(--md-sys-color-on-secondary-container);
+        @media (min-width: 1200px) {
+          .action-link {
+            display: block;
+          }
         }
 
-        .md-button--small {
+        .action-link:hover {
+          color: var(--md-sys-color-primary);
+        }
+
+        .appointment-btn {
+          padding: 12px 28px;
+          background: var(--md-sys-color-primary);
+          color: white;
+          text-decoration: none;
+          border-radius: 24px;
+          font-size: 15px;
+          font-weight: 600;
+          transition: all 0.3s;
+          white-space: nowrap;
+          display: none;
+        }
+
+        @media (min-width: 768px) {
+          .appointment-btn {
+            display: block;
+          }
+        }
+
+        .appointment-btn:hover {
+          background: var(--md-sys-color-primary);
+          box-shadow: 0 4px 16px rgba(0, 95, 115, 0.3);
+          transform: translateY(-2px);
+        }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+          width: 32px;
           height: 32px;
-          padding: 0 16px;
-          font-size: 12px;
-        }
-
-        .md-button--block {
-          width: 100%;
-        }
-
-        /* Icon Button */
-        .md-icon-button {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 48px;
-          height: 48px;
-          padding: 0;
-          border: none;
-          border-radius: var(--md-sys-shape-corner-full);
-          background: transparent;
-          color: var(--md-sys-color-on-surface);
-          cursor: pointer;
-          transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
-          position: relative;
-        }
-
-        .md-icon-button::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: currentColor;
-          opacity: 0;
-          border-radius: inherit;
-          transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-        }
-
-        .md-icon-button:hover::before {
-          opacity: var(--md-sys-state-hover-opacity);
-        }
-
-        /* Mobile Menu Toggle */
-        .md-navbar__toggle {
           display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 4px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
         }
 
-        @media (min-width: 968px) {
-          .md-navbar__toggle {
+        @media (min-width: 1024px) {
+          .mobile-toggle {
             display: none;
           }
         }
 
-        .md-navbar__toggle-icon {
+        .mobile-toggle span {
           width: 24px;
-          height: 18px;
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-
-        .md-navbar__toggle-icon span {
-          width: 100%;
           height: 2px;
-          background: currentColor;
-          border-radius: 1px;
-          transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
-          transform-origin: center;
+          background: var(--md-sys-color-on-surface);
+          border-radius: 2px;
+          transition: all 0.3s;
         }
 
-        .md-navbar__toggle--active .md-navbar__toggle-icon span:nth-child(1) {
-          transform: translateY(8px) rotate(45deg);
+        .mobile-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
         }
 
-        .md-navbar__toggle--active .md-navbar__toggle-icon span:nth-child(2) {
+        .mobile-toggle.active span:nth-child(2) {
           opacity: 0;
         }
 
-        .md-navbar__toggle--active .md-navbar__toggle-icon span:nth-child(3) {
-          transform: translateY(-8px) rotate(-45deg);
-        }
-
-        /* Mobile Overlay */
-        .md-mobile-overlay {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.5);
-          z-index: 1998;
-          opacity: 0;
-          visibility: hidden;
-          transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
-        }
-
-        .md-mobile-overlay--active {
-          opacity: 1;
-          visibility: visible;
+        .mobile-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -5px);
         }
 
         /* Mobile Menu */
-        .md-mobile-menu {
+        .mobile-menu {
           position: fixed;
           top: 0;
+          left: 0;
           right: 0;
           bottom: 0;
-          width: 85%;
-          max-width: 400px;
-          background: var(--md-sys-color-surface);
-          z-index: 1999;
-          transform: translateX(100%);
-          transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+          background: white;
+          z-index: 2000;
           display: flex;
           flex-direction: column;
+          transform: translateX(100%);
+          transition: transform 0.3s ease;
         }
 
-        .md-mobile-menu--active {
+        .mobile-menu.active {
           transform: translateX(0);
-          box-shadow: var(--md-sys-elevation-level3);
         }
 
-        .md-mobile-menu__header {
+        .mobile-header {
           display: flex;
-          align-items: center;
           justify-content: space-between;
-          padding: 16px;
+          align-items: center;
+          padding: 20px;
           border-bottom: 1px solid var(--md-sys-color-outline-variant);
         }
 
-        .md-mobile-menu__header .md-logo {
-          height: 32px;
+        .mobile-header img {
+          height: 36px;
         }
 
-        .md-mobile-menu__content {
-          flex: 1;
-          overflow-y: auto;
-          padding: 8px;
-        }
-
-        .md-mobile-menu__item {
-          margin-bottom: 4px;
-        }
-
-        .md-mobile-menu__link {
+        .close-btn {
+          width: 40px;
+          height: 40px;
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: center;
+          background: var(--md-sys-color-surface-container);
+          border: none;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+
+        .mobile-content {
+          flex: 1;
+          overflow-y: auto;
+          padding: 20px;
+        }
+
+        .mobile-item {
+          margin-bottom: 8px;
+        }
+
+        .mobile-link {
+          display: block;
           padding: 16px;
           color: var(--md-sys-color-on-surface);
           text-decoration: none;
           font-size: 16px;
           font-weight: 500;
-          border-radius: var(--md-sys-shape-corner-medium);
-          transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+          border-radius: 12px;
+          transition: background 0.2s;
         }
 
-        .md-mobile-menu__link:hover {
-          background: var(--md-sys-color-secondary-container);
+        .mobile-link:hover {
+          background: var(--md-sys-color-surface-container);
         }
 
-        .md-mobile-menu__submenu {
-          margin-left: 16px;
-          margin-top: 4px;
+        .mobile-submenu {
+          margin: 8px 0 16px 32px;
         }
 
-        .md-mobile-menu__sublink {
+        .mobile-sublink {
           display: block;
-          padding: 12px 16px;
+          padding: 12px;
           color: var(--md-sys-color-on-surface-variant);
           text-decoration: none;
           font-size: 14px;
-          border-radius: var(--md-sys-shape-corner-small);
-          transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+          border-radius: 8px;
         }
 
-        .md-mobile-menu__sublink:hover {
-          background: var(--md-sys-color-tertiary-container);
-          color: var(--md-sys-color-on-tertiary-container);
+        .mobile-sublink:hover {
+          background: var(--md-sys-color-surface-container);
         }
 
-        .md-mobile-menu__footer {
-          padding: 16px;
+        .mobile-footer {
+          padding: 20px;
           border-top: 1px solid var(--md-sys-color-outline-variant);
         }
 
-        /* Icons */
-        .md-icon {
-          flex-shrink: 0;
+        .mobile-language {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 16px;
         }
 
-        .md-icon--dropdown {
-          transition: transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+        .mobile-appointment {
+          display: block;
+          width: 100%;
+          padding: 16px;
+          background: var(--md-sys-color-primary);
+          color: white;
+          text-align: center;
+          text-decoration: none;
+          border-radius: 12px;
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 16px;
         }
 
-        .md-navbar__item:hover .md-icon--dropdown {
-          transform: rotate(180deg);
+        .mobile-contacts {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          text-align: center;
+        }
+
+        .mobile-contacts a {
+          color: var(--md-sys-color-on-surface-variant);
+          text-decoration: none;
+          font-size: 14px;
         }
 
         /* Responsive */
         @media (max-width: 640px) {
-          .md-logo--wide {
+          .logo-wide {
             display: none;
           }
-
-          .md-logo--mobile {
+          
+          .logo-icon {
             display: block;
             height: 40px;
           }
 
-          .md-header--scrolled .md-logo--mobile {
-            height: 36px;
+          .nav-content {
+            height: 64px;
           }
 
-          .md-container {
-            padding: 0 16px;
+          .modern-header.scrolled .nav-content {
+            height: 60px;
           }
         }
       `}</style>

@@ -17,8 +17,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
           {/* Placeholder for video or image gallery */}
           <div className="hero-image-placeholder">
             <img 
-              src="/images/dr-murzoglu-with-child.jpg" 
-              alt="Dr. Özlem Murzoğlu ile çocuk" 
+              src="/images/placeholder-doctor.svg" 
+              alt="Dr. Özlem Murzoğlu" 
               className="hero-image"
               loading="eager"
             />
@@ -35,20 +35,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
               Sosyal Pediatri ve Çocuk Gelişimi Uzmanlıklarını Bütünleştiren,
               <span className="hero-highlight"> Çocuğunuza Özel Bütüncül Bakım</span>
             </h1>
-
-            {/* Welcome Message from Dr. Murzoğlu */}
-            <div className="welcome-message">
-              <div className="message-avatar">
-                <img src="/logos/OM-Icon-Color.svg" alt="Dr. Özlem Murzoğlu" />
-              </div>
-              <div className="message-content">
-                <p className="message-text">
-                  "Kliniğimize hoş geldiniz. Amacımız, çocuğunuzun sadece sağlığını değil, 
-                  tüm potansiyelini desteklemektir."
-                </p>
-                <p className="message-author">Dr. Özlem Murzoğlu</p>
-              </div>
-            </div>
 
             {/* Primary CTAs */}
             <div className="hero-ctas">
@@ -82,21 +68,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
             </div>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="trust-indicators">
-            <div className="indicator">
-              <span className="indicator-value">15+</span>
-              <span className="indicator-label">Yıl Deneyim</span>
-            </div>
-            <div className="indicator">
-              <span className="indicator-value">10K+</span>
-              <span className="indicator-label">Mutlu Aile</span>
-            </div>
-            <div className="indicator">
-              <span className="indicator-value">4.9</span>
-              <span className="indicator-label">Google Puanı</span>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -298,53 +269,71 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
         }
 
         .btn-primary-cta {
-          background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+          background: #FFFFFF;
           color: #005F73;
-          border-radius: 20px;
-          box-shadow: 0 8px 24px rgba(0, 95, 115, 0.25);
-          border: 1px solid rgba(0, 95, 115, 0.1);
+          border-radius: 24px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+          border: 2px solid #005F73;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .btn-primary-cta::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(0, 95, 115, 0.05) 0%, rgba(0, 95, 115, 0.1) 100%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .btn-primary-cta:hover::before {
+          opacity: 1;
         }
 
         .btn-primary-cta .btn-icon {
-          background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+          background: #005F73;
           color: white;
+          box-shadow: 0 2px 8px rgba(0, 95, 115, 0.3);
         }
 
         .btn-primary-cta:hover {
-          transform: translateY(-3px) scale(1.02);
-          box-shadow: 0 12px 32px rgba(0, 95, 115, 0.35);
+          transform: translateY(-4px) scale(1.02);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+          border-color: #004456;
         }
 
         .btn-primary-cta:hover .btn-icon {
-          transform: rotate(5deg);
+          transform: rotate(10deg) scale(1.1);
+          background: #004456;
         }
 
         .btn-secondary-cta {
-          background: rgba(255, 255, 255, 0.15);
-          color: white;
-          border: 2px solid rgba(255, 255, 255, 0.3);
-          border-radius: 20px;
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
+          background: rgba(255, 255, 255, 0.95);
+          color: #005F73;
+          border: 2px solid #005F73;
+          border-radius: 24px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
         .btn-secondary-cta .btn-icon {
-          background: rgba(255, 255, 255, 0.2);
-          color: white;
+          background: #E8F5F7;
+          color: #005F73;
+          box-shadow: 0 2px 6px rgba(0, 95, 115, 0.2);
         }
 
         .btn-secondary-cta:hover {
-          background: rgba(255, 255, 255, 0.95);
-          color: #005F73;
-          border-color: rgba(255, 255, 255, 0.95);
-          transform: translateY(-3px) scale(1.02);
-          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+          background: #005F73;
+          color: white;
+          border-color: #005F73;
+          transform: translateY(-4px) scale(1.02);
+          box-shadow: 0 12px 40px rgba(0, 95, 115, 0.4);
         }
 
         .btn-secondary-cta:hover .btn-icon {
-          background: #005F73;
+          background: rgba(255, 255, 255, 0.2);
           color: white;
-          transform: rotate(-5deg);
+          transform: rotate(-10deg) scale(1.1);
         }
 
         .trust-indicators {
@@ -406,33 +395,39 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
         }
 
         @media (max-width: 768px) {
+          .hero-section {
+            padding-top: 64px;
+            min-height: 85vh;
+          }
+
+          .hero-content {
+            padding: 2rem 0;
+          }
+
           .hero-title {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
           }
 
-          .welcome-message {
-            flex-direction: column;
-            text-align: center;
-          }
-
-          .message-content {
-            text-align: center;
+          .hero-highlight {
+            font-size: 1.625rem;
           }
 
           .hero-ctas {
             flex-direction: column;
-            align-items: center;
+            align-items: stretch;
             gap: 1rem;
+            margin: 2rem 0;
           }
 
           .btn-primary-cta,
           .btn-secondary-cta {
             width: 100%;
-            max-width: 340px;
           }
 
           .btn-content {
-            padding: 1rem 1.5rem;
+            padding: 1rem 1.25rem;
           }
 
           .btn-icon {
@@ -448,12 +443,35 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
             font-size: 0.8125rem;
           }
 
-          .trust-indicators {
-            gap: 1.5rem;
+          .container {
+            padding: 0 1rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-title {
+            font-size: 1.25rem;
           }
 
-          .indicator-value {
-            font-size: 1.5rem;
+          .hero-highlight {
+            font-size: 1.375rem;
+          }
+
+          .btn-content {
+            padding: 0.875rem 1rem;
+          }
+
+          .btn-icon {
+            width: 36px;
+            height: 36px;
+          }
+
+          .btn-main-text {
+            font-size: 0.9375rem;
+          }
+
+          .btn-sub-text {
+            font-size: 0.75rem;
           }
         }
       `}</style>

@@ -236,12 +236,67 @@ const BlogSection: React.FC = () => {
         }
 
         @media (max-width: 768px) {
+          .blog-section {
+            padding: 3rem 0;
+          }
+
+          .container {
+            padding: 0 1rem;
+          }
+
+          .section-header {
+            margin-bottom: 2.5rem;
+          }
+
           .section-title {
-            font-size: 2rem;
+            font-size: 1.75rem;
+          }
+
+          .section-subtitle {
+            font-size: 1rem;
           }
 
           .blog-grid {
             grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
+
+          .blog-card {
+            padding: 1.5rem;
+          }
+
+          .card-title {
+            font-size: 1.125rem;
+          }
+
+          .card-excerpt {
+            font-size: 0.9375rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .section-title {
+            font-size: 1.5rem;
+          }
+
+          .section-subtitle {
+            font-size: 0.9375rem;
+          }
+
+          .blog-card {
+            padding: 1.25rem;
+          }
+
+          .card-title {
+            font-size: 1rem;
+          }
+
+          .card-excerpt {
+            font-size: 0.875rem;
+          }
+
+          .card-meta {
+            font-size: 0.75rem;
           }
         }
       `}</style>
