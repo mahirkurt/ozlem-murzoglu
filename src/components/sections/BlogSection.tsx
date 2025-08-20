@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { BlogIllustration } from '@/components/ui/BlogIllustrations'
 
 const BlogSection: React.FC = () => {
   const blogPosts = [
@@ -12,7 +13,8 @@ const BlogSection: React.FC = () => {
       category: 'Uyku Danışmanlığı',
       date: '15 Aralık 2024',
       readTime: '5 dk okuma',
-      image: '/images/blog/sleep-routine.jpg'
+      illustrationType: 'sleep' as const,
+      color: 'primary'
     },
     {
       id: 2,
@@ -21,7 +23,8 @@ const BlogSection: React.FC = () => {
       category: 'Ebeveynlik',
       date: '12 Aralık 2024',
       readTime: '7 dk okuma',
-      image: '/images/blog/triple-p.jpg'
+      illustrationType: 'parenting' as const,
+      color: 'secondary'
     },
     {
       id: 3,
@@ -30,7 +33,8 @@ const BlogSection: React.FC = () => {
       category: 'Aşılama',
       date: '10 Aralık 2024',
       readTime: '4 dk okuma',
-      image: '/images/blog/vaccination.jpg'
+      illustrationType: 'vaccination' as const,
+      color: 'tertiary'
     }
   ]
 
@@ -46,10 +50,11 @@ const BlogSection: React.FC = () => {
 
         <div className="blog-grid">
           {blogPosts.map((post) => (
-            <article key={post.id} className="blog-card">
+            <article key={post.id} className={`blog-card blog-card--${post.color}`}>
               <Link href={`/blog/${post.id}`}>
                 <div className="blog-image">
                   <div className="image-placeholder">
+                    <BlogIllustration type={post.illustrationType} className="blog-illustration" />
                     <span className="category-badge">{post.category}</span>
                   </div>
                 </div>
@@ -85,53 +90,130 @@ const BlogSection: React.FC = () => {
 
       <style jsx>{`
         .blog-section {
-          padding: 4rem 0;
-          background: var(--md-sys-color-surface-container-low);
+          padding: 80px 0;
+          background: linear-gradient(180deg, 
+            var(--md-sys-color-surface) 0%, 
+            rgba(148, 187, 233, 0.03) 100%
+          );
+          position: relative;
+          overflow: hidden;
+        }
+
+        .blog-section::before {
+          content: '';
+          position: absolute;
+          top: -100px;
+          right: -100px;
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(circle, rgba(255, 183, 77, 0.05) 0%, transparent 70%);
+          border-radius: 50%;
+        }
+
+        .blog-section::after {
+          content: '';
+          position: absolute;
+          bottom: -150px;
+          left: -150px;
+          width: 400px;
+          height: 400px;
+          background: radial-gradient(circle, rgba(0, 95, 115, 0.03) 0%, transparent 70%);
+          border-radius: 50%;
         }
 
         .container {
           max-width: 1200px;
           margin: 0 auto;
-          padding: 0 1.5rem;
+          padding: 0 24px;
+          position: relative;
+          z-index: 1;
         }
 
         .section-header {
           text-align: center;
-          margin-bottom: 3rem;
+          margin-bottom: 64px;
         }
 
         .section-title {
           font-size: 2.5rem;
           font-weight: 700;
           color: var(--md-sys-color-on-surface);
-          margin-bottom: 1rem;
+          margin-bottom: 16px;
+          position: relative;
+          display: inline-block;
+        }
+
+        .section-title::after {
+          content: '';
+          position: absolute;
+          bottom: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 3px;
+          background: linear-gradient(90deg, #FFB74D 0%, #FFA726 100%);
+          border-radius: 2px;
         }
 
         .section-subtitle {
           font-size: 1.125rem;
           color: var(--md-sys-color-on-surface-variant);
           max-width: 600px;
-          margin: 0 auto;
+          margin: 20px auto 0;
+          line-height: 1.6;
         }
 
         .blog-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 2rem;
-          margin-bottom: 3rem;
+          grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+          gap: 32px;
+          margin-bottom: 48px;
+        }
+
+        @media (min-width: 1024px) {
+          .blog-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
         }
 
         .blog-card {
           background: white;
-          border-radius: 16px;
+          border-radius: 20px;
           overflow: hidden;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-          transition: all 0.3s ease;
+          box-shadow: 0 4px 16px rgba(0, 95, 115, 0.08);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          border: 1px solid rgba(0, 95, 115, 0.06);
+          position: relative;
+        }
+
+        .blog-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, #005F73 0%, #0A8FA3 100%);
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+
+        .blog-card--secondary::before {
+          background: linear-gradient(90deg, #FFB74D 0%, #FFA726 100%);
+        }
+
+        .blog-card--tertiary::before {
+          background: linear-gradient(90deg, #94BBE9 0%, #7BA7E7 100%);
+        }
+
+        .blog-card:hover::before {
+          opacity: 1;
         }
 
         .blog-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+          transform: translateY(-8px);
+          box-shadow: 0 12px 32px rgba(0, 95, 115, 0.12);
+          border-color: transparent;
         }
 
         .blog-card a {
@@ -141,9 +223,29 @@ const BlogSection: React.FC = () => {
 
         .blog-image {
           position: relative;
-          height: 200px;
-          background: linear-gradient(135deg, #005F73 0%, #94BBE9 100%);
+          height: 220px;
+          background: linear-gradient(135deg, 
+            rgba(0, 95, 115, 0.03) 0%, 
+            rgba(148, 187, 233, 0.06) 100%
+          );
           overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .blog-card--secondary .blog-image {
+          background: linear-gradient(135deg, 
+            rgba(255, 183, 77, 0.05) 0%, 
+            rgba(255, 167, 38, 0.08) 100%
+          );
+        }
+
+        .blog-card--tertiary .blog-image {
+          background: linear-gradient(135deg, 
+            rgba(148, 187, 233, 0.05) 0%, 
+            rgba(123, 167, 231, 0.08) 100%
+          );
         }
 
         .image-placeholder {
@@ -153,62 +255,104 @@ const BlogSection: React.FC = () => {
           align-items: center;
           justify-content: center;
           position: relative;
+          padding: 20px;
+        }
+
+        .blog-illustration {
+          width: 100%;
+          height: 100%;
+          max-width: 300px;
+          opacity: 0.9;
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .blog-card:hover .blog-illustration {
+          transform: scale(1.05);
         }
 
         .category-badge {
           position: absolute;
-          top: 1rem;
-          left: 1rem;
+          top: 16px;
+          left: 16px;
           background: white;
           color: #005F73;
-          padding: 0.5rem 1rem;
+          padding: 6px 16px;
           border-radius: 20px;
           font-size: 0.875rem;
-          font-weight: 500;
+          font-weight: 600;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          z-index: 2;
+        }
+
+        .blog-card--secondary .category-badge {
+          background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
+          color: white;
+        }
+
+        .blog-card--tertiary .category-badge {
+          background: linear-gradient(135deg, #94BBE9 0%, #7BA7E7 100%);
+          color: white;
         }
 
         .blog-content {
-          padding: 1.5rem;
+          padding: 28px;
         }
 
         .blog-meta {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          margin-bottom: 1rem;
+          gap: 8px;
+          margin-bottom: 16px;
           color: var(--md-sys-color-on-surface-variant);
           font-size: 0.875rem;
         }
 
         .blog-divider {
-          opacity: 0.5;
+          opacity: 0.4;
         }
 
         .blog-title {
           font-size: 1.25rem;
           font-weight: 600;
           color: var(--md-sys-color-on-surface);
-          margin-bottom: 0.75rem;
+          margin-bottom: 12px;
           line-height: 1.4;
+          transition: color 0.3s;
+        }
+
+        .blog-card:hover .blog-title {
+          color: #005F73;
         }
 
         .blog-excerpt {
           color: var(--md-sys-color-on-surface-variant);
           line-height: 1.6;
-          margin-bottom: 1rem;
+          margin-bottom: 20px;
+          font-size: 0.9375rem;
         }
 
         .blog-link {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          color: var(--md-sys-color-secondary);
-          font-weight: 500;
+          gap: 8px;
+          color: #005F73;
+          font-weight: 600;
           font-size: 0.9375rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          transition: all 0.3s;
+        }
+
+        .blog-card--secondary .blog-link {
+          color: #F57C00;
+        }
+
+        .blog-card--tertiary .blog-link {
+          color: #5E92F3;
         }
 
         .blog-card:hover .blog-link {
-          gap: 0.75rem;
+          gap: 12px;
         }
 
         .section-footer {
@@ -218,38 +362,35 @@ const BlogSection: React.FC = () => {
         .view-all-link {
           display: inline-flex;
           align-items: center;
-          gap: 0.75rem;
-          padding: 1rem 2rem;
-          background: var(--md-sys-color-secondary);
+          gap: 12px;
+          padding: 14px 32px;
+          background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
           color: white;
-          border-radius: 24px;
+          border-radius: 28px;
           text-decoration: none;
-          font-weight: 500;
-          transition: all 0.3s ease;
+          font-weight: 600;
+          font-size: 15px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 12px rgba(255, 167, 38, 0.3);
         }
 
         .view-all-link:hover {
-          background: var(--md-sys-color-secondary-container);
-          color: var(--md-sys-color-on-secondary-container);
           transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          box-shadow: 0 6px 20px rgba(255, 167, 38, 0.4);
+          gap: 16px;
         }
 
         @media (max-width: 768px) {
           .blog-section {
-            padding: 3rem 0;
-          }
-
-          .container {
-            padding: 0 1rem;
+            padding: 60px 0;
           }
 
           .section-header {
-            margin-bottom: 2.5rem;
+            margin-bottom: 48px;
           }
 
           .section-title {
-            font-size: 1.75rem;
+            font-size: 1.875rem;
           }
 
           .section-subtitle {
@@ -258,45 +399,23 @@ const BlogSection: React.FC = () => {
 
           .blog-grid {
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 24px;
           }
 
-          .blog-card {
-            padding: 1.5rem;
+          .blog-image {
+            height: 180px;
           }
 
-          .card-title {
+          .blog-content {
+            padding: 20px;
+          }
+
+          .blog-title {
             font-size: 1.125rem;
           }
 
-          .card-excerpt {
-            font-size: 0.9375rem;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .section-title {
-            font-size: 1.5rem;
-          }
-
-          .section-subtitle {
-            font-size: 0.9375rem;
-          }
-
-          .blog-card {
-            padding: 1.25rem;
-          }
-
-          .card-title {
-            font-size: 1rem;
-          }
-
-          .card-excerpt {
+          .blog-excerpt {
             font-size: 0.875rem;
-          }
-
-          .card-meta {
-            font-size: 0.75rem;
           }
         }
       `}</style>
