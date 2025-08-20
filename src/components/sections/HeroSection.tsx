@@ -32,8 +32,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
           {/* Main Value Proposition */}
           <div className="hero-main">
             <h1 className="hero-title">
-              Sosyal Pediatri ve Çocuk Gelişimi Uzmanlıklarını Bütünleştiren,
-              <span className="hero-highlight"> Çocuğunuza Özel Bütüncül Bakım</span>
+              Çocuk hekimliğini sosyal pediatri ve çocuk sağlığı konseptleriyle
+              <span className="hero-highlight"> bütünleştiren kapsamlı ve nitelikli sağlık hizmeti</span>
             </h1>
 
             {/* Primary CTAs */}
@@ -47,7 +47,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
                   </div>
                   <div className="btn-text-group">
                     <span className="btn-main-text">Hemen Randevu Al</span>
-                    <span className="btn-sub-text">Yeni Hastalar İçin</span>
+                    <span className="btn-sub-text">Online Rezervasyon</span>
                   </div>
                 </div>
               </Link>
@@ -269,11 +269,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
         }
 
         .btn-primary-cta {
-          background: #FFFFFF;
-          color: #005F73;
+          background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
+          color: #FFFFFF;
           border-radius: 24px;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-          border: 2px solid #005F73;
+          box-shadow: 0 8px 32px rgba(255, 167, 38, 0.4);
+          border: none;
           position: relative;
           overflow: hidden;
         }
@@ -282,9 +282,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, rgba(0, 95, 115, 0.05) 0%, rgba(0, 95, 115, 0.1) 100%);
+          background: linear-gradient(135deg, #FFA726 0%, #FF9800 100%);
           opacity: 0;
           transition: opacity 0.3s ease;
+          border-radius: 24px;
         }
 
         .btn-primary-cta:hover::before {
@@ -292,20 +293,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ locale }) => {
         }
 
         .btn-primary-cta .btn-icon {
-          background: #005F73;
+          background: rgba(255, 255, 255, 0.3);
           color: white;
-          box-shadow: 0 2px 8px rgba(0, 95, 115, 0.3);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .btn-primary-cta:hover {
           transform: translateY(-4px) scale(1.02);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-          border-color: #004456;
+          box-shadow: 0 12px 40px rgba(255, 167, 38, 0.5);
         }
 
         .btn-primary-cta:hover .btn-icon {
           transform: rotate(10deg) scale(1.1);
-          background: #004456;
+          background: rgba(255, 255, 255, 0.4);
         }
 
         .btn-secondary-cta {

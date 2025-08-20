@@ -54,9 +54,14 @@ const ApproachSection: React.FC = () => {
         <div className="approach-grid">
           {approaches.map((item, index) => (
             <Link href={item.href} key={index} className={`approach-card approach-card--${item.color}`}>
+              <div className="card-glow"></div>
+              
               <div className="card-header">
                 <div className="card-icon">
                   {item.icon}
+                </div>
+                <div className="card-badge">
+                  <span>{index + 1}</span>
                 </div>
               </div>
               
@@ -79,53 +84,88 @@ const ApproachSection: React.FC = () => {
       <style jsx>{`
         .approach-section {
           padding: 80px 0;
-          background: var(--md-sys-color-surface);
+          background: linear-gradient(180deg, 
+            var(--md-sys-color-surface) 0%, 
+            rgba(255, 183, 77, 0.03) 100%
+          );
           position: relative;
+          overflow: hidden;
         }
 
         .approach-section::before {
           content: '';
           position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 1px;
-          background: linear-gradient(
-            90deg,
-            transparent 0%,
-            var(--md-sys-color-outline-variant) 50%,
-            transparent 100%
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 183, 77, 0.05) 0%,
+            transparent 50%
           );
+          pointer-events: none;
+        }
+
+        .approach-section::after {
+          content: '';
+          position: absolute;
+          top: -50%;
+          right: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(
+            circle at 80% 20%,
+            rgba(0, 95, 115, 0.03) 0%,
+            transparent 50%
+          );
+          pointer-events: none;
         }
 
         .container {
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 24px;
+          position: relative;
+          z-index: 1;
         }
 
         .section-header {
           text-align: center;
-          margin-bottom: 56px;
+          margin-bottom: 64px;
         }
 
         .section-header h2 {
           color: var(--md-sys-color-on-surface);
-          margin-bottom: 16px;
+          margin-bottom: 20px;
+          position: relative;
+          display: inline-block;
+        }
+
+        .section-header h2::after {
+          content: '';
+          position: absolute;
+          bottom: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 3px;
+          background: linear-gradient(90deg, #FFB74D 0%, #FFA726 100%);
+          border-radius: 2px;
         }
 
         .section-header p {
           color: var(--md-sys-color-on-surface-variant);
           max-width: 600px;
-          margin: 0 auto;
+          margin: 20px auto 0;
           line-height: 1.6;
         }
 
-        /* MD3 Grid */
+        /* MD3 Grid with Dynamic Layout */
         .approach-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 24px;
+          gap: 32px;
         }
 
         @media (min-width: 1024px) {
@@ -134,134 +174,203 @@ const ApproachSection: React.FC = () => {
           }
         }
 
-        /* MD3 Card */
+        /* Enhanced MD3 Card */
         .approach-card {
-          background: var(--md-sys-color-surface-container);
-          border-radius: var(--md-sys-shape-corner-large);
+          background: white;
+          border-radius: 24px;
           padding: 0;
           text-decoration: none;
           color: inherit;
-          box-shadow: var(--md-sys-elevation-level0);
-          transition: all var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+          box-shadow: 0 2px 12px rgba(0, 95, 115, 0.08);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           display: flex;
           flex-direction: column;
           position: relative;
           overflow: hidden;
-          border: 1px solid var(--md-sys-color-outline-variant);
+          border: 1px solid rgba(0, 95, 115, 0.06);
         }
 
-        .approach-card::before {
-          content: '';
+        /* Animated Glow Effect */
+        .card-glow {
           position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: var(--md-sys-color-on-surface);
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          background: linear-gradient(45deg, 
+            #FFB74D, 
+            #FFA726, 
+            #005F73,
+            #0A8FA3,
+            #FFB74D
+          );
+          background-size: 400% 400%;
+          border-radius: 24px;
           opacity: 0;
-          transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-          z-index: 1;
+          z-index: -1;
+          transition: opacity 0.4s ease;
+          animation: gradientShift 3s ease infinite;
         }
 
-        .approach-card:hover::before {
-          opacity: var(--md-sys-state-hover-opacity);
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .approach-card:hover .card-glow {
+          opacity: 0.3;
         }
 
         .approach-card:hover {
-          transform: translateY(-8px);
-          box-shadow: var(--md-sys-elevation-level3);
-          border-color: var(--md-sys-color-primary);
+          transform: translateY(-12px) scale(1.02);
+          box-shadow: 0 20px 40px rgba(0, 95, 115, 0.15);
+          border-color: transparent;
         }
 
-        /* Card Header with Icon */
+        /* Card Header with Badge */
         .card-header {
           padding: 32px 32px 24px;
-          background: var(--md-sys-color-primary-container);
+          background: linear-gradient(135deg, 
+            rgba(0, 95, 115, 0.05) 0%, 
+            rgba(0, 95, 115, 0.02) 100%
+          );
           position: relative;
-          z-index: 2;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
         }
 
         .approach-card--secondary .card-header {
-          background: var(--md-sys-color-secondary-container);
+          background: linear-gradient(135deg, 
+            rgba(255, 183, 77, 0.08) 0%, 
+            rgba(255, 167, 38, 0.04) 100%
+          );
         }
 
         .approach-card--tertiary .card-header {
-          background: var(--md-sys-color-tertiary-container);
+          background: linear-gradient(135deg, 
+            rgba(148, 187, 233, 0.08) 0%, 
+            rgba(148, 187, 233, 0.04) 100%
+          );
         }
 
         .card-icon {
           width: 64px;
           height: 64px;
-          border-radius: var(--md-sys-shape-corner-full);
-          background: var(--md-sys-color-surface);
+          border-radius: 20px;
+          background: linear-gradient(135deg, #005F73 0%, #0A8FA3 100%);
           display: flex;
           align-items: center;
           justify-content: center;
-          color: var(--md-sys-color-on-primary-container);
-          box-shadow: var(--md-sys-elevation-level1);
-          transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+          color: white;
+          box-shadow: 0 4px 12px rgba(0, 95, 115, 0.2);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .approach-card--secondary .card-icon {
-          color: var(--md-sys-color-on-secondary-container);
+          background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
+          box-shadow: 0 4px 12px rgba(255, 167, 38, 0.3);
         }
 
         .approach-card--tertiary .card-icon {
-          color: var(--md-sys-color-on-tertiary-container);
+          background: linear-gradient(135deg, #94BBE9 0%, #7BA7E7 100%);
+          box-shadow: 0 4px 12px rgba(148, 187, 233, 0.3);
         }
 
         .approach-card:hover .card-icon {
           transform: scale(1.1) rotate(5deg);
-          box-shadow: var(--md-sys-elevation-level2);
+          border-radius: 24px;
+        }
+
+        /* Number Badge */
+        .card-badge {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          width: 32px;
+          height: 32px;
+          background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: 700;
+          font-size: 14px;
+          box-shadow: 0 2px 8px rgba(255, 167, 38, 0.3);
         }
 
         /* Card Content */
         .card-content {
-          padding: 24px 32px;
+          padding: 24px 32px 32px;
           flex: 1;
-          position: relative;
-          z-index: 2;
         }
 
         .card-title {
           color: var(--md-sys-color-on-surface);
           margin-bottom: 12px;
           font-weight: 600;
+          font-size: 22px;
         }
 
         .card-description {
           color: var(--md-sys-color-on-surface-variant);
           line-height: 1.6;
+          font-size: 15px;
         }
 
-        /* Card Action */
+        /* Enhanced Card Action */
         .card-action {
-          padding: 16px 32px 24px;
+          padding: 20px 32px;
           display: flex;
           align-items: center;
           gap: 8px;
-          color: var(--md-sys-color-primary);
-          font-weight: 500;
-          font-size: var(--md-sys-typescale-label-large-size);
-          position: relative;
-          z-index: 2;
-          transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+          background: linear-gradient(90deg, 
+            rgba(255, 183, 77, 0.1) 0%, 
+            rgba(255, 167, 38, 0.05) 100%
+          );
+          border-top: 1px solid rgba(255, 183, 77, 0.2);
+          color: #F57C00;
+          font-weight: 600;
+          font-size: 14px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .approach-card--secondary .card-action {
-          color: var(--md-sys-color-secondary);
+        .approach-card--primary .card-action {
+          background: linear-gradient(90deg, 
+            rgba(0, 95, 115, 0.08) 0%, 
+            rgba(0, 95, 115, 0.04) 100%
+          );
+          border-color: rgba(0, 95, 115, 0.2);
+          color: #005F73;
         }
 
         .approach-card--tertiary .card-action {
-          color: var(--md-sys-color-tertiary);
+          background: linear-gradient(90deg, 
+            rgba(148, 187, 233, 0.08) 0%, 
+            rgba(148, 187, 233, 0.04) 100%
+          );
+          border-color: rgba(148, 187, 233, 0.2);
+          color: #5E92F3;
         }
 
         .action-icon {
-          transition: transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .approach-card:hover .card-action {
+          padding-left: 36px;
+          background: linear-gradient(90deg, 
+            rgba(255, 183, 77, 0.15) 0%, 
+            rgba(255, 167, 38, 0.08) 100%
+          );
         }
 
         .approach-card:hover .action-icon {
-          transform: translateX(4px);
+          transform: translateX(8px);
         }
 
         /* Responsive */
@@ -271,7 +380,7 @@ const ApproachSection: React.FC = () => {
           }
 
           .section-header {
-            margin-bottom: 40px;
+            margin-bottom: 48px;
           }
 
           .section-header h2 {
@@ -280,7 +389,7 @@ const ApproachSection: React.FC = () => {
 
           .approach-grid {
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 24px;
           }
 
           .card-header {
@@ -288,11 +397,19 @@ const ApproachSection: React.FC = () => {
           }
 
           .card-content {
-            padding: 20px 24px;
+            padding: 20px 24px 24px;
           }
 
           .card-action {
-            padding: 12px 24px 20px;
+            padding: 16px 24px;
+          }
+
+          .card-title {
+            font-size: 20px;
+          }
+
+          .card-description {
+            font-size: 14px;
           }
         }
       `}</style>

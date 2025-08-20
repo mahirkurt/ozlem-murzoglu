@@ -35,10 +35,7 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
 
   // Menü öğelerini grupla
   const primaryMenu = navigation.filter(item => 
-    ['Ana Sayfa', 'Hakkımızda', 'Hizmetlerimiz', 'Makaleler'].includes(item.label)
-  )
-  const secondaryMenu = navigation.filter(item => 
-    ['Sıkça Sorulan Sorular', 'İletişim'].includes(item.label)
+    ['Ana Sayfa', 'Hakkımızda', 'Hizmetlerimiz', 'Makaleler', 'İletişim'].includes(item.label)
   )
 
   return (
@@ -99,34 +96,25 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
                   >
                     <Link href={item.href} className="nav-link">
                       {item.label}
+                      {item.children && (
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="dropdown-icon">
+                          <path d="M7 10l5 5 5-5z"/>
+                        </svg>
+                      )}
                     </Link>
                     
-                    {/* Mega Menu Style Dropdown */}
+                    {/* Dropdown Menu */}
                     {item.children && activeDropdown === item.label && (
-                      <div className="mega-dropdown">
-                        <div className="dropdown-container">
-                          <div className="dropdown-grid">
-                            {item.children.map((child) => (
-                              <Link 
-                                key={child.href} 
-                                href={child.href} 
-                                className="dropdown-card"
-                              >
-                                <div className="card-icon">
-                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                  </svg>
-                                </div>
-                                <div className="card-content">
-                                  <h3>{child.label}</h3>
-                                  {child.description && (
-                                    <p>{child.description}</p>
-                                  )}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
+                      <div className="dropdown-menu">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="dropdown-link"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
                       </div>
                     )}
                   </div>
@@ -135,51 +123,50 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
 
               {/* Right Actions */}
               <div className="nav-actions">
-                {secondaryMenu.map((item) => (
-                  <Link key={item.href} href={item.href} className="action-link">
-                    {item.label}
-                  </Link>
-                ))}
                 <LanguageSwitcher locale={locale} />
                 <Link href="/randevu" className="appointment-btn">
-                  Randevu Al
+                  <span>Randevu Al</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                  </svg>
                 </Link>
-                
-                {/* Mobile Toggle */}
-                <button
-                  className={`mobile-toggle ${isMobileMenuOpen ? 'active' : ''}`}
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  aria-label="Menü"
-                >
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </button>
               </div>
+
+              {/* Mobile Menu Toggle */}
+              <button
+                className="mobile-menu-toggle"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                <span className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </button>
             </div>
           </div>
         </nav>
       </header>
 
-      {/* Mobile Menu - Full Screen */}
+      {/* Mobile Menu Overlay */}
       <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-        <div className="mobile-header">
+        <div className="mobile-menu-header">
           <img src="/logos/OM-Wide-Color.svg" alt="Dr. Özlem Murzoğlu" />
-          <button onClick={() => setIsMobileMenuOpen(false)} className="close-btn">
+          <button
+            className="mobile-menu-close"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="Close menu"
+          >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
             </svg>
           </button>
         </div>
-        
-        <div className="mobile-content">
-          {navigation.map((item) => (
-            <div key={item.href} className="mobile-item">
-              <Link
-                href={item.href}
-                className="mobile-link"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+        <nav className="mobile-menu-nav">
+          {primaryMenu.map((item) => (
+            <div key={item.href} className="mobile-menu-item">
+              <Link href={item.href} className="mobile-menu-link" onClick={() => setIsMobileMenuOpen(false)}>
                 {item.label}
               </Link>
               {item.children && (
@@ -188,7 +175,7 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="mobile-sublink"
+                      className="mobile-submenu-link"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {child.label}
@@ -198,121 +185,105 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
               )}
             </div>
           ))}
-        </div>
-
-        <div className="mobile-footer">
-          <div className="mobile-language">
-            <LanguageSwitcher locale={locale} />
-          </div>
-          <Link href="/randevu" className="mobile-appointment" onClick={() => setIsMobileMenuOpen(false)}>
+        </nav>
+        <div className="mobile-menu-footer">
+          <LanguageSwitcher locale={locale} />
+          <Link href="/randevu" className="mobile-appointment-btn" onClick={() => setIsMobileMenuOpen(false)}>
             Randevu Al
           </Link>
-          <div className="mobile-contacts">
-            <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a>
-            <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
-          </div>
         </div>
       </div>
 
       <style jsx>{`
-        /* Modern Header Design */
+        /* Header Container */
         .modern-header {
           position: fixed;
           top: 0;
           left: 0;
           right: 0;
+          background: #FFFFFF;
+          box-shadow: 0 2px 8px rgba(0, 95, 115, 0.08);
           z-index: 1000;
-          background: white;
           transition: all 0.3s ease;
         }
 
         .modern-header.scrolled {
-          box-shadow: 0 2px 20px rgba(0, 95, 115, 0.1);
+          box-shadow: 0 4px 20px rgba(0, 95, 115, 0.12);
+        }
+
+        /* Top Bar */
+        .top-bar {
+          background: linear-gradient(135deg, #005F73 0%, #0A8FA3 100%);
+          color: white;
+          padding: 6px 0;
+          font-size: 13px;
         }
 
         .container {
           max-width: 1400px;
           margin: 0 auto;
-          padding: 0 20px;
-        }
-
-        /* Top Bar - Minimal */
-        .top-bar {
-          background: var(--md-sys-color-surface-container);
-          border-bottom: 1px solid var(--md-sys-color-outline-variant);
-          display: none;
-        }
-
-        @media (min-width: 1024px) {
-          .top-bar {
-            display: block;
-          }
+          padding: 0 24px;
         }
 
         .top-bar-content {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          height: 36px;
-          font-size: 13px;
         }
 
         .contact-info {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 16px;
         }
 
         .contact-link {
           display: flex;
           align-items: center;
           gap: 6px;
-          color: var(--md-sys-color-on-surface-variant);
+          color: white;
           text-decoration: none;
-          transition: color 0.2s;
+          transition: opacity 0.2s;
         }
 
         .contact-link:hover {
-          color: var(--md-sys-color-primary);
+          opacity: 0.9;
+        }
+
+        .contact-link svg {
+          opacity: 0.9;
         }
 
         .separator {
-          color: var(--md-sys-color-outline-variant);
-          margin: 0 8px;
+          opacity: 0.4;
         }
 
         .portal-link {
-          padding: 4px 16px;
-          background: var(--md-sys-color-primary);
           color: white;
           text-decoration: none;
-          border-radius: 16px;
-          font-size: 12px;
           font-weight: 500;
           transition: all 0.2s;
+          padding: 4px 12px;
+          border-radius: 4px;
+          background: rgba(255, 255, 255, 0.1);
         }
 
         .portal-link:hover {
-          background: var(--md-sys-color-primary);
-          transform: translateX(2px);
+          background: rgba(255, 255, 255, 0.2);
         }
 
         /* Main Navigation */
         .main-nav {
           background: white;
-          position: relative;
+          padding: 16px 0;
+          border-bottom: 1px solid rgba(0, 95, 115, 0.08);
         }
 
         .nav-content {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          height: 80px;
-          gap: 40px;
-        }
-
-        .modern-header.scrolled .nav-content {
-          height: 70px;
+          gap: 48px;
         }
 
         /* Logo */
@@ -323,19 +294,19 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
         }
 
         .logo img {
-          height: 40px;
+          height: 48px;
           width: auto;
           transition: height 0.3s;
           object-fit: contain;
         }
 
         .modern-header.scrolled .logo img {
-          height: 35px;
+          height: 40px;
         }
 
         .logo-wide {
           display: block;
-          max-width: 150px;
+          max-width: 200px;
         }
 
         .logo-icon {
@@ -346,7 +317,9 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
         .nav-menu {
           display: none;
           align-items: center;
-          gap: 8px;
+          gap: 0;
+          flex: 1;
+          justify-content: center;
         }
 
         @media (min-width: 1024px) {
@@ -360,332 +333,329 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
         }
 
         .nav-link {
-          display: block;
-          padding: 10px 16px;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          padding: 12px 20px;
           color: var(--md-sys-color-on-surface);
           text-decoration: none;
           font-size: 15px;
           font-weight: 500;
           white-space: nowrap;
-          border-radius: 8px;
-          transition: all 0.2s;
+          border-radius: 12px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+        }
+
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: 8px;
+          left: 50%;
+          transform: translateX(-50%) scaleX(0);
+          width: calc(100% - 32px);
+          height: 2px;
+          background: linear-gradient(90deg, #FFB74D, #FFA726);
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-link:hover {
-          background: var(--md-sys-color-primary-container);
-          color: var(--md-sys-color-on-primary-container);
+          color: #005F73;
+          background: rgba(0, 95, 115, 0.04);
         }
 
-        /* Mega Dropdown */
-        .mega-dropdown {
+        .nav-link:hover::after {
+          transform: translateX(-50%) scaleX(1);
+        }
+
+        .dropdown-icon {
+          margin-left: 2px;
+          transition: transform 0.3s;
+        }
+
+        .nav-item:hover .dropdown-icon {
+          transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
           position: absolute;
-          top: calc(100% + 8px);
+          top: 100%;
           left: 50%;
           transform: translateX(-50%);
           background: white;
           border-radius: 16px;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-          padding: 24px;
-          min-width: 600px;
+          box-shadow: 0 8px 32px rgba(0, 95, 115, 0.15);
+          padding: 12px;
+          min-width: 240px;
+          margin-top: 8px;
           opacity: 0;
-          visibility: hidden;
           transform: translateX(-50%) translateY(-10px);
-          transition: all 0.3s ease;
+          animation: dropdownSlide 0.3s ease forwards;
+          border: 1px solid rgba(0, 95, 115, 0.08);
         }
 
-        .nav-item:hover .mega-dropdown {
-          opacity: 1;
-          visibility: visible;
-          transform: translateX(-50%) translateY(0);
+        @keyframes dropdownSlide {
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+          }
         }
 
-        .dropdown-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
-        }
-
-        .dropdown-card {
-          display: flex;
-          align-items: flex-start;
-          gap: 16px;
-          padding: 16px;
-          text-decoration: none;
-          border-radius: 12px;
-          transition: all 0.2s;
-        }
-
-        .dropdown-card:hover {
-          background: var(--md-sys-color-surface-container);
-        }
-
-        .card-icon {
-          width: 40px;
-          height: 40px;
-          background: var(--md-sys-color-primary-container);
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-
-        .card-icon svg {
-          color: var(--md-sys-color-on-primary-container);
-        }
-
-        .card-content h3 {
-          font-size: 15px;
-          font-weight: 600;
+        .dropdown-link {
+          display: block;
+          padding: 10px 16px;
           color: var(--md-sys-color-on-surface);
-          margin: 0 0 4px 0;
+          text-decoration: none;
+          font-size: 14px;
+          border-radius: 8px;
+          transition: all 0.2s;
+          white-space: normal;
+          line-height: 1.4;
         }
 
-        .card-content p {
-          font-size: 13px;
-          color: var(--md-sys-color-on-surface-variant);
-          margin: 0;
-          line-height: 1.4;
+        .dropdown-link:hover {
+          background: linear-gradient(135deg, rgba(255, 183, 77, 0.1), rgba(255, 167, 38, 0.1));
+          color: #005F73;
+          padding-left: 20px;
         }
 
         /* Right Actions */
         .nav-actions {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-        }
-        
-        @media (min-width: 768px) {
-          .nav-actions {
-            gap: 24px;
-          }
-        }
-
-        .action-link {
-          color: var(--md-sys-color-on-surface-variant);
-          text-decoration: none;
-          font-size: 15px;
-          font-weight: 500;
-          white-space: nowrap;
-          transition: color 0.2s;
           display: none;
+          align-items: center;
+          gap: 16px;
         }
 
-        @media (min-width: 1200px) {
-          .action-link {
-            display: block;
+        @media (min-width: 1024px) {
+          .nav-actions {
+            display: flex;
           }
-        }
-
-        .action-link:hover {
-          color: var(--md-sys-color-primary);
         }
 
         .appointment-btn {
-          padding: 12px 28px;
-          background: var(--md-sys-color-primary);
-          color: white;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 10px 24px;
+          background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
+          color: #005F73;
           text-decoration: none;
-          border-radius: 24px;
-          font-size: 15px;
           font-weight: 600;
-          transition: all 0.3s;
-          white-space: nowrap;
-          display: none;
-        }
-
-        @media (min-width: 768px) {
-          .appointment-btn {
-            display: block;
-          }
+          font-size: 15px;
+          border-radius: 28px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 12px rgba(255, 167, 38, 0.3);
         }
 
         .appointment-btn:hover {
-          background: var(--md-sys-color-primary);
-          box-shadow: 0 4px 16px rgba(0, 95, 115, 0.3);
           transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(255, 167, 38, 0.4);
+          background: linear-gradient(135deg, #FFA726 0%, #FF9800 100%);
         }
 
-        /* Mobile Toggle */
-        .mobile-toggle {
-          width: 32px;
-          height: 32px;
+        .appointment-btn svg {
+          transition: transform 0.3s;
+        }
+
+        .appointment-btn:hover svg {
+          transform: rotate(15deg);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
           display: flex;
-          flex-direction: column;
+          align-items: center;
           justify-content: center;
-          gap: 4px;
-          background: none;
+          width: 40px;
+          height: 40px;
+          background: transparent;
           border: none;
           cursor: pointer;
           padding: 0;
         }
 
         @media (min-width: 1024px) {
-          .mobile-toggle {
+          .mobile-menu-toggle {
             display: none;
           }
         }
 
-        .mobile-toggle span {
+        .hamburger {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
           width: 24px;
+          height: 24px;
+          position: relative;
+        }
+
+        .hamburger span {
+          display: block;
+          width: 100%;
           height: 2px;
           background: var(--md-sys-color-on-surface);
           border-radius: 2px;
           transition: all 0.3s;
+          position: absolute;
         }
 
-        .mobile-toggle.active span:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
+        .hamburger span:nth-child(1) {
+          top: 6px;
         }
 
-        .mobile-toggle.active span:nth-child(2) {
+        .hamburger span:nth-child(2) {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        .hamburger span:nth-child(3) {
+          bottom: 6px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+          top: 50%;
+          transform: translateY(-50%) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
           opacity: 0;
         }
 
-        .mobile-toggle.active span:nth-child(3) {
-          transform: rotate(-45deg) translate(5px, -5px);
+        .hamburger.active span:nth-child(3) {
+          bottom: 50%;
+          transform: translateY(50%) rotate(-45deg);
         }
 
         /* Mobile Menu */
         .mobile-menu {
           position: fixed;
           top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
+          right: -100%;
+          width: 100%;
+          max-width: 400px;
+          height: 100vh;
           background: white;
-          z-index: 2000;
-          display: flex;
-          flex-direction: column;
-          transform: translateX(100%);
-          transition: transform 0.3s ease;
+          box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+          z-index: 1001;
+          transition: right 0.3s ease;
+          overflow-y: auto;
         }
 
         .mobile-menu.active {
-          transform: translateX(0);
+          right: 0;
         }
 
-        .mobile-header {
+        .mobile-menu-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
           padding: 20px;
-          border-bottom: 1px solid var(--md-sys-color-outline-variant);
+          border-bottom: 1px solid rgba(0, 95, 115, 0.1);
         }
 
-        .mobile-header img {
-          height: 36px;
+        .mobile-menu-header img {
+          height: 32px;
         }
 
-        .close-btn {
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: var(--md-sys-color-surface-container);
+        .mobile-menu-close {
+          background: transparent;
           border: none;
-          border-radius: 50%;
           cursor: pointer;
+          padding: 8px;
         }
 
-        .mobile-content {
-          flex: 1;
-          overflow-y: auto;
+        .mobile-menu-nav {
           padding: 20px;
         }
 
-        .mobile-item {
+        .mobile-menu-item {
           margin-bottom: 8px;
         }
 
-        .mobile-link {
+        .mobile-menu-link {
           display: block;
-          padding: 16px;
+          padding: 12px 16px;
           color: var(--md-sys-color-on-surface);
           text-decoration: none;
           font-size: 16px;
           font-weight: 500;
-          border-radius: 12px;
+          border-radius: 8px;
           transition: background 0.2s;
         }
 
-        .mobile-link:hover {
-          background: var(--md-sys-color-surface-container);
+        .mobile-menu-link:hover {
+          background: rgba(0, 95, 115, 0.05);
         }
 
         .mobile-submenu {
-          margin: 8px 0 16px 32px;
+          margin-top: 4px;
+          margin-left: 16px;
+          padding-left: 16px;
+          border-left: 2px solid rgba(0, 95, 115, 0.1);
         }
 
-        .mobile-sublink {
+        .mobile-submenu-link {
           display: block;
-          padding: 12px;
+          padding: 8px 12px;
           color: var(--md-sys-color-on-surface-variant);
           text-decoration: none;
           font-size: 14px;
-          border-radius: 8px;
+          border-radius: 6px;
+          transition: background 0.2s;
         }
 
-        .mobile-sublink:hover {
-          background: var(--md-sys-color-surface-container);
+        .mobile-submenu-link:hover {
+          background: rgba(255, 183, 77, 0.1);
         }
 
-        .mobile-footer {
+        .mobile-menu-footer {
           padding: 20px;
-          border-top: 1px solid var(--md-sys-color-outline-variant);
-        }
-
-        .mobile-language {
-          display: flex;
-          justify-content: center;
-          margin-bottom: 16px;
-        }
-
-        .mobile-appointment {
-          display: block;
-          width: 100%;
-          padding: 16px;
-          background: var(--md-sys-color-primary);
-          color: white;
-          text-align: center;
-          text-decoration: none;
-          border-radius: 12px;
-          font-size: 16px;
-          font-weight: 600;
-          margin-bottom: 16px;
-        }
-
-        .mobile-contacts {
+          border-top: 1px solid rgba(0, 95, 115, 0.1);
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 16px;
+        }
+
+        .mobile-appointment-btn {
+          display: block;
           text-align: center;
-        }
-
-        .mobile-contacts a {
-          color: var(--md-sys-color-on-surface-variant);
+          padding: 14px 24px;
+          background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
+          color: #005F73;
           text-decoration: none;
-          font-size: 14px;
+          font-weight: 600;
+          font-size: 16px;
+          border-radius: 28px;
+          transition: all 0.2s;
         }
 
-        /* Responsive */
-        @media (max-width: 640px) {
+        .mobile-appointment-btn:hover {
+          background: linear-gradient(135deg, #FFA726 0%, #FF9800 100%);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .top-bar {
+            display: none;
+          }
+
+          .main-nav {
+            padding: 12px 0;
+          }
+
           .logo-wide {
             display: none;
           }
-          
+
           .logo-icon {
             display: block;
-            height: 40px;
+            height: 36px;
           }
 
-          .nav-content {
-            height: 64px;
-          }
-
-          .modern-header.scrolled .nav-content {
-            height: 60px;
+          .container {
+            padding: 0 16px;
           }
         }
       `}</style>
@@ -693,5 +663,4 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
   )
 }
 
-export default Header
 export { Header }
