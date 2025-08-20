@@ -11,7 +11,9 @@
       "Bash(rm:*)",
       "Bash(npm ls:*)",
       "Bash(npm install:*)",
-      "Bash(npx next:*)"
+      "Bash(npx next:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)"
     ],
     "deny": []
   }
