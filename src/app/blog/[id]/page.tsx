@@ -1,3 +1,5 @@
+'use client'
+
 interface BlogPost {
   id: string
   title: string

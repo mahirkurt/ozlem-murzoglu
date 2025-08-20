@@ -1,3 +1,5 @@
+'use client'
+
 export default function MisyonVizyonPage() {
   return (
     <div className="page-container">

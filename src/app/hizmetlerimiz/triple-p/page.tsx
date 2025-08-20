@@ -1,3 +1,5 @@
+'use client'
+
 export default function TriplePPage() {
   return (
     <div className="page-container">

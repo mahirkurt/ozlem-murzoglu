@@ -1,3 +1,5 @@
+'use client'
+
 export default function LaboratuvarGoruntelemePage() {
   return (
     <div className="page-container">

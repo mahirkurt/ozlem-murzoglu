@@ -1,3 +1,5 @@
+'use client'
+
 export default function AsilamaPage() {
   return (
     <div className="page-container">

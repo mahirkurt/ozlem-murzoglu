@@ -1,3 +1,5 @@
+'use client'
+
 export default function UykuDanismanligiPage() {
   return (
     <div className="page-container">
