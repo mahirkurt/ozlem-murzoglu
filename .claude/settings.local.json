@@ -14,7 +14,12 @@
       "Bash(npx next:*)",
       "Bash(mkdir:*)",
       "Bash(mv:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(timeout:*)",
+      "Bash(powershell:*)",
+      "Bash(npx puppeteer screenshot:*)",
+      "Bash(dir:*)",
+      "Bash(node:*)"
     ],
     "deny": []
   }

@@ -1,19 +1,20 @@
-'use client'
-
 import { HeroSection } from '@/components/sections/HeroSection'
 import { ApproachSection } from '@/components/sections/ApproachSection'
 import { BlogSection } from '@/components/sections/BlogSection'
 import { TestimonialSection } from '@/components/sections/TestimonialSection'
 import { ServicesSection } from '@/components/sections/ServicesSection'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
 interface HomePageProps {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
-export default function HomePage({ params: { locale } }: HomePageProps) {
+export default async function HomePage({ params }: HomePageProps) {
+  const { locale } = await params
+  unstable_setRequestLocale(locale)
   
   return (
-    <div className="homepage">
+    <>
       {/* Hero Section with Welcome Message */}
       <HeroSection locale={locale} />
       
@@ -28,20 +29,6 @@ export default function HomePage({ params: { locale } }: HomePageProps) {
       
       {/* Services Overview */}
       <ServicesSection locale={locale} />
-
-      <style jsx>{`
-        .homepage {
-          min-height: 100vh;
-          background: var(--md-sys-color-surface);
-          padding-top: 120px; /* Header offset */
-        }
-
-        @media (min-width: 968px) {
-          .homepage {
-            padding-top: 140px; /* Desktop header with top bar */
-          }
-        }
-      `}</style>
-    </div>
+    </>
   )
 }

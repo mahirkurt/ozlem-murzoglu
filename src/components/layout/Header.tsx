@@ -323,16 +323,19 @@ const Header: React.FC<HeaderProps> = ({ locale = 'tr' }) => {
         }
 
         .logo img {
-          height: 50px;
+          height: 40px;
+          width: auto;
           transition: height 0.3s;
+          object-fit: contain;
         }
 
         .modern-header.scrolled .logo img {
-          height: 42px;
+          height: 35px;
         }
 
         .logo-wide {
           display: block;
+          max-width: 150px;
         }
 
         .logo-icon {
