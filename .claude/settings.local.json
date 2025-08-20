@@ -19,7 +19,8 @@
       "Bash(powershell:*)",
       "Bash(npx puppeteer screenshot:*)",
       "Bash(dir:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }
