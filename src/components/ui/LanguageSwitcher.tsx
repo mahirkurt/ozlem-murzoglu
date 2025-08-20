@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import { useRouter, usePathname } from '@/lib/i18n'
-import { localeConfig } from '@/lib/i18n'
 
 interface LanguageSwitcherProps {
   locale: string
@@ -11,156 +10,161 @@ interface LanguageSwitcherProps {
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ locale }) => {
   const router = useRouter()
   const pathname = usePathname()
-  const [isOpen, setIsOpen] = useState(false)
-
-  const handleLanguageChange = (newLocale: string) => {
-    router.replace(pathname, { locale: newLocale })
-    setIsOpen(false)
+  const [isAnimating, setIsAnimating] = useState(false)
+  
+  const handleLanguageChange = () => {
+    const newLocale = locale === 'tr' ? 'en' : 'tr'
+    setIsAnimating(true)
+    
+    // Animate then change
+    setTimeout(() => {
+      router.replace(pathname, { locale: newLocale })
+      setIsAnimating(false)
+    }, 200)
   }
-
-  const currentConfig = localeConfig[locale as keyof typeof localeConfig]
 
   return (
     <div className="language-switcher">
-      <button
-        className="switcher-button"
-        onClick={() => setIsOpen(!isOpen)}
+      <button 
+        className={`switch-button ${locale === 'en' ? 'en-active' : ''} ${isAnimating ? 'animating' : ''}`}
+        onClick={handleLanguageChange}
         aria-label="Change language"
       >
-        <span className="flag">{currentConfig.flag}</span>
-        <span className="name">{currentConfig.code.toUpperCase()}</span>
-        <svg 
-          className={`arrow ${isOpen ? 'open' : ''}`}
-          width="16" 
-          height="16" 
-          viewBox="0 0 24 24" 
-          fill="currentColor"
-        >
-          <path d="M7 10l5 5 5-5z"/>
-        </svg>
+        <span className="switch-track">
+          <span className="switch-thumb" />
+        </span>
+        <span className="lang-labels">
+          <span className="lang-tr">TR</span>
+          <span className="lang-en">EN</span>
+        </span>
       </button>
-
-      {isOpen && (
-        <div className="dropdown">
-          {Object.entries(localeConfig).map(([key, config]) => (
-            <button
-              key={key}
-              className={`dropdown-item ${key === locale ? 'active' : ''}`}
-              onClick={() => handleLanguageChange(key)}
-            >
-              <span className="flag">{config.flag}</span>
-              <span className="name">{config.name}</span>
-              {key === locale && (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-              )}
-            </button>
-          ))}
-        </div>
-      )}
 
       <style jsx>{`
         .language-switcher {
+          display: flex;
+          align-items: center;
+        }
+
+        .switch-button {
           position: relative;
-        }
-
-        .switcher-button {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 8px 16px;
-          background: var(--md-sys-color-surface-container);
-          border: 1px solid var(--md-sys-color-outline-variant);
-          border-radius: var(--md-sys-shape-corner-full);
-          color: var(--md-sys-color-on-surface);
-          font-size: 14px;
-          font-weight: 500;
-          cursor: pointer;
-          transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
-        }
-
-        .switcher-button:hover {
-          background: var(--md-sys-color-surface-container-high);
-          border-color: var(--md-sys-color-outline);
-        }
-
-        .flag {
-          font-size: 18px;
-          line-height: 1;
-        }
-
-        .arrow {
-          transition: transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
-        }
-
-        .arrow.open {
-          transform: rotate(180deg);
-        }
-
-        .dropdown {
-          position: absolute;
-          top: calc(100% + 8px);
-          right: 0;
-          min-width: 180px;
-          background: var(--md-sys-color-surface-container);
-          border: 1px solid var(--md-sys-color-outline-variant);
-          border-radius: var(--md-sys-shape-corner-medium);
-          box-shadow: var(--md-sys-elevation-level2);
-          padding: 8px;
-          z-index: 1000;
-          animation: fadeIn var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-decelerate);
-        }
-
-        .dropdown-item {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          width: 100%;
-          padding: 12px;
+          width: 72px;
+          height: 32px;
           background: transparent;
           border: none;
-          border-radius: var(--md-sys-shape-corner-small);
-          color: var(--md-sys-color-on-surface);
-          font-size: 14px;
-          text-align: left;
           cursor: pointer;
-          transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+          padding: 0;
+          display: flex;
+          align-items: center;
+          transition: transform 0.2s;
         }
 
-        .dropdown-item:hover {
-          background: var(--md-sys-color-surface-container-high);
+        .switch-button:hover {
+          transform: scale(1.05);
         }
 
-        .dropdown-item.active {
-          background: var(--md-sys-color-secondary-container);
-          color: var(--md-sys-color-on-secondary-container);
+        .switch-button:active {
+          transform: scale(0.98);
         }
 
-        .dropdown-item svg {
-          margin-left: auto;
-          color: var(--md-sys-color-secondary);
+        .switch-button.animating {
+          animation: pulse 0.3s ease;
         }
 
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-8px);
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.08); }
+        }
+
+        .switch-track {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #E0E7E9 0%, #CFD8DC 100%);
+          border-radius: 16px;
+          border: 2px solid rgba(0, 95, 115, 0.1);
+          overflow: hidden;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .switch-button:hover .switch-track {
+          border-color: rgba(0, 95, 115, 0.2);
+          background: linear-gradient(135deg, #D5DFE2 0%, #C4CED2 100%);
+        }
+
+        .switch-thumb {
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          width: 32px;
+          height: 24px;
+          background: linear-gradient(135deg, #005F73 0%, #0A8FA3 100%);
+          border-radius: 12px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 2px 8px rgba(0, 95, 115, 0.3);
+        }
+
+        .switch-button.en-active .switch-thumb {
+          transform: translateX(34px);
+          background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
+          box-shadow: 0 2px 8px rgba(255, 167, 38, 0.3);
+        }
+
+        .lang-labels {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 10px;
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .lang-tr,
+        .lang-en {
+          font-size: 12px;
+          font-weight: 600;
+          transition: all 0.3s;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .lang-tr {
+          color: #FFFFFF;
+        }
+
+        .lang-en {
+          color: rgba(0, 95, 115, 0.5);
+        }
+
+        .switch-button.en-active .lang-tr {
+          color: rgba(0, 95, 115, 0.5);
+        }
+
+        .switch-button.en-active .lang-en {
+          color: #FFFFFF;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+          .switch-button {
+            width: 64px;
+            height: 28px;
           }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
 
-        @media (max-width: 640px) {
-          .switcher-button {
-            padding: 6px 12px;
-            font-size: 13px;
+          .switch-thumb {
+            width: 28px;
+            height: 20px;
           }
 
-          .flag {
-            font-size: 16px;
+          .switch-button.en-active .switch-thumb {
+            transform: translateX(30px);
+          }
+
+          .lang-tr,
+          .lang-en {
+            font-size: 11px;
           }
         }
       `}</style>

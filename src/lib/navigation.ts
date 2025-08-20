@@ -25,6 +25,10 @@ export const navigation: NavItem[] = [
         label: 'Misyon & Vizyon',
         href: '/hakkimizda/misyon-vizyon',
       },
+      {
+        label: 'Sıkça Sorulan Sorular',
+        href: '/sss',
+      },
     ],
   },
   {
@@ -60,10 +64,6 @@ export const navigation: NavItem[] = [
   {
     label: 'Makaleler',
     href: '/makaleler',
-  },
-  {
-    label: 'Sıkça Sorulan Sorular',
-    href: '/sss',
   },
   {
     label: 'İletişim',
