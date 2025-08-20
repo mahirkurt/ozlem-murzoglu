@@ -13,7 +13,8 @@
       "Bash(npm install:*)",
       "Bash(npx next:*)",
       "Bash(mkdir:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }

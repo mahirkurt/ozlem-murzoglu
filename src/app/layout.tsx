@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, unstable_setRequestLocale } from 'next-intl/server'
 import { Figtree, DM_Sans } from 'next/font/google'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -69,10 +69,18 @@ interface RootLayoutProps {
   params: { locale: string }
 }
 
+// Generate static params for all locales
+export function generateStaticParams() {
+  return [{ locale: 'tr' }, { locale: 'en' }]
+}
+
 export default async function RootLayout({
   children,
-  params: { locale }
+  params: { locale = 'tr' }
 }: RootLayoutProps) {
+  // Enable static rendering
+  unstable_setRequestLocale(locale)
+  
   const messages = await getMessages()
 
   return (
