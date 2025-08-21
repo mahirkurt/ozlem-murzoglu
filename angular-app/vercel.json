@@ -1,5 +1,4 @@
 {
-  "rootDirectory": "angular-app",
   "buildCommand": "npm install && npm run build",
   "outputDirectory": "dist/angular-app",
   "framework": null,
