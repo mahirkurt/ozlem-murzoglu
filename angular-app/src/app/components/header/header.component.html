@@ -1,0 +1,160 @@
+<header [ngClass]="{'modern-header': true, 'scrolled': isScrolled}">
+  <!-- Top Info Bar - Minimal -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-content">
+        <div class="contact-info">
+          <a [href]="'tel:' + contactInfo.phone" class="contact-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1.01A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+            </svg>
+            {{ contactInfo.phone }}
+          </a>
+          <span class="separator">•</span>
+          <a [href]="'mailto:' + contactInfo.email" class="contact-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            {{ contactInfo.email }}
+          </a>
+        </div>
+        <a href="https://saglikpetegim.com" target="_blank" rel="noopener noreferrer" class="portal-link">
+          Hasta Portalı →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <div class="nav-content">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <img 
+            src="/logos/OM-Wide-Color.svg" 
+            alt="Dr. Özlem Murzoğlu" 
+            class="logo-wide"
+          />
+          <img 
+            src="/logos/OM-Icon-Color.svg" 
+            alt="Dr. Özlem Murzoğlu" 
+            class="logo-icon"
+          />
+        </a>
+
+        <!-- Center Menu - Horizontal -->
+        <div class="nav-menu">
+          <div *ngFor="let item of primaryMenu" 
+               class="nav-item"
+               (mouseenter)="item.children && setActiveDropdown(item.label)"
+               (mouseleave)="setActiveDropdown(null)">
+            <a [href]="item.href" class="nav-link">
+              {{ item.label }}
+              <svg *ngIf="item.children" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="dropdown-icon">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </a>
+            
+            <!-- Dropdown Menu -->
+            <div *ngIf="item.children && activeDropdown === item.label" class="dropdown-menu">
+              <a *ngFor="let child of item.children"
+                 [href]="child.href"
+                 class="dropdown-link">
+                {{ child.label }}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Actions -->
+        <div class="nav-actions">
+          <!-- Language Switcher -->
+          <div class="language-switcher">
+            <button 
+              [ngClass]="{'switch-button': true, 'en-active': locale === 'en', 'animating': isAnimating}"
+              (click)="handleLanguageChange()"
+              aria-label="Change language">
+              <span class="switch-track">
+                <span class="switch-thumb"></span>
+              </span>
+              <span class="lang-labels">
+                <span class="lang-tr">TR</span>
+                <span class="lang-en">EN</span>
+              </span>
+            </button>
+          </div>
+          
+          <a href="/randevu" class="appointment-btn">
+            <span>Randevu Al</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="mobile-menu-toggle"
+          (click)="toggleMobileMenu()"
+          aria-label="Toggle menu">
+          <span [ngClass]="{'hamburger': true, 'active': isMobileMenuOpen}">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div [ngClass]="{'mobile-menu': true, 'active': isMobileMenuOpen}">
+  <div class="mobile-menu-header">
+    <img src="/logos/OM-Wide-Color.svg" alt="Dr. Özlem Murzoğlu" />
+    <button
+      class="mobile-menu-close"
+      (click)="toggleMobileMenu()"
+      aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="mobile-menu-nav">
+    <div *ngFor="let item of primaryMenu" class="mobile-menu-item">
+      <a [href]="item.href" class="mobile-menu-link" (click)="toggleMobileMenu()">
+        {{ item.label }}
+      </a>
+      <div *ngIf="item.children" class="mobile-submenu">
+        <a *ngFor="let child of item.children"
+           [href]="child.href"
+           class="mobile-submenu-link"
+           (click)="toggleMobileMenu()">
+          {{ child.label }}
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu-footer">
+    <!-- Mobile Language Switcher -->
+    <div class="language-switcher">
+      <button 
+        [ngClass]="{'switch-button': true, 'en-active': locale === 'en', 'animating': isAnimating}"
+        (click)="handleLanguageChange()"
+        aria-label="Change language">
+        <span class="switch-track">
+          <span class="switch-thumb"></span>
+        </span>
+        <span class="lang-labels">
+          <span class="lang-tr">TR</span>
+          <span class="lang-en">EN</span>
+        </span>
+      </button>
+    </div>
+    <a href="/randevu" class="mobile-appointment-btn" (click)="toggleMobileMenu()">
+      Randevu Al
+    </a>
+  </div>
+</div>

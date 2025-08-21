@@ -1,0 +1,36 @@
+<section class="approach-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="md-sys-typescale-display-small">Çocuğunuzun Sağlığı İçin Doğru Adres</h2>
+      <p class="md-sys-typescale-body-large">
+        15 yıllık deneyimimizle, kanıta dayalı tıp ve sevgi dolu yaklaşımı birleştiriyoruz
+      </p>
+    </div>
+
+    <div class="approach-grid">
+      <a 
+        *ngFor="let item of approaches; let i = index" 
+        [routerLink]="item.href" 
+        class="approach-card approach-card--{{item.color}}"
+      >
+        <div class="card-glow"></div>
+        
+        <div class="card-header">
+          <div class="card-icon">
+            <span class="material-icons">{{item.icon}}</span>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <h3 class="card-title md-sys-typescale-title-large">{{item.title}}</h3>
+          <p class="card-description md-sys-typescale-body-medium">{{item.description}}</p>
+        </div>
+        
+        <div class="card-action">
+          <span class="action-text">Detaylı Bilgi</span>
+          <span class="material-icons action-icon">chevron_right</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

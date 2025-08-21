@@ -1,0 +1,238 @@
+<section class="services-page">
+  <!-- Hero Section -->
+  <div class="services-hero">
+    <div class="hero-background">
+      <div class="hero-shape shape-1"></div>
+      <div class="hero-shape shape-2"></div>
+      <div class="hero-shape shape-3"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="page-title">Hizmetlerimiz</h1>
+        <p class="page-subtitle">
+          Çocuğunuzun sağlığı için kanıta dayalı, modern ve kapsamlı sağlık hizmetleri sunuyoruz
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Grid -->
+  <div class="services-section">
+    <div class="container">
+      <!-- Featured Services -->
+      <div class="featured-services">
+        <div class="section-header">
+          <h2 class="section-title">Öne Çıkan Hizmetlerimiz</h2>
+          <p class="section-description">
+            Amerikan Pediatri Akademisi standartlarında, dünya çapında kabul görmüş programlarla hizmet veriyoruz
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div *ngFor="let service of services.slice(0, 3)" 
+               class="service-card featured" 
+               [attr.data-color]="service.color">
+            <div class="service-card-header">
+              <div class="service-icon-wrapper">
+                <span class="material-icons">{{service.icon}}</span>
+              </div>
+              <div class="service-badge">Özel Program</div>
+            </div>
+            
+            <div class="service-card-body">
+              <h3 class="service-title">{{service.title}}</h3>
+              <p class="service-subtitle">{{service.subtitle}}</p>
+              <p class="service-description">{{service.description}}</p>
+              
+              <div class="service-features">
+                <div *ngFor="let feature of service.features.slice(0, 3)" class="feature-item">
+                  <span class="material-icons">check_circle</span>
+                  <span>{{feature}}</span>
+                </div>
+              </div>
+              
+              <a [routerLink]="['/hizmetlerimiz', service.id]" class="service-link">
+                <span>Detaylı Bilgi</span>
+                <span class="material-icons">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Services -->
+      <div class="other-services">
+        <div class="section-header">
+          <h2 class="section-title">Diğer Hizmetlerimiz</h2>
+          <p class="section-description">
+            Çocuk sağlığının her alanında yanınızdayız
+          </p>
+        </div>
+
+        <div class="services-list">
+          <div *ngFor="let service of services.slice(3)" 
+               class="service-item"
+               [attr.data-color]="service.color">
+            <div class="service-item-icon">
+              <span class="material-icons">{{service.icon}}</span>
+            </div>
+            
+            <div class="service-item-content">
+              <h4 class="service-item-title">{{service.title}}</h4>
+              <p class="service-item-subtitle">{{service.subtitle}}</p>
+              <p class="service-item-description">{{service.description}}</p>
+              
+              <ul class="service-item-features">
+                <li *ngFor="let feature of service.features.slice(0, 4)">
+                  {{feature}}
+                </li>
+              </ul>
+            </div>
+            
+            <div class="service-item-action">
+              <a [routerLink]="['/hizmetlerimiz', service.id]" class="action-btn">
+                <span>İncele</span>
+                <span class="material-icons">chevron_right</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process Section -->
+  <div class="process-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Hizmet Sürecimiz</h2>
+        <p class="section-description">
+          Size en iyi hizmeti sunmak için takip ettiğimiz adımlar
+        </p>
+      </div>
+
+      <div class="process-timeline">
+        <div class="timeline-item">
+          <div class="timeline-number">01</div>
+          <div class="timeline-content">
+            <h3>Randevu ve Ön Hazırlık</h3>
+            <p>Online veya telefonla randevu alın. Yaş grubuna uygun formları doldurun.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">02</div>
+          <div class="timeline-content">
+            <h3>Kapsamlı Muayene</h3>
+            <p>Minimum 1 saat süren detaylı muayene ve değerlendirme.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">03</div>
+          <div class="timeline-content">
+            <h3>Kişiselleştirilmiş Plan</h3>
+            <p>Çocuğunuza özel tedavi ve takip planı oluşturma.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">04</div>
+          <div class="timeline-content">
+            <h3>Sürekli Takip</h3>
+            <p>Düzenli kontroller ve 7/24 ulaşılabilir destek.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Benefits Section -->
+  <div class="benefits-section">
+    <div class="container">
+      <div class="benefits-grid">
+        <div class="benefits-content">
+          <h2 class="section-title">Neden Bizi Tercih Etmelisiniz?</h2>
+          
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <span class="material-icons">verified</span>
+            </div>
+            <div class="benefit-text">
+              <h4>Uzman Kadro</h4>
+              <p>Sosyal pediatri doktorası ve çocuk gelişimi uzmanlığı ile kapsamlı bakım</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <span class="material-icons">science</span>
+            </div>
+            <div class="benefit-text">
+              <h4>Kanıta Dayalı Yaklaşım</h4>
+              <p>Amerikan Pediatri Akademisi standartlarında güncel tedavi protokolleri</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <span class="material-icons">favorite</span>
+            </div>
+            <div class="benefit-text">
+              <h4>Sevgi Dolu Ortam</h4>
+              <p>Çocuk dostu klinik tasarımı ve sıcak, güven verici atmosfer</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <span class="material-icons">access_time</span>
+            </div>
+            <div class="benefit-text">
+              <h4>Zaman Ayırıyoruz</h4>
+              <p>Her muayene için minimum 1 saat, acele etmeden detaylı değerlendirme</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefits-image">
+          <div class="image-wrapper">
+            <img src="/images/clinic-environment.jpg" alt="Klinik ortamı" />
+            <div class="image-overlay">
+              <div class="stat-card">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Yıllık Deneyim</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">5000+</span>
+                <span class="stat-label">Mutlu Aile</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Çocuğunuzun Sağlığı İçin İlk Adımı Atın</h2>
+          <p>Hemen randevu alın ve çocuğunuzun sağlıklı geleceği için birlikte çalışalım</p>
+        </div>
+        <div class="cta-actions">
+          <a href="/randevu" class="btn-primary">
+            <span class="material-icons">calendar_month</span>
+            <span>Randevu Al</span>
+          </a>
+          <a href="/iletisim" class="btn-secondary">
+            <span class="material-icons">phone</span>
+            <span>Bizi Arayın</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
