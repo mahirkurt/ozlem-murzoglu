@@ -58,17 +58,6 @@
   display: inline-block;
 }
 
-.section-header h2::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #FFB74D 0%, #FFA726 100%);
-  border-radius: 2px;
-}
 
 .section-header p {
   color: var(--md-sys-color-on-surface-variant);
@@ -91,17 +80,17 @@
 
 .approach-card {
   background: white;
-  border-radius: 24px;
+  border-radius: 20px;
   padding: 0;
   text-decoration: none;
   color: inherit;
-  box-shadow: 0 2px 12px rgba(0, 95, 115, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(0, 95, 115, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .card-glow {
@@ -142,41 +131,23 @@
 }
 
 .card-header {
-  padding: 32px 32px 24px;
-  background: linear-gradient(135deg, 
-    rgba(0, 95, 115, 0.05) 0%, 
-    rgba(0, 95, 115, 0.02) 100%
-  );
+  padding: 32px 32px 0;
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-.approach-card--secondary .card-header {
-  background: linear-gradient(135deg, 
-    rgba(255, 183, 77, 0.08) 0%, 
-    rgba(255, 167, 38, 0.04) 100%
-  );
-}
-
-.approach-card--tertiary .card-header {
-  background: linear-gradient(135deg, 
-    rgba(148, 187, 233, 0.08) 0%, 
-    rgba(148, 187, 233, 0.04) 100%
-  );
-}
 
 .card-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #005F73 0%, #0A8FA3 100%);
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(0, 95, 115, 0.1) 0%, rgba(0, 95, 115, 0.05) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 95, 115, 0.2);
+  color: #005F73;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -185,36 +156,31 @@
 }
 
 .approach-card--secondary .card-icon {
-  background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
-  box-shadow: 0 4px 12px rgba(255, 167, 38, 0.3);
+  background: linear-gradient(135deg, rgba(255, 183, 77, 0.15) 0%, rgba(255, 167, 38, 0.08) 100%);
+  color: #F57C00;
 }
 
 .approach-card--tertiary .card-icon {
-  background: linear-gradient(135deg, #94BBE9 0%, #7BA7E7 100%);
-  box-shadow: 0 4px 12px rgba(148, 187, 233, 0.3);
+  background: linear-gradient(135deg, rgba(148, 187, 233, 0.15) 0%, rgba(148, 187, 233, 0.08) 100%);
+  color: #5E92F3;
 }
 
 .approach-card:hover .card-icon {
-  transform: scale(1.1) rotate(5deg);
-  border-radius: 24px;
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #005F73 0%, #0A8FA3 100%);
+  color: white;
 }
 
-.card-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 32px;
-  height: 32px;
+.approach-card--secondary:hover .card-icon {
   background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
-  font-weight: 700;
-  font-size: 14px;
-  box-shadow: 0 2px 8px rgba(255, 167, 38, 0.3);
 }
+
+.approach-card--tertiary:hover .card-icon {
+  background: linear-gradient(135deg, #94BBE9 0%, #7BA7E7 100%);
+  color: white;
+}
+
 
 .card-content {
   padding: 24px 32px 32px;

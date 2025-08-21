@@ -1,0 +1,121 @@
+<section class="faq-page">
+  <!-- Hero Section -->
+  <div class="faq-hero">
+    <div class="hero-decoration">
+      <div class="decoration-circle circle-1"></div>
+      <div class="decoration-circle circle-2"></div>
+      <div class="decoration-circle circle-3"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="page-title">Sık Sorulan Sorular</h1>
+        <p class="page-subtitle">Merak ettiğiniz konular hakkında detaylı bilgiler</p>
+        
+        <div class="search-box">
+          <span class="material-icons">search</span>
+          <input type="text" placeholder="Sorunuzu arayın..." />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Content -->
+  <div class="faq-content">
+    <div class="container">
+      <!-- Category Tabs -->
+      <div class="category-tabs">
+        <button 
+          *ngFor="let category of categories"
+          [class.active]="selectedCategory === category"
+          (click)="selectCategory(category)"
+          class="category-tab">
+          {{category}}
+          <span class="count">{{category === 'Tümü' ? faqs.length : faqs.filter(f => f.category === category).length}}</span>
+        </button>
+      </div>
+
+      <!-- FAQ List -->
+      <div class="faq-list">
+        <div 
+          *ngFor="let faq of filteredFaqs; let i = index"
+          class="faq-item"
+          [class.open]="faq.isOpen">
+          
+          <div class="faq-header" (click)="toggleFaq(faq)">
+            <div class="faq-question">
+              <span class="question-number">{{i + 1 < 10 ? '0' : ''}}{{i + 1}}</span>
+              <h3>{{faq.question}}</h3>
+            </div>
+            <button class="toggle-btn">
+              <span class="material-icons">{{faq.isOpen ? 'remove' : 'add'}}</span>
+            </button>
+          </div>
+          
+          <div class="faq-answer" [style.maxHeight]="faq.isOpen ? '500px' : '0'">
+            <div class="answer-content">
+              <p>{{faq.answer}}</p>
+              <div class="answer-footer">
+                <span class="category-badge">{{faq.category}}</span>
+                <button class="helpful-btn">
+                  <span class="material-icons">thumb_up</span>
+                  <span>Bu cevap yardımcı oldu</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Results -->
+      <div *ngIf="filteredFaqs.length === 0" class="no-results">
+        <span class="material-icons">help_outline</span>
+        <h3>Sonuç bulunamadı</h3>
+        <p>Bu kategoride henüz soru bulunmamaktadır.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="contact-section">
+    <div class="container">
+      <div class="contact-card">
+        <div class="contact-illustration">
+          <div class="illustration-icon">
+            <span class="material-icons">support_agent</span>
+          </div>
+        </div>
+        
+        <div class="contact-content">
+          <h2>Sorunuz mu var?</h2>
+          <p>Aradığınız cevabı bulamadıysanız, bize ulaşın. Size yardımcı olmaktan mutluluk duyarız.</p>
+          
+          <div class="contact-options">
+            <a href="tel:+902222378400" class="contact-option">
+              <span class="material-icons">phone</span>
+              <div>
+                <h4>Bizi Arayın</h4>
+                <p>0222 237 84 00</p>
+              </div>
+            </a>
+            
+            <a href="https://wa.me/905462378400" target="_blank" class="contact-option">
+              <span class="material-icons">chat</span>
+              <div>
+                <h4>WhatsApp</h4>
+                <p>Mesaj Gönderin</p>
+              </div>
+            </a>
+            
+            <a href="mailto:info@ozlemmurzoglu.com" class="contact-option">
+              <span class="material-icons">email</span>
+              <div>
+                <h4>E-posta</h4>
+                <p>info@ozlemmurzoglu.com</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

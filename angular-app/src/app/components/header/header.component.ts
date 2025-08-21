@@ -1,10 +1,11 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -28,12 +29,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
     {
       label: 'Hakkımızda',
-      href: '/hakkimizda',
-      children: [
-        { label: 'Dr. Özlem Murzoğlu', href: '/hakkimizda/dr-ozlem-murzoglu' },
-        { label: 'Klinik', href: '/hakkimizda/klinik' },
-        { label: 'Misyon & Vizyon', href: '/hakkimizda/misyon-vizyon' }
-      ]
+      href: '/hakkimizda'
     },
     {
       label: 'Hizmetlerimiz',
@@ -48,8 +44,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      label: 'Makaleler',
-      href: '/makaleler'
+      label: 'Blog',
+      href: '/blog'
+    },
+    {
+      label: 'S.S.S',
+      href: '/sss'
     },
     {
       label: 'İletişim',
@@ -58,9 +58,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ];
 
   get primaryMenu() {
-    return this.navigation.filter(item => 
-      ['Ana Sayfa', 'Hakkımızda', 'Hizmetlerimiz', 'Makaleler', 'İletişim'].includes(item.label)
-    );
+    return this.navigation;
   }
 
   ngOnInit() {

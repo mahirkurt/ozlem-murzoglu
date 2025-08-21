@@ -91,19 +91,19 @@
 }
 
 .logo img {
-  height: 48px;
+  height: 72px;
   width: auto;
   transition: height 0.3s;
   object-fit: contain;
 }
 
 .modern-header.scrolled .logo img {
-  height: 40px;
+  height: 60px;
 }
 
 .logo-wide {
   display: block;
-  max-width: 200px;
+  max-width: 300px;
 }
 
 .logo-icon {
@@ -559,7 +559,7 @@
 
   .logo-icon {
     display: block;
-    height: 36px;
+    height: 54px;
   }
 
   .switch-button {
