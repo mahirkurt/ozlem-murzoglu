@@ -1,0 +1,12 @@
+{
+  "name": "dr-murzoglu-website",
+  "version": "1.0.0",
+  "description": "Dr. Özlem Murzoğlu Pediatri Kliniği Website",
+  "scripts": {
+    "install": "cd angular-app && npm install",
+    "build": "cd angular-app && npm run build",
+    "start": "cd angular-app && npm run start",
+    "dev": "cd angular-app && npm run start"
+  },
+  "private": true
+}
