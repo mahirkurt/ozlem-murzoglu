@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "angular-app/dist/angular-app/browser",
+  "outputDirectory": "angular-app/dist/angular-app",
   "installCommand": "npm install",
   "framework": null,
   "rewrites": [
