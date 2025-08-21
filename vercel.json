@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd angular-app && npm ci && npm run build",
+  "outputDirectory": "angular-app/dist/angular-app",
+  "framework": null
+}
