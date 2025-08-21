@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm ci && npm run build && echo '=== Build complete ===' && ls -la && echo '=== dist contents ===' && ls -la dist/ && echo '=== dist/angular-app contents ===' && ls -la dist/angular-app/",
-  "outputDirectory": "dist/angular-app",
+  "buildCommand": "npm ci && npm run build",
+  "outputDirectory": "dist/angular-app/browser",
   "framework": null,
   "rewrites": [
     {
