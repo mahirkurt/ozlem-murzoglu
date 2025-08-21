@@ -1,27 +1,69 @@
-# AngularApp
+# Dr. Özlem Murzoğlu - Pediatric Clinic Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.20.
+A modern, responsive Angular application for Dr. Özlem Murzoğlu's pediatric clinic, featuring premium design components and animations.
 
-## Development server
+## 🚀 Deployment on Vercel
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### ⚠️ Important Configuration
+**Root Directory:** Leave empty or use `.` (project is in repository root)  
+**Build Command:** `npm ci && npm run build`  
+**Output Directory:** `dist/angular-app/browser`  
+**Install Command:** `npm ci`
 
-## Code scaffolding
+### Vercel Project Settings
+1. Go to your Vercel Dashboard
+2. Select the project
+3. Go to Settings → General
+4. Clear the "Root Directory" field (leave it empty)
+5. Save changes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 📦 Technology Stack
 
-## Build
+- **Framework:** Angular 18
+- **Styling:** CSS with Material Design 3 principles
+- **Fonts:** Figtree (headings), DM Sans (body text)
+- **Icons:** Material Icons
+- **Deployment:** Vercel
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## ✨ Features
 
-## Running unit tests
+- 🎨 Premium liquid hero animations
+- 🖱️ Custom cursor with interactive hover effects
+- 🎯 Floating action buttons (WhatsApp, Phone, Appointments)
+- ✨ Scroll-triggered reveal animations
+- 📱 Fully responsive design
+- 🌐 All pages: Home, About, Services, Blog, FAQ, Contact
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🛠️ Development
 
-## Running end-to-end tests
+```bash
+# Install dependencies
+npm install
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Run development server
+npm run start
+# Navigate to http://localhost:4200/
 
-## Further help
+# Build for production
+npm run build
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📁 Project Structure
+
+```
+├── src/
+│   ├── app/
+│   │   ├── components/     # Reusable components
+│   │   ├── pages/          # Page components
+│   │   ├── directives/     # Custom directives
+│   │   └── app.routes.ts   # Routing configuration
+│   ├── styles/             # Global styles
+│   └── index.html          # Main HTML file
+├── public/                 # Static assets
+├── vercel.json            # Vercel configuration
+└── package.json           # Dependencies
+```
+
+## 📄 License
+
+© 2024 Dr. Özlem Murzoğlu. All rights reserved.
