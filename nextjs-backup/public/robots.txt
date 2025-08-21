@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://saglikpetegim.com/sitemap.xml
+
+# Disallow admin pages
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /studio/
+
+# Allow search engines to index all content
+Allow: /tr/
+Allow: /en/
+
+# Crawl-delay
+Crawl-delay: 1
