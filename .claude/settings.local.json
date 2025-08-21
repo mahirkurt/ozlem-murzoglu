@@ -25,7 +25,10 @@
       "Bash(ng version)",
       "Bash(ng new:*)",
       "Bash(ng generate component:*)",
-      "Bash(npm run start:*)"
+      "Bash(npm run start:*)",
+      "WebFetch(domain:ozlemmurzoglu.com)",
+      "WebSearch",
+      "Bash(npx ng:*)"
     ],
     "deny": []
   }

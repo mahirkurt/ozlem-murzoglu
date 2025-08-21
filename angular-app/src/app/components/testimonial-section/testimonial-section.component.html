@@ -1,50 +1,131 @@
 <section class="testimonial-section">
   <div class="container">
-    <div class="testimonial-card">
-      <div class="quote-icon">
-        <span class="material-icons">format_quote</span>
-      </div>
-      
-      <blockquote class="testimonial-text">
-        "Dr. Özlem Hanım, sadece bir doktor değil, aynı zamanda bir anne dostu. 
-        Çocuğumun her kontrolünde gösterdiği özen ve sabır, verdiği detaylı bilgiler 
-        sayesinde kendimi çok daha güvende hissediyorum. Kliniğin sıcak atmosferi ve 
-        Dr. Özlem Hanım'ın samimi yaklaşımı, çocuğumun doktor korkusunu tamamen yendi."
-      </blockquote>
-      
-      <div class="testimonial-author">
-        <div class="author-info">
-          <div class="author-avatar">
-            <span>AY</span>
+    <div class="section-header">
+      <h2 class="section-title">Ailelerimizden Gelen Yorumlar</h2>
+      <p class="section-subtitle">
+        15 yıllık deneyimimizle binlerce aileye hizmet vermenin mutluluğunu yaşıyoruz
+      </p>
+    </div>
+
+    <div class="testimonials-wrapper">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="author-info">
+            <div class="author-avatar">
+              <span>AY</span>
+            </div>
+            <div class="author-details">
+              <p class="author-name">Ayşe Y.</p>
+              <p class="author-meta">Google Yorumu</p>
+            </div>
           </div>
-          <div class="author-details">
-            <p class="author-name">Ayşe Y.</p>
-            <p class="author-meta">Google Yorumları</p>
-          </div>
+          <svg class="google-logo" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
         </div>
         
-        <div class="rating">
-          <span *ngFor="let _ of ratingArray" class="material-icons star">star</span>
-          <span class="rating-text">5.0</span>
+        <div class="testimonial-content">
+          <p class="testimonial-text">
+            Dr. Özlem Hanım, sadece bir doktor değil, aynı zamanda bir anne dostu. 
+            Çocuğumun her kontrolünde gösterdiği özen ve sabır, verdiği detaylı bilgiler 
+            sayesinde kendimi çok daha güvende hissediyorum.
+          </p>
+        </div>
+        
+        <div class="testimonial-footer">
+          <div class="rating">
+            <span *ngFor="let _ of ratingArray" class="material-icons star">star</span>
+            <span class="rating-text">5.0</span>
+          </div>
+          <span class="testimonial-date">3 ay önce</span>
         </div>
       </div>
 
-      <div class="google-badge">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-        </svg>
-        <span>Google'da 4.9/5 puan</span>
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="author-info">
+            <div class="author-avatar">
+              <span>MK</span>
+            </div>
+            <div class="author-details">
+              <p class="author-name">Mehmet K.</p>
+              <p class="author-meta">Google Yorumu</p>
+            </div>
+          </div>
+          <svg class="google-logo" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+        </div>
+        
+        <div class="testimonial-content">
+          <p class="testimonial-text">
+            Kliniğin sıcak atmosferi ve Dr. Özlem Hanım'ın samimi yaklaşımı, 
+            çocuğumun doktor korkusunu tamamen yendi. Sosyal pediatri yaklaşımı 
+            gerçekten fark yaratıyor.
+          </p>
+        </div>
+        
+        <div class="testimonial-footer">
+          <div class="rating">
+            <span *ngFor="let _ of ratingArray" class="material-icons star">star</span>
+            <span class="rating-text">5.0</span>
+          </div>
+          <span class="testimonial-date">2 ay önce</span>
+        </div>
       </div>
     </div>
 
-    <div class="stats-row">
-      <div *ngFor="let stat of stats" class="stat-item">
-        <span class="stat-number">{{stat.number}}</span>
-        <span class="stat-label">{{stat.label}}</span>
+    <!-- Stats Section -->
+    <div class="stats-container">
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-icon">
+            <span class="material-icons">favorite</span>
+          </div>
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Yıllık Deneyim</span>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-icon">
+            <span class="material-icons">groups</span>
+          </div>
+          <span class="stat-number">5000+</span>
+          <span class="stat-label">Mutlu Aile</span>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-icon">
+            <span class="material-icons">star</span>
+          </div>
+          <span class="stat-number">4.9</span>
+          <span class="stat-label">Google Puanı</span>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-icon">
+            <span class="material-icons">emoji_events</span>
+          </div>
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Memnuniyet</span>
+        </div>
       </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section-cta">
+      <a href="https://g.page/r/CRpGwUfv8QJfEBM/review" target="_blank" rel="noopener noreferrer" class="cta-button">
+        <span>Siz de Yorum Yapın</span>
+        <span class="material-icons">open_in_new</span>
+      </a>
     </div>
   </div>
 </section>

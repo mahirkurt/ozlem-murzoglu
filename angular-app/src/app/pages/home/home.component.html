@@ -1,9 +1,17 @@
-<app-hero-section [locale]="locale"></app-hero-section>
+<app-liquid-hero></app-liquid-hero>
 
-<app-approach-section></app-approach-section>
+<div scrollReveal="fade-up" [scrollDelay]="100">
+  <app-approach-section></app-approach-section>
+</div>
 
-<app-services-section [locale]="locale"></app-services-section>
+<div scrollReveal="fade-up" [scrollDelay]="200">
+  <app-services-section [locale]="locale"></app-services-section>
+</div>
 
-<app-blog-section></app-blog-section>
+<div scrollReveal="fade-up" [scrollDelay]="300">
+  <app-blog-section></app-blog-section>
+</div>
 
-<app-testimonial-section></app-testimonial-section>
+<div scrollReveal="fade-up" [scrollDelay]="400">
+  <app-testimonial-section></app-testimonial-section>
+</div>
