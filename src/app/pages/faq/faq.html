@@ -30,7 +30,7 @@
           (click)="selectCategory(category)"
           class="category-tab">
           {{category}}
-          <span class="count">{{category === 'Tümü' ? faqs.length : faqs.filter(f => f.category === category).length}}</span>
+          <span class="count">{{getCategoryCount(category)}}</span>
         </button>
       </div>
 

@@ -89,6 +89,13 @@ export class FaqComponent {
     return this.faqs.filter(faq => faq.category === this.selectedCategory);
   }
   
+  getCategoryCount(category: string): number {
+    if (category === 'Tümü') {
+      return this.faqs.length;
+    }
+    return this.faqs.filter(faq => faq.category === category).length;
+  }
+  
   selectCategory(category: string) {
     this.selectedCategory = category;
     // Close all FAQs when changing category
