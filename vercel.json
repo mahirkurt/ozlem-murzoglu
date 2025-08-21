@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd angular-app && npm run build",
+  "buildCommand": "npm run build",
   "outputDirectory": "angular-app/dist/angular-app/browser",
-  "installCommand": "cd angular-app && npm install",
+  "installCommand": "npm install",
   "framework": null,
   "rewrites": [
     {
