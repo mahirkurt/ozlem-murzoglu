@@ -29,7 +29,8 @@
       "Bash(npm run start:*)",
       "WebFetch(domain:ozlemmurzoglu.com)",
       "WebSearch",
-      "Bash(npx ng:*)"
+      "Bash(npx ng:*)",
+      "Bash(git reset:*)"
     ],
     "deny": []
   }
