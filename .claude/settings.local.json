@@ -20,7 +20,8 @@
       "Bash(npx puppeteer screenshot:*)",
       "Bash(dir:*)",
       "Bash(node:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(git merge:*)"
     ],
     "deny": []
   }
