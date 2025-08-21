@@ -1,0 +1,117 @@
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Section -->
+        <div class="footer-brand-section">
+          <div class="footer-brand">
+            <img 
+              src="/logos/OM-Wide-Color.svg" 
+              alt="Dr. Özlem Murzoğlu" 
+              class="footer-logo"
+            />
+          </div>
+          
+          <p class="footer-description">
+            Çocuğunuzun sağlıklı büyümesi ve gelişimi için modern tıp ve sevgi dolu yaklaşımı birleştiren uzman pediatri hizmetleri.
+          </p>
+          
+          <!-- Social Links -->
+          <div class="social-links">
+            <a
+              *ngFor="let social of socialLinks"
+              [href]="social.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              [attr.aria-label]="social.platform"
+            >
+              <span class="material-icons" [ngSwitch]="social.platform">
+                <ng-container *ngSwitchCase="'instagram'">camera_alt</ng-container>
+                <ng-container *ngSwitchCase="'facebook'">facebook</ng-container>
+                <ng-container *ngSwitchCase="'twitter'">tag</ng-container>
+                <ng-container *ngSwitchCase="'linkedin'">work</ng-container>
+                <ng-container *ngSwitchCase="'youtube'">play_circle</ng-container>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4 class="footer-title">Hızlı Linkler</h4>
+          <ul class="footer-list">
+            <li *ngFor="let link of quickLinks">
+              <a [routerLink]="link.href" class="footer-link">
+                {{link.label}}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-section">
+          <h4 class="footer-title">Hizmetlerimiz</h4>
+          <ul class="footer-list">
+            <li *ngFor="let service of services">
+              <a [routerLink]="service.href" class="footer-link">
+                {{service.label}}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4 class="footer-title">İletişim</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="material-icons contact-icon">phone</span>
+              <div>
+                <a [href]="'tel:' + contactInfo.phone" class="contact-link">
+                  {{contactInfo.phone}}
+                </a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <span class="material-icons contact-icon">email</span>
+              <div>
+                <a [href]="'mailto:' + contactInfo.email" class="contact-link">
+                  {{contactInfo.email}}
+                </a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <span class="material-icons contact-icon">location_on</span>
+              <div>
+                <p class="contact-text">
+                  {{contactInfo.address.street}}<br/>
+                  {{contactInfo.address.building}}<br/>
+                  {{contactInfo.address.district}}, {{contactInfo.address.city}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-content">
+        <p class="copyright">
+          © {{currentYear}} Dr. Özlem Murzoğlu - Tüm hakları saklıdır.
+        </p>
+        <div class="footer-bottom-links">
+          <a *ngFor="let link of footerLinks" [routerLink]="link.href" class="footer-bottom-link">
+            {{link.label}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

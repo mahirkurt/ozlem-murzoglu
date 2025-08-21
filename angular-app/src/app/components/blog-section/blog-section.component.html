@@ -1,0 +1,45 @@
+<section class="blog-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Ebeveyn Kaynak Merkezi</h2>
+      <p class="section-subtitle">
+        Çocuk sağlığı ve gelişimi hakkında güncel bilgiler ve pratik öneriler
+      </p>
+    </div>
+
+    <div class="blog-grid">
+      <article *ngFor="let post of blogPosts" class="blog-card blog-card--{{post.color}}">
+        <a [routerLink]="['/blog', post.id]">
+          <div class="blog-image">
+            <div class="image-placeholder">
+              <span class="blog-illustration material-icons">
+                {{getIllustrationIcon(post.illustrationType)}}
+              </span>
+              <span class="category-badge">{{post.category}}</span>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-date">{{post.date}}</span>
+              <span class="blog-divider">•</span>
+              <span class="blog-readtime">{{post.readTime}}</span>
+            </div>
+            <h3 class="blog-title">{{post.title}}</h3>
+            <p class="blog-excerpt">{{post.excerpt}}</p>
+            <div class="blog-link">
+              <span>Devamını Oku</span>
+              <span class="material-icons">chevron_right</span>
+            </div>
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <div class="section-footer">
+      <a routerLink="/blog" class="view-all-link">
+        <span>Tüm Yazıları Görüntüle</span>
+        <span class="material-icons">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
