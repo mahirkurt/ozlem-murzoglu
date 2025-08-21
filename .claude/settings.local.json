@@ -20,7 +20,12 @@
       "Bash(npx puppeteer screenshot:*)",
       "Bash(dir:*)",
       "Bash(node:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(git checkout:*)",
+      "Bash(ng version)",
+      "Bash(ng new:*)",
+      "Bash(ng generate component:*)",
+      "Bash(npm run start:*)"
     ],
     "deny": []
   }
