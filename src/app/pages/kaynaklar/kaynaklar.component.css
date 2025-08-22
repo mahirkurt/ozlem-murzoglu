@@ -2,22 +2,23 @@
 .resources-container {
   min-height: 100vh;
   background: linear-gradient(135deg, var(--primary-container) 0%, var(--surface) 100%);
+  padding-top: 80px;
 }
 
 /* Hero Section */
 .resources-hero {
-  padding: 120px 2rem 80px;
+  padding: 3rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
   gap: 4rem;
 }
 
 .hero-content {
   flex: 1;
-  max-width: 600px;
+  max-width: 100%;
 }
 
 .hero-title {
@@ -60,20 +61,12 @@
   margin-top: 0.5rem;
 }
 
-.hero-illustration {
-  flex: 0 0 400px;
-}
-
-.resources-hero-svg {
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.1));
-}
+/* Hero illustration removed */
 
 /* Search Section */
 .search-section {
   padding: 0 2rem 4rem;
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -86,7 +79,7 @@
 .search-input-wrapper {
   position: relative;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .search-icon {
@@ -100,13 +93,14 @@
 
 .search-input {
   width: 100%;
-  padding: 1rem 1rem 1rem 3rem;
+  padding: 1.25rem 1.25rem 1.25rem 3.5rem;
   border: 2px solid var(--outline-variant);
-  border-radius: 28px;
+  border-radius: 30px;
   background: var(--surface);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   color: var(--on-surface);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .search-input:focus {
@@ -153,13 +147,14 @@
 .search-result-card {
   display: flex;
   align-items: center;
-  padding: 1.5rem;
+  padding: 2rem;
   background: var(--surface);
-  border-radius: 16px;
+  border-radius: 20px;
   border: 1px solid var(--outline-variant);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  gap: 1rem;
+  gap: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .search-result-card:hover {
@@ -234,7 +229,7 @@
 /* Categories Section */
 .categories-section {
   padding: 0 2rem 6rem;
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -258,25 +253,29 @@
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 2.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .category-card {
   background: var(--surface);
   border-radius: 24px;
-  padding: 2rem;
+  padding: 2.5rem;
   border: 1px solid var(--outline-variant);
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15);
   border-color: var(--primary);
+  background: var(--surface-container-low);
 }
 
 .category-header {
@@ -319,17 +318,18 @@
 }
 
 .category-title {
-  font-size: 1.375rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--on-surface);
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
 }
 
 .category-description {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   color: var(--on-surface-variant);
-  line-height: 1.5;
-  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
 }
 
 .category-preview {
@@ -389,30 +389,31 @@
 
 /* Quick Access Section */
 .quick-access-section {
-  padding: 0 2rem 6rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 4rem 3rem 6rem;
+  max-width: 100%;
+  margin: 4rem auto 0;
   background: var(--surface-container-low);
   border-radius: 32px 32px 0 0;
-  margin-top: 4rem;
-  padding-top: 4rem;
 }
 
 .quick-access-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .quick-access-card {
   display: flex;
   align-items: center;
-  padding: 1.5rem;
+  padding: 2rem;
   background: var(--surface);
-  border-radius: 16px;
+  border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  gap: 1rem;
+  gap: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .quick-access-card:hover {
@@ -465,7 +466,7 @@
 }
 
 .info-container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
   align-items: center;

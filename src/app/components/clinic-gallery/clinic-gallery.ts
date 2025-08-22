@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RevealDirective } from '../../directives/reveal.directive';
 import { LazyLoadDirective } from '../../directives/lazy-load.directive';
+import { Router } from '@angular/router';
 
 interface GalleryImage {
   src: string;
@@ -25,7 +26,7 @@ interface GalleryImage {
         </div>
         
         <div class="gallery-grid">
-          <div *ngFor="let image of galleryImages; let i = index" 
+          <div *ngFor="let image of displayedImages; let i = index" 
                class="gallery-item glass-card"
                [class.featured]="i === 0"
                [attr.data-category]="image.category"
@@ -59,6 +60,13 @@ interface GalleryImage {
             <h3 class="feature-title">{{ feature.title }}</h3>
             <p class="feature-description">{{ feature.description }}</p>
           </div>
+        </div>
+        
+        <div class="view-all-container" *ngIf="isMobile && galleryImages.length > displayLimit">
+          <button class="view-all-btn" (click)="viewAllGallery()">
+            <span>Tüm Fotoğrafları Görüntüle</span>
+            <span class="material-icons">arrow_forward</span>
+          </button>
         </div>
       </div>
       
@@ -325,11 +333,84 @@ interface GalleryImage {
       .modal-caption {
         font-size: var(--font-size-base);
       }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      
+      .gallery-item.featured {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+      
+      .image-wrapper,
+      .gallery-item.featured .image-wrapper {
+        min-height: 180px;
+      }
+    }
+    
+    .view-all-container {
+      text-align: center;
+      margin-top: var(--space-5);
+    }
+    
+    .view-all-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 95, 115, 0.2);
+    }
+    
+    .view-all-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 95, 115, 0.3);
+    }
+    
+    .view-all-btn .material-icons {
+      transition: transform 0.3s ease;
+    }
+    
+    .view-all-btn:hover .material-icons {
+      transform: translateX(4px);
     }
   `]
 })
 export class ClinicGalleryComponent {
   selectedImage: GalleryImage | null = null;
+  isMobile = false;
+  displayLimit = 6;
+  
+  constructor(private router: Router) {
+    this.checkMobile();
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => this.checkMobile());
+    }
+  }
+  
+  checkMobile() {
+    if (typeof window !== 'undefined') {
+      this.isMobile = window.innerWidth <= 768;
+      this.displayLimit = this.isMobile ? 4 : 6;
+    }
+  }
+  
+  get displayedImages() {
+    return this.isMobile ? this.galleryImages.slice(0, this.displayLimit) : this.galleryImages;
+  }
+  
+  viewAllGallery() {
+    this.router.navigate(['/galeri']);
+  }
   
   galleryImages: GalleryImage[] = [
     {
