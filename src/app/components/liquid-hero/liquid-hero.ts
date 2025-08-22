@@ -512,21 +512,96 @@ import { RouterModule } from '@angular/router';
     
     /* Responsive */
     @media (max-width: 768px) {
+      .hero-section {
+        min-height: 100vh;
+        padding-top: 120px;
+      }
+      
+      .hero-content {
+        padding: 0 20px;
+      }
+      
+      .hero-badge {
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .badge-title {
+        font-size: 0.9rem;
+      }
+      
+      .badge-subtitle {
+        font-size: 0.75rem;
+      }
+      
       .hero-title {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
+        line-height: 1.3;
+        margin-bottom: 1.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
       }
       
       .hero-stats {
-        gap: 2rem;
+        gap: 1.5rem;
+        flex-direction: column;
+      }
+      
+      .stat-item {
+        width: 100%;
+        text-align: center;
       }
       
       .stat-number {
-        font-size: 2rem;
+        font-size: 1.75rem;
+      }
+      
+      .stat-label {
+        font-size: 0.875rem;
       }
       
       .hero-cta {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+      }
+      
+      .cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 32px;
+      }
+      
+      .cta-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .scroll-indicator {
+        bottom: 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.9rem;
+      }
+      
+      .badge-title {
+        font-size: 0.8rem;
+      }
+      
+      .badge-subtitle {
+        font-size: 0.7rem;
       }
     }
   `]

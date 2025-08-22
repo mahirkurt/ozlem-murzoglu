@@ -4,11 +4,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { Footer } from './components/footer/footer';
 import { CustomCursorComponent } from './components/custom-cursor/custom-cursor';
 import { FloatingActionsComponent } from './components/floating-actions/floating-actions';
+import { WhatsAppButtonComponent } from './components/whatsapp-button/whatsapp-button';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, Footer, FloatingActionsComponent],
+  imports: [RouterOutlet, HeaderComponent, Footer, FloatingActionsComponent, WhatsAppButtonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
