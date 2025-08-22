@@ -19,16 +19,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAnimating = false;
 
   contactInfo = {
-    phone: '+90 546 237 84 00',
-    email: 'info@ozlemmurzoglu.com',
-    address: 'Eskişehir'
+    phone: '+90 216 688 44 83',
+    email: 'klinik@drmurzoglu.com',
+    address: 'Ataşehir, İstanbul'
   };
 
   navigation = [
-    {
-      label: 'ANA SAYFA',
-      href: '/'
-    },
     {
       label: 'HAKKIMIZDA',
       href: '/hakkimizda'
@@ -37,25 +33,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
       label: 'HİZMETLERİMİZ',
       href: '/hizmetlerimiz',
       children: [
-        { label: 'Kapsamlı Çocuk Muayenesi', href: '/hizmetlerimiz/kapsamli-cocuk-muayenesi' },
-        { label: 'Büyüme ve Gelişim Takibi', href: '/hizmetlerimiz/buyume-gelisim-takibi' },
-        { label: 'Aşı Uygulamaları', href: '/hizmetlerimiz/asi-uygulamalari' },
-        { label: 'Bebek ve Çocuk Beslenmesi', href: '/hizmetlerimiz/bebek-cocuk-beslenmesi' },
-        { label: 'Çocuk Alerjileri', href: '/hizmetlerimiz/cocuk-alerjileri' },
-        { label: 'Kronik Hastalık Yönetimi', href: '/hizmetlerimiz/kronik-hastalik-yonetimi' }
+        { label: 'Sağlıklı Çocuk İzlemi', href: '/hizmetlerimiz/saglikli-cocuk-izlemi' },
+        { label: 'Aşılama', href: '/hizmetlerimiz/asilama' },
+        { label: 'Bebek Beslenmesi', href: '/hizmetlerimiz/bebek-beslenmesi' },
+        { label: 'Büyüme ve Gelişim', href: '/hizmetlerimiz/buyume-gelisim' },
+        { label: 'Çocuk Alerjileri', href: '/hizmetlerimiz/alerji' },
+        { label: 'Online Konsültasyon', href: '/hizmetlerimiz/online-konsultasyon' }
       ]
     },
     {
-      label: 'BLOG',
-      href: '/blog'
+      label: 'KLİNİĞİMİZ',
+      href: '/klinigimiz'
+    },
+    {
+      label: 'MAKALELER',
+      href: '/makaleler'
     },
     {
       label: 'SAYGIYLA',
       href: '/saygiyla'
-    },
-    {
-      label: 'S.S.S',
-      href: '/sss'
     },
     {
       label: 'İLETİŞİM',

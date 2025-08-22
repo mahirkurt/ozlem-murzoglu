@@ -29,6 +29,7 @@ interface GalleryImage {
                class="gallery-item glass-card"
                [class.featured]="i === 0"
                [attr.data-category]="image.category"
+               (click)="openModal(image)"
                appReveal 
                [revealAnimation]="i % 2 === 0 ? 'slide-right' : 'slide-left'"
                [revealDelay]="i * 100">
@@ -43,7 +44,7 @@ interface GalleryImage {
                 loading="lazy"
               />
               <div class="image-overlay">
-                <span class="image-title">{{ image.title }}</span>
+                <span class="material-icons zoom-icon">zoom_in</span>
               </div>
             </div>
           </div>
@@ -58,6 +59,17 @@ interface GalleryImage {
             <h3 class="feature-title">{{ feature.title }}</h3>
             <p class="feature-description">{{ feature.description }}</p>
           </div>
+        </div>
+      </div>
+      
+      <!-- Modal -->
+      <div class="modal-backdrop" *ngIf="selectedImage" (click)="closeModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <button class="modal-close" (click)="closeModal()">
+            <span class="material-icons">close</span>
+          </button>
+          <img [src]="selectedImage.src" [alt]="selectedImage.alt" class="modal-image" />
+          <div class="modal-caption">{{ selectedImage.title }}</div>
         </div>
       </div>
     </section>
@@ -159,10 +171,10 @@ interface GalleryImage {
     .image-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0, 95, 115, 0.8) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(0, 95, 115, 0.7) 0%, rgba(0, 95, 115, 0.3) 100%);
       display: flex;
-      align-items: flex-end;
-      padding: var(--space-4);
+      align-items: center;
+      justify-content: center;
       opacity: 0;
       transition: opacity 0.3s var(--ease-in-out);
     }
@@ -171,11 +183,16 @@ interface GalleryImage {
       opacity: 1;
     }
     
-    .image-title {
+    .zoom-icon {
       color: white;
-      font-size: var(--font-size-lg);
-      font-weight: 600;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      font-size: 48px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
     
     .gallery-features {
@@ -219,9 +236,103 @@ interface GalleryImage {
       color: var(--color-neutral-600);
       line-height: var(--line-height-relaxed);
     }
+    
+    /* Modal Styles */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      animation: fadeIn 0.3s ease;
+      cursor: zoom-out;
+    }
+    
+    .modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      animation: zoomIn 0.3s ease;
+      cursor: default;
+    }
+    
+    .modal-image {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-caption {
+      text-align: center;
+      color: white;
+      font-size: var(--font-size-lg);
+      margin-top: var(--space-3);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes zoomIn {
+      from { 
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to { 
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .modal-close {
+        top: 10px;
+        right: 10px;
+      }
+      
+      .modal-caption {
+        font-size: var(--font-size-base);
+      }
+    }
   `]
 })
 export class ClinicGalleryComponent {
+  selectedImage: GalleryImage | null = null;
+  
   galleryImages: GalleryImage[] = [
     {
       src: '/images/20221028_110409_3.jpg',
@@ -294,11 +405,16 @@ export class ClinicGalleryComponent {
       icon: 'accessible',
       title: 'Engelsiz Erişim',
       description: 'Bebek arabası ve tekerlekli sandalye erişimine uygun düzenleme'
-    },
-    {
-      icon: 'air',
-      title: 'Temiz Hava Sistemi',
-      description: 'HEPA filtreli havalandırma sistemi ile sürekli temiz hava'
     }
   ];
+  
+  openModal(image: GalleryImage) {
+    this.selectedImage = image;
+    document.body.style.overflow = 'hidden';
+  }
+  
+  closeModal() {
+    this.selectedImage = null;
+    document.body.style.overflow = '';
+  }
 }

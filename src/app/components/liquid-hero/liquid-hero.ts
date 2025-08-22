@@ -64,7 +64,7 @@ import { RouterModule } from '@angular/router';
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      padding-top: 80px;
+      padding-top: 140px;
       background: 
         radial-gradient(at 40% 20%, var(--color-secondary) 0px, transparent 50%),
         radial-gradient(at 80% 0%, var(--color-primary-light) 0px, transparent 50%),
