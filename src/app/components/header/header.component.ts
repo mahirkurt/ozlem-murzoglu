@@ -44,6 +44,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
       ]
     },
     {
+      label: 'KAYNAKLAR',
+      href: '/kaynaklar',
+      children: [
+        { label: 'Tüm Kaynaklar', href: '/kaynaklar' },
+        { label: 'Aşı Bilgileri', href: '/kaynaklar/asilar' },
+        { label: 'Bright Futures - Aile', href: '/kaynaklar/bright-futures-aile' },
+        { label: 'Bright Futures - Çocuk', href: '/kaynaklar/bright-futures-cocuk' },
+        { label: 'Gelişim Rehberleri', href: '/kaynaklar/gelisim-rehberleri' },
+        { label: 'Genel Bilgiler', href: '/kaynaklar/genel-bilgiler' },
+        { label: 'Büyüme Eğrileri', href: '/kaynaklar/cdc-buyume-egrileri' },
+        { label: 'Aile Medya Planı', href: '/kaynaklar/aile-medya-plani' }
+      ]
+    },
+    {
       label: 'BLOG',
       href: '/blog',
       children: [
@@ -129,6 +143,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
           ]
         },
         {
+          label: 'RESOURCES',
+          href: '/kaynaklar',
+          children: [
+            { label: 'All Resources', href: '/kaynaklar' },
+            { label: 'Vaccine Information', href: '/kaynaklar/asilar' },
+            { label: 'Bright Futures - Family', href: '/kaynaklar/bright-futures-aile' },
+            { label: 'Bright Futures - Child', href: '/kaynaklar/bright-futures-cocuk' },
+            { label: 'Development Guides', href: '/kaynaklar/gelisim-rehberleri' },
+            { label: 'General Information', href: '/kaynaklar/genel-bilgiler' },
+            { label: 'Growth Charts', href: '/kaynaklar/cdc-buyume-egrileri' },
+            { label: 'Family Media Plan', href: '/kaynaklar/aile-medya-plani' }
+          ]
+        },
+        {
           label: 'BLOG',
           href: '/blog',
           children: [
@@ -158,6 +186,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
             { label: 'Büyüme ve Gelişim', href: '/hizmetlerimiz/buyume-gelisim' },
             { label: 'Çocuk Alerjileri', href: '/hizmetlerimiz/alerji' },
             { label: 'Online Konsültasyon', href: '/hizmetlerimiz/online-konsultasyon' }
+          ]
+        },
+        {
+          label: 'KAYNAKLAR',
+          href: '/kaynaklar',
+          children: [
+            { label: 'Tüm Kaynaklar', href: '/kaynaklar' },
+            { label: 'Aşı Bilgileri', href: '/kaynaklar/asilar' },
+            { label: 'Bright Futures - Aile', href: '/kaynaklar/bright-futures-aile' },
+            { label: 'Bright Futures - Çocuk', href: '/kaynaklar/bright-futures-cocuk' },
+            { label: 'Gelişim Rehberleri', href: '/kaynaklar/gelisim-rehberleri' },
+            { label: 'Genel Bilgiler', href: '/kaynaklar/genel-bilgiler' },
+            { label: 'Büyüme Eğrileri', href: '/kaynaklar/cdc-buyume-egrileri' },
+            { label: 'Aile Medya Planı', href: '/kaynaklar/aile-medya-plani' }
           ]
         },
         {

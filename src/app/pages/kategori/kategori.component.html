@@ -1,0 +1,207 @@
+<div class="category-container" *ngIf="category">
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <ol class="breadcrumb-list">
+      <li class="breadcrumb-item">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">Kaynaklar</a>
+      </li>
+      <li class="breadcrumb-separator">
+        <span class="material-icons">chevron_right</span>
+      </li>
+      <li class="breadcrumb-item current">
+        <span>{{category.title}}</span>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- Category Header -->
+  <section class="category-header">
+    <div class="header-content">
+      <div class="category-info">
+        <div class="category-icon-large" [style.background-color]="category.color + '20'">
+          <span class="material-icons" [style.color]="category.color">{{category.icon}}</span>
+        </div>
+        <div class="category-details">
+          <h1 class="category-title">{{category.title}}</h1>
+          <p class="category-description">{{category.description}}</p>
+          <div class="category-stats">
+            <div class="stat">
+              <span class="stat-number">{{category.documentCount}}</span>
+              <span class="stat-label">Dokuman</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">{{getFileTypes().length}}</span>
+              <span class="stat-label">Farklı Format</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-illustration">
+        <svg viewBox="0 0 300 200" class="category-svg">
+          <ng-container [ngSwitch]="category.id">
+            <!-- Medical/Health illustration -->
+            <g *ngSwitchCase="'asilar'">
+              <circle cx="150" cy="100" r="80" fill="var(--primary-container)" opacity="0.3"/>
+              <rect x="140" y="60" width="20" height="80" rx="10" fill="var(--primary)"/>
+              <rect x="110" y="90" width="80" height="20" rx="10" fill="var(--primary)"/>
+            </g>
+            
+            <!-- Family illustration -->
+            <g *ngSwitchCase="'bright-futures-aile'">
+              <circle cx="120" cy="80" r="25" fill="var(--secondary)" opacity="0.7"/>
+              <circle cx="180" cy="80" r="25" fill="var(--secondary)" opacity="0.7"/>
+              <circle cx="120" cy="140" r="20" fill="var(--tertiary)" opacity="0.8"/>
+              <circle cx="180" cy="140" r="20" fill="var(--tertiary)" opacity="0.8"/>
+            </g>
+            
+            <!-- Child illustration -->
+            <g *ngSwitchCase="'bright-futures-cocuk'">
+              <circle cx="150" cy="70" r="30" fill="var(--secondary)" opacity="0.8"/>
+              <rect x="130" y="100" width="40" height="60" rx="20" fill="var(--tertiary)" opacity="0.8"/>
+            </g>
+            
+            <!-- Growth chart illustration -->
+            <g *ngSwitchDefault>
+              <path d="M 50 150 L 100 120 L 150 100 L 200 80 L 250 60" stroke="var(--primary)" stroke-width="3" fill="none"/>
+              <circle cx="50" cy="150" r="4" fill="var(--primary)"/>
+              <circle cx="100" cy="120" r="4" fill="var(--primary)"/>
+              <circle cx="150" cy="100" r="4" fill="var(--primary)"/>
+              <circle cx="200" cy="80" r="4" fill="var(--primary)"/>
+              <circle cx="250" cy="60" r="4" fill="var(--primary)"/>
+            </g>
+          </ng-container>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters and Search -->
+  <section class="filters-section">
+    <div class="filters-container">
+      <div class="search-filter">
+        <div class="search-input-wrapper">
+          <span class="material-icons search-icon">search</span>
+          <input 
+            type="text" 
+            class="search-input"
+            placeholder="Bu kategoride ara..." 
+            [(ngModel)]="searchQuery"
+            (input)="onSearchChange($event)">
+          <button *ngIf="searchQuery" class="clear-search" (click)="clearSearch()">
+            <span class="material-icons">clear</span>
+          </button>
+        </div>
+      </div>
+      
+      <div class="filter-options">
+        <div class="filter-group">
+          <label class="filter-label">Dosya Türü:</label>
+          <div class="filter-buttons">
+            <button 
+              class="filter-btn" 
+              [class.active]="fileTypeFilter === 'all'"
+              (click)="setFileTypeFilter('all')">
+              Tümü ({{filteredDocuments.length}})
+            </button>
+            <button 
+              *ngFor="let type of getFileTypes()"
+              class="filter-btn" 
+              [class.active]="fileTypeFilter === type"
+              (click)="setFileTypeFilter(type)">
+              {{type.toUpperCase()}} ({{getDocumentsByType(type).length}})
+            </button>
+          </div>
+        </div>
+        
+        <div class="sort-group">
+          <label class="sort-label">Sıralama:</label>
+          <select class="sort-select" [(ngModel)]="sortBy" (change)="applySorting()">
+            <option value="title">Başlığa Göre (A-Z)</option>
+            <option value="title-desc">Başlığa Göre (Z-A)</option>
+            <option value="type">Dosya Türüne Göre</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documents Grid -->
+  <section class="documents-section">
+    <div class="documents-container">
+      <div *ngIf="filteredDocuments.length === 0" class="empty-state">
+        <div class="empty-icon">
+          <span class="material-icons">search_off</span>
+        </div>
+        <h3 class="empty-title">Dokuman Bulunamadı</h3>
+        <p class="empty-description">
+          Arama kriterlerinize uygun dokuman bulunamadı. 
+          Farklı anahtar kelimeler deneyebilir veya filtreleri sıfırlayabilirsiniz.
+        </p>
+        <button class="reset-filters-btn" (click)="resetFilters()">
+          Filtreleri Sıfırla
+        </button>
+      </div>
+
+      <div class="documents-grid" *ngIf="filteredDocuments.length > 0">
+        <div *ngFor="let document of filteredDocuments; trackBy: trackByDocument" 
+             class="document-card" 
+             (click)="viewDocument(document)">
+          <div class="document-header">
+            <div class="document-icon" [class.pdf]="document.fileType === 'pdf'" [class.docx]="document.fileType === 'docx'">
+              <span class="material-icons">{{document.fileType === 'pdf' ? 'picture_as_pdf' : 'description'}}</span>
+            </div>
+            <div class="document-actions">
+              <button class="action-btn download-btn" 
+                      (click)="downloadDocument(document); $event.stopPropagation()"
+                      [title]="'İndir: ' + document.title">
+                <span class="material-icons">download</span>
+              </button>
+              <button class="action-btn view-btn" 
+                      (click)="viewDocument(document); $event.stopPropagation()"
+                      [title]="'Görüntüle: ' + document.title">
+                <span class="material-icons">visibility</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="document-content">
+            <h3 class="document-title">{{document.title}}</h3>
+            <p class="document-description" *ngIf="document.description">{{document.description}}</p>
+            <div class="document-meta">
+              <span class="file-type-badge" [class]="document.fileType">{{document.fileType.toUpperCase()}}</span>
+              <span class="file-size" *ngIf="document.size">{{document.size}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Categories -->
+  <section class="related-section" *ngIf="relatedCategories.length > 0">
+    <div class="related-container">
+      <h2 class="related-title">İlgili Kategoriler</h2>
+      <div class="related-grid">
+        <div *ngFor="let relatedCategory of relatedCategories" 
+             class="related-card"
+             (click)="navigateToCategory(relatedCategory.id)">
+          <div class="related-icon" [style.background-color]="relatedCategory.color + '20'">
+            <span class="material-icons" [style.color]="relatedCategory.color">{{relatedCategory.icon}}</span>
+          </div>
+          <div class="related-content">
+            <h4 class="related-card-title">{{relatedCategory.title}}</h4>
+            <p class="related-count">{{relatedCategory.documentCount}} dokuman</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Loading State -->
+<div *ngIf="!category" class="loading-container">
+  <div class="loading-spinner">
+    <div class="spinner"></div>
+    <p class="loading-text">Kategori yükleniyor...</p>
+  </div>
+</div>
