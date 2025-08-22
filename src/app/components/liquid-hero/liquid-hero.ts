@@ -26,19 +26,11 @@ import { CommonModule } from '@angular/common';
           <div class="content-wrapper">
             <span class="hero-badge">Dr. Özlem Murzoğlu</span>
             <h1 class="hero-title">
-              <span class="word" *ngFor="let word of titleWords; let i = index" 
-                    [style.animation-delay]="i * 0.1 + 's'">{{word}}</span>
+              En Değerli Varlığınız için Bilim ve Şefkati Birleştiren Bütüncül Yaklaşım
             </h1>
             <p class="hero-description">
-              Çocuğunuzun sağlıklı geleceği için modern tıp ve sevgi dolu yaklaşımı birleştiriyoruz
+              Sosyal pediatri ve çocuk gelişimi disiplinlerini harmanlayan kapsamlı yaklaşımla doğumdan yetişkinliğe kanıta dayalı ve çocuğunuza özel bir sağlık deneyimi
             </p>
-            
-            <div class="hero-stats">
-              <div class="stat" *ngFor="let stat of stats">
-                <span class="stat-number" [attr.data-target]="stat.value">0</span>
-                <span class="stat-label">{{stat.label}}</span>
-              </div>
-            </div>
             
             <div class="hero-cta">
               <button class="primary-btn magnetic-btn">
@@ -72,8 +64,10 @@ import { CommonModule } from '@angular/common';
       min-height: 100vh;
       display: flex;
       align-items: center;
+      justify-content: center;
       overflow: hidden;
       background: linear-gradient(135deg, #005F73 0%, #0A9396 50%, #94BBE9 100%);
+      padding-top: 80px; /* Header için boşluk */
     }
     
     /* Liquid Background */
@@ -162,10 +156,21 @@ import { CommonModule } from '@angular/common';
       z-index: 10;
       width: 100%;
       padding: 2rem 0;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: center;
     }
     
     .content-wrapper {
-      max-width: 800px;
+      max-width: 900px;
+      text-align: center;
     }
     
     .hero-badge {
@@ -187,78 +192,35 @@ import { CommonModule } from '@angular/common';
     
     .hero-title {
       font-family: 'Figtree', sans-serif;
-      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 700;
       color: white;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.03em;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+      animation: fade-in-up 0.8s ease-out;
     }
     
-    .hero-title .word {
-      display: inline-block;
-      animation: word-reveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
-      margin-right: 0.3em;
-    }
-    
-    @keyframes word-reveal {
-      0% {
-        opacity: 0;
-        transform: translateY(100%) rotateX(-90deg);
-        filter: blur(10px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) rotateX(0);
-        filter: blur(0);
-      }
-    }
     
     .hero-description {
       font-family: 'DM Sans', sans-serif;
-      font-size: clamp(1.125rem, 2vw, 1.5rem);
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.6;
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.7;
       margin-bottom: 3rem;
-      animation: fade-in-up 0.8s ease-out 0.5s both;
-    }
-    
-    /* Stats */
-    .hero-stats {
-      display: flex;
-      gap: 3rem;
-      margin-bottom: 3rem;
-      animation: fade-in-up 0.8s ease-out 0.6s both;
-    }
-    
-    .stat {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    
-    .stat-number {
-      font-family: 'Figtree', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #FFB74D;
-      text-shadow: 0 0 30px rgba(255, 183, 77, 0.5);
-    }
-    
-    .stat-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.875rem;
-      color: rgba(255, 255, 255, 0.8);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fade-in-up 0.8s ease-out 0.3s both;
     }
     
     /* CTA */
     .hero-cta {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 2rem;
-      animation: fade-in-up 0.8s ease-out 0.7s both;
+      animation: fade-in-up 0.8s ease-out 0.5s both;
     }
     
     .primary-btn {
@@ -464,40 +426,8 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class LiquidHeroComponent implements OnInit {
-  titleWords = ['Çocuk', 'Sağlığında', 'Güvenilir', 'Adres'];
-  
-  stats = [
-    { value: 15, label: 'Yıllık Deneyim' },
-    { value: 5000, label: 'Mutlu Aile' },
-    { value: 100, label: 'Memnuniyet %' }
-  ];
   
   ngOnInit() {
-    // Animate numbers on load
-    setTimeout(() => {
-      this.animateNumbers();
-    }, 1000);
-  }
-  
-  private animateNumbers() {
-    const elements = document.querySelectorAll('.stat-number');
-    elements.forEach((el: any) => {
-      const target = parseInt(el.getAttribute('data-target'));
-      const duration = 2000;
-      const increment = target / (duration / 16);
-      let current = 0;
-      
-      const updateNumber = () => {
-        current += increment;
-        if (current < target) {
-          el.textContent = Math.floor(current);
-          requestAnimationFrame(updateNumber);
-        } else {
-          el.textContent = target + (el.getAttribute('data-target') == '100' ? '%' : '+');
-        }
-      };
-      
-      updateNumber();
-    });
+    // Component initialization if needed
   }
 }
