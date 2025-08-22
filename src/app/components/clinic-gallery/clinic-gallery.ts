@@ -7,7 +7,7 @@ interface GalleryImage {
   src: string;
   alt: string;
   title: string;
-  category: 'doctor' | 'waiting' | 'consultation' | 'play' | 'reception';
+  category: 'waiting' | 'consultation' | 'play' | 'reception';
 }
 
 @Component({
@@ -76,7 +76,7 @@ interface GalleryImage {
   `,
   styles: [`
     .clinic-gallery {
-      padding: var(--space-8) 0;
+      padding: 60px 0;
       position: relative;
       background: var(--color-neutral-50);
     }
@@ -94,17 +94,6 @@ interface GalleryImage {
       display: inline-block;
     }
     
-    .gallery-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
-      border-radius: 2px;
-    }
     
     .gallery-subtitle {
       font-size: var(--font-size-lg);
@@ -116,19 +105,25 @@ interface GalleryImage {
     
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: var(--space-4);
       margin-bottom: var(--space-7);
     }
     
     @media (min-width: 768px) {
       .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
       }
       
       .gallery-item.featured {
         grid-column: span 2;
         grid-row: span 2;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
       }
     }
     
@@ -197,12 +192,14 @@ interface GalleryImage {
     
     .gallery-features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--space-4);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-3);
+      max-width: 800px;
+      margin: 0 auto;
     }
     
     .feature-card {
-      padding: var(--space-5);
+      padding: var(--space-4);
       text-align: center;
       transition: all 0.3s var(--ease-in-out);
     }
@@ -212,23 +209,23 @@ interface GalleryImage {
     }
     
     .feature-icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto var(--space-3);
+      width: 48px;
+      height: 48px;
+      margin: 0 auto var(--space-2);
       background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-      border-radius: 16px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 28px;
+      font-size: 24px;
       box-shadow: var(--shadow-md);
     }
     
     .feature-title {
-      font-size: var(--font-size-xl);
+      font-size: var(--font-size-lg);
       color: var(--color-primary);
-      margin-bottom: var(--space-2);
+      margin-bottom: var(--space-1);
     }
     
     .feature-description {
@@ -334,12 +331,6 @@ export class ClinicGalleryComponent {
   selectedImage: GalleryImage | null = null;
   
   galleryImages: GalleryImage[] = [
-    {
-      src: '/images/20221028_110409_3.jpg',
-      alt: 'Dr. Özlem Murzoğlu - Çocuk Sağlığı ve Hastalıkları Uzmanı',
-      title: 'Uzm. Dr. Özlem Murzoğlu',
-      category: 'doctor'
-    },
     {
       src: '/images/20230416_174226~2.jpg',
       alt: 'Modern klinik resepsiyon alanı',

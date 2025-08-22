@@ -116,12 +116,12 @@
             </button>
           </div>
           
-          <a href="https://saglikpetegim.com/randevu" target="_blank" rel="noopener noreferrer" class="appointment-btn">
+          <button type="button" class="appointment-btn" (click)="openAppointmentModal()">
             <span>Online Randevu</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
             </svg>
-          </a>
+          </button>
         </div>
 
         <!-- Mobile Menu Toggle -->
@@ -184,8 +184,14 @@
         </span>
       </button>
     </div>
-    <a href="https://saglikpetegim.com/randevu" target="_blank" rel="noopener noreferrer" class="mobile-appointment-btn" (click)="toggleMobileMenu()">
+    <button type="button" class="mobile-appointment-btn" (click)="openAppointmentModal()">
       Online Randevu Al
-    </a>
+    </button>
   </div>
 </div>
+
+<!-- Appointment Modal -->
+<app-appointment-modal 
+  [isOpen]="isAppointmentModalOpen" 
+  (close)="closeAppointmentModal()">
+</app-appointment-modal>

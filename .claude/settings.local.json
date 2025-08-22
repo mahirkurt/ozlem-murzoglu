@@ -34,7 +34,9 @@
       "Bash(env)",
       "Bash(mcp list-servers:*)",
       "Bash(mcp:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "WebFetch(domain:g.co)",
+      "WebFetch(domain:www.google.com)"
     ],
     "deny": []
   }

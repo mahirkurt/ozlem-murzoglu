@@ -8,7 +8,6 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 import { ClinicGalleryComponent } from '../../components/clinic-gallery/clinic-gallery';
 import { DoctorBioComponent } from '../../components/doctor-bio/doctor-bio';
 import { AppointmentSectionComponent } from '../../components/appointment-section/appointment-section.component';
-import { AppointmentWidgetComponent } from '../../components/appointment-widget/appointment-widget.component';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +21,7 @@ import { AppointmentWidgetComponent } from '../../components/appointment-widget/
     ScrollRevealDirective,
     ClinicGalleryComponent,
     DoctorBioComponent,
-    AppointmentSectionComponent,
-    AppointmentWidgetComponent
+    AppointmentSectionComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

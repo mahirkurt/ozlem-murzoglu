@@ -82,42 +82,62 @@ import { CommonModule } from '@angular/common';
   `,
   styles: [`
     .doctor-bio-section {
-      padding: 80px 0;
+      padding: 60px 0;
       background: linear-gradient(135deg, var(--color-neutral-50) 0%, white 100%);
       position: relative;
     }
     
     .bio-content {
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 380px 1fr;
       gap: 60px;
       align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
     .doctor-image-wrapper {
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     
     .doctor-image {
       width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0, 95, 115, 0.15);
+      max-width: 320px;
+      height: 450px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 95, 115, 0.2);
       position: relative;
       z-index: 2;
     }
     
     .image-decoration {
       position: absolute;
-      top: -20px;
-      left: -20px;
-      right: 20px;
-      bottom: 20px;
+      top: -15px;
+      left: -15px;
+      width: calc(100% + 30px);
+      height: calc(100% + 30px);
       background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
       border-radius: 20px;
-      opacity: 0.1;
+      opacity: 0.08;
       z-index: 1;
+    }
+    
+    .doctor-image-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      right: -30px;
+      bottom: -30px;
+      background: linear-gradient(135deg, var(--color-secondary-light) 0%, var(--color-accent-light) 100%);
+      border-radius: 20px;
+      opacity: 0.1;
+      z-index: 0;
     }
     
     .section-title {
