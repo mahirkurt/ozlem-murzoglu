@@ -13,35 +13,6 @@
   3. **Lottie** animasyonlarını katman bazlı renklendirmek (tercihen dışarıda düzenlenmiş JSON) ve Angular şablonlarında kullanmak.
   4. **A11y** (WCAG), **performans** (lazy load, cache), **lisans/atıf** gereksinimlerini check‑list ile güvenceye almak.
 
-- **Klasör yapısı (öneri)**
-  ```text
-  src/
-  ├─ app/
-  │  ├─ core/
-  │  │  └─ theme/
-  │  │     └─ theme.service.ts            # Sizin ThemeService (verdiğiniz biçimde)
-  │  ├─ shared/
-  │  │  ├─ directives/
-  │  │  │  └─ lazy-observe.directive.ts   # (isteğe bağlı) Görsel/animasyonlar için lazy loader
-  │  │  ├─ components/
-  │  │  │  ├─ theme-toggle/
-  │  │  │  │  └─ theme-toggle.component.ts
-  │  │  │  └─ illustration/
-  │  │  │     └─ illustration.component.ts
-  │  │  └─ styles/
-  │  │     ├─ tokens.css                  # Fallback değerler (FOUC önlemek için)
-  │  │     └─ illustrations.css           # SVG/Lottie yardımcı sınıflar
-  │  └─ app.component.ts                  # ThemeService’i ilk anda instantiate eder
-  ├─ assets/
-  │  └─ illustrations/
-  │     ├─ static/                        # Optimize edilmiş SVG/PNG
-  │     └─ lottie/                        # Düzenlenmiş .json
-  └─ tools/
-     └─ svgo.config.mjs                   # SVGO yapılandırması
-  ```
-
----
-
 ## 1) ThemeService Entegrasyonu (Bootstrap)
 `ThemeService` constructor’ı ilk enjekte edildiği anda çalışır. Bu nedenle **AppComponent** içinde enjekte ederek servisi erken başlatın.
 
@@ -273,6 +244,19 @@ export class ThemeToggleComponent {
 - **Atıf gerektirebilenler (ücretsiz katman)**: Storyset (Freepik), Icons8 Ouch! vb.  
 > **İlke:** Her bir dosyanın kendi **lisans sayfasını** mutlaka kontrol edin. Gerekirse sayfa altbilgisine atıf ekleyin:  
 > `İllüstrasyon: Storyset – storyset.com` veya `İllüstrasyon: Icons8 – icons8.com`
+>
+ManyPixels        -> https://www.manypixels.co/gallery
+unDraw            -> https://undraw.co/illustrations
+Storyset          -> https://storyset.com/
+Icons8 Ouch!      -> https://icons8.com/illustrations
+Blush             -> https://blush.design/
+Open Peeps        -> https://www.openpeeps.com/
+Open Doodles      -> https://www.opendoodles.com/
+IRA Design        -> https://iradesign.io/
+LottieFiles       -> https://lottiefiles.com/
+DrawKit           -> https://www.drawkit.com/
+illlustrations.co -> https://illlustrations.co/
+Lukasz Adam       -> https://lukaszadam.com/illustrations
 
 ---
 
