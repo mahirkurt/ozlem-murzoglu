@@ -145,7 +145,7 @@
   );
 }
 
-.image-placeholder {
+.blog-illustration-container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -155,25 +155,8 @@
   padding: 20px;
 }
 
-.blog-illustration {
-  font-size: 80px;
-  color: #005F73;
-  opacity: 0.3;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.blog-card--secondary .blog-illustration {
-  color: #FFA726;
-}
-
-.blog-card--tertiary .blog-illustration {
-  color: #7BA7E7;
-}
-
-.blog-card:hover .blog-illustration {
-  transform: scale(1.1);
-  opacity: 0.4;
-}
+/* SVG illustrations are styled through the illustrations.css file */
+/* Theme-specific colors will be applied via CSS custom properties */
 
 .category-badge {
   position: absolute;
@@ -319,9 +302,7 @@
     height: 180px;
   }
 
-  .blog-illustration {
-    font-size: 60px;
-  }
+  /* SVG illustrations are responsive through illustrations.css */
 
   .blog-content {
     padding: 20px;

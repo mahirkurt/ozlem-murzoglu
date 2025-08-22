@@ -1,0 +1,90 @@
+/* src/app/shared/styles/illustrations.css */
+/* Theme-aware SVG illustration helper classes following Angular-Illustration-Talimatnamesi.md */
+
+.illo { 
+  width: 100%; 
+  height: auto; 
+  display: block; 
+}
+
+/* Fill/stroke mappings (bound to ThemeService variables) */
+.illo-fill-primary   { fill: var(--color-primary); }
+.illo-fill-secondary { fill: var(--color-secondary); }
+.illo-fill-accent    { fill: var(--color-accent); }
+.illo-fill-surface   { fill: var(--color-neutral-50); }
+.illo-fill-neutral-100 { fill: var(--color-neutral-100); }
+.illo-fill-neutral-200 { fill: var(--color-neutral-200); }
+.illo-fill-neutral-300 { fill: var(--color-neutral-300); }
+.illo-fill-neutral-700 { fill: var(--color-neutral-700); }
+
+.illo-stroke-primary { stroke: var(--color-primary); }
+.illo-stroke-secondary { stroke: var(--color-secondary); }
+.illo-stroke-accent { stroke: var(--color-accent); }
+.illo-stroke-weak    { stroke: var(--color-neutral-300); }
+.illo-stroke-strong  { stroke: var(--color-neutral-700); }
+
+/* Glass effect (using ThemeService glass variables) */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Accessibility helper for screen readers */
+.sr-only {
+  position: absolute; 
+  width: 1px; 
+  height: 1px; 
+  padding: 0;
+  margin: -1px; 
+  overflow: hidden; 
+  clip: rect(0,0,0,0); 
+  border: 0;
+}
+
+/* Blog illustration specific styles */
+.blog-illustration-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+}
+
+.blog-illustration-svg {
+  width: 120px;
+  height: 120px;
+  opacity: 0.8;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.blog-card:hover .blog-illustration-svg {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Theme-specific illustration colors based on blog card variants */
+.blog-card--primary .illo-fill-primary { fill: #005F73; }
+.blog-card--primary .illo-fill-secondary { fill: #0A8FA3; }
+.blog-card--primary .illo-fill-accent { fill: #94D2BD; }
+
+.blog-card--secondary .illo-fill-primary { fill: #FFB74D; }
+.blog-card--secondary .illo-fill-secondary { fill: #FFA726; }
+.blog-card--secondary .illo-fill-accent { fill: #FF8F65; }
+
+.blog-card--tertiary .illo-fill-primary { fill: #94BBE9; }
+.blog-card--tertiary .illo-fill-secondary { fill: #7BA7E7; }
+.blog-card--tertiary .illo-fill-accent { fill: #6B9BFF; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blog-illustration-svg {
+    width: 80px;
+    height: 80px;
+  }
+}

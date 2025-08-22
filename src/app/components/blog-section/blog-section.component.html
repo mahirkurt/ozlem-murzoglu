@@ -11,10 +11,8 @@
       <article *ngFor="let post of blogPosts" class="blog-card blog-card--{{post.color}}">
         <a [routerLink]="['/blog', post.id]">
           <div class="blog-image">
-            <div class="image-placeholder">
-              <span class="blog-illustration material-icons">
-                {{getIllustrationIcon(post.illustrationType)}}
-              </span>
+            <div class="blog-illustration-container">
+              <div [innerHTML]="getSVGIllustration(post.illustrationType)"></div>
               <span class="category-badge">{{post.category}}</span>
             </div>
           </div>
