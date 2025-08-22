@@ -1,6 +1,8 @@
 /* Import MD3 Theme Tokens */
 @import 'styles/theme-tokens.css';
 @import 'styles/light.css';
+@import 'styles/design-system.css';
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* Global Styles */
 * {
@@ -28,36 +30,45 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography - Headings use Figtree */
+/* Typography - Headings use Figtree with Fluid Scaling */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Figtree', sans-serif;
   font-weight: 600;
-  line-height: 1.2;
-  color: #005F73;
+  line-height: var(--line-height-tight);
+  color: var(--color-primary);
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: var(--font-size-5xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-snug);
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-snug);
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-normal);
 }
 
 h6 {
-  font-size: 1.125rem;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
 }
 
 /* Body text uses DM Sans */
