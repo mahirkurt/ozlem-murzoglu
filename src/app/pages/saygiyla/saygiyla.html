@@ -1,0 +1,95 @@
+<section class="saygiyla-page">
+  <!-- Hero Section -->
+  <div class="page-hero">
+    <div class="hero-background">
+      <div class="hero-gradient"></div>
+      <div class="hero-pattern"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-line"></span>
+          <span class="badge-text">SAYGIYLA</span>
+          <span class="badge-line"></span>
+        </div>
+        <h1 class="hero-title">Tıbbın Öncüleri</h1>
+        <p class="hero-description">
+          Çocuk sağlığı ve modern tıbbın gelişimine katkıda bulunan, 
+          insanlığın sağlık yolculuğunda iz bırakan değerli isimlere saygıyla...
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pioneers Grid -->
+  <div class="pioneers-section">
+    <div class="container">
+      <div class="pioneers-grid">
+        <article *ngFor="let pioneer of pioneers" class="pioneer-card">
+          <div class="card-inner">
+            <!-- Card Header -->
+            <div class="card-header">
+              <div class="pioneer-avatar">
+                <span class="avatar-initial">{{pioneer.name.split(' ')[1][0]}}</span>
+              </div>
+              <div class="pioneer-info">
+                <h3 class="pioneer-name">{{pioneer.name}}</h3>
+                <p class="pioneer-title">{{pioneer.title}}</p>
+                <span class="pioneer-lifespan">{{pioneer.lifespan}}</span>
+              </div>
+            </div>
+
+            <!-- Contributions -->
+            <div class="card-body">
+              <ul class="contributions-list">
+                <li *ngFor="let contribution of pioneer.contributions.slice(0, 3)">
+                  <span class="contribution-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                    </svg>
+                  </span>
+                  <span>{{contribution}}</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Quote (if exists) -->
+            <div *ngIf="pioneer.quote" class="card-quote">
+              <svg class="quote-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+              </svg>
+              <p class="quote-text">{{pioneer.quote}}</p>
+            </div>
+
+            <!-- Card Footer -->
+            <div class="card-footer">
+              <a [routerLink]="pioneer.link" class="read-more-link">
+                <span>Detaylı Bilgi</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Bilimin Işığında, Sevgiyle</h2>
+        <p class="cta-description">
+          Bu öncü isimlerin açtığı yolda, modern tıbbın tüm imkanlarıyla 
+          çocuklarınızın sağlığı için hizmet veriyoruz.
+        </p>
+        <a routerLink="/hakkimizda" class="cta-button">
+          <span>Kliniğimizi Tanıyın</span>
+          <span class="material-icons">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

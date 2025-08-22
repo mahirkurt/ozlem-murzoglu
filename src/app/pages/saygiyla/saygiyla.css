@@ -1,0 +1,373 @@
+/* Page Hero */
+.page-hero {
+  position: relative;
+  padding: 140px 0 80px;
+  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 183, 77, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(148, 187, 233, 0.1) 0%, transparent 50%);
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, 0.02) 35px, rgba(255, 255, 255, 0.02) 70px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  animation: fade-in-down 0.8s ease-out;
+}
+
+.badge-line {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+}
+
+.badge-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-title {
+  font-family: 'Figtree', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: white;
+  margin: 0 0 1.5rem;
+  animation: fade-in-up 0.8s ease-out 0.2s both;
+}
+
+.hero-description {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  animation: fade-in-up 0.8s ease-out 0.4s both;
+}
+
+/* Pioneers Section */
+.pioneers-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.pioneers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 2rem;
+}
+
+/* Pioneer Card */
+.pioneer-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 95, 115, 0.08);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.pioneer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 95, 115, 0.12);
+  border-color: rgba(0, 95, 115, 0.15);
+}
+
+.card-inner {
+  padding: 2rem;
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 95, 115, 0.08);
+}
+
+.pioneer-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar-initial {
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.pioneer-info {
+  flex: 1;
+}
+
+.pioneer-name {
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #005F73;
+  margin: 0 0 0.25rem;
+}
+
+.pioneer-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0 0 0.5rem;
+  line-height: 1.4;
+}
+
+.pioneer-lifespan {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255, 183, 77, 0.1);
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.813rem;
+  color: #D97706;
+  font-weight: 500;
+}
+
+/* Card Body */
+.card-body {
+  margin-bottom: 1.5rem;
+}
+
+.contributions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contributions-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #4B5563;
+  line-height: 1.5;
+}
+
+.contribution-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.contribution-icon svg {
+  color: #10B981;
+}
+
+/* Card Quote */
+.card-quote {
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(0, 95, 115, 0.03) 0%, rgba(10, 147, 150, 0.03) 100%);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.quote-icon {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: rgba(0, 95, 115, 0.2);
+}
+
+.quote-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #005F73;
+  margin: 0;
+  padding-left: 2rem;
+  line-height: 1.6;
+}
+
+/* Card Footer */
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.read-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid #005F73;
+  border-radius: 30px;
+  color: #005F73;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.read-more-link:hover {
+  background: #005F73;
+  color: white;
+  transform: translateX(4px);
+}
+
+.read-more-link svg {
+  transition: transform 0.3s ease;
+}
+
+.read-more-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 80px 0;
+  background: linear-gradient(180deg, #F8FAFB 0%, #ffffff 100%);
+  border-top: 1px solid rgba(0, 95, 115, 0.08);
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-family: 'Figtree', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #005F73;
+  margin: 0 0 1rem;
+}
+
+.cta-description {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.125rem;
+  color: #666;
+  line-height: 1.7;
+  margin: 0 0 2rem;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 95, 115, 0.2);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 95, 115, 0.3);
+}
+
+/* Animations */
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pioneers-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .pioneer-avatar {
+    margin: 0 auto;
+  }
+}

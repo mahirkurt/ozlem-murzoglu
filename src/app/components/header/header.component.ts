@@ -50,6 +50,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       href: '/blog'
     },
     {
+      label: 'SAYGIYLA',
+      href: '/saygiyla'
+    },
+    {
       label: 'S.S.S',
       href: '/sss'
     },
