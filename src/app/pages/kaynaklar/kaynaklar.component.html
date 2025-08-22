@@ -1,0 +1,199 @@
+<div class="resources-container">
+  <!-- Hero Section -->
+  <section class="resources-hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Kaynak Merkezi</h1>
+      <p class="hero-subtitle">
+        Çocuğunuzun sağlığı ve gelişimi için kapsamlı rehberler, bilgi föyleri ve kılavuzlar.
+        Uzman doktorumuzun önerdiği güvenilir kaynaklarla ailenizi destekliyoruz.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">{{getTotalDocumentCount()}}</span>
+          <span class="stat-label">Toplam Dokuman</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">{{categories.length}}</span>
+          <span class="stat-label">Farklı Kategori</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-illustration">
+      <svg viewBox="0 0 400 300" class="resources-hero-svg">
+        <!-- Books and documents illustration -->
+        <defs>
+          <linearGradient id="bookGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:var(--primary-color);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:var(--primary-variant);stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <!-- Stack of books -->
+        <rect x="50" y="180" width="80" height="12" rx="2" fill="var(--primary-color)" opacity="0.8"/>
+        <rect x="55" y="168" width="70" height="12" rx="2" fill="var(--secondary-color)" opacity="0.8"/>
+        <rect x="60" y="156" width="75" height="12" rx="2" fill="var(--tertiary-color)" opacity="0.8"/>
+        <!-- Open book -->
+        <path d="M 200 160 Q 220 150 240 160 L 240 200 Q 220 190 200 200 Z" fill="var(--surface-variant)"/>
+        <path d="M 240 160 Q 260 150 280 160 L 280 200 Q 260 190 240 200 Z" fill="var(--surface-variant)"/>
+        <!-- Document pages -->
+        <rect x="300" y="140" width="60" height="80" rx="4" fill="var(--surface)" stroke="var(--outline)" stroke-width="2"/>
+        <rect x="305" y="145" width="50" height="4" rx="2" fill="var(--on-surface)" opacity="0.6"/>
+        <rect x="305" y="155" width="40" height="4" rx="2" fill="var(--on-surface)" opacity="0.6"/>
+        <rect x="305" y="165" width="45" height="4" rx="2" fill="var(--on-surface)" opacity="0.6"/>
+        <!-- Floating elements -->
+        <circle cx="100" cy="80" r="6" fill="var(--primary-color)" opacity="0.3"/>
+        <circle cx="320" cy="60" r="4" fill="var(--secondary-color)" opacity="0.5"/>
+        <circle cx="150" cy="50" r="8" fill="var(--tertiary-color)" opacity="0.4"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Search Section -->
+  <section class="search-section">
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <span class="material-icons search-icon">search</span>
+        <input 
+          type="text" 
+          class="search-input"
+          placeholder="Dokuman ara..." 
+          [(ngModel)]="searchQuery"
+          (input)="onSearchChange($event)">
+        <button *ngIf="searchQuery" class="clear-search" (click)="clearSearch()">
+          <span class="material-icons">clear</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Search Results -->
+    <div *ngIf="searchResults.length > 0 && searchQuery" class="search-results">
+      <h3 class="search-results-title">Arama Sonuçları ({{searchResults.length}})</h3>
+      <div class="search-results-grid">
+        <div *ngFor="let document of searchResults" class="search-result-card" (click)="viewDocument(document)">
+          <div class="result-icon">
+            <span class="material-icons">{{document.fileType === 'pdf' ? 'picture_as_pdf' : 'description'}}</span>
+          </div>
+          <div class="result-content">
+            <h4 class="result-title">{{document.title}}</h4>
+            <p class="result-category">{{getCategoryTitle(document.category)}}</p>
+            <p class="result-description">{{document.description}}</p>
+          </div>
+          <div class="result-actions">
+            <button class="download-btn" (click)="downloadDocument(document); $event.stopPropagation()">
+              <span class="material-icons">download</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Grid -->
+  <section *ngIf="!searchQuery || searchResults.length === 0" class="categories-section">
+    <div class="section-header">
+      <h2 class="section-title">Kategoriler</h2>
+      <p class="section-subtitle">İhtiyacınıza uygun kategoriyi seçerek dokumanlara ulaşın</p>
+    </div>
+    
+    <div class="categories-grid">
+      <div *ngFor="let category of categories; trackBy: trackByCategory" 
+           class="category-card" 
+           (click)="navigateToCategory(category.id)">
+        <div class="category-header">
+          <div class="category-icon" [style.background-color]="category.color + '20'">
+            <span class="material-icons" [style.color]="category.color">{{category.icon}}</span>
+          </div>
+          <div class="category-count">
+            <span class="count-number">{{category.documentCount}}</span>
+            <span class="count-label">dokuman</span>
+          </div>
+        </div>
+        
+        <div class="category-content">
+          <h3 class="category-title">{{category.title}}</h3>
+          <p class="category-description">{{category.description}}</p>
+        </div>
+        
+        <div class="category-preview">
+          <div class="preview-documents">
+            <div *ngFor="let document of category.documents.slice(0, 3)" class="preview-doc">
+              <span class="material-icons doc-icon">{{document.fileType === 'pdf' ? 'picture_as_pdf' : 'description'}}</span>
+              <span class="doc-title">{{document.title}}</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="category-footer">
+          <span class="view-all-text">Tümünü Görüntüle</span>
+          <span class="material-icons">arrow_forward</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Access Section -->
+  <section class="quick-access-section">
+    <div class="section-header">
+      <h2 class="section-title">Hızlı Erişim</h2>
+      <p class="section-subtitle">En çok ihtiyaç duyulan dokumanlara hızlı erişim</p>
+    </div>
+    
+    <div class="quick-access-grid">
+      <div *ngFor="let document of popularDocuments" class="quick-access-card" (click)="viewDocument(document)">
+        <div class="access-icon">
+          <span class="material-icons">{{getQuickAccessIcon(document.category)}}</span>
+        </div>
+        <div class="access-content">
+          <h4 class="access-title">{{document.title}}</h4>
+          <p class="access-category">{{getCategoryTitle(document.category)}}</p>
+        </div>
+        <div class="access-actions">
+          <button class="download-btn" (click)="downloadDocument(document); $event.stopPropagation()">
+            <span class="material-icons">download</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info-section">
+    <div class="info-container">
+      <div class="info-content">
+        <h2 class="info-title">Güvenilir Kaynaklarla Destekliyoruz</h2>
+        <p class="info-description">
+          Tüm dokuman ve rehberlerimiz, çocuk sağlığı alanındaki en güncel bilimsel kaynaklara 
+          dayanarak hazırlanmıştır. American Academy of Pediatrics, CDC, ve WHO standartlarına 
+          uygun olarak ailenizin ihtiyaçlarını karşılamak üzere düzenlenmiştir.
+        </p>
+        <div class="info-features">
+          <div class="feature-item">
+            <span class="material-icons">verified</span>
+            <span>Uzman Doktor Onaylı</span>
+          </div>
+          <div class="feature-item">
+            <span class="material-icons">update</span>
+            <span>Güncel İçerik</span>
+          </div>
+          <div class="feature-item">
+            <span class="material-icons">download</span>
+            <span>İndirilme Özelliği</span>
+          </div>
+        </div>
+      </div>
+      <div class="info-illustration">
+        <svg viewBox="0 0 300 200" class="info-svg">
+          <!-- Medical cross -->
+          <g transform="translate(150,100)">
+            <circle r="60" fill="var(--primary-color)" opacity="0.1"/>
+            <rect x="-30" y="-8" width="60" height="16" rx="8" fill="var(--primary-color)"/>
+            <rect x="-8" y="-30" width="16" height="60" rx="8" fill="var(--primary-color)"/>
+          </g>
+          <!-- Floating elements -->
+          <circle cx="80" cy="50" r="4" fill="var(--secondary-color)" opacity="0.6"/>
+          <circle cx="220" cy="40" r="6" fill="var(--tertiary-color)" opacity="0.5"/>
+          <circle cx="50" cy="150" r="5" fill="var(--primary-variant)" opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+</div>

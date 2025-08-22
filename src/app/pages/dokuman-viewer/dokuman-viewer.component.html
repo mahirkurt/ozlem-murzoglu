@@ -1,0 +1,245 @@
+<div class="document-viewer-container" *ngIf="document">
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <ol class="breadcrumb-list">
+      <li class="breadcrumb-item">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">Kaynaklar</a>
+      </li>
+      <li class="breadcrumb-separator">
+        <span class="material-icons">chevron_right</span>
+      </li>
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/kaynaklar', document.category]" class="breadcrumb-link">{{getCategoryTitle()}}</a>
+      </li>
+      <li class="breadcrumb-separator">
+        <span class="material-icons">chevron_right</span>
+      </li>
+      <li class="breadcrumb-item current">
+        <span>{{document.title}}</span>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- Document Header -->
+  <section class="document-header">
+    <div class="header-content">
+      <div class="document-info">
+        <div class="document-icon-large" [class.pdf]="document.fileType === 'pdf'" [class.docx]="document.fileType === 'docx'">
+          <span class="material-icons">{{document.fileType === 'pdf' ? 'picture_as_pdf' : 'description'}}</span>
+        </div>
+        <div class="document-details">
+          <h1 class="document-title">{{document.title}}</h1>
+          <p class="document-description" *ngIf="document.description">{{document.description}}</p>
+          <div class="document-meta">
+            <div class="meta-item">
+              <span class="meta-label">Kategori:</span>
+              <span class="meta-value">{{getCategoryTitle()}}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Format:</span>
+              <span class="meta-value file-type" [class]="document.fileType">{{document.fileType.toUpperCase()}}</span>
+            </div>
+            <div class="meta-item" *ngIf="document.size">
+              <span class="meta-label">Dosya Boyutu:</span>
+              <span class="meta-value">{{document.size}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="document-actions">
+        <button class="action-btn primary download-btn" (click)="downloadDocument()">
+          <span class="material-icons">download</span>
+          <span>İndir</span>
+        </button>
+        <button class="action-btn secondary share-btn" (click)="shareDocument()" *ngIf="canShare">
+          <span class="material-icons">share</span>
+          <span>Paylaş</span>
+        </button>
+        <button class="action-btn secondary print-btn" (click)="printDocument()">
+          <span class="material-icons">print</span>
+          <span>Yazdır</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Document Content -->
+  <section class="document-content">
+    <div class="content-container">
+      <div class="document-viewer">
+        <!-- PDF Viewer -->
+        <div *ngIf="document.fileType === 'pdf'" class="pdf-viewer">
+          <div class="viewer-controls">
+            <div class="zoom-controls">
+              <button class="zoom-btn" (click)="zoomOut()" [disabled]="zoomLevel <= 0.5">
+                <span class="material-icons">zoom_out</span>
+              </button>
+              <span class="zoom-level">{{Math.round(zoomLevel * 100)}}%</span>
+              <button class="zoom-btn" (click)="zoomIn()" [disabled]="zoomLevel >= 2">
+                <span class="material-icons">zoom_in</span>
+              </button>
+              <button class="zoom-btn" (click)="resetZoom()">
+                <span class="material-icons">zoom_out_map</span>
+              </button>
+            </div>
+            <div class="fullscreen-control">
+              <button class="fullscreen-btn" (click)="toggleFullscreen()">
+                <span class="material-icons">{{isFullscreen ? 'fullscreen_exit' : 'fullscreen'}}</span>
+                <span>{{isFullscreen ? 'Tam Ekrandan Çık' : 'Tam Ekran'}}</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="pdf-embed-container" #pdfContainer>
+            <object 
+              [data]="getSafeDocumentUrl()"
+              type="application/pdf"
+              class="pdf-embed"
+              [style.transform]="'scale(' + zoomLevel + ')'">
+              <div class="pdf-fallback">
+                <div class="fallback-content">
+                  <div class="fallback-icon">
+                    <span class="material-icons">picture_as_pdf</span>
+                  </div>
+                  <h3 class="fallback-title">PDF Görüntülenemiyor</h3>
+                  <p class="fallback-description">
+                    Tarayıcınız PDF görüntülemeyi desteklemiyor. Aşağıdaki bağlantıdan dosyayı indirebilirsiniz.
+                  </p>
+                  <button class="fallback-download-btn" (click)="downloadDocument()">
+                    <span class="material-icons">download</span>
+                    <span>PDF'yi İndir</span>
+                  </button>
+                </div>
+              </div>
+            </object>
+          </div>
+        </div>
+
+        <!-- DOCX Viewer (Preview) -->
+        <div *ngIf="document.fileType === 'docx'" class="docx-viewer">
+          <div class="docx-preview-notice">
+            <div class="notice-content">
+              <div class="notice-icon">
+                <span class="material-icons">info</span>
+              </div>
+              <div class="notice-text">
+                <h3>Word Dokuman Önizlemesi</h3>
+                <p>Word dokuman dosyaları web tarayıcısında tam olarak görüntülenemez. 
+                   Dosyanın tüm içeriğini görmek için indirmeniz gerekmektedir.</p>
+              </div>
+            </div>
+            <div class="notice-actions">
+              <button class="notice-download-btn" (click)="downloadDocument()">
+                <span class="material-icons">download</span>
+                <span>Şimdi İndir</span>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Basic preview placeholder -->
+          <div class="docx-preview-placeholder">
+            <div class="preview-content">
+              <div class="document-icon-preview">
+                <span class="material-icons">description</span>
+              </div>
+              <h4 class="preview-title">{{document.title}}</h4>
+              <p class="preview-description">{{document.description}}</p>
+              <div class="preview-info">
+                <span class="info-item">Microsoft Word Dokuman</span>
+                <span class="info-item" *ngIf="document.size">{{document.size}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="document-sidebar">
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Belge Bilgileri</h3>
+          <div class="sidebar-info">
+            <div class="info-row">
+              <span class="info-label">Dosya Adı:</span>
+              <span class="info-value">{{document.fileName}}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Kategori:</span>
+              <span class="info-value">{{getCategoryTitle()}}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Format:</span>
+              <span class="info-value">{{document.fileType.toUpperCase()}}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Documents -->
+        <div class="sidebar-section" *ngIf="relatedDocuments.length > 0">
+          <h3 class="sidebar-title">İlgili Dokuman</h3>
+          <div class="related-documents">
+            <div *ngFor="let relatedDoc of relatedDocuments" 
+                 class="related-doc-item"
+                 (click)="navigateToDocument(relatedDoc.id)">
+              <div class="related-doc-icon" [class.pdf]="relatedDoc.fileType === 'pdf'" [class.docx]="relatedDoc.fileType === 'docx'">
+                <span class="material-icons">{{relatedDoc.fileType === 'pdf' ? 'picture_as_pdf' : 'description'}}</span>
+              </div>
+              <div class="related-doc-info">
+                <h4 class="related-doc-title">{{relatedDoc.title}}</h4>
+                <p class="related-doc-type">{{relatedDoc.fileType.toUpperCase()}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Hızlı İşlemler</h3>
+          <div class="quick-actions">
+            <button class="quick-action-btn" (click)="downloadDocument()">
+              <span class="material-icons">download</span>
+              <span>İndir</span>
+            </button>
+            <button class="quick-action-btn" (click)="shareDocument()" *ngIf="canShare">
+              <span class="material-icons">share</span>
+              <span>Paylaş</span>
+            </button>
+            <button class="quick-action-btn" (click)="printDocument()">
+              <span class="material-icons">print</span>
+              <span>Yazdır</span>
+            </button>
+            <button class="quick-action-btn" (click)="goBackToCategory()">
+              <span class="material-icons">arrow_back</span>
+              <span>Kategoriye Dön</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</div>
+
+<!-- Loading State -->
+<div *ngIf="!document && !error" class="loading-container">
+  <div class="loading-spinner">
+    <div class="spinner"></div>
+    <p class="loading-text">Dokuman yükleniyor...</p>
+  </div>
+</div>
+
+<!-- Error State -->
+<div *ngIf="error" class="error-container">
+  <div class="error-content">
+    <div class="error-icon">
+      <span class="material-icons">error_outline</span>
+    </div>
+    <h2 class="error-title">Dokuman Bulunamadı</h2>
+    <p class="error-description">{{error}}</p>
+    <div class="error-actions">
+      <button class="error-btn primary" routerLink="/kaynaklar">
+        <span class="material-icons">arrow_back</span>
+        <span>Kaynaklara Dön</span>
+      </button>
+    </div>
+  </div>
+</div>
