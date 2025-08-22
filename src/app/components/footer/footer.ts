@@ -33,10 +33,11 @@ export class Footer {
 
   socialLinks: SocialLink[] = [
     { platform: 'instagram', url: 'https://instagram.com/dr.ozlemmurzoglu' },
-    { platform: 'facebook', url: 'https://facebook.com/dr.murzoglu' },
-    { platform: 'twitter', url: 'https://twitter.com/ozlemmurzoglu' },
-    { platform: 'linkedin', url: 'https://linkedin.com/in/ozlemmurzoglu' },
-    { platform: 'youtube', url: 'https://youtube.com/@ozlemmurzoglu' },
+    { platform: 'facebook', url: 'https://www.facebook.com/dr.murzoglu/' },
+    { platform: 'twitter', url: 'https://x.com/ozlemmurzoglu' },
+    { platform: 'linkedin', url: 'https://www.linkedin.com/in/ozlemmurzoglu/' },
+    { platform: 'youtube', url: 'https://www.youtube.com/@ozlemmurzoglu' },
+    { platform: 'google', url: 'https://maps.app.goo.gl/0FZIbWAk8rVUEWFe1' },
     { platform: 'whatsapp', url: 'https://wa.me/905466884483' }
   ];
 

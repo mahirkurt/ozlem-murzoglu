@@ -32,6 +32,8 @@
                 <ng-container *ngSwitchCase="'twitter'">tag</ng-container>
                 <ng-container *ngSwitchCase="'linkedin'">work</ng-container>
                 <ng-container *ngSwitchCase="'youtube'">play_circle</ng-container>
+                <ng-container *ngSwitchCase="'google'">star</ng-container>
+                <ng-container *ngSwitchCase="'whatsapp'">chat</ng-container>
               </span>
             </a>
           </div>
@@ -70,6 +72,10 @@
               <div>
                 <a [href]="'tel:' + contactInfo.phone" class="contact-link">
                   {{contactInfo.phone}}
+                </a>
+                <br>
+                <a [href]="'tel:' + contactInfo.mobile" class="contact-link">
+                  {{contactInfo.mobile}} (Mobil)
                 </a>
               </div>
             </div>
