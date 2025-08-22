@@ -1,11 +1,12 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { AppointmentModalComponent } from '../appointment-modal/appointment-modal.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, AppointmentModalComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -17,6 +18,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isScrolled = false;
   activeDropdown: string | null = null;
   isAnimating = false;
+  isAppointmentModalOpen = false;
 
   contactInfo = {
     phone: '+90 216 688 44 83',
@@ -142,6 +144,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
         { label: 'S.S.S', href: '/sss' },
         { label: '\u0130LET\u0130\u015e\u0130M', href: '/iletisim' }
       ];
+    }
+  }
+
+  openAppointmentModal() {
+    this.isAppointmentModalOpen = true;
+    // Close mobile menu if open
+    this.isMobileMenuOpen = false;
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  closeAppointmentModal() {
+    this.isAppointmentModalOpen = false;
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
     }
   }
 }

@@ -25,10 +25,7 @@ import { RouterModule } from '@angular/router';
       <div class="hero-content">
         <div class="container">
           <div class="content-wrapper">
-            <div class="hero-badge">
-              <span class="badge-title">Uzm. Dr. Özlem Murzoğlu</span>
-              <span class="badge-subtitle">Çocuk Sağlığı ve Hastalıkları Kliniği</span>
-            </div>
+            <div class="hero-subtitle">Uzm. Dr. Özlem Murzoğlu • Çocuk Sağlığı ve Hastalıkları Kliniği</div>
             <h1 class="hero-title">
               En Değerli Varlığınız için Bilim ve Şefkati Birleştiren Bütüncül Yaklaşım
             </h1>
@@ -37,13 +34,11 @@ import { RouterModule } from '@angular/router';
             </p>
             
             <div class="hero-cta">
-              <a href="/hakkimizda" class="explore-link">
-                <span class="link-text">Kliniğimizi Yakından Tanıyın</span>
-                <span class="link-arrow">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </span>
+              <a href="/hakkimizda" class="cta-button primary">
+                <span class="button-text">Kliniğimizi Yakından Tanıyın</span>
+                <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
               </a>
             </div>
           </div>
@@ -222,71 +217,16 @@ import { RouterModule } from '@angular/router';
       text-align: center;
     }
     
-    .hero-badge {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1.5rem 3rem;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(40px) saturate(150%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 100px;
-      margin-bottom: 3rem;
+    .hero-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 2rem;
       animation: fade-in-down 0.8s ease-out;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    }
-    
-    .hero-badge::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: conic-gradient(
-        from 0deg at 50% 50%,
-        transparent 0deg,
-        rgba(255, 183, 77, 0.1) 60deg,
-        transparent 120deg,
-        rgba(148, 187, 233, 0.1) 180deg,
-        transparent 240deg,
-        rgba(255, 255, 255, 0.05) 300deg,
-        transparent 360deg
-      );
-      animation: rotate 20s linear infinite;
-    }
-    
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .badge-title {
-      color: white;
-      font-family: 'Figtree', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      letter-spacing: 0.3px;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
       position: relative;
-      z-index: 1;
-    }
-    
-    .badge-subtitle {
-      color: rgba(255, 255, 255, 0.85);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      position: relative;
-      z-index: 1;
     }
     
     .hero-title {
@@ -358,75 +298,51 @@ import { RouterModule } from '@angular/router';
       animation: fade-in-up 0.8s ease-out 0.5s both;
     }
     
-    .explore-link {
+    .cta-button {
       display: inline-flex;
       align-items: center;
-      gap: 1.2rem;
-      padding: 1.2rem 2.5rem;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 60px;
-      color: white;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      border: none;
+      border-radius: 12px;
+      color: var(--color-primary);
       text-decoration: none;
       font-family: 'DM Sans', sans-serif;
-      font-size: 1.125rem;
-      font-weight: 500;
-      position: relative;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow: hidden;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
       box-shadow: 
         0 4px 20px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 2px 8px rgba(255, 255, 255, 0.1);
+      cursor: pointer;
     }
     
-    .explore-link::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255, 183, 77, 0.2) 0%, rgba(148, 187, 233, 0.2) 100%);
-      border-radius: inherit;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-    
-    .explore-link:hover {
+    .cta-button:hover {
       transform: translateY(-2px);
+      background: rgba(255, 255, 255, 1);
       box-shadow: 
-        0 8px 30px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.3);
+        0 8px 30px rgba(0, 0, 0, 0.15),
+        0 4px 16px rgba(255, 255, 255, 0.2);
     }
     
-    .explore-link:hover::before {
-      opacity: 1;
+    .cta-button:active {
+      transform: translateY(0);
     }
     
-    .explore-link:hover .link-arrow {
-      transform: translateX(8px) rotate(45deg);
-    }
-    
-    .link-text {
-      position: relative;
-      z-index: 1;
-      letter-spacing: 0.5px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-    
-    .link-arrow {
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    .button-text {
       position: relative;
       z-index: 1;
     }
     
-    .link-arrow svg {
+    .button-icon {
       width: 20px;
       height: 20px;
+      transition: transform 0.3s ease;
+    }
+    
+    .cta-button:hover .button-icon {
+      transform: translateX(4px);
     }
     
     /* Scroll Indicator - Minimalist */
@@ -533,17 +449,9 @@ import { RouterModule } from '@angular/router';
         padding: 0 20px;
       }
       
-      .hero-badge {
-        gap: 0.75rem;
+      .hero-subtitle {
+        font-size: 1rem;
         margin-bottom: 1.5rem;
-      }
-      
-      .badge-title {
-        font-size: 0.9rem;
-      }
-      
-      .badge-subtitle {
-        font-size: 0.75rem;
       }
       
       .hero-title {
@@ -608,12 +516,8 @@ import { RouterModule } from '@angular/router';
         font-size: 0.9rem;
       }
       
-      .badge-title {
-        font-size: 0.8rem;
-      }
-      
-      .badge-subtitle {
-        font-size: 0.7rem;
+      .hero-subtitle {
+        font-size: 0.9rem;
       }
     }
   `]

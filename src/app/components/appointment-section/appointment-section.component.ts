@@ -84,7 +84,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   `,
   styles: [`
     .appointment-section {
-      padding: 80px 0;
+      padding: 60px 0;
       background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
     }
 
