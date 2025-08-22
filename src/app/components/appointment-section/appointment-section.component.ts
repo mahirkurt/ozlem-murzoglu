@@ -85,7 +85,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styles: [`
     .appointment-section {
       padding: 60px 0;
-      background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+      background: #f8f9fa;
     }
 
     .appointment-header {
@@ -94,7 +94,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
     }
 
     .section-title {
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: var(--color-primary);
       margin-bottom: 16px;
       font-weight: 700;

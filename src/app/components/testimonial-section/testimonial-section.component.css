@@ -1,9 +1,9 @@
 .testimonial-section {
-  padding: 60px 0 0 0;
-  background: linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%);
+  padding: 60px 0 40px 0;
+  background: #ffffff;
   position: relative;
   overflow: hidden;
-  margin: 0;
+  margin-top: 60px;
 }
 
 .testimonial-section::before {
@@ -38,13 +38,13 @@
 
 .section-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .section-title {
   font-family: 'Figtree', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   color: #005F73;
   margin-bottom: 16px;
 }

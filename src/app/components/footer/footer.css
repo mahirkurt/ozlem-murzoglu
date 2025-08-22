@@ -1,7 +1,7 @@
 .footer {
   background: linear-gradient(135deg, #005F73 0%, #0A8FA3 100%);
   color: white;
-  margin-top: 0;
+  margin-top: 60px;
 }
 
 .footer-top {
@@ -113,6 +113,11 @@
   height: 20px;
   fill: currentColor;
   transition: all 0.3s ease;
+}
+
+/* Make Google icon paths white by default */
+.social-link[aria-label="google"] svg path {
+  fill: white !important;
 }
 
 /* Footer Sections */

@@ -269,24 +269,6 @@ import { RouterModule } from '@angular/router';
       margin-right: auto;
       animation: fade-in-up 0.8s ease-out 0.3s both;
       text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-      position: relative;
-    }
-    
-    .hero-description::after {
-      content: '';
-      position: absolute;
-      bottom: -1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, rgba(255, 183, 77, 0.6), transparent);
-      animation: pulse 2s ease-in-out infinite;
-    }
-    
-    @keyframes pulse {
-      0%, 100% { opacity: 0.5; transform: translateX(-50%) scaleX(0.5); }
-      50% { opacity: 1; transform: translateX(-50%) scaleX(1); }
     }
     
     /* CTA */
