@@ -1,5 +1,4 @@
-<app-custom-cursor></app-custom-cursor>
-<app-header [locale]="locale"></app-header>
+<app-header [locale]="locale" (localeChange)="onLocaleChange($event)"></app-header>
 <main>
   <router-outlet></router-outlet>
 </main>

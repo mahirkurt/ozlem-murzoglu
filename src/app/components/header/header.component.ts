@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   @Input() locale: string = 'tr';
+  @Output() localeChange = new EventEmitter<string>();
   
   isMobileMenuOpen = false;
   isScrolled = false;
@@ -18,21 +19,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAnimating = false;
 
   contactInfo = {
-    phone: '+90 222 237 84 00',
-    email: 'info@ozlemmurzoglu.com'
+    phone: '+90 546 237 84 00',
+    email: 'info@ozlemmurzoglu.com',
+    address: 'Eskişehir'
   };
 
   navigation = [
     {
-      label: 'Ana Sayfa',
+      label: 'ANA SAYFA',
       href: '/'
     },
     {
-      label: 'Hakkımızda',
+      label: 'HAKKIMIZDA',
       href: '/hakkimizda'
     },
     {
-      label: 'Hizmetlerimiz',
+      label: 'HİZMETLERİMİZ',
       href: '/hizmetlerimiz',
       children: [
         { label: 'Kapsamlı Çocuk Muayenesi', href: '/hizmetlerimiz/kapsamli-cocuk-muayenesi' },
@@ -44,7 +46,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      label: 'Blog',
+      label: 'BLOG',
       href: '/blog'
     },
     {
@@ -52,7 +54,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       href: '/sss'
     },
     {
-      label: 'İletişim',
+      label: 'İLETİŞİM',
       href: '/iletisim'
     }
   ];
@@ -93,7 +95,53 @@ export class HeaderComponent implements OnInit, OnDestroy {
     
     setTimeout(() => {
       this.locale = this.locale === 'tr' ? 'en' : 'tr';
+      this.localeChange.emit(this.locale);
+      this.updateNavigationLabels();
       this.isAnimating = false;
     }, 200);
+  }
+  
+  updateNavigationLabels() {
+    if (this.locale === 'en') {
+      this.navigation = [
+        { label: 'HOME', href: '/' },
+        { label: 'ABOUT', href: '/hakkimizda' },
+        { 
+          label: 'SERVICES', 
+          href: '/hizmetlerimiz',
+          children: [
+            { label: 'Comprehensive Child Examination', href: '/hizmetlerimiz/kapsamli-cocuk-muayenesi' },
+            { label: 'Growth & Development Tracking', href: '/hizmetlerimiz/buyume-gelisim-takibi' },
+            { label: 'Vaccination Services', href: '/hizmetlerimiz/asi-uygulamalari' },
+            { label: 'Baby & Child Nutrition', href: '/hizmetlerimiz/bebek-cocuk-beslenmesi' },
+            { label: 'Child Allergies', href: '/hizmetlerimiz/cocuk-alerjileri' },
+            { label: 'Chronic Disease Management', href: '/hizmetlerimiz/kronik-hastalik-yonetimi' }
+          ]
+        },
+        { label: 'BLOG', href: '/blog' },
+        { label: 'FAQ', href: '/sss' },
+        { label: 'CONTACT', href: '/iletisim' }
+      ];
+    } else {
+      this.navigation = [
+        { label: 'ANA SAYFA', href: '/' },
+        { label: 'HAKKIMIZDA', href: '/hakkimizda' },
+        { 
+          label: 'H\u0130ZMETLER\u0130M\u0130Z', 
+          href: '/hizmetlerimiz',
+          children: [
+            { label: 'Kapsaml\u0131 \u00c7ocuk Muayenesi', href: '/hizmetlerimiz/kapsamli-cocuk-muayenesi' },
+            { label: 'B\u00fcy\u00fcme ve Geli\u015fim Takibi', href: '/hizmetlerimiz/buyume-gelisim-takibi' },
+            { label: 'A\u015f\u0131 Uygulamalar\u0131', href: '/hizmetlerimiz/asi-uygulamalari' },
+            { label: 'Bebek ve \u00c7ocuk Beslenmesi', href: '/hizmetlerimiz/bebek-cocuk-beslenmesi' },
+            { label: '\u00c7ocuk Alerjileri', href: '/hizmetlerimiz/cocuk-alerjileri' },
+            { label: 'Kronik Hastal\u0131k Y\u00f6netimi', href: '/hizmetlerimiz/kronik-hastalik-yonetimi' }
+          ]
+        },
+        { label: 'BLOG', href: '/blog' },
+        { label: 'S.S.S', href: '/sss' },
+        { label: '\u0130LET\u0130\u015e\u0130M', href: '/iletisim' }
+      ];
+    }
   }
 }
