@@ -45,12 +45,12 @@
             </div>
             
             <h2 class="blog-title">
-              <a [href]="'/blog/' + post.slug">{{post.title}}</a>
+              <a [routerLink]="['/blog', post.slug]">{{post.title}}</a>
             </h2>
             
             <p class="blog-excerpt">{{post.excerpt}}</p>
             
-            <a [href]="'/blog/' + post.slug" class="blog-link">
+            <a [routerLink]="['/blog', post.slug]" class="blog-link">
               <span>Devamını Oku</span>
               <span class="material-icons">arrow_forward</span>
             </a>

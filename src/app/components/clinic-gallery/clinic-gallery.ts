@@ -384,7 +384,7 @@ export class ClinicGalleryComponent {
       src: '/images/20230416_174550~2.jpg',
       alt: 'Klinik iç mekan görünümü',
       title: 'Klinik İç Mekan',
-      category: 'clinic'
+      category: 'reception'
     }
   ];
   

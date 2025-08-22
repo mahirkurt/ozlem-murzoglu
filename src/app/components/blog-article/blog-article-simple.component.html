@@ -1,0 +1,148 @@
+<!-- Loading State -->
+<div *ngIf="isLoading" class="loading-container">
+  <div class="loading-spinner">
+    <div class="spinner"></div>
+    <p>Makale yükleniyor...</p>
+  </div>
+</div>
+
+<!-- Article Content -->
+<article *ngIf="!isLoading && article" class="article-container">
+  <!-- Article Header -->
+  <header class="article-header">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a routerLink="/blog">
+          <span class="material-icons">arrow_back</span>
+          Blog'a Dön
+        </a>
+      </nav>
+
+      <!-- Article Meta -->
+      <div class="article-meta">
+        <span class="article-category">{{article.category}}</span>
+        <div class="meta-divider"></div>
+        <div class="meta-info">
+          <span class="article-date">
+            <span class="material-icons">calendar_today</span>
+            {{article.date}}
+          </span>
+          <span class="article-read-time">
+            <span class="material-icons">schedule</span>
+            {{article.readTime}} dk okuma
+          </span>
+          <span class="article-author">
+            <span class="material-icons">person</span>
+            {{article.author}}
+          </span>
+        </div>
+      </div>
+
+      <!-- Article Title -->
+      <h1 class="article-title">{{article.title}}</h1>
+      
+      <!-- Article Excerpt -->
+      <p class="article-excerpt">{{article.excerpt}}</p>
+
+      <!-- Article Actions -->
+      <div class="article-actions">
+        <div class="social-share">
+          <span class="share-label">Paylaş:</span>
+          <button (click)="shareArticle('whatsapp')" class="share-btn whatsapp" title="WhatsApp'ta Paylaş">
+            <span class="material-icons">chat</span>
+          </button>
+          <button (click)="shareArticle('twitter')" class="share-btn twitter" title="Twitter'da Paylaş">
+            <span class="material-icons">share</span>
+          </button>
+          <button (click)="shareArticle('facebook')" class="share-btn facebook" title="Facebook'ta Paylaş">
+            <span class="material-icons">facebook</span>
+          </button>
+          <button (click)="shareArticle('linkedin')" class="share-btn linkedin" title="LinkedIn'de Paylaş">
+            <span class="material-icons">business</span>
+          </button>
+          <button (click)="copyLink()" class="share-btn copy" title="Bağlantıyı Kopyala">
+            <span class="material-icons">link</span>
+          </button>
+        </div>
+        
+        <div class="article-tools">
+          <button (click)="printArticle()" class="tool-btn" title="Yazdır">
+            <span class="material-icons">print</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article Illustration -->
+    <div class="article-illustration">
+      <div class="illustration-wrapper" [attr.data-theme]="isDark ? 'dark' : 'light'" [attr.data-article]="article.slug">
+        <!-- Simple icon-based illustration -->
+        <div class="simple-illustration">
+          <span class="material-icons article-icon">{{getArticleIcon(article.slug)}}</span>
+          <div class="illustration-bg"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Content -->
+  <main class="article-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Article Body -->
+        <div class="article-body" [innerHTML]="article.content"></div>
+
+        <!-- Article Tags -->
+        <div class="article-tags" *ngIf="article.tags && article.tags.length">
+          <h4>Etiketler:</h4>
+          <div class="tags-list">
+            <span *ngFor="let tag of article.tags" class="tag">{{tag}}</span>
+          </div>
+        </div>
+
+        <!-- Article Navigation -->
+        <div class="article-navigation">
+          <button (click)="scrollToTop()" class="scroll-top-btn">
+            <span class="material-icons">keyboard_arrow_up</span>
+            <span>Başa Dön</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Related Articles -->
+  <section class="related-articles" *ngIf="relatedArticles.length > 0">
+    <div class="container">
+      <h2>İlgili Makaleler</h2>
+      <div class="related-grid">
+        <article *ngFor="let related of relatedArticles" class="related-card">
+          <div class="related-image">
+            <span class="related-category">{{related.category}}</span>
+          </div>
+          <div class="related-content">
+            <h3>
+              <a [routerLink]="['/blog', related.slug]">{{related.title}}</a>
+            </h3>
+            <p class="related-excerpt">{{related.excerpt}}</p>
+            <div class="related-meta">
+              <span class="related-date">{{related.date}}</span>
+              <span class="related-read-time">{{related.readTime}} dk</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Blog -->
+  <section class="back-to-blog">
+    <div class="container">
+      <a routerLink="/blog" class="back-btn">
+        <span class="material-icons">arrow_back</span>
+        <span>Tüm Makalelere Dön</span>
+      </a>
+    </div>
+  </section>
+</article>

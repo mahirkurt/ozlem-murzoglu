@@ -44,16 +44,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      label: 'KLİNİĞİMİZ',
-      href: '/klinigimiz'
-    },
-    {
-      label: 'MAKALELER',
-      href: '/makaleler'
+      label: 'BLOG',
+      href: '/blog',
+      children: [
+        { label: 'Tüm Makaleler', href: '/blog' },
+        { label: 'Bebek Bakımı', href: '/blog?category=Bebek%20Bakımı' },
+        { label: 'Çocuk Gelişimi', href: '/blog?category=Çocuk%20Gelişimi' },
+        { label: 'Çocuk Psikolojisi', href: '/blog?category=Çocuk%20Psikolojisi' },
+        { label: 'Diş Sağlığı', href: '/blog?category=Diş%20Sağlığı' },
+        { label: 'Ergenlik', href: '/blog?category=Ergenlik' },
+        { label: 'Güvenlik', href: '/blog?category=Güvenlik' }
+      ]
     },
     {
       label: 'SAYGIYLA',
       href: '/saygiyla'
+    },
+    {
+      label: 'S.S.S',
+      href: '/sss'
     },
     {
       label: 'İLETİŞİM',
@@ -106,43 +115,67 @@ export class HeaderComponent implements OnInit, OnDestroy {
   updateNavigationLabels() {
     if (this.locale === 'en') {
       this.navigation = [
-        { label: 'HOME', href: '/' },
         { label: 'ABOUT', href: '/hakkimizda' },
         { 
           label: 'SERVICES', 
           href: '/hizmetlerimiz',
           children: [
-            { label: 'Comprehensive Child Examination', href: '/hizmetlerimiz/kapsamli-cocuk-muayenesi' },
-            { label: 'Growth & Development Tracking', href: '/hizmetlerimiz/buyume-gelisim-takibi' },
-            { label: 'Vaccination Services', href: '/hizmetlerimiz/asi-uygulamalari' },
-            { label: 'Baby & Child Nutrition', href: '/hizmetlerimiz/bebek-cocuk-beslenmesi' },
-            { label: 'Child Allergies', href: '/hizmetlerimiz/cocuk-alerjileri' },
-            { label: 'Chronic Disease Management', href: '/hizmetlerimiz/kronik-hastalik-yonetimi' }
+            { label: 'Healthy Child Follow-up', href: '/hizmetlerimiz/saglikli-cocuk-izlemi' },
+            { label: 'Vaccination', href: '/hizmetlerimiz/asilama' },
+            { label: 'Baby Nutrition', href: '/hizmetlerimiz/bebek-beslenmesi' },
+            { label: 'Growth & Development', href: '/hizmetlerimiz/buyume-gelisim' },
+            { label: 'Child Allergies', href: '/hizmetlerimiz/alerji' },
+            { label: 'Online Consultation', href: '/hizmetlerimiz/online-konsultasyon' }
           ]
         },
-        { label: 'BLOG', href: '/blog' },
+        {
+          label: 'BLOG',
+          href: '/blog',
+          children: [
+            { label: 'All Articles', href: '/blog' },
+            { label: 'Baby Care', href: '/blog?category=Bebek%20Bakımı' },
+            { label: 'Child Development', href: '/blog?category=Çocuk%20Gelişimi' },
+            { label: 'Child Psychology', href: '/blog?category=Çocuk%20Psikolojisi' },
+            { label: 'Dental Health', href: '/blog?category=Diş%20Sağlığı' },
+            { label: 'Adolescence', href: '/blog?category=Ergenlik' },
+            { label: 'Safety', href: '/blog?category=Güvenlik' }
+          ]
+        },
+        { label: 'RESPECT', href: '/saygiyla' },
         { label: 'FAQ', href: '/sss' },
         { label: 'CONTACT', href: '/iletisim' }
       ];
     } else {
       this.navigation = [
-        { label: 'ANA SAYFA', href: '/' },
         { label: 'HAKKIMIZDA', href: '/hakkimizda' },
         { 
-          label: 'H\u0130ZMETLER\u0130M\u0130Z', 
+          label: 'HİZMETLERİMİZ', 
           href: '/hizmetlerimiz',
           children: [
-            { label: 'Kapsaml\u0131 \u00c7ocuk Muayenesi', href: '/hizmetlerimiz/kapsamli-cocuk-muayenesi' },
-            { label: 'B\u00fcy\u00fcme ve Geli\u015fim Takibi', href: '/hizmetlerimiz/buyume-gelisim-takibi' },
-            { label: 'A\u015f\u0131 Uygulamalar\u0131', href: '/hizmetlerimiz/asi-uygulamalari' },
-            { label: 'Bebek ve \u00c7ocuk Beslenmesi', href: '/hizmetlerimiz/bebek-cocuk-beslenmesi' },
-            { label: '\u00c7ocuk Alerjileri', href: '/hizmetlerimiz/cocuk-alerjileri' },
-            { label: 'Kronik Hastal\u0131k Y\u00f6netimi', href: '/hizmetlerimiz/kronik-hastalik-yonetimi' }
+            { label: 'Sağlıklı Çocuk İzlemi', href: '/hizmetlerimiz/saglikli-cocuk-izlemi' },
+            { label: 'Aşılama', href: '/hizmetlerimiz/asilama' },
+            { label: 'Bebek Beslenmesi', href: '/hizmetlerimiz/bebek-beslenmesi' },
+            { label: 'Büyüme ve Gelişim', href: '/hizmetlerimiz/buyume-gelisim' },
+            { label: 'Çocuk Alerjileri', href: '/hizmetlerimiz/alerji' },
+            { label: 'Online Konsültasyon', href: '/hizmetlerimiz/online-konsultasyon' }
           ]
         },
-        { label: 'BLOG', href: '/blog' },
+        {
+          label: 'BLOG',
+          href: '/blog',
+          children: [
+            { label: 'Tüm Makaleler', href: '/blog' },
+            { label: 'Bebek Bakımı', href: '/blog?category=Bebek%20Bakımı' },
+            { label: 'Çocuk Gelişimi', href: '/blog?category=Çocuk%20Gelişimi' },
+            { label: 'Çocuk Psikolojisi', href: '/blog?category=Çocuk%20Psikolojisi' },
+            { label: 'Diş Sağlığı', href: '/blog?category=Diş%20Sağlığı' },
+            { label: 'Ergenlik', href: '/blog?category=Ergenlik' },
+            { label: 'Güvenlik', href: '/blog?category=Güvenlik' }
+          ]
+        },
+        { label: 'SAYGIYLA', href: '/saygiyla' },
         { label: 'S.S.S', href: '/sss' },
-        { label: '\u0130LET\u0130\u015e\u0130M', href: '/iletisim' }
+        { label: 'İLETİŞİM', href: '/iletisim' }
       ];
     }
   }
