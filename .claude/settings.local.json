@@ -46,7 +46,8 @@
       "Bash(npx angular-cli-ghpages:*)",
       "Bash(firebase deploy:*)",
       "Bash(firebase init:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "WebFetch(domain:localhost)"
     ],
     "deny": []
   }
