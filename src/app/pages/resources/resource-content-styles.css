@@ -5,6 +5,7 @@
 
 /* Import the clean, optimized styles */
 @import './clean-resource-styles.css';
+@import './resource-utilities.css';
 
 /* Additional content-specific styles if needed */
 

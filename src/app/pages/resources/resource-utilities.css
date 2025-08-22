@@ -1,0 +1,323 @@
+/* ============================================== */
+/* RESOURCE UTILITIES - Content Cleanup & Display */
+/* ============================================== */
+
+/* ============================================== */
+/* DISCLAIMER SECTION                            */
+/* ============================================== */
+
+.disclaimer-section {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 12px;
+  position: relative;
+}
+
+.disclaimer-section::before {
+  content: 'ℹ️ BİLGİLENDİRME';
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--color-primary);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.disclaimer-content {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #6c757d;
+}
+
+.disclaimer-content p {
+  margin: 0.5rem 0;
+}
+
+.disclaimer-content strong {
+  color: #495057;
+}
+
+/* Bright Futures specific disclaimer */
+.bright-futures-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(0, 95, 115, 0.05);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.bright-futures-disclaimer .icon {
+  width: 40px;
+  height: 40px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.bright-futures-disclaimer .text {
+  flex: 1;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #6c757d;
+}
+
+.bright-futures-disclaimer a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* AAP specific disclaimer */
+.aap-disclaimer {
+  font-size: 0.75rem;
+  color: #868e96;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  text-align: center;
+  border: 1px solid #dee2e6;
+}
+
+/* ============================================== */
+/* CONTENT FILTERS - Hide unwanted content       */
+/* ============================================== */
+
+/* Hide contact information tables */
+.content-body table:has(td:contains("Barbaros Mah")),
+.content-body table:has(td:contains("Uphill Towers")),
+.content-body table:has(td:contains("ozlemmurzoglu.com")),
+.content-body table:has(td:contains("klinik@drmurzoglu.com")),
+.content-body table:has(td:contains("0 216 688")),
+.content-body table:has(td:contains("0 546 688")) {
+  display: none !important;
+}
+
+/* Hide Dr. contact footer */
+.content-body table:last-of-type:has(td:contains("UZM.DR")) {
+  display: none !important;
+}
+
+/* Hide empty tables */
+.content-body table:empty,
+.content-body table:has(td:empty:only-child) {
+  display: none !important;
+}
+
+/* ============================================== */
+/* TITLE CORRECTIONS                             */
+/* ============================================== */
+
+/* Style for document source/origin text */
+.document-source {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(0, 95, 115, 0.08);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+/* Real title from DOCX content */
+.real-document-title {
+  font-family: 'Figtree', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.3;
+  margin: 1.5rem 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+/* Sub-title styling */
+.document-subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-primary-dark);
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================== */
+/* IMPROVED META BADGES                          */
+/* ============================================== */
+
+.meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 100px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+}
+
+.meta-badge:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.meta-badge .icon {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* Category specific badge colors */
+.meta-badge.category-gelisim {
+  background: linear-gradient(135deg, rgba(148, 210, 189, 0.25) 0%, rgba(148, 210, 189, 0.15) 100%);
+  border-color: rgba(148, 210, 189, 0.4);
+}
+
+.meta-badge.category-asilar {
+  background: linear-gradient(135deg, rgba(238, 108, 77, 0.25) 0%, rgba(238, 108, 77, 0.15) 100%);
+  border-color: rgba(238, 108, 77, 0.4);
+}
+
+.meta-badge.category-genel {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.15) 100%);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.meta-badge.category-hastaliklar {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.25) 0%, rgba(236, 72, 153, 0.15) 100%);
+  border-color: rgba(236, 72, 153, 0.4);
+}
+
+.meta-badge.category-gebelik {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(168, 85, 247, 0.15) 100%);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.meta-badge.category-medya {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.25) 0%, rgba(34, 197, 94, 0.15) 100%);
+  border-color: rgba(34, 197, 94, 0.4);
+}
+
+.meta-badge.category-oyuncaklar {
+  background: linear-gradient(135deg, rgba(251, 146, 60, 0.25) 0%, rgba(251, 146, 60, 0.15) 100%);
+  border-color: rgba(251, 146, 60, 0.4);
+}
+
+.meta-badge.category-bright-futures {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.25) 0%, rgba(14, 165, 233, 0.15) 100%);
+  border-color: rgba(14, 165, 233, 0.4);
+}
+
+/* ============================================== */
+/* CONTENT CLEANUP HELPERS                       */
+/* ============================================== */
+
+/* Hide specific text patterns */
+.content-body:has-text("UZM.DR. ÖZLEM MURZOĞLU"),
+.content-body:has-text("ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ") {
+  /* Will be handled by JavaScript */
+}
+
+/* Clean up extra spacing */
+.content-body p:empty {
+  display: none;
+}
+
+.content-body br + br {
+  display: none;
+}
+
+/* Fix table-to-content conversion artifacts */
+.content-body > p:first-child {
+  margin-top: 0;
+}
+
+.content-body > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================== */
+/* RESPONSIVE ADJUSTMENTS                        */
+/* ============================================== */
+
+@media (max-width: 768px) {
+  .disclaimer-section {
+    padding: 1rem;
+  }
+  
+  .meta-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.625rem;
+  }
+  
+  .meta-badge .icon {
+    font-size: 14px;
+  }
+  
+  .real-document-title {
+    font-size: 1.75rem;
+  }
+  
+  .document-subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .disclaimer-section::before {
+    font-size: 0.625rem;
+    padding: 3px 10px;
+  }
+  
+  .meta-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .meta-badge {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============================================== */
+/* PRINT STYLES                                  */
+/* ============================================== */
+
+@media print {
+  .disclaimer-section {
+    page-break-inside: avoid;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+  }
+  
+  .meta-badge {
+    background: white;
+    border: 1px solid #dee2e6;
+    color: #333;
+  }
+}
+
+/* ============================================== */
+/* END OF RESOURCE UTILITIES                     */
+/* ============================================== */
