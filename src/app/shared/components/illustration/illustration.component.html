@@ -1,0 +1,1590 @@
+<figure class="illustration-container glass-card" [ngClass]="[sizeClass, animationClass]" [attr.aria-labelledby]="titleId">
+  
+  <!-- Vaccines Illustration -->
+  <svg *ngIf="type === 'vaccines'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="syringeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-primary" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+      <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-accent" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Protection Shield -->
+    <path d="M200 50 L160 70 L160 130 Q160 150 180 160 L200 170 L220 160 Q240 150 240 130 L240 70 Z" 
+          fill="url(#shieldGradient)" opacity="0.9"/>
+    <path d="M200 60 L175 75 L175 120 Q175 135 190 142 L200 147 L210 142 Q225 135 225 120 L225 75 Z" 
+          class="illo-fill-surface" opacity="0.3"/>
+    
+    <!-- Checkmark in shield -->
+    <path d="M185 110 L195 120 L220 95" class="illo-stroke-primary" stroke-width="4" fill="none" stroke-linecap="round"/>
+    
+    <!-- Syringe -->
+    <g transform="translate(120, 200)">
+      <!-- Syringe body -->
+      <rect x="0" y="0" width="80" height="12" rx="6" fill="url(#syringeGradient)"/>
+      <rect x="5" y="2" width="70" height="8" rx="4" class="illo-fill-surface" opacity="0.4"/>
+      
+      <!-- Needle -->
+      <rect x="80" y="4" width="25" height="4" class="illo-fill-neutral-700"/>
+      <rect x="105" y="5" width="8" height="2" class="illo-fill-neutral-700"/>
+      
+      <!-- Plunger -->
+      <circle cx="-8" cy="6" r="8" class="illo-fill-accent"/>
+      <circle cx="-8" cy="6" r="5" class="illo-fill-surface" opacity="0.6"/>
+      
+      <!-- Medicine inside -->
+      <rect x="10" y="3" width="45" height="6" rx="3" class="illo-fill-secondary" opacity="0.7"/>
+    </g>
+    
+    <!-- Medical Cross -->
+    <g transform="translate(280, 180)">
+      <rect x="0" y="-10" width="40" height="8" rx="4" class="illo-fill-accent"/>
+      <rect x="16" y="-26" width="8" height="40" rx="4" class="illo-fill-accent"/>
+      <circle cx="20" cy="-6" r="25" class="illo-stroke-weak" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Sparkles/Protection effect -->
+    <g class="sparkles">
+      <circle cx="100" cy="80" r="3" class="illo-fill-accent" opacity="0.6"/>
+      <circle cx="320" cy="100" r="2" class="illo-fill-secondary" opacity="0.8"/>
+      <circle cx="80" cy="140" r="2.5" class="illo-fill-primary" opacity="0.7"/>
+      <circle cx="350" cy="160" r="2" class="illo-fill-accent" opacity="0.6"/>
+    </g>
+  </svg>
+
+  <!-- Media Planning Illustration -->
+  <svg *ngIf="type === 'media-planning'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="screenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-neutral-100" />
+        <stop offset="100%" class="illo-fill-neutral-200" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Family silhouettes -->
+    <g transform="translate(50, 180)">
+      <!-- Parent 1 -->
+      <circle cx="20" cy="20" r="12" class="illo-fill-primary"/>
+      <rect x="10" y="32" width="20" height="35" rx="10" class="illo-fill-primary"/>
+      
+      <!-- Parent 2 -->
+      <circle cx="50" cy="18" r="12" class="illo-fill-secondary"/>
+      <rect x="40" y="30" width="20" height="37" rx="10" class="illo-fill-secondary"/>
+      
+      <!-- Child -->
+      <circle cx="35" cy="45" r="8" class="illo-fill-accent"/>
+      <rect x="28" y="53" width="14" height="25" rx="7" class="illo-fill-accent"/>
+    </g>
+    
+    <!-- Digital devices -->
+    <g transform="translate(150, 80)">
+      <!-- Tablet -->
+      <rect x="0" y="0" width="80" height="60" rx="8" class="illo-stroke-weak" stroke-width="2" fill="url(#screenGradient)"/>
+      <rect x="8" y="8" width="64" height="44" rx="4" class="illo-fill-primary" opacity="0.2"/>
+      
+      <!-- Phone -->
+      <rect x="100" y="10" width="35" height="60" rx="12" class="illo-stroke-weak" stroke-width="2" fill="url(#screenGradient)"/>
+      <rect x="105" y="18" width="25" height="44" rx="4" class="illo-fill-secondary" opacity="0.2"/>
+      <circle cx="117.5" cy="67" r="3" class="illo-fill-neutral-300"/>
+      
+      <!-- Laptop -->
+      <rect x="150" y="20" width="70" height="45" rx="4" class="illo-stroke-weak" stroke-width="2" fill="url(#screenGradient)"/>
+      <rect x="155" y="25" width="60" height="35" rx="2" class="illo-fill-accent" opacity="0.2"/>
+      <rect x="150" y="65" width="70" height="8" rx="4" class="illo-fill-neutral-200"/>
+    </g>
+    
+    <!-- Clock/Time management -->
+    <g transform="translate(280, 200)">
+      <circle cx="0" cy="0" r="25" class="illo-stroke-weak" stroke-width="3" fill="none"/>
+      <circle cx="0" cy="0" r="20" class="illo-fill-surface"/>
+      <line x1="0" y1="0" x2="0" y2="-15" class="illo-stroke-primary" stroke-width="2"/>
+      <line x1="0" y1="0" x2="12" y2="8" class="illo-stroke-secondary" stroke-width="2"/>
+      <circle cx="0" cy="0" r="2" class="illo-fill-primary"/>
+    </g>
+    
+    <!-- Balance scale -->
+    <g transform="translate(200, 220)">
+      <line x1="-30" y1="0" x2="30" y2="0" class="illo-stroke-weak" stroke-width="3"/>
+      <line x1="0" y1="-10" x2="0" y2="10" class="illo-stroke-weak" stroke-width="3"/>
+      <rect x="-40" y="-5" width="20" height="10" rx="5" class="illo-fill-accent" opacity="0.7"/>
+      <rect x="20" y="-5" width="20" height="10" rx="5" class="illo-fill-secondary" opacity="0.7"/>
+    </g>
+    
+    <!-- Connection lines -->
+    <path d="M 120 200 Q 200 150 280 200" class="illo-stroke-weak" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  </svg>
+
+  <!-- Child Development Illustration -->
+  <svg *ngIf="type === 'child-development'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="plantGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" class="illo-fill-accent" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Growth stages -->
+    <g transform="translate(50, 200)">
+      <!-- Stage 1: Seed -->
+      <ellipse cx="20" cy="20" rx="8" ry="6" class="illo-fill-neutral-300"/>
+      <circle cx="20" cy="15" r="3" class="illo-fill-accent"/>
+      
+      <!-- Stage 2: Sprout -->
+      <ellipse cx="100" cy="20" rx="8" ry="6" class="illo-fill-neutral-300"/>
+      <path d="M100 15 Q105 5 110 0" class="illo-stroke-secondary" stroke-width="3" fill="none"/>
+      <ellipse cx="108" cy="2" rx="3" ry="2" class="illo-fill-secondary"/>
+      
+      <!-- Stage 3: Small plant -->
+      <ellipse cx="180" cy="20" rx="10" ry="8" class="illo-fill-neutral-300"/>
+      <path d="M180 12 L180 -10" class="illo-stroke-secondary" stroke-width="4"/>
+      <ellipse cx="175" cy="-8" rx="5" ry="3" class="illo-fill-secondary"/>
+      <ellipse cx="185" cy="-5" rx="4" ry="3" class="illo-fill-secondary"/>
+      
+      <!-- Stage 4: Growing tree -->
+      <ellipse cx="260" cy="20" rx="12" ry="10" class="illo-fill-neutral-300"/>
+      <rect x="257" y="-20" width="6" height="40" fill="url(#plantGradient)"/>
+      <circle cx="260" cy="-25" r="15" class="illo-fill-secondary" opacity="0.8"/>
+      <circle cx="250" cy="-20" r="8" class="illo-fill-secondary" opacity="0.6"/>
+      <circle cx="270" cy="-18" r="8" class="illo-fill-secondary" opacity="0.6"/>
+      
+      <!-- Stage 5: Full tree -->
+      <ellipse cx="340" cy="20" rx="15" ry="12" class="illo-fill-neutral-300"/>
+      <rect x="335" y="-40" width="10" height="60" fill="url(#plantGradient)"/>
+      <circle cx="340" cy="-45" r="25" class="illo-fill-secondary"/>
+      <circle cx="320" cy="-35" r="15" class="illo-fill-secondary" opacity="0.8"/>
+      <circle cx="360" cy="-35" r="15" class="illo-fill-secondary" opacity="0.8"/>
+    </g>
+    
+    <!-- Progress arrows -->
+    <g class="progress-arrows">
+      <path d="M70 210 L85 210" class="illo-stroke-primary" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <path d="M150 210 L165 210" class="illo-stroke-primary" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <path d="M230 210 L245 210" class="illo-stroke-primary" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <path d="M310 210 L325 210" class="illo-stroke-primary" stroke-width="2" marker-end="url(#arrowhead)"/>
+    </g>
+    
+    <!-- Milestone badges -->
+    <g transform="translate(0, 50)">
+      <circle cx="100" cy="50" r="20" class="illo-fill-accent" opacity="0.2"/>
+      <text x="100" y="55" text-anchor="middle" class="illo-fill-primary" font-size="12" font-weight="bold">3M</text>
+      
+      <circle cx="180" cy="50" r="20" class="illo-fill-accent" opacity="0.2"/>
+      <text x="180" y="55" text-anchor="middle" class="illo-fill-primary" font-size="12" font-weight="bold">6M</text>
+      
+      <circle cx="260" cy="50" r="20" class="illo-fill-accent" opacity="0.2"/>
+      <text x="260" y="55" text-anchor="middle" class="illo-fill-primary" font-size="12" font-weight="bold">12M</text>
+      
+      <circle cx="340" cy="50" r="20" class="illo-fill-accent" opacity="0.2"/>
+      <text x="340" y="55" text-anchor="middle" class="illo-fill-primary" font-size="12" font-weight="bold">5Y</text>
+    </g>
+    
+    <!-- Define arrowhead marker -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" class="illo-fill-primary">
+        <polygon points="0 0, 10 3.5, 0 7"/>
+      </marker>
+    </defs>
+  </svg>
+
+  <!-- Services Illustration -->
+  <svg *ngIf="type === 'services'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-accent" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Medical stethoscope -->
+    <g transform="translate(80, 120)">
+      <!-- Earpieces -->
+      <circle cx="0" cy="0" r="8" class="illo-fill-primary"/>
+      <circle cx="30" cy="0" r="8" class="illo-fill-primary"/>
+      
+      <!-- Connecting arc -->
+      <path d="M8 0 Q15 -20 22 0" class="illo-stroke-primary" stroke-width="4" fill="none"/>
+      
+      <!-- Tubing -->
+      <path d="M15 -10 Q50 20 80 60 Q120 100 160 80" class="illo-stroke-primary" stroke-width="6" fill="none"/>
+      
+      <!-- Chest piece -->
+      <circle cx="160" cy="80" r="20" class="illo-fill-secondary"/>
+      <circle cx="160" cy="80" r="12" class="illo-fill-surface"/>
+      <circle cx="160" cy="80" r="6" class="illo-fill-primary"/>
+    </g>
+    
+    <!-- Medical heart with pulse -->
+    <g transform="translate(250, 100)">
+      <!-- Heart shape -->
+      <path d="M0 20 C-20 0 -20 -20 0 -10 C20 -20 20 0 0 20 Z" fill="url(#heartGradient)"/>
+      
+      <!-- Pulse line -->
+      <path d="M-60 40 L-40 40 L-30 20 L-20 60 L-10 0 L0 40 L20 40 L40 40 L60 40" 
+            class="illo-stroke-accent" stroke-width="3" fill="none"/>
+    </g>
+    
+    <!-- Medical bag -->
+    <g transform="translate(120, 200)">
+      <rect x="0" y="0" width="60" height="40" rx="5" class="illo-fill-primary"/>
+      <rect x="5" y="5" width="50" height="30" rx="3" class="illo-fill-surface" opacity="0.3"/>
+      <rect x="20" y="-8" width="20" height="15" rx="2" class="illo-fill-secondary"/>
+      
+      <!-- Medical cross on bag -->
+      <rect x="25" y="15" width="10" height="3" class="illo-fill-surface"/>
+      <rect x="28.5" y="10" width="3" height="10" class="illo-fill-surface"/>
+    </g>
+    
+    <!-- Pediatric elements -->
+    <g transform="translate(280, 200)">
+      <!-- Teddy bear silhouette -->
+      <circle cx="0" cy="0" r="12" class="illo-fill-accent" opacity="0.7"/>
+      <circle cx="-8" cy="-8" r="6" class="illo-fill-accent" opacity="0.7"/>
+      <circle cx="8" cy="-8" r="6" class="illo-fill-accent" opacity="0.7"/>
+      <circle cx="0" cy="20" r="8" class="illo-fill-accent" opacity="0.7"/>
+      <circle cx="-12" cy="15" r="5" class="illo-fill-accent" opacity="0.7"/>
+      <circle cx="12" cy="15" r="5" class="illo-fill-accent" opacity="0.7"/>
+      
+      <!-- Bow tie -->
+      <path d="M-3 -2 L3 -2 L0 2 Z" class="illo-fill-secondary"/>
+    </g>
+    
+    <!-- Care symbols floating -->
+    <g class="floating-symbols">
+      <circle cx="60" cy="60" r="3" class="illo-fill-secondary" opacity="0.6"/>
+      <circle cx="340" cy="80" r="2.5" class="illo-fill-accent" opacity="0.7"/>
+      <circle cx="50" cy="160" r="2" class="illo-fill-primary" opacity="0.5"/>
+      <path d="M320 50 L325 45 L330 50 L325 55 Z" class="illo-fill-secondary" opacity="0.6"/>
+    </g>
+  </svg>
+
+  <!-- About Illustration -->
+  <svg *ngIf="type === 'about'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="doctorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-primary" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Doctor figure -->
+    <g transform="translate(150, 80)">
+      <!-- Head -->
+      <circle cx="50" cy="40" r="25" fill="url(#doctorGradient)"/>
+      
+      <!-- Hair -->
+      <path d="M25 25 Q50 15 75 25 Q70 20 50 20 Q30 20 25 25" class="illo-fill-neutral-700"/>
+      
+      <!-- Body/White coat -->
+      <rect x="25" y="65" width="50" height="80" rx="25" class="illo-fill-surface"/>
+      <rect x="30" y="70" width="40" height="70" rx="20" class="illo-fill-neutral-100"/>
+      
+      <!-- Stethoscope -->
+      <circle cx="42" cy="85" r="4" class="illo-fill-secondary"/>
+      <path d="M42 89 Q45 100 50 110" class="illo-stroke-secondary" stroke-width="2" fill="none"/>
+      <circle cx="50" cy="110" r="6" class="illo-fill-secondary"/>
+      
+      <!-- Arms -->
+      <ellipse cx="15" cy="90" rx="8" ry="20" fill="url(#doctorGradient)"/>
+      <ellipse cx="85" cy="90" rx="8" ry="20" fill="url(#doctorGradient)"/>
+      
+      <!-- Hands -->
+      <circle cx="15" cy="110" r="6" fill="url(#doctorGradient)"/>
+      <circle cx="85" cy="110" r="6" fill="url(#doctorGradient)"/>
+    </g>
+    
+    <!-- Medical diploma/certificate -->
+    <g transform="translate(50, 180)">
+      <rect x="0" y="0" width="60" height="45" class="illo-fill-surface" stroke-width="2" class="illo-stroke-weak"/>
+      <rect x="5" y="5" width="50" height="35" class="illo-fill-neutral-100"/>
+      
+      <!-- Certificate lines -->
+      <line x1="10" y1="15" x2="50" y2="15" class="illo-stroke-primary" stroke-width="2"/>
+      <line x1="10" y1="22" x2="45" y2="22" class="illo-stroke-weak" stroke-width="1"/>
+      <line x1="10" y1="28" x2="40" y2="28" class="illo-stroke-weak" stroke-width="1"/>
+      
+      <!-- Seal -->
+      <circle cx="45" cy="35" r="5" class="illo-fill-accent" opacity="0.7"/>
+    </g>
+    
+    <!-- Medical books -->
+    <g transform="translate(280, 200)">
+      <rect x="0" y="0" width="8" height="45" class="illo-fill-primary"/>
+      <rect x="10" y="-5" width="8" height="50" class="illo-fill-secondary"/>
+      <rect x="20" y="2" width="8" height="43" class="illo-fill-accent"/>
+      
+      <!-- Book spines details -->
+      <line x1="2" y1="10" x2="6" y2="10" class="illo-stroke-surface" stroke-width="1"/>
+      <line x1="12" y1="15" x2="16" y2="15" class="illo-stroke-surface" stroke-width="1"/>
+      <line x1="22" y1="12" x2="26" y2="12" class="illo-stroke-surface" stroke-width="1"/>
+    </g>
+    
+    <!-- Care elements -->
+    <g transform="translate(300, 100)">
+      <!-- Heart -->
+      <path d="M0 15 C-15 0 -15 -15 0 -5 C15 -15 15 0 0 15 Z" class="illo-fill-accent" opacity="0.7"/>
+      
+      <!-- Hands protecting -->
+      <path d="M-25 5 Q-20 -5 -10 0 Q0 5 10 0 Q20 -5 25 5 Q20 15 0 20 Q-20 15 -25 5" 
+            class="illo-stroke-secondary" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Professional elements -->
+    <g class="professional-symbols">
+      <circle cx="80" cy="50" r="2" class="illo-fill-primary" opacity="0.6"/>
+      <circle cx="320" cy="60" r="2.5" class="illo-fill-secondary" opacity="0.7"/>
+      <path d="M60 120 L65 115 L70 120 L65 125 Z" class="illo-fill-accent" opacity="0.5"/>
+    </g>
+  </svg>
+
+  <!-- Contact Illustration -->
+  <svg *ngIf="type === 'contact'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-primary" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Modern smartphone -->
+    <g transform="translate(120, 60)">
+      <rect x="0" y="0" width="80" height="140" rx="15" fill="url(#phoneGradient)"/>
+      <rect x="5" y="15" width="70" height="110" rx="8" class="illo-fill-surface"/>
+      
+      <!-- Screen content -->
+      <rect x="10" y="20" width="60" height="8" rx="4" class="illo-fill-secondary" opacity="0.3"/>
+      <rect x="10" y="35" width="45" height="6" rx="3" class="illo-fill-neutral-300"/>
+      <rect x="10" y="45" width="55" height="6" rx="3" class="illo-fill-neutral-300"/>
+      <rect x="10" y="55" width="35" height="6" rx="3" class="illo-fill-neutral-300"/>
+      
+      <!-- Call button -->
+      <circle cx="40" cy="105" r="12" class="illo-fill-accent"/>
+      <path d="M35 100 Q40 95 45 100 Q45 105 40 110 Q35 105 35 100" class="illo-fill-surface"/>
+      
+      <!-- Home indicator -->
+      <rect x="35" y="132" width="10" height="3" rx="1.5" class="illo-fill-neutral-300"/>
+    </g>
+    
+    <!-- Communication waves -->
+    <g transform="translate(160, 130)">
+      <path d="M0 0 Q-15 -15 -30 0 Q-15 15 0 0" class="illo-stroke-primary" stroke-width="2" fill="none" opacity="0.6"/>
+      <path d="M0 0 Q-25 -25 -50 0 Q-25 25 0 0" class="illo-stroke-primary" stroke-width="2" fill="none" opacity="0.4"/>
+      <path d="M0 0 Q-35 -35 -70 0 Q-35 35 0 0" class="illo-stroke-primary" stroke-width="2" fill="none" opacity="0.2"/>
+    </g>
+    
+    <!-- Email icon -->
+    <g transform="translate(250, 100)">
+      <rect x="0" y="0" width="60" height="40" rx="5" class="illo-stroke-weak" stroke-width="2" fill="none"/>
+      <rect x="5" y="5" width="50" height="30" rx="3" class="illo-fill-neutral-100"/>
+      <path d="M5 8 L30 25 L55 8" class="illo-stroke-secondary" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Location pin -->
+    <g transform="translate(320, 180)">
+      <path d="M0 0 C-10 -15 -10 -25 0 -25 C10 -25 10 -15 0 0 Z" class="illo-fill-accent"/>
+      <circle cx="0" cy="-17" r="5" class="illo-fill-surface"/>
+      
+      <!-- Map background -->
+      <rect x="-25" y="5" width="50" height="35" rx="5" class="illo-fill-neutral-200" opacity="0.5"/>
+      <path d="M-20 25 Q0 15 20 25 Q10 35 -10 35 Q-20 30 -20 25" class="illo-fill-secondary" opacity="0.3"/>
+    </g>
+    
+    <!-- Clock for office hours -->
+    <g transform="translate(80, 200)">
+      <circle cx="0" cy="0" r="20" class="illo-stroke-weak" stroke-width="2" fill="none"/>
+      <circle cx="0" cy="0" r="15" class="illo-fill-surface"/>
+      
+      <!-- Clock hands pointing to 9 AM -->
+      <line x1="0" y1="0" x2="0" y2="-10" class="illo-stroke-primary" stroke-width="2"/>
+      <line x1="0" y1="0" x2="-8" y2="0" class="illo-stroke-secondary" stroke-width="2"/>
+      <circle cx="0" cy="0" r="2" class="illo-fill-primary"/>
+      
+      <!-- Hour markers -->
+      <circle cx="0" cy="-12" r="1" class="illo-fill-neutral-700"/>
+      <circle cx="12" cy="0" r="1" class="illo-fill-neutral-700"/>
+      <circle cx="0" cy="12" r="1" class="illo-fill-neutral-700"/>
+      <circle cx="-12" cy="0" r="1" class="illo-fill-neutral-700"/>
+    </g>
+    
+    <!-- Connection elements -->
+    <g class="connection-lines">
+      <path d="M200 130 Q225 115 250 120" class="illo-stroke-weak" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+      <path d="M200 130 Q260 155 320 180" class="illo-stroke-weak" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+      <path d="M160 200 Q120 200 100 200" class="illo-stroke-weak" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+    </g>
+  </svg>
+
+  <!-- 404 Error Illustration -->
+  <svg *ngIf="type === '404'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="sadGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-accent" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Lost teddy bear -->
+    <g transform="translate(180, 150)">
+      <!-- Body -->
+      <ellipse cx="0" cy="0" rx="25" ry="35" fill="url(#sadGradient)"/>
+      
+      <!-- Head -->
+      <circle cx="0" cy="-45" r="20" fill="url(#sadGradient)"/>
+      
+      <!-- Ears -->
+      <circle cx="-15" cy="-55" r="8" fill="url(#sadGradient)"/>
+      <circle cx="15" cy="-55" r="8" fill="url(#sadGradient)"/>
+      <circle cx="-15" cy="-55" r="4" class="illo-fill-surface"/>
+      <circle cx="15" cy="-55" r="4" class="illo-fill-surface"/>
+      
+      <!-- Sad face -->
+      <circle cx="-8" cy="-50" r="3" class="illo-fill-neutral-700"/>
+      <circle cx="8" cy="-50" r="3" class="illo-fill-neutral-700"/>
+      <path d="M-8 -35 Q0 -30 8 -35" class="illo-stroke-neutral-700" stroke-width="2" fill="none"/>
+      
+      <!-- Arms -->
+      <ellipse cx="-30" cy="-10" rx="8" ry="15" fill="url(#sadGradient)"/>
+      <ellipse cx="30" cy="-10" rx="8" ry="15" fill="url(#sadGradient)"/>
+      
+      <!-- Legs -->
+      <ellipse cx="-12" cy="25" rx="8" ry="15" fill="url(#sadGradient)"/>
+      <ellipse cx="12" cy="25" rx="8" ry="15" fill="url(#sadGradient)"/>
+      
+      <!-- Bandage (hurt) -->
+      <rect x="-5" y="-20" width="10" height="6" rx="3" class="illo-fill-surface"/>
+      <line x1="-3" y1="-17" x2="3" y2="-17" class="illo-stroke-accent" stroke-width="1"/>
+    </g>
+    
+    <!-- Large 404 text -->
+    <g transform="translate(200, 80)">
+      <text x="0" y="0" text-anchor="middle" class="illo-fill-primary" font-size="48" font-weight="bold" opacity="0.3">404</text>
+    </g>
+    
+    <!-- Question marks -->
+    <g class="question-marks">
+      <text x="100" y="100" class="illo-fill-secondary" font-size="24" opacity="0.5">?</text>
+      <text x="320" y="120" class="illo-fill-accent" font-size="20" opacity="0.6">?</text>
+      <text x="80" y="180" class="illo-fill-primary" font-size="18" opacity="0.4">?</text>
+    </g>
+    
+    <!-- Scattered elements -->
+    <g class="scattered-items">
+      <!-- Broken toys -->
+      <rect x="50" y="220" width="15" height="15" rx="3" class="illo-fill-neutral-300" opacity="0.5"/>
+      <circle cx="350" cy="200" r="8" class="illo-fill-neutral-300" opacity="0.5"/>
+      
+      <!-- Dots representing confusion -->
+      <circle cx="120" cy="200" r="2" class="illo-fill-neutral-400"/>
+      <circle cx="130" cy="205" r="2" class="illo-fill-neutral-400"/>
+      <circle cx="140" cy="200" r="2" class="illo-fill-neutral-400"/>
+    </g>
+  </svg>
+
+  <!-- Baby Care Illustration -->
+  <svg *ngIf="type === 'baby-care'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="babyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-accent" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Baby in parent's arms -->
+    <g transform="translate(150, 100)">
+      <!-- Parent's arms -->
+      <ellipse cx="-20" cy="40" rx="15" ry="30" class="illo-fill-primary" opacity="0.7"/>
+      <ellipse cx="20" cy="40" rx="15" ry="30" class="illo-fill-primary" opacity="0.7"/>
+      
+      <!-- Baby -->
+      <ellipse cx="0" cy="30" rx="20" ry="25" fill="url(#babyGradient)"/>
+      <circle cx="0" cy="10" r="15" fill="url(#babyGradient)"/>
+      
+      <!-- Baby's face -->
+      <circle cx="-5" cy="5" r="2" class="illo-fill-neutral-700"/>
+      <circle cx="5" cy="5" r="2" class="illo-fill-neutral-700"/>
+      <ellipse cx="0" cy="12" rx="3" ry="2" class="illo-fill-surface"/>
+      
+      <!-- Baby's hair -->
+      <path d="M-12 -2 Q0 -8 12 -2" class="illo-fill-neutral-700" opacity="0.6"/>
+    </g>
+    
+    <!-- Baby bottle -->
+    <g transform="translate(80, 180)">
+      <rect x="0" y="0" width="20" height="60" rx="10" class="illo-fill-surface" stroke-width="2" class="illo-stroke-weak"/>
+      <rect x="3" y="10" width="14" height="40" rx="7" class="illo-fill-secondary" opacity="0.3"/>
+      
+      <!-- Nipple -->
+      <ellipse cx="10" cy="-5" rx="6" ry="8" class="illo-fill-accent"/>
+      <circle cx="10" cy="-8" r="3" class="illo-fill-surface"/>
+      
+      <!-- Measurement marks -->
+      <line x1="22" y1="15" x2="25" y2="15" class="illo-stroke-weak" stroke-width="1"/>
+      <line x1="22" y1="25" x2="25" y2="25" class="illo-stroke-weak" stroke-width="1"/>
+      <line x1="22" y1="35" x2="25" y2="35" class="illo-stroke-weak" stroke-width="1"/>
+    </g>
+    
+    <!-- Diaper -->
+    <g transform="translate(280, 200)">
+      <path d="M0 0 Q-15 5 -20 20 Q-15 35 0 40 Q15 35 20 20 Q15 5 0 0" class="illo-fill-surface"/>
+      <path d="M-5 10 Q0 5 5 10 Q5 25 0 30 Q-5 25 -5 10" class="illo-fill-neutral-100"/>
+      
+      <!-- Diaper tabs -->
+      <rect x="-25" y="15" width="8" height="10" rx="4" class="illo-fill-secondary"/>
+      <rect x="17" y="15" width="8" height="10" rx="4" class="illo-fill-secondary"/>
+    </g>
+    
+    <!-- Baby mobile -->
+    <g transform="translate(300, 80)">
+      <!-- Hanging mobile structure -->
+      <line x1="0" y1="0" x2="0" y2="20" class="illo-stroke-weak" stroke-width="2"/>
+      <line x1="-15" y1="20" x2="15" y2="20" class="illo-stroke-weak" stroke-width="2"/>
+      
+      <!-- Hanging toys -->
+      <line x1="-10" y1="20" x2="-10" y2="35" class="illo-stroke-weak" stroke-width="1"/>
+      <circle cx="-10" cy="40" r="5" class="illo-fill-accent"/>
+      
+      <line x1="0" y1="20" x2="0" y2="30" class="illo-stroke-weak" stroke-width="1"/>
+      <path d="M0 35 L-3 30 L3 30 Z" class="illo-fill-secondary"/>
+      
+      <line x1="10" y1="20" x2="10" y2="32" class="illo-stroke-weak" stroke-width="1"/>
+      <rect x="7" y="32" width="6" height="6" rx="1" class="illo-fill-primary"/>
+    </g>
+    
+    <!-- Care symbols -->
+    <g class="care-symbols">
+      <path d="M60 80 L65 75 L70 80 L65 85 Z" class="illo-fill-secondary" opacity="0.6"/>
+      <circle cx="350" cy="160" r="3" class="illo-fill-accent" opacity="0.5"/>
+      <path d="M40 240 C35 235 35 225 40 230 C45 225 45 235 40 240 Z" class="illo-fill-primary" opacity="0.4"/>
+    </g>
+  </svg>
+
+  <!-- Child Psychology Illustration -->
+  <svg *ngIf="type === 'child-psychology'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-primary" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Child's head profile -->
+    <g transform="translate(120, 150)">
+      <ellipse cx="0" cy="0" rx="40" ry="50" class="illo-fill-accent" opacity="0.8"/>
+      
+      <!-- Brain inside head -->
+      <path d="M-25 -30 Q-10 -40 10 -35 Q25 -30 25 -10 Q20 10 0 15 Q-20 10 -25 -10 Z" 
+            fill="url(#brainGradient)" opacity="0.7"/>
+      
+      <!-- Brain sections -->
+      <path d="M-15 -25 Q0 -30 15 -25 Q10 -10 -5 -15 Q-15 -20 -15 -25" class="illo-fill-secondary" opacity="0.5"/>
+      <path d="M-10 -5 Q5 -10 15 -5 Q10 5 -5 0 Q-10 -3 -10 -5" class="illo-fill-primary" opacity="0.5"/>
+      
+      <!-- Eye -->
+      <circle cx="15" cy="5" r="3" class="illo-fill-neutral-700"/>
+      
+      <!-- Facial features -->
+      <path d="M15 15 Q20 20 25 15" class="illo-stroke-accent" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Thought bubbles -->
+    <g transform="translate(220, 100)">
+      <circle cx="0" cy="0" r="25" class="illo-fill-surface" opacity="0.9"/>
+      <circle cx="0" cy="0" r="20" class="illo-stroke-weak" stroke-width="2" fill="none"/>
+      
+      <!-- Emotions inside bubble -->
+      <circle cx="-8" cy="-5" r="2" class="illo-fill-neutral-700"/>
+      <circle cx="8" cy="-5" r="2" class="illo-fill-neutral-700"/>
+      <path d="M-8 8 Q0 15 8 8" class="illo-stroke-primary" stroke-width="2" fill="none"/>
+      
+      <!-- Smaller bubbles -->
+      <circle cx="-15" cy="25" r="8" class="illo-fill-surface" opacity="0.8"/>
+      <circle cx="-25" cy="35" r="5" class="illo-fill-surface" opacity="0.6"/>
+    </g>
+    
+    <!-- Emotional spectrum -->
+    <g transform="translate(300, 180)">
+      <!-- Happy -->
+      <circle cx="0" cy="0" r="15" class="illo-fill-secondary" opacity="0.7"/>
+      <circle cx="-5" cy="-3" r="2" class="illo-fill-neutral-700"/>
+      <circle cx="5" cy="-3" r="2" class="illo-fill-neutral-700"/>
+      <path d="M-5 5 Q0 10 5 5" class="illo-stroke-surface" stroke-width="2" fill="none"/>
+      
+      <!-- Sad -->
+      <circle cx="0" cy="40" r="15" class="illo-fill-accent" opacity="0.7"/>
+      <circle cx="-5" cy="37" r="2" class="illo-fill-neutral-700"/>
+      <circle cx="5" cy="37" r="2" class="illo-fill-neutral-700"/>
+      <path d="M-5 45 Q0 40 5 45" class="illo-stroke-surface" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Connection lines representing neural pathways -->
+    <g class="neural-pathways">
+      <path d="M160 130 Q200 120 240 125" class="illo-stroke-primary" stroke-width="2" fill="none" opacity="0.4"/>
+      <path d="M160 150 Q220 140 280 160" class="illo-stroke-secondary" stroke-width="2" fill="none" opacity="0.4"/>
+      <path d="M160 170 Q250 180 300 200" class="illo-stroke-accent" stroke-width="2" fill="none" opacity="0.4"/>
+    </g>
+  </svg>
+
+  <!-- Dental Health Illustration -->
+  <svg *ngIf="type === 'dental-health'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="toothGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-surface" />
+        <stop offset="100%" class="illo-fill-neutral-100" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Large healthy tooth -->
+    <g transform="translate(150, 150)">
+      <!-- Tooth shape -->
+      <path d="M0 -40 Q-15 -35 -20 -20 Q-25 0 -15 30 Q-10 45 0 50 Q10 45 15 30 Q25 0 20 -20 Q15 -35 0 -40 Z" 
+            fill="url(#toothGradient)"/>
+      
+      <!-- Tooth shine -->
+      <ellipse cx="-5" cy="-15" rx="8" ry="20" class="illo-fill-surface" opacity="0.6"/>
+      
+      <!-- Root -->
+      <path d="M-8 45 Q-5 65 0 70 Q5 65 8 45" class="illo-fill-neutral-200"/>
+    </g>
+    
+    <!-- Toothbrush -->
+    <g transform="translate(250, 120)">
+      <!-- Handle -->
+      <rect x="0" y="0" width="8" height="80" rx="4" class="illo-fill-primary"/>
+      <rect x="2" y="10" width="4" height="60" rx="2" class="illo-fill-secondary"/>
+      
+      <!-- Brush head -->
+      <rect x="-2" y="-15" width="12" height="20" rx="6" class="illo-fill-accent"/>
+      
+      <!-- Bristles -->
+      <g class="bristles">
+        <line x1="2" y1="-15" x2="2" y2="-25" class="illo-stroke-surface" stroke-width="1"/>
+        <line x1="4" y1="-15" x2="4" y2="-24" class="illo-stroke-surface" stroke-width="1"/>
+        <line x1="6" y1="-15" x2="6" y2="-25" class="illo-stroke-surface" stroke-width="1"/>
+        <line x1="8" y1="-15" x2="8" y2="-23" class="illo-stroke-surface" stroke-width="1"/>
+      </g>
+      
+      <!-- Toothpaste -->
+      <ellipse cx="4" cy="-30" rx="6" ry="3" class="illo-fill-secondary" opacity="0.7"/>
+    </g>
+    
+    <!-- Dental floss -->
+    <g transform="translate(80, 200)">
+      <ellipse cx="0" cy="0" rx="15" ry="12" class="illo-fill-primary"/>
+      <ellipse cx="0" cy="0" rx="10" ry="8" class="illo-fill-surface"/>
+      
+      <!-- Floss strand -->
+      <path d="M15 0 Q25 -10 35 -5 Q45 0 40 10" class="illo-stroke-secondary" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Mouth with healthy teeth -->
+    <g transform="translate(300, 200)">
+      <!-- Mouth outline -->
+      <path d="M-25 0 Q0 15 25 0" class="illo-stroke-weak" stroke-width="3" fill="none"/>
+      
+      <!-- Upper teeth -->
+      <rect x="-20" y="-3" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      <rect x="-14" y="-3" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      <rect x="-8" y="-3" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      <rect x="-2" y="-3" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      <rect x="4" y="-3" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      <rect x="10" y="-3" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      <rect x="16" y="-3" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      
+      <!-- Lower teeth -->
+      <rect x="-18" y="10" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      <rect x="-12" y="10" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      <rect x="-6" y="10" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      <rect x="0" y="10" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      <rect x="6" y="10" width="4" height="8" rx="2" class="illo-fill-surface"/>
+      <rect x="12" y="10" width="4" height="8" rx="2" class="illo-fill-surface"/>
+    </g>
+    
+    <!-- Sparkles for cleanliness -->
+    <g class="sparkles">
+      <circle cx="120" cy="100" r="2" class="illo-fill-accent" opacity="0.7"/>
+      <circle cx="280" cy="80" r="2.5" class="illo-fill-secondary" opacity="0.8"/>
+      <circle cx="180" cy="80" r="2" class="illo-fill-primary" opacity="0.6"/>
+      <path d="M60 120 L65 115 L70 120 L65 125 Z" class="illo-fill-secondary" opacity="0.5"/>
+    </g>
+  </svg>
+
+  <!-- Safety Illustration -->
+  <svg *ngIf="type === 'safety'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="helmetGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-accent" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Child with safety helmet -->
+    <g transform="translate(120, 150)">
+      <!-- Helmet -->
+      <path d="M0 -35 Q-20 -30 -25 -10 Q-20 5 0 10 Q20 5 25 -10 Q20 -30 0 -35 Z" 
+            fill="url(#helmetGradient)"/>
+      <ellipse cx="-5" cy="-20" rx="8" ry="12" class="illo-fill-surface" opacity="0.3"/>
+      
+      <!-- Head -->
+      <ellipse cx="0" cy="15" rx="18" ry="22" class="illo-fill-primary"/>
+      
+      <!-- Face -->
+      <circle cx="-6" cy="10" r="2" class="illo-fill-neutral-700"/>
+      <circle cx="6" cy="10" r="2" class="illo-fill-neutral-700"/>
+      <path d="M-4 20 Q0 25 4 20" class="illo-stroke-surface" stroke-width="2" fill="none"/>
+      
+      <!-- Body -->
+      <rect x="-15" y="37" width="30" height="40" rx="15" class="illo-fill-secondary"/>
+      
+      <!-- Safety vest -->
+      <rect x="-12" y="40" width="24" height="34" rx="12" class="illo-fill-accent" opacity="0.7"/>
+      <rect x="-8" y="45" width="16" height="3" class="illo-fill-surface"/>
+      <rect x="-8" y="55" width="16" height="3" class="illo-fill-surface"/>
+    </g>
+    
+    <!-- Warning signs -->
+    <g transform="translate(250, 100)">
+      <!-- Stop sign -->
+      <rect x="0" y="0" width="40" height="40" rx="5" class="illo-fill-accent" transform="rotate(45 20 20)"/>
+      <rect x="8" y="8" width="24" height="24" rx="3" class="illo-fill-surface" transform="rotate(45 20 20)"/>
+      <text x="20" y="25" text-anchor="middle" class="illo-fill-accent" font-size="12" font-weight="bold">!</text>
+    </g>
+    
+    <!-- Safety equipment -->
+    <g transform="translate(300, 180)">
+      <!-- First aid kit -->
+      <rect x="0" y="0" width="40" height="30" rx="3" class="illo-fill-surface"/>
+      <rect x="2" y="2" width="36" height="26" rx="2" class="illo-fill-accent"/>
+      
+      <!-- Red cross -->
+      <rect x="16" y="8" width="8" height="3" class="illo-fill-surface"/>
+      <rect x="18.5" y="5.5" width="3" height="8" class="illo-fill-surface"/>
+      
+      <!-- Handle -->
+      <rect x="15" y="-5" width="10" height="8" rx="5" class="illo-fill-neutral-300"/>
+    </g>
+    
+    <!-- Traffic cone -->
+    <g transform="translate(80, 200)">
+      <path d="M0 -20 L-15 20 L15 20 Z" class="illo-fill-accent"/>
+      <rect x="-15" y="20" width="30" height="8" rx="4" class="illo-fill-neutral-700"/>
+      
+      <!-- Reflective stripes -->
+      <rect x="-12" y="0" width="24" height="3" class="illo-fill-surface"/>
+      <rect x="-10" y="10" width="20" height="3" class="illo-fill-surface"/>
+    </g>
+    
+    <!-- Safe crossing -->
+    <g transform="translate(200, 250)">
+      <!-- Crosswalk stripes -->
+      <rect x="-30" y="0" width="8" height="20" class="illo-fill-surface"/>
+      <rect x="-15" y="0" width="8" height="20" class="illo-fill-surface"/>
+      <rect x="0" y="0" width="8" height="20" class="illo-fill-surface"/>
+      <rect x="15" y="0" width="8" height="20" class="illo-fill-surface"/>
+      <rect x="30" y="0" width="8" height="20" class="illo-fill-surface"/>
+    </g>
+    
+    <!-- Safety symbols -->
+    <g class="safety-symbols">
+      <circle cx="60" cy="80" r="3" class="illo-fill-primary" opacity="0.6"/>
+      <circle cx="340" cy="120" r="2.5" class="illo-fill-secondary" opacity="0.7"/>
+      <path d="M350 200 L355 195 L360 200 L355 205 Z" class="illo-fill-accent" opacity="0.5"/>
+    </g>
+  </svg>
+
+  <!-- Adolescence Illustration -->
+  <svg *ngIf="type === 'adolescence'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="teenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-primary" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Teen figure -->
+    <g transform="translate(150, 180)">
+      <!-- Head -->
+      <circle cx="0" cy="-50" r="20" fill="url(#teenGradient)"/>
+      
+      <!-- Hair -->
+      <path d="M-18 -60 Q0 -70 18 -60 Q15 -65 0 -70 Q-15 -65 -18 -60" class="illo-fill-neutral-700"/>
+      
+      <!-- Body -->
+      <rect x="-15" y="-30" width="30" height="50" rx="15" class="illo-fill-accent"/>
+      
+      <!-- Arms -->
+      <ellipse cx="-25" cy="-15" rx="8" ry="20" fill="url(#teenGradient)"/>
+      <ellipse cx="25" cy="-15" rx="8" ry="20" fill="url(#teenGradient)"/>
+      
+      <!-- Legs -->
+      <rect x="-12" y="20" width="8" height="35" rx="4" fill="url(#teenGradient)"/>
+      <rect x="4" y="20" width="8" height="35" rx="4" fill="url(#teenGradient)"/>
+      
+      <!-- Face -->
+      <circle cx="-6" cy="-55" r="2" class="illo-fill-neutral-700"/>
+      <circle cx="6" cy="-55" r="2" class="illo-fill-neutral-700"/>
+      <path d="M-4 -45 Q0 -40 4 -45" class="illo-stroke-surface" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Communication bubbles -->
+    <g transform="translate(250, 120)">
+      <!-- Speech bubble -->
+      <ellipse cx="0" cy="0" rx="30" ry="20" class="illo-fill-surface" opacity="0.9"/>
+      <ellipse cx="0" cy="0" rx="25" ry="15" class="illo-stroke-weak" stroke-width="2" fill="none"/>
+      <path d="M-20 15 L-15 25 L-10 15" class="illo-fill-surface"/>
+      
+      <!-- Question mark -->
+      <text x="0" y="5" text-anchor="middle" class="illo-fill-primary" font-size="18" font-weight="bold">?</text>
+    </g>
+    
+    <!-- Growth chart/timeline -->
+    <g transform="translate(300, 200)">
+      <!-- Timeline -->
+      <line x1="0" y1="-50" x2="0" y2="50" class="illo-stroke-weak" stroke-width="3"/>
+      
+      <!-- Age markers -->
+      <circle cx="0" cy="-40" r="5" class="illo-fill-secondary"/>
+      <text x="10" y="-35" class="illo-fill-neutral-700" font-size="10">13</text>
+      
+      <circle cx="0" cy="-10" r="5" class="illo-fill-accent"/>
+      <text x="10" y="-5" class="illo-fill-neutral-700" font-size="10">15</text>
+      
+      <circle cx="0" cy="20" r="5" class="illo-fill-primary"/>
+      <text x="10" y="25" class="illo-fill-neutral-700" font-size="10">17</text>
+    </g>
+    
+    <!-- Books/education -->
+    <g transform="translate(70, 220)">
+      <rect x="0" y="0" width="6" height="30" class="illo-fill-primary"/>
+      <rect x="8" y="-3" width="6" height="33" class="illo-fill-secondary"/>
+      <rect x="16" y="1" width="6" height="29" class="illo-fill-accent"/>
+      
+      <!-- Book details -->
+      <line x1="1" y1="8" x2="5" y2="8" class="illo-stroke-surface" stroke-width="1"/>
+      <line x1="9" y1="10" x2="13" y2="10" class="illo-stroke-surface" stroke-width="1"/>
+      <line x1="17" y1="9" x2="21" y2="9" class="illo-stroke-surface" stroke-width="1"/>
+    </g>
+    
+    <!-- Emotional elements -->
+    <g transform="translate(80, 100)">
+      <!-- Mood swings representation -->
+      <path d="M0 0 Q10 -10 20 0 Q30 10 40 0" class="illo-stroke-accent" stroke-width="3" fill="none"/>
+      <circle cx="10" cy="-10" r="3" class="illo-fill-secondary"/>
+      <circle cx="30" cy="10" r="3" class="illo-fill-primary"/>
+    </g>
+    
+    <!-- Social elements -->
+    <g class="social-symbols">
+      <circle cx="320" cy="80" r="2.5" class="illo-fill-secondary" opacity="0.6"/>
+      <circle cx="60" cy="160" r="2" class="illo-fill-accent" opacity="0.7"/>
+      <path d="M350 160 L355 155 L360 160 L355 165 Z" class="illo-fill-primary" opacity="0.5"/>
+    </g>
+  </svg>
+
+  <!-- General Health Illustration -->
+  <svg *ngIf="type === 'general-health'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="healthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-primary" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Health clipboard -->
+    <g transform="translate(150, 150)">
+      <!-- Clipboard -->
+      <rect x="0" y="0" width="60" height="80" rx="5" class="illo-fill-neutral-200"/>
+      <rect x="5" y="10" width="50" height="65" rx="3" class="illo-fill-surface"/>
+      
+      <!-- Clip -->
+      <rect x="20" y="-5" width="20" height="15" rx="2" class="illo-fill-neutral-300"/>
+      <rect x="22" y="-3" width="16" height="11" rx="1" class="illo-fill-surface"/>
+      
+      <!-- Checklist -->
+      <circle cx="12" cy="25" r="3" class="illo-fill-accent"/>
+      <path d="M10 25 L12 27 L16 23" class="illo-stroke-surface" stroke-width="2" fill="none"/>
+      <line x1="20" y1="25" x2="45" y2="25" class="illo-stroke-weak" stroke-width="1"/>
+      
+      <circle cx="12" cy="35" r="3" class="illo-fill-accent"/>
+      <path d="M10 35 L12 37 L16 33" class="illo-stroke-surface" stroke-width="2" fill="none"/>
+      <line x1="20" y1="35" x2="45" y2="35" class="illo-stroke-weak" stroke-width="1"/>
+      
+      <circle cx="12" cy="45" r="3" class="illo-fill-neutral-300"/>
+      <line x1="20" y1="45" x2="45" y2="45" class="illo-stroke-weak" stroke-width="1"/>
+      
+      <circle cx="12" cy="55" r="3" class="illo-fill-neutral-300"/>
+      <line x1="20" y1="55" x2="45" y2="55" class="illo-stroke-weak" stroke-width="1"/>
+    </g>
+    
+    <!-- Medical symbols -->
+    <g transform="translate(80, 120)">
+      <!-- Heart with pulse -->
+      <path d="M0 15 C-15 0 -15 -15 0 -5 C15 -15 15 0 0 15 Z" class="illo-fill-accent"/>
+      <path d="M-30 25 L-20 25 L-15 15 L-10 35 L-5 20 L0 25 L10 25" 
+            class="illo-stroke-secondary" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Thermometer -->
+    <g transform="translate(280, 180)">
+      <rect x="0" y="0" width="6" height="60" rx="3" class="illo-fill-surface"/>
+      <rect x="1" y="10" width="4" height="40" class="illo-fill-accent" opacity="0.7"/>
+      <circle cx="3" cy="55" r="8" class="illo-fill-accent"/>
+      <circle cx="3" cy="55" r="5" class="illo-fill-surface"/>
+      
+      <!-- Temperature marks -->
+      <line x1="6" y1="20" x2="10" y2="20" class="illo-stroke-weak" stroke-width="1"/>
+      <line x1="6" y1="30" x2="10" y2="30" class="illo-stroke-weak" stroke-width="1"/>
+      <line x1="6" y1="40" x2="10" y2="40" class="illo-stroke-weak" stroke-width="1"/>
+    </g>
+    
+    <!-- Pills/medicine -->
+    <g transform="translate(300, 100)">
+      <!-- Pill bottle -->
+      <rect x="0" y="0" width="25" height="35" rx="3" class="illo-fill-surface"/>
+      <rect x="3" y="3" width="19" height="29" rx="2" class="illo-fill-neutral-100"/>
+      
+      <!-- Cap -->
+      <rect x="-2" y="-5" width="29" height="8" rx="4" class="illo-fill-primary"/>
+      
+      <!-- Pills inside -->
+      <ellipse cx="8" cy="15" rx="3" ry="2" class="illo-fill-accent"/>
+      <ellipse cx="17" cy="20" rx="3" ry="2" class="illo-fill-secondary"/>
+      <ellipse cx="12" cy="25" rx="3" ry="2" class="illo-fill-accent"/>
+      
+      <!-- Label -->
+      <rect x="5" y="8" width="15" height="6" rx="1" class="illo-fill-surface"/>
+    </g>
+    
+    <!-- Apple for nutrition -->
+    <g transform="translate(60, 200)">
+      <path d="M0 0 Q-12 -5 -15 5 Q-12 20 0 25 Q12 20 15 5 Q12 -5 0 0 Z" class="illo-fill-accent"/>
+      <path d="M0 0 Q-8 -3 -10 3 Q-8 15 0 18 Q8 15 10 3 Q8 -3 0 0 Z" class="illo-fill-secondary" opacity="0.7"/>
+      
+      <!-- Stem -->
+      <rect x="-1" y="-8" width="2" height="8" class="illo-fill-neutral-700"/>
+      
+      <!-- Leaf -->
+      <path d="M2 -5 Q8 -8 10 -3 Q8 0 2 -2" class="illo-fill-secondary"/>
+    </g>
+    
+    <!-- Health indicators -->
+    <g class="health-symbols">
+      <circle cx="320" cy="200" r="2.5" class="illo-fill-primary" opacity="0.6"/>
+      <circle cx="80" cy="80" r="2" class="illo-fill-secondary" opacity="0.7"/>
+      <path d="M350 250 L355 245 L360 250 L355 255 Z" class="illo-fill-accent" opacity="0.5"/>
+    </g>
+  </svg>
+
+  <!-- Diseases Illustration -->
+  <svg *ngIf="type === 'diseases'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="virusGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-accent" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Shield protection -->
+    <g transform="translate(200, 150)">
+      <path d="M0 -40 L-30 -25 L-30 10 Q-30 30 -15 40 L0 50 L15 40 Q30 30 30 10 L30 -25 Z" 
+            class="illo-fill-primary" opacity="0.8"/>
+      <path d="M0 -30 L-20 -18 L-20 8 Q-20 22 -10 30 L0 37 L10 30 Q20 22 20 8 L20 -18 Z" 
+            class="illo-fill-surface" opacity="0.4"/>
+      
+      <!-- Medical cross on shield -->
+      <rect x="-12" y="-5" width="24" height="6" rx="3" class="illo-fill-accent"/>
+      <rect x="-3" y="-14" width="6" height="24" rx="3" class="illo-fill-accent"/>
+    </g>
+    
+    <!-- Virus/bacteria (being blocked) -->
+    <g transform="translate(120, 100)" opacity="0.6">
+      <!-- Virus body -->
+      <circle cx="0" cy="0" r="15" fill="url(#virusGradient)"/>
+      <circle cx="0" cy="0" r="10" class="illo-fill-surface" opacity="0.3"/>
+      
+      <!-- Virus spikes -->
+      <circle cx="-12" cy="-8" r="3" fill="url(#virusGradient)"/>
+      <circle cx="12" cy="-8" r="3" fill="url(#virusGradient)"/>
+      <circle cx="-12" cy="8" r="3" fill="url(#virusGradient)"/>
+      <circle cx="12" cy="8" r="3" fill="url(#virusGradient)"/>
+      <circle cx="0" cy="-15" r="3" fill="url(#virusGradient)"/>
+      <circle cx="0" cy="15" r="3" fill="url(#virusGradient)"/>
+      <circle cx="-15" cy="0" r="3" fill="url(#virusGradient)"/>
+      <circle cx="15" cy="0" r="3" fill="url(#virusGradient)"/>
+    </g>
+    
+    <!-- Another virus being blocked -->
+    <g transform="translate(300, 200)" opacity="0.6">
+      <circle cx="0" cy="0" r="12" fill="url(#virusGradient)"/>
+      <circle cx="-10" cy="-6" r="2.5" fill="url(#virusGradient)"/>
+      <circle cx="10" cy="-6" r="2.5" fill="url(#virusGradient)"/>
+      <circle cx="-10" cy="6" r="2.5" fill="url(#virusGradient)"/>
+      <circle cx="10" cy="6" r="2.5" fill="url(#virusGradient)"/>
+    </g>
+    
+    <!-- Medicine bottle -->
+    <g transform="translate(80, 200)">
+      <rect x="0" y="0" width="30" height="40" rx="4" class="illo-fill-surface"/>
+      <rect x="3" y="3" width="24" height="34" rx="3" class="illo-fill-neutral-100"/>
+      
+      <!-- Bottle cap -->
+      <rect x="-2" y="-8" width="34" height="10" rx="5" class="illo-fill-primary"/>
+      
+      <!-- Label with cross -->
+      <rect x="6" y="10" width="18" height="12" rx="2" class="illo-fill-accent"/>
+      <rect x="12" y="13" width="6" height="2" class="illo-fill-surface"/>
+      <rect x="14" y="11" width="2" height="6" class="illo-fill-surface"/>
+    </g>
+    
+    <!-- Thermometer showing fever -->
+    <g transform="translate(320, 80)">
+      <rect x="0" y="0" width="5" height="50" rx="2.5" class="illo-fill-surface"/>
+      <rect x="1" y="8" width="3" height="35" class="illo-fill-accent"/>
+      <circle cx="2.5" cy="47" r="6" class="illo-fill-accent"/>
+      <circle cx="2.5" cy="47" r="3" class="illo-fill-surface"/>
+      
+      <!-- High temperature indicator -->
+      <line x1="5" y1="15" x2="10" y2="15" class="illo-stroke-accent" stroke-width="2"/>
+      <text x="12" y="18" class="illo-fill-accent" font-size="8">HIGH</text>
+    </g>
+    
+    <!-- Prevention barrier -->
+    <g class="prevention-barrier">
+      <path d="M150 120 Q175 110 200 120" class="illo-stroke-primary" stroke-width="4" fill="none"/>
+      <path d="M200 180 Q225 170 250 180" class="illo-stroke-primary" stroke-width="4" fill="none"/>
+      
+      <!-- X marks blocking viruses -->
+      <g transform="translate(130, 110)">
+        <line x1="-5" y1="-5" x2="5" y2="5" class="illo-stroke-accent" stroke-width="3"/>
+        <line x1="-5" y1="5" x2="5" y2="-5" class="illo-stroke-accent" stroke-width="3"/>
+      </g>
+      
+      <g transform="translate(280, 190)">
+        <line x1="-4" y1="-4" x2="4" y2="4" class="illo-stroke-accent" stroke-width="3"/>
+        <line x1="-4" y1="4" x2="4" y2="-4" class="illo-stroke-accent" stroke-width="3"/>
+      </g>
+    </g>
+  </svg>
+
+  <!-- Toys Illustration -->
+  <svg *ngIf="type === 'toys'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="toyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-accent" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Teddy bear -->
+    <g transform="translate(120, 150)">
+      <!-- Body -->
+      <ellipse cx="0" cy="0" rx="20" ry="25" fill="url(#toyGradient)"/>
+      
+      <!-- Head -->
+      <circle cx="0" cy="-35" r="18" fill="url(#toyGradient)"/>
+      
+      <!-- Ears -->
+      <circle cx="-12" cy="-45" r="8" fill="url(#toyGradient)"/>
+      <circle cx="12" cy="-45" r="8" fill="url(#toyGradient)"/>
+      <circle cx="-12" cy="-45" r="4" class="illo-fill-surface"/>
+      <circle cx="12" cy="-45" r="4" class="illo-fill-surface"/>
+      
+      <!-- Face -->
+      <circle cx="-6" cy="-38" r="2" class="illo-fill-neutral-700"/>
+      <circle cx="6" cy="-38" r="2" class="illo-fill-neutral-700"/>
+      <ellipse cx="0" cy="-30" rx="2" ry="3" class="illo-fill-neutral-700"/>
+      <path d="M-4 -25 Q0 -20 4 -25" class="illo-stroke-neutral-700" stroke-width="2" fill="none"/>
+      
+      <!-- Arms -->
+      <ellipse cx="-25" cy="-10" rx="8" ry="15" fill="url(#toyGradient)"/>
+      <ellipse cx="25" cy="-10" rx="8" ry="15" fill="url(#toyGradient)"/>
+      
+      <!-- Legs -->
+      <ellipse cx="-10" cy="20" rx="8" ry="12" fill="url(#toyGradient)"/>
+      <ellipse cx="10" cy="20" rx="8" ry="12" fill="url(#toyGradient)"/>
+      
+      <!-- Bow tie -->
+      <path d="M-6 -15 L6 -15 L0 -10 Z" class="illo-fill-primary"/>
+      <path d="M-6 -10 L6 -10 L0 -15 Z" class="illo-fill-primary"/>
+      <rect x="-2" y="-13" width="4" height="6" class="illo-fill-secondary"/>
+    </g>
+    
+    <!-- Building blocks -->
+    <g transform="translate(250, 200)">
+      <!-- Block 1 -->
+      <rect x="0" y="0" width="25" height="25" class="illo-fill-primary"/>
+      <rect x="3" y="3" width="19" height="19" class="illo-fill-surface" opacity="0.3"/>
+      <circle cx="12.5" cy="12.5" r="4" class="illo-fill-secondary"/>
+      
+      <!-- Block 2 -->
+      <rect x="30" y="0" width="25" height="25" class="illo-fill-secondary"/>
+      <rect x="33" y="3" width="19" height="19" class="illo-fill-surface" opacity="0.3"/>
+      <circle cx="42.5" cy="12.5" r="4" class="illo-fill-accent"/>
+      
+      <!-- Block 3 on top -->
+      <rect x="15" y="-25" width="25" height="25" class="illo-fill-accent"/>
+      <rect x="18" y="-22" width="19" height="19" class="illo-fill-surface" opacity="0.3"/>
+      <circle cx="27.5" cy="-12.5" r="4" class="illo-fill-primary"/>
+    </g>
+    
+    <!-- Ball -->
+    <g transform="translate(320, 120)">
+      <circle cx="0" cy="0" r="20" class="illo-fill-secondary"/>
+      <circle cx="0" cy="0" r="15" class="illo-fill-surface" opacity="0.3"/>
+      
+      <!-- Ball pattern -->
+      <path d="M-15 0 Q0 -15 15 0" class="illo-stroke-primary" stroke-width="2" fill="none"/>
+      <path d="M-15 0 Q0 15 15 0" class="illo-stroke-primary" stroke-width="2" fill="none"/>
+      <path d="M0 -20 Q-10 0 0 20" class="illo-stroke-accent" stroke-width="2" fill="none"/>
+      <path d="M0 -20 Q10 0 0 20" class="illo-stroke-accent" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Rattle -->
+    <g transform="translate(80, 100)">
+      <!-- Handle -->
+      <rect x="0" y="0" width="6" height="40" rx="3" class="illo-fill-primary"/>
+      <rect x="1" y="5" width="4" height="30" rx="2" class="illo-fill-secondary"/>
+      
+      <!-- Rattle head -->
+      <circle cx="3" cy="-8" r="12" class="illo-fill-accent" opacity="0.8"/>
+      <circle cx="3" cy="-8" r="8" class="illo-fill-surface" opacity="0.4"/>
+      
+      <!-- Rattle beads inside -->
+      <circle cx="-2" cy="-12" r="2" class="illo-fill-primary"/>
+      <circle cx="8" cy="-8" r="2" class="illo-fill-secondary"/>
+      <circle cx="2" cy="-2" r="2" class="illo-fill-accent"/>
+    </g>
+    
+    <!-- Toy car -->
+    <g transform="translate(300, 230)">
+      <!-- Car body -->
+      <rect x="0" y="0" width="40" height="15" rx="7" class="illo-fill-primary"/>
+      <rect x="5" y="2" width="30" height="11" rx="5" class="illo-fill-surface" opacity="0.4"/>
+      
+      <!-- Wheels -->
+      <circle cx="8" cy="18" r="6" class="illo-fill-neutral-700"/>
+      <circle cx="8" cy="18" r="3" class="illo-fill-neutral-300"/>
+      <circle cx="32" cy="18" r="6" class="illo-fill-neutral-700"/>
+      <circle cx="32" cy="18" r="3" class="illo-fill-neutral-300"/>
+      
+      <!-- Windows -->
+      <rect x="8" y="3" width="10" height="8" rx="2" class="illo-fill-secondary" opacity="0.6"/>
+      <rect x="22" y="3" width="10" height="8" rx="2" class="illo-fill-secondary" opacity="0.6"/>
+    </g>
+    
+    <!-- Playful elements -->
+    <g class="playful-symbols">
+      <circle cx="60" cy="200" r="3" class="illo-fill-accent" opacity="0.7"/>
+      <circle cx="370" cy="80" r="2.5" class="illo-fill-primary" opacity="0.6"/>
+      <path d="M40 60 L45 55 L50 60 L45 65 Z" class="illo-fill-secondary" opacity="0.5"/>
+      <circle cx="350" cy="180" r="2" class="illo-fill-accent" opacity="0.8"/>
+    </g>
+  </svg>
+
+  <!-- Growth Charts Illustration -->
+  <svg *ngIf="type === 'growth-charts'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="chartGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" class="illo-fill-secondary" />
+        <stop offset="100%" class="illo-fill-primary" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Chart background -->
+    <g transform="translate(80, 60)">
+      <rect x="0" y="0" width="240" height="180" class="illo-fill-surface" stroke-width="2" class="illo-stroke-weak"/>
+      <rect x="5" y="5" width="230" height="170" class="illo-fill-neutral-100"/>
+      
+      <!-- Grid lines -->
+      <g class="grid-lines">
+        <line x1="5" y1="45" x2="235" y2="45" class="illo-stroke-weak" stroke-width="1" opacity="0.3"/>
+        <line x1="5" y1="85" x2="235" y2="85" class="illo-stroke-weak" stroke-width="1" opacity="0.3"/>
+        <line x1="5" y1="125" x2="235" y2="125" class="illo-stroke-weak" stroke-width="1" opacity="0.3"/>
+        <line x1="5" y1="165" x2="235" y2="165" class="illo-stroke-weak" stroke-width="1" opacity="0.3"/>
+        
+        <line x1="65" y1="5" x2="65" y2="175" class="illo-stroke-weak" stroke-width="1" opacity="0.3"/>
+        <line x1="125" y1="5" x2="125" y2="175" class="illo-stroke-weak" stroke-width="1" opacity="0.3"/>
+        <line x1="185" y1="5" x2="185" y2="175" class="illo-stroke-weak" stroke-width="1" opacity="0.3"/>
+      </g>
+      
+      <!-- Growth curve -->
+      <path d="M25 160 Q65 140 105 110 Q145 80 185 60 Q205 50 215 45" 
+            class="illo-stroke-primary" stroke-width="4" fill="none"/>
+      
+      <!-- Data points -->
+      <circle cx="25" cy="160" r="4" class="illo-fill-primary"/>
+      <circle cx="65" cy="140" r="4" class="illo-fill-primary"/>
+      <circle cx="105" cy="110" r="4" class="illo-fill-primary"/>
+      <circle cx="145" cy="80" r="4" class="illo-fill-primary"/>
+      <circle cx="185" cy="60" r="4" class="illo-fill-primary"/>
+      <circle cx="215" cy="45" r="4" class="illo-fill-primary"/>
+      
+      <!-- Percentile lines -->
+      <path d="M25 140 Q65 120 105 90 Q145 60 185 40 Q205 30 215 25" 
+            class="illo-stroke-secondary" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="5,5"/>
+      <path d="M25 180 Q65 160 105 130 Q145 100 185 80 Q205 70 215 65" 
+            class="illo-stroke-accent" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="5,5"/>
+    </g>
+    
+    <!-- Y-axis labels (Height/Weight) -->
+    <g transform="translate(50, 120)">
+      <text x="0" y="0" class="illo-fill-neutral-700" font-size="8" text-anchor="middle" transform="rotate(-90)">Height/Weight</text>
+    </g>
+    
+    <!-- X-axis labels (Age) -->
+    <g transform="translate(200, 260)">
+      <text x="0" y="0" class="illo-fill-neutral-700" font-size="8" text-anchor="middle">Age (months/years)</text>
+    </g>
+    
+    <!-- Age markers -->
+    <g class="age-markers">
+      <text x="105" y="255" class="illo-fill-neutral-700" font-size="7" text-anchor="middle">0</text>
+      <text x="145" y="255" class="illo-fill-neutral-700" font-size="7" text-anchor="middle">6M</text>
+      <text x="185" y="255" class="illo-fill-neutral-700" font-size="7" text-anchor="middle">1Y</text>
+      <text x="225" y="255" class="illo-fill-neutral-700" font-size="7" text-anchor="middle">2Y</text>
+      <text x="265" y="255" class="illo-fill-neutral-700" font-size="7" text-anchor="middle">5Y</text>
+    </g>
+    
+    <!-- Child figures at different ages -->
+    <g transform="translate(340, 220)">
+      <!-- Baby -->
+      <circle cx="0" cy="0" r="8" class="illo-fill-accent" opacity="0.7"/>
+      <ellipse cx="0" cy="12" rx="6" ry="10" class="illo-fill-accent" opacity="0.7"/>
+      
+      <!-- Toddler -->
+      <circle cx="0" cy="-40" r="6" class="illo-fill-secondary" opacity="0.7"/>
+      <rect x="-4" y="-34" width="8" height="20" rx="4" class="illo-fill-secondary" opacity="0.7"/>
+      <rect x="-3" y="-14" width="2" height="12" class="illo-fill-secondary" opacity="0.7"/>
+      <rect x="1" y="-14" width="2" height="12" class="illo-fill-secondary" opacity="0.7"/>
+      
+      <!-- Child -->
+      <circle cx="0" cy="-80" r="5" class="illo-fill-primary" opacity="0.7"/>
+      <rect x="-3" y="-75" width="6" height="25" rx="3" class="illo-fill-primary" opacity="0.7"/>
+      <rect x="-2" y="-50" width="1.5" height="15" class="illo-fill-primary" opacity="0.7"/>
+      <rect x="0.5" y="-50" width="1.5" height="15" class="illo-fill-primary" opacity="0.7"/>
+    </g>
+    
+    <!-- Chart elements -->
+    <g class="chart-symbols">
+      <circle cx="50" cy="50" r="2" class="illo-fill-primary" opacity="0.6"/>
+      <circle cx="350" cy="100" r="2.5" class="illo-fill-secondary" opacity="0.7"/>
+      <path d="M40 280 L45 275 L50 280 L45 285 Z" class="illo-fill-accent" opacity="0.5"/>
+    </g>
+  </svg>
+
+  <!-- Pregnancy Illustration -->
+  <svg *ngIf="type === 'pregnancy'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="pregnancyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-secondary" />
+        <stop offset="100%" class="illo-fill-accent" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Pregnant figure -->
+    <g transform="translate(150, 180)">
+      <!-- Head -->
+      <circle cx="0" cy="-70" r="18" class="illo-fill-primary"/>
+      
+      <!-- Hair -->
+      <path d="M-16 -80 Q0 -88 16 -80 Q12 -85 0 -88 Q-12 -85 -16 -80" class="illo-fill-neutral-700"/>
+      
+      <!-- Body -->
+      <ellipse cx="0" cy="-30" rx="25" ry="40" fill="url(#pregnancyGradient)"/>
+      
+      <!-- Pregnant belly -->
+      <ellipse cx="0" cy="-15" rx="20" ry="25" class="illo-fill-accent" opacity="0.8"/>
+      
+      <!-- Arms -->
+      <ellipse cx="-30" cy="-40" rx="8" ry="20" class="illo-fill-primary"/>
+      <ellipse cx="30" cy="-40" rx="8" ry="20" class="illo-fill-primary"/>
+      
+      <!-- Hand on belly -->
+      <circle cx="18" cy="-20" r="6" class="illo-fill-primary"/>
+      
+      <!-- Legs -->
+      <rect x="-10" y="10" width="8" height="35" rx="4" class="illo-fill-primary"/>
+      <rect x="2" y="10" width="8" height="35" rx="4" class="illo-fill-primary"/>
+      
+      <!-- Face -->
+      <circle cx="-6" cy="-75" r="2" class="illo-fill-neutral-700"/>
+      <circle cx="6" cy="-75" r="2" class="illo-fill-neutral-700"/>
+      <path d="M-4 -65 Q0 -60 4 -65" class="illo-stroke-surface" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Baby outline in belly -->
+    <g transform="translate(150, 165)" opacity="0.6">
+      <circle cx="0" cy="0" r="8" class="illo-fill-surface"/>
+      <ellipse cx="0" cy="10" rx="6" ry="8" class="illo-fill-surface"/>
+      
+      <!-- Baby features -->
+      <circle cx="-2" cy="-2" r="1" class="illo-fill-neutral-700"/>
+      <circle cx="2" cy="-2" r="1" class="illo-fill-neutral-700"/>
+    </g>
+    
+    <!-- Medical items -->
+    <g transform="translate(80, 120)">
+      <!-- Ultrasound machine -->
+      <rect x="0" y="0" width="40" height="30" rx="5" class="illo-fill-neutral-200"/>
+      <rect x="3" y="3" width="34" height="24" rx="3" class="illo-fill-surface"/>
+      
+      <!-- Screen -->
+      <rect x="6" y="6" width="28" height="18" rx="2" class="illo-fill-neutral-700"/>
+      <ellipse cx="20" cy="15" rx="8" ry="6" class="illo-fill-secondary" opacity="0.6"/>
+      
+      <!-- Probe -->
+      <rect x="35" y="32" width="3" height="15" class="illo-fill-primary"/>
+      <ellipse cx="36.5" cy="47" rx="4" ry="2" class="illo-fill-secondary"/>
+    </g>
+    
+    <!-- Prenatal vitamins -->
+    <g transform="translate(280, 200)">
+      <rect x="0" y="0" width="25" height="35" rx="3" class="illo-fill-surface"/>
+      <rect x="3" y="3" width="19" height="29" rx="2" class="illo-fill-neutral-100"/>
+      
+      <!-- Cap -->
+      <rect x="-2" y="-5" width="29" height="8" rx="4" class="illo-fill-accent"/>
+      
+      <!-- Label -->
+      <rect x="5" y="8" width="15" height="8" rx="1" class="illo-fill-accent"/>
+      <text x="12.5" y="14" text-anchor="middle" class="illo-fill-surface" font-size="6">VIT</text>
+      
+      <!-- Pills inside -->
+      <circle cx="8" cy="20" r="2" class="illo-fill-secondary"/>
+      <circle cx="17" cy="25" r="2" class="illo-fill-accent"/>
+      <circle cx="12" cy="28" r="2" class="illo-fill-primary"/>
+    </g>
+    
+    <!-- Baby items preparation -->
+    <g transform="translate(300, 120)">
+      <!-- Baby bottle -->
+      <rect x="0" y="0" width="12" height="35" rx="6" class="illo-fill-surface"/>
+      <rect x="2" y="5" width="8" height="25" rx="4" class="illo-fill-secondary" opacity="0.3"/>
+      
+      <!-- Nipple -->
+      <ellipse cx="6" cy="-3" rx="4" ry="5" class="illo-fill-accent"/>
+      
+      <!-- Baby shoes -->
+      <ellipse cx="20" cy="20" rx="8" ry="4" class="illo-fill-primary"/>
+      <ellipse cx="20" cy="18" rx="6" ry="3" class="illo-fill-surface" opacity="0.5"/>
+      <ellipse cx="20" cy="30" rx="8" ry="4" class="illo-fill-primary"/>
+      <ellipse cx="20" cy="28" rx="6" ry="3" class="illo-fill-surface" opacity="0.5"/>
+    </g>
+    
+    <!-- Heart symbols -->
+    <g class="love-symbols">
+      <path d="M60 80 C50 70 50 60 60 65 C70 60 70 70 60 80 Z" class="illo-fill-accent" opacity="0.6"/>
+      <path d="M320 80 C315 75 315 70 320 72.5 C325 70 325 75 320 80 Z" class="illo-fill-secondary" opacity="0.7"/>
+      <circle cx="350" cy="250" r="2" class="illo-fill-primary" opacity="0.5"/>
+    </g>
+  </svg>
+
+  <!-- Hero Illustration -->
+  <svg *ngIf="type === 'hero'" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    <defs>
+      <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" class="illo-fill-primary" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </linearGradient>
+      <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" class="illo-fill-accent" />
+        <stop offset="100%" class="illo-fill-secondary" />
+      </radialGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Sun -->
+    <g transform="translate(320, 80)">
+      <circle cx="0" cy="0" r="25" fill="url(#sunGradient)" opacity="0.8"/>
+      <circle cx="0" cy="0" r="18" class="illo-fill-accent" opacity="0.6"/>
+      
+      <!-- Sun rays -->
+      <g class="sun-rays">
+        <line x1="0" y1="-35" x2="0" y2="-45" class="illo-stroke-accent" stroke-width="3"/>
+        <line x1="25" y1="-25" x2="32" y2="-32" class="illo-stroke-accent" stroke-width="3"/>
+        <line x1="35" y1="0" x2="45" y2="0" class="illo-stroke-accent" stroke-width="3"/>
+        <line x1="25" y1="25" x2="32" y2="32" class="illo-stroke-accent" stroke-width="3"/>
+        <line x1="0" y1="35" x2="0" y2="45" class="illo-stroke-accent" stroke-width="3"/>
+        <line x1="-25" y1="25" x2="-32" y2="32" class="illo-stroke-accent" stroke-width="3"/>
+        <line x1="-35" y1="0" x2="-45" y2="0" class="illo-stroke-accent" stroke-width="3"/>
+        <line x1="-25" y1="-25" x2="-32" y2="-32" class="illo-stroke-accent" stroke-width="3"/>
+      </g>
+    </g>
+    
+    <!-- Doctor and child -->
+    <g transform="translate(150, 200)">
+      <!-- Doctor -->
+      <circle cx="-30" cy="-60" r="15" class="illo-fill-primary"/>
+      <rect x="-38" y="-45" width="16" height="35" rx="8" class="illo-fill-surface"/>
+      <rect x="-35" y="-42" width="10" height="29" rx="5" class="illo-fill-neutral-100"/>
+      
+      <!-- Doctor's stethoscope -->
+      <circle cx="-32" cy="-35" r="3" class="illo-fill-secondary"/>
+      <path d="M-32 -32 Q-28 -25 -25 -18" class="illo-stroke-secondary" stroke-width="2" fill="none"/>
+      <circle cx="-25" cy="-18" r="4" class="illo-fill-secondary"/>
+      
+      <!-- Child -->
+      <circle cx="30" cy="-45" r="12" class="illo-fill-accent"/>
+      <rect x="24" y="-33" width="12" height="25" rx="6" class="illo-fill-secondary"/>
+      
+      <!-- Child's face -->
+      <circle cx="27" cy="-48" r="1.5" class="illo-fill-neutral-700"/>
+      <circle cx="33" cy="-48" r="1.5" class="illo-fill-neutral-700"/>
+      <path d="M27 -40 Q30 -37 33 -40" class="illo-stroke-surface" stroke-width="2" fill="none"/>
+      
+      <!-- Doctor's face -->
+      <circle cx="-33" cy="-63" r="2" class="illo-fill-neutral-700"/>
+      <circle cx="-27" cy="-63" r="2" class="illo-fill-neutral-700"/>
+      <path d="M-32 -55 Q-30 -52 -28 -55" class="illo-stroke-surface" stroke-width="2" fill="none"/>
+      
+      <!-- Arms showing care -->
+      <ellipse cx="-45" cy="-30" rx="6" ry="12" class="illo-fill-primary"/>
+      <ellipse cx="-15" cy="-30" rx="6" ry="12" class="illo-fill-primary"/>
+      <ellipse cx="15" cy="-25" rx="5" ry="10" class="illo-fill-accent"/>
+      <ellipse cx="45" cy="-25" rx="5" ry="10" class="illo-fill-accent"/>
+    </g>
+    
+    <!-- Medical symbols floating -->
+    <g class="floating-medical">
+      <!-- Heart -->
+      <g transform="translate(80, 120)">
+        <path d="M0 10 C-10 0 -10 -10 0 -5 C10 -10 10 0 0 10 Z" class="illo-fill-accent" opacity="0.7"/>
+      </g>
+      
+      <!-- Medical cross -->
+      <g transform="translate(300, 180)">
+        <rect x="-8" y="-2" width="16" height="4" rx="2" class="illo-fill-primary" opacity="0.7"/>
+        <rect x="-2" y="-8" width="4" height="16" rx="2" class="illo-fill-primary" opacity="0.7"/>
+      </g>
+      
+      <!-- Shield -->
+      <g transform="translate(60, 180)">
+        <path d="M0 -15 L-10 -10 L-10 5 Q-10 12 0 15 Q10 12 10 5 L10 -10 Z" 
+              class="illo-fill-secondary" opacity="0.6"/>
+      </g>
+    </g>
+    
+    <!-- Sparkles for magical/caring atmosphere -->
+    <g class="sparkles">
+      <circle cx="100" cy="60" r="2" class="illo-fill-accent" opacity="0.8"/>
+      <circle cx="250" cy="100" r="3" class="illo-fill-secondary" opacity="0.6"/>
+      <circle cx="50" cy="240" r="2.5" class="illo-fill-primary" opacity="0.7"/>
+      <circle cx="350" cy="220" r="2" class="illo-fill-accent" opacity="0.9"/>
+      
+      <!-- Star shapes -->
+      <path d="M120 200 L125 190 L130 200 L135 195 L130 205 L125 210 L120 205 L115 195 Z" 
+            class="illo-fill-secondary" opacity="0.5"/>
+      <path d="M270 60 L273 54 L276 60 L280 57 L276 63 L273 66 L270 63 L266 57 Z" 
+            class="illo-fill-primary" opacity="0.6"/>
+    </g>
+    
+    <!-- Clouds for peaceful atmosphere -->
+    <g class="clouds">
+      <ellipse cx="80" cy="70" rx="20" ry="12" class="illo-fill-surface" opacity="0.7"/>
+      <ellipse cx="90" cy="65" rx="15" ry="10" class="illo-fill-surface" opacity="0.7"/>
+      <ellipse cx="70" cy="65" rx="12" ry="8" class="illo-fill-surface" opacity="0.7"/>
+      
+      <ellipse cx="250" cy="40" rx="25" ry="15" class="illo-fill-surface" opacity="0.6"/>
+      <ellipse cx="265" cy="35" rx="18" ry="12" class="illo-fill-surface" opacity="0.6"/>
+      <ellipse cx="235" cy="35" rx="15" ry="10" class="illo-fill-surface" opacity="0.6"/>
+    </g>
+  </svg>
+
+  <!-- Default/fallback illustration -->
+  <svg *ngIf="type === 'default' || !type" class="illo" role="img" [attr.aria-labelledby]="titleId" viewBox="0 0 400 300">
+    <title [id]="titleId">{{ title }}</title>
+    
+    <!-- Background -->
+    <rect width="400" height="300" class="illo-fill-surface" rx="20"/>
+    
+    <!-- Simple medical cross -->
+    <g transform="translate(200, 150)">
+      <rect x="-40" y="-8" width="80" height="16" rx="8" class="illo-fill-primary"/>
+      <rect x="-8" y="-40" width="16" height="80" rx="8" class="illo-fill-primary"/>
+      <circle cx="0" cy="0" r="50" class="illo-stroke-weak" stroke-width="3" fill="none"/>
+    </g>
+    
+    <!-- Decorative elements -->
+    <g class="decorative">
+      <circle cx="100" cy="80" r="4" class="illo-fill-secondary" opacity="0.6"/>
+      <circle cx="320" cy="100" r="3" class="illo-fill-accent" opacity="0.7"/>
+      <circle cx="80" cy="220" r="3.5" class="illo-fill-primary" opacity="0.5"/>
+      <circle cx="340" cy="230" r="2.5" class="illo-fill-secondary" opacity="0.6"/>
+    </g>
+  </svg>
+
+  <figcaption class="sr-only">{{ title }}</figcaption>
+</figure>

@@ -1,0 +1,38 @@
+/* src/app/shared/styles/tokens.css */
+:root {
+  /* ThemeService ile birebir aynı isimler: */
+  --color-primary: #005F73;
+  --color-primary-light: #0A8FA3;
+  --color-primary-dark: #003D4F;
+  --color-secondary: #94D2BD;
+  --color-secondary-light: #B8E6D3;
+  --color-secondary-dark: #6FAF99;
+  --color-accent: #EE6C4D;
+  --color-accent-light: #FF8B70;
+  --color-accent-dark: #D74A2B;
+
+  --color-neutral-50:  #F8F9FA;
+  --color-neutral-100: #E9ECEF;
+  --color-neutral-200: #DEE2E6;
+  --color-neutral-300: #CED4DA;
+  --color-neutral-400: #ADB5BD;
+  --color-neutral-500: #6C757D;
+  --color-neutral-600: #495057;
+  --color-neutral-700: #343A40;
+  --color-neutral-800: #212529;
+  --color-neutral-900: #0F1419;
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.18);
+
+  --shadow-xs: 0 1px 2px rgba(0, 95, 115, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0, 95, 115, 0.06), 0 1px 2px rgba(0, 95, 115, 0.04);
+  --shadow-md: 0 4px 6px rgba(0, 95, 115, 0.07), 0 2px 4px rgba(0, 95, 115, 0.04);
+  --shadow-lg: 0 10px 15px rgba(0, 95, 115, 0.08), 0 4px 6px rgba(0, 95, 115, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 95, 115, 0.1), 0 10px 10px rgba(0, 95, 115, 0.04);
+}
+
+/* Root'a ThemeService class'ları geliyor: .light-theme / .dark-theme */
+/* Buraya tema-spesifik ekstra stiller ekleyebilirsiniz */
+html.light-theme body { background: var(--color-neutral-50); color: var(--color-neutral-900); }
+html.dark-theme  body { background: var(--color-neutral-50); color: var(--color-neutral-900); }

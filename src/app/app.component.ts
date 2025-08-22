@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { Footer } from './components/footer/footer';
 import { CustomCursorComponent } from './components/custom-cursor/custom-cursor';
 import { FloatingActionsComponent } from './components/floating-actions/floating-actions';
 import { WhatsAppButtonComponent } from './components/whatsapp-button/whatsapp-button';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,9 @@ import { WhatsAppButtonComponent } from './components/whatsapp-button/whatsapp-b
 export class AppComponent {
   title = 'Dr. Özlem Murzoğlu | Çocuk Sağlığı ve Hastalıkları Uzmanı';
   locale = 'tr';
+  
+  // ThemeService'i bootstrap için enjekte et
+  private readonly theme = inject(ThemeService);
   
   onLocaleChange(newLocale: string) {
     this.locale = newLocale;

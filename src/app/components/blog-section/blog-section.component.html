@@ -12,7 +12,12 @@
         <a [routerLink]="['/blog', post.id]">
           <div class="blog-image">
             <div class="blog-illustration-container">
-              <div [innerHTML]="getSVGIllustration(post.illustrationType)"></div>
+              <app-illustration 
+                [type]="post.illustrationType" 
+                [title]="getIllustrationTitle(post.illustrationType)"
+                size="medium"
+                [animated]="false">
+              </app-illustration>
               <span class="category-badge">{{post.category}}</span>
             </div>
           </div>
