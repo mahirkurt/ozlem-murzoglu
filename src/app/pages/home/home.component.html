@@ -1,16 +1,30 @@
 <app-liquid-hero></app-liquid-hero>
 
+<app-wave-divider type="smooth" [height]="100"></app-wave-divider>
+
 <div scrollReveal="fade-up" [scrollDelay]="100">
   <app-approach-section></app-approach-section>
 </div>
+
+<app-wave-divider type="curve" [height]="80" [flip]="true"></app-wave-divider>
 
 <div scrollReveal="fade-up" [scrollDelay]="200">
   <app-services-section [locale]="locale"></app-services-section>
 </div>
 
+<app-wave-divider type="ocean" [height]="100"></app-wave-divider>
+
+<div scrollReveal="fade-up" [scrollDelay]="250">
+  <app-clinic-gallery></app-clinic-gallery>
+</div>
+
+<app-wave-divider type="sharp" [height]="80" [flip]="true"></app-wave-divider>
+
 <div scrollReveal="fade-up" [scrollDelay]="300">
   <app-blog-section></app-blog-section>
 </div>
+
+<app-wave-divider type="smooth" [height]="100"></app-wave-divider>
 
 <div scrollReveal="fade-up" [scrollDelay]="400">
   <app-testimonial-section></app-testimonial-section>

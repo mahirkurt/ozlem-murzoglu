@@ -5,6 +5,8 @@ import { BlogSectionComponent } from '../../components/blog-section/blog-section
 import { TestimonialSectionComponent } from '../../components/testimonial-section/testimonial-section.component';
 import { ServicesSectionComponent } from '../../components/services-section/services-section.component';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { ClinicGalleryComponent } from '../../components/clinic-gallery/clinic-gallery';
+import { WaveDividerComponent } from '../../components/wave-divider/wave-divider';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +17,9 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
     BlogSectionComponent,
     TestimonialSectionComponent,
     ServicesSectionComponent,
-    ScrollRevealDirective
+    ScrollRevealDirective,
+    ClinicGalleryComponent,
+    WaveDividerComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

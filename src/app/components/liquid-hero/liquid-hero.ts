@@ -65,11 +65,13 @@ import { RouterModule } from '@angular/router';
       justify-content: center;
       overflow: hidden;
       padding-top: 80px;
-      background: #005F73;
-      background-image: 
-        radial-gradient(ellipse at top left, rgba(148, 187, 233, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom right, rgba(10, 147, 150, 0.4) 0%, transparent 50%),
-        radial-gradient(circle at center, rgba(255, 183, 77, 0.1) 0%, transparent 70%);
+      background: 
+        radial-gradient(at 40% 20%, var(--color-secondary) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, var(--color-primary-light) 0px, transparent 50%),
+        radial-gradient(at 10% 50%, var(--color-accent-light) 0px, transparent 50%),
+        radial-gradient(at 80% 80%, var(--color-secondary-light) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, var(--color-primary) 0px, transparent 50%),
+        linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
     }
     
     .liquid-hero::before {
@@ -92,6 +94,16 @@ import { RouterModule } from '@angular/router';
           rgba(255, 255, 255, 0.03) 4px
         );
       pointer-events: none;
+    }
+    
+    .liquid-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.03;
+      mix-blend-mode: overlay;
     }
     
     /* Liquid Background */
