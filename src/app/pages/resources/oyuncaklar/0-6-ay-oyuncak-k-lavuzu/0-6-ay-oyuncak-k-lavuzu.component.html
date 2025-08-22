@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/oyuncaklar" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p>OYUNCAK KILAVUZU</p><p><strong>0 - 6 AY</strong></p></td></tr></table><table><tr><td><p>İLK AY</p></td></tr></table><ul><li>Yüksek kontrastlı renk ve desenlere sahip dönenceler</li></ul><p></p><ul><li>Yumuşak melodili müzik çalarlar</li><li>Hafif sesler çıkaran yumuşak, parlak renkli ve desenli oyuncaklar </li></ul><p></p><table><tr><td><p>1 - 3. AYLAR</p></td></tr></table><ul><li>Yüksek kontrastlı desenlere sahip resimler veya kitaplar</li><li>Çıngıraklar (kırılmayacak kadar sağlam)</li></ul><p></p><ul><li>Parlak renkli dönenceler</li></ul><table><tr><td><p>4 - 6. AYLAR</p></td></tr></table><ul><li>Kırılmaz plastik veya folyo şeklinde aynalar</li></ul><p></p><ul><li>Ses çıkaran ve dokunma hissi veren oyuncaklar </li><li>Hoş sesler çıkaranlar da dahil olmak üzere yumuşak toplar </li></ul><p></p><ul><li>Parmak tutma yeri olan oyuncaklar </li><li>Zil, marakas, tef gibi müzikli oyuncaklar (hiçbir parçanın gevşemediğinden emin olun) </li><li>Ses çıkaran parçaları görülebilen şeffaf çıngıraklar </li><li>Parlak resimler içeren eski dergiler</li><li>Karton, kumaş veya vinil sayfalı bebek kitapları</li></ul><p>Lütfen oyuncak seçimi yaparken üreticinin belirtmiş olduğu yaş aralıklarına dikkat ediniz. Ayrıca 3 yaşından küçük çocuklar için oyuncak seçerken, çocuğun boğazına takılıp boğulmasına neden olabilecek küçük parça veya parçaların olmamasına dikkat ediniz. Aşınma ve yıpranma, bir zamanlar güvenli olan oyuncağı tehlikeli hale getirebilir. İyi durumda olduklarından emin olmak için çocuğunuzun oyuncaklarını sık sık kontrol ediniz. </p><p><strong>Evcil hayvanların oyuncak olmadığını ve her zaman gözetim altında tutulması gerektiğini unutmayın.<br /></strong></p><table><tr><td><p>Caring for Your Baby and Young Child: Birth to Age 5, 7.Baskı'dan uyarlanmıştır. <br />Daha fazla bilgi için <a href="https://www.healthychildren.org"><strong>https://www.healthychildren.org</strong></a><strong> </strong>adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/oyuncaklar/0%20-%206%20Ay%20Oyuncak%20K%C4%B1lavuzu.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

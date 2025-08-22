@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/gelisim-rehberleri" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>UZM.DR. ÖZLEM MURZOĞLU - ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ</p></td></tr><tr><td><p>GELİŞİM İPUÇLARI VE ETKİNLİKLER:</p><p><strong>4 YAŞ ÇOCUĞUNUZ</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Çocuğunuzun ilk öğretmeni olarak, onun öğrenmesine ve beyin gelişimine yardımcı olabilirsiniz. Bu basit ipuçlarını ve aktiviteleri güvenli bir şekilde deneyin. Sorularınız varsa veya çocuğunuzun gelişimine nasıl yardımcı olabileceğiniz konusunda daha fazla fikir edinmek için çocuğunuzun doktoru ve öğretmenleriyle görüşün.</p></td></tr></table><p><br /></p><table><tr><td><p><a id="_heading=h.gjdgxs"></a></p></td><td><p>Çocuğunuzun Duygusal Gelişimi</p></td></tr></table><ul><li>Çocuğunuzun yeni yerlere ve yeni insanlarla tanışmaya hazır olmasına yardımcı olun. Örneğin, kendini farklı ortamlarda veya durumlarda rahat hissetmesine yardımcı olmak için durumla ilgili hikayeler okuyabilir veya "mış gibi" yaptığınız taklit oyunları oynayabilirsiniz.</li><li>Çocuğunuz herhangi bir şeyden veya durumdan korkuyorsa onu rahatlatın ve korkuları hakkında konuşun. Örneğin, "Canavarlar gerçek olmasalar ve size zarar veremezlerse bile korkutucu gelebilir." Çocuğunuzun korktuğunda yapabileceği şeyleri öğrenmesine yardımcı olun, örneğin peluş bir hayvana sarılmak gibi.</li><li>Çocuğunuzun alışveriş çantasını taşıma, evcil hayvanı besleme veya masaları silme gibi basit işlerde yardımcı olmasına izin verin. Bu, bağımsızlığını geliştirmeye yardımcı olur.</li><li>Çocuğunuza heyecanlandığında durmayı ve beklemeyi kırmızı ışık, yeşil ışık veya donakal-dans et oynayarak öğretin (müzik çalın, kapatın ve durduğunda herkesin donmasını sağlayın).</li></ul><table><tr><td></td><td><p>Erken Öğrenme Becerilerinin Desteklenmesi</p></td></tr></table><p></p><ul><li>Çocuğunuza kitap okuyun. Hikâyede neler olduğunu ve bundan sonra ne olabileceğini düşündüğünü sorun. Alternatif hikayeler yaratması durumunda devam etmesi için onu cesaretlendirin.</li><li>Çocuğunuzun renkleri, şekilleri ve boyutları öğrenmesine yardımcı olun. Örneğin, gün içinde gördüğü şeylerin rengini, şekillerini ve boyutlarını sorun ("Masanın şekli ne? Hangi çanta daha büyük? Hangisi daha ağır? gibi kıyaslama soruları da sorabilirsiniz).</li><li>Parmakları, oyuncak veya meyve gibi basit şeyleri sayın. Bu, çocuğunuzun sayı saymayı öğrenmesine yardımcı olacaktır.</li><li>"Birinci", "ikinci" ve "sonunda" gibi kelimeler kullanın. Oyun oynarken, hikâye anlatırken veya ev işleri yaparken çocuğunuza sırada ne olduğunu sorun. Bu, çocuğunuzun olayların sırasını öğrenmesine yardımcı olacaktır.</li><li>Çocuğunuzla "yetişkin" kelimeleri kullanarak tam cümleler kurarak konuşmaya zaman ayırın. Bu, daha iyi konuşma becerileri edinmesine ve gelecekteki okuma ve yazma becerilerine yardımcı olacaktır.</li><li>Çocuğunuzun "neden" sorularını yanıtlamak için zaman ayırın. Cevabı bilmiyorsanız, "Bilmiyorum" deyin veya çocuğunuzun cevabı bir kitapta, internette veya başka bir yetişkinden bulmasına yardımcı olun.</li></ul><table><tr><td></td><td><p>Akranları ile Olumlu İlişkiler Geliştirmek</p></td></tr></table><p></p><ul><li>Çocuğunuzun parkta veya kütüphanede diğer çocuklarla oynamasına izin verin. Çevrenizdeki oyun grupları ve okul öncesi programları hakkında bilgi alın. Başkalarıyla oynamak çocuğunuzun paylaşmanın ve arkadaşlığın değerini öğrenmesine yardımcı olur.</li><li>Çocuğunuzu bir şeyler istemek ve sorunları çözmek için "kendi kelimelerini" kullanmaya teşvik edin ancak ona nasıl yapılacağını gösterin. İhtiyaç duyduğu kelimeleri bilmiyor olabilir. Örneğin, çocuğunuzun birinin elinden bir şey almak yerine "Benim sıram gelince ben alabilir miyim?" demesine yardımcı olun.</li><li>Çocuğunuzun başkalarının duygularını ve olumlu tepki verme yollarını öğrenmesine yardımcı olun. Örneğin, üzgün bir çocuk gördüğünde "Üzgün görünüyor. Hadi ona hoşuna gidecek bir şey bulalım." deyin.</li><li>Çocuğunuz, birinin duygularını incittiğinde bunu fark etmesi için ona ne gördüğünüzü tarif edin. Onu özür dilemeye teşvik edin ve kişinin kendini daha iyi hissetmesini sağlayacak bir yol bulmasına yardımcı olun.</li><li>Çocuğunuza, diğer çocuklarla oyun oynarken kendini olumlu ve zarif şekilde ifade edebileceği kelimeleri kullanmayı, oyuncak paylaşmayı ve sırayla oynama gibi başkalarıyla oynama becerilerini öğretmeye devam edin.</li><li>Çocuğunuza arkadaşlarıyla kendi sorunlarını çözmesi için zaman verin. Örneğin, kimin hangi süper kahraman olacağı konusunda tartışıyorlarsa, çözmelerine izin verin. Gerektiğinde yardım etmek için yakınlarda durun. Çözemezlerse, başka çözümler düşünmelerine yardımcı olmak için sorular kullanın.</li></ul><table><tr><td></td><td><p>Oyun Zamanı</p></td></tr></table><p></p><ul><li>Çocuğunuza hayal gücünü teşvik eden oyuncaklar veya eşyalar verin, örneğin kostümler (her şeyin kostüme dönüşebileceğini unutmayın), yemek pişirme taklidi yapabileceği tencere ve tavalar veya bir şeyler inşa edebileceği bloklar. Yalancıktan pişirdiği bu yemeklerden iştahla yeme oyunları oynamayı ihmal etmeyin.</li><li>Çocuğunuza arkadaşlarıyla açık hava oyunları oynamayı öğretin; yakalamaca ve saklambaç gibi.</li><li>Beraber basit oyunlar oynayın, örneğin X-O-X veya kartlarla eşleştirme oyunları.</li><li>Her gün aktif oyun için zaman ayırmaya çalışın. Çocuğunuz aktiviteyi seçebiliyorsa daha çok eğlenecektir. Örneğin, ona müzik çalmak ve birlikte dans etmek, dışarıda oynamak veya birlikte yürüyüşe çıkmak gibi seçenekler sunun.</li><li>Çocuğunuzun en sevdiği şarkıları çalın ve çocuğunuzla dans edin. Sırayla birbirinizin hareketlerini taklit edin.</li><li>Çocuğunuzun kitap seçmesine izin vermek için kütüphaneye veya kitapçıya gidin.</li></ul><table><tr><td></td><td><p>Olumlu Disiplin</p></td></tr></table><ul><li>Olumlu kelimeler kullanın ve görmek istediğiniz davranışlara ("istenen davranışlar") odaklanın. Örneğin, "O oyuncağı çok güzel paylaşıyorsun!" deyin. Görmek istemediklerinize daha az ilgi gösterin. Pozitif pekiştirmeler çocuğunuzun olumlu davranışlarını arttıracaktır.</li><li>Çocuğunuza yapmasını istemediğiniz bir şeyi neden yapamayacağını basit bir şekilde anlatın ("istenmeyen davranış"). Bunun yerine ne yapabileceği konusunda ona bir seçenek sunun. Örneğin, "Yatağın üzerinde zıplayamazsın. Dışarı çıkıp oynamak mı yoksa müzik açıp dans etmek mi istersin?"</li><li>Çocuğunuza basit ve sağlıklı seçenekler sunun. Sunduğunuz seçenekler arasından ne giyeceğini, oynayacağını veya atıştırmalık olarak ne yiyeceğini seçmesine izin verin. Seçenekleri 1-2 veya 3 ile sınırlayın (daha fazla seçenek onun kafasını karıştıracağı gibi sizin işinizi de zorlaştıracaktır).</li></ul><table><tr><td></td><td><p>Beslenme, Uyku, Ekran</p></td></tr></table><p></p><ul><li>Mümkün olduğunda çocuğunuzla birlikte yemek yiyin. Meyve, sebze ve tam tahıllar gibi sağlıklı yiyeceklerin tadını çıkardığınızı ve süt veya su içtiğinizi görmesini sağlayın. Örnek olmak her konuda olduğu gibi burada da çocuğunuzu teşvik etmede en güçlü yöntemdir.</li><li>Sakin ve sessiz bir uyku vakti rutini yaratın. Yatmadan 1 ila 2 saat önce herhangi bir ekran maruziyetinden (TV, telefon, tablet vb.) kaçının ve çocuğunuzun yatak odasında herhangi bir ekran bulundurmayın. Bu yaştaki çocukların günde 10 ila 13 saat uykuya ihtiyacı vardır (gündüz uykuları dahil). Tutarlı uyku saatleri bunu kolaylaştırır!</li><li>Ekran süresini (TV, tabletler, telefonlar, vb.), bir yetişkinin eşliğinde olacak şekilde çocuk programıyla günde en fazla 1 saate sınırlayın. Çocuğunuzun yatak odasına hiçbir ekran koymayın. Çocuklar konuşarak, oynayarak ve başkalarıyla etkileşim kurarak öğrenirler.</li></ul><p><a id="_heading=h.30j0zll"></a></p><table><tr><td><p>Konu uzmanlarına ve verilerin gözden geçirilmesine ve gelişimsel dönüm noktalarının seçilmesine katkıda bulunan diğer kişilere, özellikle de Paul H. Lipkin, MD, Michelle M. Macias, MD, Julie F. Pajek, PhD, Judith S. Shaw, EdH,MPH, RN, Karnesha Slaughter, MPH, Jane K. Squires, PhD, Toni M. Whitaker, MD, Lisa D. Wiggins, PhD ve Jennifer M. Zubler, MD.'ye özel teşekkürler. Amerikan Hastalık Kontrol ve Önleme Merkezleri (CDC) Ulusal Doğum Kusurları ve Gelişimsel Engelliler Merkezi tarafından hazırlanmıştır. Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p><strong>© 2023 Amerikan Hastalık Kontrol ve Önleme Merkezleri (CDC) - Tüm hakları saklıdır.</strong></p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A-30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:klinik&#64;drmurzoglu.com">klinik&#64;drmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/gelisim-rehberleri/Geli%C5%9Fim%20%C4%B0pu%C3%A7lar%C4%B1%20ve%20Etkinlikleri%20-%204.%20Ya%C5%9F%20.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

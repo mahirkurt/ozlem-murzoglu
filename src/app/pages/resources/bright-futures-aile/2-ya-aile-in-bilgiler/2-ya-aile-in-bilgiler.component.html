@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/bright-futures-aile" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p>AİLENİZ İÇİN BİLGİLER</p><p><strong>2. YAŞ ZİYARETİ</strong></p></td><td><p></p></td></tr></table><table><tr><td><p><strong>AİLENİZİN DURUMU</strong></p></td></tr></table><ul><li>Kendinize ve eşinize zaman ayırın.</li><li>Arkadaşlarınızla iletişimde kalın.</li><li>Aile aktiviteleri için zaman ayırın. Her çocukla zaman geçirin.</li><li>Çocuğunuza diğer insanlara vurmamayı, onları ısırmamayı veya incitmemeyi öğretin. Rol model olun.</li><li>Sigara içmeyin veya elektronik sigara kullanmayın. Evinizi ve arabanızı dumansız tutun. Tütünsüz alanlar çocukları sağlıklı tutar.</li><li>Aile ve arkadaşlardan yardım istemekten çekinmeyin.</li></ul><table><tr><td><p><strong>ÇOCUĞUNUZUN DAVRANIŞLARI</strong></p></td></tr></table><ul><li>Çocuğunuzdan yapmasını istediğiniz şeyi yaptığında, onu övün.</li><li>Çocuğunuzu dinleyin ve saygı gösterin. Bunu başkalarından da bekleyin.</li><li>Çocuğunuzun duyguları hakkında konuşmasına yardımcı olun.</li><li>Yeni insanlara veya durumlara nasıl tepki verdiğini izleyin.</li><li>Birlikte okuyun, konuşun, şarkı söyleyin ve keşfedin. Bu etkinlikler, yeni yürümeye başlayan çocukların öğrenmesine yardımcı olmanın en iyi yoludur.</li><li>TV, tablet veya akıllı telefon kullanımını her gün 1 saatten fazla olmayacak şekilde yüksek kaliteli programlarla sınırlayın.<ul><li>Yeni yürümeye başlayan çocuklar için oyun oynamak TV izlemekten daha iyidir.</li><li>Çocuğunuzu günde en az 60 dakika aktif oyun oynamaya teşvik edin.</li></ul></li><li>Yemek yerken televizyon izlemeyin. Bunun yerine sohbet edin.</li></ul><table><tr><td><p><strong>ÇOCUĞUNLA KONUŞMA VE İLETİŞİM</strong></p></td></tr></table><ul><li>Çocuğunuzla anlaşılır, basit bir dil kullanın. Bebek konuşması kullanmayın.</li><li>Yavaş konuşun ve çocuğunuzun yanıt vermesinin biraz zaman alabileceğini unutmayın. Çocuğunuz basit talimatları takip edebilmelidir.</li><li>Çocuğunuza her gün okuyun. Çocuğunuz aynı hikâyeyi defalarca dinlemeyi sevebilir.</li><li>Kitaplardaki resimler hakkında konuşun ve onları tanımlayın.</li><li>Birlikteyken gördüğünüz ve duyduğunuz şeyler hakkında konuşun.</li><li>Okurken çocuğunuzdan bir şeyleri işaret etmesini isteyin.</li><li>Çocuğunuzun bir hayvan sesi çıkarması veya hikâyenin bir bölümünü bitirmesi için bir okumaya ara verin.</li></ul><table><tr><td><p><strong>TUVALET EĞİTİMİ</strong></p></td></tr></table><ul><li>Çocuğunuz hazır olduğunda tuvalet eğitimine başlayın. Tuvalet eğitimine hazır olmanın belirtileri şunlardır:<ul><li>2 saat kuru kalabilme</li><li>Islak veya kuru olduğunun farkında olma</li><li>Pantolonu aşağı ve yukarı çekebilme</li><li>Öğrenmeyi isteme</li><li>Bağırsak hareketi yapıp yapmayacağını size söyleyebilme</li></ul></li><li>Tuvalet molalarını sık olacak biçimde planlayın. Çocuklar tuvaleti günde 10 defaya kadar kullanırlar.</li><li>Çocuğunuza tuvaleti kullandıktan sonra ellerini yıkamasını öğretin.</li><li>Her kullanımdan sonra lazımlığı temizleyin.</li><li>Çocuğu, kendini hazır hissettiğinde iç çamaşırı seçmeye götürün.</li></ul><table><tr><td><p><strong>GÜVENLİK</strong></p></td></tr></table><ul><li>Çocuğunuzun oto koltuğunun, oto koltuğu üreticisinin izin verdiği en yüksek ağırlığa veya yüksekliğe ulaşana kadar arkaya dönük olduğundan emin olun. Çocuğunuz bu sınırlara ulaştığında, koltuğu öne bakan konuma getirme zamanı gelmiştir.</li><li>Araç güvenlik koltuğunun arka koltuğa doğru şekilde takıldığından emin olun. Emniyet kemeri kayışları çocuğunuzun göğsüne sıkıca oturmalıdır.</li><li>Çocuklar ne yaptığınızı izler. Arabada herkes kucak ve omuz emniyet kemeri takmalıdır.</li><li>Gözetleyen bir yetişkin olmadan çocuğunuzu evinizde veya bahçenizde, özellikle arabaların veya makinelerin yakınında asla yalnız bırakmayın.</li><li>Arabanızla park manevrası yaparken, başka bir yetişkinin çocuğunuzu arabanızın yoluna çıkmaması için güvenli bir mesafede tutmasını sağlayın.</li><li>Çocuğunuza bisiklet ve üç tekerlekli bisiklet sürerken tam olarak oturan bir kask kullandırın.</li></ul><table><tr><td><p><strong>2½. YAŞ ZİYARETİNDE NELER BEKLEMELİSİNİZ?</strong></p><p>Şunlar hakkında konuşacağız:</p><ul><li>Aile rutinleri oluşturmak</li><li>Konuşan çocuğunuzu desteklemek</li><li>Diğer çocuklarla iyi geçinmek</li><li>Okul öncesi eğitime hazırlanmak</li><li>Çocuğunuzu evde, dışarıda ve arabada güvende tutmak.</li></ul></td></tr></table><table><tr><td><p>Bright Futures: Guidelines for Health Supervision of Infants, Children, and Adolescents, <br />4.Baskı'dan uyarlanmıştır. Daha fazla bilgi için <strong>https://brightfutures.aap.org</strong> adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/bright-futures-aile/2.%20Ya%C5%9F%20-%20Aile%20%C4%B0%C3%A7in%20Bilgiler.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

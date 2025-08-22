@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/bright-futures-aile" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p>AİLENİZ İÇİN BİLGİLER</p><p><strong>4. YAŞ ZİYARETİ</strong></p></td><td><p></p></td></tr></table><table><tr><td><p><strong>AİLENİZİN DURUMU</strong></p></td></tr></table><ul><li>Sigara içmeyin veya elektronik sigara kullanmayın. Evinizi ve arabanızı dumansız tutun. Tütünsüz alanlar çocukları sağlıklı tutar.</li><li>Çocuğunuza toplum içinde nasıl güvende olacağını öğretin:<ul><li>Çocuğunuz erkek ve kız çocukların nasıl farklılaştığıyla ilgilenmeye başladığında, onu tüm vücut bölümleri için doğru terimleri kullanarak bilgilendirin.</li><li>Hiçbir yetişkin, bir çocuktan ebeveynlerinden sır saklamasını istememelidir.</li><li>Hiçbir yetişkin bir çocuğun mahrem yerlerini görmek istememelidir.</li><li>Hiçbir yetişkin, kendi mahrem yerleri için bir çocuktan yardım istememelidir.</li></ul></li></ul><table><tr><td><p><strong>OKULA HAZIRLIK</strong></p></td></tr></table><ul><li>Cümlelerini bitirmesi için çocuğunuza bolca zaman verin.</li><li>Her gün birlikte kitap okuyun ve çocuğunuza hikayeler hakkında sorular sorun.</li><li>Çocuğunuzu kütüphaneye veya kitapçılara götürün ve kitapları seçmesine izin verin.</li><li>Çocuğunuzu dinleyin ve ona saygılı davranın. Başkalarının da böyle yapması konusunda ısrar edin.</li><li>Üzgün olduğunuz zamanlarda bunu ifade ederek ona rol model olun. Başka birinin duygularını incittiğinde çocuğunuzun bunu ifade etmesine ve özür dilemesine yardımcı olun.</li><li>Çocuğunuzu başkalarına karşı nazik olduğu için övün.</li><li>Çocuğunuzun duygularını ifade etmesine yardımcı olun.</li><li>Çocuğunuza sık sık başkalarıyla oynama şansı verin.</li><li>Çocuğunuzun kreş veya çocuk bakım programını ziyaret edin. Aktivitelere dahil olun.</li><li>Çocuğunuzdan size gününü, arkadaşlarını ve katıldığı aktiviteleri anlatmasını isteyin.</li></ul><table><tr><td><p><strong>SAĞLIKLI KALMA</strong></p></td></tr></table><ul><li>Çocuğunuza her gün 2 bardak süt verin.</li><li>Meyve suyu tüketimini sınırlandırın. Meyve suyu vermeyi tercih ederseniz, günde en fazla 150 ml %100 meyve suyu verin ve bunu her zaman yemekle birlikte servis edin.</li><li>Çocuğunuz susadığında bol soğuk su içmesine izin verin.</li><li>Çeşitli sağlıklı yiyecekler ve atıştırmalıklar, özellikle de sebzeler, meyveler ve yağsız protein içerikli gıdalar sunun.</li><li>Çocuğunuzun ne kadar yiyeceğine karar vermesine izin verin.</li><li>TV olmadan hep birlikte aile yemekleri yiyin.</li><li>Sakin bir yatma vakti rutini oluşturun.</li><li>Çocuğunuza günde iki kez dişlerini fırçalatın. Bezelye büyüklüğünde florürlü diş macunu kullanın.</li></ul><table><tr><td><p><strong>TELEVİZYON VE MEDYA</strong></p></td></tr></table><ul><li>Sık sık bir aile olarak birlikte fiziksel aktivite yapın.</li><li>TV, tablet veya akıllı telefon kullanımını her gün en fazla 1 saat olacak şekilde yüksek kaliteli programlarla sınırlayın.</li><li>Birlikte izlediğiniz programları ailece tartışın.</li><li>Bir aile medya planı yapmayı düşünün. Bu plan, medya kullanımı için kurallar oluşturmanıza ve ekran başında kalma süresini dengelemenize yardımcı olur.</li><li>Çocuğunuzun yatak odasına TV, bilgisayar, tablet veya akıllı telefon koymayın.</li><li>Günlük oyun için fırsatlar yaratın.</li><li>Fiziksel olarak aktif olduğu için çocuğunuzu övün.</li></ul><table><tr><td><p><strong>GÜVENLİK</strong></p></td></tr></table><ul><li>Çocuğunuz her zaman arka koltuğa oturmalı (en az 13 yaşına kadar) ve öne bakan bir araba güvenlik koltuğu kullanmalıdır.</li><li>Çocuğunuza yüzmeyi öğretin ve gerekli olduğunda can yeleği giydirin.</li><li>Dışarı çıktığınızda çocuğunuza şapka takın, güneşten koruyucu giysi giydirin ve açıkta kalan cildine SPF 15 veya daha yüksek faktörlü güneş kremi sürün. Güneşin en güçlü olduğu zamanlarda (11:00-15:00) dışarıda geçirilen süreyi sınırlayın.</li></ul><table><tr><td><p><strong>5. YAŞ ZİYARETİNDE NELER BEKLEMELİSİNİZ?</strong></p><p>Şunlar hakkında konuşacağız:</p><ul><li>Çocuğunuza, ailenize ve kendinize iyi bakmak.</li><li>Aile rutinleri oluşturmak; öfke ve duygularla başa çıkmak.</li><li>Okul için hazırlanmak.</li><li>Çocuğunuzun dişlerini sağlıklı tutmak, sağlıklı yiyecekler yemek ve fiziksel olarak aktif kalmak.</li><li>Çocuğunuzu evde, dışarıda ve arabada güvende tutmak.</li></ul></td></tr></table><table><tr><td><p>Bright Futures: Guidelines for Health Supervision of Infants, Children, and Adolescents, <br />4.Baskı'dan uyarlanmıştır. Daha fazla bilgi için <strong>https://brightfutures.aap.org</strong> adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/bright-futures-aile/4.%20Ya%C5%9F%20-%20Aile%20%C4%B0%C3%A7in%20Bilgiler.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Document files are tracked with Git LFS
+# See .gitattributes for LFS configuration

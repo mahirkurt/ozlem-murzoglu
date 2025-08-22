@@ -1,27 +1,20 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { ContactComponent } from './pages/contact/contact';
-import { AboutComponent } from './pages/about/about';
-import { BlogComponent } from './pages/blog/blog';
-import { ServicesComponent } from './pages/services/services';
-import { FaqComponent } from './pages/faq/faq';
-import { SaygiylaComponent } from './pages/saygiyla/saygiyla';
-import { BlogArticleComponent } from './components/blog-article/blog-article.component';
-import { KaynaklarComponent } from './pages/kaynaklar/kaynaklar.component';
-import { KategoriComponent } from './pages/kategori/kategori.component';
-import { DokumanViewerComponent } from './pages/dokuman-viewer/dokuman-viewer.component';
+// Üst seviye sayfaları lazy-load’a çevir
+// Not: ResourcesComponent yoğun indeks/arama için anasayfada da lazy-load edilebilir
+// ancak kategori/doküman rotaları zaten lazy-load edildiğinden başlangıç paketi küçülecek.
+import { resourceRoutes } from './pages/resources/resource-routes';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'hakkimizda', component: AboutComponent },
-  { path: 'hizmetlerimiz', component: ServicesComponent },
-  { path: 'blog', component: BlogComponent },
-  { path: 'blog/:slug', component: BlogArticleComponent },
-  { path: 'sss', component: FaqComponent },
-  { path: 'saygiyla', component: SaygiylaComponent },
-  { path: 'kaynaklar', component: KaynaklarComponent },
-  { path: 'kaynaklar/:categoryId', component: KategoriComponent },
-  { path: 'kaynaklar/dokuman/:documentId', component: DokumanViewerComponent },
-  { path: 'iletisim', component: ContactComponent },
+  { path: '', loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent) },
+  { path: 'hakkimizda', loadComponent: () => import('./pages/about/about').then(m => m.AboutComponent) },
+  { path: 'hizmetlerimiz', loadComponent: () => import('./pages/services/services').then(m => m.ServicesComponent) },
+  { path: 'blog', loadComponent: () => import('./pages/blog/blog').then(m => m.BlogComponent) },
+  { path: 'blog/:slug', loadComponent: () => import('./components/blog-article/blog-article.component').then(m => m.BlogArticleComponent) },
+  { path: 'sss', loadComponent: () => import('./pages/faq/faq').then(m => m.FaqComponent) },
+  { path: 'saygiyla', loadComponent: () => import('./pages/saygiyla/saygiyla').then(m => m.SaygiylaComponent) },
+  { path: 'kaynaklar', loadComponent: () => import('./pages/resources/resources.component').then(m => m.ResourcesComponent) },
+  // Otomatik üretilen kategori ve döküman rotaları
+  ...resourceRoutes,
+  { path: 'iletisim', loadComponent: () => import('./pages/contact/contact').then(m => m.ContactComponent) },
   { path: '**', redirectTo: '' }
 ];

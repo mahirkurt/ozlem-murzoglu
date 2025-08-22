@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/hastaliklar" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>UZM.DR. ÖZLEM MURZOĞLU - ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ</p></td></tr><tr><td><p>TETİKLEYİCİLERİN KONTROLÜ İLE</p><p><strong>ASTIM ATAKLARINDAN KORUNMA</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Astım belirtilerini kötüleştiren şeylere <strong>astım tetikleyiciler</strong> adı verilir. Astımı olan kişilerin hepsi aynı tetikleyicilerden etkilenmez. Tetikleyicilerden kaçınmak, sizin ya da çocuğunuzun astımını kontrol altında tutmanıza yardımcı olmak için atabileceğiniz önemli bir adımdır. Nelerin sizin ya da çocuğunuzun astımını kötü hale getirip getirmediğini kontrol etmek için doktorunuzla birlikte çalışın ve ardından aşağıdaki ilgili adımları uygulayın.</p></td></tr></table><table><tr><td><p><strong>Dış Ortam Tetikleyicileri</strong></p></td></tr></table><p><strong>Hava Durumu, Hava Kalitesi, Polenler</strong></p><p>Dış ortam hava kirliliği astım atağını tetikleyebilir. Bu kirlilik, fabrikalar, arabalar veya orman yangını dumanı gibi birçok kaynaktan gelebilir. </p><p><strong></strong></p><ul><li>Sizin ya da çocuğunuzun astımını tetikleyebilecek şeylerle ilgili haberleri takip edin. Bunlar, hava durumu, hava kalitesi, polen sayısı veya orman yangını koşulları hakkında raporlardır.</li><li>Dış mekân etkinliklerini hava kalitesinin en iyi olduğu zamanlarda planlayın. </li><li>Polen sizin ya da çocuğunuzun astımını tetikliyorsa, polen seviyeleri yüksek olduğunda pencereleri kapatın ve (mümkünse) klimayı açın.</li><li>Orman yangınları olduğunda, duman veya buhar bulunan alanlardan uzak durun. Duman veya buhardan kaçınmak için mümkünse içeride kalın.</li><li>Hava soğuk olduğunda, hava akımını olabildiğince sıcak tutmak için sizin ya da çocuğunuzun burnunu ve ağzını kapatan bir şal veya yüz maskesi takın.</li></ul><table><tr><td><p>İç Ortam Tetikleyicileri</p></td></tr></table><p>Ev tozu akarlarına, hamamböceklerine, kemirgenlere, ev küfüne veya evcil hayvanlara alerjiniz veya çocuğunuzun alerjisi varsa, yüksek verimli partikül yakalayıcı (HEPA) filtreli bir hava temizleyici kullanın ve elektrikli süpürgeler için de HEPA filtreler kullanın. Evinizi olabildiğince temiz tutun. Yapabiliyorsanız, başka birinden evinizi düzenli olarak temizlemesini isteyin veya temizlik yaparken bir toz maskesi takın. </p><p><strong>Evcil Hayvanlar</strong></p><p><strong></strong></p><p>Evcil hayvanınıza sizin ya da çocuğunuzun alerjisi varsa, maruziyetten kaçınmanın en iyi yolu, evcil hayvanı evinizden uzaklaştırmak ve evinizi temizletmektir. </p><p>Evcil hayvanı çıkaramıyorsanız:</p><ul><li>Evcil hayvanı sizin ya da çocuğunuzun yatak odasından uzak tutun.</li><li>Bir aile üyesinden evcil hayvanınızı düzenli olarak yıkamasını isteyin.</li><li>Alerjen geçirmez yastık ve şilte kılıfları kullanın.</li><li>HEPA filtreli bir hava temizleyici kullanın. </li></ul><p><strong>Not:</strong> Astımı olan kişilerin evcil hayvanlarının kürküne alerjisi yoktur, bu nedenle bir evcil hayvanın kürkünü kesmek astımınıza yardımcı olmaz. Bazı evcil hayvanların deri ve salyasındaki alerjen maddeleri azaltabilen mamalar mevcuttur.</p><p><strong>Ev Tozu Akarları</strong></p><p>Ev tozu akarları, birçok evde bulunan mikroskobik böceklerdir. Sizin veya çocuğunuzun astımı varsa ve ev tozu akarlarına karşı alerjiniz ya da alerjisi varsa, bunlar astım atağını tetikleyebilir. </p><p></p><p><strong>Atakları önlemek için:</strong></p><ul><li>Ev tozu akarları ve kendiniz/çocuğunuz arasında bir bariyer oluşturmak için alerjen geçirmez şilte ve yastık kılıfları kullanın.</li><li>Kuş tüyü dolgulu yastık veya yorgan kullanmayın.</li><li>Nevresimleri haftada bir yıkayın ve tamamen kurutun.</li><li>HEPA filtreli bir elektrikli süpürgesi kullanarak halıları, kilimleri ve zeminleri düzenli olarak süpürün.</li><li>Evdeki bağıl nem seviyelerini düşük tutun, yaklaşık %30-50 idealdir.</li></ul><p><strong>Haşereler</strong></p><p>Hamamböcekleri ve diğer haşereler genellikle yiyeceklerin yenildiği ve geride kırıntıların bırakıldığı yerlerde bulunur. Evinizdeki haşereleri kontrol etmek için:</p><ul><li>Su ve yiyecek kaynaklarını erişilebilir yerlerde bulundurmayın.</li><li>Bulaşıkları, kırıntıları ve dökülenleri hemen temizleyin.</li><li>Yiyecekleri hava geçirmez kaplarda saklayın.</li><li>Çöpü kapalı bir kapta tutun.</li><li>En az 2 ila 3 günde bir, hamam böceklerini veya fareleri çekebilecek alanları süpürün veya temizleyin.</li><li>Tezgâhları, lavaboları, masaları ve zeminleri temiz tutun.</li><li>Dolaplardaki, duvarlardaki, süpürgeliklerdeki ve sıhhi tesisat çevresindeki çatlakları veya açıklıkları kapatın.</li><li>Üreticinin talimatlarını izleyerek, çocuklardan ve evcil hayvanlardan uzak alanlarda pestisit yemler ve tuzaklar kullanın.</li><li>Astım ataklarına neden olabileceğinden sprey ve buğu şeklinde pestisitleri kullanmaktan kaçının.</li></ul><p><strong>Küf ve Nem</strong></p><p>Küfe karşı sizin ya da çocuğunuzun alerjisi olsun ya da olmasın, küfü solumak astım atağını tetikleyebilir. İç mekânda küf gelişimi genellikle mutfak, banyo ve bodrum katları gibi nemli alanlarda veya su sızıntısının meydana geldiği alanlarda bulunur. Her iklimde bulunabilen birçok küf türü vardır. Ataklarınızı kontrol etmenize yardımcı olmak için evinizdeki küflerden kurtulun.</p><p></p><p><strong>Evinizde küfe maruziyeti azaltmak için:</strong></p><ul><li>Küf oluşumunu önlemek için nemli veya ıslak materyalleri 24 ila 48 saat içinde kurutun.</li><li>Sızdıran su tesisatı gibi duvarların arkasında ve zeminlerin altında küf oluşmasına neden olan su sızıntılarını mümkün olan en kısa sürede giderin.</li><li>Küf oluşumu varsa, döşeme ve halı gibi emici malzemeleri değiştirin.</li><li>İç ortam nem düzeyini düşürmek için bir klima veya nem giderici kullanın.</li><li>Nem seviyelerini kontrol etmek ve mümkün olduğu kadar düşük (%50'nin altında) tutmak için bir nem ölçer (higrometre) edinin. Nem seviyeleri gün içinde değişir, bu nedenle nem seviyelerini günde bir defadan fazla kontrol edin.</li><li>Küfü sert yüzeylerden deterjan ve su ile ovarak temizleyin ve tamamen kurutun.</li><li>Buzdolabı ve klima su rezervuarlarını düzenli olarak boşaltın ve temizleyin.</li><li>Banyo havalandırma fanını çalıştırın veya duş alırken pencereyi açık tutun.</li></ul><p><strong>Tütün Dumanı</strong></p><p>Tütün dumanı herkes için, özellikle astımı olan kişiler için tehlikelidir. Sizin veya çocuğunuzun astımı varsa ve sigara kullanıyorsanız sigarayı derhal bırakın.</p><ul><li>"İkinci el duman", sigara içen kişinin yarattığı ve ikinci bir kişinin soluduğu dumandır. İkinci el sigara dumanı astım atağını tetikleyebilir. </li><li>Evinizi dumansız bir bölge haline getirin. Sigara içen hane halkını sigarayı bırakmaya teşvik edin. </li><li>Sizin ya da çocuğunuzun astımı varsa, insanlar yakınınızda, evinizde, arabanızda veya çok zaman geçirdiğiniz yerlerde asla sigara içmemelidir.</li></ul><p><strong>Diğer Duman Kaynakları ve Kokular </strong></p><ul><li>Mümkünse odun sobası, gazyağı ısıtıcısı veya şömine kullanmayın.</li><li>Parfüm, boya, saç spreyi ve talk pudrasından kaçının.</li></ul><p><strong>Ortam Sıcaklığı</strong></p><ul><li>Çok sıcak veya çok soğuk astımı kötüleştirebilir. Hafif astım olgularında, küçük sıcaklık değişiklikleri muhtemelen büyük bir sorun olmayacaktır. Ancak, astım şiddetli ise oda sıcaklığını yakından izlemek önemlidir.</li><li>Astımı olan kişiler için 20 ila 22°C oda sıcaklığının ideal olduğunu gösteren araştırmalar vardır. Bu düzey çok sıcak veya soğuk değildir, bu nedenle solunum yollarını tahriş etmez.</li></ul><p><strong>Halılar</strong></p><ul><li>Halılar, astımı tetikleyen maddeler için bir rezervuar olabilir. Yatak odasındaki halılar özellikle sorunlu olabilir. Vinil, karo veya ahşap gibi sert yüzeyli zeminler alerjenlerden uzak kalmak için daha idealdir.</li><li>Halıyı düzenli olarak yıkatmak, evinizde ev tozu akarlarının ve diğer alerjenlerin varlığını azaltmaya yardımcı olabilir. </li></ul><p><strong>Pelüş Oyuncaklar</strong></p><p>İçi yumuşak dolgulu oyuncaklar, ev tozu akarları için ideal bir yaşam ortamı olabilir. Oyuncakları yıkamak, onun çok sevdiği pelüş oyuncakları zararsız tutmanın bir yoludur. Ancak, sadece yıkamak ve kurutmak işe yaramaz. Toz akarlarını öldürecek kadar iyi yıkadığınızdan emin olmalısınız: </p><ul><li>Pelüş oyuncak makinede yıkanabiliyorsa, iki haftada bir sıcak suda yıkayın ve mümkünse bir kurutucuda en az 45 dakika yüksek ısıda kurutun.</li><li>Yumuşak oyuncak makinede yıkanamıyorsa, hafif bir deterjan ve ılık su kullanarak pelüş oyuncağın yüzeyini iyice yıkayın ve ovun. Önce güneşte kurumaya bırakın, sonra da 72 saat boyunca dondurucu poşetine koyarak derin dondurucuda bekletin.</li></ul><p>Çocuğunuzun oyuncaklarını güvenli tutmak için yapabileceğiniz diğer şeyler şunlardır:</p><ul><li>Çocuğunuzun sahip olduğu pelüş oyuncakların miktarını sınırlayın.</li><li>Pelüş oyuncaklarını fazla kullanılmıyorsa onları ortadan kaldırın.</li><li>Pelüş oyuncakları temiz tutmak için haftada bir kez elektrik süpürgesiyle temizleyin.</li><li>Mümkünse birlikte uyumamalarını sağlayın. Aksi takdirde pelüş oyuncaklarına daha yakın oldukları için gece boyunca alerjenleri soluyabilirler.</li><li>Eğer mümkünse alerji veya astım dostu oyuncaklar almayı deneyin.</li></ul><table><tr><td><p>Temizlik ve Dezenfeksiyon</p></td></tr></table><p>Dezenfektanlar astım atağını tetikleyebilir. Astımı olan kişiler temizlik yapılırken veya dezenfektanlar kullanılırken ve kullanımlarından hemen sonra oradan uzak durmaya çalışmalıdır. </p><p>Ev, okul veya iş yeri gibi astımlı kişilerin vakit geçirebileceği yerler temizlenirken veya dezenfekte edilirken şu önlemleri alın:</p><p></p><ul><li>Ürünlerin aşırı kullanımından kaçının. </li><li>Güvenli ürünler kullanın. <ul><li>Dezenfekte etmeden önce görünür şekilde kirli yüzeyleri temizleyin.</li><li>Dezenfektan ürünleri asla karıştırmayın.</li><li>Dezenfeksiyon için hidrojen peroksit (%3'ten daha güçlü olmayan) veya etanol (etil alkol) içeren ürünler gibi astım krizine neden olma olasılığı daha düşük olan ürünleri seçin. Bu ürünlerin peroksiasetik asit veya perasetik asit gibi astım krizine neden olabilecek başka kimyasallar içermediğinden emin olun.</li><li>Kapalı alanlarda çamaşır suyu (sodyum hipoklorit) veya kuaterner amonyum bileşikleri kullanmaktan kaçının ve kullanımlarını sınırlayın.</li><li>Parfüm içeren ürünlerden kaçının. Kokular astım krizlerini tetikleyebilir.</li></ul></li><li>Yeterli hava akışı (havalandırma) olduğundan emin olun.<ul><li>Güvenliyse, temiz hava getirmek için kapıları ve pencereleri açın.</li><li>Havalandırma fanlarını açın. Havayı boşaltmak (dışarıya üflemek), dezenfektan buharlarını uzaklaştırmanın en etkili yoludur.</li><li>Taze (dış) hava girişi bulunan ısıtma veya soğutma sistemlerine sahip binalarda, taze hava almak için taze hava girişini açın.</li></ul></li><li>Ürünleri talimatlara uygun ve doğru kullanın.<ul><li>Daima ürün etiketindeki talimatlara uyun. Kimyasal ürünleri birbirine karıştırmayın.</li><li>Eldiven ve gözlük gibi koruyucu giysiler giyin.</li><li>Maruz kalmayı sınırlamak için ürünü doğrudan temizleme yüzeyine püskürtmek yerine (ürün etiketi izin veriyorsa) bir temizlik bezine veya kağıt havluya püskürtün veya püskürtün.</li></ul></li><li>Rahatsız edici tozdan kaçının çünkü astımı tetikleyebilir.</li><li>Siz veya çocuğunuz astım krizi geçirirse tetikleyiciden (temizlenen alan gibi) uzaklaşın ve tıbbi acil durumlar için 112'yi arayın.</li></ul><table><tr><td><p>Diğer Tetikleyiciler</p></td></tr></table><p><strong>Hastalıklar </strong></p><ul><li>Grip, soğuk algınlığı ve RSV (respiratuvar sinsitiyal virüs) ile bağlantılı enfeksiyonlar astım krizini tetikleyebilir. </li><li>Sinüs enfeksiyonları ve asit reflüsü de atakları tetikleyebilir.</li><li>Fiziksel egzersiz, bazı ilaçlar, fırtına veya yüksek nem gibi kötü hava koşulları; soğuk, kuru havada nefes almak ve bazı gıdalar, gıda katkı maddeleri de astım krizini tetikleyebilir.</li></ul><p></p><p><strong>Stres</strong></p><ul><li>Güçlü duygular ve stres, hiperventilasyon adı verilen çok hızlı nefes almaya yol açabilir ve bu da astım krizine neden olabilir. </li><li>Endişe, stres veya diğer duygular astımınızı kötüleştiriyorsa, sağlık uzmanınızla konuşun.</li></ul><table><tr><td><p>Amerikan Hastalık Kontrol ve Önleme Merkezi (CDC) Ulusal Astım Kontrolü Programı materyallerinden uyarlanmıştır. Daha fazla bilgi için <a href="https://www.cdc.gov/asthma/triggers.html"><strong>https://www.cdc.gov/asthma/triggers.html</strong></a><strong> </strong>adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Bu broşür Amerikan Hastalık Kontrol ve Önleme Merkezi (CDC) tarafından yürütülen "National Asthma Control Program - Ulusal Astım Kontrol Programı" kapsamında hazırlanan bilgi kaynaklarından tercüme edilmiştir.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/hastaliklar/Ast%C4%B1m%20Ataklar%C4%B1ndan%20Korunma.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

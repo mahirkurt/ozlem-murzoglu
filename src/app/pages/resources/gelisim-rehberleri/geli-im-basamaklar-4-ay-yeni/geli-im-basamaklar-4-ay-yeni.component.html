@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/gelisim-rehberleri" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>UZM.DR. ÖZLEM MURZOĞLU - ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ</p></td></tr><tr><td><p>GELİŞİM BASAMAKLARI:</p><p><strong>BEBEĞİNİZİN 4. AYI</strong></p></td><td><p></p></td></tr></table><p></p><table><tr><td><p>Bebeğinizin gelişim sürecinde bazı önemli kilometre taşları vardır. Bebeğinizin nasıl oynadığı, öğrendiği, konuştuğu, hareket ettiği ve gelişimi hakkında önemli ipuçları sunar. Bebeğinizin 4 aya kadar ulaştığı noktaları kontrol edin. Doktorunuzla bu basamakları ve bundan sonra neler beklenebileceğini konuşun.</p></td></tr></table><p><br /><br /></p><table><tr><td><p><a id="_Hlk155850600"></a><strong>Bebekler bu dönemde neler yapabilir?</strong></p></td></tr></table><table><tr><td><p><strong>Sosyal &amp; Duygusal Gelişim Basamakları</strong></p></td></tr></table><ul><li>Dikkatinizi çekmek için kendi kendine gülümser.</li><li>Onu güldürmeye çalıştığınızda kıkırdar. (Henüz tam bir kahkaha atamaz)</li><li>Dikkatinizi çekmek için size bakar, hareket eder veya ses çıkarır.</li></ul><table><tr><td><p><strong>Dil &amp; İletişim Gelişim Basamakları</strong></p></td></tr></table><ul><li>"Oooo", "Aahh" (agulama) gibi sesler çıkarır.</li><li>Onunla konuştuğunuzda size ses çıkararak karşılık verir.</li><li>Başını sesinize doğru çevirir.</li></ul><table><tr><td><p><strong>Kognitif Gelişim Basamakları</strong></p><p>(Öğrenme, Düşünme, Problem Çözme)</p></td></tr></table><ul><li>Açsa memeyi veya biberonu görünce ağzını açar.</li><li>İlgiyle ellerini inceler.</li></ul><table><tr><td><p><strong>Hareket &amp; Fiziksel Gelişim Basamakları</strong></p></td></tr></table><ul><li>Onu tuttuğunuzda başını desteksiz sabit tutar.</li><li>Eline koyduğunuz oyuncağı tutar.</li><li>Oyuncaklarını kollarını kullanarak sallar.</li><li>Ellerini ağzına götürür.</li><li>Karın üstüyken kendini dirseklerinin veya önkollarının üzerine doğru iter.</li></ul><p></p><table><tr><td><p><strong>Doktorunuzla Paylaşılması Gereken Diğer Önemli Hususlar</strong></p></td></tr></table><ul><li>Sizin ve bebeğinizin birlikte yaptığı şeyler nelerdir?</li><li>Bebeğinizin yapmaktan hoşlandığı şeyler nelerdir?</li><li>Bebeğinizin sizi endişelendiren yaptığı veya yapmadığı bir şey var mı?</li><li>Bebeğiniz önceden sahip olduğu becerileri kaybetti mi?</li><li>Bebeğinizin herhangi bir özel sağlık bakımına ihtiyacı var mı veya erken mi doğdu?</li></ul><table><tr><td colspan="2"><p>Çocuğunuzun gelişimi hakkında endişeli misiniz?</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p><strong>Çocuğunuzu en iyi siz tanırsınız.</strong> Çocuğunuz bir veya daha fazla gelişim basamağına ulaşamıyorsa, önceden sahip olduğu becerileri kaybetmişse veya başka endişeleriniz varsa erkenden harekete geçin. Çocuğunuzun doktoruyla konuşun, endişelerinizi paylaşın ve gelişimsel tarama hakkında bilgi alın.</p></td><td><p></p></td></tr></table><table><tr><td><p><strong>İpuçları ve Etkinlik Önerileri: <br /></strong>4 Aylık Bebeğiniz İçin Ne Yapabilirsiniz?</p></td></tr></table><p><strong>Bebeğinizin ilk öğretmeni olarak onun öğrenmesine ve beyin gelişimine yardımcı olabilirsiniz.</strong> </p><ul><li>Bebeğinize olumlu karşılıklar verin. Heyecanlı davranın, gülümseyin ve ses çıkardığında onunla konuşun.</li><li>Bebeğinizin oyuncaklara ulaşması, oynaması ve etrafındakileri keşfetmesi için güvenli alan sağlayın. Örneğin onu güvenli oyuncakların olduğu bir battaniyeye koyun.</li><li>Bebeğinizin güvenli eşyaları keşfetmesi için ağzına koymasına izin verin. Bebekler bu şekilde öğrenir. Örneğin keskin, sıcak veya boğulmaya neden olacak kadar küçük olmayan şeylere dokunmasına izin verin.</li><li>Bebeğinizle konuşun, ona okuyun ve şarkı söyleyin. Bu onun daha sonra konuşmayı ve kelimeleri anlamayı öğrenmesine yardımcı olacaktır.</li><li>Sevdiklerinizle görüntülü görüşme yaparak ekran süresini (TV, telefonlar, tabletler vb.) sınırlayın. 2 yaşından küçük çocuklara ekran süresi önerilmemektedir. Bebekler konuşarak, oynayarak ve başkalarıyla etkileşime girerek öğrenirler.</li><li>Bebeğinize yalnızca anne sütü veya mama verin. Bebekler yaklaşık ilk 6 ay boyunca diğer gıdalara, suya veya diğer içeceklere hazır değildir.</li><li>Bebeğinize, yaşına uygun renkli resimler içeren çıngıraklar veya bez kitaplar gibi oynaması kolay, oynaması kolay güvenli oyuncaklar verin.</li><li>Bebeğinizin gün boyunca hareket etmesine ve insanlarla ve nesnelerle etkileşime girmesine imkân tanıyın. Bebeğinizi salıncakta, bebek arabasında veya şişme koltukta çok uzun süre tutmamaya çalışın.</li><li>Uyku ve beslenme için sabit rutinler belirleyin.</li><li>Bebeğinizi sırtüstü yatırın ve ona parlak renkli bir oyuncak gösterin. Oyuncağın nasıl hareket ettiğini izleyip izlemediğini görmek için oyuncağı yavaşça soldan sağa ve yukarı ve aşağı hareket ettirin.</li><li>Bebeğinize birkaç dakika boyunca "egzersiz yapmasına" (vücudunu hareket ettirmesine) yardımcı olurken şarkı söyleyin ve onunla konuşun. Kollarını ve bacaklarını yavaşça bükün ve yukarı ve aşağı hareket ettirin.</li><li>Bebeğinizi, ayakları kucağınıza basacak şekilde kollarının altından güvenli bir şekilde tutun ve yukarı - aşağı zıplamasına izin verin.</li><li>Ce-eee gibi oyunlar oynayın. Gözlerinizi ellerinizle kapatabilir ve ardından açıp "ce-eee" diyebilirsiniz. Bebeğinizin gülümsemesine veya oyundan keyif aldığına dair diğer işaretlere dikkat edin.</li><li>Bebeğinizin farklı şeylere nasıl tepki verdiğine çok dikkat edin. Bu onun neyi sevip sevmediğini ve kendisini neyin iyi hissettirdiğini öğrenmenize yardımcı olacaktır.</li><li>Bebeğinizin seslerini taklit edin ve sizinle ne kadar süre karşılıklı "konuştuğunu" görün.</li><li>Öğrenmesine yardımcı olmak için bebeğinize ismiyle hitap edin. 9. ay civarında ismini tanımaya başlayacaktır. </li><li>Bebeğinizle her gün yerde veya matta oynamak onun hareket etmesine, öğrenmesine ve keşfetmesine yardımcı olur.</li><li>Bebeğinize "kitap okurken" veya ona şarkı söylerken sessiz oyun zamanları geçirin.</li></ul><p><a id="_Hlk155595228"></a></p><table><tr><td><p>Konu uzmanlarına ve verilerin gözden geçirilmesine ve gelişimsel dönüm noktalarının seçilmesine katkıda bulunan diğer kişilere, özellikle de Paul H. Lipkin, MD, Michelle M. Macias, MD, Julie F. Pajek, PhD, Judith S. Shaw, EdH,MPH, RN, Karnesha Slaughter, MPH, Jane K. Squires, PhD, Toni M. Whitaker, MD, Lisa D. Wiggins, PhD ve Jennifer M. Zubler, MD.'ye özel teşekkürler. Amerikan Hastalık Kontrol ve Önleme Merkezleri (CDC) Ulusal Doğum Kusurları ve Gelişimsel Engelliler Merkezi tarafından hazırlanmıştır. Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p><strong>© 2023 Amerikan Hastalık Kontrol ve Önleme Merkezleri (CDC) - Tüm hakları saklıdır.</strong></p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A-30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:klinik&#64;drmurzoglu.com">klinik&#64;drmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/gelisim-rehberleri/Geli%C5%9Fim%20Basamaklar%C4%B1%20-%204.%20Ay%20(Yeni).docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

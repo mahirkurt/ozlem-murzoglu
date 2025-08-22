@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/aile-medya-plani" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>American Academy of Pediatrics</p></td></tr><tr><td><p>AİLE MEDYA KULLANIM PLANI</p><p><strong>EKRANSIZ BÖLGELER</strong></p></td><td><p></p></td></tr></table><p>  </p><table><tr><td><p>Evinizin bazı alanlarının ekransız kalması çocuğun sağlığına ve gelişimine birçok açıdan fayda sağlar.</p></td></tr></table><p></p><table><tr><td colspan="2"><p>Yemekleri ekransız tutun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Hem çocuklar hem de ebeveynler yemek sırasında eğlence veya dikkat dağıtma amacıyla medya cihazları kullanmak isteyebilir. Ancak bu, sağlıksız beslenmeye yol açabilir ve yemek sırasında sohbeti ve duygusal bağ kurmayı gerçekten engelleyebilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Yemeklerden önce cihazların yerleştirilebileceği bir sepet veya kutu bulundurun. Cihazların yemek saatlerinde çalışmaması için Wi-Fi ayarlarını değiştirmeyi de deneyebilirsiniz.</li><li>Yemek zamanlarını daha ilginç hale getirmek için bir sohbet oyunu bulun veya günün "en iyi" ve "en kötü" durumlarını tartışın. "Bugün okul nasıldı?" diye sormaktan daha fazlasını öğreneceksiniz.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Yatak odalarını geceleri ekransız tutun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Yatak odasındaki cihazlar genellikle çocukları geç saatlere kadar uyanık kalıp bir film daha izlemeye teşvik eder.</li><li>Üstelik şarj olan cihazlardan gelen ışık da çocuğunuzun uyku kalitesini etkileyebilir. Gelen mesajlar ve aramalar onları uyandırabilir.</li><li>Düzinelerce çalışma aynı sonuca ulaşmıştır: Geceleri ne kadar çok medya kullanılırsa çocuklar o kadar kötü uyur. Bu, gündüz odaklanmayı ve davranışı etkileyebilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Cihazları gece boyunca, tercihen çocuğunuzun yatak odasının dışında ve evde tahmin edebileceğiniz bir yerde şarj edin. Ayrıca Wi-Fi veya aile ağı ayarlarınızı, Wi-Fi'nin gecenin belirli bir saatinde kapanmasını sağlayacak şekilde değiştirin.</li><li>Çocuğunuz uykuya dalmak için zaten video kullanma alışkanlığına sahipse sesli kitaplara, rahatlatıcı müziklere, sesli meditasyona veya uyku uygulamalarına geçmeyi deneyin. </li><li>Yatmadan bir saat önce sıcak bir banyo, birkaç kitap okumak, sarılmak ve loş ışıklardan oluşan bir rutine sahip olun.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Sosyal medya kullanımını 13 yaşına kadar erteleyin.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Sosyal medya platformları kişisel ifade alanlarıdır ve iyi bir şekilde düzenlenmemiştir. İçerik her zaman çocuklara uygun olmayabilir. Hatta Facebook, Instagram, Snapchat, TikTok ve hatta YouTube bile 13 yaşından önce hizmetlerine erişimi yasaklamaktadır.</li><li>13 yaşın altındaki çocuklar sosyal medyaya ne kadar erken girmeye başlıyorsa o kadar çok medya kullanım sorunu yaşar.</li></ul></td><td><p>Nasıl?</p><ul><li>Bu sitelerin neden 13 yaşından önce önerilmediğini unutmayın: Bunun temel nedeni, bu yaştan önce riskleri yargılamanın ve birinin iyi mi yoksa kötü niyetli mi olduğunu bilmenin zor olmasıdır. </li><li>Çocuğunuz sosyal medya hesabı açarsa ona destek olmaya ve mentorluk yapmaya hazır olun. Özellikle sınırları belirlemek, çevrimiçi çatışmaları veya şok edici içerikleri anlayıp yönetmek ve yanlış bilgileri tespit etmek için yardıma ihtiyaçları olacaktır.</li></ul></td></tr></table><p></p><table><tr><td colspan="2"><p>Araç kullanırken mesaj atmayın, e-posta göndermeyin, web'de arama yapmayın, canlı yayın yapmayın.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Araştırmalar, araç kullanırken mesajlaşmanın sürücülerin dikkatlerinin dağılmasına ve sanki sarhoşmuş gibi tepki vermede yavaşlamalara yol açtığını gösteriyor.</li><li>Bir ebeveyn olarak, araç kullanırken telefonunuza bakmaktan kaçının. Kırmızı ışıkta telefonunuzu kontrol etmek bile, araç kullanırken cihazları kontrol etmenin kabul edilebilir olduğu normunu belirleyebilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Arabanızda eller serbest telefon görüşmeleri yapın. Araç kullanırken "rahatsız etmeyin" özelliğini etkinleştirdiğinizden emin olun (çoğu telefonda mevcuttur). </li><li>Çocuklarınızı arabada telefonunuza baktığınız için sizi azarlamaya teşvik edin.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Bebek arabalarını ve alışveriş sepetlerini ekransız tutun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Semtinizde dolaşmak, bebeklerin kendi dünyalarını keşfetmelerinin bir yoludur. Bu basit deneyim onların komşularını tanımalarına olanak tanır, dikkat aralıklarını geliştirir ve problemlerle başa çıkmalarına yardımcı olur.</li><li>Dijital cihazlar bebekleri sessiz tutmada etkili olabilse de bebeklerin her gün sahip olduğu birçok doğal öğrenme fırsatından uzaklaşmalarına neden olur.</li></ul></td><td><p>Nasıl?</p><ul><li>Bebeğinizi sokakta veya bir mağazanın çevresinde gezdirirken onunla yüksek sesle konuşun. Ne gördüğünüzü ve ne yaptığınızı açıklayın.</li><li>Kelime dağarcıklarını geliştirmek amacıyla küçük çocukların, etiket ile adlandırdığınız nesnelere ulaşmalarını sağlayın veya onlara sağlam eşyaları sepete koymak gibi bir görev verin.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Okula giderken ve okuldan dönerken medya cihazı kullanmayın.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Çocuklar okula giderken yanlarında bir mobil cihaz götürmek isteyebilirler. Bundan kaçınmaya çalışın. Mobil cihazlar çocuğunuzun gün içinde gerçekleşen öğrenme ve sosyal beceri geliştirme fırsatlarından uzaklaşmasına neden olabilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Çocuğunuza okula giderken mobil cihazlar yerine sevdikleri oyuncak veya kutu oyunlarından götürmesini söyleyin. Yolculuk sırasında en sevdiğini şarkıları veya sesli kitabı dinleyin.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Okula götürülen ilaç ve cihazlarla ilgili bir plan yapın.  </p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Bazı okullar, öğrenmeye yardımcı olması için akıllı telefonlara izin verirken; bazıları ise dikkat dağıtıcı şeyleri istemiyor.</li><li>Çocuğunuzun okul politikası ne olursa olsun, okul günü boyunca bir telefona sahip olmanın çocuğunuza olumlu ve olumsuz etkilerini düşünün.</li></ul></td><td><p>Nasıl?</p><ul><li>Çocuğunuzun okula telefon getirmesine izin veriliyorsa aşağıdaki noktaları tartışın: <ul><li>Nerede saklayacaklar?</li><li>Kontrol etmeden nasıl direnecekler?</li><li>Okulun telefon kullanımına ilişkin politikası nedir?</li></ul></li></ul></td></tr></table><table><tr><td><p></p></td><td><p>Amerikan Pediatri Akademisi Aile Medya Planlayıcısı, <br />2023 yılında ABD'de düzenlenen Digital Health Awards <br />(Dijital Sağlık Ödülleri) yarışmasında "Web Tabanlı Dijital Sağlık Uygulamaları" kategorisinde bronz ödülü kazanmıştır.</p></td></tr></table><table><tr><td><p>Amerikan Pediatri Akademisi (AAP) sponsorluğunda HealthyChildren.org sayfasından uyarlanmıştır. <br />Daha fazla bilgi için <a href="https://healthychildren.org//english/fmp/pages/mediaplan.aspx"><strong>https://healthychildren.org//english/fmp/pages/mediaplan.aspx</strong></a><strong> </strong>adresine gidin.</p></td></tr></table><table><tr><td><p>      <sup>|</sup>      </p></td><td><p>Bu plan kılavuzunda yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p>© 2024 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A-30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:klinik&#64;drmurzoglu.com">klinik&#64;drmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/aile-medya-plani/Aile%20Medya%20Plan%C4%B1%20%5B5%5D%20-%20Ekrans%C4%B1z%20B%C3%B6lgeler.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

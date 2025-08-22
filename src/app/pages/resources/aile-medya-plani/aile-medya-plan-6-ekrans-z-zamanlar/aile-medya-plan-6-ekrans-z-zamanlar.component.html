@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/aile-medya-plani" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>American Academy of Pediatrics</p></td></tr><tr><td><p>AİLE MEDYA KULLANIM PLANI</p><p><strong>EKRANSIZ ZAMANLAR</strong></p></td><td></td></tr></table><p>  </p><table><tr><td><p>Ekranlar günümüzün her anında ve her mekânında bulunmak zorunda değil. Ekran karşısına geçmek yerine aile sohbetlerine ve oyunlara zaman ayırmak çocuğunuzun sağlığı ve gelişimi açısından gerçekten önemlidir.</p></td></tr></table><p></p><table><tr><td colspan="2"><p>Haftanın hangi günlerinin ekranlar ve medya için uygun olduğunu belirleyin.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Evde ekran kullanımına yönelik belirli gün ve saatlerin olması çocuklarınızla her gün müzakere etmek zorunda kalmanızı önler.</li><li>Bazı aileler eğlenceli ekran etkinliklerini (video oyunları, filmler, TV) yalnızca hafta sonları düzenler; diğerleri medyayı her gün, ancak yalnızca belirli zamanlarda kullanmayı tercih eder.</li><li>Bunu yapmanın mükemmel bir yolu yoktur; bu nedenle aileniz için en doğru olanı hep birlikte seçin.</li></ul></td><td><p>Nasıl?</p><ul><li>Ekran kullanım günleri ve zamanlarına ilişkin görsel bir hatırlatıcı oluşturmak iyi bir fikirdir. Belirlenen zamanlar bir kâğıt parçasına veya takvime listelenebilir ve buzdolabına veya herkesin görebileceği bir yere asılabilir.</li><li>Ekransız günler öncesinde, birkaç gün boyunca kullanılmayacak olan tabletleri, oyun konsollarını veya diğer cihazları göz önünden kaldırın. </li><li>Ödev yapmak için bilgisayar kullanan gençler için de "ekran başında kalmama" saatlerini planlayın. Bu onlara ekranlardan ve telefonlardan uzakta sağlıklı bir mola olacaktır.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Ev ödevi saatlerini de ekran saatleriyle birlikte planlayın.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Ev ödevi bazen çocuklara imkânsız bir görev gibi görünebilir. Ama ne kadar uzun süre beklerlerse, o kadar daha zor olur.</li><li>Ev ödevinden sonra ekran etkinliğine izin vermek, ödevi daha erken bitirmek için iyi bir motivasyon olabilir. Ayrıca ödevlerin öncelikli kalmasını da sağlayabilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Ev ödevlerini ve çocuğunuzun medyayı ne zaman kullanabileceğini gösteren bir kontrol listesi yapın. Bu onların ödevlerini tamamladıktan sonra gidip rahatlayabileceklerini görmelerine yardımcı olabilir.</li><li>Çocuklarınız çevrimiçi olmalarını gerektirmeyen bir iş yapıyorsa, ev ödevi sırasında kullanılan cihazları ortadan kaldırın.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Aynı anda yalnızca bir ekran kullanın.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Ev ödevi veya diğer zorlu görevleri yapmaya çalışırken medyayla aynı anda birden fazla görev yapmak dikkatin dağılmasına ve hatalara yol açar. Onları ayrı tutmaya çalışın.</li></ul></td><td><p>Nasıl?</p><ul><li>Çocuklar ödevlerini çevrimiçi olarak tamamlıyorsa, dikkat dağıtıcı tarayıcı sekmelerini kapatın ve telefonlarını sessize alın. Sosyal medyaya girmeden önce ödevlerin tamamlandığından emin olun.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Okul gitmeden önceki saatlerde ekranlardan kaçının.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Sabahları ekran kullanımı çocuğunuzun dikkatini ve gün içindeki yorgunluğunu etkileyebilir, özellikle de medyayı kullanmak için erken kalkıyorsa veya çok uyarıcı bir şey izliyorsa bu etki artar.</li></ul></td><td><p>Nasıl?</p><ul><li>İmkânınız varsa mutfakta ya da ekranın olmadığı bir yerde birlikte kahvaltı yapın. Günü tartışmak için de ideal bir ortam olur.</li></ul></td></tr></table><p></p><table><tr><td colspan="2"><p>Her hafta bir ekransız gün planlayın.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Düzenli olarak medya kullanımına ara vermek sağlıklı ve canlandırıcı bir aile ritüeli olabilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Haftada tüm ailenin ekransız olacağı bir günü seçmeye ne dersiniz? Bu boş zamanınızda aile olarak başka neler yapmak istediğinizi birlikte planlayın. Bu günü herkesin görebileceği bir takvime not edin. Ayrıca aile üyelerinin bu günde yapmak istediklerini yazabilecekleri bir liste de yapabilirsiniz.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Medya kullanımının uykuya müdahale etmesine izin vermeyin.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li><strong>Önerilen Kural:</strong> Yatmadan bir saat önce ekranları/cihazları kapatın.<ul><li>Yatmadan önce medya kullanmak çocuğunuzun uyku süresini azaltabilir.</li><li>Medya ekranlarından gelen mavi ışık, çocuğunuzun beyninde melatonin adı verilen ve çocuğunuzun uyumasına yardımcı olmak için gerekli olan hormonu azaltır. Titreşimli ve sesli uyarılar çocukları ve gençleri uykudan uyandırabilir.</li><li>Çocuklar ve gençler, cihazları kullanmak için gecenin ortasında veya sabahın erken saatlerinde uyanabilirler.</li></ul></li></ul></td><td><p>Nasıl?</p><ul><li>Telefonunuzu başka bir odada şarja takın; bırakın o da kendi yatağında uyusun. Sabah uyanmak için alarma ihtiyacınız varsa bir çalar saat kullanın.</li><li>Yatmadan önce medyayı başka bir etkinlikle değiştirin.<ul><li>Küçük çocuklar: Yatmadan önce birlikte bir hikâye okuyun.</li><li>Daha büyük çocuklar: Görüntülü medya yerine müzik, podcast veya basılı kitaplar koyun.</li></ul></li><li>Yatmadan önce medya ekranlarını kullanıyorsanız.<ul><li>Korkunç oyunlar oynamayın veya şovlar izlemeyin. </li><li>Ekran parlaklığını azaltın. Belirli bir süre sonra telefonu gece ayarlarına getirin. </li></ul></li></ul></td></tr></table><table><tr><td colspan="2"><p>Aile zamanı ve oyun zamanlarında telefonları "rahatsız etmeyin" moduna alarak susturun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Telefonlardan kaynaklanan kesintiler dikkat dağıtıcı olabilir ve yüz yüze etkileşimi zorlaştırabilir. Ebeveynler genellikle çocuklarıyla yalnızca "tek bir görev" yapmanın rahatlatıcı olduğunu söylerler. Çocuklar da ebeveynlerinin dikkatlerinin dağılmamasını sevdiklerini söylüyorlar.</li></ul></td><td><p>Nasıl?</p><ul><li>"Rahatsız Etmeyin" ve "Odaklanma" ayarlarını mobil cihazlarda bulmak kolaydır. Ailenizle kesintisiz vakit geçirmek istediğinizde bunları kullanma alışkanlığını edinin.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Uykudan önceki bir saat boyunca ekranlardan uzak durun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Yatmadan önce ekran (bilgisayar, tablet, telefon veya TV) kullanmak uyku sorunlarına neden olabilir. "Mavi ışık" uyku döngülerini bozar ve zihinsel uyarım bizi uyanık tutar.</li><li>Ekranlar çocuğunuzun uyumasına yardımcı oluyor gibi görünse de bu şekilde dalınan uykunun kalitesi daha düşük olur. Bu da davranış problemlerine ve ertesi gün odaklanma zorluğuna sebep olabilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Bir yatma vakti rutini oluşturun. Ekran yerine kitap okumayı, şarkı söylemeyi, hikayeler anlatmayı veya sadece o gün hakkında konuşmayı deneyin. Bazı çocukların bedenlerini ve zihinlerini sakinleştirmek için <a href="https://healthychildren.org/English/healthy-living/emotional-wellness/Pages/Just-Breathe-The-Importance-of-Meditation-Breaks-for-Kids.aspx">meditasyon</a> veya esneme gibi duyusal teknikleri öğrenmeleri gerekebilir.</li><li>Genç ergenlerin banyo yapmak veya müzik dinlemek gibi bir uyku hijyeni rutinine ihtiyacı olabilir. </li><li>Ekran parlaklığını azaltın. Belirli bir süre sonra telefonu gece ayarlarına getirin. Bu size yatma zamanının geldiğini hatırlatır.</li></ul></td></tr></table><table><tr><td><p></p></td><td><p>Amerikan Pediatri Akademisi Aile Medya Planlayıcısı, <br />2023 yılında ABD'de düzenlenen Digital Health Awards <br />(Dijital Sağlık Ödülleri) yarışmasında "Web Tabanlı Dijital Sağlık Uygulamaları" kategorisinde bronz ödülü kazanmıştır.</p></td></tr></table><table><tr><td><p>Amerikan Pediatri Akademisi (AAP) sponsorluğunda HealthyChildren.org sayfasından uyarlanmıştır. <br />Daha fazla bilgi için <a href="https://healthychildren.org//english/fmp/pages/mediaplan.aspx"><strong>https://healthychildren.org//english/fmp/pages/mediaplan.aspx</strong></a><strong> </strong>adresine gidin.</p></td></tr></table><table><tr><td><p>      <sup>|</sup>      </p></td><td><p>Bu plan kılavuzunda yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p>© 2024 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A-30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:klinik&#64;drmurzoglu.com">klinik&#64;drmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/aile-medya-plani/Aile%20Medya%20Plan%C4%B1%20%5B6%5D%20-%20Ekrans%C4%B1z%20Zamanlar.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

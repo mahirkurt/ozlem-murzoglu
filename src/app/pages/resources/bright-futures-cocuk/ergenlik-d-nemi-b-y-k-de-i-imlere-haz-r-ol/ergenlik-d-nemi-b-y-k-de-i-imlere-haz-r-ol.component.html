@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/bright-futures-cocuk" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p>ERGENLÌK DÖNEMÌ</p><p>BÜYÜK DEĞİŞİMLERE HAZIR OL!</p></td><td><p></p></td></tr></table><table><tr><td><p>Ergenlik, vücudunun bir çocuktan bir yetişkine dönüşmeye başladığı dönemdir. <br />Bazen vücudunun tamamen kontrolden çıktığını hissedebilirsin.<br />Ama merak etme; her şey hızlı bir şekilde yoluna girecek!</p></td></tr></table><p><strong>Arkadaşlarınla karşılaştırdığında kendini çok uzun, çok kısa, çok şişman veya çok zayıf hissedebilirsin. Bu değişiklikler konusunda kendini endişeli hissedebilirsin, ancak muhtemelen arkadaşlarının çoğu da öyledir.</strong></p><p><strong>Herkes ergenlik çağından geçer, ancak her zaman aynı anda veya tam olarak aynı şekilde değil. Genel olarak bu dönemde bekleyebileceğin şeyleri bu broşürümüzde bulabilirsin.</strong></p><table><tr><td><p><strong>NE ZAMAN?</strong></p></td></tr></table><p>Ergenliğin başlaması için mutlak "doğru" bir zaman yoktur. Ancak ergenlik kızlarda erkeklerden biraz daha erken, genellikle 8 ila 13 yaşları arasında başlar. Erkekler için ergenlik genellikle 10 ila 14 yaşlarında başlar.</p><table><tr><td><p><strong>NELER OLUYOR?</strong></p></td></tr></table><p>Bu dönemde "hormon" adı verilen kimyasallar vücudunda birçok değişikliğe neden olur:</p><p></p><p>Kıllar her yerde!</p><ul><li>Kasık bölgende (bacaklarının arasında ve cinsel organlarının etrafında) yumuşak kıllar büyümeye başlar. Bu kıllar kalınlaşacak ve kıvırcık olacaktır. Kasık kıllarını tıraş etmek gerekli değildir. Koltuk altında ve bacaklarında da kıllar görebilirsin. </li><li>Kızlar genellikle koltuk altlarını tıraş ederler. Erkeklerin yüzlerinde veya göğüslerinde de kıllar çıkmaya başlar. Çoğu erkek sakallarını tıraş etmeyi tercih eder.</li></ul><p>Akne (Sivilceler)</p><p></p><ul><li>Yağ bezlerin değiştiği için sivilce (akne olarak da adlandırılır) çıkarmaya başlayabilirsin. Cildini temiz tutmak için her gün yüzünü sabunla yıkaman önemlidir.</li><li>Her gün yüzünü yıkasan bile sivilcelerin olmasına şaşırma. Hormon seviyelerin yüksek olduğunda sivilce çıkarman normaldir. Hemen hemen tüm gençler bir dönemde sivilce çıkarır. </li><li>Durumun ister hafif ister şiddetli olsun, onu kontrol altında tutacak şeyler yapabilirsin. Sivilcelerin nasıl tedavi edileceği ve kontrol altına alınacağı konusunda doktorunla konuşabilirsin.</li></ul><p>Vücut Kokusu</p><ul><li>Daha fazla terlemeye başlayabilirsin. Bu normaldir.</li><li>Çoğu kişi koltuk altı kokusunu ve terlemesini kontrol altında tutmak için deodorant kullanır.</li></ul><p>Kilo Almak</p><ul><li>Bazen ergenlik çağındaki kilo alımı, kızların ve erkeklerin görünüşlerinden o kadar rahatsız olmalarına neden olur ki kusarak, yemek yemeyerek veya ilaç alarak kilo vermeye çalışırlar. Bunlar kilo vermenin sağlıklı yolları değildir ve seni çok hasta edebilir. </li><li>Bu şekilde hissediyorsan veya kilo vermek için bu yollardan herhangi birini denediysen, lütfen ailenle veya doktorunla konuş.</li></ul><table><tr><td><p><strong>KIZLAR</strong></p></td></tr></table><p></p><p>Memeler</p><ul><li>Çoğu kızda ergenliğin ilk belirtisi meme gelişimidir. Bir veya her iki meme ucunun altında küçük, hassas dokular oluşmaya başlar. Bu hassasiyet veya ağrı geçicidir; göğüslerin büyüdükçe geçer. </li><li>Bir meme diğerinden biraz daha hızlı büyürse endişelenme. Memelerin tamamen geliştiğinde, genellikle aynı boyutta olurlar.</li><li>Memelerin büyüdüğünde, sütyen takmaya başlamak isteyebilirsin. Bazı kızlar bu konuda heyecanlıdır. Diğer kızlar utanabilir, özellikle de arkadaşları arasında sütyene ilk ihtiyaç duyan onlarsa. Annenle veya güvendiğin başka bir yetişkinle ilk sutyenini alma konusunda konuş.</li></ul><p>Vücut Şekli </p><ul><li>Ergenlik çağına girdikçe, boyun uzar, kalçaların genişler ve belin incelir. </li><li>Vücudun ayrıca karnında, poponda ve bacaklarında yağ biriktirmeye başlar. Bu normaldir ve vücuduna bir kadının kıvrımlı şeklini verir.</li></ul><p>Adet Döngüsü</p><ul><li>Adet döngün ergenlik döneminde başlar. Kızların çoğu, memeleri büyümeye başladıktan 2 ila 2 buçuk yıl sonra (10 ila 16 yaşları arasında) adet görürler.</li><li>Ergenlik döneminde yumurtalıkların yumurta üretmeye başlar. Bir yumurta bir erkeğin penisinden gelen spermle birleşirse (döllenme), rahim içinde büyüyecek ve bir bebeğe dönüşecektir. Vücudun buna hazırlanmasına yardımcı olmak için rahimde kalın bir doku ve kan hücreleri tabakası oluşur. </li><li>Yumurta ile sperm birleşmiyorsa vücudun bu doku ve hücrelere ihtiyacı yoktur. Kan benzeri bir sıvıya dönüşürler ve vajinadan dışarı akarlar. Adet (regl) döneminiz bu sıvının vücuttan aylık olarak atılmasıdır.</li><li>Adet görmeye başlayan bir kız her ay adet görmese bile gebe kalabilir.</li><li>Bu sıvıyı emmesi ve giysilerine bulaşmasını önlemek için bir tür hijyenik ped kullanman gerekecektir. </li><li>Çoğu adet dönemi 3 ila 7 gün sürer. Adet görmen, yüzme veya beden eğitimi dersi gibi normal aktivitelerinden kaçınman gerektiği anlamına gelmez. Egzersiz, adet dönemin boyunca hissedebileceğin kramplardan ve diğer rahatsızlıklardan kurtulmana bile yardımcı olabilir.</li></ul><table><tr><td><p><strong>ERKEKLER</strong></p></td></tr></table><p></p><p>Kaslar</p><ul><li>Ergenlik çağına girdikçe boyun uzar, omuzların genişler ve kaslarınız geliştikçe kilon artar.</li></ul><p>"Boyu" önemli mi?</p><ul><li>Ergenlik döneminde penis ve testisler büyür. Cinsellikle ilgili hormonlarında da bir artış olur. Eskisinden daha sık ereksiyon (penis sertleşmesi) yaşadığını fark edebilirsin. Bu normaldir. Ayrıca, penis boyunun erkeklik veya cinsel işlevle hiçbir ilgisi olmadığını unutma.</li></ul><p>Islak Rüyalar </p><ul><li>Ergenlik döneminde testisleriniz sperm üretmeye başlar. Bu, ereksiyon sırasında boşalabileceğiniz anlamına gelir. Bu, spermin penis yoluyla salındığı zamandır. Bu siz uyurken olabilir. Çarşaflarınızı veya pijamalarınızı ıslak bularak uyanabilirsiniz. Buna gece emisyonu veya ıslak rüya denir. Bu normaldir ve zamanla azalacaktır.</li></ul><p>Ses Çatallaşması</p><ul><li>Sesin kalınlaşacak ama bu bir anda olmayacak. Bu süreç genellikle sesinin çatallaşması ile başlar. Sen gelişmeye devam ettikçe çatallaşma bitecek ve sesin normalleşecektir.</li></ul><p>Memeler? </p><ul><li>Meme uçlarının altında şişlik olabilir. Bu olursa, memelerinin büyüdüğü konusunda endişelenebilirsin. Endişelenmene gerek yok. Bu şişlik çok yaygındır ve geçicidir. Ancak yine de endişeleniyorsan, doktorunla konuş.</li></ul><table><tr><td><p><strong>YENİ DUYGULAR</strong></p></td></tr></table><p></p><ul><li>Ergenlik döneminde yaşayacağın tüm fiziksel değişikliklerin yanı sıra birçok duygusal değişiklik de olur. Örneğin, kabul edilmek ve beğenilmek istediğin için başkalarının senin hakkında ne düşündüğünü daha fazla önemsemeye başlayabilirsin. Başkalarıyla olan ilişkilerin değişmeye başlayabilir. Bazıları daha önemli, bazıları daha az önemli hale gelir. Anne babandan daha fazla ayrılmaya ve yaşıtlarınla özdeşleşmeye başlayacaksın. Hayatının geri kalanını etkileyecek kararlar almaya başlayabilirsin.</li><li>Bazen anne babanın ve diğer yetişkinlerin ilgisinden hoşlanmayabilirsin ama onlar da içinden geçtiğin değişikliklere uyum sağlamaya çalışıyor. Pek çok genç, ebeveynlerinin onları anlamadığını düşünüyor; bu normal bir duygudur. Nasıl hissettiğini (kibarca) bilmelerini sağlamak ve ardından birlikte konuşmak genellikle en iyisidir.</li><li>Ayrıca, daha kolay öfkelenmen ve kimsenin seni umursamadığını hissetmen de normaldir. Ailenle, başka bir güvendiğin yetişkinle ya da doktorunla duyguların hakkında konuş. Ne kadar iyi hissedeceğine şaşırabilirsin! Doğru beslen ve bol bol uyu (gençlerin çoğu gecede 9-10 saate ihtiyaç duyar).</li></ul><table><tr><td><p><strong>CİNSELLİK VE SEKS</strong></p></td></tr></table><p>Bu süre zarfında, birçok genç cinsel duygularının daha fazla farkına varır. Bir bakış, bir dokunuş ya da sadece birini düşünmek, kalbinin daha hızlı atmasına neden olabilir ve sıcaklık, karıncalanma hissi yaratabilir. </p><ul><li>Şunları kendine sorabilirsin:<ul><li>Ne zaman bir başkasıyla çıkmaya başlamalıyım?</li><li>Öpüşmek ne zaman uygundur?</li><li>Ne zaman cinsel ilişkiye hazır olacağım?</li><li>Seks yapmak zorunda mıyım?</li><li>Mastürbasyon yapmak (cinsel zevk için cinsel organlarınızı uyarmak) uygun mudur? (Mastürbasyon normaldir ve sana zarar vermez. Bazı erkek ve kızlar mastürbasyon yapar, bazıları yapmaz.)</li></ul></li><li>Cinsel olarak aktif olmaya karar vermek çok kafa karıştırıcı olabilir. Bir yandan seks yapmakla ilgili birçok uyarı ve tehlike duyarsınız. Öte yandan, filmler, TV, dergiler ve hatta şarkılar bile sana seks yapmanın sorun olmadığını söylüyor gibi görünebilir.</li><li>Gençlerin seks hakkında merak duyması normaldir, ancak seks yapmaya karar vermek çok büyük bir karardır.</li><li>Seks yapmak için doğru zamanı beklemeye karar vermelisin. Nasıl hayır diyeceğini önceden planlamalısın, böylece açıkça anlaşılırsın. Erkek arkadaşın veya kız arkadaşın bekleme kararını desteklemiyorsa, senin için doğru kişi olmayabilir.</li><li>Kimse seks yapmaya zorlanamaz! Seks yapmaya zorlanırsan, asla kendini suçlamamalı ve mümkün olan en kısa sürede güvendiğin bir yetişkini haberdar etmelisin.</li><li>Seks, doğum kontrolü, enfeksiyonlar ve duygular hakkındaki gerçekleri bilmen önemlidir. Seks, gebe kalma, genç bir ebeveyn olma ve cinsel yolla bulaşan bir enfeksiyona yakalanma riskini artırır.</li></ul><p><strong>Bunlar çok önemli kararlar ve doktorun da dahil olmak üzere seni önemseyen yetişkinlerle konuşmaya kesinlikle değer.</strong></p><table><tr><td><p><strong>KENDİNE İYİ BAK!</strong></p></td></tr></table><p></p><p>Olgunlaştıkça, sağlıklı kalmanı sağlamak için birçok karar vermen gerekecek:</p><ul><li>Doğru beslenmek, egzersiz yapmak ve yeterince dinlenmek ergenlik döneminde önemlidir çünkü vücudun birçok değişiklikten geçer.</li><li>Kendin ve verdiğin kararlar hakkında iyi hissetmen de önemlidir.</li><li>Sağlığın veya duyguların hakkında soruların olduğunda, bunları ailen ve doktorunuz paylaşmaktan çekinme!</li></ul><table><tr><td><p>Bright Futures: Guidelines for Health Supervision of Infants, Children, and Adolescents, <br />4.Baskı'dan uyarlanmıştır. Daha fazla bilgi için <strong>https://brightfutures.aap.org</strong> adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td><p>	</p></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/bright-futures-cocuk/Ergenlik%20D%C3%B6nemi%20-%20B%C3%BCy%C3%BCk%20De%C4%9Fi%C5%9Fimlere%20Haz%C4%B1r%20Ol.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

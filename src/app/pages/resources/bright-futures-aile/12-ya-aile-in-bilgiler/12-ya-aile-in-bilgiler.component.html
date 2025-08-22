@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/bright-futures-aile" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p>AİLENİZ İÇİN BİLGİLER</p><p><strong>12. YAŞ ZİYARETİ</strong></p></td><td><p></p></td></tr></table><table><tr><td><p><strong>AİLENİZİN DURUMU</strong></p></td></tr></table><ul><li>Çocuğunuzu aile kararlarının bir parçası olmaya teşvik edin. Çocuğunuza, büyüdükçe kendi kararlarını daha fazla alma şansı verin.</li><li>Çocuğunuzu problemler üzerinde düşünmeye teşvik edin.</li><li>Çocuğunuzun, okul çalışmalarının yanı sıra gerçekten ilgi duyduğu etkinlikleri bulmasına yardımcı olun.</li><li>Çocuğunuzun başkalarına yardımcı olacak aktiviteler bulmasına ve denemesine yardımcı olun.</li><li>Çocuğunuzun çatışmayla baş etmesine yardımcı olun.</li><li>Çocuğunuzun öfke veya korkuyla başa çıkmanın şiddet içermeyen yollarını bulmasına yardımcı olun.</li></ul><table><tr><td><p><strong>BÜYÜYEN/GELİŞEN ÇOCUĞUNUZ</strong></p></td></tr></table><ul><li>Çocuğunuzu yılda iki kez diş hekimine götürün.</li><li>Diş hekimi tavsiye ederse çocuğunuza florür takviyesi verin.</li><li>Çocuğunuzu günde iki kez dişlerini fırçalamaya ve günde bir kez diş ipi kullanmaya teşvik edin.</li><li>Çocuğunuzu iyi bir şey yaptığında övün.</li><li>Sağlıklı vücut ağırlığını destekleyin ve çocuğunuzun sağlıklı yiyeceklerle beslenmesine yardımcı olun.<ul><li>Sağlıklı yiyecekler sunun.</li><li>Ailece birlikte yemek yiyin.</li><li>Rol model olun.</li></ul></li><li>Az yağlı veya yağsız süt, az yağlı yoğurt ve peynir gibi besinler ile çocuğunuzun yeterli kalsiyum almasına yardımcı olun.</li><li>Çocuğunuzu her gün en az 1 saat fiziksel aktivite yapması için teşvik edin. Kask ve diğer güvenlik donanımlarını kullandığından emin olun.</li><li>Bir aile medya kullanım planı yapmayı düşünün. Medya kullanımı için kurallar koyun ve çocuğunuzun fiziksel aktiviteler ile diğer aktiviteler için ayıracağı zamanı dengeleyin.</li><li>Okul performansı hakkında çocuğunuzun öğretmeniyle görüşün. Mümkünse okul etkinliklerine ve veli toplantılarına katılın.</li><li>Okul ödevlerinin sorumluluğunu üstlenmesi için çocuğunuzla konuşun.</li><li>Çocuğunuzun ihtiyacı varsa zamanı planlamasına yardımcı olun.</li><li>Her gün okumasını teşvik edin.</li></ul><table><tr><td><p><strong>ÇOCUĞUNUZUN DUYGULARI</strong></p></td></tr></table><ul><li>Çocuğunuzla vakit geçirmenin yollarını bulun.</li><li>Çocuğunuzun üzgün, gergin, sinirli, umutsuz veya kızgın olduğundan endişeleniyorsanız, bize bildirin.</li><li>Çocuğunuzla ergenlik döneminde vücudunun nasıl değiştiği hakkında konuşun.</li><li>Çocuğunuzun cinsel gelişimi hakkında sorularınız varsa, bizimle her zaman konuşabilirsiniz.</li></ul><table><tr><td><p><strong>SAĞLIKLI DAVRANIŞ TERCİHLERİ</strong></p></td></tr></table><ul><li>Çocuğunuzun eğlenceli ve güvenli uğraşlar bulmasına yardımcı olun.</li><li>Çocuğunuzun alkol ve uyuşturucu kullanımı hakkında ne hissettiğinizi bildiğinden emin olun.</li><li>Çocuğunuzun arkadaşlarını ve onların ebeveynlerini tanıyın. </li><li>Çocuğunuzun her zaman nerede olduğunun ve ne yaptığının farkında olun.</li><li>Alkollü içkilerinizi bir dolaba kilitleyin.</li><li>Reçeteli ilaçları kilitli bir dolapta saklayın.</li><li>Çocuğunuzla ilişkiler, cinsellik ve değerler hakkında konuşun.</li><li>Çocuğunuzla ergenlik veya cinsel baskılar hakkında konuşmaktan rahatsızsanız, lütfen bize veya güvendiğiniz diğer kişilere danışın.</li><li>Çocuğunuz için açık ve tutarlı kurallara dayalı disiplin metotları kullanın.</li><li>Rol model olun.</li></ul><table><tr><td><p><strong>GÜVENLİK</strong></p></td></tr></table><ul><li>Arabada herkesin her zaman emniyet kemeri taktığından emin olun.</li><li>Bisiklet, paten, kayak, kar motosikleti ve ata binme için uygun kask ve güvenlik donanımı sağlayın.</li><li>Açıkta kalan cildinde şapka, güneş koruyucu giysi ve SPF'si (koruyucu faktörü) 15 veya daha yüksek olan güneş kremi kullanın. Güneşin en güçlü olduğu zamanlarda (11:00 -15:00) dışarıda geçirilen süreyi sınırlayın.</li><li>Çocuğunuzun ATV kullanmasına izin vermeyin.</li><li>Çocuğunuz kendini güvende hissetmiyorsa nasıl yardım alacağını bildiğinden emin olun.</li></ul><table><tr><td><p>Bright Futures: Guidelines for Health Supervision of Infants, Children, and Adolescents, <br />4.Baskı'dan uyarlanmıştır. Daha fazla bilgi için <strong>https://brightfutures.aap.org</strong> adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/bright-futures-aile/12.%20Ya%C5%9F%20-%20Aile%20%C4%B0%C3%A7in%20Bilgiler.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

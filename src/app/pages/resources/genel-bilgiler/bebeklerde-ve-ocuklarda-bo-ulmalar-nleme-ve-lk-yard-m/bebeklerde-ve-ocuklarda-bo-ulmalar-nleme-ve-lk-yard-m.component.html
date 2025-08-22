@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p>BEBEKLERDE VE ÇOCUKLARDA <strong>BOĞULMALARI ÖNLEME <br />VE İLK YARDIM</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Çocuklar emeklemeye veya sofra yiyecekleri yemeye başladığında, ebeveynler boğulmanın tehlikeleri ve risklerinin farkında olmalıdır. 5 yaşından küçük çocuklar yiyecekler ve küçük nesnelerle kolayca boğulabilir.</p><p>Boğulma, yiyecek veya küçük nesneler boğaza takıldığında ve hava yolunu tıkadığında meydana gelir. Bu, oksijenin akciğerlere ve beyne ulaşmasını önleyebilir. Beyin 4 dakikadan fazla oksijensiz kaldığında beyin hasarı ve hatta ölüm meydana gelebilir. Her yıl birçok çocuk boğulma nedeniyle ölmektedir ve şiddetli bir boğulma olayından kurtulan bazı çocukların kalıcı beyin hasarı olur. Boğularak ölen çocukların çoğu 5 yaşından küçüktür. Boğulma kurbanlarının üçte ikisi ise 1 yaşından küçük bebeklerdir. Boğulma nedenli ölümlere en sık balonlar, toplar, misketler, oyuncak parçaları ve yiyecekler neden olur. Boğulmaları önleme ve ilk yardım hakkında daha fazla bilgi edinmek için broşürümüzü okuyun.</p></td></tr></table><table><tr><td><p><strong>Tehlikeli Gıdalar</strong></p></td></tr></table><p>Tehlikeli yiyecekleri çocuğunuzun gelişim düzeyini de göz önüne alarak 4 yaşına kadar ondan uzak tutun. Bununla birlikte, sosis veya üzüm gibi yuvarlak, sert yiyecekler, küçük parçalar halinde doğranırsa servis edilebilir. Bebekler ve küçük çocuklar yemeklerini ağızlarında iyi öğütmediğinde veya çiğnemediğinde, bütün olarak yutmaya çalışabilirler. Fıstık ezmesi ve diğer fındık ezmeleri ekmeğin üzerine ince bir şekilde yayılmalıdır. İşte boğulma tehlikesi olabilecek yiyecekler:</p><ul><li>Sosis</li><li>Sert ve yapışkan şekerler</li><li>Sakız</li><li>Fındık ve diğer kuruyemişler</li><li>Bütün üzümler</li><li>Havuç gibi sert çiğ sebzeler</li><li>Elma parçaları gibi çiğ meyve parçaları</li><li>Patlamış mısır</li><li>Fıstık ezmesi veya diğer fındık ezmesi parçaları</li><li>Marşmelov</li><li>Köfte</li><li>Et parçaları</li><li>Peynir parçaları </li></ul><table><tr><td><p><strong>Tehlikeli Ev Eşyaları</strong></p></td></tr></table><p>Aşağıdaki ev eşyalarını bebeklerden ve çocuklardan uzak tutun:</p><ul><li>Balonlar</li><li>Madeni paralar</li><li>Misketler</li><li>Küçük parçalı oyuncaklar</li><li>Tamamen çocuğun ağzına sığacak şekilde sıkıştırılabilen oyuncaklar</li><li>Küçük toplar</li><li>Kalem kapakları</li><li>Küçük düğme tipi piller</li><li>İlaç şırıngaları</li></ul><table><tr><td><p>Boğulmayı Önlemek İçin Yapılabilecekler</p></td></tr></table><ul><li>CPR (kardiyopulmoner resüsitasyon) (temel yaşam desteği) öğrenin.</li><li>Balonların 8 yaşına kadar olan çocuklar için boğulma riski oluşturduğunu unutmayın.</li><li>Her çocuğun gelişim düzeyine bağlı olarak, tehlikeli yiyecekleri 4 yaşına kadar onlardan uzak tutun.</li><li>Çocukların yemek yerken masada yemeleri veya oturmaları konusunda ısrar edin. Ağızlarında yiyecek varken asla koşmamalı, yürümemeli, oynamamalı veya uzanmamalıdırlar.</li><li>Bebekler ve küçük çocuklar için yiyecekleri 1 cm'den büyük olmayan parçalara ayırın ve yiyeceklerini iyi çiğnemeyi öğretin.</li><li>Bebekler ve küçük çocukları yemek sırasında gözetim altında tutun.</li><li>Daha büyük çocukların eylemlerinin farkında olun. Birçok boğulma olayı, ağabeyler veya ablalar daha küçük bir çocuğa tehlikeli yiyecekler, oyuncaklar veya küçük nesneler verdiğinde meydana gelir.</li><li>Küçük parçalı oyuncaklardan kaçının ve diğer küçük ev eşyalarını bebeklerin ve küçük çocukların erişemeyeceği yerlerde saklayın.</li><li>Oyuncak paketlerindeki yaş tavsiyelerine uyun. Yaş yönergeleri, çocuğun çeşitli yaşlardaki fiziksel ve zihinsel yeteneklerinin yanı sıra olası herhangi bir boğulma tehlikesine yönelik bir oyuncağın güvenliğini ifade eder.</li><li>Mobilya altlarında ve minder aralarında çocukların bulup ağızlarına koyabilecekleri küçük şeyler olup olmadığını kontrol edin.</li><li>Bebeklerin ve küçük çocukların bozuk parayla oynamasına izin vermeyin. </li></ul><table><tr><td><p>Boğulan Çocuğa İlk Yardım</p></td></tr></table><p>Bu broşürde yer alan talimatları öğrenmeye özen gösterin ve evinizdekilere öğretin. Ancak bu talimatlar, temel ilk yardım, suni teneffüs veya acil durum önleme konularında onaylanmış bir kursun yerini almaz. İstanbul'daki ilk yardım kursları hakkında bilgi almak için İstanbul İl Sağlık Müdürlüğü web sitesini <a href="(https://istanbulism.saglik.gov.tr/TR,50543/ilk-yardim.html">(https://istanbulism.saglik.gov.tr/TR,50543/ilk-yardim.html#</a>) ziyaret edin. Kursların çoğu, boğulan bir bebek veya çocuk için ne yapılması gerektiği ile birlikte temel ilk yardım, CPR ve acil durum önleme konularını öğretir.</p><p><strong>BOĞULMA VE TEMEL YAŞAM DESTEĞİ (CPR)</strong></p><table><tr><td><p><strong>BOĞULAN ÇOCUKLA TEK BAŞINA KALDIĞINIZDA</strong></p><ol><li>YARDIM ÇAĞIRMAK İÇİN BAĞIRIN.</li><li>KURTARMA ÇALIŞMALARINA BAŞLAYIN.</li><li>112'Yİ ARAYIN.</li></ol></td></tr></table><table><tr><td><p><strong>İLK YARDIMA BAŞLAYIN</strong></p><p>Çocuk hiç nefes alamıyorsa (göğüs yukarı aşağı hareket etmiyor).</p><p>Çocuk öksüremez, konuşamaz veya mavi görünürse.</p><p>Çocuk bilinçsiz veya tepkisiz ise.</p></td><td><p><strong>İLK YARDIMA BAŞLAMAYIN</strong></p><p>Çocuk nefes alabiliyor, ağlayabiliyor veya konuşabiliyorsa.</p><p>Çocuk öksürebiliyor veya tükürebiliyorsa.</p><p>Çocuğun normal refleksleri hava yolunu temizlemek için çalışabiliyorsa.</p></td></tr></table><table><tr><td><p>1 YAŞINDAN KÜÇÜK BEBEKLERDE </p></td></tr></table><p><strong>BOĞULAN BEBEK</strong></p><p>Bebek boğuluyorsa ve nefes alamıyor, öksüremiyor, ağlamıyor veya konuşamıyorsa aşağıdaki adımları izleyin. Birinin 112'yi aramasını sağlayın.</p><ol><li>Sırtına 5 kez vurun.</li></ol><p></p><p><strong>DÖNÜŞÜMLÜ OLARAK</strong></p><ol><li>Göğsüne 5 kez baskı (kompresyon) uygulayın.</li></ol><p><br /></p><table><tr><td><p>Nesne yerinden çıkana veya bebek bilinçsiz/tepkisiz hale gelene kadar dönüşümlü olarak sırt darbeleri (tokatlar) ve göğüs kompresyonları ile devam edin.</p><p>Bebek bilinçsiz/tepkisiz hale gelirse, suni teneffüs ve kalp masajı (CPR) başlatın.</p></td></tr></table><p><strong>BEBEKLERDE TEMEL YAŞAM DESTEĞİ (CPR)</strong></p><p>Bebek BİLİNÇSİZ/TEPKİSİZ olduğunda veya solunumu durduğunda kullanılmalıdır. Bebeği düz, sert bir zemine yerleştirin:</p><ol><li>GÖĞÜS KOMPRESYONLARINI BAŞLATIN:<ul><li>1 elin 2 parmağını meme ucu çizgisinin hemen altına göğüs kemiğine yerleştirin.</li><li>Göğsü, göğsün derinliğinin en az 1/3'ü kadar veya yaklaşık 4 cm sıkıştırın.</li><li>Her kompresyondan sonra göğsün normal pozisyonuna dönmesine izin verin. Göğsü dakikada en az 100 kez sıkıştırın.</li><li>30 kompresyon yapın.</li></ul></li></ol><p></p><ol><li>HAVA YOLUNU AÇIK TUTUN:<ul><li>Hava yolunu açın (kafa yatırma - çene kaldırma).</li><li>Yabancı bir cisim görürseniz parmağınızla dikkatlice süpürün.</li></ul></li></ol><p></p><ol><li>KURTARMA SOLUNUMUNA BAŞLAYIN:<ul><li>Normal bir nefes alın.</li><li>Bebeğin ağzını ve burnunu ağzınızla kapatın.</li><li>Her biri 1 saniye sürmek üzere 2 nefes verin. Her nefes göğsün yükselmesini sağlamalıdır.</li></ul></li></ol><p></p><ol><li>GÖĞÜS KOMPRESYONLARINA DEVAM EDİN:<ul><li>30 kompresyon ve 2 nefes şeklinde döngülerle devam et.</li><li>5 döngüden sonra (yaklaşık 2 dakika) ve eğer henüz kimse 112'yi aramadıysa, kendiniz arayın.</li></ul></li></ol><p></p><table><tr><td><p>Herhangi bir zamanda bebek öksürürse veya nefes almaya başlarsa, kurtarma solunumlarını durdurun ve 112'yi arayın.</p><p>8 yaşından büyük çocuklar için boğulma/CPR talimatları ve bölgenizde onaylı bir ilk yardım kursu hakkında bilgi için çocuk doktorunuza danışın.</p></td></tr></table><table><tr><td><p>1 İLA 8 YAŞ ARASI ÇOCUKLARDA </p></td></tr></table><p><strong>BOĞULAN ÇOCUKLARDA HEIMLICH MANEVRASI</strong></p><p>Birinin 112'yi aramasını sağlayın. Çocuk boğuluyorsa ve nefes alamıyor, öksüremiyor, ağlamıyor veya konuşamıyorsa aşağıdaki adımları izleyin.</p><ol><li>HEİMLİCH MANEVRASI YAPIN:<ul><li>Elinizi yumruk haline getirin ve diğer elinizle göbeğin hemen üstünü kapatın. Yumruğunuzu göğüs kemiğinin ve göğüs kafesinin alt ucunun aşağısına yerleştirin.</li><li>Hava yolu tıkanıklığını gidermek amacıyla yapay bir öksürük oluşturmak için her bir itme kuvvetini uygulayın.</li><li>Nesne dışarı atılana veya çocuk bilinçsiz/tepkisiz hale gelene kadar Heimlich manevrasını gerçekleştirin.</li></ul></li></ol><p></p><ol><li>Çocuk BİLİNÇSİZ/TEPKİSİZ hale gelirse, temel yaşam desteğine başlayın.</li></ol><p><strong>ÇOCUKLARDA TEMEL YAŞAM DESTEĞİ (CPR)</strong></p><p>Çocuk BİLİNÇSİZ/TEPKİSİZ olduğunda veya solunumu durduğunda kullanılmalıdır. Çocuğu düz, sert bir zemine yerleştirin:</p><ol><li>GÖĞÜS KOMPRESYONLARINI BAŞLATIN:<ul><li>1 veya 2 elin topuğunu göğüs orta kemiğinin alt yarısına yerleştirin.</li><li>Göğsü, göğsün derinliğinin en az 1/3'ü kadar veya yaklaşık 5 cm sıkıştırın.</li><li>Her kompresyondan sonra göğsün normal pozisyonuna dönmesine izin verin. Göğsü dakikada en az 100 ila 120 ton oranında sıkıştırın.</li><li>30 kompresyon yapın.</li></ul></li></ol><p><br /><strong>Tek El Tekniği</strong></p><p><br /><strong>   Çift El Tekniği</strong></p><ol><li>HAVA YOLUNU AÇIK TUTUN:<ul><li>Hava yolunu açın (kafa yatırma - çene kaldırma).</li><li>Yabancı bir cisim görürseniz parmağınızla dikkatlice süpürün.</li></ul></li></ol><p>	</p><ol><li>KURTARMA SOLUNUMUNU BAŞLATIN:<ul><li>Normal bir nefes alın.</li><li>Çocuğun burnunu sıkıca kapatın ve ağzınızla çocuğun ağzını kapatın.</li><li>Her biri 1 saniye sürmek üzere 2 nefes verin. Her nefes göğsün yükselmesini sağlamalıdır.</li></ul></li></ol><p></p><ol><li>GÖĞÜS KOMPRESYONLARINA DEVAM EDİN:<ul><li>Nesne dışarı atılana kadar 30 kompresyondan 2 nefese kadar döngülerle devam edin. </li><li>5 döngüden sonra (yaklaşık 2 dakika) ve eğer henüz kimse 112'yi aramadıysa, kendiniz arayın.</li></ul></li></ol><table><tr><td><p>Herhangi bir zamanda bebek öksürürse veya nefes almaya başlarsa, kurtarma solunumlarını durdurun ve 112'yi arayın.</p><p>8 yaşından büyük çocuklar için boğulma/CPR talimatları ve bölgenizde onaylı bir ilk yardım kursu hakkında bilgi için çocuk doktorunuza danışın.</p></td></tr></table><table><tr><td><p>Bright Futures: Guidelines for Health Supervision of Infants, Children, and Adolescents, <br />4.Baskı'dan uyarlanmıştır. Daha fazla bilgi için <strong>https://brightfutures.aap.org</strong> adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/genel-bilgiler/Bebeklerde%20ve%20%C3%87ocuklarda%20Bo%C4%9Fulmalar%C4%B1%20%C3%96nleme%20ve%20%C4%B0lk%20Yard%C4%B1m.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
