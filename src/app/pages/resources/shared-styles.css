@@ -45,15 +45,23 @@
 }
 
 .content-wrapper {
-  display: block;
-  max-width: 1200px;
+  display: flex;
+  gap: 3rem;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 0 2rem;
 }
 
-/* Remove sidebar completely for maximum content width */
-.toc-sidebar {
-  display: none !important;
+/* TOC Sidebar - Make it optional */
+.content-wrapper.with-sidebar {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  max-width: 1600px;
+}
+
+/* Content without sidebar - Full width */
+.content-wrapper:not(.with-sidebar) {
+  max-width: 1200px;
 }
 
 /* Content Card - Improved width */
@@ -70,14 +78,16 @@
 }
 
 .content-body {
-  padding: 3rem 4rem;
-  max-width: none !important;
-  width: 100% !important;
+  padding: 4rem;
+  max-width: none; /* Remove max-width restriction */
+  width: 100%;
 }
 
-/* Ensure all nested elements take full width */
-.content-body > * {
-  max-width: 100% !important;
+/* Ensure tables don't break layout */
+.content-body table {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
 }
 
 /* =========================== */
@@ -488,9 +498,15 @@
 /* =========================== */
 
 @media (max-width: 1024px) {
-  .content-wrapper {
+  .content-wrapper,
+  .content-wrapper.with-sidebar {
+    display: block;
     max-width: 100%;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
+  }
+  
+  .toc-sidebar {
+    display: none;
   }
   
   .content-body {
@@ -584,10 +600,17 @@
 /* =========================== */
 
 .container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 3rem;
   width: 100%;
+}
+
+@media (max-width: 1600px) {
+  .container {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
 }
 
 .text-center {
