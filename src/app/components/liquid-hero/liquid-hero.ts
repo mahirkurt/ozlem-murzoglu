@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-liquid-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   template: `
     <section class="liquid-hero">
       <!-- Liquid Background -->
@@ -24,7 +25,10 @@ import { CommonModule } from '@angular/common';
       <div class="hero-content">
         <div class="container">
           <div class="content-wrapper">
-            <span class="hero-badge">Dr. Özlem Murzoğlu</span>
+            <div class="hero-badge">
+              <span class="badge-title">Uzm. Dr. Özlem Murzoğlu</span>
+              <span class="badge-subtitle">Çocuk Sağlığı ve Hastalıkları Kliniği</span>
+            </div>
             <h1 class="hero-title">
               En Değerli Varlığınız için Bilim ve Şefkati Birleştiren Bütüncül Yaklaşım
             </h1>
@@ -33,19 +37,14 @@ import { CommonModule } from '@angular/common';
             </p>
             
             <div class="hero-cta">
-              <button class="primary-btn magnetic-btn">
-                <span class="btn-text">Randevu Al</span>
-                <span class="btn-bg"></span>
-              </button>
-              
-              <button class="play-btn">
-                <span class="play-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
+              <a href="/hakkimizda" class="explore-link">
+                <span class="link-text">Kliniğimizi Yakından Tanıyın</span>
+                <span class="link-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
                   </svg>
                 </span>
-                <span class="play-text">Tanıtım Videosu</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -174,20 +173,51 @@ import { CommonModule } from '@angular/common';
     }
     
     .hero-badge {
-      display: inline-block;
-      padding: 8px 20px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+      backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 30px;
+      border-radius: 20px;
+      margin-bottom: 2.5rem;
+      animation: fade-in-down 0.8s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-badge::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    .badge-title {
       color: white;
+      font-family: 'Figtree', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    .badge-subtitle {
+      color: rgba(255, 255, 255, 0.9);
       font-family: 'DM Sans', sans-serif;
       font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      animation: fade-in-down 0.8s ease-out;
+      font-weight: 400;
+      letter-spacing: 0.5px;
     }
     
     .hero-title {
@@ -223,100 +253,59 @@ import { CommonModule } from '@angular/common';
       animation: fade-in-up 0.8s ease-out 0.5s both;
     }
     
-    .primary-btn {
-      position: relative;
-      padding: 18px 40px;
-      background: transparent;
-      border: 2px solid white;
-      border-radius: 60px;
-      color: white;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.125rem;
-      font-weight: 600;
-      cursor: pointer;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .btn-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
-      transform: translateY(100%);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border-radius: 60px;
-    }
-    
-    .primary-btn:hover .btn-bg {
-      transform: translateY(0);
-    }
-    
-    .btn-text {
-      position: relative;
-      z-index: 1;
-    }
-    
-    .play-btn {
-      display: flex;
+    .explore-link {
+      display: inline-flex;
       align-items: center;
       gap: 1rem;
-      background: transparent;
-      border: none;
+      padding: 1rem 2rem;
       color: white;
-      cursor: pointer;
+      text-decoration: none;
       font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+      position: relative;
       transition: all 0.3s ease;
+      overflow: hidden;
     }
     
-    .play-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.3);
+    .explore-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, white, transparent);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+    
+    .explore-link:hover::before {
+      transform: translateX(0);
+    }
+    
+    .explore-link:hover .link-arrow {
+      transform: translateX(5px);
+    }
+    
+    .link-text {
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.5px;
+    }
+    
+    .link-arrow {
+      width: 24px;
+      height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
-      position: relative;
+      transition: transform 0.3s ease;
     }
     
-    .play-icon::before {
-      content: '';
-      position: absolute;
-      inset: -10px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      animation: pulse-ring 2s infinite;
-    }
-    
-    .play-btn:hover .play-icon {
-      background: white;
-      transform: scale(1.1);
-    }
-    
-    .play-btn:hover .play-icon svg {
-      color: #005F73;
-    }
-    
-    .play-icon svg {
-      width: 24px;
-      height: 24px;
-      margin-left: 3px;
-      transition: all 0.3s ease;
-    }
-    
-    @keyframes pulse-ring {
-      0% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1.3);
-        opacity: 0;
-      }
+    .link-arrow svg {
+      width: 20px;
+      height: 20px;
     }
     
     /* Scroll Indicator */
