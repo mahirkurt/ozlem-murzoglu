@@ -94,7 +94,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 2.25rem;
       color: var(--color-primary);
       margin-bottom: 16px;
       font-weight: 700;
