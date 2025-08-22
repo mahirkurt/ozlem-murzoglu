@@ -18,22 +18,26 @@ export class Footer {
   currentYear = new Date().getFullYear();
   
   contactInfo = {
-    phone: '+90 222 237 84 00',
-    email: 'info@ozlemmurzoglu.com',
+    phone: '+90 216 688 44 83',
+    mobile: '+90 546 688 44 83',
+    whatsapp: '+90 546 688 44 83',
+    email: 'klinik@drmurzoglu.com',
     address: {
-      street: 'Yeşiltepe Mah. Huzur Sokak No:2',
-      building: 'Neorama İş Merkezi Kat:3 D:15',
-      district: 'Tepebaşı',
-      city: 'Eskişehir'
+      street: 'Barbaros Mah. Ak Zambak Sok. No:3',
+      building: 'Uphill Towers, A Blok - Daire 30',
+      district: 'Ataşehir',
+      city: 'İstanbul',
+      zipCode: '34746'
     }
   };
 
   socialLinks: SocialLink[] = [
-    { platform: 'instagram', url: 'https://instagram.com/drozlemmurzoglu' },
-    { platform: 'facebook', url: 'https://facebook.com/drozlemmurzoglu' },
-    { platform: 'twitter', url: 'https://twitter.com/drozlemmurzoglu' },
-    { platform: 'linkedin', url: 'https://linkedin.com/in/drozlemmurzoglu' },
-    { platform: 'youtube', url: 'https://youtube.com/@drozlemmurzoglu' }
+    { platform: 'instagram', url: 'https://instagram.com/dr.ozlemmurzoglu' },
+    { platform: 'facebook', url: 'https://facebook.com/dr.murzoglu' },
+    { platform: 'twitter', url: 'https://twitter.com/ozlemmurzoglu' },
+    { platform: 'linkedin', url: 'https://linkedin.com/in/ozlemmurzoglu' },
+    { platform: 'youtube', url: 'https://youtube.com/@ozlemmurzoglu' },
+    { platform: 'whatsapp', url: 'https://wa.me/905466884483' }
   ];
 
   quickLinks = [

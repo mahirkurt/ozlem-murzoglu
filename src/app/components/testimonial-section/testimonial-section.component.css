@@ -1,5 +1,5 @@
 .testimonial-section {
-  padding: 80px 0;
+  padding: 80px 0 0 0;
   background: linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%);
   position: relative;
   overflow: hidden;
@@ -263,24 +263,58 @@
 
 /* CTA Button */
 .section-cta {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   margin-top: 48px;
+  flex-wrap: wrap;
 }
 
 .cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 32px;
-  background: linear-gradient(135deg, #005F73 0%, #0A8FA3 100%);
-  color: white;
-  border-radius: 12px;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 50px;
   text-decoration: none;
   font-family: 'DM Sans', sans-serif;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.primary-cta {
+  background: white;
+  color: #005F73;
+  border: 2px solid #005F73;
+  box-shadow: 0 4px 16px rgba(0, 95, 115, 0.1);
+}
+
+.primary-cta:hover {
+  background: #005F73;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 95, 115, 0.2);
+}
+
+.primary-cta:hover svg path {
+  fill: white !important;
+}
+
+.secondary-cta {
+  background: linear-gradient(135deg, #005F73 0%, #0A8FA3 100%);
+  color: white;
   box-shadow: 0 4px 16px rgba(0, 95, 115, 0.2);
+}
+
+.secondary-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 95, 115, 0.3);
+}
+
+.google-icon {
+  flex-shrink: 0;
 }
 
 .cta-button:hover {
