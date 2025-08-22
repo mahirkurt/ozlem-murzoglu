@@ -2,6 +2,7 @@ import { Component, AfterViewInit, ElementRef, ViewChild, OnInit } from '@angula
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { ContentCleanerService } from '../../../../shared/services/content-cleaner.service';
 
 @Component({
   selector: 'app-bebeklerde-d-meleri-nleme',
@@ -19,7 +20,11 @@ export class BebeklerdeDMeleriNlemeComponent implements OnInit, AfterViewInit {
 
   @ViewChild('contentRoot') contentRoot!: ElementRef<HTMLElement>;
 
-  constructor(private titleService: Title, private meta: Meta) {}
+  constructor(
+    private titleService: Title, 
+    private meta: Meta,
+    private contentCleaner: ContentCleanerService
+  ) {}
 
   ngOnInit(): void {
     const fullTitle = this.title + ' | Kaynaklar | Özlem Mürzoğlu';
@@ -30,9 +35,14 @@ export class BebeklerdeDMeleriNlemeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // Build TOC from h2/h3 headings
+    // Clean content first
     const root = this.contentRoot?.nativeElement;
     if (!root) return;
+    
+    // Apply content cleaning
+    this.contentCleaner.cleanResourceContent(root);
+    
+    // Build TOC from h2/h3 headings
     const headings = Array.from(root.querySelectorAll('h2, h3')) as HTMLElement[];
     this.toc = headings.map(h => {
       let text = (h.textContent || '').trim();
