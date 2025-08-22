@@ -44,11 +44,6 @@ import { RouterModule } from '@angular/router';
           </div>
         </div>
       </div>
-      
-      <!-- Scroll Indicator -->
-      <div class="scroll-indicator">
-        <div class="scroll-line"></div>
-      </div>
     </section>
   `,
   styles: [`
@@ -325,77 +320,6 @@ import { RouterModule } from '@angular/router';
     
     .cta-button:hover .button-icon {
       transform: translateX(4px);
-    }
-    
-    /* Scroll Indicator - Minimalist */
-    .scroll-indicator {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: bounce-slow 3s infinite;
-    }
-    
-    .scroll-line {
-      width: 30px;
-      height: 50px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 25px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .scroll-line::before {
-      content: '';
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 4px;
-      height: 10px;
-      background: white;
-      border-radius: 2px;
-      animation: scroll-down 2s infinite;
-    }
-    
-    .scroll-line::after {
-      content: '';
-      position: absolute;
-      inset: -10px;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      border-radius: 35px;
-      animation: pulse-outline 2s infinite;
-    }
-    
-    @keyframes pulse-outline {
-      0%, 100% { opacity: 0; transform: scale(0.8); }
-      50% { opacity: 1; transform: scale(1); }
-    }
-    
-    @keyframes scroll-down {
-      0% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(80px);
-        opacity: 0;
-      }
-    }
-    
-    @keyframes bounce-slow {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      40% {
-        transform: translateX(-50%) translateY(-10px);
-      }
-      60% {
-        transform: translateX(-50%) translateY(-5px);
-      }
     }
     
     @keyframes fade-in-down {
