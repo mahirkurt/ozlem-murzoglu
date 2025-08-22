@@ -6,7 +6,9 @@ import { TestimonialSectionComponent } from '../../components/testimonial-sectio
 import { ServicesSectionComponent } from '../../components/services-section/services-section.component';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { ClinicGalleryComponent } from '../../components/clinic-gallery/clinic-gallery';
-import { WaveDividerComponent } from '../../components/wave-divider/wave-divider';
+import { DoctorBioComponent } from '../../components/doctor-bio/doctor-bio';
+import { AppointmentSectionComponent } from '../../components/appointment-section/appointment-section.component';
+import { AppointmentWidgetComponent } from '../../components/appointment-widget/appointment-widget.component';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +21,9 @@ import { WaveDividerComponent } from '../../components/wave-divider/wave-divider
     ServicesSectionComponent,
     ScrollRevealDirective,
     ClinicGalleryComponent,
-    WaveDividerComponent
+    DoctorBioComponent,
+    AppointmentSectionComponent,
+    AppointmentWidgetComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

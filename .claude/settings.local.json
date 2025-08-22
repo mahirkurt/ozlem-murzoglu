@@ -30,7 +30,11 @@
       "WebFetch(domain:ozlemmurzoglu.com)",
       "WebSearch",
       "Bash(npx ng:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(env)",
+      "Bash(mcp list-servers:*)",
+      "Bash(mcp:*)",
+      "Bash(find:*)"
     ],
     "deny": []
   }
