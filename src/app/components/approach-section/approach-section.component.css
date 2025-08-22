@@ -52,26 +52,11 @@
 
 .section-title {
   font-family: 'Figtree', sans-serif;
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 700;
   line-height: 1.2;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.title-gradient {
-  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.title-highlight {
-  color: #005F73;
-  position: relative;
-  display: inline-block;
+  color: var(--color-primary);
 }
 
 

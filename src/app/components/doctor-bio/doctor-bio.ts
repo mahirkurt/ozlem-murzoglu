@@ -141,7 +141,7 @@ import { CommonModule } from '@angular/common';
     }
     
     .section-title {
-      font-size: 2rem;
+      font-size: 2.25rem;
       color: var(--color-primary);
       margin-bottom: 8px;
       font-weight: 700;

@@ -76,7 +76,7 @@ export class TestimonialSectionComponent implements OnInit, OnDestroy {
 
   get currentTestimonials(): Testimonial[] {
     const testimonials = [];
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
       const index = (this.currentTestimonialIndex + i) % this.testimonials.length;
       testimonials.push(this.testimonials[index]);
     }
@@ -95,7 +95,7 @@ export class TestimonialSectionComponent implements OnInit, OnDestroy {
 
   private startTestimonialRotation() {
     this.testimonialInterval = setInterval(() => {
-      this.currentTestimonialIndex = (this.currentTestimonialIndex + 2) % this.testimonials.length;
+      this.currentTestimonialIndex = (this.currentTestimonialIndex + 3) % this.testimonials.length;
     }, 8000); // Change every 8 seconds
   }
 

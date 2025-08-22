@@ -87,7 +87,7 @@ interface GalleryImage {
     }
     
     .gallery-title {
-      font-size: 2rem;
+      font-size: 2.25rem;
       color: var(--color-primary);
       margin-bottom: var(--space-3);
       position: relative;
@@ -113,7 +113,7 @@ interface GalleryImage {
     
     @media (min-width: 768px) {
       .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
       
       .gallery-item.featured {
@@ -124,7 +124,7 @@ interface GalleryImage {
     
     @media (min-width: 1200px) {
       .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
     }
     
@@ -379,6 +379,12 @@ export class ClinicGalleryComponent {
       alt: 'Modern ve hijyenik klinik ortamı',
       title: 'Klinik Alanlarımız',
       category: 'waiting'
+    },
+    {
+      src: '/images/20230416_174550~2.jpg',
+      alt: 'Klinik iç mekan görünümü',
+      title: 'Klinik İç Mekan',
+      category: 'clinic'
     }
   ];
   
