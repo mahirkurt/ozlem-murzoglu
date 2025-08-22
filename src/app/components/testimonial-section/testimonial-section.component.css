@@ -1,5 +1,5 @@
 .testimonial-section {
-  padding: 80px 0 0 0;
+  padding: 60px 0;
   background: linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%);
   position: relative;
   overflow: hidden;
@@ -63,6 +63,7 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 32px;
   margin-bottom: 48px;
+  position: relative;
 }
 
 @media (min-width: 1024px) {
@@ -77,8 +78,22 @@
   padding: 32px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
   border: 1px solid rgba(0, 0, 0, 0.04);
+  opacity: 1;
+  transform: translateX(0);
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .testimonial-card:hover {
@@ -198,67 +213,87 @@
   color: #999;
 }
 
-/* Stats Section */
-.stats-container {
-  background: white;
-  border-radius: 20px;
-  padding: 48px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+/* Google Rating Section */
+.google-rating-container {
+  display: flex;
+  justify-content: center;
   margin-top: 48px;
 }
 
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 32px;
+.google-rating-card {
+  background: white;
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   text-align: center;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
 }
 
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px;
-  background: linear-gradient(135deg, rgba(0, 95, 115, 0.03) 0%, transparent 100%);
-  border-radius: 16px;
-  transition: all 0.3s ease;
+.google-rating-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4285F4 0%, #34A853 33%, #FBBC05 66%, #EA4335 100%);
 }
 
-.stat-item:hover {
-  transform: translateY(-4px);
-  background: linear-gradient(135deg, rgba(0, 95, 115, 0.06) 0%, transparent 100%);
-}
-
-.stat-icon {
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
-  border-radius: 12px;
+.google-rating-header {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.google-logo-large {
+  width: 32px;
+  height: 32px;
+}
+
+.google-text {
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.rating-display {
+  margin-bottom: 24px;
+}
+
+.rating-score {
+  font-family: 'Figtree', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #005F73;
+  display: block;
   margin-bottom: 16px;
 }
 
-.stat-icon .material-icons {
-  color: white;
-  font-size: 24px;
-}
-
-.stat-number {
-  font-family: 'Figtree', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #005F73;
+.rating-stars {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
   margin-bottom: 8px;
 }
 
-.stat-label {
+.rating-stars .star {
+  color: #FFC107;
+  font-size: 28px;
+}
+
+.rating-subtitle {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   color: #666;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  margin: 0;
+  font-weight: 500;
 }
 
 /* CTA Button */
@@ -344,20 +379,20 @@
     padding: 24px;
   }
 
-  .stats-container {
+  .google-rating-card {
     padding: 32px 24px;
+    margin: 0 16px;
   }
 
-  .stats-row {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .rating-score {
+    font-size: 3rem;
   }
 
-  .stat-item {
-    padding: 20px;
+  .google-text {
+    font-size: 1.25rem;
   }
 
-  .stat-number {
-    font-size: 2rem;
+  .rating-stars .star {
+    font-size: 24px;
   }
 }
