@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RevealDirective } from '../../directives/reveal.directive';
+import { LazyLoadDirective } from '../../directives/lazy-load.directive';
 
 interface GalleryImage {
   src: string;
@@ -11,11 +13,11 @@ interface GalleryImage {
 @Component({
   selector: 'app-clinic-gallery',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RevealDirective, LazyLoadDirective],
   template: `
     <section class="clinic-gallery gradient-mesh noise-texture">
       <div class="container">
-        <div class="gallery-header reveal" appReveal revealAnimation="fade">
+        <div class="gallery-header reveal" appReveal [revealAnimation]="'fade'">
           <h2 class="gallery-title">Kliniğimiz</h2>
           <p class="gallery-subtitle">
             Modern, hijyenik ve çocuk dostu ortamımızda, küçük hastalarımızın kendilerini güvende ve mutlu hissetmeleri için tasarlanmış alanlarımız
@@ -49,7 +51,7 @@ interface GalleryImage {
         
         <div class="gallery-features">
           <div class="feature-card neu-card" *ngFor="let feature of clinicFeatures; let i = index"
-               appReveal revealAnimation="scale" [revealDelay]="i * 150">
+               appReveal [revealAnimation]="'scale'" [revealDelay]="i * 150">
             <div class="feature-icon">
               <span class="material-icons">{{ feature.icon }}</span>
             </div>
