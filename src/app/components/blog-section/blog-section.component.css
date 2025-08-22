@@ -1,9 +1,6 @@
 .blog-section {
   padding: 60px 0;
-  background: linear-gradient(180deg, 
-    var(--md-sys-color-surface) 0%, 
-    rgba(148, 187, 233, 0.03) 100%
-  );
+  background: #f8f9fa;
   position: relative;
   overflow: hidden;
 }
@@ -44,7 +41,7 @@
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--md-sys-color-on-surface);
   margin-bottom: 16px;
@@ -306,7 +303,7 @@
   }
 
   .section-title {
-    font-size: 1.875rem;
+    font-size: 2rem;
   }
 
   .section-subtitle {

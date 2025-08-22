@@ -78,7 +78,7 @@ interface GalleryImage {
     .clinic-gallery {
       padding: 60px 0;
       position: relative;
-      background: var(--color-neutral-50);
+      background: #ffffff;
     }
     
     .gallery-header {
@@ -87,11 +87,12 @@ interface GalleryImage {
     }
     
     .gallery-title {
-      font-size: var(--font-size-4xl);
+      font-size: 2rem;
       color: var(--color-primary);
       margin-bottom: var(--space-3);
       position: relative;
       display: inline-block;
+      font-weight: 700;
     }
     
     
@@ -106,7 +107,7 @@ interface GalleryImage {
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--space-4);
+      gap: 0;
       margin-bottom: var(--space-7);
     }
     
@@ -194,8 +195,8 @@ interface GalleryImage {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: var(--space-3);
-      max-width: 800px;
-      margin: 0 auto;
+      width: 100%;
+      margin: 0;
     }
     
     .feature-card {

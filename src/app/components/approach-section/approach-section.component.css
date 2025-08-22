@@ -52,7 +52,7 @@
 
 .section-title {
   font-family: 'Figtree', sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.2;
   margin: 0;
@@ -74,16 +74,6 @@
   display: inline-block;
 }
 
-.title-highlight::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #FFB74D 0%, #FFA726 100%);
-  border-radius: 2px;
-}
 
 .approach-grid {
   display: grid;
@@ -282,7 +272,7 @@
   }
 
   .section-header h2 {
-    font-size: 28px;
+    font-size: 2rem;
   }
 
   .approach-grid {

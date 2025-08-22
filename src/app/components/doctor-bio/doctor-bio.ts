@@ -83,7 +83,7 @@ import { CommonModule } from '@angular/common';
   styles: [`
     .doctor-bio-section {
       padding: 60px 0;
-      background: linear-gradient(135deg, var(--color-neutral-50) 0%, white 100%);
+      background: #f8f9fa;
       position: relative;
     }
     
@@ -141,7 +141,7 @@ import { CommonModule } from '@angular/common';
     }
     
     .section-title {
-      font-size: var(--font-size-3xl);
+      font-size: 2rem;
       color: var(--color-primary);
       margin-bottom: 8px;
       font-weight: 700;
