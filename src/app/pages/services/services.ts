@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { IllustrationComponent } from '../../shared/components/illustration/illustration.component';
 
 interface Service {
   id: string;
@@ -16,7 +17,7 @@ interface Service {
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, RouterModule, ScrollRevealDirective],
+  imports: [CommonModule, RouterModule, ScrollRevealDirective, IllustrationComponent],
   templateUrl: './services.html',
   styleUrl: './services.css'
 })

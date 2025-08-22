@@ -2,8 +2,15 @@
   <!-- Hero Section -->
   <div class="about-hero">
     <div class="container">
-      <h1 class="page-title" scrollReveal="fade-up">Hakkımızda</h1>
-      <p class="page-subtitle" scrollReveal="fade-up" [scrollDelay]="200">Çocuk sağlığını sosyal pediatri ve çocuk gelişimi ile bütünleştiriyoruz</p>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="page-title" scrollReveal="fade-up">Hakkımızda</h1>
+          <p class="page-subtitle" scrollReveal="fade-up" [scrollDelay]="200">Çocuk sağlığını sosyal pediatri ve çocuk gelişimi ile bütünleştiriyoruz</p>
+        </div>
+        <div class="hero-illustration" scrollReveal="fade-left" [scrollDelay]="300">
+          <app-illustration type="about" title="Dr. Özlem Murzoğlu - Çocuk Sağlığı Uzmanı" size="large" [animated]="true"></app-illustration>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -1,0 +1,195 @@
+/* Import base illustration styles */
+@import '../../styles/illustrations.css';
+
+.illustration-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.illustration-container:hover {
+  transform: scale(1.02);
+}
+
+/* Size variants */
+.illustration-small {
+  width: 120px;
+  height: 120px;
+  padding: 15px;
+}
+
+.illustration-medium {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+}
+
+.illustration-large {
+  width: 300px;
+  height: 300px;
+  padding: 25px;
+}
+
+/* Animation support */
+.illustration-animated .illo {
+  animation: float 6s ease-in-out infinite;
+}
+
+.illustration-animated .sparkles,
+.illustration-animated .care-symbols,
+.illustration-animated .floating-symbols,
+.illustration-animated .professional-symbols,
+.illustration-animated .connection-lines,
+.illustration-animated .question-marks,
+.illustration-animated .scattered-items {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.illustration-animated .progress-arrows {
+  animation: slideIn 2s ease-out infinite;
+}
+
+/* Keyframe animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0.3;
+    transform: translateX(-10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateX(10px);
+  }
+}
+
+/* Hover effects for interactive elements */
+.illustration-container:hover .sparkles circle,
+.illustration-container:hover .care-symbols path,
+.illustration-container:hover .floating-symbols circle {
+  animation: twinkle 1s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .illustration-small {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+  }
+
+  .illustration-medium {
+    width: 150px;
+    height: 150px;
+    padding: 15px;
+  }
+
+  .illustration-large {
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+  }
+
+  .illustration-container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .illustration-small {
+    width: 60px;
+    height: 60px;
+    padding: 8px;
+  }
+
+  .illustration-medium {
+    width: 120px;
+    height: 120px;
+    padding: 12px;
+  }
+
+  .illustration-large {
+    width: 160px;
+    height: 160px;
+    padding: 15px;
+  }
+}
+
+/* Theme-specific enhancements */
+:host-context(.dark-theme) .illustration-container {
+  border-color: var(--color-neutral-700);
+}
+
+:host-context(.light-theme) .illustration-container {
+  border-color: var(--color-neutral-200);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .illustration-animated .illo,
+  .illustration-animated .sparkles,
+  .illustration-animated .care-symbols,
+  .illustration-animated .floating-symbols,
+  .illustration-animated .professional-symbols,
+  .illustration-animated .connection-lines,
+  .illustration-animated .question-marks,
+  .illustration-animated .scattered-items,
+  .illustration-animated .progress-arrows {
+    animation: none;
+  }
+
+  .illustration-container:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .illustration-container {
+    background: white !important;
+    border: 1px solid #000 !important;
+    box-shadow: none !important;
+  }
+
+  .illo-fill-primary { fill: #000 !important; }
+  .illo-fill-secondary { fill: #666 !important; }
+  .illo-fill-accent { fill: #333 !important; }
+  .illo-stroke-primary { stroke: #000 !important; }
+  .illo-stroke-secondary { stroke: #666 !important; }
+}

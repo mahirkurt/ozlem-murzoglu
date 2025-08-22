@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { IllustrationComponent } from '../../shared/components/illustration/illustration.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, IllustrationComponent],
   templateUrl: './contact.html',
   styleUrl: './contact.css'
 })
