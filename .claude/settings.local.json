@@ -41,7 +41,12 @@
       "WebFetch(domain:undraw.co)",
       "WebFetch(domain:storyset.com)",
       "Bash(npm run:*)",
-      "Bash(git lfs track:*)"
+      "Bash(git lfs track:*)",
+      "Bash(npm start)",
+      "Bash(npx angular-cli-ghpages:*)",
+      "Bash(firebase deploy:*)",
+      "Bash(firebase init:*)",
+      "Bash(cat:*)"
     ],
     "deny": []
   }

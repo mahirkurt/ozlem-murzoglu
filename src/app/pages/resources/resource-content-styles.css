@@ -5,6 +5,7 @@
 
 /* Import shared styles */
 @import './shared-styles.css';
+@import './enhanced-resource-styles.css';
 
 /* ================================================== */
 /* ENHANCED TYPOGRAPHY SYSTEM                        */
@@ -16,8 +17,6 @@
   line-height: 1.8;
   color: #2d3748;
   letter-spacing: 0.01em;
-  max-width: none !important;
-  width: 100% !important;
 }
 
 /* ================================================== */
@@ -292,32 +291,28 @@
 
 .content-body table {
   width: 100%;
-  max-width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
   border-spacing: 0;
-  margin: 1.5rem 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  table-layout: auto;
-}
-
-/* Remove all default table borders and shadows */
-.content-body table,
-.content-body table * {
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
+  margin: 2.5rem 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  background: white;
 }
 
 .content-body thead {
-  display: none; /* Hide table headers as content doesn't use them */
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
 }
 
 .content-body th {
-  padding: 0;
-  margin: 0;
-  font-weight: normal;
+  color: white;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  position: relative;
 }
 
 .content-body th:not(:last-child)::after {
@@ -331,60 +326,28 @@
 }
 
 .content-body td {
-  padding: 0.5rem 1rem 0.5rem 0;
-  vertical-align: top;
-  border: none;
-  font-size: inherit;
-  color: inherit;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.9375rem;
+  color: #4a5568;
+  transition: all 0.2s;
 }
 
-/* First column often contains labels/titles */
-.content-body td:first-child {
-  min-width: auto;
-  padding-right: 1.5rem;
-}
-
-/* Make sure content in tables flows naturally */
-.content-body table p {
-  margin: 0 0 1rem 0;
-  padding: 0;
-  text-align: left;
-  width: 100%;
-}
-
-.content-body table p:last-child {
-  margin-bottom: 0;
-}
-
-/* Tables with single column (used for section headers) */
-.content-body table tr td[colspan="2"] {
-  padding: 1rem 0;
-}
-
-/* Nested lists in tables */
-.content-body table ul,
-.content-body table ol {
-  margin: 0.5rem 0;
-  padding-left: 1.5rem;
-}
-
-.content-body table li {
-  padding-left: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Remove all table row styling as content uses tables for layout */
 .content-body tbody tr {
-  background: transparent;
+  transition: all 0.2s;
 }
 
 .content-body tbody tr:hover {
-  background: transparent;
-  transform: none;
+  background: linear-gradient(90deg, rgba(0, 95, 115, 0.03) 0%, rgba(0, 95, 115, 0.01) 100%);
+  transform: scale(1.01);
 }
 
 .content-body tbody tr:nth-child(even) {
-  background: transparent;
+  background: #f7fafc;
+}
+
+.content-body tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /* ================================================== */
