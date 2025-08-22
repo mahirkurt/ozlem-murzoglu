@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/asilar" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>THE IMMUNIZATION ACTION COALITION (IAC)</p></td></tr><tr><td><p>AŞI BİLGİ FÖYÜ</p><p><strong>MENİNGOKOK B AŞISI</strong></p></td><td><p></p></td></tr></table><table><tr><td><p><strong>Neden Aşı Olalım?</strong></p></td></tr></table><p><strong>Meningokok B aşısı</strong> serogrup B'nin neden olduğu meningokok hastalığına karşı korunmaya yardımcı olabilir. A, C, W ve Y serogruplarına karşı korunmaya yardımcı olabilecek farklı bir meningokok aşısı mevcuttur.</p><p>Meningokok hastalığı menenjite (beyin ve omurilik zarlarının enfeksiyonu) ve kan enfeksiyonlarına neden olabilir. Tedavi edildiğinde bile meningokok hastalığı 100 kişiden 10 ilâ 15'ini öldürür. Ve hayatta kalan her 100 kişiden yaklaşık 10 ilâ 20'sinde işitme kaybı, beyin hasarı, böbrek hasarı, uzuv kayıpları, sinir sistemi sorunları veya deri greftlerinden kaynaklanan ciddi yara izleri gibi sakatlıklar bırakır.</p><p>Meningokok hastalığı sık görülmez. Bununla birlikte, bu hastalığa yakalanan kişilerde önemli bir ölüm veya kalıcı sakatlık riski taşıyan ağır bir hastalıktır.</p><p></p><p>Herkes meningokok hastalığına yakalanabilir. Aşağıda belirtilen gruplar da dâhil olmak üzere bazı kişiler yüksek risk altındadır:</p><ul><li>Bir yaşından küçük bebekler</li><li>16-23 yaş arası ergenler ve genç yetişkinler</li><li>Bağışıklık sistemini etkileyen belirli tıbbi durumları olan kişiler</li><li>Meningokok hastalığına neden olan bakteri olan <em>Neisseria meningitidis</em> izolatları ile rutin olarak çalışan mikrobiyologlar</li><li>Toplumlarındaki bir salgın nedeniyle risk altında olan kişiler.<strong> </strong></li></ul><table><tr><td><p><strong>Meningokok B Aşısı</strong></p></td></tr></table><p>Meningokok hastalığının önlenmesindeki en etkili yol aşılanmadır. </p><p>Meningokok hastalığına yol açan tüm serogruplara karşı koruyucu tek bir aşı bulunmamaktadır. Bu serogruplara karşı koruma sağlayan 2 grup (ACYW ve B aşıları) meningokok aşısı mevcuttur. Bu aşılarda koruyucu bağışıklık yanıtı yaş gruplarına göre küçük farklılıklar göstermekle birlikte her 10 kişiden 6-9'unda (ortalama 8'inde) tüm aşı dozları tamamlandıktan 1 ay sonra gerçekleşmektedir. </p><p>Mevcut kanıtlar koruyuculuk düzeyinin en az 5 yıl sürdüğünü göstermektedir. Tüm aşılar meningokok bakterisinin bazı kısımlarını içermekte olup, canlı etken bulunmamaktadır.</p><p>Meningokok B aşısı, MenB alt tipine karşı 4 antijen içerir. Aşı, diğer MenACWY aşılarıyla veya diğer çocukluk çağı aşılarıyla aynı anda uygulanabilir. </p><table><tr><td><p><strong>Sağlık Uzmanınız ile Konuşunuz</strong></p></td></tr></table><p>Aşıyı yaptıran kişide aşağıdaki durumlar mevcutsa bunları aşı uygulayıcınıza söyleyiniz:</p><ul><li>Önceki bir meningokok B aşısından sonra alerjik reaksiyon gösterdiyse veya ciddi, yaşamı tehdit eden herhangi bir alerjisi varsa</li><li>Gebe ise veya emziriyorsa</li></ul><p>Bazı durumlarda, sağlık uzmanınız meningokok B aşısını gelecekteki bir ziyarete ertelemeye karar verebilir.</p><p>Meningokok B aşısı, kişinin yüksek risk altında olmadığı ve aşının faydalarının potansiyel risklerine ağır bastığı düşünülmediği takdirde, kişinin sağlık uzmanına danışıldıktan sonra, gebeler için ertelenmelidir.</p><p>Soğuk algınlığı gibi hafif rahatsızlıkları olan kişiler aşılanabilir. Orta veya ağır derecede hasta olan kişiler meningokok B aşısını yaptırmadan önce genellikle iyileşene kadar beklemelidir.</p><p>Sağlık uzmanınız size daha fazla bilgi verebilir.</p><table><tr><td><p><strong>Aşı Reaksiyonu Riskleri</strong></p></td></tr></table><ul><li>Meningokok B aşılamasından sonra aşı yapılan yerde ağrı, kızarıklık veya şişlik; ayrıca yorgunluk, baş ağrısı, kas veya eklem ağrısı, ateş veya mide bulantısı olabilir. </li><li>Bu reaksiyonların bazıları, bu aşının uygulandığı kişilerin yarısından fazlasında meydana gelir.</li></ul><p>İnsanlar bazen aşılanma dâhil olmak üzere tıbbi bir işlemden sonra bayılırlar. Başınız dönerse, görme değişikliğiniz veya kulaklarınızda çınlama olursa aşı uygulayıcınıza bildiriniz. </p><p>Herhangi bir ilaçta olduğu gibi aşının da ağır bir alerjik reaksiyona, diğer ciddi bir tıbbi hasara neden olma ihtimali çok düşük olsa da vardır.</p><table><tr><td><p> <strong>Ciddi Bir Reaksiyon Olursa?</strong></p></td></tr></table><p>Alerjik bir reaksiyon aşılanan kişi klinikten ayrıldıktan sonra meydana gelebilir. Eğer ağır alerjik reaksiyon belirtileri (kurdeşen, yüzün ve boğazın şişmesi, nefes darlığı, hızlı kalp atışı, sersemlik veya güçsüzlük) görürseniz 112'yi arayınız ve kişiyi en yakın hastaneye götürünüz. </p><p>Sizi endişelendiren diğer belirtiler için sağlık uzmanınızı arayınız. </p><table><tr><td><p><strong>NASIL DAHA FAZLA BİLGİ EDİNEBİLİRİM?</strong></p><p>Aşılar hakkında daha detaylı bilgilere ulaşabileceğiniz bazı kaynaklar:</p><ul><li>T.C. Sağlık Bakanlığı Aşı Portalı <br /><a href="https://asi.saglik.gov.tr/">https://asi.saglik.gov.tr/</a> </li><li>Dünya Sağlık Örgütü Aşılar Sayfası: <a href="https://www.who.int/health-topics/vaccines-and-immunization">https://www.who.int/health-topics/vaccines-and-immunization</a> </li><li>Amerikan Gıda ve İlaç Dairesi (FDA) Aşılar Sayfası: <a href="https://www.fda.gov/vaccines-blood-biologics/vaccines">https://www.fda.gov/vaccines-blood-biologics/vaccines</a> </li><li>Amerikan Hastalık Kontrol ve Önleme Merkezi (CDC) Aşılar Sayfası:  <a href="https://www.cdc.gov/vaccines/index.html">https://www.cdc.gov/vaccines/index.html</a> </li></ul></td></tr></table><table><tr><td><p>Vaccine Information Statement ●  Meningococcal B (8/6/21) ● Turkish Translation ● www.immunize.org/vis</p><p>Distributed by the Immunization Action Coalition</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Aşı bilgi föyleri, Amerikan Hastalık Kontrol ve Önleme Merkezi (CDC) tarafından hazırlanan ve aşı yaptıranlara aşının hem yararlarını hem de risklerini açıklayan bilgi kaynaklarıdır. Türkçe çeviri Betül Polatdemir, MD ve Sibel Bostancıoğlu, MD tarafından yapılmıştır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/asilar/Meningokok%20B%20A%C5%9F%C4%B1s%C4%B1%20Bilgi%20F%C3%B6y%C3%BC.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

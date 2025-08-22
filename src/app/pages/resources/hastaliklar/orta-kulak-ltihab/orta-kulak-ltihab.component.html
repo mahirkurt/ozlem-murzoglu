@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/hastaliklar" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>UZM.DR. ÖZLEM MURZOĞLU - ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ</p></td></tr><tr><td><p>ÇOCUKLARDA </p><p><strong>ORTA KULAK İLTİHABI</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Orta kulak iltihabı, çocuklarda yaygın bir sorundur. Gelişmiş ülkelerdeki bebeklerin yaklaşık dörtte biri, ilk yaşlarında en az bir kez orta kulak iltihabı geçirir. Orta kulak iltihabı kulakta ağrıya, ateşe, geçici işitme kaybına, iştahsızlık ve sinirlilik gibi genel belirtilere neden olabilir. Bazı çocuklar antibiyotik tedavisi olmadan iyileşir, ancak antibiyotik kullanımı genellikle ateş ve kulak ağrısının süresini kısaltır. Erken yaşlarda orta kulak iltihabı gelişen bazı çocuklarda, tekrarlayan kulak iltihabı ve orta kulakta sıvı toplanma riski daha yüksektir. </p></td></tr></table><table><tr><td><p><strong>Orta kulak iltihabı nedir?</strong></p></td></tr></table><p></p><p>Orta kulak iltihabı (otitis media olarak da bilinir), orta kulağın bir enfeksiyonudur. Çoğu zaman bunun nedeni, çocukların burunlarında ve boğazlarında bulunan bakterilerdir.</p><p>Kulak enfeksiyonları genellikle soğuk algınlığı veya grip gibi viral bir solunum yolu enfeksiyonundan sonra gelişir. Bu enfeksiyonlar, burun ve boğazdaki dokuların şişmesine neden olur. Böylece burundaki bakteri miktarı artar ve bu bakterilerin temizlenmesini sağlayan vücut savunması zayıflar. Bakteriler Östaki borusu (kulağı yutağa bağlayan kanal) yoluyla orta kulağa ulaşıp enfeksiyona yol açar. </p><p>Bu enfeksiyonlar Östaki borusunun işlevini de bozabilir. Östaki borusu, orta kulaktaki basıncı dengelemek için önemlidir ve işlevindeki bozulma basınç değişimine (uçakta uçarken olduğu gibi) neden olabilir. Artan basınç, kulak zarının şişmesine sebep olarak ağrı ve huzursuzluğa yol açar.</p><p>Orta kulak iltihabında, orta kulakta sıvı toplanması da (efüzyon adı verilir) görülebilir.</p><table><tr><td><p>Orta kulak iltihabının belirtileri nelerdir?</p></td></tr></table><p></p><p>Büyük çocuklarda ve ergenlerde orta kulak iltihabı belirtileri genellikle kulak ağrısı ve işitmede geçici azalmadır. Bu belirtiler sıklıkla aniden ortaya çıkar.</p><p>Bebeklerde ve küçük çocuklarda kulak enfeksiyonu ayırt edici belirtiler göstermeyebilir. Bu genel belirtilerinin çoğuna bir viral solunum yolu enfeksiyonu da neden olabilir. </p><p>Bir orta kulak iltihabının tipik belirtileri şunlardır:</p><ul><li>Ateş (vücut sıcaklığının 38°C'den yüksek olması)</li><li>Huzursuzluk, asabilik veya uyku bozukluğu</li><li>Azalmış aktivite</li><li>İştahsızlık veya yemek yemede zorluk</li><li>Kusma veya ishal</li><li>Dış kulaktan sıvı gelmesi (otore denir)</li></ul><table><tr><td><p>Tanı nasıl konulur?</p></td></tr></table><p>Çocuğunuzun orta kulak iltihabı geçirmekte olduğundan şüpheleniyorsanız, doktorunuza başvurmalısınız. Doktorunuz çocuğunuzun kulağını muayene edecektir.</p><p></p><p>Kulak muayenesinde çocuğun kulağının içine bakmak için <strong>otoskop</strong> adında bir alet kullanılır ve kulak zarı ile kulak yolu incelenir. </p><p>Bu ağrılı bir işlem değildir, ama yine de çoğu bebek ve çocuk kulak muayenesinden hoşlanmaz. Muayeneyi kolaylaştırmak için çocuğunuzu kucağınıza alın ve çocuğunuzun kollarına ve vücuduna sarılın. </p><p>Eğer doktorun kulak zarını görmesine engel olan kulak kirleri (buşon da denir) varsa, bu esnada onların çıkarılması da gerekebilir.</p><p>Doktorunuz, kulak enfeksiyonunun tipik özelliklerini kulak zarına bakarak tanıyacaktır. </p><table><tr><td><p>Nasıl tedavi edilir?</p></td></tr></table><p></p><p>Bir orta kulak iltihabına yaklaşım şunları içerir:</p><ul><li>Gözlem (tetikte bekleme olarak adlandırılır)</li><li>Antibiyotik tedavisi</li><li>Ağrı ve ateşi tedavisi</li></ul><p>Tedavi, çocuğunuzun yaşına, önceki enfeksiyon öyküsüne, hastalığın ciddiyetine ve altta yatan tıbbi sorunlara göre bireysel olarak belirlenir.</p><table><tr><td><p><strong>Gözlem</strong></p></td></tr></table><p>Bazı durumlarda çocuğunuzun doktoru, antibiyotiğe başlamadan önce çocuğunuzu evde izlemenizi tavsiye eder. Gözlem, antibiyotik gerekip gerekmediğini belirlemeye yardımcı olabilir.</p><p>Aşağıdaki durumlarda gözlem önerilebilir:</p><ul><li>Çocuk 24 aydan büyükse</li><li>Kulak ağrısı ve ateş şiddetli değilse</li><li>Eğer çocuk genel olarak sağlıklıysa</li></ul><p>Çocuğunuz ister antibiyotik kullanıyor olsun ister gözlem altında olsun, eğer ağrısı varsa ağrıyı hafifletmek için ağrı kesici ilaçlar verilmelidir.</p><p>Çocuğunuz gözlem altında tutuluyorsa, 24 saat sonra takip için doktorunuzu aramanız veya ofisine gitmeniz gerekebilir. Çocuğunuzun ağrısı veya ateşi devam ederse veya durumu kötüleşirse, tekrar değerlendirme gerekebilir ve genellikle bu kez antibiyotikler önerilir. Çocuğunuz iyileşme gösteriyorsa, tamamen iyileşmiş olmasa bile gözlem altında kalmaya devam edebilir.</p><table><tr><td><p><strong>Antibiyotikler </strong></p></td></tr></table><p>24 aydan küçüklere, yüksek ateşi veya her iki kulağında enfeksiyonu olanlara rutin olarak antibiyotik verilir. Çünkü bu özelliklere sahip çocuklar antibiyotik tedavisi ile daha çabuk iyileşir. 24 aydan büyük ve hafif belirtileri olan çocukların genellikle antibiyotiksiz iyileşip iyileşmedikleri gözlemlenir. Gerektiği noktada antibiyotik tedavisine geçilebilir.</p><p>Antibiyotiklerin ishal ve döküntü gibi yan etkileri olabilir ve aşırı antibiyotik kullanımı tedavisi daha zor (dirençli) bakterilerin gelişimine yol açabilir. </p><table><tr><td><p><strong>Ağrı Yönetimi</strong></p></td></tr></table><p></p><p>Eğer çocuğunuzun ağrısı varsa bunu azaltmak için ibuprofen ve parasetamol gibi ağrı giderici ilaçlar kullanılabilir.</p><table><tr><td><p><strong>Tamamlayıcı ve Alternatif Tıbbi Tedaviler</strong></p></td></tr></table><p>Kulak enfeksiyonlarını tedavi etmek iddiasında olan çok çeşitli tamamlayıcı ve alternatif tıbbi tedaviler vardır. Orta kulak iltihabı için bu tedavilerinin etkili olduğunu gösteren kanıtlar mevcut değildir. Çocuklarda kulak enfeksiyonları için bu tedavileri önermiyoruz.</p><table><tr><td><p><strong>Dekonjestanlar ve Antihistaminikler</strong></p></td></tr></table><p>Öksürük ve soğuk algınlığı ilaçlarının (dekonjestanlar veya antihistaminikler) çocuklarda orta kulak iltihabının iyileşmesini hızlandırdığı veya komplikasyonlarını azalttığı kanıtlanmamıştır. Ayrıca bu tedavilerin tehlikeli olabilecek yan etkileri vardır. Orta kulak iltihabı olan çocuklara bu ilaçlar önerilmemektedir.</p><table><tr><td><p><strong>Takip</strong></p></td></tr></table><p>Çocuğunuzun belirtileri, antibiyotik reçete edilsin veya edilmesin 24 ila 48 saat içinde düzelmeye başlamalıdır. Çocuğunuz 48 saat sonra düzelme göstermemişse veya herhangi bir zamanda kötüleşirse doktorunuza ulaşın. </p><p>İki yaşından küçük çocuklar ile konuşma veya öğrenme güçlüğü olan çocuklar, kulak enfeksiyonu tedavisi gördükten iki ila üç ay sonra tekrar kulak muayenesinden geçmelidir. Bu çocuklar konuşmayı öğrenmede gecikme riski taşır. Bu muayene, eğer oluşmuşsa sıvı toplanmasının (işitmeyi etkileyebilir) tespitine yardımcı olur.</p><table><tr><td><p>Olası komplikasyonlar nelerdir?</p></td></tr></table><table><tr><td><p><strong>Kulak Zarı Yırtılması</strong></p></td></tr></table><p></p><p>Bir orta kulak iltihabının yaygın komplikasyonlarından biri, kulak zarının yırtılması veya delinmesidir. Orta kulakta toplanan sıvının yaptığı baskı sonucu, zardaki kan dolaşımı bozulabilir ve bu durum zarın zayıflamasına neden olabilir. Zar yırtıldığında çocuğunuzun canı yanmaz ve birçok çocuk baskı kalktığı için aslında kendini daha iyi hisseder. Neyse ki, kulak zarı yırtıldıktan sonra hızla iyileşir. Kulak zarının yırtılması, orta kulak iltihabının antibiyotik ile tedavi edilmesini gerektirir.</p><table><tr><td><p><strong>Kulakta Sıvı Toplanması (Efüzyon) ve İşitme Kaybı</strong></p></td></tr></table><p>Kulak zarının arkasında biriken sıvı (efüzyon olarak adlandırılır), orta kulak iltihabı düzeldikten sonra haftalar ila aylarca boyunca orada kalmaya devam edebilir. Bu sıvı, genellikle hafif ila orta derecede ve geçici nitelikte işitme kaybına neden olur. Sıvı varlığı devam ederse, öğrenmeyi ve/veya konuşmayı etkileyebilir. </p><p>Efüzyonlar genellikle herhangi bir tedavi olmaksızın zamanla düzelir. Bununla birlikte, efüzyon üç aydan fazla devam ederse, çocuğun cerrahi bir işlemle tedavi edilmesi gerekebilir. Tedavi kararı, efüzyonun çocuğun işitmesini ne derecede etkilediğine ve çocuğun öğrenme veya konuşma problemleri yaşama riskine bağlıdır.</p><p>Konuşma, işitme veya gelişim sorunları olan çocuklarda, işitme kaybı daha kötü sonuçlara neden olabilir. Erken müdahaleye ihtiyaç duyabilecekleri için bu çocuklar, normalde önerilen üç aylık süreden daha önce kontrol edilmelidirler.</p><p>Efüzyon için herhangi bir tedavi uygulanmayan çocuklar yakından izlenmelidir. Efüzyon kaybolana kadar her üç ila altı ayda bir kulak muayenesi ve işitme testi yapılmalıdır.</p><p></p><ol><li>Normal kulak zarı</li><li>Orta kulak iltihabının göstergesi olan kırmızı ve şişkin kulak zarı</li><li>Efüzyonlu orta kulak iltihabı.</li><li>Kulak zarına yerleştirilmiş bir timpanostomi tüpü</li></ol><table><tr><td><p>Nasıl korunabiliriz?</p></td></tr></table><p>Bazı çocuklar sıklıkla orta kulak iltihabı geliştirir. Tekrarlayan orta kulak iltihabı, 6 ay içinde üç veya daha fazla enfeksiyon veya 12 ay içinde dört veya daha fazla enfeksiyon olarak tanımlanır. Diğer tüm çocuklar için tavsiye edildiği gibi pnömokok ve grip aşıları ile diğer uygun önlemler tekrarlayan enfeksiyon riskini azaltmaya yardımcı olabilir. Tütün dumanından kaçınma, emzirme, düşük doz antibiyotiklerin sürekli kullanımı ile enfeksiyondan korunma (profilaksi adı verilir) ve/veya kulaklara cerrahi olarak tüp takılması (timpanostomi) kullanılan önlemlerden en önemlileridir. </p><table><tr><td><p><strong>Önleyici Antibiyotik Kullanımı (Profilaksi)</strong></p></td></tr></table><p></p><p>Tekrarlayan orta kulak iltihabı olan çocuklar sonbahar, kış ve erken ilkbahar aylarında günlük olarak alınan düşük doz bir antibiyotik rejimi ile önleyici tedaviye alınabilir. Önleyici antibiyotikler kulak enfeksiyonlarını azaltmaya yardımcı olsa da, enfeksiyon gelişmesi yine de mümkündür. Uzun süre antibiyotik almanın antibiyotiklere dirençli bakterilere yol açma riski vardır. Bu yaklaşımın potansiyel yararları ve riskleri hakkında çocuğunuzun doktoru ile konuşun.</p><table><tr><td><p><strong>Tüp Takılması</strong></p></td></tr></table><p></p><p>Bazı araştırmalar, kulak zarına "timpanostomi" tüpü yerleştirmenin tekrarlayan kulak enfeksiyonlarını önlemeye yardımcı olduğunu göstermektedir. Timpanostomi tüpleri sıvının orta kulaktan dışarı akmasını ve orta kulağa hava girmesini sağlar; orta kulak ile dış kulak kanalı arasındaki basıncı dengeler. Tüp takılmasının riskleri ve yararları hakkında çocuğunuzun doktoruyla konuşun. </p><table><tr><td><p></p></td><td><p>Bu genel bilgi, tanı, tedavi ve/veya ilaç bilgilerinin sınırlı bir özetidir. Kapsamlı olması amaçlanmamıştır ve kullanıcının potansiyel teşhis ve tedavi seçeneklerini anlamasına ve/veya değerlendirmesine yardımcı olacak bir araç olarak kullanılmalıdır. Belirli bir hasta için geçerli olabilecek koşullar, tedaviler, ilaçlar, yan etkiler veya riskler hakkındaki tüm bilgileri içermez. Tıbbi tavsiye olması veya bir sağlık hizmeti sunucusunun muayenesi, tıbbi tavsiyesi, teşhisi veya tedavisinin yerine geçmesi amaçlanmamıştır. Hastalar, tıbbi soruları ve tedavi seçenekleri hakkında eksiksiz bilgi için bir sağlık uzmanıyla konuşmalıdır. UpToDate, Inc. ve bağlı kuruluşları, bu bilgilerle veya bunların kullanımıyla ilgili herhangi bir garanti veya sorumluluk kabul etmez. </p><p>©2022 UpToDate, Inc. &amp; Wolters Kluwer. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/hastaliklar/Orta%20Kulak%20%C4%B0ltihab%C4%B1.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

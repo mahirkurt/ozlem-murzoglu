@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>AMERİKAN PSİKOLOJİ DERNEĞİ</p></td></tr><tr><td><p><strong>SİBER ZORBALIK</strong></p><p>NEDİR VE NASIL ENGELLENİR?</p></td><td><p></p></td></tr></table><table><tr><td><p>Siber zorbalık internet bağlantısı olan her yerde olabilir. Geleneksel, yüz yüze zorbalık hala daha yaygın olsa da, yaklaşık her 4 gençten 1'inin siber zorbalığa maruz kalmakta ve yaklaşık 6 gençten 1'i de zorbalık yapmaktadır. </p><p>Teknoloji geliştikçe, insanlarla bağlantı kurma fırsatları da gelişir; ancak başkalarına sınırsız erişim, özellikle de gençler için her zaman iyi bir şey değildir. Araştırmalar, uzun süre ekran maruziyetinin daha yüksek kaygı ve depresyon gibi psikolojik problemlerle ilişki olduğunu göstermiştir. </p><p>İşte siber zorbalık ve psikolojinin bunu durdurmadaki rolünüz hakkında bilmeniz gerekenler.</p></td></tr></table><table><tr><td><p><strong>Siber zorbalık nedir?</strong></p></td></tr></table><p></p><p>Siber zorbalık, teknolojinin başka bir kişiyi küçük düşürmek veya zarar vermek için kullanıldığı durumda ortaya çıkar. <strong>Siber zorbalık bilgisayarların, cep telefonlarının ve diğer elektronik cihazların kullanımı yoluyla uygulanan kasıtlı ve tekrarlanan zarardır. </strong></p><p>Failler, sosyal medya, video veya bilgisayar oyunları veya mobil cihazlardaki mesajlaşma uygulamaları dahil olmak üzere herhangi bir çevrimiçi ortamda kurbanlarına zorbalık yapabilir. </p><p>Sanal ortamdaki zorbalık, yaştan bağımsız olarak herkesi etkileyebilir. Bununla birlikte, "siber zorbalık" terimi genellikle çocuklar ve gençler arasındaki çevrimiçi zorbalık anlamına gelir. İsim takma, tehditler, özel veya utanç verici fotoğrafları paylaşma veya başkalarını dışlamayı içerebilir. </p><p>Bir zorba başka bir kişiyi çevrimiçi olarak taciz edebilir veya birkaç zorba bir kişiye karşı birlik olabilir. </p><p>Siber zorbalık daha çok birbirini okuldan veya diğer sosyal ortamlardan tanıyan çocuklar veya gençler arasında görülür. Araştırmalar, zorbalığın genellikle hem okulda hem de internette olduğunu göstermektedir. </p><table><tr><td><p><strong>Siber zorbalık çocuğumun ruh sağlığını nasıl etkileyebilir?</strong></p></td></tr></table><p>Zorbalığın herhangi bir biçimi, hem zorbalığın meydana geldiği anda hem de sonrasında mağdurun hayatını olumsuz etkileyebilir. Psikolojik araştırmalar, bir siber zorba tarafından mağdur edilmenin kaygı ve depresyon ile sonuçlanabileceğini göstermektedir. Bazı araştırmalar, kaygı ve depresyon yaşayan ergenlerin siber zorbalık kurbanı olma olasılığının daha yüksek olduğunu göstermektedir.</p><p>Siber zorbalık, öğrencinin derslere katılımını veya akademik performansını etkileyerek eğitime zarar verebilir. Çocuklar ve gençler, siber zorbalığın stresiyle başa çıkmak için madde kullanımı gibi olumsuz başa çıkma mekanizmalarına yönelebilirler. Çok yoğun ve zorlayıcı durumlarda, çocuklar ve gençler kendine zarar verme veya intihar düşüncesiyle mücadele etmek zorunda kalabilir. Bu çocukların madde kullanma ve bağımlılık riski daha yüksektir.</p><table><tr><td><p>Çocuğumla siber zorbalık hakkında nasıl konuşabilirim?</p></td></tr></table><p>Ebeveynler, siber zorbalığın ve buna bağlı zararların önlenmesinde çok önemli bir rol oynamaktadır. Çocuğunuzun elektronik cihazlarını kontrol edin, onlarla çevrimiçi davranışları hakkında konuşun veya bir izleme programı kurarak çocuklarınızın çevrimiçi ortamda neler yaptığının farkında olun. Çocuğunuzun sosyal medya platformlarında kimlerle arkadaş olabileceği veya etkileşimde bulunabileceği konusunda kurallar belirleyin. Örneğin çocuğunuza, evinize davet etmediği birinin sosyal medya hesaplarına erişmesine izin vermemesi gerektiğini söyleyin. Ebeveynler ayrıca, elektronik cihazları kullandıktan sonra öfke, kaygı veya başkaları yakındayken bu cihazları saklama gibi siber zorbalık belirtileri hakkında bilgi sahibi olmalıdır.</p><p>Siber zorbalık hakkında düzenli olarak iletişim kurmak, çocuğunuzun sağlığını etkilemesini önlemede önemli bir bileşendir. Psikologlar, internete kişisel erişimleri olmadan önce çocuklarla çevrimiçi ortamda nasıl güvende olacakları hakkında konuşmanızı tavsiye etmektedir. Çocuğunuzu, anlayabildiği anda siber zorbalık kavramıyla tanıştırın. Oluşursa, sorunu çözmek için bir plan geliştirin. Siber zorbalık hakkında açık bir diyalog geliştirmek, çocukların karşılaştıkları zorbalığı daha zararlı bir duruma dönüşmeden tanımlayabilmelerini ve bir yetişkine anlatabilmelerini sağlayabilir.</p><p>Çocuklara başka biri mağdur edildiğinde ne yapacaklarını öğretmek de önemlidir. Örneğin, çocuğunuzu, tanıdığı birinin siber zorbalık yaşadığını öğrendiğinde bir öğretmene veya ebeveyne söylemesi için teşvik edin.</p><p>Çocukların, elektronik cihazlarına erişimlerini kaybedeceklerinden korktukları için siber zorbalık hakkında konuşmaktan çekinebileceklerini unutmayın. Çocuğunuza, sizinle siber zorbalık hakkında konuştuğu için başının belaya girmeyeceğini hatırlatarak, size karşı açık olması için cesaretlendirin. Amacınızın, arkadaşlarıyla çevrimiçi olarak güvenli bir şekilde iletişim kurmalarına izin vermek olduğunu açık bir şekilde ifade edin.</p><table><tr><td><p>Siber zorbalığı nasıl şikayet edebilirim?</p></td></tr></table><p>Siber zorbalıkla nasıl başa çıkacağınız, zorbalığın türü ve çocuğunuzun yaşı gibi bazı faktörlere bağlıdır. Küçük bir çocuğun sorununu çözmesine yardım ederek doğrudan müdahale etmeyi seçebilirsiniz, oysa gençler bir büyüğün desteğiyle zorbalığı kendi başlarına halletmeyi tercih edebilirler.</p><p>Genel olarak, siber zorbalık olaylarının ekran görüntülerini kayıt olarak almak, ancak zorbaların mesajlarına yanıt vermemek iyi bir uygulamadır. Gelecekteki olası tacizleri önlemek için siber zorbaları engellemeyi düşünün.</p><p>Ebeveynler, özel veya utanç verici bilgiler ifşa edildiği durumlarda, bu gönderileri kaldırtmak için doğrudan uygulama, platform veya web siteleriyle iletişime geçmelidir. Bazı sosyal medya siteleri faillerin hesaplarını askıya almaktadır.</p><p>Zorbalık okulda veya okula ait bir cihazda oluyorsa veya zorbalık çocuğun okul performansını etkiliyorsa, çocuğunuzun öğretmeni veya okul personeli ile konuşmanız uygun olabilir.</p><table><tr><td><p>Ne tür psikolojik önlemler alınabilir?</p></td></tr></table><p>Birçok araştırma, önleyici tedbirlerin siber zorbalık uygulanmasını ve mağduriyetlerini büyük ölçüde azaltabileceğini göstermektedir. Ebeveynler, bakım verenler, okullar ve teknoloji şirketleri, çocukları medya okuryazarlığı ve ruh sağlığı konusunda eğitmede önemli roller oynar. Sağlık uzmanları, çocuk ve ergen gelişimi, iletişim, kişiler ilişkiler ve ruh sağlığı alanlarındaki uzmanlıkları sayesinde siber zorbalığın önlenmesine önemli katkılarda bulunabilir.</p><p>Eğer İngilizce biliyorsanız, bu web sitelerinden siber zorbalık hakkında daha fazla bilgi edinebilirsiniz:</p><ul><li>Cyberbullying Research Center</li></ul><p><a href="https://cyberbullying.org/">https://cyberbullying.org/</a> </p><ul><li>StopBullying.gov</li></ul><p><a href="https://www.stopbullying.gov/">https://www.stopbullying.gov/</a> </p><ul><li>Nemours Kids Health</li></ul><p><a href="https://kidshealth.org/en/parents/cyberbullying.html">https://kidshealth.org/en/parents/cyberbullying.html</a> </p><table><tr><td><p>Amerikan Psikoloji Derneği tarafından hazırlanan eğitsel içeriklerden uyarlanmıştır.</p><p>Daha fazla bilgi için <a href="https://www.apa.org/topics/bullying/cyberbullying-online-social-media"><strong>https://www.apa.org/topics/bullying/cyberbullying-online-social-media</strong></a><strong> </strong>adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal içerik, Amerikan Psikoloji Derneği web sayfasından tercüme edilmiştir. Amerikan Psikoloji Derneği, bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden APA sorumlu değildir. </p><p>© 2022 Amerikan Psikoloji Derneği. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/genel-bilgiler/Siber%20Zorbal%C4%B1k.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

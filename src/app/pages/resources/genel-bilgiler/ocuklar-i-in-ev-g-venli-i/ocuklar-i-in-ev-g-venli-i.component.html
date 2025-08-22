@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>UZM.DR. ÖZLEM MURZOĞLU - ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ</p></td></tr><tr><td><p>ÇOCUKLAR İÇİN </p><p><strong>EV GÜVENLİĞİ</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>5 yaşın altındaki çocuklarda meydana gelen yaralanmaların çoğu evde meydana gelmektedir. Güvenliği düşünerek ve buna uygun hareket ederek yaklaşık 10 yaralanmadan 9'u önlenebilir. Evinizin içini ve dışını güvenli hale getirmeniz, çocuk güvenliği için çok önemlidir. Çocuğunuz bir sonraki gelişim basamağına gelmeden önce güvenlik önlemlerini almalısınız. Tabii ayrıca gözünüz hep çocuğunuzda olmalı...</p></td></tr></table><table><tr><td><p><a id="_Hlk155850600"></a><strong>Ev Güvenliği</strong></p></td></tr></table><p></p><ul><li>Evinizdeki her odayı ve bölümü kontrol edin (salon, yatak odaları, merdiven boşlukları, banyolar, kiler...)</li><li>Her şeyi çocuğunuzun boyundan görebilmek için çökün, elleriniz ve dizlerinizin üzerinde tüm evi dolaşın ve kendinize sorun: <ul><li>Bu alanda çocuğum için tehlike oluşturabilecek herhangi bir şey var mı?</li></ul></li><li>Potansiyel bir tehlikeyi fark ettiğinizde, onu çözmek için harekete geçin.</li><li>Çocuğunuza başka birinin evinde bakılıyorsa, o yerin de çocuklar için güvenli olduğundan emin olun. Bu sayfadaki bilgileri çocuğunuza bakan kişilerle paylaşın.</li></ul><table><tr><td><p><strong>Acil Durumlar</strong></p></td></tr></table><ul><li>Çocukların göremeyeceği ve erişemeyeceği bir yerde saklanan, iyi hazırlanmış bir ilk yardım çantası hazır bulundurun.</li><li>Acil durum numaralarının bir listesini hazırlayın, buzdolabının üzerine sabitleyin.</li><li>Yaşı uygun olan çocuklarınıza adreslerini, telefon numaralarını ve acil servis numarasını (112) ezberletin ve ne zaman kullanacaklarını öğretin.</li></ul><table><tr><td><p><strong>Yangın Güvenliği</strong></p></td></tr></table><p></p><ul><li>Duman alarmlarınızı düzenli olarak test edin.</li><li>Çocuklarınızla birlikte uygulayabileceğiniz bir yangın kaçış planı oluşturun.</li><li>Yangının yayılmasını önlemek için geceleri tüm kapıları kapalı tutun.</li><li>Evinizde sigara içmeyin ve kimsenin sigara içmesine izin vermeyin.</li><li>Açık yangınlarda kullanmak üzere kolay ulaşabileceğiniz açık bir yerde bir alev koruyucu battaniye bulundurun.</li><li>Kibritleri ve çakmakları yüksekte ve kilitli bir dolapta saklayın.</li><li>Evinizde baca varsa düzenli olarak temizlenmesini sağlayın.</li><li>Yakıt kullandığınız her yere en az bir adet sesli karbon monoksit alarmı kurun.</li><li>Akaryakıtla çalışan cihazların bakımını yılda bir kez yaptırın.</li><li>Yangını önlemek için çamaşır kurutucunuzdaki tüy filtresini düzenli olarak temizleyin.</li><li>Elektrik prizlerinin iyi durumda ve aşırı yüklenilmemiş olduğundan emin olun.</li><li>Elektrikli ekipmanın iyi durumda olduğuna ve kullanılmadığı zamanlarda fişinin çekilmiş olduğuna emin olun.</li><li>Yanıkları önlemek için saç düzleştirici dahil tüm elektrikli eşyaları çocukların ulaşamayacağı yerde tutun.</li><li>Su ısıtıcıların ve diğer elektrikli eşyaların esnek kısımlarının (kablo) minimum ebatta ve çocukların ulaşamayacağı yerde bulunduğuna emin olun.</li></ul><table><tr><td><p><strong>Pencere ve Balkon Güvenliği</strong></p></td></tr></table><ul><li>Tüm pencerelerinizi, açmak için bir alet gerektirmeyen (yangında hızlı kaçışınızı engellememesi için) pencere sınırlayıcılarla emniyete alın. </li><li>Perde ve stor kordonlarınızda boğulmayı önlemek için bir bağlama veya gerdirme aparatı bulunduğundan emin olun.</li><li>Çocuğunuzun tırmanmak için kullanabileceği mobilyalar ve diğer eşyaların pencere ve balkonlardan uzağa yerleştirilmiş olmasına dikkat edin.</li><li>Merdiven veya balkon korkuluklarında basamak olarak kullanılabilecek yer veya çocukların geçebileceği boşluklar varsa mutlaka kapatın.</li></ul><table><tr><td><p><strong>Evde Genel Noktalar</strong></p></td></tr></table><ul><li>TV'leri ve TV sehpalarını, şifonyerleri, dolapları, kitaplıklar ve diğer sabit olmayan mobilyaları zemine veya duvara sabitleyin.</li><li>Keskin köşeleri mobilya pedleri ile kaplayın.</li><li>Merdivenlerin üst ve alt kısmında doğru şekilde monte edilmiş merdiven kapıları kullanın ve kaymaları önlemek için basamakları temiz tutun.</li><li>Mama sandalyesi, ana kucağı, araba koltuğu ve diğer oturma aparatlarında 5 yönlü emniyet kemeri olmasına dikkat edin.</li><li>Çocuğunuzu asla alt değiştirme masasında veya yüksek bir yüzeyde düşme tehlikesi nedeniyle gözetimsiz bırakmayın.</li><li>Bebeğinize yürüteç kullandırmayın. Yürüteçler kafa yaralanması, yanık, haşlanma ve zehirlenme riskini artırır.</li><li>Parmaklarının sıkışmasını önlemek için çocukların erişemeyeceği yüksekliğe takılı olacak şekilde kapı durdurucuları kullanın. </li><li>Boğulma riski nedeniyle diş çıkarma takıları (kolye, bilezik ve halhal) kullanmayın.</li><li>Önlükleri beslendikten sonra ve mutlaka çocuğunuzu uykuya yatırmadan önce çıkarın (boğulma riski).</li><li>Küçük çocukların üzerine asla kolye, kurdele, takı, elbise veya şapka bırakmayın (boğulma riski).</li><li>Oyuncakların iyi durumda, çocuğunuzun yaşına ve gelişim aşamasına uygun ve mevcut güvenlik standartlarını karşılıyor olduğundan emin olun.</li><li>Plastik poşetleri ve plastik bebek bezi torbalarını çocuğunuzun göremeyeceği ve ulaşamayacağı yerde tutun.</li><li>Tüm ilaçları ve besin takviyelerini orijinal kaplarında, yüksek kilitli dolapta saklayın.</li><li>Alkol, sigara ve e-sigaraları yüksekte ve kilitli bir dolapta saklayın.</li><li>Çocuğunuzun tehlikeli eşyaları bulmasını önlemek için dolap emniyet kilitleri kullanın.</li><li>Çantalarınızı çocukların göremeyeceği ve erişemeyeceği yerlerde saklayın. İçlerinde bulunabilecek ilaç, kozmetik ve el jeli gibi maddeler çocukları zehirleyebilir.</li><li>Çocukların boğulabileceği küçük nesnelerin görüş alanı dışında ve erişilemez durumda olduğundan emin olun.</li></ul><table><tr><td><p><strong>Banyo ve Çamaşır Odası</strong></p></td></tr></table><p></p><ul><li>Boğulmayı önlemek için banyo sırasında çocuğunuzu en fazla bir kol boyu mesafesinde yakınınızda tutun.</li><li>Banyo suyunun sıcaklığını her zaman kullanımdan önce test edin (banyo termometresi veya dirseğinizle).</li><li>Boğulmayı önlemek için küveti kullanımdan hemen sonra boşaltın.</li><li>Boğulmayı önlemek için tüm klozetlere kapak kilitleri yerleştirin.</li><li>Jiletleri ve keskin nesneleri çocukların göremeyeceği ve erişemeyeceği bir yerde kilitli tutun.</li><li>Şampuanları, sabunları, kozmetikleri ve banyo temizlik ürünlerini çocukların göremeyeceği ve ulaşamayacağı yerlerde (zehirlenme riski) tutun.</li><li>Çamaşır makinesi ve çamaşır kurutma makinesi kapaklarını her zaman kapalı tutun ve emniyet kilitleri kullanın (riskler arasında içeride mahsur kalma ve deterjandan zehirlenme sayılabilir).</li><li>Zehirlenmeyi önlemek için tüm çamaşır ve temizlik ürünlerini ve sıvı deterjan kapsüllerini orijinal kaplarında, yüksekte ve kilitli dolapta bulundurun.</li></ul><table><tr><td><p><a id="_Hlk155852734"></a><strong>Mutfak ve Yemek Odası</strong></p></td></tr></table><p></p><ul><li>Masa örtüsü kullanmayın (çocuklar onları çekerek sıcak içeceklerin ve yiyeceklerin üzerine dökülmesine neden olabilir).</li><li>Pişirme sırasında ilk önce ocağın arka halkalarını kullanmayı tercih edin ve çocukların ulaşıp yanmaması için tüm tava ve tencere saplarını içeri çevrili tutun.</li><li>Çocuğunuzun ocağa ulaşmasını engellemek için ocak koruyucusu takın.</li><li>Yanıkların önlenmesi için sıcak içecekleri ve sıvıları çocukların ulaşamayacağı yerlerde muhafaza edin.</li><li>Kızartma tenceresi kullanmayın (yangın riski taşır)</li><li>Yangın battaniyesini ve yangın söndürücüyü kullanıma hazır bulundurun (çocukların göremeyeceği ve ulaşamayacağı yerde saklayınız).</li><li>Bıçak, makas ve tehlikeli veya kırılabilir eşyaların saklandığı dolap ve çekmecelerde emniyet kilitleri kullanın.</li><li>Bıçak bloklarını çocukların göremeyeceği ve erişemeyeceği yerlerde bulundurun.</li><li>Çocuğunuzun boğulma tehlikesi de dahil olmak üzere uygun olmayan yiyecek veya içecekleri almasını önlemek için buzdolabı, dondurucu ve dolap kilitleri kullanın.</li><li>Bulaşık makinesini her zaman kapalı tutun ve güvenlik kilitleri kullanın (riskler arasında keskin nesneler ve deterjandan kaynaklanan zehirler bulunur).</li></ul><table><tr><td><p><strong>Uyku Güvenliği</strong></p></td></tr></table><p></p><ul><li>Uyurken bebeğiniz her zaman sırt üstü yatırın ve ayakları karyolanın ayak ucunda olacak şekilde uyutun.</li><li>Uyurken, başını veya yüzünü elbise, battaniye veya şapka ile örtmeyin.</li><li>Karyolada yastık, konumlandırıcı, tampon, oyuncak, yumuşak nesne ve gevşek veya kabarık herhangi bir şey bulundurmayın.</li><li>İlk 6 ay geceleri bebeğinizi odanızdaki bebek karyolasında uyutun (aynı oda ancak ayrı bir yatakta).</li><li>Bebeğinizin uyuduğu odanın sıcaklığının 19 ile 21 derece arasında olup olmadığını kontrol etmek için oda termometresi kullanın.</li><li>Bebeğinizi ısıtıcı, ateş, radyatör yakınında ya da doğrudan güneş ışığı altında uyutmayın.</li><li>Evde rutin uyku için araba koltuğu, salıncak, bebek koltuğu ve benzeri cihazlar kullanmayın. Oturma pozisyonunda uyumak bebeğinizin başının öne doğru düşmesine ve nefes almasını zorlaştırmasına neden olabilir.</li></ul><table><tr><td><p><strong>Ev Etrafı</strong></p></td></tr></table><p></p><ul><li>Çocuklarınızın açık havada oynarken araç trafiğine veya koşu yoluna çıkamayacağından emin olun.</li><li>Oyun ekipmanın iyi durumda, uygun şekilde monte edilmiş, konumlandırılmış ve amaçlandığı şekilde kullanıldığından emin olun.</li><li>Çocuğunuz ile hayvanlar arasındaki tüm teması denetleyin (her daim bir yetişkin tarafından denetlediğinden emin olun).</li><li>Tüm kimyasalları (orijinal kaplarında muhafaza ederek) ve bahçe ekipmanlarını kilitli bir yerde saklayın.</li><li>Suya yakın olduğunuzda her zaman çocuğunuzun en fazla bir kol boyu yakınında olun.</li><li>Durgun suları (göletler, variller ve su yapıları) kapatın veya tamamen çitle çevirin.</li><li>Mantarlar ve zehirli bitkilerin ayıklanmış olmasına dikkat edin.</li></ul><p><a id="_Hlk155595228"></a></p><table><tr><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. </p><p>Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p><strong>© 2024 Uzm.Dr. Özlem Murzoğlu. Tüm hakları saklıdır.</strong></p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A-30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:klinik&#64;drmurzoglu.com">klinik&#64;drmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/genel-bilgiler/%C3%87ocuklar%20i%C3%A7in%20Ev%20G%C3%BCvenli%C4%9Fi.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

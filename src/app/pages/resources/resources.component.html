@@ -1,0 +1,153 @@
+<section class="resources-page">
+  <!-- Hero Section -->
+  <div class="resources-hero">
+    <div class="hero-background">
+      <div class="hero-shape shape-1"></div>
+      <div class="hero-shape shape-2"></div>
+      <div class="hero-shape shape-3"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="page-title">Ebeveyn Kaynak Merkezi</h1>
+        <p class="page-subtitle">
+          Çocuğunuzun sağlığı ve gelişimi için güvenilir, bilimsel kaynaklar
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">220+</span>
+            <span class="stat-label">Bilimsel Kaynak</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">11</span>
+            <span class="stat-label">Kategori</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">AAP</span>
+            <span class="stat-label">Onaylı İçerik</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories Grid -->
+  <div class="categories-section">
+    <div class="container">
+      <!-- Search -->
+      <div class="search-bar">
+        <span class="material-icons">search</span>
+        <input #q type="text" placeholder="Kaynaklarda ara..." (input)="onSearch(q.value)" />
+      </div>
+      <div class="search-results" *ngIf="query && results.length">
+        <div class="results-header">
+          <span class="material-icons">list_alt</span>
+          <span>{{ results.length }} sonuç</span>
+        </div>
+        <div class="results-list">
+          <a *ngFor="let r of results" [routerLink]="r.path" class="result-item">
+            <span class="material-icons">description</span>
+            <span class="title">{{ r.title }}</span>
+            <span class="chip">{{ r.category }}</span>
+          </a>
+        </div>
+      </div>
+      <div class="section-header">
+        <h2 class="section-title">Kaynak Kategorileri</h2>
+        <p class="section-description">
+          İhtiyacınıza uygun kategoriyi seçerek detaylı bilgilere ulaşabilirsiniz
+        </p>
+      </div>
+
+      <div class="categories-grid">
+        <a *ngFor="let category of categories" 
+           [routerLink]="category.route"
+           class="category-card"
+           [ngClass]="getColorClass(category.color)">
+          <div class="card-header">
+            <div class="icon-wrapper">
+              <span class="material-icons">{{ category.icon }}</span>
+            </div>
+            <div class="document-count">
+              <span class="count">{{ category.documentCount }}</span>
+              <span class="label">Döküman</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="category-title">{{ category.title }}</h3>
+            <p class="category-description">{{ category.description }}</p>
+          </div>
+          <div class="card-footer">
+            <span class="view-link">
+              <span>Kaynakları Görüntüle</span>
+              <span class="material-icons">arrow_forward</span>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features-section">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-icons">verified</span>
+          </div>
+          <h3>Güvenilir Kaynaklar</h3>
+          <p>Amerikan Pediatri Akademisi ve DSÖ gibi uluslararası kuruluşların onayladığı içerikler</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-icons">translate</span>
+          </div>
+          <h3>Türkçe İçerik</h3>
+          <p>Tüm kaynaklar uzman hekimler tarafından Türkçe'ye çevrilmiş ve uyarlanmıştır</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-icons">download</span>
+          </div>
+          <h3>İndirilebilir</h3>
+          <p>Tüm dökümanları PDF formatında indirebilir ve yazdırabilirsiniz</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-icons">update</span>
+          </div>
+          <h3>Güncel Bilgiler</h3>
+          <p>En son bilimsel gelişmeler ışığında sürekli güncellenen içerikler</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Links -->
+  <div class="quick-links-section">
+    <div class="container">
+      <h2 class="section-title">Popüler Kaynaklar</h2>
+      <div class="quick-links-grid">
+        <a routerLink="/kaynaklar/asilar/hpv-a-s-bilgi-f-y" class="quick-link">
+          <span class="material-icons">description</span>
+          <span>HPV Aşısı Bilgi Föyü</span>
+        </a>
+        <a routerLink="/kaynaklar/bright-futures-aile/1-ay-aile-in-bilgiler" class="quick-link">
+          <span class="material-icons">description</span>
+          <span>1. Ay - Aile İçin Bilgiler</span>
+        </a>
+        <a routerLink="/kaynaklar/asilar/kkk-a-s-bilgi-f-y" class="quick-link">
+          <span class="material-icons">description</span>
+          <span>KKK Aşısı Bilgi Föyü</span>
+        </a>
+        <a routerLink="/kaynaklar" class="quick-link">
+          <span class="material-icons">folder</span>
+          <span>Tüm Kaynaklar</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

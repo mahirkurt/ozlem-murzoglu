@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/gelisim-rehberleri" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>UZM.DR. ÖZLEM MURZOĞLU - ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ</p></td></tr><tr><td><p>GELİŞİM BASAMAKLARI:</p><p><strong>BEBEĞİNİZİN 9. AYI</strong></p></td><td><p></p></td></tr></table><p></p><table><tr><td><p>Bebeğinizin gelişim sürecinde bazı önemli kilometre taşları vardır. Bebeğinizin nasıl oynadığı, öğrendiği, konuştuğu, hareket ettiği ve gelişimi hakkında önemli ipuçları sunar. Bebeğinizin 9 aya kadar ulaştığı noktaları kontrol edin. Doktorunuzla bu basamakları ve bundan sonra neler beklenebileceğini konuşun.</p></td></tr></table><p><br /><br /></p><table><tr><td><p><a id="_Hlk155850600"></a><strong>Bebekler bu dönemde neler yapabilir?</strong></p></td></tr></table><table><tr><td><p><strong>Sosyal &amp; Duygusal Gelişim Basamakları</strong></p></td></tr></table><ul><li>Yabancıların yanında utangaç davranır veya onlardan korkar.</li><li>Mutlu, üzgün, kızgın ve şaşırmış gibi çeşitli yüz ifadeleri gösterir.</li><li>İsmi söylediğinde bakar.</li><li>Yanından ayrıldığınızda tepki verir (bakınır, size ulaşmaya çalışır veya ağlar)</li><li>Ce-eee oynadığınızda gülümser veya güler.</li></ul><table><tr><td><p><strong>Dil &amp; İletişim Gelişim Basamakları</strong></p></td></tr></table><ul><li>"Mamamama" ve "babababa" gibi farklı sesler çıkarır.</li><li>Kucağa alınmak için kollarını size doğru yukarıya kaldırır.</li></ul><table><tr><td><p><strong>Kognitif Gelişim Basamakları</strong></p><p>(Öğrenme, Düşünme, Problem Çözme)</p></td></tr></table><ul><li>Gözden kaybolan nesneleri arar (kaşığı veya oyuncağı gibi).</li><li>İki eşyayı birbirine vurur.</li></ul><table><tr><td><p><strong>Hareket &amp; Fiziksel Gelişim Basamakları</strong></p></td></tr></table><ul><li>Kendi başına oturma pozisyonuna geçer.</li><li>Nesneleri bir elinden diğer eline geçirir.</li><li>Yiyeceği kendine doğru çekmek için parmaklarını kullanır.</li><li>Desteksiz oturur.</li></ul><table><tr><td><p><strong>GELİŞİMSEL TARAMA ZAMANI!</strong></p><p>9. ayda bebeğinizin, Amerikan Pediatri Akademisi'nin tüm çocuklara önerdiği gibi genel gelişim taramasından geçmesi gerekir. Bebeğinizin gelişim taraması hakkında doktorunuza danışınız.</p></td></tr></table><table><tr><td><p><strong>Doktorunuzla Paylaşılması Gereken Diğer Önemli Hususlar</strong></p></td></tr></table><ul><li>Sizin ve bebeğinizin birlikte yaptığı şeyler nelerdir?</li><li>Bebeğinizin yapmaktan hoşlandığı şeyler nelerdir?</li><li>Bebeğinizin sizi endişelendiren yaptığı veya yapmadığı bir şey var mı?</li><li>Bebeğiniz önceden sahip olduğu becerileri kaybetti mi?</li><li>Bebeğinizin herhangi bir özel sağlık bakımına ihtiyacı var mı veya erken mi doğdu?</li></ul><table><tr><td colspan="2"><p>Çocuğunuzun gelişimi hakkında endişeli misiniz?</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p><strong>Çocuğunuzu en iyi siz tanırsınız.</strong> Çocuğunuz bir veya daha fazla gelişim basamağına ulaşamıyorsa, önceden sahip olduğu becerileri kaybetmişse veya başka endişeleriniz varsa erkenden harekete geçin. Çocuğunuzun doktoruyla konuşun, endişelerinizi paylaşın ve gelişimsel tarama hakkında bilgi alın.</p></td><td><p></p></td></tr></table><table><tr><td><p><strong>İpuçları ve Etkinlik Önerileri: <br /></strong>9 Aylık Bebeğiniz İçin Ne Yapabilirsiniz?</p></td></tr></table><p><strong>Bebeğinizin ilk öğretmeni olarak onun öğrenmesine ve beyin gelişimine yardımcı olabilirsiniz.</strong> </p><ul><li>Bebeğinizin seslerini tekrarlayın ve bu sesleri kullanarak basit kelimeler söyleyin. Örneğin, eğer bebeğiniz "baba" derse "baba" kelimesini tekrarlayın, ardından "kitap" deyin.</li><li>Oyuncakları kolay ulaşamayacağı bir yere yerleştirin ve bebeğinizi onları almak için emeklemeye, kaymaya veya yuvarlanmaya teşvik edin. Onlara ulaştığında bunu kutlayın.</li><li>Bebeğinize "güle güle" demeyi veya "hayır" demek için başını sallamayı öğretin. Ayrılırken el sallayın ve "güle güle" deyin. </li><li>Ce-eee gibi oyunlar oynayın. Başınızı bir örtüyle örtün ve onu kaldırmasını bekleyin.</li><li>Bebeğinizle bir kutudan boşalttığınız blokları toplayıp kutuya koyma oyunu oynayın.</li><li>Bebeğinize "okuyun". Okumak resimler hakkında konuşmak olabilir. Örneğin kitaplara veya dergilere bakarken resimleri işaret ederek adlandırın.</li><li>Sevdiklerinizle görüntülü görüşme yaparak ekran süresini (TV, tabletler, telefonlar vb.) sınırlayın. 2 yaşından küçük çocuklara ekran zamanı önerilmemektedir. Bebekler konuşarak, oynayarak ve başkalarıyla etkileşime girerek öğrenirler.</li><li>Bebeğinizi beslemek için boğulma riskleri ve güvenli yiyecekler hakkında bilgi edinin. Parmaklarıyla kendi kendine beslenme ve az miktarda su içeren bir bardak ile alıştırma yapmasına izin verin. Bebeğinizin yanına oturun ve birlikte yemek zamanının tadını çıkarın. Bir şeyleri dökecektir; öğrenmek eğlencelidir!</li><li>İsteklerinizi olumlu bir dille ifade edin. Örneğin, "ayağa kalkma" değil "oturma" deyin.</li><li>Bebeğinizin farklı tat ve dokudaki yiyeceklere alışmasına yardımcı olun. Bebeğiniz ilk denemede her yemeği beğenmeyebilir. Ona yiyecekleri tekrar tekrar deneme şansı verin.</li><li>Sinsice uzaklaşmak yerine hızlı ve neşeli bir veda edin, böylece bebeğiniz ağlasa bile gideceğinizi bilsin. Kendini sakinleştirmeyi ve beklemesi gerektiğini öğrenecektir. </li><li>Uyku ve beslenme rutinleri oluşturun.</li><li>Bebeğiniz evi keşfedip dolaşırken uzakta durmayın, böylece yakında olduğunuzu bilir.</li><li>Bebeğinizin yeterince uyuduğundan emin olun: 4-12 aylık bebeklerin günde 12 ila 16 saat uykuya (şekerlemeler dahil) ihtiyacı vardır. </li><li>Bebeğiniz bir şeyleri düşürdüğünde bunu bir oyun haline getirin. Eşyayı ona geri verin ki tekrar düşürebilsin.</li><li>Yeni durumlara ve insanlara verdiği tepkiyi gözlemleyin. Bebeğinizi mutlu eden şeyleri yapmaya devam edin.</li><li>Bebeğinizin baktığı nesneyi tanımlayın; örneğin, "kırmızı, yuvarlak top."</li><li>Bebeğinizle, sizin sakladığınızı gördüğü şeyleri aramasını öğreten bir oyun oynayın.</li><li>Evinizi bebek için güvenli hale getirin. Keskin veya kırılabilir şeyleri ulaşamayacağı bir yere taşıyın. İlaçları, kimyasalları ve temizlik ürünlerini kilitleyin. 114 numaralı Zehir Yardım Hattını telefonlara kaydedin.</li><li>Bebeğinizin ne hissettiğini (üzgün, kızgın, mutlu) göstermek için yüz ifadelerinizi ve sesinizi kullanın. Örneğin ona "Üzgünsün, bakalım seni mutlu edebilecek miyiz?" deyin.</li></ul><p><a id="_Hlk155595228"></a></p><table><tr><td><p>Konu uzmanlarına ve verilerin gözden geçirilmesine ve gelişimsel dönüm noktalarının seçilmesine katkıda bulunan diğer kişilere, özellikle de Paul H. Lipkin, MD, Michelle M. Macias, MD, Julie F. Pajek, PhD, Judith S. Shaw, EdH,MPH, RN, Karnesha Slaughter, MPH, Jane K. Squires, PhD, Toni M. Whitaker, MD, Lisa D. Wiggins, PhD ve Jennifer M. Zubler, MD.'ye özel teşekkürler. Amerikan Hastalık Kontrol ve Önleme Merkezleri (CDC) Ulusal Doğum Kusurları ve Gelişimsel Engelliler Merkezi tarafından hazırlanmıştır. Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p><strong>© 2023 Amerikan Hastalık Kontrol ve Önleme Merkezleri (CDC) - Tüm hakları saklıdır.</strong></p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A-30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:klinik&#64;drmurzoglu.com">klinik&#64;drmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/gelisim-rehberleri/Geli%C5%9Fim%20Basamaklar%C4%B1%20-%209.%20Ay%20.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

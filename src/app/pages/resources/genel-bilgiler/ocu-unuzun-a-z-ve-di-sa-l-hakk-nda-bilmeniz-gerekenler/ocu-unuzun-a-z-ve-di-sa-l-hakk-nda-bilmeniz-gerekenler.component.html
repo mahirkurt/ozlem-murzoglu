@@ -1,0 +1,82 @@
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body" #contentRoot>
+            <table><tr><td colspan="2"><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p><strong>ÇOCUĞUNUZUN AĞIZ VE DİŞ SAĞLIĞI HAKKINDA BİLMENİZ GEREKENLER</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>İlk dişler ortaya çıkmadan çok daha önce parlak bir gülümseme görürsünüz. Çocukların sağlıklı dişler geliştirmeleri için ebeveyn ve bakım vericilerinin yardımı önemlidir. Çocuğunuzun dişlerinin bakımı hakkında Amerikan Pediatri Akademisi'nden bilgi almak için okumaya devam edin.</p></td></tr></table><table><tr><td><p><strong>İyi bir diş sağlığı için doğru adımlar</strong></p></td></tr></table><p></p><ul><li>1 yaşından itibaren diş hekimi tarafından düzenli kontrol</li><li>Yeterli florür (suda, diş macununda ve florür verniğinde)</li><li>Her gün 2 kez diş fırçalamak ve diş ipi kullanmak</li><li>Sağlıklı beslenmek ve şekeri sınırlamak</li><li>Spora katılım sırasında yaralanmayı önlemek için gerekirse ağız koruyucu kullanmak</li></ul><table><tr><td><p><strong>Florür önemlidir çünkü...</strong></p></td></tr></table><ul><li>Diş minesini sertleştirir (dişlerin dış kaplaması).</li><li>Her gün gün boyunca dişlerde oluşan erken hasarları onarır.</li></ul><p><strong>Not:</strong> Florür, içme suyuna, diş macununa, gargaraya ve diş verniğine eklenebilen doğal bir maddedir. Sağlıklı çocuk ziyaretleri sırasında, doktorlar bazı çocuklar için florür tabletleri veya damlaları kullanmayı önerebilir. </p><p>Ayrıca çocukların dişlerine doktor veya diş hekimi tarafından yılda 4 defaya kadar florür verniği uygulanmalıdır.</p><table><tr><td><p><strong>Dişler nasıl temizlenmeli?</strong></p></td></tr></table><p><strong></strong></p><p><strong>Bebekler ve 3 yaşına kadar olan çocuklar:</strong></p><ul><li>İlk diş veya dişler gelene kadar diş etlerini günde 2 kez bir parça gazlı bez veya nemli bir bezle silin.</li><li>İlk dişi veya dişleri her gün 2 kez yumuşak bir diş fırçası ile fırçalayın. Her seferinde 2 dakika fırçalayın.</li><li><em>"Just a dot, not a lot!"</em> 3 yaşından küçük çocuklar için diş macunu miktarı küçük bir pirinç tanesi büyüklüğünde olmalıdır.</li></ul><p><strong>3 yaş ve üstü çocuklar:</strong></p><ul><li>Çocuğunuzun dişlerini günde 2 kez yumuşak bir diş fırçası ile fırçalayın. Her seferinde 2 dakika fırçalayın. Çocuklar dişlerini kendi başlarına fırçalamayı öğrenmelidir. Ancak ebeveynler 7 yaşına kadar çocuklarına diş fırçasını vermeden önce çocuklarının dişlerini fırçalamalıdır.</li><li><em>Just a dot, not a lot!"</em>  3 yaş ve üzeri çocuklar için diş macunu miktarı küçük bir bezelye büyüklüğünde olmalıdır.</li></ul><p><strong></strong></p><p><strong>Tüm çocuklar</strong></p><ul><li>Çocuğunuza fazla diş macununu tükürmesini öğretin. Çocuğunuz diş macununu tadı güzel olduğu için yutmak isteyebilir. Bununla birlikte, çok fazla diş macunu yutmak, dişlerde florozis adı verilen beyaz lekelenmelere neden olabilir. Çocuklar fazla diş macununu fırçaladıktan ve tükürdükten sonra ağızlarını çalkalamamalıdır.</li><li>Dişler arasında çürük oluşmasını önlemek için herhangi iki dişin birbirine değdiği yerlerde diş ipi kullanılmalıdır.</li><li>Dişlerde beyaz, sarı veya kahverengi lekeler veya çizgiler gibi diş çürüğünün erken belirtileri için dişlerin önünü ve arkasını kontrol edin. Ön üst dişlere daha iyi bakmak için üst dudağı yukarı kaldırın.</li><li>Çocuğunuzun diş fırçasını 6 ayda bir değiştirin. </li></ul><table><tr><td><p><strong>Diş çürümesini önlemeye yardımcı olacak diğer yollar</strong></p></td></tr></table><ul><li>Her aile üyesi için düzenli diş muayeneleri planlayın.</li><li>Yiyecek, içecek, kaşık ve çatalları paylaşmaktan kaçının. Bebeğiniz emzik kullanıyorsa, temizlemek için yalamaktan kaçının.</li><li>Meyve suları, sporcu içecekleri, limonata, gazlı içecekler veya aromalı çaylar içmek dişlerde asit ataklarına neden olur. Bunlardan uzak durun veya kullanıldıktan sonra dişleri fırçalayın.</li><li>Meyve veya sebze gibi sağlıklı atıştırmalıklar sunun. Sakızlı şekerler veya kurabiyeler gibi yapışkan atıştırmalıklar sunmaktan kaçının. </li><li>Çocuğunuz yatmadan önce süt içtikten sonra dişlerini temizlediğinizden emin olun.</li><li>Dişlerde beyaz, sarı veya kahverengi lekeler veya çizgiler gibi diş çürüğünün erken belirtileri için dişlerin önünü ve arkasını kontrol edin. Üst ön dişlere daha iyi bakmak için çocuğunuzun dudağını kaldırın. Bu ayda bir kez yapılmalıdır.</li></ul><table><tr><td><p><strong>Sık sorulan sorular</strong></p></td></tr></table><p><strong></strong></p><p><strong>Emzik kullanmak veya parmak emmek dişlere zarar verir mi?</strong></p><ul><li>Emzik, başparmak veya parmakları emmek ağzın şeklini veya dişlerin nasıl sıralandığını etkileyebilir.</li><li>3 yaşından önce bu alışkanlık durursa dişler genellikle tedavi görmeden kendiliğinden düzelir.</li><li>"Kalıcı" dişler çıktıktan sonra emme alışkanlığı devam ederse, ortodontik bakım gerekebilir.</li></ul><p><strong>Çocuğum düşüp dişini gevşettiğinde ne yapmalıyım?</strong></p><ul><li>Diş hekiminizi veya çocuk doktorunuzu arayın.</li><li>6 ay boyunca, gevşemiş dişin üzerindeki diş etinde kızarıklık olup olmadığına dikkat edin ve oluşursa derhal çocuğunuzun diş hekimine haber verin.</li></ul><p><strong> </strong></p><p><strong>Pediatrik diş hekimi nedir?</strong></p><ul><li>Pediatrik diş hekimleri (pedodontist), çocuklara diş bakımı sağlamak için özel eğitime sahiptir ve karmaşık ağız sağlığı sorunları olan çocukların bakımını üstlenir. Örneğin:<ul><li>Dişler kırılmış veya ağız bölgesinde bir yaralanma varsa.</li><li>Dişlerde, diş çürümesi veya travma işareti olabilecek renk değişikliği belirtileri varsa.</li><li>Çocuklar diş ağrısından veya sıcak veya soğuk yiyeceklere veya sıvılara karşı hassasiyetten şikâyet ederlerse. (Bu aynı zamanda bir çürüme belirtisi de olabilir.)</li><li>Ağız içinde anormal bir doku büyümesi varsa.</li><li>Çocukların dişleri ısırık sırasında birbirine uygun şekilde oturmuyorsa.</li></ul></li></ul><p><strong>Çocuğum düzenli diş kontrollerine ne zaman başlamalı?</strong></p><ul><li>Tüm bebekler, 6 aylık olduklarında çocuk doktorunun ağız ve diş sağlığı risk değerlendirmesinden geçmelidir.</li><li>Her çocuk en geç 12 aylıkken bir diş hekimini ziyaret etmiş olmalıdır.</li></ul><table><tr><td><p>Bright Futures: Guidelines for Health Supervision of Infants, Children, and Adolescents, <br />4.Baskı'dan uyarlanmıştır. Daha fazla bilgi için <strong>https://brightfutures.aap.org</strong> adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button class="action-btn btn-secondary" onclick="window.print()">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <a href="/documents/genel-bilgiler/%C3%87ocu%C4%9Funuzun%20A%C4%9F%C4%B1z%20ve%20Di%C5%9F%20Sa%C4%9Fl%C4%B1%C4%9F%C4%B1%20Hakk%C4%B1nda%20Bilmeniz%20Gerekenler.docx" 
+           download 
+           class="action-btn btn-primary">
+          <span class="material-icons">download</span>
+          <span>Orijinal Dökümanı İndir</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
