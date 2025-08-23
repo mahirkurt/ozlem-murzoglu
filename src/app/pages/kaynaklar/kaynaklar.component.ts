@@ -83,7 +83,7 @@ interface Panel {
     MatBadgeModule
   ],
   templateUrl: './kaynaklar.component.html',
-  styleUrls: ['./kaynaklar.component.scss'],
+  styleUrls: ['./kaynaklar.component.css'],
   animations: [listAnimation, cardAnimation, fadeIn]
 })
 export class KaynaklarComponent implements OnInit {

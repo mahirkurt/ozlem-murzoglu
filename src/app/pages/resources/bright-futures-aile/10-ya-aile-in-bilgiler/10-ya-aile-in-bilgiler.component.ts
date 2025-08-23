@@ -63,7 +63,7 @@ interface Panel {
     MatChipsModule
   ],
   templateUrl: './10-ya-aile-in-bilgiler.component.html',
-  styleUrl: './10-ya-aile-in-bilgiler.component.scss',
+  styleUrl: './10-ya-aile-in-bilgiler.component.css',
   animations: [listAnimation, cardAnimation]
 })
 export class Doc10YaAileInBilgilerComponent implements OnInit, AfterViewInit {
@@ -107,6 +107,7 @@ export class Doc10YaAileInBilgilerComponent implements OnInit, AfterViewInit {
       {
         title: 'Gelişimsel Özellikler',
         icon: 'psychology',
+        content: '', // panels varsa content boş olabilir
         panels: [
           {
             title: 'Fiziksel Gelişim',
