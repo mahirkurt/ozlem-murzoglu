@@ -11,7 +11,7 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './1-ay-aile-in-bilgiler.component.css'
 })
 export class Doc1AyAileInBilgilerComponent implements OnInit, AfterViewInit {
-  title = '1. Ay - Aile İçin Bilgiler';
+  title = '1. AY ZİYARETİ';
   category = 'Bright Futures (Aile)';
   description: string = "AMERİKAN PEDİATRİ AKADEMİSİ BRIGHT FUTURES PROGRAMI 1. AY ZİYARETİ BİLGİ FÖYÜ EVİNİZİN DURUMU Sigara içmeyin veya elektronik sigara kullanmayın. Evinizi ve arabanızı dumansız tutu…";
   toc: { id: string; text: string; level: number }[] = [];

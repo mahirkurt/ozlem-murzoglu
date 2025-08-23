@@ -11,7 +11,7 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './7-ya-ocuk-in-bilgiler.component.css'
 })
 export class Doc7YaOcukInBilgilerComponent implements OnInit, AfterViewInit {
-  title = '7. Yaş - Çocuk İçin Bilgiler';
+  title = '7. YAŞ ZİYARETİ';
   category = 'Bright Futures (Çocuk)';
   description: string = "AMERİKAN PEDİATRİ AKADEMİSİ DOKTORUMDAN ÖNERÌLER 7. YAŞ ZİYARETİ KENDİNLE İLGİLEN! Birine sinirlenirsen, ondan uzaklaşmaya çalış. Sigaradan uzak dur. Biri sana teklif ederse kabul…";
   toc: { id: string; text: string; level: number }[] = [];

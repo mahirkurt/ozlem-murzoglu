@@ -11,7 +11,7 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './9-ya-ocuk-in-bilgiler.component.css'
 })
 export class Doc9YaOcukInBilgilerComponent implements OnInit, AfterViewInit {
-  title = '9. Yaş - Çocuk İçin Bilgiler';
+  title = '9. YAŞ ZİYARETİ';
   category = 'Bright Futures (Çocuk)';
   description: string = "AMERİKAN PEDİATRİ AKADEMİSİ DOKTORUMDAN ÖNERÌLER 9. YAŞ ZİYARETİ KENDİNLE İLGİLEN! Ailenle vakit geçirmenin tadını çıkar. Evdeki işlere ve çevrende ihtiyaç duyanlara yardım et. Bi…";
   toc: { id: string; text: string; level: number }[] = [];

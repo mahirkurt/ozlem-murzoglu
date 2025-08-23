@@ -11,7 +11,7 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './3-ya-aile-in-bilgiler.component.css'
 })
 export class Doc3YaAileInBilgilerComponent implements OnInit, AfterViewInit {
-  title = '3. Yaş - Aile İçin Bilgiler';
+  title = '3. YAŞ ZİYARETİ';
   category = 'Bright Futures (Aile)';
   description: string = "AMERİKAN PEDİATRİ AKADEMİSİ AİLENİZ İÇİN BİLGİLER 3. YAŞ ZİYARETİ AİLENİZİN DURUMU Kendinize ve eşinizle birlikte olmaya zaman ayırın. Arkadaşlarınız, kişisel ilgi alanlarınız ve …";
   toc: { id: string; text: string; level: number }[] = [];

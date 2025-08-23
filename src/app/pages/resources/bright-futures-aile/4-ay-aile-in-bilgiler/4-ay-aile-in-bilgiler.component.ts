@@ -11,7 +11,7 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './4-ay-aile-in-bilgiler.component.css'
 })
 export class Doc4AyAileInBilgilerComponent implements OnInit, AfterViewInit {
-  title = '4. Ay - Aile İçin Bilgiler';
+  title = '4. AY ZİYARETİ';
   category = 'Bright Futures (Aile)';
   description: string = "AMERİKAN PEDİATRİ AKADEMİSİ AİLENİZ İÇİN BİLGİLER 4. AY ZİYARETİ EVİNİZ VE AİLENİZ Kendinize ve eşinize zaman ayırın. Aileniz ve arkadaşlarınızla zaman geçirin. Olgun, eğitimli ve…";
   toc: { id: string; text: string; level: number }[] = [];
