@@ -67,7 +67,7 @@ interface Panel {
   animations: [listAnimation, cardAnimation]
 })
 export class Doc10YaAileInBilgilerComponent implements OnInit, AfterViewInit {
-  title = '10. Yaş - Aile İçin Bilgiler';
+  title = '10. YAŞ ZİYARETİ';
   category = 'Bright Futures (Aile)';
   description: string = "AMERİKAN PEDİATRİ AKADEMİSİ AİLENİZ İÇİN BİLGİLER 10. YAŞ ZİYARETİ AİLENİZİN DURUMU Çocuğunuzu bağımsız ve sorumlu olmaya teşvik edin. Ona sık sık sarılın ve onu övün. Çocuğunuzla…";
   toc: { id: string; text: string; level: number }[] = [];
