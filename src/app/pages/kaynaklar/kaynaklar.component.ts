@@ -3,19 +3,96 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DocumentService, DocumentCategory, Document } from '../../services/document.service';
+import { trigger, transition, style, animate, stagger, query, state } from '@angular/animations';
+
+// Material imports
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatBadgeModule } from '@angular/material/badge';
+
+// Animasyon tanımlamaları
+const listAnimation = trigger('listAnimation', [
+  transition('* => *', [
+    query(':enter', [
+      style({ opacity: 0, transform: 'translateY(20px)' }),
+      stagger(100, [
+        animate('400ms cubic-bezier(0.05, 0.7, 0.1, 1.0)', 
+          style({ opacity: 1, transform: 'translateY(0)' })
+        )
+      ])
+    ], { optional: true })
+  ])
+]);
+
+const cardAnimation = trigger('cardAnimation', [
+  transition(':enter', [
+    style({ opacity: 0, transform: 'translateY(20px)' }),
+    animate('400ms {{delay}}ms cubic-bezier(0.05, 0.7, 0.1, 1.0)', 
+      style({ opacity: 1, transform: 'translateY(0)' })
+    )
+  ], { params: { delay: 0 } })
+]);
+
+const fadeIn = trigger('fadeIn', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate('600ms ease-in', style({ opacity: 1 }))
+  ])
+]);
+
+// Bölüm veri yapısı
+interface Section {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  icon: string;
+  isAccent?: boolean;
+  categories?: DocumentCategory[];
+  panels?: Panel[];
+}
+
+interface Panel {
+  title: string;
+  description: string;
+  icon: string;
+  content: string;
+  categoryId?: string;
+  expanded?: boolean;
+}
 
 @Component({
   selector: 'app-kaynaklar',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule, 
+    FormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatListModule,
+    MatExpansionModule,
+    MatBadgeModule
+  ],
   templateUrl: './kaynaklar.component.html',
-  styleUrls: ['./kaynaklar.component.css']
+  styleUrls: ['./kaynaklar.component.scss'],
+  animations: [listAnimation, cardAnimation, fadeIn]
 })
 export class KaynaklarComponent implements OnInit {
   categories: DocumentCategory[] = [];
   searchQuery: string = '';
   searchResults: Document[] = [];
   popularDocuments: Document[] = [];
+  showSearch: boolean = true;
+  sections: Section[] = [];
 
   constructor(
     private documentService: DocumentService,
@@ -25,6 +102,104 @@ export class KaynaklarComponent implements OnInit {
   ngOnInit(): void {
     this.loadCategories();
     this.loadPopularDocuments();
+    this.initializeSections();
+  }
+
+  private initializeSections(): void {
+    // Kategorileri gruplara ayır
+    const brightFuturesAile = this.categories.filter(c => c.id.includes('bright-futures-aile'));
+    const brightFuturesCocuk = this.categories.filter(c => c.id.includes('bright-futures-cocuk'));
+    const gelisimRehberleri = this.categories.filter(c => c.id.includes('gelisim'));
+    const genelBilgiler = this.categories.filter(c => c.id === 'genel-bilgiler');
+    const asilar = this.categories.filter(c => c.id === 'asilar');
+    const hastaliklar = this.categories.filter(c => c.id === 'hastaliklar');
+    const digerler = this.categories.filter(c => 
+      !c.id.includes('bright-futures') && 
+      !c.id.includes('gelisim') &&
+      c.id !== 'genel-bilgiler' &&
+      c.id !== 'asilar' &&
+      c.id !== 'hastaliklar'
+    );
+
+    this.sections = [
+      {
+        title: 'Bright Futures - Aile Rehberleri',
+        subtitle: 'Her yaş için özel hazırlanmış aile bilgilendirme rehberleri',
+        description: 'Amerikan Pediatri Akademisi tarafından hazırlanan, çocuğunuzun her gelişim döneminde size yol gösterecek kapsamlı rehberler.',
+        icon: 'family_restroom',
+        isAccent: true,
+        categories: brightFuturesAile
+      },
+      {
+        title: 'Gelişimsel Kilometre Taşları',
+        subtitle: 'Çocuğunuzun gelişimini takip edin',
+        description: 'Her ay ve yaş için gelişimsel basamaklar, öneriler ve aktiviteler.',
+        icon: 'psychology',
+        categories: gelisimRehberleri
+      },
+      {
+        title: 'Sağlık ve Hastalıklar',
+        subtitle: 'Koruyucu sağlık ve hastalık yönetimi',
+        icon: 'local_hospital',
+        panels: [
+          {
+            title: 'Aşılar ve Bağışıklama',
+            description: 'Aşı takvimi ve bilgilendirme föyleri',
+            icon: 'medical_services',
+            content: `
+              <ul>
+                <li>HPV, KKK, KKKA aşı bilgi föyleri</li>
+                <li>Meningokok ve influenza aşıları</li>
+                <li>Rotavirüs aşısı hakkında bilgiler</li>
+                <li>Güncel aşı takvimi ve öneriler</li>
+              </ul>
+            `,
+            categoryId: 'asilar'
+          },
+          {
+            title: 'Sık Görülen Hastalıklar',
+            description: 'Tanı, tedavi ve korunma yöntemleri',
+            icon: 'sick',
+            content: `
+              <ul>
+                <li>Ateş yönetimi ve müdahale</li>
+                <li>Orta kulak iltihabı</li>
+                <li>Astım ve alerji yönetimi</li>
+                <li>Egzama ve cilt sorunları</li>
+              </ul>
+            `,
+            categoryId: 'hastaliklar'
+          },
+          {
+            title: 'Genel Sağlık Bilgileri',
+            description: 'Koruyucu sağlık ve güvenlik',
+            icon: 'health_and_safety',
+            content: `
+              <ul>
+                <li>Güvenli uyku pratikleri</li>
+                <li>Emzirme rehberleri</li>
+                <li>Beslenme ve diş sağlığı</li>
+                <li>Ev ve oyuncak güvenliği</li>
+              </ul>
+            `,
+            categoryId: 'genel-bilgiler'
+          }
+        ]
+      },
+      {
+        title: 'Bright Futures - Çocuk ve Ergen',
+        subtitle: 'Çocuğunuza özel hazırlanmış bilgilendirme materyalleri',
+        description: 'Çocukların ve ergenlerin anlayabileceği dilde hazırlanmış sağlık ve gelişim bilgileri.',
+        icon: 'child_care',
+        categories: brightFuturesCocuk
+      },
+      {
+        title: 'Özel Konular ve Rehberler',
+        subtitle: 'Medya kullanımı, büyüme eğrileri ve daha fazlası',
+        icon: 'menu_book',
+        categories: digerler
+      }
+    ];
   }
 
   private loadCategories(): void {
@@ -32,7 +207,6 @@ export class KaynaklarComponent implements OnInit {
   }
 
   private loadPopularDocuments(): void {
-    // Select some popular documents from different categories
     const popularIds = [
       'guvenli-uyku',
       'bebeginizi-emzirmek',
@@ -44,16 +218,9 @@ export class KaynaklarComponent implements OnInit {
       'oyuncak-guvenligi'
     ];
 
-    this.popularDocuments = [
-      this.documentService.getDocumentById('guvenli-uyku'),
-      this.documentService.getDocumentById('bebeginizi-emzirmek'),
-      this.documentService.getDocumentById('tuvalet-egitimi'),
-      this.documentService.getDocumentById('cocuklarda-ates'),
-      this.documentService.getDocumentById('bf-aile-1ay'),
-      this.documentService.getDocumentById('hpv-asisi'),
-      this.documentService.getDocumentById('gelisim-basamaklari-6ay-yeni'),
-      this.documentService.getDocumentById('oyuncak-guvenligi')
-    ].filter(doc => doc !== undefined) as Document[];
+    this.popularDocuments = popularIds
+      .map(id => this.documentService.getDocumentById(id))
+      .filter(doc => doc !== undefined) as Document[];
   }
 
   onSearchChange(event: Event): void {
@@ -113,6 +280,13 @@ export class KaynaklarComponent implements OnInit {
     };
     
     return iconMap[categoryId] || 'description';
+  }
+
+  getDocumentIcon(doc: Document): string {
+    if (doc.fileType === 'pdf') return 'picture_as_pdf';
+    if (doc.categoryId.includes('video')) return 'play_circle';
+    if (doc.categoryId.includes('form')) return 'assignment';
+    return 'description';
   }
 
   getTotalDocumentCount(): number {

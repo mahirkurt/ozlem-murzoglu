@@ -1,158 +1,204 @@
-<div class="resources-container">
-  <!-- Hero Section -->
-  <section class="resources-hero">
-    <div class="hero-content">
-      <h1 class="hero-title">Kaynak Merkezi</h1>
-      <p class="hero-subtitle">
-        Çocuğunuzun sağlığı ve gelişimi için kapsamlı rehberler, bilgi föyleri ve kılavuzlar.
-        Uzman doktorumuzun önerdiği güvenilir kaynaklarla ailenizi destekliyoruz.
-      </p>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-number">{{getTotalDocumentCount()}}</span>
-          <span class="stat-label">Toplam Dokuman</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">{{categories.length}}</span>
-          <span class="stat-label">Farklı Kategori</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="content-container" [@listAnimation]="sections.length">
+  <!-- SAYFA BAŞLIĞI VE GİRİŞ METNİ -->
+  <header class="page-header">
+    <h1 class="page-title">Çocuğunuzun Sağlığı İçin Güvenilir Kaynaklar</h1>
+    <p class="page-lead">
+      Amerikan Pediatri Akademisi'nin hazırladığı güvenilir bilgilerle, çocuğunuzun her yaş döneminde yanınızdayız. 
+      Bu dijital sığınakta, ihtiyacınız olan tüm bilgileri bulabilir ve çocuğunuzun gelişimine güvenle eşlik edebilirsiniz.
+    </p>
+  </header>
 
-  <!-- Search Section -->
-  <section class="search-section">
-    <div class="search-container">
-      <div class="search-input-wrapper">
-        <span class="material-icons search-icon">search</span>
-        <input 
-          type="text" 
-          class="search-input"
-          placeholder="Dokuman ara..." 
-          [(ngModel)]="searchQuery"
-          (input)="onSearchChange($event)">
-        <button *ngIf="searchQuery" class="clear-search" (click)="clearSearch()">
-          <span class="material-icons">clear</span>
+  <!-- ARAMA BÖLÜMÜ (VURGU KARTI) -->
+  <mat-card class="info-card accent-card search-card" *ngIf="showSearch">
+    <mat-card-header>
+      <mat-icon mat-card-avatar>search</mat-icon>
+      <mat-card-title class="section-headline">Hızlı Arama</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Dokümanlarda ara...</mat-label>
+        <input matInput 
+               [(ngModel)]="searchQuery"
+               (input)="onSearchChange($event)"
+               placeholder="Örn: aşı takvimi, uyku düzeni, emzirme">
+        <mat-icon matSuffix>search</mat-icon>
+        <button mat-icon-button matSuffix 
+                *ngIf="searchQuery" 
+                (click)="clearSearch()"
+                aria-label="Temizle">
+          <mat-icon>clear</mat-icon>
         </button>
+      </mat-form-field>
+
+      <!-- Arama Sonuçları -->
+      <div class="search-results" *ngIf="searchResults.length > 0">
+        <mat-divider></mat-divider>
+        <h3 class="results-title">
+          <mat-icon>check_circle</mat-icon>
+          {{ searchResults.length }} sonuç bulundu
+        </h3>
+        <mat-list>
+          <mat-list-item *ngFor="let doc of searchResults" 
+                         (click)="viewDocument(doc)"
+                         class="result-item">
+            <mat-icon matListItemIcon>description</mat-icon>
+            <div matListItemTitle>{{ doc.title }}</div>
+            <div matListItemLine>{{ getCategoryTitle(doc.categoryId) }}</div>
+          </mat-list-item>
+        </mat-list>
       </div>
-    </div>
-    
-    <!-- Search Results -->
-    <div *ngIf="searchResults.length > 0 && searchQuery" class="search-results">
-      <h3 class="search-results-title">Arama Sonuçları ({{searchResults.length}})</h3>
-      <div class="search-results-grid">
-        <div *ngFor="let document of searchResults" class="search-result-card" (click)="viewDocument(document)">
-          <div class="result-icon">
-            <span class="material-icons">{{document.fileType === 'pdf' ? 'picture_as_pdf' : 'description'}}</span>
-          </div>
-          <div class="result-content">
-            <h4 class="result-title">{{document.title}}</h4>
-            <p class="result-category">{{getCategoryTitle(document.category)}}</p>
-            <p class="result-description">{{document.description}}</p>
-          </div>
-          <div class="result-actions">
-            <button class="download-btn" (click)="downloadDocument(document); $event.stopPropagation()">
-              <span class="material-icons">download</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- İSTATİSTİKLER -->
+  <section class="stats-section" [@fadeIn]>
+    <mat-card class="stat-card">
+      <mat-icon>folder_open</mat-icon>
+      <div class="stat-number">{{ categories.length }}</div>
+      <div class="stat-label">Kategori</div>
+    </mat-card>
+    <mat-card class="stat-card">
+      <mat-icon>description</mat-icon>
+      <div class="stat-number">{{ getTotalDocumentCount() }}</div>
+      <div class="stat-label">Doküman</div>
+    </mat-card>
+    <mat-card class="stat-card">
+      <mat-icon>verified</mat-icon>
+      <div class="stat-number">AAP</div>
+      <div class="stat-label">Onaylı</div>
+    </mat-card>
   </section>
 
-  <!-- Categories Grid -->
-  <section *ngIf="!searchQuery || searchResults.length === 0" class="categories-section">
-    <div class="section-header">
-      <h2 class="section-title">Kategoriler</h2>
-      <p class="section-subtitle">İhtiyacınıza uygun kategoriyi seçerek dokumanlara ulaşın</p>
-    </div>
-    
-    <div class="categories-grid">
-      <div *ngFor="let category of categories; trackBy: trackByCategory" 
-           class="category-card" 
-           (click)="navigateToCategory(category.id)">
-        <div class="category-header">
-          <div class="category-icon" [style.background-color]="category.color + '20'">
-            <span class="material-icons" [style.color]="category.color">{{category.icon}}</span>
-          </div>
-          <div class="category-count">
-            <span class="count-number">{{category.documentCount}}</span>
-            <span class="count-label">dokuman</span>
-          </div>
-        </div>
-        
-        <div class="category-content">
-          <h3 class="category-title">{{category.title}}</h3>
-          <p class="category-description">{{category.description}}</p>
-        </div>
-        
-        <div class="category-preview">
-          <div class="preview-documents">
-            <div *ngFor="let document of category.documents.slice(0, 3)" class="preview-doc">
-              <span class="material-icons doc-icon">{{document.fileType === 'pdf' ? 'picture_as_pdf' : 'description'}}</span>
-              <span class="doc-title">{{document.title}}</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="category-footer">
-          <span class="view-all-text">Tümünü Görüntüle</span>
-          <span class="material-icons">arrow_forward</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <mat-divider class="section-divider"></mat-divider>
 
-  <!-- Quick Access Section -->
-  <section class="quick-access-section">
-    <div class="section-header">
-      <h2 class="section-title">Hızlı Erişim</h2>
-      <p class="section-subtitle">En çok ihtiyaç duyulan dokumanlara hızlı erişim</p>
-    </div>
-    
-    <div class="quick-access-grid">
-      <div *ngFor="let document of popularDocuments" class="quick-access-card" (click)="viewDocument(document)">
-        <div class="access-icon">
-          <span class="material-icons">{{getQuickAccessIcon(document.category)}}</span>
-        </div>
-        <div class="access-content">
-          <h4 class="access-title">{{document.title}}</h4>
-          <p class="access-category">{{getCategoryTitle(document.category)}}</p>
-        </div>
-        <div class="access-actions">
-          <button class="download-btn" (click)="downloadDocument(document); $event.stopPropagation()">
-            <span class="material-icons">download</span>
+  <!-- KATEGORİLER -->
+  <ng-container *ngFor="let section of sections; let i = index">
+    <!-- VURGU KARTI (Önemli kategoriler) -->
+    <mat-card *ngIf="section.isAccent" 
+              class="info-card accent-card category-card"
+              [@cardAnimation]="i">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>{{ section.icon }}</mat-icon>
+        <mat-card-title class="section-headline">{{ section.title }}</mat-card-title>
+        <mat-card-subtitle>{{ section.subtitle }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="body-text">
+        <p [innerHTML]="section.description"></p>
+        <div class="category-grid">
+          <button mat-raised-button 
+                  *ngFor="let cat of section.categories"
+                  (click)="navigateToCategory(cat.id)"
+                  color="primary"
+                  class="category-button">
+            <mat-icon>{{ getQuickAccessIcon(cat.id) }}</mat-icon>
+            <span>{{ cat.title }}</span>
+            <span class="doc-count">({{ cat.documentCount }})</span>
           </button>
         </div>
-      </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- STANDART KATEGORİ KARTI -->
+    <mat-card *ngIf="!section.isAccent && !section.panels" 
+              class="info-card category-card"
+              [@cardAnimation]="i">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>{{ section.icon }}</mat-icon>
+        <mat-card-title class="section-headline">{{ section.title }}</mat-card-title>
+        <mat-card-subtitle>{{ section.subtitle }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="body-text">
+        <p [innerHTML]="section.description"></p>
+        <div class="category-list">
+          <mat-list>
+            <mat-list-item *ngFor="let cat of section.categories"
+                           (click)="navigateToCategory(cat.id)"
+                           class="category-item">
+              <mat-icon matListItemIcon>{{ getQuickAccessIcon(cat.id) }}</mat-icon>
+              <div matListItemTitle>{{ cat.title }}</div>
+              <div matListItemLine>{{ cat.documentCount }} doküman</div>
+              <mat-icon matListItemMeta>arrow_forward</mat-icon>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- AÇILIR PANEL KARTI (Detaylı bilgiler) -->
+    <mat-card *ngIf="section.panels" 
+              class="info-card expansion-card"
+              [@cardAnimation]="i">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>{{ section.icon }}</mat-icon>
+        <mat-card-title class="section-headline">{{ section.title }}</mat-card-title>
+        <mat-card-subtitle>{{ section.subtitle }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-accordion multi>
+          <mat-expansion-panel *ngFor="let panel of section.panels"
+                                [expanded]="panel.expanded"
+                                hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon>{{ panel.icon }}</mat-icon>
+                {{ panel.title }}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{ panel.description }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="panel-content" [innerHTML]="panel.content"></div>
+            <mat-action-row *ngIf="panel.categoryId">
+              <button mat-button color="primary" 
+                      (click)="navigateToCategory(panel.categoryId)">
+                <mat-icon>folder_open</mat-icon>
+                Kategoriye Git
+              </button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-divider class="section-divider" *ngIf="i < sections.length - 1"></mat-divider>
+  </ng-container>
+
+  <!-- POPÜLER DOKÜMANLAR -->
+  <section class="popular-section" *ngIf="popularDocuments.length > 0">
+    <h2 class="section-title">
+      <mat-icon>star</mat-icon>
+      En Çok İndirilen Dokümanlar
+    </h2>
+    <div class="popular-grid">
+      <mat-card *ngFor="let doc of popularDocuments" 
+                class="popular-card"
+                (click)="viewDocument(doc)"
+                [@fadeIn]>
+        <mat-card-header>
+          <mat-icon mat-card-avatar>{{ getDocumentIcon(doc) }}</mat-icon>
+          <mat-card-title>{{ doc.title }}</mat-card-title>
+          <mat-card-subtitle>{{ getCategoryTitle(doc.categoryId) }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-icon-button (click)="downloadDocument(doc); $event.stopPropagation()">
+            <mat-icon>download</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </section>
 
-  <!-- Info Section -->
-  <section class="info-section">
-    <div class="info-container">
-      <div class="info-content">
-        <h2 class="info-title">Güvenilir Kaynaklarla Destekliyoruz</h2>
-        <p class="info-description">
-          Tüm dokuman ve rehberlerimiz, çocuk sağlığı alanındaki en güncel bilimsel kaynaklara 
-          dayanarak hazırlanmıştır. American Academy of Pediatrics, CDC, ve WHO standartlarına 
-          uygun olarak ailenizin ihtiyaçlarını karşılamak üzere düzenlenmiştir.
-        </p>
-        <div class="info-features">
-          <div class="feature-item">
-            <span class="material-icons">verified</span>
-            <span>Uzman Doktor Onaylı</span>
-          </div>
-          <div class="feature-item">
-            <span class="material-icons">update</span>
-            <span>Güncel İçerik</span>
-          </div>
-          <div class="feature-item">
-            <span class="material-icons">download</span>
-            <span>İndirilme Özelliği</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ALT BİLGİ -->
+  <footer class="page-footer">
+    <mat-card class="footer-card">
+      <mat-icon>info</mat-icon>
+      <p>
+        Tüm dokümanlar Amerikan Pediatri Akademisi (AAP) ve güvenilir sağlık kuruluşları tarafından hazırlanmıştır.
+        Bilgiler güncel tutulmaya çalışılmaktadır ancak her zaman doktorunuza danışmanız önerilir.
+      </p>
+    </mat-card>
+  </footer>
 </div>
