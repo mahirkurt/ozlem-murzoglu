@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
@@ -10,12 +10,14 @@ import { Title, Meta } from '@angular/platform-browser';
   templateUrl: './14-ya-ocuk-in-bilgiler.component.html',
   styleUrl: './14-ya-ocuk-in-bilgiler.component.css'
 })
-export class Doc14YaOcukInBilgilerComponent implements OnInit, AfterViewInit {
+export class Doc14YaOcukInBilgilerComponent implements OnInit, AfterViewInit, OnDestroy {
   title = '14. Yaş - Çocuk İçin Bilgiler';
   category = 'Bright Futures (Çocuk)';
   description: string = "AMERİKAN PEDİATRİ AKADEMİSİ DOKTORUMDAN ÖNERÌLER 14. YAŞ ZİYARETİ HAYAT NASIL GİDİYOR? Ailenle vakit geçirmenin tadını çıkar. Ev işlerine yardım etmenin yollarını ara. Ailenin kur…";
   toc: { id: string; text: string; level: number }[] = [];
+  activeSection: string = '';
   private tocIds = new Set<string>();
+  private observer: IntersectionObserver | null = null;
 
   @ViewChild('contentRoot') contentRoot!: ElementRef<HTMLElement>;
 
@@ -48,6 +50,46 @@ export class Doc14YaOcukInBilgilerComponent implements OnInit, AfterViewInit {
       h.setAttribute('id', id);
       return { id, text, level };
     });
+
+    // Set up IntersectionObserver for active section detection
+    this.setupIntersectionObserver();
+  }
+
+  ngOnDestroy(): void {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  private setupIntersectionObserver(): void {
+    const options = {
+      root: null,
+      rootMargin: '-100px 0px -70% 0px',
+      threshold: 0
+    };
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.activeSection = entry.target.id;
+        }
+      });
+    }, options);
+
+    // Observe all sections with IDs
+    this.toc.forEach(item => {
+      const element = document.getElementById(item.id);
+      if (element) {
+        this.observer?.observe(element);
+      }
+    });
+  }
+
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   private slugify(text: string): string {

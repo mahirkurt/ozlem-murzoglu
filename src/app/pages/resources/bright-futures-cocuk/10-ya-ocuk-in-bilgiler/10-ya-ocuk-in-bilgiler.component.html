@@ -17,6 +17,7 @@
       </nav>
       
       <div class="hero-content">
+        <img src="/images/Bright_Futures.svg" alt="Bright Futures Logo" class="resource-logo">
         <h1 class="page-title">{{ title }}</h1>
         <div class="meta-info">
           <div class="meta-item">
@@ -43,7 +44,10 @@
             <h3>İçindekiler</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+            <a *ngFor="let item of toc" 
+               class="toc-link" 
+               (click)="scrollToSection(item.id)" 
+               [ngClass]="{'level-3': item.level === 3, 'active': activeSection === item.id}">
               <span class="dot"></span>
               <span class="label">{{ item.text }}</span>
             </a>
@@ -51,8 +55,7 @@
         </aside>
         
         <!-- Main Content -->
-        <article class="content-card">
-          <div class="content-body printable-content" #contentRoot>
+        <div class="content-body printable-content" #contentRoot>
             <!-- Ana İçerik Bölümleri -->
             <section class="content-section gradient-section purple-gradient">
               <div class="section-header">
@@ -63,35 +66,35 @@
               </div>
               <div class="content-grid">
                 <div class="content-card-item">
-                  <span class="item-icon">🏡</span>
+                  <span class="item-icon material-icons">home</span>
                   <p>Ailenle vakit geçirmenin tadını çıkar.</p>
                 </div>
                 <div class="content-card-item">
-                  <span class="item-icon">🤝</span>
+                  <span class="item-icon material-icons">handshake</span>
                   <p>Evdeki işlere ve çevrende ihtiyaç duyanlara yardım et.</p>
                 </div>
                 <div class="content-card-item">
-                  <span class="item-icon">😤</span>
+                  <span class="item-icon material-icons">mood_bad</span>
                   <p>Birine kızarsan, oradan uzaklaşmaya çalış.</p>
                 </div>
                 <div class="content-card-item highlight-card">
-                  <span class="item-icon">🚫</span>
+                  <span class="item-icon material-icons">block</span>
                   <p>Uyuşturucu, alkol ve sigaraya <strong>"hayır"</strong> de! Biri sana teklif ederse hemen uzaklaş.</p>
                 </div>
                 <div class="content-card-item">
-                  <span class="item-icon">💬</span>
+                  <span class="item-icon material-icons">chat</span>
                   <p>Biri sana zorbalık yaparsa, seni tehdit ederse veya incitirse, ailenle, öğretmenlerinle veya güvendiğin başka bir yetişkinle konuş.</p>
                 </div>
                 <div class="content-card-item">
-                  <span class="item-icon">💻</span>
+                  <span class="item-icon material-icons">computer</span>
                   <p>Yalnızca ebeveynlerin izin verdiğinde internete gir. Anne baban sakıncası olmadığını söylemediği sürece adını, adresini veya telefon numaranı bir internet sitesinde asla kullanma.</p>
                 </div>
                 <div class="content-card-item">
-                  <span class="item-icon">💭</span>
+                  <span class="item-icon material-icons">chat_bubble</span>
                   <p>İnternette biriyle sohbet etmek istiyorsan, önce ailene söyle.</p>
                 </div>
                 <div class="content-card-item">
-                  <span class="item-icon">⚠️</span>
+                  <span class="item-icon material-icons">warning</span>
                   <p>İnternette biri veya bir şey seni korkuttuysa hemen ailene söyle.</p>
                 </div>
               </div>
@@ -106,7 +109,7 @@
               </div>
               <div class="content-flow">
                 <div class="flow-item">
-                  <div class="flow-icon">🦷</div>
+                  <div class="flow-icon"><span class="material-icons">mood</span></div>
                   <div class="flow-content">
                     <h4>Diş Sağlığı</h4>
                     <p>Sabah ve akşam olmak üzere günde en az iki kez dişlerini fırçala.</p>
@@ -115,7 +118,7 @@
                 </div>
                 
                 <div class="flow-item highlight-flow">
-                  <div class="flow-icon">🍳</div>
+                  <div class="flow-icon"><span class="material-icons">breakfast_dining</span></div>
                   <div class="flow-content">
                     <h4>Kahvaltı Gücü</h4>
                     <p>Her gün kahvaltı yap. Bu, okulda derslerini daha iyi anlamana yardımcı olur.</p>
@@ -123,7 +126,7 @@
                 </div>
                 
                 <div class="flow-item expanded">
-                  <div class="flow-icon">🥗</div>
+                  <div class="flow-icon"><span class="material-icons">restaurant</span></div>
                   <div class="flow-content">
                     <h4>Sağlıklı Beslenme</h4>
                     <p>Sağlıklı besinlerle beslen. Bu besinler, okulda ve sporda başarılı olmana yardımcı olur:</p>
@@ -145,7 +148,7 @@
                 </div>
                 
                 <div class="flow-item">
-                  <div class="flow-icon">🥛</div>
+                  <div class="flow-icon"><span class="material-icons">local_drink</span></div>
                   <div class="flow-content">
                     <h4>İçecek Tercihleri</h4>
                     <p>Gazlı içecekler veya meyve suyu yerine 2 bardak az yağlı veya yağsız süt iç.</p>
@@ -153,7 +156,7 @@
                 </div>
                 
                 <div class="flow-item warning">
-                  <div class="flow-icon">🍔</div>
+                  <div class="flow-icon"><span class="material-icons">warning</span></div>
                   <div class="flow-content">
                     <h4>Dikkat!</h4>
                     <p>Şekerler, atıştırmalıklar ve hazır gıdalar gibi yüksek yağlı yiyecek ve içecekleri fazla tüketme.</p>
@@ -161,7 +164,7 @@
                 </div>
                 
                 <div class="flow-item">
-                  <div class="flow-icon">💊</div>
+                  <div class="flow-icon"><span class="material-icons">medication</span></div>
                   <div class="flow-content">
                     <h4>Doktor Kontrolü</h4>
                     <p>Kilo vermeyi veya besin takviyeleri kullanmayı düşünüyorsan, önce doktorunla konuş.</p>
@@ -169,7 +172,7 @@
                 </div>
                 
                 <div class="flow-item action">
-                  <div class="flow-icon">🏃</div>
+                  <div class="flow-icon"><span class="material-icons">directions_run</span></div>
                   <div class="flow-content">
                     <h4>Hareket Et!</h4>
                     <p><strong>Her gün en az 1 saat aktif egzersiz yap.</strong></p>
@@ -187,7 +190,7 @@
               </div>
               <div class="content-flow">
                 <div class="flow-item">
-                  <div class="flow-icon">💬</div>
+                  <div class="flow-icon"><span class="material-icons">help</span></div>
                   <div class="flow-content">
                     <h4>Sorularını Sor</h4>
                     <p>Bir ebeveyne veya güvendiğin bir yetişkine vücudundaki değişiklikler hakkında sorular sor.</p>
@@ -195,7 +198,7 @@
                 </div>
                 
                 <div class="flow-item highlight-flow">
-                  <div class="flow-icon">❤️</div>
+                  <div class="flow-icon"><span class="material-icons">favorite</span></div>
                   <div class="flow-content">
                     <h4>Duygularını Paylaş</h4>
                     <p>Duygularını başkalarıyla paylaş. Öfke, hayal kırıklığı, endişe ve üzüntüyle baş etmenin en iyi bir yolu konuşmaktır.</p>
@@ -203,7 +206,7 @@
                 </div>
                 
                 <div class="flow-item expanded">
-                  <div class="flow-icon">😤</div>
+                  <div class="flow-icon"><span class="material-icons">self_improvement</span></div>
                   <div class="flow-content">
                     <h4>Öfke Kontrolü</h4>
                     <p>Öfkelendiysen kontrol altına almak için şunları dene:</p>
@@ -225,7 +228,7 @@
                 </div>
                 
                 <div class="flow-item">
-                  <div class="flow-icon">😔</div>
+                  <div class="flow-icon"><span class="material-icons">psychology</span></div>
                   <div class="flow-content">
                     <h4>Ruh Sağlığı</h4>
                     <p>Bazen kendini kötü hissedebilirsin, bu bir sorun değil. Ancak çoğu zaman kendini üzgün hissediyorsan doktoruna bildir.</p>
@@ -233,7 +236,7 @@
                 </div>
                 
                 <div class="flow-item warning">
-                  <div class="flow-icon">🚫</div>
+                  <div class="flow-icon"><span class="material-icons">block</span></div>
                   <div class="flow-content">
                     <h4>Kötü Arkadaşlardan Uzak Dur</h4>
                     <p>Senden kötü veya zararlı şeyler yapmanı isteyen çocuklarla arkadaş olma.</p>
@@ -241,7 +244,7 @@
                 </div>
                 
                 <div class="flow-item action">
-                  <div class="flow-icon">🆘</div>
+                  <div class="flow-icon"><span class="material-icons">security</span></div>
                   <div class="flow-content">
                     <h4>Güvenlik Uyarısı</h4>
                     <p><strong>Daha büyük bir çocuk veya bir yetişkin şunlardan birini yaparsa hemen anne babana veya başka bir yetişkine haber ver:</strong></p>
@@ -274,23 +277,23 @@
               </div>
               <div class="content-grid">
                 <div class="content-card-item">
-                  <span class="item-icon">🎆</span>
+                  <span class="item-icon material-icons">star</span>
                   <p>Okulda elinden gelenin en iyisini yap. Okulda başarılı olmak seni mutlu eder.</p>
                 </div>
                 <div class="content-card-item">
-                  <span class="item-icon">🙋</span>
+                  <span class="item-icon material-icons">pan_tool</span>
                   <p>İhtiyacın olduğunda öğretmenlerinden ve ailenden yardım istemeye çekinme.</p>
                 </div>
                 <div class="content-card-item">
-                  <span class="item-icon">⚽</span>
+                  <span class="item-icon material-icons">sports_soccer</span>
                   <p>Okuldan sonraki aktiviteler için kulüplere, takımlara ve arkadaşlarına katıl.</p>
                 </div>
                 <div class="content-card-item highlight-card">
-                  <span class="item-icon">✋</span>
+                  <span class="item-icon material-icons">stop</span>
                   <p>Sana saldıran veya seni incitmeye çalışan çocuklara hemen durmalarını söyle. Sonra da hızla uzaklaş.</p>
                 </div>
                 <div class="content-card-item">
-                  <span class="item-icon">👨‍🏫</span>
+                  <span class="item-icon material-icons">school</span>
                   <p>Güvendiğin yetişkinlere sana kötü davrananlar hakkında bilgi ver.</p>
                 </div>
               </div>
@@ -305,7 +308,7 @@
               </div>
               <div class="content-flow">
                 <div class="flow-item">
-                  <div class="flow-icon">🚗</div>
+                  <div class="flow-icon"><span class="material-icons">directions_car</span></div>
                   <div class="flow-content">
                     <h4>Araç Güvenliği</h4>
                     <p>Her zaman yükseltici koltuğuna otur ve emniyet kemerini tak. 13 yaşına gelene kadar arka koltuğa otur. En güvende olduğun yer orasıdır.</p>
@@ -313,7 +316,7 @@
                 </div>
                 
                 <div class="flow-item highlight-flow">
-                  <div class="flow-icon">🪖</div>
+                  <div class="flow-icon"><span class="material-icons">sports</span></div>
                   <div class="flow-content">
                     <h4>Spor Güvenliği</h4>
                     <p>Scooter, bisiklet, paten, kayak, kızak ve ata binerken kaskını ve güvenlik ekipmanlarını kullan.</p>
@@ -321,7 +324,7 @@
                 </div>
                 
                 <div class="flow-item">
-                  <div class="flow-icon">🏊</div>
+                  <div class="flow-icon"><span class="material-icons">pool</span></div>
                   <div class="flow-content">
                     <h4>Yüzme Güvenliği</h4>
                     <p>Yakınında bir yetişkin olmadan asla yüzme. Yüzmeyi bilmiyorsan öğrenmek için yardım iste.</p>
@@ -329,7 +332,7 @@
                 </div>
                 
                 <div class="flow-item warning">
-                  <div class="flow-icon">☀️</div>
+                  <div class="flow-icon"><span class="material-icons">wb_sunny</span></div>
                   <div class="flow-content">
                     <h4>Güneş Korunması</h4>
                     <p>Dışarıdayken daima güneş kremi ve şapka kullan.</p>
@@ -338,7 +341,7 @@
                 </div>
                 
                 <div class="flow-item">
-                  <div class="flow-icon">🏠</div>
+                  <div class="flow-icon"><span class="material-icons">home</span></div>
                   <div class="flow-content">
                     <h4>Ev Kuralları</h4>
                     <p>Arkadaşlarını sadece anne baban izin verdiğinde eve davet et.</p>
@@ -346,7 +349,7 @@
                 </div>
                 
                 <div class="flow-item action">
-                  <div class="flow-icon">🆘</div>
+                  <div class="flow-icon"><span class="material-icons">help</span></div>
                   <div class="flow-content">
                     <h4>Rahatsız Hissedersen</h4>
                     <p><strong>Başka birinin evinde veya bir partide kendini rahatsız hissediyorsan, eve gitmek için yardım iste.</strong></p>
@@ -375,13 +378,14 @@
               </div>
             </section>
           </div>
-        </article>
+        </div>
       </div>
       
       <!-- Action Bar -->
       <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
+          <button (click)="printDocument()" 
+             class="action-btn btn-secondary">
             <span class="material-icons">print</span>
             <span>Yazdır</span>
           </button>
@@ -395,12 +399,6 @@
           <span class="material-icons">picture_as_pdf</span>
           <span>PDF İndir</span>
         </button>
-        <button (click)="printDocument()" 
-           class="action-btn btn-secondary">
-          <span class="material-icons">print</span>
-          <span>Yazdır</span>
-        </button>
       </div>
     </div>
   </div>
-</div>

@@ -21,6 +21,14 @@
   margin: 0 auto;
 }
 
+.hero-logo {
+  width: 200px;
+  height: auto;
+  margin: 0 auto 30px;
+  display: block;
+  filter: brightness(0) invert(1); /* Make logo white */
+}
+
 .hero-title {
   font-size: 3.5rem;
   font-weight: 700;
