@@ -43,7 +43,10 @@
             <h3>İçindekiler</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+            <a *ngFor="let item of toc" 
+               class="toc-link" 
+               (click)="scrollToSection(item.id)" 
+               [ngClass]="{'level-3': item.level === 3, 'active': activeSection === item.id}">
               <span class="dot"></span>
               <span class="label">{{ item.text }}</span>
             </a>

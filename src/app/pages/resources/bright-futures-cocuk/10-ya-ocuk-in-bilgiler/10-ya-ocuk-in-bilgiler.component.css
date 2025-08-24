@@ -1,20 +1,20 @@
 /* Import enhanced MD3 content styles */
 @import '../../resource-content-styles.css';
 
-/* Özel Renkler ve Değişkenler */
+/* MD3 Theme Colors */
 :host {
-  --brand-purple: #7b61ff;
-  --brand-purple-light: #9f8fff;
-  --brand-purple-bg: #f3efff;
-  --brand-green: #4caf50;
-  --brand-green-light: #81c784;
-  --brand-green-bg: #e8f5e9;
-  --brand-blue: #2196f3;
-  --brand-blue-light: #64b5f6;
-  --brand-blue-bg: #e3f2fd;
-  --brand-orange: #ff9800;
-  --brand-orange-light: #ffb74d;
-  --brand-orange-bg: #fff3e0;
+  --brand-teal: #005F73;
+  --brand-teal-light: #0A9396;
+  --brand-teal-bg: #E0F4F3;
+  --brand-green: #0A9396;
+  --brand-green-light: #94D3AC;
+  --brand-green-bg: #E6F3F0;
+  --brand-blue: #005F73;
+  --brand-blue-light: #0A9396;
+  --brand-blue-bg: #E0F4F3;
+  --brand-orange: #005F73;
+  --brand-orange-light: #0A9396;
+  --brand-orange-bg: #E0F4F3;
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
   --shadow-lg: 0 8px 24px rgba(0,0,0,0.16);
@@ -56,12 +56,12 @@
 }
 
 .purple-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, var(--brand-purple-bg) 100%);
-  border-color: var(--brand-purple);
+  background: linear-gradient(135deg, #ffffff 0%, var(--brand-teal-bg) 100%);
+  border-color: var(--brand-teal);
 }
 
 .purple-gradient::before {
-  background: linear-gradient(90deg, var(--brand-purple), var(--brand-purple-light));
+  background: linear-gradient(90deg, var(--brand-teal), var(--brand-teal-light));
 }
 
 .green-gradient {
@@ -106,7 +106,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-purple-light));
+  background: linear-gradient(135deg, var(--brand-teal), var(--brand-teal-light));
   color: white;
   box-shadow: var(--shadow-md);
 }
@@ -165,11 +165,11 @@
 .content-card-item:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
-  border-color: var(--brand-purple);
+  border-color: var(--brand-teal);
 }
 
 .content-card-item:hover::before {
-  background: var(--brand-purple);
+  background: var(--brand-teal);
 }
 
 .highlight-card {
@@ -199,7 +199,7 @@
 }
 
 .content-card-item strong {
-  color: var(--brand-purple);
+  color: var(--brand-teal);
   font-weight: 600;
 }
 
@@ -246,7 +246,7 @@
   margin: 0 0 0.5rem 0;
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--brand-purple);
+  color: var(--brand-teal);
 }
 
 .green-gradient .flow-content h4 {
@@ -304,8 +304,8 @@
 
 /* Özel Durumlar */
 .highlight-flow {
-  background: linear-gradient(135deg, var(--brand-purple-bg), #ffffff);
-  border-color: var(--brand-purple);
+  background: linear-gradient(135deg, var(--brand-teal-bg), #ffffff);
+  border-color: var(--brand-teal);
 }
 
 .expanded {
@@ -365,12 +365,12 @@
 }
 
 .bright-futures-ref {
-  color: var(--brand-purple);
+  color: var(--brand-teal);
   font-weight: 500;
 }
 
 .bright-futures-ref strong {
-  color: var(--brand-purple);
+  color: var(--brand-teal);
 }
 
 .legal-notice {
@@ -518,7 +518,7 @@
 
   /* Simplify colors */
   .section-icon {
-    background: #7b61ff !important;
+    background: #005F73 !important;
     color: white !important;
   }
 

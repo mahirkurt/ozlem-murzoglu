@@ -40,6 +40,15 @@
   z-index: 1;
 }
 
+.resource-logo {
+  width: 150px;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
 .page-title {
   font-family: 'Figtree', sans-serif;
   font-size: 2.5rem;
@@ -266,13 +275,34 @@
 .toc-sidebar {
   width: 250px;
   position: sticky;
-  top: 2rem;
+  top: 100px; /* Account for header height (80px) + margin */
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  max-height: calc(100vh - 4rem);
+  max-height: calc(100vh - 120px); /* Adjusted for proper viewport height */
   overflow-y: auto;
+  z-index: 10; /* Ensure it stays above content but below header */
+  align-self: flex-start; /* Ensure sticky positioning works properly */
+}
+
+/* Custom scrollbar for TOC */
+.toc-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.toc-sidebar::-webkit-scrollbar-track {
+  background: #f1f3f5;
+  border-radius: 3px;
+}
+
+.toc-sidebar::-webkit-scrollbar-thumb {
+  background: #adb5bd;
+  border-radius: 3px;
+}
+
+.toc-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #868e96;
 }
 
 .toc-header {
@@ -312,6 +342,17 @@
 .toc-link:hover {
   background: #f8f9fa;
   color: var(--color-primary);
+}
+
+.toc-link.active {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.toc-link.active .dot {
+  background: var(--color-primary);
+  transform: scale(1.2);
 }
 
 .toc-link.level-3 {
