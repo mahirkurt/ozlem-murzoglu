@@ -21,6 +21,8 @@
     "CTA_LEARN_MORE": "Learn More"
   },
   "ABOUT": {
+    "PAGE_TITLE": "About Us",
+    "PAGE_SUBTITLE": "Integrating child health with social pediatrics and child development",
     "SECTION_TITLE": "About Us",
     "TITLE": "Dr. Özlem Mürzoğlu",
     "SUBTITLE": "Pediatrics and Child Health Specialist",
@@ -29,28 +31,61 @@
     "EXPERIENCE_TEXT": "Experience",
     "HAPPY_FAMILIES": "5000+",
     "HAPPY_FAMILIES_TEXT": "Happy Families",
-    "CERTIFICATIONS": "Certifications",
+    "CERTIFICATIONS": "Licenses and Certifications",
     "EDUCATION": "Education",
-    "EXPERIENCE": "Experience"
+    "EXPERIENCE": "Experience",
+    "VERIFIED_DOCTOR": "Specialist Physician",
+    "SOCIAL_PEDIATRICS": "Social Pediatrics Doctor",
+    "CHILD_DEVELOPMENT": "Child Development Specialist",
+    "DOCTORATE": "Doctorate - Social Pediatrics",
+    "BACHELOR": "Bachelor - Child Development",
+    "SPECIALIZATION": "Specialization - Pediatrics and Child Health",
+    "MEDICAL_DOCTOR": "Medical Doctor",
+    "HIGH_SCHOOL": "High School",
+    "CLINIC_FOUNDER": "Pediatrics Specialist - Clinic Founder",
+    "PEDIATRICIAN": "Pediatrician",
+    "PEDIATRIC_RESIDENT": "Pediatric Resident",
+    "MEDICAL_CONSULTANT": "Medical Consultant",
+    "PHYSICIAN": "Physician",
+    "SKILLS": {
+      "CHILD_DEVELOPMENT": "Child Development",
+      "BREASTFEEDING": "Breastfeeding Consultation",
+      "SLEEP_CONSULTATION": "Sleep Consultation",
+      "CHILD_HEALTH": "Well-Child Follow-up",
+      "VACCINATION": "Vaccination"
+    }
   },
   "SERVICES": {
+    "PAGE_TITLE": "Our Services",
     "SECTION_TITLE": "Our Services",
     "SUBTITLE": "Comprehensive services for your child's health",
     "SERVICE_LAB": {
       "TITLE": "Laboratory and Imaging",
-      "DESC": "Comprehensive diagnostic services with Biruni Laboratories and Sonomed Imaging partnership"
+      "DESC": "Comprehensive diagnostic services with Biruni Laboratories and Sonomed Imaging partnership",
+      "HERO_TITLE": "Fast and Reliable Diagnosis",
+      "HERO_SUBTITLE": "Partnership with Biruni Laboratories and Sonomed Imaging",
+      "INTRO": "We use the most advanced diagnostic methods for your child's health, providing reliable results for accurate diagnosis and treatment."
     },
     "SERVICE_TRIPLE_P": {
       "TITLE": "Triple P® Program",
-      "DESC": "Positive Parenting Program - Licensed by University of Queensland"
+      "DESC": "Positive Parenting Program - Licensed by University of Queensland",
+      "HERO_TITLE": "Positive Parenting Program",
+      "HERO_SUBTITLE": "Licensed Triple P® Practitioner from University of Queensland",
+      "INTRO": "Strengthen your relationship with your child, reduce behavioral problems, and increase family harmony."
     },
     "SERVICE_SLEEP": {
       "TITLE": "Healthy Sleep™",
-      "DESC": "Sleep Training and Consultation Program"
+      "DESC": "Sleep Training and Consultation Program",
+      "HERO_TITLE": "Healthy Sleep™ Program",
+      "HERO_SUBTITLE": "Baby and Child Sleep Consultation",
+      "INTRO": "We provide support with scientific methods to help your baby and child develop healthy sleep habits."
     },
     "SERVICE_BRIGHT_FUTURES": {
       "TITLE": "Bright Futures®",
-      "DESC": "American Academy of Pediatrics Well-Child Care"
+      "DESC": "American Academy of Pediatrics Well-Child Care",
+      "HERO_TITLE": "Bright Futures® Program",
+      "HERO_SUBTITLE": "Child Follow-up According to American Academy of Pediatrics Standards",
+      "INTRO": "We monitor your child's physical, mental, and social development at the highest level from birth to adolescence."
     },
     "SERVICE_VACCINATION": {
       "TITLE": "Vaccination Tracking",
@@ -60,7 +95,9 @@
       "TITLE": "Growth and Development",
       "DESC": "Periodic check-ups and monitoring"
     },
-    "LEARN_MORE": "Learn More"
+    "LEARN_MORE": "Learn More",
+    "BOOK_APPOINTMENT": "Book Appointment",
+    "CONTACT_US": "Contact Us"
   },
   "RESOURCES": {
     "SECTION_TITLE": "Resources",
