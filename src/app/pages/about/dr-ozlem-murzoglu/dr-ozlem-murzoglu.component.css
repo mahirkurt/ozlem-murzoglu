@@ -1,13 +1,14 @@
 .doctor-profile-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
 }
 
 .hero-section {
-  padding: 120px 20px 60px;
+  padding: 180px 20px 80px;
+  margin-top: 80px;
   text-align: center;
   color: white;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .hero-title {
@@ -26,7 +27,7 @@
 .content-section {
   max-width: 1200px;
   margin: -40px auto 0;
-  padding: 0 20px 60px;
+  padding: 0 20px 0;
   position: relative;
   z-index: 1;
 }
@@ -55,28 +56,7 @@
 }
 
 .credentials {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 15px;
-  padding: 20px;
-  color: white;
-}
-
-.credential-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 15px;
-  font-size: 0.95rem;
-}
-
-.credential-item:last-child {
-  margin-bottom: 0;
-}
-
-.credential-item i {
-  font-size: 1.2rem;
-  width: 30px;
-  text-align: center;
+  display: none;
 }
 
 .story-section {
@@ -98,7 +78,7 @@
   left: 0;
   width: 60px;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
   border-radius: 2px;
 }
 
@@ -110,7 +90,7 @@
 .intro {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #764ba2;
+  color: #005F73;
   margin-bottom: 30px;
 }
 
@@ -119,11 +99,11 @@
   padding: 25px;
   background: #f8f9fa;
   border-radius: 12px;
-  border-left: 4px solid #764ba2;
+  border-left: 4px solid #0A9396;
 }
 
 .story-block h3 {
-  color: #764ba2;
+  color: #005F73;
   font-size: 1.3rem;
   margin-bottom: 15px;
   display: flex;
@@ -145,7 +125,7 @@
 }
 
 .story-block strong {
-  color: #764ba2;
+  color: #005F73;
   font-weight: 600;
 }
 
@@ -175,14 +155,14 @@
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 10px 30px rgba(0, 95, 115, 0.3);
+  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
   color: white;
 }
 
 .service-card i {
   font-size: 2.5rem;
-  color: #764ba2;
+  color: #0A9396;
   margin-bottom: 15px;
   transition: color 0.3s ease;
 }
@@ -214,12 +194,13 @@
 }
 
 .contact-cta {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
   border-radius: 20px;
   padding: 50px;
   text-align: center;
   color: white;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  margin-bottom: 0;
 }
 
 .contact-cta h3 {
@@ -237,7 +218,7 @@
   display: inline-block;
   padding: 15px 40px;
   background: white;
-  color: #764ba2;
+  color: #005F73;
   text-decoration: none;
   border-radius: 50px;
   font-size: 1.1rem;
