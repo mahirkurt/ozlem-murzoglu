@@ -53,7 +53,9 @@
       "Bash(if ! grep -q \"downloadPdf\" \"$file\")",
       "Bash(then echo \"$dir needs update\")",
       "Bash(fi)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(ng serve:*)",
+      "Bash(npm uninstall:*)"
     ],
     "deny": []
   }

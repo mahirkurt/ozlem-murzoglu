@@ -1,0 +1,150 @@
+{
+  "HEADER": {
+    "BRAND_NAME": "Dr. Özlem Mürzoğlu",
+    "NAV_HOME": "Ana Sayfa",
+    "NAV_ABOUT": "Hakkımızda",
+    "NAV_ABOUT_US": "Hakkımızda",
+    "NAV_DR_OZLEM": "Dr. Özlem Mürzoğlu",
+    "NAV_CLINIC_DESIGN": "Klinik Tasarımı",
+    "NAV_SERVICES": "Hizmetlerimiz",
+    "NAV_RESOURCES": "Kaynaklar",
+    "NAV_BLOG": "Blog",
+    "NAV_FAQ": "S.S.S.",
+    "NAV_CONTACT": "İletişim",
+    "NAV_APPOINTMENT": "Randevu Al"
+  },
+  "HOME": {
+    "HERO_TITLE": "Çocuğunuzun Sağlığı İçin Güvenilir Adres",
+    "HERO_SUBTITLE": "Sosyal Pediatri ve Çocuk Gelişimi Uzmanı",
+    "HERO_DESCRIPTION": "Modern tıp anlayışı ile geleneksel değerleri harmanlayarak, çocuğunuzun sağlıklı büyümesi için yanınızdayız.",
+    "CTA_APPOINTMENT": "Randevu Al",
+    "CTA_LEARN_MORE": "Detaylı Bilgi"
+  },
+  "ABOUT": {
+    "SECTION_TITLE": "Hakkımızda",
+    "TITLE": "Dr. Özlem Mürzoğlu",
+    "SUBTITLE": "Çocuk Sağlığı ve Hastalıkları Uzmanı",
+    "DESCRIPTION": "15 yılı aşkın deneyimimle, çocuklarınızın sağlığı için en güncel tedavi yöntemlerini uyguluyorum. Amerikan Pediatri Akademisi standartlarında hizmet veriyoruz.",
+    "EXPERIENCE_YEARS": "15+ Yıl",
+    "EXPERIENCE_TEXT": "Deneyim",
+    "HAPPY_FAMILIES": "5000+",
+    "HAPPY_FAMILIES_TEXT": "Mutlu Aile",
+    "CERTIFICATIONS": "Sertifikalar",
+    "EDUCATION": "Eğitim",
+    "EXPERIENCE": "Deneyim"
+  },
+  "SERVICES": {
+    "SECTION_TITLE": "Hizmetlerimiz",
+    "SUBTITLE": "Çocuğunuzun sağlığı için kapsamlı hizmetler",
+    "SERVICE_LAB": {
+      "TITLE": "Laboratuvar ve Görüntüleme",
+      "DESC": "Biruni Laboratuvarları ve Sonomed Görüntüleme ortaklığı ile kapsamlı tanı hizmetleri"
+    },
+    "SERVICE_TRIPLE_P": {
+      "TITLE": "Triple P® Programı",
+      "DESC": "Olumlu Ebeveynlik Programı - Queensland Üniversitesi lisanslı"
+    },
+    "SERVICE_SLEEP": {
+      "TITLE": "Sağlıklı Uykular™",
+      "DESC": "Uyku Eğitimi ve Danışmanlığı Programı"
+    },
+    "SERVICE_BRIGHT_FUTURES": {
+      "TITLE": "Bright Futures®",
+      "DESC": "Amerikan Pediatri Akademisi Sağlıklı Çocuk İzlemi"
+    },
+    "SERVICE_VACCINATION": {
+      "TITLE": "Aşı Takibi",
+      "DESC": "Ulusal ve özel aşı uygulamaları"
+    },
+    "SERVICE_GROWTH": {
+      "TITLE": "Büyüme ve Gelişim",
+      "DESC": "Periyodik kontrol ve takip"
+    },
+    "LEARN_MORE": "Detaylı Bilgi"
+  },
+  "RESOURCES": {
+    "SECTION_TITLE": "Kaynaklar",
+    "SUBTITLE": "Ailelere ve çocuklara yönelik bilgilendirici kaynaklar",
+    "CATEGORIES": {
+      "BRIGHT_FUTURES_FAMILY": "Bright Futures (Aile)",
+      "BRIGHT_FUTURES_CHILD": "Bright Futures (Çocuk)",
+      "VACCINES": "Aşılar",
+      "DISEASES": "Hastalıklar",
+      "NUTRITION": "Beslenme",
+      "SAFETY": "Güvenlik"
+    }
+  },
+  "CONTACT": {
+    "SECTION_TITLE": "İletişim",
+    "SUBTITLE": "Bizimle iletişime geçin",
+    "ADDRESS_TITLE": "Adres",
+    "ADDRESS": "Ataşehir, İstanbul",
+    "PHONE_TITLE": "Telefon",
+    "EMAIL_TITLE": "E-posta",
+    "HOURS_TITLE": "Çalışma Saatleri",
+    "HOURS_WEEKDAYS": "Pazartesi - Cuma: 09:00 - 18:00",
+    "HOURS_SATURDAY": "Cumartesi: 09:00 - 14:00",
+    "HOURS_SUNDAY": "Pazar: Kapalı",
+    "FORM_NAME": "Adınız Soyadınız",
+    "FORM_EMAIL": "E-posta Adresiniz",
+    "FORM_PHONE": "Telefon Numaranız",
+    "FORM_MESSAGE": "Mesajınız",
+    "FORM_SUBMIT": "Mesajı Gönder",
+    "MAP_TITLE": "Konum"
+  },
+  "FOOTER": {
+    "ABOUT_TITLE": "Hakkımızda",
+    "ABOUT_DESC": "Dr. Özlem Mürzoğlu Çocuk Sağlığı ve Hastalıkları Kliniği olarak, çocuklarınızın sağlığı için en iyi hizmeti sunuyoruz.",
+    "QUICK_LINKS": "Hızlı Linkler",
+    "SERVICES": "Hizmetlerimiz",
+    "RESOURCES": "Kaynaklar",
+    "BLOG": "Blog",
+    "FAQ": "S.S.S.",
+    "CONTACT_INFO": "İletişim Bilgileri",
+    "COPYRIGHT": "© 2025 Dr. Özlem Mürzoğlu. Tüm hakları saklıdır.",
+    "PRIVACY_POLICY": "Gizlilik Politikası",
+    "TERMS": "Kullanım Koşulları"
+  },
+  "LANGUAGE_SWITCHER": {
+    "TR": "Türkçe",
+    "EN": "English"
+  },
+  "COMMON": {
+    "READ_MORE": "Devamını Oku",
+    "DOWNLOAD": "İndir",
+    "PRINT": "Yazdır",
+    "SHARE": "Paylaş",
+    "BACK": "Geri",
+    "NEXT": "İleri",
+    "PREVIOUS": "Önceki",
+    "CLOSE": "Kapat",
+    "LOADING": "Yükleniyor...",
+    "ERROR": "Hata",
+    "SUCCESS": "Başarılı",
+    "WARNING": "Uyarı",
+    "INFO": "Bilgi"
+  },
+  "FAQ": {
+    "TITLE": "Sıkça Sorulan Sorular",
+    "SUBTITLE": "Merak ettiğiniz konular hakkında bilgi alın"
+  },
+  "BLOG": {
+    "TITLE": "Blog",
+    "SUBTITLE": "Çocuk sağlığı hakkında güncel bilgiler",
+    "READ_MORE": "Devamını Oku",
+    "CATEGORIES": "Kategoriler",
+    "RECENT_POSTS": "Son Yazılar",
+    "SEARCH": "Ara..."
+  },
+  "APPOINTMENT": {
+    "TITLE": "Online Randevu",
+    "SUBTITLE": "Hızlı ve kolay randevu alın",
+    "SELECT_DATE": "Tarih Seçin",
+    "SELECT_TIME": "Saat Seçin",
+    "PATIENT_NAME": "Hasta Adı",
+    "PATIENT_AGE": "Hasta Yaşı",
+    "REASON": "Randevu Nedeni",
+    "CONFIRM": "Randevu Al",
+    "SUCCESS_MESSAGE": "Randevunuz başarıyla alındı."
+  }
+}

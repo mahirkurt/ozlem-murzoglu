@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LiquidHeroComponent } from '../../components/liquid-hero/liquid-hero';
 import { ApproachSectionComponent } from '../../components/approach-section/approach-section.component';
 import { BlogSectionComponent } from '../../components/blog-section/blog-section.component';
@@ -13,6 +14,7 @@ import { AppointmentSectionComponent } from '../../components/appointment-sectio
   selector: 'app-home',
   standalone: true,
   imports: [
+    TranslateModule,
     LiquidHeroComponent, 
     ApproachSectionComponent, 
     BlogSectionComponent,
@@ -27,5 +29,12 @@ import { AppointmentSectionComponent } from '../../components/appointment-sectio
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  private translate = inject(TranslateService);
   locale = 'tr';
+  
+  constructor() {
+    this.translate.onLangChange.subscribe((event) => {
+      this.locale = event.lang;
+    });
+  }
 }
