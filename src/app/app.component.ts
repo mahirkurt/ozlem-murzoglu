@@ -6,6 +6,7 @@ import { CustomCursorComponent } from './components/custom-cursor/custom-cursor'
 import { FloatingActionsComponent } from './components/floating-actions/floating-actions';
 import { WhatsAppButtonComponent } from './components/whatsapp-button/whatsapp-button';
 import { ThemeService } from './services/theme.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -15,27 +16,42 @@ import { ThemeService } from './services/theme.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Dr. Özlem Murzoğlu | Çocuk Sağlığı ve Hastalıkları Uzmanı';
+  title = 'Dr. Özlem Mürzoğlu | Çocuk Sağlığı ve Hastalıkları Uzmanı';
   locale = 'tr';
   
-  // ThemeService'i bootstrap için enjekte et
+  // Services
   private readonly theme = inject(ThemeService);
+  private readonly translate = inject(TranslateService);
+  
+  constructor() {
+    // Set default language
+    this.translate.setDefaultLang('tr');
+    
+    // Get browser language or saved preference
+    if (typeof window !== 'undefined') {
+      const savedLang = localStorage.getItem('selectedLanguage');
+      if (savedLang) {
+        this.translate.use(savedLang);
+        this.locale = savedLang;
+      } else {
+        const browserLang = this.translate.getBrowserLang();
+        const langToUse = browserLang?.match(/en|tr/) ? browserLang : 'tr';
+        this.translate.use(langToUse);
+        this.locale = langToUse;
+      }
+    }
+  }
   
   onLocaleChange(newLocale: string) {
     this.locale = newLocale;
-    // Dil değişikliğini tüm uygulamaya yay
+    this.translate.use(newLocale);
+    // Save language preference
     if (typeof window !== 'undefined') {
-      localStorage.setItem('locale', newLocale);
+      localStorage.setItem('selectedLanguage', newLocale);
     }
   }
   
   ngOnInit() {
-    // Kaydedilmiş dili yükle
-    if (typeof window !== 'undefined') {
-      const savedLocale = localStorage.getItem('locale');
-      if (savedLocale) {
-        this.locale = savedLocale;
-      }
-    }
+    // Language initialization is handled in constructor
   }
 }

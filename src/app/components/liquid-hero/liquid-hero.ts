@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-liquid-hero',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   template: `
     <section class="liquid-hero">
       <!-- Liquid Background -->
@@ -25,17 +26,17 @@ import { RouterModule } from '@angular/router';
       <div class="hero-content">
         <div class="container">
           <div class="content-wrapper">
-            <div class="hero-subtitle">Uzm. Dr. Özlem Murzoğlu • Çocuk Sağlığı ve Hastalıkları Kliniği</div>
+            <div class="hero-subtitle">{{ 'HOME.HERO_SUBTITLE' | translate }}</div>
             <h1 class="hero-title">
-              En Değerli Varlığınız için Bilim ve Şefkati Birleştiren Bütüncül Yaklaşım
+              {{ 'HOME.HERO_TITLE' | translate }}
             </h1>
             <p class="hero-description">
-              Sosyal pediatri ve çocuk gelişimi disiplinlerini harmanlayan kapsamlı yaklaşımla doğumdan yetişkinliğe kanıta dayalı ve çocuğunuza özel bir sağlık deneyimi
+              {{ 'HOME.HERO_DESCRIPTION' | translate }}
             </p>
             
             <div class="hero-cta">
               <a href="/hakkimizda" class="cta-button primary">
-                <span class="button-text">Kliniğimizi Yakından Tanıyın</span>
+                <span class="button-text">{{ 'HOME.CTA_LEARN_MORE' | translate }}</span>
                 <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>

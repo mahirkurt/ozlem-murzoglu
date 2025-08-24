@@ -1,0 +1,150 @@
+{
+  "HEADER": {
+    "BRAND_NAME": "Dr. Özlem Mürzoğlu",
+    "NAV_HOME": "Home",
+    "NAV_ABOUT": "About",
+    "NAV_ABOUT_US": "About Us",
+    "NAV_DR_OZLEM": "Dr. Özlem Mürzoğlu",
+    "NAV_CLINIC_DESIGN": "Clinic Design",
+    "NAV_SERVICES": "Services",
+    "NAV_RESOURCES": "Resources",
+    "NAV_BLOG": "Blog",
+    "NAV_FAQ": "FAQ",
+    "NAV_CONTACT": "Contact",
+    "NAV_APPOINTMENT": "Book Appointment"
+  },
+  "HOME": {
+    "HERO_TITLE": "Trusted Healthcare for Your Child",
+    "HERO_SUBTITLE": "Social Pediatrics and Child Development Specialist",
+    "HERO_DESCRIPTION": "Combining modern medicine with traditional values, we are here for your child's healthy growth.",
+    "CTA_APPOINTMENT": "Book Appointment",
+    "CTA_LEARN_MORE": "Learn More"
+  },
+  "ABOUT": {
+    "SECTION_TITLE": "About Us",
+    "TITLE": "Dr. Özlem Mürzoğlu",
+    "SUBTITLE": "Pediatrics and Child Health Specialist",
+    "DESCRIPTION": "With over 15 years of experience, I apply the most current treatment methods for your children's health. We provide services according to American Academy of Pediatrics standards.",
+    "EXPERIENCE_YEARS": "15+ Years",
+    "EXPERIENCE_TEXT": "Experience",
+    "HAPPY_FAMILIES": "5000+",
+    "HAPPY_FAMILIES_TEXT": "Happy Families",
+    "CERTIFICATIONS": "Certifications",
+    "EDUCATION": "Education",
+    "EXPERIENCE": "Experience"
+  },
+  "SERVICES": {
+    "SECTION_TITLE": "Our Services",
+    "SUBTITLE": "Comprehensive services for your child's health",
+    "SERVICE_LAB": {
+      "TITLE": "Laboratory and Imaging",
+      "DESC": "Comprehensive diagnostic services with Biruni Laboratories and Sonomed Imaging partnership"
+    },
+    "SERVICE_TRIPLE_P": {
+      "TITLE": "Triple P® Program",
+      "DESC": "Positive Parenting Program - Licensed by University of Queensland"
+    },
+    "SERVICE_SLEEP": {
+      "TITLE": "Healthy Sleep™",
+      "DESC": "Sleep Training and Consultation Program"
+    },
+    "SERVICE_BRIGHT_FUTURES": {
+      "TITLE": "Bright Futures®",
+      "DESC": "American Academy of Pediatrics Well-Child Care"
+    },
+    "SERVICE_VACCINATION": {
+      "TITLE": "Vaccination Tracking",
+      "DESC": "National and private vaccination services"
+    },
+    "SERVICE_GROWTH": {
+      "TITLE": "Growth and Development",
+      "DESC": "Periodic check-ups and monitoring"
+    },
+    "LEARN_MORE": "Learn More"
+  },
+  "RESOURCES": {
+    "SECTION_TITLE": "Resources",
+    "SUBTITLE": "Educational resources for families and children",
+    "CATEGORIES": {
+      "BRIGHT_FUTURES_FAMILY": "Bright Futures (Family)",
+      "BRIGHT_FUTURES_CHILD": "Bright Futures (Child)",
+      "VACCINES": "Vaccines",
+      "DISEASES": "Diseases",
+      "NUTRITION": "Nutrition",
+      "SAFETY": "Safety"
+    }
+  },
+  "CONTACT": {
+    "SECTION_TITLE": "Contact",
+    "SUBTITLE": "Get in touch with us",
+    "ADDRESS_TITLE": "Address",
+    "ADDRESS": "Ataşehir, Istanbul",
+    "PHONE_TITLE": "Phone",
+    "EMAIL_TITLE": "Email",
+    "HOURS_TITLE": "Working Hours",
+    "HOURS_WEEKDAYS": "Monday - Friday: 09:00 AM - 06:00 PM",
+    "HOURS_SATURDAY": "Saturday: 09:00 AM - 02:00 PM",
+    "HOURS_SUNDAY": "Sunday: Closed",
+    "FORM_NAME": "Your Name",
+    "FORM_EMAIL": "Your Email",
+    "FORM_PHONE": "Your Phone",
+    "FORM_MESSAGE": "Your Message",
+    "FORM_SUBMIT": "Send Message",
+    "MAP_TITLE": "Location"
+  },
+  "FOOTER": {
+    "ABOUT_TITLE": "About Us",
+    "ABOUT_DESC": "At Dr. Özlem Mürzoğlu Pediatrics Clinic, we provide the best care for your children's health.",
+    "QUICK_LINKS": "Quick Links",
+    "SERVICES": "Services",
+    "RESOURCES": "Resources",
+    "BLOG": "Blog",
+    "FAQ": "FAQ",
+    "CONTACT_INFO": "Contact Info",
+    "COPYRIGHT": "© 2025 Dr. Özlem Mürzoğlu. All rights reserved.",
+    "PRIVACY_POLICY": "Privacy Policy",
+    "TERMS": "Terms of Use"
+  },
+  "LANGUAGE_SWITCHER": {
+    "TR": "Türkçe",
+    "EN": "English"
+  },
+  "COMMON": {
+    "READ_MORE": "Read More",
+    "DOWNLOAD": "Download",
+    "PRINT": "Print",
+    "SHARE": "Share",
+    "BACK": "Back",
+    "NEXT": "Next",
+    "PREVIOUS": "Previous",
+    "CLOSE": "Close",
+    "LOADING": "Loading...",
+    "ERROR": "Error",
+    "SUCCESS": "Success",
+    "WARNING": "Warning",
+    "INFO": "Info"
+  },
+  "FAQ": {
+    "TITLE": "Frequently Asked Questions",
+    "SUBTITLE": "Find answers to common questions"
+  },
+  "BLOG": {
+    "TITLE": "Blog",
+    "SUBTITLE": "Latest updates on child health",
+    "READ_MORE": "Read More",
+    "CATEGORIES": "Categories",
+    "RECENT_POSTS": "Recent Posts",
+    "SEARCH": "Search..."
+  },
+  "APPOINTMENT": {
+    "TITLE": "Online Appointment",
+    "SUBTITLE": "Quick and easy appointment booking",
+    "SELECT_DATE": "Select Date",
+    "SELECT_TIME": "Select Time",
+    "PATIENT_NAME": "Patient Name",
+    "PATIENT_AGE": "Patient Age",
+    "REASON": "Reason for Visit",
+    "CONFIRM": "Book Appointment",
+    "SUCCESS_MESSAGE": "Your appointment has been successfully booked."
+  }
+}
