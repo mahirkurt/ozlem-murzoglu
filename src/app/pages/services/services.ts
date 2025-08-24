@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { IllustrationComponent } from '../../shared/components/illustration/illustration.component';
 
 interface Service {
   id: string;
-  title: string;
-  subtitle: string;
-  description: string;
+  titleKey: string;
+  subtitleKey: string;
+  descriptionKey: string;
   icon: string;
   features: string[];
   color: string;
@@ -17,17 +18,18 @@ interface Service {
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, RouterModule, ScrollRevealDirective, IllustrationComponent],
+  imports: [CommonModule, RouterModule, TranslateModule, ScrollRevealDirective, IllustrationComponent],
   templateUrl: './services.html',
   styleUrl: './services.css'
 })
 export class ServicesComponent {
+  private translate = inject(TranslateService);
   services: Service[] = [
     {
       id: 'laboratuvar-goruntuleme',
-      title: 'Laboratuvar ve Görüntüleme',
-      subtitle: 'Tanı Hizmetleri',
-      description: 'Biruni Laboratuvarları ve Sonomed Görüntüleme ortaklığı ile kapsamlı tanı hizmetleri sunuyoruz.',
+      titleKey: 'SERVICES.SERVICE_LAB.TITLE',
+      subtitleKey: 'Tanı Hizmetleri',
+      descriptionKey: 'SERVICES.SERVICE_LAB.DESC',
       icon: 'biotech',
       color: 'primary',
       features: [
@@ -41,9 +43,9 @@ export class ServicesComponent {
     },
     {
       id: 'triple-p',
-      title: 'Triple P®',
-      subtitle: 'Olumlu Ebeveynlik Programı',
-      description: 'Queensland Üniversitesi tarafından geliştirilmiş, 25+ ülkede 4 milyondan fazla aileye ulaşmış dünya çapında kabul görmüş program.',
+      titleKey: 'SERVICES.SERVICE_TRIPLE_P.TITLE',
+      subtitleKey: 'Olumlu Ebeveynlik Programı',
+      descriptionKey: 'SERVICES.SERVICE_TRIPLE_P.DESC',
       icon: 'family_restroom',
       color: 'secondary',
       features: [
@@ -57,9 +59,9 @@ export class ServicesComponent {
     },
     {
       id: 'saglikli-uykular',
-      title: 'Sağlıklı Uykular™',
-      subtitle: 'Uyku Eğitimi ve Danışmanlığı',
-      description: 'Çocuğunuzun uyku sorunlarını çözen, sağlıklı uyku rutini oluşturan bütüncül yaklaşımlı uyku eğitimi programı.',
+      titleKey: 'SERVICES.SERVICE_SLEEP.TITLE',
+      subtitleKey: 'Uyku Eğitimi ve Danışmanlığı',
+      descriptionKey: 'SERVICES.SERVICE_SLEEP.DESC',
       icon: 'bedtime',
       color: 'tertiary',
       features: [
@@ -73,9 +75,9 @@ export class ServicesComponent {
     },
     {
       id: 'bright-futures-program',
-      title: 'Bright Futures®',
-      subtitle: 'Amerikan Pediatri Akademisi Sağlıklı Çocuk İzlemi',
-      description: 'AAP standartlarında, bebeklikten yetişkinliğe çocuk sağlığı için bütüncül bir rehberlik programı.',
+      titleKey: 'SERVICES.SERVICE_BRIGHT_FUTURES.TITLE',
+      subtitleKey: 'Amerikan Pediatri Akademisi Sağlıklı Çocuk İzlemi',
+      descriptionKey: 'SERVICES.SERVICE_BRIGHT_FUTURES.DESC',
       icon: 'star',
       color: 'primary',
       features: [
@@ -89,9 +91,9 @@ export class ServicesComponent {
     },
     {
       id: 'asi-takibi',
-      title: 'Aşı Takibi',
-      subtitle: 'Ulusal Aşı Takvimi',
-      description: 'Sağlık Bakanlığı\'nın güncel aşı takvimine uygun, düzenli aşılama hizmeti.',
+      titleKey: 'SERVICES.SERVICE_VACCINATION.TITLE',
+      subtitleKey: 'Ulusal Aşı Takvimi',
+      descriptionKey: 'SERVICES.SERVICE_VACCINATION.DESC',
       icon: 'vaccines',
       color: 'secondary',
       features: [
@@ -105,9 +107,9 @@ export class ServicesComponent {
     },
     {
       id: 'gelisim-takibi',
-      title: 'Büyüme ve Gelişim Takibi',
-      subtitle: 'Periyodik Kontroller',
-      description: 'Çocuğunuzun fiziksel, zihinsel ve sosyal gelişiminin düzenli takibi.',
+      titleKey: 'SERVICES.SERVICE_GROWTH.TITLE',
+      subtitleKey: 'Periyodik Kontroller',
+      descriptionKey: 'SERVICES.SERVICE_GROWTH.DESC',
       icon: 'trending_up',
       color: 'tertiary',
       features: [

@@ -4,8 +4,8 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <h1 class="page-title" scrollReveal="fade-up">Hakkımızda</h1>
-          <p class="page-subtitle" scrollReveal="fade-up" [scrollDelay]="200">Çocuk sağlığını sosyal pediatri ve çocuk gelişimi ile bütünleştiriyoruz</p>
+          <h1 class="page-title" scrollReveal="fade-up">{{ 'ABOUT.PAGE_TITLE' | translate }}</h1>
+          <p class="page-subtitle" scrollReveal="fade-up" [scrollDelay]="200">{{ 'ABOUT.PAGE_SUBTITLE' | translate }}</p>
         </div>
       </div>
     </div>
@@ -22,61 +22,61 @@
           <div class="profile-badges">
             <div class="badge">
               <span class="material-icons">verified</span>
-              <span>Uzman Hekim</span>
+              <span>{{ 'ABOUT.VERIFIED_DOCTOR' | translate }}</span>
             </div>
             <div class="badge">
               <span class="material-icons">school</span>
-              <span>Sosyal Pediatri Doktoru</span>
+              <span>{{ 'ABOUT.SOCIAL_PEDIATRICS' | translate }}</span>
             </div>
             <div class="badge">
               <span class="material-icons">child_care</span>
-              <span>Çocuk Gelişimci</span>
+              <span>{{ 'ABOUT.CHILD_DEVELOPMENT' | translate }}</span>
             </div>
           </div>
         </div>
         
         <div class="profile-content" scrollReveal="fade-left" [scrollDelay]="500">
-          <h2 class="doctor-name">Dr. Özlem Murzoğlu</h2>
-          <p class="doctor-title">Çocuk Sağlığı ve Hastalıkları Uzmanı</p>
+          <h2 class="doctor-name">{{ 'ABOUT.TITLE' | translate }}</h2>
+          <p class="doctor-title">{{ 'ABOUT.SUBTITLE' | translate }}</p>
           
           <!-- Academic CV Section -->
           <div class="academic-cv">
             <!-- Education Section -->
             <div class="cv-section">
-              <h3><span class="material-icons">school</span> Eğitim</h3>
+              <h3><span class="material-icons">school</span> {{ 'ABOUT.EDUCATION' | translate }}</h3>
               <div class="education-timeline">
                 <div class="education-item">
                   <div class="edu-year">2019 - 2024</div>
                   <div class="edu-content">
-                    <h4>Doktora - Sosyal Pediatri</h4>
+                    <h4>{{ 'ABOUT.DOCTORATE' | translate }}</h4>
                     <p class="institution">Marmara Üniversitesi</p>
                   </div>
                 </div>
                 <div class="education-item">
                   <div class="edu-year">2019 - 2023</div>
                   <div class="edu-content">
-                    <h4>Lisans - Çocuk Gelişimi</h4>
+                    <h4>{{ 'ABOUT.BACHELOR' | translate }}</h4>
                     <p class="institution">İstanbul Üniversitesi</p>
                   </div>
                 </div>
                 <div class="education-item">
                   <div class="edu-year">2012 - 2017</div>
                   <div class="edu-content">
-                    <h4>Uzmanlık - Çocuk Sağlığı ve Hastalıkları</h4>
+                    <h4>{{ 'ABOUT.SPECIALIZATION' | translate }}</h4>
                     <p class="institution">Marmara Üniversitesi</p>
                   </div>
                 </div>
                 <div class="education-item">
                   <div class="edu-year">2001 - 2007</div>
                   <div class="edu-content">
-                    <h4>Tıp Doktoru</h4>
+                    <h4>{{ 'ABOUT.MEDICAL_DOCTOR' | translate }}</h4>
                     <p class="institution">İstanbul Üniversitesi İstanbul Tıp Fakültesi</p>
                   </div>
                 </div>
                 <div class="education-item">
                   <div class="edu-year">1994 - 2001</div>
                   <div class="edu-content">
-                    <h4>Lise</h4>
+                    <h4>{{ 'ABOUT.HIGH_SCHOOL' | translate }}</h4>
                     <p class="institution">Rize Anadolu Lisesi</p>
                   </div>
                 </div>
@@ -85,12 +85,12 @@
 
             <!-- Experience Section -->
             <div class="cv-section">
-              <h3><span class="material-icons">work</span> Deneyim</h3>
+              <h3><span class="material-icons">work</span> {{ 'ABOUT.EXPERIENCE' | translate }}</h3>
               <div class="experience-timeline">
                 <div class="exp-item">
                   <div class="exp-period">Ağu 2022 - Günümüz</div>
                   <div class="exp-content">
-                    <h4>Pediatri Uzmanı - Klinik Kurucusu</h4>
+                    <h4>{{ 'ABOUT.CLINIC_FOUNDER' | translate }}</h4>
                     <p class="company">Uzm.Dr. Özlem Murzoğlu Kliniği</p>
                     <p class="location">Ataşehir, İstanbul</p>
                     <div class="skills-tags">

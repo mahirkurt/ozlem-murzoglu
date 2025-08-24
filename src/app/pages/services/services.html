@@ -9,10 +9,8 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <h1 class="page-title">Hizmetlerimiz</h1>
-          <p class="page-subtitle">
-            Çocuğunuzun sağlığı için kanıta dayalı, modern ve kapsamlı sağlık hizmetleri sunuyoruz
-          </p>
+          <h1 class="page-title">{{ 'SERVICES.PAGE_TITLE' | translate }}</h1>
+          <p class="page-subtitle">{{ 'SERVICES.SUBTITLE' | translate }}</p>
         </div>
         <div class="hero-illustration" scrollReveal="fade-left" [scrollDelay]="300">
           <app-illustration type="services" title="Pediatrik Sağlık Hizmetleri" size="large" [animated]="true"></app-illustration>
@@ -45,9 +43,9 @@
             </div>
             
             <div class="service-card-body">
-              <h3 class="service-title">{{service.title}}</h3>
-              <p class="service-subtitle">{{service.subtitle}}</p>
-              <p class="service-description">{{service.description}}</p>
+              <h3 class="service-title">{{ service.titleKey | translate }}</h3>
+              <p class="service-subtitle">{{service.subtitleKey}}</p>
+              <p class="service-description">{{ service.descriptionKey | translate }}</p>
               
               <div class="service-features">
                 <div *ngFor="let feature of service.features.slice(0, 3)" class="feature-item">
@@ -57,7 +55,7 @@
               </div>
               
               <a [routerLink]="['/hizmetlerimiz', service.id]" class="service-link">
-                <span>Detaylı Bilgi</span>
+                <span>{{ 'SERVICES.LEARN_MORE' | translate }}</span>
                 <span class="material-icons">arrow_forward</span>
               </a>
             </div>
@@ -83,9 +81,9 @@
             </div>
             
             <div class="service-item-content">
-              <h4 class="service-item-title">{{service.title}}</h4>
-              <p class="service-item-subtitle">{{service.subtitle}}</p>
-              <p class="service-item-description">{{service.description}}</p>
+              <h4 class="service-item-title">{{ service.titleKey | translate }}</h4>
+              <p class="service-item-subtitle">{{service.subtitleKey}}</p>
+              <p class="service-item-description">{{ service.descriptionKey | translate }}</p>
               
               <ul class="service-item-features">
                 <li *ngFor="let feature of service.features.slice(0, 4)">

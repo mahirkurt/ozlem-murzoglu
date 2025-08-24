@@ -21,6 +21,8 @@
     "CTA_LEARN_MORE": "Detaylı Bilgi"
   },
   "ABOUT": {
+    "PAGE_TITLE": "Hakkımızda",
+    "PAGE_SUBTITLE": "Çocuk sağlığını sosyal pediatri ve çocuk gelişimi ile bütünleştiriyoruz",
     "SECTION_TITLE": "Hakkımızda",
     "TITLE": "Dr. Özlem Mürzoğlu",
     "SUBTITLE": "Çocuk Sağlığı ve Hastalıkları Uzmanı",
@@ -29,28 +31,61 @@
     "EXPERIENCE_TEXT": "Deneyim",
     "HAPPY_FAMILIES": "5000+",
     "HAPPY_FAMILIES_TEXT": "Mutlu Aile",
-    "CERTIFICATIONS": "Sertifikalar",
+    "CERTIFICATIONS": "Lisans ve Sertifikalar",
     "EDUCATION": "Eğitim",
-    "EXPERIENCE": "Deneyim"
+    "EXPERIENCE": "Deneyim",
+    "VERIFIED_DOCTOR": "Uzman Hekim",
+    "SOCIAL_PEDIATRICS": "Sosyal Pediatri Doktoru",
+    "CHILD_DEVELOPMENT": "Çocuk Gelişimci",
+    "DOCTORATE": "Doktora - Sosyal Pediatri",
+    "BACHELOR": "Lisans - Çocuk Gelişimi",
+    "SPECIALIZATION": "Uzmanlık - Çocuk Sağlığı ve Hastalıkları",
+    "MEDICAL_DOCTOR": "Tıp Doktoru",
+    "HIGH_SCHOOL": "Lise",
+    "CLINIC_FOUNDER": "Pediatri Uzmanı - Klinik Kurucusu",
+    "PEDIATRICIAN": "Pediatri Uzmanı",
+    "PEDIATRIC_RESIDENT": "Pediatri Asistanı",
+    "MEDICAL_CONSULTANT": "Medikal Danışman",
+    "PHYSICIAN": "Hekim",
+    "SKILLS": {
+      "CHILD_DEVELOPMENT": "Çocuk Gelişimi",
+      "BREASTFEEDING": "Emzirme Danışmanlığı",
+      "SLEEP_CONSULTATION": "Uyku Danışmanlığı",
+      "CHILD_HEALTH": "Çocuk Sağlığı İzlemi",
+      "VACCINATION": "Aşılama"
+    }
   },
   "SERVICES": {
+    "PAGE_TITLE": "Hizmetlerimiz",
     "SECTION_TITLE": "Hizmetlerimiz",
     "SUBTITLE": "Çocuğunuzun sağlığı için kapsamlı hizmetler",
     "SERVICE_LAB": {
       "TITLE": "Laboratuvar ve Görüntüleme",
-      "DESC": "Biruni Laboratuvarları ve Sonomed Görüntüleme ortaklığı ile kapsamlı tanı hizmetleri"
+      "DESC": "Biruni Laboratuvarları ve Sonomed Görüntüleme ortaklığı ile kapsamlı tanı hizmetleri",
+      "HERO_TITLE": "Hızlı ve Güvenilir Tanı",
+      "HERO_SUBTITLE": "Biruni Laboratuvarları ve Sonomed Görüntüleme İş Birliği",
+      "INTRO": "Çocuğunuzun sağlığı için en gelişmiş tanı yöntemlerini kullanıyor, doğru teşhis ve tedavi için güvenilir sonuçlar sunuyoruz."
     },
     "SERVICE_TRIPLE_P": {
       "TITLE": "Triple P® Programı",
-      "DESC": "Olumlu Ebeveynlik Programı - Queensland Üniversitesi lisanslı"
+      "DESC": "Olumlu Ebeveynlik Programı - Queensland Üniversitesi lisanslı",
+      "HERO_TITLE": "Pozitif Ebeveynlik Programı",
+      "HERO_SUBTITLE": "Queensland Üniversitesi Lisanslı Triple P® Uygulayıcısı",
+      "INTRO": "Çocuğunuzla olan ilişkinizi güçlendirin, davranış problemlerini azaltın ve aile içi uyumu artırın."
     },
     "SERVICE_SLEEP": {
       "TITLE": "Sağlıklı Uykular™",
-      "DESC": "Uyku Eğitimi ve Danışmanlığı Programı"
+      "DESC": "Uyku Eğitimi ve Danışmanlığı Programı",
+      "HERO_TITLE": "Sağlıklı Uykular™ Programı",
+      "HERO_SUBTITLE": "Bebek ve Çocuk Uyku Danışmanlığı",
+      "INTRO": "Bebeğinizin ve çocuğunuzun sağlıklı uyku alışkanlıkları edinmesi için bilimsel yöntemlerle destek sağlıyoruz."
     },
     "SERVICE_BRIGHT_FUTURES": {
       "TITLE": "Bright Futures®",
-      "DESC": "Amerikan Pediatri Akademisi Sağlıklı Çocuk İzlemi"
+      "DESC": "Amerikan Pediatri Akademisi Sağlıklı Çocuk İzlemi",
+      "HERO_TITLE": "Bright Futures® Programı",
+      "HERO_SUBTITLE": "Amerikan Pediatri Akademisi Standartlarında Çocuk İzlemi",
+      "INTRO": "Doğumdan ergenliğe kadar çocuğunuzun fiziksel, zihinsel ve sosyal gelişimini en üst düzeyde takip ediyoruz."
     },
     "SERVICE_VACCINATION": {
       "TITLE": "Aşı Takibi",
@@ -60,7 +95,9 @@
       "TITLE": "Büyüme ve Gelişim",
       "DESC": "Periyodik kontrol ve takip"
     },
-    "LEARN_MORE": "Detaylı Bilgi"
+    "LEARN_MORE": "Detaylı Bilgi",
+    "BOOK_APPOINTMENT": "Randevu Al",
+    "CONTACT_US": "Bize Ulaşın"
   },
   "RESOURCES": {
     "SECTION_TITLE": "Kaynaklar",
