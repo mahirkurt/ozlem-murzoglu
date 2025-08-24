@@ -47,7 +47,12 @@
       "Bash(firebase deploy:*)",
       "Bash(firebase init:*)",
       "Bash(cat:*)",
-      "WebFetch(domain:localhost)"
+      "WebFetch(domain:localhost)",
+      "Bash(for dir in */)",
+      "Bash(done)",
+      "Bash(if ! grep -q \"downloadPdf\" \"$file\")",
+      "Bash(then echo \"$dir needs update\")",
+      "Bash(fi)"
     ],
     "deny": []
   }

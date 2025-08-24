@@ -11,9 +11,9 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './15-ya-ocuk-in-bilgiler.component.css'
 })
 export class Doc15YaOcukInBilgilerComponent implements OnInit, AfterViewInit {
-  title = '15. Yaş - Çocuk İçin Bilgiler';
+  title = '15. YAŞ ZİYARETİ';
   category = 'Bright Futures (Çocuk)';
-  description: string = "AMERİKAN PEDİATRİ AKADEMİSİ DOKTORUMDAN ÖNERÌLER 15. YAŞ ZİYARETİ HAYAT NASIL GİDİYOR? Ailenle vakit geçirmenin tadını çıkar. Onlara evde yardımcı olabileceğin yollar ara. Sorunla…";
+  description: string = "AMERİKAN PEDİATRİ AKADEMİSİ DOKTORUMDAN ÖNERÌLER 15. YAŞ ZİYARETİ HAYAT NASIL GİDİYOR? Ailenle vakit geçirmenin tadını çıkar. Ev işlerine yardım etmenin yollarını ara. Ailenin kur…";
   toc: { id: string; text: string; level: number }[] = [];
   private tocIds = new Set<string>();
 
@@ -58,5 +58,114 @@ export class Doc15YaOcukInBilgilerComponent implements OnInit, AfterViewInit {
       .trim()
       .replace(/s+/g, '-')
       .replace(/-+/g, '-');
+  }
+
+  downloadPdf(): void {
+    const printContent = document.querySelector('.printable-content');
+    if (!printContent) return;
+
+    const printWindow = window.open('', '_blank');
+    if (!printWindow) return;
+
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="UTF-8">
+        <title>${this.title} - Özlem Mürzoğlu</title>
+        <style>
+          @page {
+            size: A4;
+            margin: 20mm;
+          }
+          body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 100%;
+          }
+          .pdf-header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #7b61ff;
+            margin-bottom: 30px;
+          }
+          .pdf-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #7b61ff;
+            margin-bottom: 10px;
+          }
+          h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin: 10px 0;
+          }
+          h2 {
+            color: #7b61ff;
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+          }
+          h3, h4 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+          }
+          p {
+            margin: 10px 0;
+          }
+          .content-section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+          }
+          .flow-item, .content-card-item {
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 3px solid #7b61ff;
+            background: #f8f9fa;
+          }
+          .sub-items {
+            margin-left: 20px;
+            margin-top: 10px;
+          }
+          .sub-item-card {
+            margin: 5px 0;
+            padding: 5px 10px;
+            border-left: 2px solid #4caf50;
+            background: #f5f5f5;
+          }
+          .disclaimer-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+            font-size: 12px;
+            color: #666;
+          }
+          @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="pdf-header">
+          <div class="pdf-logo">Özlem Mürzoğlu</div>
+          <h1>${this.title}</h1>
+        </div>
+        ${printContent.innerHTML}
+      </body>
+      </html>
+    `;
+
+    printWindow.document.write(htmlContent);
+    printWindow.document.close();
+    
+    printWindow.onload = () => {
+      printWindow.print();
+    };
+  }
+
+  printDocument(): void {
+    window.print();
   }
 }

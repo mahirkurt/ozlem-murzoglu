@@ -1,171 +1,134 @@
-<div class="content-container" [@listAnimation]="sections.length">
-  <!-- SAYFA BAŞLIĞI VE GİRİŞ METNİ -->
-  <header class="page-header">
-    <nav class="breadcrumb">
-      <a routerLink="/kaynaklar" class="breadcrumb-link">
-        <mat-icon>folder</mat-icon>
-        <span>Kaynaklar</span>
-      </a>
-      <mat-icon class="separator">chevron_right</mat-icon>
-      <a routerLink="/kaynaklar/bright-futures-aile" class="breadcrumb-link">
-        <span>{{ category }}</span>
-      </a>
-      <mat-icon class="separator">chevron_right</mat-icon>
-      <span class="current">{{ title }}</span>
-    </nav>
-    
-    <h1 class="page-title">10. YAŞ ZİYARETİ</h1>
-    <p class="page-lead">
-      Çocuğunuzun hayatındaki bu önemli dönemeçte, fiziksel, duygusal ve sosyal gelişimini anlamak, 
-      ona en iyi şekilde rehberlik etmenizi sağlar. İşte bu yolculukta size ışık tutacak bilgiler.
-    </p>
-    
-    <div class="meta-info">
-      <mat-chip-listbox aria-label="Sayfa bilgileri">
-        <mat-chip-option selected>
-          <mat-icon>category</mat-icon>
-          {{ category }}
-        </mat-chip-option>
-        <mat-chip-option>
-          <mat-icon>child_care</mat-icon>
-          10 Yaş
-        </mat-chip-option>
-        <mat-chip-option>
-          <mat-icon>verified</mat-icon>
-          AAP Onaylı
-        </mat-chip-option>
-      </mat-chip-listbox>
-    </div>
-  </header>
-
-  <!-- İÇİNDEKİLER (STICKY) -->
-  <aside class="toc-sidebar" *ngIf="toc.length > 0">
-    <mat-card class="toc-card">
-      <mat-card-header>
-        <mat-icon mat-card-avatar>list</mat-icon>
-        <mat-card-title>İçindekiler</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <nav class="toc-nav">
-          <a *ngFor="let item of toc" 
-             class="toc-link" 
-             [attr.href]="'#' + item.id" 
-             [class.level-3]="item.level === 3">
-            <mat-icon class="dot">fiber_manual_record</mat-icon>
-            <span class="label">{{ item.text }}</span>
-          </a>
-        </nav>
-      </mat-card-content>
-    </mat-card>
-  </aside>
-
-  <!-- ANA İÇERİK -->
-  <main class="main-content" #contentRoot>
-    <!-- BÖLÜMLER (Dinamik olarak oluşturulur) -->
-    <ng-container *ngFor="let section of sections; let i = index">
+<div class="resource-page">
+  <!-- Hero Section with Gradient -->
+  <div class="resource-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/kaynaklar" class="breadcrumb-link">
+          <span class="material-icons">folder</span>
+          <span>Kaynaklar</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <a routerLink="/kaynaklar/bright-futures-aile" class="breadcrumb-link">
+          <span>{{ category }}</span>
+        </a>
+        <span class="material-icons separator">chevron_right</span>
+        <span class="current">{{ title }}</span>
+      </nav>
       
-      <!-- VURGU KARTI (Önemli ipuçları için) -->
-      <mat-card *ngIf="section.isAccent" 
-                class="info-card accent-card"
-                [@cardAnimation]>
-        <mat-card-header>
-          <mat-icon mat-card-avatar>{{ section.icon || 'tips_and_updates' }}</mat-icon>
-          <mat-card-title class="section-headline">{{ section.title }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="body-text" [innerHTML]="section.content"></mat-card-content>
-      </mat-card>
-
-      <!-- STANDART BİLGİ KARTI -->
-      <mat-card *ngIf="!section.isAccent && !section.panels" 
-                class="info-card"
-                [@cardAnimation]>
-        <mat-card-header>
-          <mat-icon mat-card-avatar>{{ section.icon || 'info' }}</mat-icon>
-          <mat-card-title class="section-headline">{{ section.title }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="body-text" [innerHTML]="section.content"></mat-card-content>
-      </mat-card>
-
-      <!-- AÇILIR PANEL KARTI (Detaylı bilgiler için) -->
-      <mat-card *ngIf="section.panels" 
-                class="info-card expansion-card"
-                [@cardAnimation]>
-        <mat-card-header>
-          <mat-icon mat-card-avatar>{{ section.icon || 'expand_more' }}</mat-icon>
-          <mat-card-title class="section-headline">{{ section.title }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <mat-accordion multi>
-            <mat-expansion-panel *ngFor="let panel of section.panels"
-                                  [expanded]="panel.expanded"
-                                  hideToggle>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  {{ panel.title }}
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <div class="panel-content" [innerHTML]="panel.content"></div>
-            </mat-expansion-panel>
-          </mat-accordion>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-divider class="section-divider" *ngIf="i < sections.length - 1"></mat-divider>
-    </ng-container>
-
-    <!-- YARDIMCI BUTONLAR -->
-    <section class="action-section">
-      <mat-card class="action-card">
-        <mat-card-content>
-          <h3 class="action-title">
-            <mat-icon>help_outline</mat-icon>
-            Daha Fazla Bilgiye mi İhtiyacınız Var?
-          </h3>
-          <p class="action-description">
-            Bu bilgiler Amerikan Pediatri Akademisi tarafından hazırlanmıştır. 
-            Çocuğunuzun sağlığı ile ilgili spesifik sorularınız için doktorunuza danışın.
-          </p>
-          <div class="action-buttons">
-            <button mat-raised-button color="primary" routerLink="/kaynaklar/bright-futures-aile">
-              <mat-icon>arrow_back</mat-icon>
-              Diğer Yaş Grupları
-            </button>
-            <button mat-raised-button color="accent">
-              <mat-icon>download</mat-icon>
-              PDF İndir
-            </button>
-            <button mat-raised-button>
-              <mat-icon>print</mat-icon>
-              Yazdır
-            </button>
+      <div class="hero-content">
+        <h1 class="page-title">{{ title }}</h1>
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="material-icons">category</span>
+            <span>{{ category }}</span>
           </div>
-        </mat-card-content>
-      </mat-card>
-    </section>
-
-    <!-- ÖNERİLEN KAYNAKLAR -->
-    <section class="related-section">
-      <h2 class="section-title">
-        <mat-icon>recommend</mat-icon>
-        İlgili Kaynaklar
-      </h2>
-      <div class="related-grid">
-        <mat-card class="related-card" routerLink="/kaynaklar/gelisim-rehberleri">
-          <mat-icon class="related-icon">psychology</mat-icon>
-          <h4>Gelişim Basamakları</h4>
-          <p>10 yaş gelişimsel özellikleri</p>
-        </mat-card>
-        <mat-card class="related-card" routerLink="/kaynaklar/bright-futures-cocuk/10-ya-ocuk-in-bilgiler">
-          <mat-icon class="related-icon">child_care</mat-icon>
-          <h4>Çocuğunuz İçin</h4>
-          <p>10 yaş çocuk bilgilendirme</p>
-        </mat-card>
-        <mat-card class="related-card" routerLink="/kaynaklar/aile-medya-plani">
-          <mat-icon class="related-icon">devices</mat-icon>
-          <h4>Medya Rehberi</h4>
-          <p>Ekran süresi önerileri</p>
-        </mat-card>
+          <div class="meta-item">
+            <span class="material-icons">description</span>
+            <span>Bilgi Dökümanı</span>
+          </div>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="resource-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Table of Contents (auto) -->
+        <aside class="toc-sidebar" *ngIf="toc.length">
+          <div class="toc-header">
+            <span class="material-icons">list</span>
+            <h3>İçindekiler</h3>
+          </div>
+          <nav class="toc-nav">
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
+              <span class="dot"></span>
+              <span class="label">{{ item.text }}</span>
+            </a>
+          </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <article class="content-card">
+          <div class="content-body printable-content" #contentRoot>
+            <h2>10. YAŞ ZİYARETİ</h2>
+            <h2>BU ZİYARETTE NELER KONUŞULACAK?</h2>
+            <p>10 yaş çocuğunuzun fiziksel ve duygusal gelişimi, sosyal becerileri ve güvenliği hakkında önemli bilgiler.</p>
+            
+            <h2>ÇOCUĞUNUZUN GELİŞİMİ</h2>
+            <ul>
+              <li>Çocuğunuzun arkadaşlıkları ve sosyal becerileri gelişmeye devam ediyor.</li>
+              <li>Okul başarısı ve ödev sorumlulukları önem kazanıyor.</li>
+              <li>Bağımsızlık duygusu güçleniyor ancak hala ebeveyn desteğine ihtiyaç duyuyor.</li>
+              <li>Fiziksel aktiviteler ve sporlarla ilgileniyor olabilir.</li>
+            </ul>
+            
+            <h2>SAĞLIKLI YAŞAM ALIŞKANLIKLARI</h2>
+            <ul>
+              <li>Dengeli beslenme ve düzenli öğünler önemlidir.</li>
+              <li>Günde en az 60 dakika fiziksel aktivite yapmalıdır.</li>
+              <li>Yeterli uyku (9-11 saat) okul başarısı için kritiktir.</li>
+              <li>Ekran süresi günde 2 saatle sınırlandırılmalıdır.</li>
+            </ul>
+            
+            <h2>OKUL VE ÖĞRENME</h2>
+            <ul>
+              <li>Ödev yapmak için sessiz bir çalışma alanı sağlayın.</li>
+              <li>Okul etkinliklerine katılımını destekleyin.</li>
+              <li>Öğretmenleriyle düzenli iletişim kurun.</li>
+              <li>Okuma alışkanlığını teşvik edin.</li>
+            </ul>
+            
+            <h2>GÜVENLİK</h2>
+            <ul>
+              <li>Araçta her zaman emniyet kemeri takmalıdır.</li>
+              <li>Bisiklet sürerken kask takmalıdır.</li>
+              <li>Su güvenliği kurallarını bilmelidir.</li>
+              <li>İnternet güvenliği hakkında konuşun.</li>
+              <li>Zorbalık ve akran baskısı konularını tartışın.</li>
+            </ul>
+            
+            <h2>DUYGUSAL GELİŞİM</h2>
+            <ul>
+              <li>Duygularını ifade etmesi için teşvik edin.</li>
+              <li>Öfke kontrolü ve problem çözme becerilerini geliştirin.</li>
+              <li>Arkadaşlık ilişkilerinde rehberlik edin.</li>
+              <li>Özgüvenini destekleyin.</li>
+            </ul>
+            
+            <h2>AİLE İLETİŞİMİ</h2>
+            <ul>
+              <li>Her gün çocuğunuzla konuşmak için zaman ayırın.</li>
+              <li>Ailece yemek yemeyi alışkanlık haline getirin.</li>
+              <li>Birlikte aktiviteler planlayın.</li>
+              <li>Kurallar ve sorumluluklar konusunda tutarlı olun.</li>
+            </ul>
+            
+            <h2>BİR SONRAKİ ZİYARETTE</h2>
+            <p>11. yaş kontrolünde ergenlik öncesi değişimler, aşılar ve sağlıklı yaşam alışkanlıkları hakkında konuşacağız.</p>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <div class="action-group">
+          <button (click)="printDocument()" class="action-btn btn-secondary">
+            <span class="material-icons">print</span>
+            <span>Yazdır</span>
+          </button>
+          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+            <span class="material-icons">share</span>
+            <span>Paylaş</span>
+          </button>
+        </div>
+        <button (click)="downloadPdf()" class="action-btn btn-primary">
+          <span class="material-icons">picture_as_pdf</span>
+          <span>PDF İndir</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
