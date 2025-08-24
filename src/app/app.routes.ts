@@ -7,6 +7,8 @@ import { resourceRoutes } from './pages/resources/resource-routes';
 export const routes: Routes = [
   { path: '', loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent) },
   { path: 'hakkimizda', loadComponent: () => import('./pages/about/about').then(m => m.AboutComponent) },
+  { path: 'hakkimizda/dr-ozlem-murzoglu', loadComponent: () => import('./pages/about/dr-ozlem-murzoglu/dr-ozlem-murzoglu.component').then(m => m.DrOzlemMurzogluComponent) },
+  { path: 'hakkimizda/klinik-tasarimi', loadComponent: () => import('./pages/about/klinik-tasarimi/klinik-tasarimi.component').then(m => m.KlinikTasarimiComponent) },
   { path: 'hizmetlerimiz', loadComponent: () => import('./pages/services/services').then(m => m.ServicesComponent) },
   { path: 'blog', loadComponent: () => import('./pages/blog/blog').then(m => m.BlogComponent) },
   { path: 'blog/:slug', loadComponent: () => import('./components/blog-article/blog-article.component').then(m => m.BlogArticleComponent) },
