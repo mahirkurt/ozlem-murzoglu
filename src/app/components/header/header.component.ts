@@ -29,7 +29,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigation = [
     {
       label: 'HAKKIMIZDA',
-      href: '/hakkimizda'
+      href: '/hakkimizda',
+      children: [
+        { label: 'Hakkımızda', href: '/hakkimizda' },
+        { label: 'Dr. Özlem Murzoğlu', href: '/hakkimizda/dr-ozlem-murzoglu' },
+        { label: 'Klinik Tasarımı', href: '/hakkimizda/klinik-tasarimi' }
+      ]
     },
     {
       label: 'HİZMETLERİMİZ',
