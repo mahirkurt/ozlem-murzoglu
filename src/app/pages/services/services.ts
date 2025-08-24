@@ -24,67 +24,67 @@ interface Service {
 export class ServicesComponent {
   services: Service[] = [
     {
-      id: 'bright-futures',
-      title: 'Bright Futures®',
-      subtitle: 'Sağlıklı Çocuk İzlemi Programı',
-      description: 'Amerikan Pediatri Akademisi tarafından geliştirilen, bebeklikten ergenliğe kadar çocuğunuzun sağlıklı büyüme ve gelişimini takip eden kapsamlı bir programdır.',
-      icon: 'star',
+      id: 'laboratuvar-goruntuleme',
+      title: 'Laboratuvar ve Görüntüleme',
+      subtitle: 'Tanı Hizmetleri',
+      description: 'Biruni Laboratuvarları ve Sonomed Görüntüleme ortaklığı ile kapsamlı tanı hizmetleri sunuyoruz.',
+      icon: 'biotech',
       color: 'primary',
       features: [
-        'Kanıta dayalı ve sistematik yaklaşım',
-        'Her yaş grubuna özel değerlendirme formları',
-        'Aile merkezli bakım',
-        'Gelişimsel tarama ve değerlendirme',
-        'Önleyici sağlık hizmetleri',
-        'Minimum 1 saatlik kapsamlı muayene'
-      ]
-    },
-    {
-      id: 'saglikli-uykular',
-      title: 'Sağlıklı Uykular™',
-      subtitle: 'Uyku Danışmanlığı',
-      description: 'Bebeğinizin ve çocuğunuzun sağlıklı uyku alışkanlıkları edinmesi için özel olarak tasarlanmış uyku danışmanlığı programı.',
-      icon: 'bedtime',
-      color: 'secondary',
-      features: [
-        'Yaşa uygun uyku planlaması',
-        'Uyku problemlerinin çözümü',
-        'Aile eğitimi ve desteği',
-        'Güvenli uyku ortamı oluşturma',
-        'SIDS önleme stratejileri',
-        'Kişiselleştirilmiş uyku programları'
+        'Biyokimya testleri',
+        'Mikrobiyoloji tetkikleri',
+        'COVID-19 ve enfeksiyon testleri',
+        'MR, BT, Ultrasonografi',
+        'Dijital röntgen',
+        'Sigorta provizyon işlemleri'
       ]
     },
     {
       id: 'triple-p',
       title: 'Triple P®',
-      subtitle: 'Pozitif Ebeveynlik Programı',
-      description: 'Dünya çapında kabul görmüş, kanıta dayalı pozitif ebeveynlik programı ile aile ilişkilerinizi güçlendirin.',
+      subtitle: 'Olumlu Ebeveynlik Programı',
+      description: 'Queensland Üniversitesi tarafından geliştirilmiş, 25+ ülkede 4 milyondan fazla aileye ulaşmış dünya çapında kabul görmüş program.',
       icon: 'family_restroom',
-      color: 'tertiary',
+      color: 'secondary',
       features: [
+        '35+ yıllık deneyim',
+        '20+ dilde hizmet',
+        '830+ akademik makale',
+        'Grup eğitim programları',
         'Davranış yönetimi teknikleri',
-        'Pozitif disiplin stratejileri',
-        'Ebeveyn-çocuk iletişimi',
-        'Problem çözme becerileri',
-        'Stres yönetimi',
-        'Bireysel veya grup seansları'
+        'Pozitif disiplin stratejileri'
       ]
     },
     {
-      id: 'laboratuvar',
-      title: 'Laboratuvar ve Görüntüleme',
-      subtitle: 'Tanı Hizmetleri',
-      description: 'Modern cihazlarla donatılmış laboratuvarımızda hızlı ve güvenilir sonuçlar.',
-      icon: 'biotech',
+      id: 'saglikli-uykular',
+      title: 'Sağlıklı Uykular™',
+      subtitle: 'Uyku Eğitimi ve Danışmanlığı',
+      description: 'Çocuğunuzun uyku sorunlarını çözen, sağlıklı uyku rutini oluşturan bütüncül yaklaşımlı uyku eğitimi programı.',
+      icon: 'bedtime',
+      color: 'tertiary',
+      features: [
+        'Ön değerlendirme ve muayene',
+        'Kişiselleştirilmiş uyku planı',
+        '2 haftalık yoğun takip',
+        'Uyku günlüğü desteği',
+        'WhatsApp destek hattı',
+        'Mezuniyet sonrası takip'
+      ]
+    },
+    {
+      id: 'bright-futures-program',
+      title: 'Bright Futures®',
+      subtitle: 'Amerikan Pediatri Akademisi Sağlıklı Çocuk İzlemi',
+      description: 'AAP standartlarında, bebeklikten yetişkinliğe çocuk sağlığı için bütüncül bir rehberlik programı.',
+      icon: 'star',
       color: 'primary',
       features: [
-        'Kan tetkikleri',
-        'İdrar tahlilleri',
-        'Boğaz kültürü',
-        'Hızlı test uygulamaları',
-        'Ultrasonografi',
-        'Alerji testleri'
+        'Ziyaret öncesi hazırlık formları',
+        'Minimum 1 saatlik muayene',
+        'Yaşa özel bilgilendirme',
+        'Gelişimsel tarama testleri',
+        'Aile merkezli bakım',
+        'Kanıta dayalı yaklaşım'
       ]
     },
     {

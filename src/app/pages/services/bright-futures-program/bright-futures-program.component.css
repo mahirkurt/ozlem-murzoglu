@@ -1,0 +1,519 @@
+.bright-futures-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFB 100%);
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  background: linear-gradient(135deg, #005F73 0%, #0A9396 50%, #94BBE9 100%);
+  padding: 200px 0 100px;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  font-weight: 300;
+  opacity: 0.95;
+  animation: fadeInUp 1s ease;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 2.5rem;
+  color: #005F73;
+  margin-bottom: 30px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0f2fe;
+}
+
+.section-title i {
+  margin-right: 15px;
+  font-size: 2rem;
+}
+
+.section-title.text-center {
+  display: block;
+  text-align: center;
+}
+
+/* Overview Section */
+.overview-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.overview-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.overview-text {
+  padding-right: 20px;
+}
+
+.lead-text {
+  font-size: 1.3rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.overview-text p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.overview-text strong {
+  color: #005F73;
+  font-weight: 600;
+}
+
+.info-box {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.info-box i {
+  font-size: 1.5rem;
+  color: #0A9396;
+}
+
+.info-box p {
+  margin: 0;
+  color: #333;
+  font-weight: 500;
+}
+
+.overview-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 95, 115, 0.2);
+}
+
+.feature-card i {
+  font-size: 2.5rem;
+  color: #0A9396;
+  margin-bottom: 15px;
+}
+
+.feature-card h4 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Stages Section */
+.stages-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.stages-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.stages-text {
+  padding-left: 20px;
+}
+
+.stages-text p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.stages-text strong {
+  color: #005F73;
+  font-weight: 600;
+}
+
+.stage-detail {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+}
+
+.stage-detail h4 {
+  color: #005F73;
+  margin-bottom: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stage-detail h4 i {
+  color: #0A9396;
+}
+
+.stage-detail p {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+.stages-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.stage-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.stage-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(0, 95, 115, 0.2);
+}
+
+.stage-item i {
+  font-size: 2rem;
+  color: #0A9396;
+  width: 50px;
+  text-align: center;
+}
+
+.stage-info h4 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.stage-info p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Benefits Section */
+.benefits-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.benefits-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.benefits-text {
+  padding-right: 20px;
+}
+
+.benefits-text p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.benefits-text strong {
+  color: #005F73;
+  font-weight: 600;
+}
+
+.benefit-list {
+  margin-top: 30px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  padding: 12px 0;
+}
+
+.benefit-item i {
+  color: #0A9396;
+  font-size: 1.2rem;
+}
+
+.benefit-item span {
+  color: #333;
+  font-weight: 500;
+}
+
+.benefits-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.benefit-card {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 95, 115, 0.2);
+}
+
+.benefit-card i {
+  font-size: 2.5rem;
+  color: #0A9396;
+  margin-bottom: 15px;
+}
+
+.benefit-card h4 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.benefit-card p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Age Groups Section */
+.age-groups-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.age-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 50px auto 0;
+}
+
+.age-group-card {
+  text-align: center;
+  padding: 40px 25px;
+  background: white;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.age-group-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 95, 115, 0.3);
+}
+
+.age-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 95, 115, 0.3);
+}
+
+.age-icon i {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.age-group-card h3 {
+  font-size: 1.3rem;
+  color: #005F73;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.age-group-card p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 60px 0 0;
+  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+  margin-bottom: 0;
+}
+
+.cta-content {
+  text-align: center;
+  color: white;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+  opacity: 0.95;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 18px 45px;
+  background: white;
+  color: #005F73;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button i {
+  margin-right: 10px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .overview-content,
+  .stages-content,
+  .benefits-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .overview-text,
+  .stages-text,
+  .benefits-text {
+    padding: 0;
+  }
+
+  .age-groups-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .overview-features,
+  .stages-features,
+  .benefits-features {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-item {
+    padding: 15px;
+  }
+
+  .age-groups-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .age-group-card {
+    padding: 30px 20px;
+  }
+
+  .stage-detail {
+    padding: 15px;
+  }
+}
