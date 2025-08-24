@@ -7,8 +7,19 @@
           <h1 class="page-title" scrollReveal="fade-up">Hakkımızda</h1>
           <p class="page-subtitle" scrollReveal="fade-up" [scrollDelay]="200">Çocuk sağlığını sosyal pediatri ve çocuk gelişimi ile bütünleştiriyoruz</p>
         </div>
-        <div class="hero-illustration" scrollReveal="fade-left" [scrollDelay]="300">
-          <app-illustration type="about" title="Dr. Özlem Murzoğlu - Çocuk Sağlığı Uzmanı" size="large" [animated]="true"></app-illustration>
+        <div class="hero-stats" scrollReveal="fade-left" [scrollDelay]="300">
+          <div class="stat-card">
+            <div class="stat-number">11+</div>
+            <div class="stat-label">Yıl Deneyim</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">10K+</div>
+            <div class="stat-label">Mutlu Aile</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Uzmanlık Alanı</div>
+          </div>
         </div>
       </div>
     </div>
@@ -20,7 +31,13 @@
       <div class="profile-grid">
         <div class="profile-image-wrapper" scrollReveal="fade-right" [scrollDelay]="400">
           <div class="profile-image">
-            <img src="/images/placeholder-doctor.svg" alt="Dr. Özlem Murzoğlu" />
+            <div class="profile-placeholder">
+              <span class="material-icons">person</span>
+              <div class="profile-overlay">
+                <h3>Dr. Özlem Murzoğlu</h3>
+                <p>Çocuk Sağlığı ve Hastalıkları Uzmanı</p>
+              </div>
+            </div>
           </div>
           <div class="profile-badges">
             <div class="badge">
@@ -43,12 +60,15 @@
           <p class="doctor-title">Çocuk Sağlığı ve Hastalıkları Uzmanı</p>
           
           <div class="doctor-bio">
-            <p>
-              Küçük ve kendine münhasır otantik bir Karadeniz şehrinde Temel Fıkralarını yaşayarak 
-              büyüdüm. Okul öncesi en iyi arkadaşlarım olan annem ve dedemle ağaçlara, toprağa 
-              tutkumu paylaştım. Dört çocuklu bir ailenin tekne kazıntısı olarak sevgi dolu 
-              ablalarımın sabrını yıllarca çokça zorlayarak çok sevildim, çok sevdim.
-            </p>
+            <div class="bio-highlight">
+              <span class="material-icons">format_quote</span>
+              <p>
+                Küçük ve kendine münhasır otantik bir Karadeniz şehrinde Temel Fıkralarını yaşayarak 
+                büyüdüm. Okul öncesi en iyi arkadaşlarım olan annem ve dedemle ağaçlara, toprağa 
+                tutkumu paylaştım. Dört çocuklu bir ailenin tekne kazıntısı olarak sevgi dolu 
+                ablalarımın sabrını yıllarca çokça zorlayarak çok sevildim, çok sevdim.
+              </p>
+            </div>
             <p>
               2011'de Marmara Üniversitesi'nde Pediatri ihtisasına başladım. İhtisasımı bitirdikten 
               sonra kısa bir mecburi hizmet macerası nedeniyle ayrıldığım Marmara Üniversitesi Pendik 
@@ -56,9 +76,21 @@
               Acil servis, çocuk poliklinikleri ve tüm servislerde çalıştığım toplam 11 yıl boyunca, 
               başka hiç bir yerde olamayacak kadar çok vaka ve zorlukla büyük bir mesleki tatmin yaşadım.
             </p>
+            <div class="milestone-card">
+              <div class="milestone-icon">
+                <span class="material-icons">child_care</span>
+              </div>
+              <div class="milestone-content">
+                <h4>2014 - Dönüm Noktası</h4>
+                <p>
+                  Kızımın doğacak olması beni büyük bir merakla "Sağlıklı Çocuk Hekimliği" 
+                  konusuna itti. Artık sadece hastalıkları tedavi etmek değil, sağlıklı çocukların 
+                  gelişimini desteklemek misyonumun bir parçası oldu.
+                </p>
+              </div>
+            </div>
             <p>
-              2014'te kızımın doğacak olması beni büyük bir merakla "Sağlıklı Çocuk Hekimliği" 
-              konusuna itti. Marmara Üniversitesi Pendik Eğitim ve Araştırma Hastanesi'nden 
+              Marmara Üniversitesi Pendik Eğitim ve Araştırma Hastanesi'nden 
               Temmuz 2022'de ayrıldım. Şimdi kendi kliniğimde çocukları karşılıyor ve onca yıllık 
               çocuk tecrübeme rağmen her gün kendimi yeniden hayrete düşürmelerinin keyfini çıkarıyorum.
             </p>
