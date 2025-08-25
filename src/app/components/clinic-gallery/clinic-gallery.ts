@@ -116,14 +116,15 @@ interface GalleryImage {
     
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 0;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
       margin-bottom: var(--space-7);
     }
     
     @media (min-width: 768px) {
       .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
       }
       
       .gallery-item.featured {
@@ -134,16 +135,18 @@ interface GalleryImage {
     
     @media (min-width: 1200px) {
       .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
       }
     }
     
     .gallery-item {
       position: relative;
       overflow: hidden;
-      border-radius: 20px;
+      border-radius: 12px;
       transition: all 0.3s var(--ease-in-out);
       cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     
     .gallery-item:hover {
@@ -154,16 +157,19 @@ interface GalleryImage {
     .image-wrapper {
       position: relative;
       width: 100%;
-      height: 100%;
-      min-height: 250px;
+      height: 0;
+      padding-bottom: 100%; /* 1:1 aspect ratio for square tiles */
       overflow: hidden;
     }
     
     .gallery-item.featured .image-wrapper {
-      min-height: 520px;
+      padding-bottom: 100%; /* Keep square even for featured */
     }
     
     .gallery-image {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -337,18 +343,13 @@ interface GalleryImage {
       }
       
       .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 8px;
       }
       
       .gallery-item.featured {
-        grid-column: span 1;
-        grid-row: span 1;
-      }
-      
-      .image-wrapper,
-      .gallery-item.featured .image-wrapper {
-        min-height: 180px;
+        grid-column: span 2;
+        grid-row: span 2;
       }
     }
     

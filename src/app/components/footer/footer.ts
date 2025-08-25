@@ -47,20 +47,24 @@ export class Footer {
     { labelKey: 'FOOTER.HOME', href: '/' },
     { labelKey: 'FOOTER.ABOUT', href: '/hakkimizda' },
     { labelKey: 'FOOTER.SERVICES', href: '/hizmetlerimiz' },
-    { labelKey: 'FOOTER.ARTICLES', href: '/makaleler' },
-    { labelKey: 'FOOTER.CONTACT', href: '/iletisim' }
+    { labelKey: 'FOOTER.INFO_CENTER', href: '/bilgi-merkezi' },
+    { labelKey: 'FOOTER.FAQ', href: '/sss' },
+    { labelKey: 'FOOTER.CONTACT', href: '/iletisim' },
+    { labelKey: 'FOOTER.APPOINTMENT', href: '/randevu' }
   ];
 
   services = [
-    { labelKey: 'FOOTER.BRIGHT_FUTURES', href: '/hizmetlerimiz/bright-futures' },
-    { labelKey: 'FOOTER.VACCINATION', href: '/hizmetlerimiz/asilama' },
+    { labelKey: 'FOOTER.BRIGHT_FUTURES', href: '/hizmetlerimiz/bright-futures-program' },
     { labelKey: 'FOOTER.TRIPLE_P', href: '/hizmetlerimiz/triple-p' },
-    { labelKey: 'FOOTER.ONLINE_CONSULTATION', href: '/hizmetlerimiz/online-konsultasyon' }
+    { labelKey: 'FOOTER.HEALTHY_SLEEP', href: '/hizmetlerimiz/saglikli-uykular' },
+    { labelKey: 'FOOTER.LAB_IMAGING', href: '/hizmetlerimiz/laboratuvar-goruntuleme' },
+    { labelKey: 'FOOTER.VACCINATION', href: '/hizmetlerimiz/asi-takibi' },
+    { labelKey: 'FOOTER.DEVELOPMENT', href: '/hizmetlerimiz/gelisim-degerlendirmesi' }
   ];
 
   footerLinks = [
-    { labelKey: 'FOOTER.PRIVACY_POLICY', href: '/gizlilik' },
-    { labelKey: 'FOOTER.TERMS', href: '/kullanim-kosullari' },
-    { labelKey: 'FOOTER.KVKK', href: '/kvkk' }
+    { labelKey: 'FOOTER.PRIVACY_POLICY', href: '/legal/privacy' },
+    { labelKey: 'FOOTER.TERMS', href: '/legal/terms' },
+    { labelKey: 'FOOTER.KVKK', href: '/legal/kvkk' }
   ];
 }

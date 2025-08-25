@@ -40,7 +40,7 @@ export class ApproachSectionComponent implements OnInit {
       titleKey: 'APPOINTMENT.TITLE',
       descriptionKey: 'APPOINTMENT.SUBTITLE',
       icon: 'calendar_today',
-      href: '/iletisim',
+      href: '/randevu',
       color: 'tertiary'
     }
   ];

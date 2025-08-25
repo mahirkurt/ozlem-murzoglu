@@ -12,9 +12,10 @@ import { TranslateModule } from '@ngx-translate/core';
         <div class="bio-content">
           <div class="doctor-image-wrapper">
             <img 
-              src="/images/20221028_110409_3.jpg" 
+              src="/images/dr_murzoglu.jpg" 
               alt="Uzm. Dr. Özlem Murzoğlu" 
               class="doctor-image"
+              loading="lazy"
             />
             <div class="image-decoration"></div>
           </div>

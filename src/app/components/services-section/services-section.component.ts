@@ -23,52 +23,52 @@ export class ServicesSectionComponent {
 
   services: Service[] = [
     {
-      key: 'checkup',
-      title: 'Rutin Kontroller',
-      description: 'Büyüme ve gelişim takibi, periyodik muayeneler',
-      icon: 'fact_check',
+      key: 'bright-futures',
+      title: 'Bright Futures®',
+      description: 'Amerikan Pediatri Akademisi Sağlıklı Çocuk İzlemi',
+      icon: 'child_care',
       color: 'primary',
-      href: '/hizmetlerimiz/rutin-kontroller'
+      href: '/hizmetlerimiz/bright-futures-program'
+    },
+    {
+      key: 'triple-p',
+      title: 'Triple P® Programı',
+      description: 'Olumlu Ebeveynlik Programı - Queensland Üniversitesi lisanslı',
+      icon: 'family_restroom',
+      color: 'secondary',
+      href: '/hizmetlerimiz/triple-p'
+    },
+    {
+      key: 'sleep',
+      title: 'Sağlıklı Uykular™',
+      description: 'Uyku Eğitimi ve Danışmanlığı Programı',
+      icon: 'bedtime',
+      color: 'tertiary',
+      href: '/hizmetlerimiz/saglikli-uykular'
+    },
+    {
+      key: 'lab',
+      title: 'Laboratuvar ve Görüntüleme',
+      description: 'Biruni Lab ve Sonomed Görüntüleme ortaklığı',
+      icon: 'biotech',
+      color: 'primary',
+      href: '/hizmetlerimiz/laboratuvar-goruntuleme'
     },
     {
       key: 'vaccination',
-      title: 'Aşılama',
-      description: 'Sağlık Bakanlığı aşı takvimi ve özel aşılar',
+      title: 'Aşı Takibi',
+      description: 'Ulusal ve özel aşı uygulamaları',
       icon: 'vaccines',
       color: 'secondary',
-      href: '/hizmetlerimiz/asilama'
-    },
-    {
-      key: 'illness',
-      title: 'Hastalık Tedavisi',
-      description: 'Akut ve kronik çocuk hastalıklarının tanı ve tedavisi',
-      icon: 'medical_services',
-      color: 'tertiary',
-      href: '/hizmetlerimiz/hastalik-tedavisi'
-    },
-    {
-      key: 'nutrition',
-      title: 'Beslenme Danışmanlığı',
-      description: 'Anne sütü, ek gıda ve beslenme programları',
-      icon: 'restaurant',
-      color: 'primary',
-      href: '/hizmetlerimiz/beslenme-danismanligi'
+      href: '/hizmetlerimiz/asi-takibi'
     },
     {
       key: 'development',
       title: 'Gelişim Değerlendirmesi',
-      description: 'Fiziksel ve zihinsel gelişim takibi',
+      description: 'Sosyal pediatri yaklaşımıyla gelişim takibi',
       icon: 'trending_up',
-      color: 'secondary',
-      href: '/hizmetlerimiz/gelisim-degerlendirmesi'
-    },
-    {
-      key: 'sleep',
-      title: 'Uyku Danışmanlığı',
-      description: 'Bebek ve çocuk uyku sorunlarına çözüm',
-      icon: 'bedtime',
       color: 'tertiary',
-      href: '/hizmetlerimiz/uyku-danismanligi'
+      href: '/hizmetlerimiz/gelisim-degerlendirmesi'
     }
   ];
 }
