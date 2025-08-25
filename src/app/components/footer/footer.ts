@@ -44,23 +44,23 @@ export class Footer {
   ];
 
   quickLinks = [
-    { label: 'Ana Sayfa', href: '/' },
-    { label: 'Hakkımızda', href: '/hakkimizda' },
-    { label: 'Hizmetlerimiz', href: '/hizmetlerimiz' },
-    { label: 'Makaleler', href: '/makaleler' },
-    { label: 'İletişim', href: '/iletisim' }
+    { labelKey: 'FOOTER.HOME', href: '/' },
+    { labelKey: 'FOOTER.ABOUT', href: '/hakkimizda' },
+    { labelKey: 'FOOTER.SERVICES', href: '/hizmetlerimiz' },
+    { labelKey: 'FOOTER.ARTICLES', href: '/makaleler' },
+    { labelKey: 'FOOTER.CONTACT', href: '/iletisim' }
   ];
 
   services = [
-    { label: 'Sağlıklı Çocuk İzlemi', href: '/hizmetlerimiz/bright-futures' },
-    { label: 'Aşılama', href: '/hizmetlerimiz/asilama' },
-    { label: 'Ebeveyn Danışmanlığı', href: '/hizmetlerimiz/triple-p' },
-    { label: 'Online Konsültasyon', href: '/hizmetlerimiz/online-konsultasyon' }
+    { labelKey: 'FOOTER.BRIGHT_FUTURES', href: '/hizmetlerimiz/bright-futures' },
+    { labelKey: 'FOOTER.VACCINATION', href: '/hizmetlerimiz/asilama' },
+    { labelKey: 'FOOTER.TRIPLE_P', href: '/hizmetlerimiz/triple-p' },
+    { labelKey: 'FOOTER.ONLINE_CONSULTATION', href: '/hizmetlerimiz/online-konsultasyon' }
   ];
 
   footerLinks = [
-    { label: 'Gizlilik Politikası', href: '/gizlilik' },
-    { label: 'Kullanım Koşulları', href: '/kullanim-kosullari' },
-    { label: 'KVKK', href: '/kvkk' }
+    { labelKey: 'FOOTER.PRIVACY_POLICY', href: '/gizlilik' },
+    { labelKey: 'FOOTER.TERMS', href: '/kullanim-kosullari' },
+    { labelKey: 'FOOTER.KVKK', href: '/kvkk' }
   ];
 }

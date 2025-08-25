@@ -1,0 +1,19 @@
+<section class="not-found-page">
+  <div class="container">
+    <div class="not-found-content">
+      <div class="error-code">404</div>
+      <h1 class="error-title">{{ 'ERROR.404_TITLE' | translate }}</h1>
+      <p class="error-message">{{ 'ERROR.404_MESSAGE' | translate }}</p>
+      <div class="error-actions">
+        <a routerLink="/" class="btn-primary">
+          <span class="material-icons">home</span>
+          <span>{{ 'ERROR.GO_HOME' | translate }}</span>
+        </a>
+        <a routerLink="/iletisim" class="btn-secondary">
+          <span class="material-icons">mail</span>
+          <span>{{ 'ERROR.CONTACT_US' | translate }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

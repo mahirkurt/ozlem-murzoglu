@@ -1,0 +1,16 @@
+/* Privacy component styles */
+.container {
+  min-height: 60vh;
+}
+
+.bg-green-50 {
+  background-color: #f0fdf4;
+}
+
+.border-green-200 {
+  border-color: #bbf7d0;
+}
+
+.text-green-800 {
+  color: #166534;
+}

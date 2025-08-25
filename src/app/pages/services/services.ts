@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { IllustrationComponent } from '../../shared/components/illustration/illustration.component';
+import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
 
 interface Service {
   id: string;
@@ -18,12 +19,17 @@ interface Service {
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslateModule, ScrollRevealDirective, IllustrationComponent],
+  imports: [CommonModule, RouterModule, TranslateModule, ScrollRevealDirective, IllustrationComponent, HeroSectionComponent],
   templateUrl: './services.html',
   styleUrl: './services.css'
 })
 export class ServicesComponent {
   private translate = inject(TranslateService);
+  
+  breadcrumbs = [
+    { label: 'SERVICES.HOME_BREADCRUMB', link: '/' },
+    { label: 'SERVICES.SERVICES_BREADCRUMB' }
+  ];
   services: Service[] = [
     {
       id: 'laboratuvar-goruntuleme',

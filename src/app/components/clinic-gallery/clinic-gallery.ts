@@ -3,25 +3,27 @@ import { CommonModule } from '@angular/common';
 import { RevealDirective } from '../../directives/reveal.directive';
 import { LazyLoadDirective } from '../../directives/lazy-load.directive';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface GalleryImage {
   src: string;
   alt: string;
   title: string;
+  titleKey: string;
   category: 'waiting' | 'consultation' | 'play' | 'reception';
 }
 
 @Component({
   selector: 'app-clinic-gallery',
   standalone: true,
-  imports: [CommonModule, RevealDirective, LazyLoadDirective],
+  imports: [CommonModule, RevealDirective, LazyLoadDirective, TranslateModule],
   template: `
     <section class="clinic-gallery gradient-mesh noise-texture">
       <div class="container">
         <div class="gallery-header reveal" appReveal [revealAnimation]="'fade'">
-          <h2 class="gallery-title">Kliniğimiz</h2>
+          <h2 class="gallery-title">{{ 'CLINIC.GALLERY_TITLE' | translate }}</h2>
           <p class="gallery-subtitle">
-            Modern, hijyenik ve çocuk dostu ortamımızda, küçük hastalarımızın kendilerini güvende ve mutlu hissetmeleri için tasarlanmış alanlarımız
+            {{ 'CLINIC.GALLERY_SUBTITLE' | translate }}
           </p>
         </div>
         
@@ -57,14 +59,14 @@ interface GalleryImage {
             <div class="feature-icon">
               <span class="material-icons">{{ feature.icon }}</span>
             </div>
-            <h3 class="feature-title">{{ feature.title }}</h3>
-            <p class="feature-description">{{ feature.description }}</p>
+            <h3 class="feature-title">{{ feature.titleKey | translate }}</h3>
+            <p class="feature-description">{{ feature.descriptionKey | translate }}</p>
           </div>
         </div>
         
         <div class="view-all-container" *ngIf="isMobile && galleryImages.length > displayLimit">
           <button class="view-all-btn" (click)="viewAllGallery()">
-            <span>Tüm Fotoğrafları Görüntüle</span>
+            <span>{{ 'CLINIC.VIEW_ALL_PHOTOS' | translate }}</span>
             <span class="material-icons">arrow_forward</span>
           </button>
         </div>
@@ -77,7 +79,7 @@ interface GalleryImage {
             <span class="material-icons">close</span>
           </button>
           <img [src]="selectedImage.src" [alt]="selectedImage.alt" class="modal-image" />
-          <div class="modal-caption">{{ selectedImage.title }}</div>
+          <div class="modal-caption">{{ selectedImage.titleKey | translate }}</div>
         </div>
       </div>
     </section>
@@ -417,54 +419,63 @@ export class ClinicGalleryComponent {
       src: '/images/20230416_174226~2.jpg',
       alt: 'Modern klinik resepsiyon alanı',
       title: 'Karşılama Alanımız',
+      titleKey: 'CLINIC.RECEPTION_AREA',
       category: 'reception'
     },
     {
       src: '/images/20230416_174146~2.jpg',
       alt: 'Çocuk dostu bekleme salonu',
       title: 'Bekleme Salonumuz',
+      titleKey: 'CLINIC.WAITING_ROOM',
       category: 'waiting'
     },
     {
       src: '/images/20230416_175158~2.jpg',
       alt: 'Özel tasarım oyun ve okuma köşesi',
       title: 'Oyun Köşemiz',
+      titleKey: 'CLINIC.PLAY_CORNER',
       category: 'play'
     },
     {
       src: '/images/20230416_174740~2.jpg',
       alt: 'Profesyonel muayene odası',
       title: 'Muayene Odamız',
+      titleKey: 'CLINIC.EXAMINATION_ROOM',
       category: 'consultation'
     },
     {
       src: '/images/20230416_174537~2.jpg',
       alt: 'Konforlu danışma odası',
       title: 'Danışma Alanı',
+      titleKey: 'CLINIC.CONSULTATION_AREA',
       category: 'consultation'
     },
     {
       src: '/images/20230416_174704~2.jpg',
       alt: 'Çocuk dostu muayene masası',
       title: 'Muayene Alanı',
+      titleKey: 'CLINIC.EXAMINATION_AREA',
       category: 'consultation'
     },
     {
       src: '/images/20230416_175137~2.jpg',
       alt: 'Aile danışmanlığı ve oyun alanı',
       title: 'Aile Danışma Köşesi',
+      titleKey: 'CLINIC.FAMILY_CONSULTATION',
       category: 'play'
     },
     {
       src: '/images/20230416_174343~2.jpg',
       alt: 'Modern ve hijyenik klinik ortamı',
       title: 'Klinik Alanlarımız',
+      titleKey: 'CLINIC.CLINIC_AREAS',
       category: 'waiting'
     },
     {
       src: '/images/20230416_174550~2.jpg',
       alt: 'Klinik iç mekan görünümü',
       title: 'Klinik İç Mekan',
+      titleKey: 'CLINIC.INTERIOR_VIEW',
       category: 'reception'
     }
   ];
@@ -472,18 +483,18 @@ export class ClinicGalleryComponent {
   clinicFeatures = [
     {
       icon: 'sanitizer',
-      title: 'Hijyenik Ortam',
-      description: 'En yüksek hijyen standartlarında, steril ve güvenli muayene ortamı'
+      titleKey: 'CLINIC.FEATURE_HYGIENE',
+      descriptionKey: 'CLINIC.FEATURE_HYGIENE_DESC'
     },
     {
       icon: 'child_care',
-      title: 'Çocuk Dostu Tasarım',
-      description: 'Çocukların kendilerini rahat hissedeceği renkli ve eğlenceli alanlar'
+      titleKey: 'CLINIC.FEATURE_CHILD_FRIENDLY',
+      descriptionKey: 'CLINIC.FEATURE_CHILD_FRIENDLY_DESC'
     },
     {
       icon: 'accessible',
-      title: 'Engelsiz Erişim',
-      description: 'Bebek arabası ve tekerlekli sandalye erişimine uygun düzenleme'
+      titleKey: 'CLINIC.FEATURE_ACCESS',
+      descriptionKey: 'CLINIC.FEATURE_ACCESS_DESC'
     }
   ];
   

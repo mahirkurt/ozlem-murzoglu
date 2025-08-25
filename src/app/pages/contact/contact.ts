@@ -1,16 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { IllustrationComponent } from '../../shared/components/illustration/illustration.component';
+import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, IllustrationComponent],
+  imports: [CommonModule, FormsModule, TranslateModule, IllustrationComponent, HeroSectionComponent],
   templateUrl: './contact.html',
   styleUrl: './contact.css'
 })
 export class ContactComponent {
+  private translate = inject(TranslateService);
+  
+  breadcrumbs = [
+    { label: 'CONTACT.HOME_BREADCRUMB', link: '/' },
+    { label: 'CONTACT.CONTACT_BREADCRUMB' }
+  ];
   contactInfo = {
     phone: '+90 222 237 84 00',
     email: 'info@ozlemmurzoglu.com',
@@ -23,9 +31,9 @@ export class ContactComponent {
   };
 
   workingHours = [
-    { day: 'Pazartesi - Cuma', hours: '09:00 - 18:00' },
-    { day: 'Cumartesi', hours: '09:00 - 14:00' },
-    { day: 'Pazar', hours: 'Kapalı' }
+    { dayKey: 'CONTACT.WEEKDAYS', hoursKey: 'CONTACT.WEEKDAYS_HOURS' },
+    { dayKey: 'CONTACT.SATURDAY', hoursKey: 'CONTACT.SATURDAY_HOURS' },
+    { dayKey: 'CONTACT.SUNDAY', hoursKey: 'CONTACT.SUNDAY_HOURS' }
   ];
 
   formData = {

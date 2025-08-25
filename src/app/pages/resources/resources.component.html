@@ -1,34 +1,11 @@
 <section class="resources-page">
   <!-- Hero Section -->
-  <div class="resources-hero">
-    <div class="hero-background">
-      <div class="hero-shape shape-1"></div>
-      <div class="hero-shape shape-2"></div>
-      <div class="hero-shape shape-3"></div>
-    </div>
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="page-title">Ebeveyn Kaynak Merkezi</h1>
-        <p class="page-subtitle">
-          Çocuğunuzun sağlığı ve gelişimi için güvenilir, bilimsel kaynaklar
-        </p>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-number">220+</span>
-            <span class="stat-label">Bilimsel Kaynak</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">11</span>
-            <span class="stat-label">Kategori</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">AAP</span>
-            <span class="stat-label">Onaylı İçerik</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-hero-section
+    [title]="'RESOURCES.PAGE_TITLE' | translate"
+    [subtitle]="'RESOURCES.SUBTITLE' | translate"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="blue">
+  </app-hero-section>
 
   <!-- Categories Grid -->
   <div class="categories-section">
@@ -36,12 +13,12 @@
       <!-- Search -->
       <div class="search-bar">
         <span class="material-icons">search</span>
-        <input #q type="text" placeholder="Kaynaklarda ara..." (input)="onSearch(q.value)" />
+        <input #q type="text" [placeholder]="'RESOURCES.SEARCH_PLACEHOLDER' | translate" (input)="onSearch(q.value)" />
       </div>
       <div class="search-results" *ngIf="query && results.length">
         <div class="results-header">
           <span class="material-icons">list_alt</span>
-          <span>{{ results.length }} sonuç</span>
+          <span>{{ results.length }} {{ 'RESOURCES.SEARCH_RESULTS' | translate }}</span>
         </div>
         <div class="results-list">
           <a *ngFor="let r of results" [routerLink]="r.path" class="result-item">
@@ -58,20 +35,20 @@
             <span class="material-icons">timeline</span>
           </div>
           <div class="banner-text">
-            <h3>Bright Futures Yolculuğu</h3>
-            <p>Doğumdan ergenliğe kadar tüm Bright Futures vizitlerini interaktif bir zaman çizelgesinde keşfedin</p>
+            <h3>{{ 'RESOURCES.JOURNEY_BANNER_TITLE' | translate }}</h3>
+            <p>{{ 'RESOURCES.JOURNEY_BANNER_DESC' | translate }}</p>
           </div>
           <a routerLink="/bilgi-merkezi/bright-futures-yolculugu" class="banner-btn">
-            <span>Yolculuğa Başla</span>
+            <span>{{ 'RESOURCES.JOURNEY_BANNER_BTN' | translate }}</span>
             <span class="material-icons">arrow_forward</span>
           </a>
         </div>
       </div>
 
       <div class="section-header">
-        <h2 class="section-title">Kaynak Kategorileri</h2>
+        <h2 class="section-title">{{ 'RESOURCES.SECTION_TITLE' | translate }}</h2>
         <p class="section-description">
-          İhtiyacınıza uygun kategoriyi seçerek detaylı bilgilere ulaşabilirsiniz
+          {{ 'RESOURCES.SUBTITLE' | translate }}
         </p>
       </div>
 
@@ -86,16 +63,16 @@
             </div>
             <div class="document-count">
               <span class="count">{{ category.documentCount }}</span>
-              <span class="label">Döküman</span>
+              <span class="label">{{ 'RESOURCES.DOCUMENT_COUNT' | translate }}</span>
             </div>
           </div>
           <div class="card-body">
-            <h3 class="category-title">{{ category.title }}</h3>
-            <p class="category-description">{{ category.description }}</p>
+            <h3 class="category-title">{{ category.titleKey | translate }}</h3>
+            <p class="category-description">{{ category.descriptionKey | translate }}</p>
           </div>
           <div class="card-footer">
             <span class="view-link">
-              <span>Kaynakları Görüntüle</span>
+              <span>{{ 'RESOURCES.VIEW_ALL' | translate }}</span>
               <span class="material-icons">arrow_forward</span>
             </span>
           </div>
@@ -112,32 +89,32 @@
           <div class="feature-icon">
             <span class="material-icons">verified</span>
           </div>
-          <h3>Güvenilir Kaynaklar</h3>
-          <p>Amerikan Pediatri Akademisi ve DSÖ gibi uluslararası kuruluşların onayladığı içerikler</p>
+          <h3>{{ 'RESOURCES.FEATURE1_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES.FEATURE1_DESC' | translate }}</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <span class="material-icons">translate</span>
           </div>
-          <h3>Türkçe İçerik</h3>
-          <p>Tüm kaynaklar uzman hekimler tarafından Türkçe'ye çevrilmiş ve uyarlanmıştır</p>
+          <h3>{{ 'RESOURCES.FEATURE2_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES.FEATURE2_DESC' | translate }}</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <span class="material-icons">download</span>
           </div>
-          <h3>İndirilebilir</h3>
-          <p>Tüm dökümanları PDF formatında indirebilir ve yazdırabilirsiniz</p>
+          <h3>{{ 'RESOURCES.FEATURE3_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES.FEATURE3_DESC' | translate }}</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <span class="material-icons">update</span>
           </div>
-          <h3>Güncel Bilgiler</h3>
-          <p>En son bilimsel gelişmeler ışığında sürekli güncellenen içerikler</p>
+          <h3>{{ 'RESOURCES.FEATURE4_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES.FEATURE4_DESC' | translate }}</p>
         </div>
       </div>
     </div>
@@ -146,7 +123,7 @@
   <!-- Quick Links -->
   <div class="quick-links-section">
     <div class="container">
-      <h2 class="section-title">Popüler Kaynaklar</h2>
+      <h2 class="section-title">{{ 'RESOURCES.POPULAR_RESOURCES' | translate }}</h2>
       <div class="quick-links-grid">
         <a routerLink="/kaynaklar/asilar/hpv-a-s-bilgi-f-y" class="quick-link">
           <span class="material-icons">description</span>
@@ -162,7 +139,7 @@
         </a>
         <a routerLink="/kaynaklar" class="quick-link">
           <span class="material-icons">folder</span>
-          <span>Tüm Kaynaklar</span>
+          <span>{{ 'RESOURCES.ALL_RESOURCES' | translate }}</span>
         </a>
       </div>
     </div>

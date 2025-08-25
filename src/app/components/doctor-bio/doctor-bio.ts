@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-doctor-bio',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   template: `
     <section class="doctor-bio-section">
       <div class="container">
@@ -19,59 +20,45 @@ import { CommonModule } from '@angular/common';
           </div>
           
           <div class="doctor-info">
-            <h2 class="section-title">Uzm. Dr. Özlem Murzoğlu</h2>
-            <p class="doctor-subtitle">Çocuk Sağlığı ve Hastalıkları Uzmanı</p>
+            <h2 class="section-title">{{ 'DOCTOR_BIO.TITLE' | translate }}</h2>
+            <p class="doctor-subtitle">{{ 'DOCTOR_BIO.SUBTITLE' | translate }}</p>
             
             <div class="bio-text">
-              <p>
-                İstanbul Üniversitesi İstanbul Tıp Fakültesi'nden mezun olan Dr. Özlem Murzoğlu, 
-                pediatri uzmanlık eğitimini Marmara Üniversitesi Tıp Fakültesi Çocuk Sağlığı ve 
-                Hastalıkları Anabilim Dalı'nda tamamlamıştır.
-              </p>
-              
-              <p>
-                Aynı kurumda Sosyal Pediatri alanında doktora derecesini alan Dr. Murzoğlu, 
-                eş zamanlı olarak Çocuk Gelişimi lisans eğitimini de tamamlayarak, çocuk sağlığına 
-                bütüncül bir yaklaşım geliştirmiştir.
-              </p>
-              
-              <p>
-                Bright Futures® Sağlıklı Çocuk İzlemi, uyku danışmanlığı ve Triple P® Pozitif 
-                Ebeveynlik Programı konularında uzmanlaşan Dr. Murzoğlu, Ataşehir'deki kliniğinde 
-                ailelere kapsamlı pediatri hizmetleri sunmaktadır.
-              </p>
+              <p>{{ 'DOCTOR_BIO.BIO_PARAGRAPH_1' | translate }}</p>
+              <p>{{ 'DOCTOR_BIO.BIO_PARAGRAPH_2' | translate }}</p>
+              <p>{{ 'DOCTOR_BIO.BIO_PARAGRAPH_3' | translate }}</p>
             </div>
             
             <div class="qualifications">
               <div class="qualification-item">
                 <span class="material-icons">school</span>
                 <div>
-                  <strong>Tıp Eğitimi</strong>
-                  <span>İstanbul Üniversitesi İstanbul Tıp Fakültesi</span>
+                  <strong>{{ 'DOCTOR_BIO.MEDICAL_EDUCATION' | translate }}</strong>
+                  <span>{{ 'DOCTOR_BIO.MEDICAL_SCHOOL' | translate }}</span>
                 </div>
               </div>
               
               <div class="qualification-item">
                 <span class="material-icons">medical_services</span>
                 <div>
-                  <strong>Uzmanlık</strong>
-                  <span>Marmara Üniversitesi Çocuk Sağlığı ve Hastalıkları</span>
+                  <strong>{{ 'DOCTOR_BIO.SPECIALIZATION' | translate }}</strong>
+                  <span>{{ 'DOCTOR_BIO.SPECIALIZATION_SCHOOL' | translate }}</span>
                 </div>
               </div>
               
               <div class="qualification-item">
                 <span class="material-icons">psychology</span>
                 <div>
-                  <strong>Doktora</strong>
-                  <span>Sosyal Pediatri</span>
+                  <strong>{{ 'DOCTOR_BIO.DOCTORATE' | translate }}</strong>
+                  <span>{{ 'DOCTOR_BIO.DOCTORATE_FIELD' | translate }}</span>
                 </div>
               </div>
               
               <div class="qualification-item">
                 <span class="material-icons">child_care</span>
                 <div>
-                  <strong>Lisans</strong>
-                  <span>Çocuk Gelişimi</span>
+                  <strong>{{ 'DOCTOR_BIO.BACHELOR' | translate }}</strong>
+                  <span>{{ 'DOCTOR_BIO.BACHELOR_FIELD' | translate }}</span>
                 </div>
               </div>
             </div>

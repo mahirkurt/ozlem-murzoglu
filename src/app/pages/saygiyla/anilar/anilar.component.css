@@ -1,0 +1,16 @@
+/* Anilar component styles */
+.container {
+  min-height: 60vh;
+}
+
+.bg-purple-50 {
+  background-color: #faf5ff;
+}
+
+.border-purple-200 {
+  border-color: #e9d5ff;
+}
+
+.text-purple-800 {
+  color: #6b21a8;
+}

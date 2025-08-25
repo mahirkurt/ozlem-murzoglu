@@ -2,21 +2,20 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
 
 @Component({
-  selector: 'app-about',
+  selector: 'app-articles',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslateModule, ScrollRevealDirective, HeroSectionComponent],
-  templateUrl: './about.html',
-  styleUrl: './about.css'
+  imports: [CommonModule, RouterModule, TranslateModule, HeroSectionComponent],
+  templateUrl: './articles.component.html',
+  styleUrl: './articles.component.css'
 })
-export class AboutComponent {
+export class ArticlesComponent {
   private translate = inject(TranslateService);
   
   breadcrumbs = [
-    { label: 'ABOUT.HOME_BREADCRUMB', link: '/' },
-    { label: 'ABOUT.ABOUT_BREADCRUMB' }
+    { label: 'HOME.NAV_HOME', link: '/' },
+    { label: 'Makaleler' }
   ];
 }
