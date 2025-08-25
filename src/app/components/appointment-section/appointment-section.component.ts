@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-appointment-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   template: `
     <section class="appointment-section">
       <div class="container">
         <div class="appointment-header">
-          <h2 class="section-title">Online Randevu</h2>
+          <h2 class="section-title">{{ 'APPOINTMENT_SECTION.TITLE' | translate }}</h2>
           <p class="section-subtitle">
-            Kolayca online randevu alın, bekleme sürelerini azaltın
+            {{ 'APPOINTMENT_SECTION.SUBTITLE' | translate }}
           </p>
         </div>
 
@@ -22,15 +23,15 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
             <div class="card-icon">
               <span class="material-icons">calendar_today</span>
             </div>
-            <h3>Hızlı Randevu</h3>
-            <p>Randevu sistemimize doğrudan erişim için tıklayın</p>
+            <h3>{{ 'APPOINTMENT_SECTION.QUICK_APPOINTMENT' | translate }}</h3>
+            <p>{{ 'APPOINTMENT_SECTION.QUICK_APPOINTMENT_DESC' | translate }}</p>
             <a 
               href="https://saglikpetegim.com/randevu" 
               target="_blank" 
               class="appointment-btn primary"
             >
               <span class="material-icons">open_in_new</span>
-              Randevu Al
+              {{ 'APPOINTMENT_SECTION.BOOK_APPOINTMENT' | translate }}
             </a>
           </div>
 
@@ -41,8 +42,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
               </svg>
             </div>
-            <h3>WhatsApp ile İletişim</h3>
-            <p>WhatsApp üzerinden hızlıca randevu alın</p>
+            <h3>{{ 'APPOINTMENT_SECTION.WHATSAPP_CONTACT' | translate }}</h3>
+            <p>{{ 'APPOINTMENT_SECTION.WHATSAPP_DESC' | translate }}</p>
             <a 
               href="https://wa.me/905334985949?text=Merhaba,%20randevu%20almak%20istiyorum" 
               target="_blank" 
@@ -51,7 +52,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
               </svg>
-              WhatsApp
+              {{ 'APPOINTMENT_SECTION.WHATSAPP' | translate }}
             </a>
           </div>
 
@@ -60,8 +61,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
             <div class="card-icon">
               <span class="material-icons">phone_in_talk</span>
             </div>
-            <h3>Telefon ile Randevu</h3>
-            <p>Bizi arayarak randevu alabilirsiniz</p>
+            <h3>{{ 'APPOINTMENT_SECTION.PHONE_APPOINTMENT' | translate }}</h3>
+            <p>{{ 'APPOINTMENT_SECTION.PHONE_DESC' | translate }}</p>
             <a href="tel:+902165761190" class="appointment-btn secondary">
               <span class="material-icons">phone</span>
               0216 576 11 90

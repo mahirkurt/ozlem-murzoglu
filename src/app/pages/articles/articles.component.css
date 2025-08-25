@@ -1,0 +1,34 @@
+.articles-page {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+.coming-soon {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.coming-soon .material-icons {
+  font-size: 64px;
+  color: #7b61ff;
+  margin-bottom: 1rem;
+}
+
+.coming-soon h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.coming-soon p {
+  font-size: 1.125rem;
+  color: #666;
+}

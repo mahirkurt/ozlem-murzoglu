@@ -1,0 +1,134 @@
+<app-hero-section
+  [title]="'LEGAL.KVKK_TITLE' | translate"
+  [breadcrumbs]="breadcrumbs"
+  colorTheme="yellow">
+</app-hero-section>
+
+<main class="container mx-auto px-4 py-16 max-w-4xl">
+  <article class="prose prose-lg max-w-none">
+    
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-8 rounded-r-lg">
+      <p class="text-sm text-gray-600">
+        <strong>{{ 'LEGAL.LAST_UPDATED' | translate }}:</strong> {{ lastUpdated }}
+      </p>
+    </div>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.KVKK_INTRO_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed">{{ 'LEGAL.KVKK_INTRO_TEXT' | translate }}</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.DATA_CONTROLLER_TITLE' | translate }}</h2>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <p class="text-gray-700 mb-2"><strong>{{ 'LEGAL.DATA_CONTROLLER_NAME' | translate }}:</strong> Dr. Özlem Murzoğlu Pediatri Kliniği</p>
+        <p class="text-gray-700 mb-2"><strong>{{ 'CONTACT.ADDRESS' | translate }}:</strong> Ataköy 7-8-9-10. Mah. Çobançeşme E-5 Yan Yol Cad. No: 22/1 Ataköy Towers B Blok Kat: 1 Daire: 2 Bakırköy, İstanbul</p>
+        <p class="text-gray-700 mb-2"><strong>{{ 'CONTACT.PHONE' | translate }}:</strong> 0212 560 95 99</p>
+        <p class="text-gray-700"><strong>{{ 'CONTACT.EMAIL' | translate }}:</strong> info&#64;drozlemmurzoglu.com</p>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.KVKK_DATA_COLLECTED_TITLE' | translate }}</h2>
+      <div class="space-y-4">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700">{{ 'LEGAL.KVKK_IDENTITY_DATA' | translate }}</h3>
+          <p class="text-gray-600 pl-4">{{ 'LEGAL.KVKK_IDENTITY_DATA_TEXT' | translate }}</p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700">{{ 'LEGAL.KVKK_CONTACT_DATA' | translate }}</h3>
+          <p class="text-gray-600 pl-4">{{ 'LEGAL.KVKK_CONTACT_DATA_TEXT' | translate }}</p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700">{{ 'LEGAL.KVKK_HEALTH_DATA' | translate }}</h3>
+          <p class="text-gray-600 pl-4">{{ 'LEGAL.KVKK_HEALTH_DATA_TEXT' | translate }}</p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700">{{ 'LEGAL.KVKK_TRANSACTION_DATA' | translate }}</h3>
+          <p class="text-gray-600 pl-4">{{ 'LEGAL.KVKK_TRANSACTION_DATA_TEXT' | translate }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.KVKK_PURPOSE_TITLE' | translate }}</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-600">
+        <li>{{ 'LEGAL.KVKK_PURPOSE_1' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_PURPOSE_2' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_PURPOSE_3' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_PURPOSE_4' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_PURPOSE_5' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_PURPOSE_6' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_PURPOSE_7' | translate }}</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.KVKK_LEGAL_BASIS_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">{{ 'LEGAL.KVKK_LEGAL_BASIS_TEXT' | translate }}</p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-600">
+        <li>{{ 'LEGAL.KVKK_LEGAL_BASIS_1' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_LEGAL_BASIS_2' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_LEGAL_BASIS_3' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_LEGAL_BASIS_4' | translate }}</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.KVKK_TRANSFER_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">{{ 'LEGAL.KVKK_TRANSFER_TEXT' | translate }}</p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-600">
+        <li>{{ 'LEGAL.KVKK_TRANSFER_1' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_TRANSFER_2' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_TRANSFER_3' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_TRANSFER_4' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_TRANSFER_5' | translate }}</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.KVKK_RETENTION_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed">{{ 'LEGAL.KVKK_RETENTION_TEXT' | translate }}</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.KVKK_RIGHTS_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">{{ 'LEGAL.KVKK_RIGHTS_TEXT' | translate }}</p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-600">
+        <li>{{ 'LEGAL.KVKK_RIGHT_1' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_RIGHT_2' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_RIGHT_3' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_RIGHT_4' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_RIGHT_5' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_RIGHT_6' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_RIGHT_7' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_RIGHT_8' | translate }}</li>
+        <li>{{ 'LEGAL.KVKK_RIGHT_9' | translate }}</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.KVKK_APPLICATION_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">{{ 'LEGAL.KVKK_APPLICATION_TEXT' | translate }}</p>
+      <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+        <p class="text-gray-700">{{ 'LEGAL.KVKK_APPLICATION_INFO' | translate }}</p>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.CONTACT_TITLE' | translate }}</h2>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <p class="text-gray-700 mb-4">{{ 'LEGAL.KVKK_CONTACT_TEXT' | translate }}</p>
+        <div class="space-y-2 text-gray-600">
+          <p><strong>{{ 'CONTACT.ADDRESS' | translate }}:</strong> Ataköy 7-8-9-10. Mah. Çobançeşme E-5 Yan Yol Cad. No: 22/1 Ataköy Towers B Blok Kat: 1 Daire: 2 Bakırköy, İstanbul</p>
+          <p><strong>{{ 'CONTACT.PHONE' | translate }}:</strong> <a href="tel:+902125609599" class="text-yellow-600 hover:underline">0212 560 95 99</a></p>
+          <p><strong>{{ 'CONTACT.EMAIL' | translate }}:</strong> <a href="mailto:info&#64;drozlemmurzoglu.com" class="text-yellow-600 hover:underline">info&#64;drozlemmurzoglu.com</a></p>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</main>

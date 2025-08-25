@@ -1,0 +1,120 @@
+<app-hero-section
+  [title]="'LEGAL.PRIVACY_TITLE' | translate"
+  [breadcrumbs]="breadcrumbs"
+  colorTheme="blue">
+</app-hero-section>
+
+<main class="container mx-auto px-4 py-16 max-w-4xl">
+  <article class="prose prose-lg max-w-none">
+    
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8 rounded-r-lg">
+      <p class="text-sm text-gray-600">
+        <strong>{{ 'LEGAL.LAST_UPDATED' | translate }}:</strong> {{ lastUpdated }}
+      </p>
+    </div>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.PRIVACY_INTRO_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed">{{ 'LEGAL.PRIVACY_INTRO_TEXT' | translate }}</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.DATA_COLLECTED_TITLE' | translate }}</h2>
+      <div class="space-y-4">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700">{{ 'LEGAL.PERSONAL_INFO_TITLE' | translate }}</h3>
+          <ul class="list-disc pl-6 space-y-2 text-gray-600">
+            <li>{{ 'LEGAL.PERSONAL_INFO_1' | translate }}</li>
+            <li>{{ 'LEGAL.PERSONAL_INFO_2' | translate }}</li>
+            <li>{{ 'LEGAL.PERSONAL_INFO_3' | translate }}</li>
+            <li>{{ 'LEGAL.PERSONAL_INFO_4' | translate }}</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700">{{ 'LEGAL.HEALTH_INFO_TITLE' | translate }}</h3>
+          <ul class="list-disc pl-6 space-y-2 text-gray-600">
+            <li>{{ 'LEGAL.HEALTH_INFO_1' | translate }}</li>
+            <li>{{ 'LEGAL.HEALTH_INFO_2' | translate }}</li>
+            <li>{{ 'LEGAL.HEALTH_INFO_3' | translate }}</li>
+            <li>{{ 'LEGAL.HEALTH_INFO_4' | translate }}</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.DATA_USE_TITLE' | translate }}</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-600">
+        <li>{{ 'LEGAL.DATA_USE_1' | translate }}</li>
+        <li>{{ 'LEGAL.DATA_USE_2' | translate }}</li>
+        <li>{{ 'LEGAL.DATA_USE_3' | translate }}</li>
+        <li>{{ 'LEGAL.DATA_USE_4' | translate }}</li>
+        <li>{{ 'LEGAL.DATA_USE_5' | translate }}</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.DATA_PROTECTION_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">{{ 'LEGAL.DATA_PROTECTION_TEXT' | translate }}</p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-600">
+        <li>{{ 'LEGAL.PROTECTION_MEASURE_1' | translate }}</li>
+        <li>{{ 'LEGAL.PROTECTION_MEASURE_2' | translate }}</li>
+        <li>{{ 'LEGAL.PROTECTION_MEASURE_3' | translate }}</li>
+        <li>{{ 'LEGAL.PROTECTION_MEASURE_4' | translate }}</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.DATA_SHARING_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">{{ 'LEGAL.DATA_SHARING_TEXT' | translate }}</p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-600">
+        <li>{{ 'LEGAL.SHARING_CASE_1' | translate }}</li>
+        <li>{{ 'LEGAL.SHARING_CASE_2' | translate }}</li>
+        <li>{{ 'LEGAL.SHARING_CASE_3' | translate }}</li>
+        <li>{{ 'LEGAL.SHARING_CASE_4' | translate }}</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.YOUR_RIGHTS_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">{{ 'LEGAL.YOUR_RIGHTS_TEXT' | translate }}</p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-600">
+        <li>{{ 'LEGAL.RIGHT_1' | translate }}</li>
+        <li>{{ 'LEGAL.RIGHT_2' | translate }}</li>
+        <li>{{ 'LEGAL.RIGHT_3' | translate }}</li>
+        <li>{{ 'LEGAL.RIGHT_4' | translate }}</li>
+        <li>{{ 'LEGAL.RIGHT_5' | translate }}</li>
+        <li>{{ 'LEGAL.RIGHT_6' | translate }}</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.COOKIES_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed">{{ 'LEGAL.COOKIES_TEXT' | translate }}</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.CHILDREN_PRIVACY_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed">{{ 'LEGAL.CHILDREN_PRIVACY_TEXT' | translate }}</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.CHANGES_TITLE' | translate }}</h2>
+      <p class="text-gray-700 leading-relaxed">{{ 'LEGAL.CHANGES_TEXT' | translate }}</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ 'LEGAL.CONTACT_TITLE' | translate }}</h2>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <p class="text-gray-700 mb-4">{{ 'LEGAL.CONTACT_TEXT' | translate }}</p>
+        <div class="space-y-2 text-gray-600">
+          <p><strong>{{ 'CONTACT.ADDRESS' | translate }}:</strong> Ataköy 7-8-9-10. Mah. Çobançeşme E-5 Yan Yol Cad. No: 22/1 Ataköy Towers B Blok Kat: 1 Daire: 2 Bakırköy, İstanbul</p>
+          <p><strong>{{ 'CONTACT.PHONE' | translate }}:</strong> <a href="tel:+902125609599" class="text-blue-600 hover:underline">0212 560 95 99</a></p>
+          <p><strong>{{ 'CONTACT.EMAIL' | translate }}:</strong> <a href="mailto:info&#64;drozlemmurzoglu.com" class="text-blue-600 hover:underline">info&#64;drozlemmurzoglu.com</a></p>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</main>

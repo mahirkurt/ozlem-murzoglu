@@ -21,5 +21,13 @@ export const routes: Routes = [
   // Otomatik üretilen kategori ve döküman rotaları
   ...resourceRoutes,
   { path: 'iletisim', loadComponent: () => import('./pages/contact/contact').then(m => m.ContactComponent) },
-  { path: '**', redirectTo: '' }
+  // { path: 'randevu', loadComponent: () => import('./pages/appointment/appointment.component').then(m => m.AppointmentComponent) },
+  { path: 'makaleler', loadComponent: () => import('./pages/articles/articles.component').then(m => m.ArticlesComponent) },
+  // { path: 'saygiyla/tesekkurler', loadComponent: () => import('./pages/saygiyla/tesekkurler/tesekkurler.component').then(m => m.TesekkurlerComponent) },
+  // { path: 'saygiyla/anilar', loadComponent: () => import('./pages/saygiyla/anilar/anilar.component').then(m => m.AnilarComponent) },
+  { path: 'gizlilik', loadComponent: () => import('./pages/legal/privacy/privacy.component').then(m => m.PrivacyComponent) },
+  { path: 'kullanim-kosullari', loadComponent: () => import('./pages/legal/terms/terms.component').then(m => m.TermsComponent) },
+  { path: 'kvkk', loadComponent: () => import('./pages/legal/kvkk/kvkk.component').then(m => m.KvkkComponent) },
+  { path: '404', loadComponent: () => import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent) },
+  { path: '**', redirectTo: '404' }
 ];

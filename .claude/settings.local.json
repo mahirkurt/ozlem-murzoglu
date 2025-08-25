@@ -57,7 +57,11 @@
       "Bash(ng serve:*)",
       "Bash(npm uninstall:*)",
       "Bash(python:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Read(/D:\\GitHub Repos\\Saglik-Petegim/**)",
+      "Read(/D:\\GitHub Repos\\Saglik-Petegim/**)",
+      "Read(/D:\\GitHub Repos\\Saglik-Petegim\\apps\\flutter_app\\lib\\features\\appointments\\models/**)",
+      "Bash(sed:*)"
     ],
     "deny": []
   }

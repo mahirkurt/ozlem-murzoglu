@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RESOURCES_INDEX, ResourceLink } from './resources-index';
+import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
 
 interface ResourceCategory {
   id: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   icon: string;
   color: string;
   documentCount: number;
@@ -16,18 +18,24 @@ interface ResourceCategory {
 @Component({
   selector: 'app-resources',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule, HeroSectionComponent],
   templateUrl: './resources.component.html',
   styleUrl: './resources.component.css'
 })
 export class ResourcesComponent {
+  private translate = inject(TranslateService);
+  
+  breadcrumbs = [
+    { label: 'RESOURCES.HOME_BREADCRUMB', link: '/' },
+    { label: 'RESOURCES.RESOURCES_BREADCRUMB' }
+  ];
   query = '';
   results: { title: string; path: string; category: string }[] = [];
   categories: ResourceCategory[] = [
     {
       id: 'asilar',
-      title: 'Aşılar',
-      description: 'Aşılar hakkında detaylı bilgiler, takvimler ve sıkça sorulan sorular',
+      titleKey: 'RESOURCES.CATEGORIES.VACCINES',
+      descriptionKey: 'RESOURCES.CATEGORIES.VACCINES_DESC',
       icon: 'vaccines',
       color: 'accent',
       documentCount: 15,
@@ -35,8 +43,8 @@ export class ResourcesComponent {
     },
     {
       id: 'gebelik-donemi',
-      title: 'Gebelik Dönemi',
-      description: 'Gebelik sürecinde beslenme, egzersiz ve sağlık konularında rehberler',
+      titleKey: 'RESOURCES.CATEGORIES.PREGNANCY',
+      descriptionKey: 'RESOURCES.CATEGORIES.PREGNANCY_DESC',
       icon: 'pregnant_woman',
       color: 'primary',
       documentCount: 20,
@@ -44,8 +52,8 @@ export class ResourcesComponent {
     },
     {
       id: 'gelisim-rehberleri',
-      title: 'Gelişim Rehberleri',
-      description: 'Çocuğunuzun fiziksel, zihinsel ve duygusal gelişimini takip etmenize yardımcı kaynaklar',
+      titleKey: 'RESOURCES.CATEGORIES.DEVELOPMENT',
+      descriptionKey: 'RESOURCES.CATEGORIES.DEVELOPMENT_DESC',
       icon: 'trending_up',
       color: 'secondary',
       documentCount: 18,
@@ -53,8 +61,8 @@ export class ResourcesComponent {
     },
     {
       id: 'hastaliklar',
-      title: 'Hastalıklar',
-      description: 'Çocukluk çağı hastalıkları hakkında bilgilendirici dökümanlar',
+      titleKey: 'RESOURCES.CATEGORIES.DISEASES',
+      descriptionKey: 'RESOURCES.CATEGORIES.DISEASES_DESC',
       icon: 'medical_information',
       color: 'accent',
       documentCount: 35,
@@ -62,8 +70,8 @@ export class ResourcesComponent {
     },
     {
       id: 'oyuncaklar',
-      title: 'Oyuncaklar',
-      description: 'Yaşa uygun oyuncak seçimi ve güvenli oyun rehberleri',
+      titleKey: 'RESOURCES.CATEGORIES.TOYS',
+      descriptionKey: 'RESOURCES.CATEGORIES.TOYS_DESC',
       icon: 'toys',
       color: 'primary',
       documentCount: 12,
@@ -71,8 +79,8 @@ export class ResourcesComponent {
     },
     {
       id: 'aile-medya-plani',
-      title: 'Aile Medya Planı',
-      description: 'Dijital çağda çocuğunuzun ekran süresi ve medya kullanımını düzenleme rehberi',
+      titleKey: 'RESOURCES.CATEGORIES.MEDIA_PLAN',
+      descriptionKey: 'RESOURCES.CATEGORIES.MEDIA_PLAN_DESC',
       icon: 'devices',
       color: 'secondary',
       documentCount: 8,
@@ -80,8 +88,8 @@ export class ResourcesComponent {
     },
     {
       id: 'genel-bilgiler',
-      title: 'Genel Bilgiler',
-      description: 'Çocuk sağlığı ve bakımı hakkında genel bilgiler ve öneriler',
+      titleKey: 'RESOURCES.CATEGORIES.GENERAL_INFO',
+      descriptionKey: 'RESOURCES.CATEGORIES.GENERAL_INFO_DESC',
       icon: 'info',
       color: 'accent',
       documentCount: 22,
@@ -89,8 +97,8 @@ export class ResourcesComponent {
     },
     {
       id: 'cdc-buyume-egrileri',
-      title: 'CDC Büyüme Eğrileri',
-      description: 'CDC standartlarına göre çocuğunuzun büyüme ve gelişim takibi',
+      titleKey: 'RESOURCES.CATEGORIES.CDC_GROWTH',
+      descriptionKey: 'RESOURCES.CATEGORIES.CDC_GROWTH_DESC',
       icon: 'show_chart',
       color: 'primary',
       documentCount: 10,
@@ -98,8 +106,8 @@ export class ResourcesComponent {
     },
     {
       id: 'who-buyume-egrileri',
-      title: 'WHO Büyüme Eğrileri',
-      description: 'Dünya Sağlık Örgütü standartlarına göre büyüme takip çizelgeleri',
+      titleKey: 'RESOURCES.CATEGORIES.WHO_GROWTH',
+      descriptionKey: 'RESOURCES.CATEGORIES.WHO_GROWTH_DESC',
       icon: 'analytics',
       color: 'secondary',
       documentCount: 10,

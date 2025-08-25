@@ -1,0 +1,16 @@
+/* Appointment component styles */
+.container {
+  min-height: 60vh;
+}
+
+.bg-blue-50 {
+  background-color: #eff6ff;
+}
+
+.border-blue-200 {
+  border-color: #bfdbfe;
+}
+
+.text-blue-800 {
+  color: #1e40af;
+}

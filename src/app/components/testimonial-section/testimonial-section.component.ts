@@ -1,19 +1,22 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface Testimonial {
   id: number;
   author: string;
   initials: string;
   text: string;
+  textKey: string;
   rating: number;
   date: string;
+  dateKey: string;
 }
 
 @Component({
   selector: 'app-testimonial-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './testimonial-section.component.html',
   styleUrl: './testimonial-section.component.css'
 })
@@ -29,48 +32,60 @@ export class TestimonialSectionComponent implements OnInit, OnDestroy {
       author: 'Ayşe Y.',
       initials: 'AY',
       text: 'Dr. Özlem Hanım gerçekten çocuklara nasıl yaklaşılacağını bilen çok özel bir doktor. Oğlumun her kontrolünde gösterdiği özen ve sabır, verdiği detaylı bilgiler sayesinde kendimi çok daha güvende hissediyorum. Çocuk doktoru seçerken çok araştırdım, kesinlikle doğru tercih yapmışım.',
+      textKey: 'TESTIMONIALS.TESTIMONIAL_1',
       rating: 5,
-      date: '3 ay önce'
+      date: '3 ay önce',
+      dateKey: 'TESTIMONIALS.DATE_3_MONTHS'
     },
     {
       id: 2,
       author: 'Mehmet K.',
       initials: 'MK',
       text: 'Kliniğin temizliği ve modern ekipmanları dikkatimi çekti. Dr. Özlem Hanım\'ın sosyal pediatri yaklaşımı sayesinde kızımın doktor korkusu tamamen geçti. Randevu almak da çok kolay, asistanları da son derece ilgili ve yardımcı.',
+      textKey: 'TESTIMONIALS.TESTIMONIAL_2',
       rating: 5,
-      date: '2 ay önce'
+      date: '2 ay önce',
+      dateKey: 'TESTIMONIALS.DATE_2_MONTHS'
     },
     {
       id: 3,
       author: 'Fatma S.',
       initials: 'FS',
       text: 'Çocuğumun sürekli tekrarlanan enfeksiyonu vardı. Dr. Özlem Hanım\'ın doğru teşhisi ve sabırlı tedavisi sayesinde artık çok daha sağlıklı. Hem bilgisi hem de çocuklara karşı yaklaşımı mükemmel. Ailem olarak çok memnunuz.',
+      textKey: 'TESTIMONIALS.TESTIMONIAL_3',
       rating: 5,
-      date: '1 ay önce'
+      date: '1 ay önce',
+      dateKey: 'TESTIMONIALS.DATE_1_MONTH'
     },
     {
       id: 4,
       author: 'Ali R.',
       initials: 'AR',
       text: 'Oğlumun büyüme-gelişim takibi için gidiyoruz. Dr. Özlem Hanım her seferinde çok detaylı muayene yapıyor ve merak ettiğimiz her soruyu sabırla yanıtlıyor. Kliniğin atmosferi de çocuklar için çok rahat ve huzurlu.',
+      textKey: 'TESTIMONIALS.TESTIMONIAL_4',
       rating: 5,
-      date: '3 hafta önce'
+      date: '3 hafta önce',
+      dateKey: 'TESTIMONIALS.DATE_3_WEEKS'
     },
     {
       id: 5,
       author: 'Zeynep T.',
       initials: 'ZT',
       text: 'İkiz bebeklerim için başvurduğumuzda Dr. Özlem Hanım bize çok destek oldu. Beslenme sorunlarımızı çözdü ve uyku düzenlerini oturtmamıza yardım etti. Gerçekten deneyimli ve çocuk seven bir doktor. Herkese tavsiye ederim.',
+      textKey: 'TESTIMONIALS.TESTIMONIAL_5',
       rating: 5,
-      date: '2 hafta önce'
+      date: '2 hafta önce',
+      dateKey: 'TESTIMONIALS.DATE_2_WEEKS'
     },
     {
       id: 6,
       author: 'Burak M.',
       initials: 'BM',
       text: 'Çocuğumun aşı takibi için düzenli gidiyoruz. Dr. Özlem Hanım aşılar hakkında çok detaylı bilgi veriyor ve hiç acele etmiyor. Klinikte bekleme süremiz de hiç uzun olmuyor. Randevu sistemi çok düzenli çalışıyor.',
+      textKey: 'TESTIMONIALS.TESTIMONIAL_6',
       rating: 5,
-      date: '1 hafta önce'
+      date: '1 hafta önce',
+      dateKey: 'TESTIMONIALS.DATE_1_WEEK'
     }
   ];
 

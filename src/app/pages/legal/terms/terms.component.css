@@ -1,0 +1,16 @@
+/* Terms component styles */
+.container {
+  min-height: 60vh;
+}
+
+.bg-orange-50 {
+  background-color: #fff7ed;
+}
+
+.border-orange-200 {
+  border-color: #fed7aa;
+}
+
+.text-orange-800 {
+  color: #9a3412;
+}
