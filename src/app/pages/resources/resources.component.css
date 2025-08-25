@@ -105,10 +105,10 @@
 /* Journey Banner */
 .journey-banner {
   margin: 3rem 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
   border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
+  box-shadow: 0 8px 24px rgba(251, 191, 36, 0.25);
   animation: pulse 4s ease-in-out infinite;
 }
 
@@ -121,14 +121,14 @@
   display: flex;
   align-items: center;
   gap: 2rem;
-  color: white;
+  color: #1f2937;
 }
 
 .banner-icon {
   flex-shrink: 0;
   width: 80px;
   height: 80px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -137,7 +137,7 @@
 
 .banner-icon .material-icons {
   font-size: 3rem;
-  color: white;
+  color: #1f2937;
 }
 
 .banner-text {
@@ -146,13 +146,15 @@
 
 .banner-text h3 {
   font-size: 1.75rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 0.5rem;
+  color: #1f2937;
 }
 
 .banner-text p {
   font-size: 1.1rem;
-  opacity: 0.95;
+  color: #374151;
+  font-weight: 500;
 }
 
 .banner-btn {
@@ -161,16 +163,18 @@
   gap: 0.5rem;
   padding: 1rem 2rem;
   background: white;
-  color: #667eea;
+  color: #f59e0b;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .banner-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  background: #fffbeb;
 }
 
 @media (max-width: 768px) {
