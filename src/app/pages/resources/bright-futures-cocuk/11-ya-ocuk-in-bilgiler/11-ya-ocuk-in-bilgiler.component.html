@@ -1,15 +1,16 @@
 <div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero">
+  <!-- Hero Section with Dynamic Gradient -->
+  <div class="resource-hero dynamic-gradient">
     <div class="hero-pattern"></div>
+    <div class="gradient-overlay"></div>
     <div class="container">
       <nav class="breadcrumb">
-        <a routerLink="/kaynaklar" class="breadcrumb-link">
+        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
           <span class="material-icons">folder</span>
-          <span>Kaynaklar</span>
+          <span>Bilgi Merkezi</span>
         </a>
         <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/bright-futures-cocuk" class="breadcrumb-link">
+        <a routerLink="/bilgi-merkezi/bright-futures-cocuk" class="breadcrumb-link">
           <span>{{ category }}</span>
         </a>
         <span class="material-icons separator">chevron_right</span>
@@ -366,25 +367,29 @@
           </div>
         </div>
       </div>
-      
-      <!-- Action Bar -->
-      <div class="action-bar">
-        <div class="action-group">
-          <button (click)="printDocument()" 
-             class="action-btn btn-secondary">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
-          </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+    </div>
+    
+    <!-- Action Bar -->
+    <div class="action-bar-wrapper">
+      <div class="container">
+        <div class="action-bar">
+          <div class="action-group">
+            <button (click)="printDocument()" 
+               class="action-btn btn-secondary">
+              <span class="material-icons">print</span>
+              <span>Yazdır</span>
+            </button>
+            <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
+              <span class="material-icons">share</span>
+              <span>Paylaş</span>
+            </button>
+          </div>
+          <button (click)="downloadPdf()" 
+             class="action-btn btn-primary">
+            <span class="material-icons">picture_as_pdf</span>
+            <span>PDF İndir</span>
           </button>
         </div>
-        <button (click)="downloadPdf()" 
-           class="action-btn btn-primary">
-          <span class="material-icons">picture_as_pdf</span>
-          <span>PDF İndir</span>
-        </button>
       </div>
     </div>
   </div>

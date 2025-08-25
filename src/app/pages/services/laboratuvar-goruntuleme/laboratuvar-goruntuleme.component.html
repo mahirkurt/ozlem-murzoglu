@@ -1,161 +1,234 @@
-<div class="lab-imaging-container">
+<div class="lab-imaging-page">
   <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <h1 class="hero-title">{{ 'SERVICES.SERVICE_LAB.TITLE' | translate }}</h1>
-      <p class="hero-subtitle">{{ 'SERVICES.SERVICE_LAB.HERO_SUBTITLE' | translate }}</p>
+  <section class="service-hero">
+    <div class="hero-gradient"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="breadcrumb">
+          <a routerLink="/">Ana Sayfa</a>
+          <span class="material-icons">chevron_right</span>
+          <a routerLink="/hizmetlerimiz">Hizmetlerimiz</a>
+          <span class="material-icons">chevron_right</span>
+          <span>Laboratuvar ve Görüntüleme</span>
+        </div>
+        <h1 class="hero-title">Laboratuvar ve Görüntüleme Hizmetleri</h1>
+        <p class="hero-subtitle">Kapsamlı tanı hizmetleri, güvenilir sonuçlar</p>
+      </div>
     </div>
   </section>
 
   <!-- Main Content -->
   <div class="content-wrapper">
-    
-    <!-- Laboratory Section -->
-    <section class="laboratory-section">
-      <div class="container">
-        <div class="lab-content">
-          <div class="lab-text">
-            <h2 class="section-title">
-              <i class="fas fa-microscope"></i>
-              Laboratuvar
-            </h2>
-            <p class="lead-text">
-              Laboratuvar hizmetlerimizi kurumsal ortağımız <strong>Biruni Laboratuvarları</strong> desteğiyle doğrudan kliniğimizde sunmaktayız.
-            </p>
-            <p>
-              Gerekli görülen tetkikler için numuneleri sizleri başka bir birime yönlendirmeksizin kliniğimizde alıyoruz.
-            </p>
-            <p>
-              Özel sağlık sigortası provizyon işlemlerini de Biruni Laboratuvarları personelinin desteğiyle kliniğimizde tamamlıyoruz. Bu kapsamda tüm biyokimya testleri, kan ve idrar analizleri, mikrobiyoloji tetkikleri, antikor ve antijen tespitleri (COVID-19, influenza, beta hemolitik streptokok ve diğer solunum yolu enfeksiyonları etkenleri başta olmak üzere) için sizleri başka bir adrese yönlendirmeden ve zaman kaybettirmeden hizmet sunuyoruz.
-            </p>
-            <div class="info-box">
-              <i class="fas fa-envelope"></i>
-              <p>Test sonuçlarının e-posta ile sizlere ulaşmasını sağlıyoruz.</p>
+    <div class="container">
+      
+      <!-- Laboratory Section -->
+      <section class="service-section laboratory-section">
+        <div class="section-grid">
+          <div class="section-content">
+            <div class="section-header">
+              <span class="section-icon">
+                <span class="material-icons">biotech</span>
+              </span>
+              <h2 class="section-title">Laboratuvar Hizmetleri</h2>
+            </div>
+            
+            <div class="partner-badge">
+              <img src="/images/biruni-logo.png" alt="Biruni Laboratuvarları" class="partner-logo">
+              <span>Kurumsal Ortağımız</span>
+            </div>
+            
+            <div class="section-description">
+              <p class="lead">
+                Laboratuvar hizmetlerimizi kurumsal ortağımız <strong>Biruni Laboratuvarları</strong> desteğiyle doğrudan kliniğimizde sunmaktayız.
+              </p>
+              
+              <p>
+                Gerekli görülen tetkikler için numuneleri sizleri başka bir birime yönlendirmeksizin kliniğimizde alıyoruz.
+              </p>
+              
+              <div class="highlight-box">
+                <span class="material-icons">verified</span>
+                <p>
+                  Özel sağlık sigortası provizyon işlemlerini de Biruni Laboratuvarları personelinin desteğiyle kliniğimizde tamamlıyoruz.
+                </p>
+              </div>
+              
+              <p>
+                Bu kapsamda tüm biyokimya testleri, kan ve idrar analizleri, mikrobiyoloji tetkikleri, antikor ve antijen tespitleri (COVID-19, influenza, beta hemolitik streptokok ve diğer solunum yolu enfeksiyonları etkenleri başta olmak üzere) için sizleri başka bir adrese yönlendirmeden ve zaman kaybettirmeden hizmet sunuyoruz.
+              </p>
+              
+              <div class="info-card email-info">
+                <span class="material-icons">email</span>
+                <div>
+                  <h4>Sonuç Bildirimi</h4>
+                  <p>Test sonuçlarının e-posta ile sizlere ulaşmasını sağlıyoruz.</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="lab-features">
-            <div class="feature-card">
-              <i class="fas fa-vial"></i>
-              <h4>Biyokimya Testleri</h4>
-              <p>Kapsamlı kan ve idrar analizleri</p>
-            </div>
-            <div class="feature-card">
-              <i class="fas fa-bacteria"></i>
-              <h4>Mikrobiyoloji</h4>
-              <p>Enfeksiyon etkenlerinin tespiti</p>
-            </div>
-            <div class="feature-card">
-              <i class="fas fa-shield-virus"></i>
-              <h4>Antikor/Antijen</h4>
-              <p>COVID-19 ve diğer testler</p>
-            </div>
-            <div class="feature-card">
-              <i class="fas fa-file-medical"></i>
-              <h4>Sigorta İşlemleri</h4>
-              <p>Provizyon işlemleri kliniğimizde</p>
+          
+          <div class="section-features">
+            <h3>Laboratuvar Hizmetlerimiz</h3>
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <span class="material-icons">science</span>
+                </div>
+                <h4>Biyokimya Testleri</h4>
+                <p>Kapsamlı kan ve idrar analizleri</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <span class="material-icons">coronavirus</span>
+                </div>
+                <h4>Mikrobiyoloji</h4>
+                <p>Enfeksiyon etkenlerinin tespiti</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <span class="material-icons">vaccines</span>
+                </div>
+                <h4>Antikor/Antijen</h4>
+                <p>COVID-19, influenza ve diğer testler</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <span class="material-icons">health_and_safety</span>
+                </div>
+                <h4>Sigorta İşlemleri</h4>
+                <p>Provizyon işlemleri kliniğimizde</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Imaging Section -->
-    <section class="imaging-section">
-      <div class="container">
-        <div class="imaging-content">
-          <div class="imaging-features">
-            <div class="service-item">
-              <i class="fas fa-magnet"></i>
-              <div class="service-info">
-                <h4>MR Görüntüleme</h4>
-                <p>Manyetik rezonans görüntüleme</p>
+      <!-- Divider -->
+      <div class="section-divider">
+        <span class="divider-icon">
+          <span class="material-icons">add</span>
+        </span>
+      </div>
+
+      <!-- Imaging Section -->
+      <section class="service-section imaging-section">
+        <div class="section-grid reverse">
+          <div class="section-features">
+            <h3>Görüntüleme Hizmetlerimiz</h3>
+            <div class="imaging-services">
+              <div class="imaging-service">
+                <span class="material-icons">medical_services</span>
+                <div>
+                  <h4>MR Görüntüleme</h4>
+                  <p>Manyetik rezonans görüntüleme</p>
+                </div>
+              </div>
+              
+              <div class="imaging-service">
+                <span class="material-icons">computer</span>
+                <div>
+                  <h4>Bilgisayarlı Tomografi</h4>
+                  <p>BT görüntüleme hizmetleri</p>
+                </div>
+              </div>
+              
+              <div class="imaging-service">
+                <span class="material-icons">monitor_heart</span>
+                <div>
+                  <h4>Ultrasonografi</h4>
+                  <p>Detaylı ultrason incelemeleri</p>
+                </div>
+              </div>
+              
+              <div class="imaging-service">
+                <span class="material-icons">skeleton</span>
+                <div>
+                  <h4>Dijital Röntgen</h4>
+                  <p>Yüksek çözünürlüklü röntgen</p>
+                </div>
               </div>
             </div>
-            <div class="service-item">
-              <i class="fas fa-x-ray"></i>
-              <div class="service-info">
-                <h4>Bilgisayarlı Tomografi</h4>
-                <p>BT görüntüleme hizmetleri</p>
+            
+            <!-- Location Card -->
+            <div class="location-card">
+              <div class="location-header">
+                <span class="material-icons">location_on</span>
+                <h4>Sonomed Ataşehir</h4>
               </div>
-            </div>
-            <div class="service-item">
-              <i class="fas fa-wave-square"></i>
-              <div class="service-info">
-                <h4>Ultrasonografi</h4>
-                <p>Ultrason görüntüleme</p>
-              </div>
-            </div>
-            <div class="service-item">
-              <i class="fas fa-radiation"></i>
-              <div class="service-info">
-                <h4>Dijital Röntgen</h4>
-                <p>Modern röntgen teknolojisi</p>
-              </div>
-            </div>
-          </div>
-          <div class="imaging-text">
-            <h2 class="section-title">
-              <i class="fas fa-images"></i>
-              Görüntüleme
-            </h2>
-            <p class="lead-text">
-              Tüm görüntüleme hizmetlerini kurumsal ortağımız <strong>Sonomed Tıbbi Görüntüleme Merkezleri</strong> üzerinden sunmaktayız.
-            </p>
-            <p>
-              Gerekli görülen görüntüleme işlemleri için sizleri Sonomed görüntüleme merkezlerine yönlendiriyoruz.
-            </p>
-            <p>
-              Kliniğimize oldukça yakın bir konumda olan <strong>Sonomed Ataşehir</strong> şubesinde manyetik rezonans (MR) görüntüleme, bilgisayarlı tomografi (BT), ultrasonografi ve dijital röntgen hizmetleri sunulmaktadır. Özel sağlık sigortanız mevcutsa gerekli provizyonların alınmasını sağlayabilirsiniz.
-            </p>
-            <p>
-              Sonomed tarafından online olarak kliniğimizle paylaşılan görüntüler ve radyoloji raporları hakkında sizleri bilgilendiriyor ve gerekli yönlendirmeleri yapıyoruz.
-            </p>
-            <div class="location-button">
-              <a href="https://maps.google.com" target="_blank" class="btn-location">
-                <i class="fas fa-map-marker-alt"></i>
-                Sonomed Ataşehir Yol Tarifi
+              <p>Kliniğimize çok yakın konumda</p>
+              <a href="https://maps.google.com/?q=Sonomed+Ataşehir" target="_blank" class="location-link">
+                <span>Yol Tarifi Al</span>
+                <span class="material-icons">directions</span>
               </a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section class="partners-section">
-      <div class="container">
-        <h2 class="section-title text-center">Kurumsal Ortaklarımız</h2>
-        <div class="partners-grid">
-          <div class="partner-card">
-            <div class="partner-logo">
-              <i class="fas fa-flask"></i>
+          
+          <div class="section-content">
+            <div class="section-header">
+              <span class="section-icon">
+                <span class="material-icons">medical_information</span>
+              </span>
+              <h2 class="section-title">Görüntüleme Hizmetleri</h2>
             </div>
-            <h3>Biruni Laboratuvarları</h3>
-            <p>Güvenilir ve hızlı laboratuvar hizmetleri</p>
-          </div>
-          <div class="partner-card">
-            <div class="partner-logo">
-              <i class="fas fa-hospital"></i>
+            
+            <div class="partner-badge">
+              <img src="/images/sonomed-logo.png" alt="Sonomed" class="partner-logo">
+              <span>Kurumsal Ortağımız</span>
             </div>
-            <h3>Sonomed Görüntüleme</h3>
-            <p>İleri teknoloji görüntüleme merkezi</p>
+            
+            <div class="section-description">
+              <p class="lead">
+                Tüm görüntüleme hizmetlerini kurumsal ortağımız <strong>Sonomed Tıbbi Görüntüleme Merkezleri</strong> üzerinden sunmaktayız.
+              </p>
+              
+              <p>
+                Gerekli görülen görüntüleme işlemleri için sizleri Sonomed görüntüleme merkezlerine yönlendiriyoruz.
+              </p>
+              
+              <div class="highlight-box">
+                <span class="material-icons">place</span>
+                <p>
+                  Kliniğimize oldukça yakın bir konumda olan <strong>Sonomed Ataşehir</strong> şubesinde manyetik rezonans (MR) görüntüleme, bilgisayarlı tomografi (BT), ultrasonografi ve dijital röntgen hizmetleri sunulmaktadır.
+                </p>
+              </div>
+              
+              <p>
+                Özel sağlık sigortanız mevcutsa gerekli provizyonların alınmasını sağlayabilirsiniz.
+              </p>
+              
+              <div class="info-card report-info">
+                <span class="material-icons">assessment</span>
+                <div>
+                  <h4>Raporlama ve Bilgilendirme</h4>
+                  <p>Sonomed tarafından online olarak kliniğimizle paylaşılan görüntüler ve radyoloji raporları hakkında sizleri bilgilendiriyor ve gerekli yönlendirmeleri yapıyoruz.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-      <div class="container">
+      <!-- CTA Section -->
+      <section class="cta-section">
         <div class="cta-content">
-          <h2>Hızlı ve Güvenilir Tanı Hizmetleri</h2>
-          <p>Laboratuvar ve görüntüleme ihtiyaçlarınız için bizi arayın</p>
-          <a routerLink="/iletisim" class="cta-button">
-            <i class="fas fa-phone-alt"></i>
-            İletişime Geç
-          </a>
+          <h3>Hemen Randevu Alın</h3>
+          <p>Çocuğunuzun sağlığı için güvenilir tanı hizmetleri</p>
+          <div class="cta-buttons">
+            <a routerLink="/iletisim" class="btn btn-primary">
+              <span class="material-icons">calendar_today</span>
+              Randevu Al
+            </a>
+            <a href="tel:+902166884483" class="btn btn-secondary">
+              <span class="material-icons">phone</span>
+              Hemen Ara
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      
+    </div>
   </div>
 </div>
