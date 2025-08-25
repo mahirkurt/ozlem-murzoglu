@@ -45,3 +45,9 @@ Thumbs.db
 public/documents/
 *.docx
 *.pdf
+
+# Firebase
+.firebase/
+firebase-debug.log
+.firebaserc
+dr-murzoglu-firebase-adminsdkjson.json
