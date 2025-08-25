@@ -25,31 +25,13 @@ export class ResourcesComponent {
   results: { title: string; path: string; category: string }[] = [];
   categories: ResourceCategory[] = [
     {
-      id: 'bright-futures-aile',
-      title: 'Bright Futures (Aile)',
-      description: 'Amerikan Pediatri Akademisi tarafından hazırlanan, çocuğunuzun her yaş dönemine özel aile rehberleri',
-      icon: 'family_restroom',
-      color: 'primary',
-      documentCount: 30,
-      route: '/kaynaklar/bright-futures-aile'
-    },
-    {
-      id: 'bright-futures-cocuk',
-      title: 'Bright Futures (Çocuk)',
-      description: 'Çocuklar için hazırlanmış, yaşa uygun gelişim ve sağlık bilgileri',
-      icon: 'child_care',
-      color: 'secondary',
-      documentCount: 25,
-      route: '/kaynaklar/bright-futures-cocuk'
-    },
-    {
       id: 'asilar',
       title: 'Aşılar',
       description: 'Aşılar hakkında detaylı bilgiler, takvimler ve sıkça sorulan sorular',
       icon: 'vaccines',
       color: 'accent',
       documentCount: 15,
-      route: '/kaynaklar/asilar'
+      route: '/bilgi-merkezi/asilar'
     },
     {
       id: 'gebelik-donemi',
@@ -58,7 +40,7 @@ export class ResourcesComponent {
       icon: 'pregnant_woman',
       color: 'primary',
       documentCount: 20,
-      route: '/kaynaklar/gebelik-donemi'
+      route: '/bilgi-merkezi/gebelik-donemi'
     },
     {
       id: 'gelisim-rehberleri',
@@ -67,7 +49,7 @@ export class ResourcesComponent {
       icon: 'trending_up',
       color: 'secondary',
       documentCount: 18,
-      route: '/kaynaklar/gelisim-rehberleri'
+      route: '/bilgi-merkezi/gelisim-rehberleri'
     },
     {
       id: 'hastaliklar',
@@ -76,7 +58,7 @@ export class ResourcesComponent {
       icon: 'medical_information',
       color: 'accent',
       documentCount: 35,
-      route: '/kaynaklar/hastaliklar'
+      route: '/bilgi-merkezi/hastaliklar'
     },
     {
       id: 'oyuncaklar',
@@ -85,7 +67,7 @@ export class ResourcesComponent {
       icon: 'toys',
       color: 'primary',
       documentCount: 12,
-      route: '/kaynaklar/oyuncaklar'
+      route: '/bilgi-merkezi/oyuncaklar'
     },
     {
       id: 'aile-medya-plani',
@@ -94,7 +76,7 @@ export class ResourcesComponent {
       icon: 'devices',
       color: 'secondary',
       documentCount: 8,
-      route: '/kaynaklar/aile-medya-plani'
+      route: '/bilgi-merkezi/aile-medya-plani'
     },
     {
       id: 'genel-bilgiler',
@@ -103,7 +85,7 @@ export class ResourcesComponent {
       icon: 'info',
       color: 'accent',
       documentCount: 22,
-      route: '/kaynaklar/genel-bilgiler'
+      route: '/bilgi-merkezi/genel-bilgiler'
     },
     {
       id: 'cdc-buyume-egrileri',
@@ -112,7 +94,7 @@ export class ResourcesComponent {
       icon: 'show_chart',
       color: 'primary',
       documentCount: 10,
-      route: '/kaynaklar/cdc-buyume-egrileri'
+      route: '/bilgi-merkezi/cdc-buyume-egrileri'
     },
     {
       id: 'who-buyume-egrileri',
@@ -121,7 +103,7 @@ export class ResourcesComponent {
       icon: 'analytics',
       color: 'secondary',
       documentCount: 10,
-      route: '/kaynaklar/who-buyume-egrileri'
+      route: '/bilgi-merkezi/who-buyume-egrileri'
     }
   ];
 
