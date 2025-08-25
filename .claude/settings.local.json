@@ -64,7 +64,10 @@
       "Bash(sed:*)",
       "Bash(for file in src/app/pages/services/**/*.html)",
       "Bash(do sed -i 's/Mürzoğlu/Murzoğlu/g' \"$file\")",
-      "Bash(for file in src/app/pages/resources/**/*.ts)"
+      "Bash(for file in src/app/pages/resources/**/*.ts)",
+      "Bash(firebase projects:list:*)",
+      "Bash(firebase hosting:sites:list:*)",
+      "Bash(firebase hosting:channel:deploy:*)"
     ],
     "deny": []
   }
