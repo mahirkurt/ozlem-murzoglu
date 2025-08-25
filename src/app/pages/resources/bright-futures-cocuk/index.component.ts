@@ -64,7 +64,7 @@ export class BrightFuturesCocukCategoryComponent implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
   
   ngOnInit(): void {
-    const pageTitle = 'Bright Futures (Çocuk) | Kaynaklar | Özlem Mürzoğlu';
+    const pageTitle = 'Bright Futures (Çocuk) | Kaynaklar | Özlem Murzoğlu';
     const description = 'Çocuklar ve ergenler için hazırlanmış eğitici kaynaklar. Ergenlik dönemi, sağlık alışkanlıkları ve yaşa uygun bilgiler.';
     
     this.title.setTitle(pageTitle);

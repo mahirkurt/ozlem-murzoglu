@@ -484,17 +484,253 @@
         </div>
       </section>
 
+      <!-- Journey Timeline Section -->
+      <section class="journey-section">
+        <div class="section-header center">
+          <span class="section-icon">
+            <span class="material-icons">timeline</span>
+          </span>
+          <h2 class="section-title">Bright Futures Yolculuğu</h2>
+          <p class="section-subtitle">Doğumdan Ergenliğe Sağlıklı Büyüme Rehberi</p>
+        </div>
+
+        <!-- Phase Selector -->
+        <div class="phase-selector-wrapper">
+          <div class="phase-selector">
+            <button class="phase-btn" [class.active]="activePhase === 'bebek'" (click)="setActivePhase('bebek')">
+              <span class="material-icons">child_care</span>
+              <span class="phase-label">Bebek</span>
+              <span class="phase-range">0-12 ay</span>
+            </button>
+            <button class="phase-btn" [class.active]="activePhase === 'yurume'" (click)="setActivePhase('yurume')">
+              <span class="material-icons">directions_walk</span>
+              <span class="phase-label">Yürüme Çağı</span>
+              <span class="phase-range">12-24 ay</span>
+            </button>
+            <button class="phase-btn" [class.active]="activePhase === 'okul-oncesi'" (click)="setActivePhase('okul-oncesi')">
+              <span class="material-icons">toys</span>
+              <span class="phase-label">Okul Öncesi</span>
+              <span class="phase-range">2-5 yaş</span>
+            </button>
+            <button class="phase-btn" [class.active]="activePhase === 'okul'" (click)="setActivePhase('okul')">
+              <span class="material-icons">school</span>
+              <span class="phase-label">Okul Çağı</span>
+              <span class="phase-range">6-12 yaş</span>
+            </button>
+            <button class="phase-btn" [class.active]="activePhase === 'ergen'" (click)="setActivePhase('ergen')">
+              <span class="material-icons">psychology</span>
+              <span class="phase-label">Ergenlik</span>
+              <span class="phase-range">13-21 yaş</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Timeline Content -->
+        <div class="timeline-content">
+          <!-- Bebek Phase (0-12 months) -->
+          <div class="timeline-phase" *ngIf="activePhase === 'bebek'">
+            <div class="phase-header">
+              <h3>Bebek Dönemi</h3>
+              <p>İlk bir yıldaki önemli kontroller ve gelişim aşamaları</p>
+            </div>
+            
+            <div class="timeline-track">
+              <!-- Simplified timeline items for service page -->
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <span class="age-label">0-1 ay</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>Yenidoğan ve İlk Ay</h4>
+                  <p>İlk günler, yenidoğan bakımı ve ilk ay değerlendirmesi</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <span class="age-label">2-4 ay</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>İlk Aşılar ve Gelişim</h4>
+                  <p>Aşı takvimi başlangıcı, uyku düzeni ve beslenme</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item milestone">
+                <div class="timeline-marker">
+                  <span class="age-label">6 ay</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>Ek Gıdaya Geçiş</h4>
+                  <p>Katı gıdalara başlama, oturma ve hareket gelişimi</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <span class="age-label">9-12 ay</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>İlk Yaş Hazırlığı</h4>
+                  <p>Yürümeye hazırlık, ilk kelimeler ve sosyal gelişim</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Yürüme Phase (12-24 months) -->
+          <div class="timeline-phase" *ngIf="activePhase === 'yurume'">
+            <div class="phase-header">
+              <h3>Yürüme Çağı</h3>
+              <p>Bağımsızlığın ilk adımları</p>
+            </div>
+            
+            <div class="timeline-track">
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <span class="age-label">15-18 ay</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>Yürüme ve Konuşma</h4>
+                  <p>İlk adımlar, kelime dağarcığı gelişimi</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item milestone">
+                <div class="timeline-marker">
+                  <span class="age-label">2 yaş</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>İki Yaş Sendromu</h4>
+                  <p>Özerklik dönemi, tuvalet eğitimi hazırlığı</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Okul Öncesi Phase (3-5 years) -->
+          <div class="timeline-phase" *ngIf="activePhase === 'okul-oncesi'">
+            <div class="phase-header">
+              <h3>Okul Öncesi Dönem</h3>
+              <p>Keşif ve öğrenme yılları</p>
+            </div>
+            
+            <div class="timeline-track">
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <span class="age-label">3-4 yaş</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>Sosyal Beceriler</h4>
+                  <p>Arkadaşlık, paylaşma ve kurallara uyum</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item milestone">
+                <div class="timeline-marker">
+                  <span class="age-label">5 yaş</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>Okula Hazırlık</h4>
+                  <p>Akademik beceriler, el-göz koordinasyonu</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Okul Phase (6-12 years) -->
+          <div class="timeline-phase" *ngIf="activePhase === 'okul'">
+            <div class="phase-header">
+              <h3>Okul Çağı</h3>
+              <p>Öğrenme ve arkadaşlık yılları</p>
+            </div>
+            
+            <div class="timeline-track">
+              <div class="timeline-item milestone">
+                <div class="timeline-marker">
+                  <span class="age-label">6-8 yaş</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>İlkokul Başlangıcı</h4>
+                  <p>Okuma-yazma, matematik ve sosyal uyum</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <span class="age-label">9-12 yaş</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>Ergenlik Öncesi</h4>
+                  <p>Kimlik gelişimi, bağımsızlık ve sorumluluk</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ergen Phase (13-21 years) -->
+          <div class="timeline-phase" *ngIf="activePhase === 'ergen'">
+            <div class="phase-header">
+              <h3>Ergenlik Dönemi</h3>
+              <p>Büyük değişimler ve yetişkinliğe hazırlık</p>
+            </div>
+            
+            <div class="timeline-track">
+              <div class="timeline-item milestone">
+                <div class="timeline-marker">
+                  <span class="age-label">13-15 yaş</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>Erken Ergenlik</h4>
+                  <p>Fiziksel değişimler, duygusal dalgalanmalar</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <span class="age-label">16-18 yaş</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>Geç Ergenlik</h4>
+                  <p>Kimlik oluşumu, gelecek planları</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item milestone">
+                <div class="timeline-marker">
+                  <span class="age-label">18-21 yaş</span>
+                </div>
+                <div class="timeline-content-box">
+                  <h4>Genç Yetişkinlik</h4>
+                  <p>Bağımsızlık, sorumluluk ve kariyer hazırlığı</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey-info">
+          <div class="info-card">
+            <span class="material-icons">info</span>
+            <div>
+              <h4>Detaylı Kaynaklar</h4>
+              <p>Her yaş dönemi için hazırlanmış aile ve çocuk bilgi föylerine Bilgi Merkezi bölümümüzden ulaşabilirsiniz.</p>
+              <a routerLink="/bilgi-merkezi" class="info-link">
+                <span>Bilgi Merkezine Git</span>
+                <span class="material-icons">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- CTA Section -->
       <section class="cta-section">
         <div class="cta-content">
           <h3>Çocuğunuzun Sağlıklı Geleceği İçin</h3>
           <p>Amerikan standartlarında çocuk takibi için randevu alın</p>
           <div class="cta-buttons">
-            <a routerLink="/bilgi-merkezi/bright-futures-yolculugu" class="btn btn-primary">
-              <span class="material-icons">timeline</span>
-              Bright Futures Yolculuğunu Keşfet
-            </a>
-            <a routerLink="/iletisim" class="btn btn-secondary">
+            <a routerLink="/iletisim" class="btn btn-primary">
               <span class="material-icons">event_available</span>
               Randevu Al
             </a>

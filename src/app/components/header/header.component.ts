@@ -63,12 +63,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      label: 'Bright Futures™ Yolculuğu',
-      href: '/bilgi-merkezi/bright-futures-yolculugu'
-    },
-    {
-      label: 'saygıyla',
-      href: '/saygiyla'
+      label: 'Saygıyla',
+      href: '/saygiyla',
+      children: [
+        { label: 'İlham Verenlere', href: '/saygiyla' },
+        { label: 'Teşekkürlerimiz', href: '/saygiyla/tesekkurler' },
+        { label: 'Özel Anılar', href: '/saygiyla/anilar' }
+      ]
     },
     {
       labelKey: 'HEADER.NAV_CONTACT',

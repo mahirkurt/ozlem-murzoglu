@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 interface ApproachItem {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   icon: string;
   href: string;
   color: 'primary' | 'secondary' | 'tertiary';
@@ -13,32 +14,38 @@ interface ApproachItem {
 @Component({
   selector: 'app-approach-section',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './approach-section.component.html',
   styleUrl: './approach-section.component.css'
 })
-export class ApproachSectionComponent {
+export class ApproachSectionComponent implements OnInit {
+  private translate = inject(TranslateService);
+  
   approaches: ApproachItem[] = [
     {
-      title: 'Yaklaşımımız',
-      description: 'Bütüncül pediatri yaklaşımıyla çocuğunuzun fiziksel, duygusal ve sosyal gelişimini destekliyoruz.',
+      titleKey: 'APPROACH.TITLE',
+      descriptionKey: 'APPROACH.COMPREHENSIVE_DESC',
       icon: 'check_circle',
-      href: '/yaklasimimiz',
+      href: '/hakkimizda',
       color: 'primary'
     },
     {
-      title: 'Hizmetlerimiz',
-      description: 'Bright Futures programından Triple P ebeveynlik desteğine kadar kapsamlı pediatri hizmetleri.',
+      titleKey: 'SERVICES.SECTION_TITLE',
+      descriptionKey: 'SERVICES.SUBTITLE',
       icon: 'medical_services',
       href: '/hizmetlerimiz',
       color: 'secondary'
     },
     {
-      title: 'Randevu',
-      description: 'Online randevu sistemiyle kolayca randevu alın, zamanınızı verimli kullanın.',
+      titleKey: 'APPOINTMENT.TITLE',
+      descriptionKey: 'APPOINTMENT.SUBTITLE',
       icon: 'calendar_today',
-      href: '/randevu',
+      href: '/iletisim',
       color: 'tertiary'
     }
   ];
+
+  ngOnInit() {
+    // Component will automatically update when language changes
+  }
 }

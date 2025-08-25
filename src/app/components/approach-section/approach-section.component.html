@@ -1,7 +1,7 @@
 <section class="approach-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Çocuğunuzun Sağlığı İçin Doğru Adres</h2>
+      <h2 class="section-title">{{ 'APPROACH.SUBTITLE' | translate }}</h2>
     </div>
 
     <div class="approach-grid">
@@ -19,12 +19,12 @@
         </div>
         
         <div class="card-content">
-          <h3 class="card-title md-sys-typescale-title-large">{{item.title}}</h3>
-          <p class="card-description md-sys-typescale-body-medium">{{item.description}}</p>
+          <h3 class="card-title md-sys-typescale-title-large">{{ item.titleKey | translate }}</h3>
+          <p class="card-description md-sys-typescale-body-medium">{{ item.descriptionKey | translate }}</p>
         </div>
         
         <div class="card-action">
-          <span class="action-text">Detaylı Bilgi</span>
+          <span class="action-text">{{ 'COMMON.READ_MORE' | translate }}</span>
           <span class="material-icons action-icon">chevron_right</span>
         </div>
       </a>
