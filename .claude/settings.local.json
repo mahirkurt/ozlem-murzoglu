@@ -55,7 +55,9 @@
       "Bash(fi)",
       "Bash(git rm:*)",
       "Bash(ng serve:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(python:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }

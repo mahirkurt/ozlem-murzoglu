@@ -1,0 +1,23 @@
+<section class="hero-section" [attr.data-theme]="colorTheme">
+  <div class="hero-background">
+    <div class="hexagon-grid">
+      <div class="hexagon" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]"></div>
+    </div>
+    <div class="gradient-overlay"></div>
+  </div>
+  
+  <div class="hero-content">
+    <div class="container">
+      <div class="breadcrumb" *ngIf="breadcrumbs && breadcrumbs.length > 0">
+        <ng-container *ngFor="let crumb of breadcrumbs; let last = last">
+          <a *ngIf="crumb.link" [routerLink]="crumb.link">{{ crumb.label }}</a>
+          <span *ngIf="!crumb.link">{{ crumb.label }}</span>
+          <span class="material-icons" *ngIf="!last">chevron_right</span>
+        </ng-container>
+      </div>
+      
+      <h1 class="hero-title">{{ title }}</h1>
+      <p class="hero-subtitle" *ngIf="subtitle">{{ subtitle }}</p>
+    </div>
+  </div>
+</section>

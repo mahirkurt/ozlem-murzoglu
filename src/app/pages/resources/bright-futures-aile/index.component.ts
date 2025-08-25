@@ -64,7 +64,7 @@ export class BrightFuturesAileCategoryComponent implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
   
   ngOnInit(): void {
-    const pageTitle = 'Bright Futures (Aile) | Kaynaklar | Özlem Mürzoğlu';
+    const pageTitle = 'Bright Futures (Aile) | Kaynaklar | Özlem Murzoğlu';
     const description = 'Amerikan Pediatri Akademisi\'nin yaş dönemlerine göre hazırladığı aile rehberleri. Çocuk gelişimi ve sağlığı hakkında yaş gruplarına özel bilgiler.';
     
     this.title.setTitle(pageTitle);

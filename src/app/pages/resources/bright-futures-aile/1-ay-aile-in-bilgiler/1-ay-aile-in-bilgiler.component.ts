@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
@@ -10,19 +10,22 @@ import { Title, Meta } from '@angular/platform-browser';
   templateUrl: './1-ay-aile-in-bilgiler.component.html',
   styleUrl: './1-ay-aile-in-bilgiler.component.css'
 })
-export class Doc1AyAileInBilgilerComponent implements OnInit, AfterViewInit {
+export class Doc1AyAileInBilgilerComponent implements OnInit, AfterViewInit, OnDestroy {
   title = '1. AY ZİYARETİ';
   category = 'Bright Futures (Aile)';
+  categoryRoute = 'bright-futures-aile';
   description: string = "AMERİKAN PEDİATRİ AKADEMİSİ BRIGHT FUTURES PROGRAMI 1. AY ZİYARETİ BİLGİ FÖYÜ EVİNİZİN DURUMU Sigara içmeyin veya elektronik sigara kullanmayın. Evinizi ve arabanızı dumansız tutu…";
   toc: { id: string; text: string; level: number }[] = [];
+  activeSection: string = '';
   private tocIds = new Set<string>();
+  private observer: IntersectionObserver | null = null;
 
   @ViewChild('contentRoot') contentRoot!: ElementRef<HTMLElement>;
 
   constructor(private titleService: Title, private meta: Meta) {}
 
   ngOnInit(): void {
-    const fullTitle = this.title + ' | Kaynaklar | Özlem Mürzoğlu';
+    const fullTitle = this.title + ' | Kaynaklar | Özlem Murzoğlu';
     this.titleService.setTitle(fullTitle);
     this.meta.updateTag({ name: 'description', content: this.description });
     this.meta.updateTag({ property: 'og:title', content: fullTitle });
@@ -48,6 +51,39 @@ export class Doc1AyAileInBilgilerComponent implements OnInit, AfterViewInit {
       h.setAttribute('id', id);
       return { id, text, level };
     });
+
+    // Set up IntersectionObserver for active section detection
+    this.setupIntersectionObserver();
+  }
+
+  ngOnDestroy(): void {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  private setupIntersectionObserver(): void {
+    const options = {
+      root: null,
+      rootMargin: '-100px 0px -70% 0px',
+      threshold: 0
+    };
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.activeSection = entry.target.id;
+        }
+      });
+    }, options);
+
+    // Observe all sections with IDs
+    this.toc.forEach(item => {
+      const element = document.getElementById(item.id);
+      if (element) {
+        this.observer?.observe(element);
+      }
+    });
   }
 
   private slugify(text: string): string {
@@ -58,6 +94,13 @@ export class Doc1AyAileInBilgilerComponent implements OnInit, AfterViewInit {
       .trim()
       .replace(/s+/g, '-')
       .replace(/-+/g, '-');
+  }
+
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   downloadPdf(): void {
@@ -72,7 +115,7 @@ export class Doc1AyAileInBilgilerComponent implements OnInit, AfterViewInit {
       <html>
       <head>
         <meta charset="UTF-8">
-        <title>${this.title} - Özlem Mürzoğlu</title>
+        <title>${this.title} - Özlem Murzoğlu</title>
         <style>
           @page {
             size: A4;
@@ -149,7 +192,7 @@ export class Doc1AyAileInBilgilerComponent implements OnInit, AfterViewInit {
       </head>
       <body>
         <div class="pdf-header">
-          <div class="pdf-logo">Özlem Mürzoğlu</div>
+          <div class="pdf-logo">Dr. Özlem Murzoğlu Çocuk Sağlığı ve Hastalıkları Kliniği</div>
           <h1>${this.title}</h1>
         </div>
         ${printContent.innerHTML}
@@ -168,4 +211,5 @@ export class Doc1AyAileInBilgilerComponent implements OnInit, AfterViewInit {
   printDocument(): void {
     window.print();
   }
+
 }

@@ -24,7 +24,7 @@ export class Doc15YaOcukInBilgilerComponent implements OnInit, AfterViewInit, On
   constructor(private titleService: Title, private meta: Meta) {}
 
   ngOnInit(): void {
-    const fullTitle = this.title + ' | Kaynaklar | Özlem Mürzoğlu';
+    const fullTitle = this.title + ' | Kaynaklar | Özlem Murzoğlu';
     this.titleService.setTitle(fullTitle);
     this.meta.updateTag({ name: 'description', content: this.description });
     this.meta.updateTag({ property: 'og:title', content: fullTitle });
@@ -114,7 +114,7 @@ export class Doc15YaOcukInBilgilerComponent implements OnInit, AfterViewInit, On
       <html>
       <head>
         <meta charset="UTF-8">
-        <title>${this.title} - Özlem Mürzoğlu</title>
+        <title>${this.title} - Özlem Murzoğlu</title>
         <style>
           @page {
             size: A4;
@@ -191,7 +191,7 @@ export class Doc15YaOcukInBilgilerComponent implements OnInit, AfterViewInit, On
       </head>
       <body>
         <div class="pdf-header">
-          <div class="pdf-logo">Özlem Mürzoğlu</div>
+          <div class="pdf-logo">Özlem Murzoğlu</div>
           <h1>${this.title}</h1>
         </div>
         ${printContent.innerHTML}
