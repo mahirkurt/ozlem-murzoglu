@@ -37,7 +37,7 @@
               <p class="author-name">{{ testimonial.author }}</p>
               <div class="rating-inline">
                 <span *ngFor="let _ of ratingArray" class="material-icons star-tiny">star</span>
-                <span class="testimonial-date">{{ testimonial.dateKey | translate }}</span>
+                <span class="testimonial-date">{{ testimonial.dateKey ? (testimonial.dateKey | translate) : testimonial.date }}</span>
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@
         
         <div class="testimonial-content">
           <p class="testimonial-text">
-            {{ testimonial.textKey | translate }}
+            {{ testimonial.textKey ? (testimonial.textKey | translate) : testimonial.text }}
           </p>
         </div>
       </div>

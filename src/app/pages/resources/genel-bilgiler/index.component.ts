@@ -64,7 +64,7 @@ export class GenelBilgilerCategoryComponent implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
   
   ngOnInit(): void {
-    const pageTitle = 'Genel Bilgiler | Kaynaklar | Özlem Mürzoğlu';
+    const pageTitle = 'Genel Bilgiler | Kaynaklar | Özlem Murzoğlu';
     const description = 'Çocuk sağlığı ve gelişimi ile ilgili genel konular hakkında bilgilendirici kaynaklar. Emzirme, beslenme, güvenlik ve daha fazlası.';
     
     this.title.setTitle(pageTitle);

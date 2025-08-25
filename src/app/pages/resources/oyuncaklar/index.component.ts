@@ -64,7 +64,7 @@ export class OyuncaklarCategoryComponent implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
   
   ngOnInit(): void {
-    const pageTitle = 'Oyuncaklar | Kaynaklar | Özlem Mürzoğlu';
+    const pageTitle = 'Oyuncaklar | Kaynaklar | Özlem Murzoğlu';
     const description = 'Yaş gruplarına uygun oyuncak seçimi ve güvenlik rehberleri. 0-6 ay, 6-12 ay ve 1 yaş dönemlerine özel oyuncak önerileri.';
     
     this.title.setTitle(pageTitle);

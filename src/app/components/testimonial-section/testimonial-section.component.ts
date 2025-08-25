@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { GoogleReviewsService, GoogleReview } from '../../services/google-reviews.service';
+import { Subscription } from 'rxjs';
 
 interface Testimonial {
   id: number;
@@ -21,10 +23,13 @@ interface Testimonial {
   styleUrl: './testimonial-section.component.css'
 })
 export class TestimonialSectionComponent implements OnInit, OnDestroy {
-  rating = 4.9;
+  rating = 5.0;
   ratingArray = Array(5).fill(0);
   currentTestimonialIndex = 0;
   private testimonialInterval: any;
+  private reviewsSubscription?: Subscription;
+  googleReviews: GoogleReview[] = [];
+  isLoadingReviews = true;
 
   testimonials: Testimonial[] = [
     {
@@ -89,7 +94,22 @@ export class TestimonialSectionComponent implements OnInit, OnDestroy {
     }
   ];
 
+  constructor(private googleReviewsService: GoogleReviewsService) {}
+
   get currentTestimonials(): Testimonial[] {
+    if (this.googleReviews.length > 0) {
+      return this.googleReviews.slice(0, 3).map((review, index) => ({
+        id: index + 1,
+        author: review.author_name,
+        initials: this.googleReviewsService.getAuthorInitials(review.author_name),
+        text: review.text,
+        textKey: '',
+        rating: review.rating,
+        date: review.relative_time_description,
+        dateKey: ''
+      }));
+    }
+    
     const testimonials = [];
     for (let i = 0; i < 3; i++) {
       const index = (this.currentTestimonialIndex + i) % this.testimonials.length;
@@ -99,19 +119,38 @@ export class TestimonialSectionComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.loadGoogleReviews();
     this.startTestimonialRotation();
+  }
+
+  private loadGoogleReviews() {
+    this.reviewsSubscription = this.googleReviewsService.getRotatingReviews(3).subscribe({
+      next: (reviews) => {
+        this.googleReviews = reviews;
+        this.isLoadingReviews = false;
+      },
+      error: (error) => {
+        console.error('Error loading Google reviews:', error);
+        this.isLoadingReviews = false;
+      }
+    });
   }
 
   ngOnDestroy() {
     if (this.testimonialInterval) {
       clearInterval(this.testimonialInterval);
     }
+    if (this.reviewsSubscription) {
+      this.reviewsSubscription.unsubscribe();
+    }
   }
 
   private startTestimonialRotation() {
-    this.testimonialInterval = setInterval(() => {
-      this.currentTestimonialIndex = (this.currentTestimonialIndex + 3) % this.testimonials.length;
-    }, 8000); // Change every 8 seconds
+    if (this.googleReviews.length === 0) {
+      this.testimonialInterval = setInterval(() => {
+        this.currentTestimonialIndex = (this.currentTestimonialIndex + 3) % this.testimonials.length;
+      }, 8000);
+    }
   }
 
   trackByTestimonialId(index: number, testimonial: Testimonial): number {

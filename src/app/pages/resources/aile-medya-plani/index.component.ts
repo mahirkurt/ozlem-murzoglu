@@ -64,7 +64,7 @@ export class AileMedyaPlaniCategoryComponent implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
   
   ngOnInit(): void {
-    const pageTitle = 'Aile Medya Planı | Kaynaklar | Özlem Mürzoğlu';
+    const pageTitle = 'Aile Medya Planı | Kaynaklar | Özlem Murzoğlu';
     const description = 'Dijital medya kullanımı için aile rehberleri ve planlama araçları. Ekran süresi, medya dengesi ve dijital güvenlik konularında rehberler.';
     
     this.title.setTitle(pageTitle);

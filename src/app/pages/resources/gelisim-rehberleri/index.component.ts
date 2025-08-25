@@ -64,7 +64,7 @@ export class GelisimRehberleriCategoryComponent implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
   
   ngOnInit(): void {
-    const pageTitle = 'Gelişim Rehberleri | Kaynaklar | Özlem Mürzoğlu';
+    const pageTitle = 'Gelişim Rehberleri | Kaynaklar | Özlem Murzoğlu';
     const description = 'Çocuk gelişiminin farklı dönemlerine yönelik gelişimsel ipucları ve etkinlik önerileri. Gelişim basamakları ve yaşa uygun etkinlikler.';
     
     this.title.setTitle(pageTitle);

@@ -22,7 +22,7 @@ export class AileMedyaPlan3NezaketVeEmpatiComponent implements OnInit, AfterView
   constructor(private titleService: Title, private meta: Meta) {}
 
   ngOnInit(): void {
-    const fullTitle = this.title + ' | Kaynaklar | Özlem Mürzoğlu';
+    const fullTitle = this.title + ' | Kaynaklar | Özlem Murzoğlu';
     this.titleService.setTitle(fullTitle);
     this.meta.updateTag({ name: 'description', content: this.description });
     this.meta.updateTag({ property: 'og:title', content: fullTitle });

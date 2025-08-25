@@ -64,7 +64,7 @@ export class CdcBuyumeEgrileriCategoryComponent implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
   
   ngOnInit(): void {
-    const pageTitle = 'CDC Büyüme Eğrileri | Kaynaklar | Özlem Mürzoğlu';
+    const pageTitle = 'CDC Büyüme Eğrileri | Kaynaklar | Özlem Murzoğlu';
     const description = 'Amerikan Hastalık Kontrol ve Önleme Merkezi (CDC) büyüme standartları ve eğrileri. Çocuk gelişimini takip etmek için kullanılan resmi tablolar.';
     
     this.title.setTitle(pageTitle);
