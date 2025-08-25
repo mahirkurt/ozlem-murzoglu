@@ -56,8 +56,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       children: [
         { label: 'Tüm Kaynaklar', href: '/bilgi-merkezi' },
         { label: 'Aşı Bilgileri', href: '/bilgi-merkezi/asilar' },
-        { label: 'Bright Futures - Aile', href: '/bilgi-merkezi/bright-futures-aile' },
-        { label: 'Bright Futures - Çocuk', href: '/bilgi-merkezi/bright-futures-cocuk' },
         { label: 'Gelişim Rehberleri', href: '/bilgi-merkezi/gelisim-rehberleri' },
         { label: 'Genel Bilgiler', href: '/bilgi-merkezi/genel-bilgiler' },
         { label: 'Büyüme Eğrileri', href: '/bilgi-merkezi/cdc-buyume-egrileri' },
@@ -65,7 +63,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      label: 'SAYGIYLA',
+      label: 'Bright Futures™ Yolculuğu',
+      href: '/bilgi-merkezi/bright-futures-yolculugu'
+    },
+    {
+      label: 'saygıyla',
       href: '/saygiyla'
     },
     {
