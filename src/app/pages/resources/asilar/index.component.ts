@@ -13,7 +13,7 @@ import { Title, Meta } from '@angular/platform-browser';
       <div class="category-header">
         <div class="container">
           <nav class="breadcrumb">
-            <a routerLink="/kaynaklar">Kaynaklar</a>
+            <a routerLink="/bilgi-merkezi">Kaynaklar</a>
             <span> / </span>
             <span>Aşılar</span>
           </nav>
