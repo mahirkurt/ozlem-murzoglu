@@ -64,7 +64,7 @@ export class HastaliklarCategoryComponent implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
   
   ngOnInit(): void {
-    const pageTitle = 'Hastalıklar | Kaynaklar | Özlem Mürzoğlu';
+    const pageTitle = 'Hastalıklar | Kaynaklar | Özlem Murzoğlu';
     const description = 'Çocukluk çağında sık karşılaşılan hastalıklar ve tedavi yöntemleri. Ateş, egzama, kulak iltihabr, astım ve diğer hastalıklar hakkında bilgiler.';
     
     this.title.setTitle(pageTitle);

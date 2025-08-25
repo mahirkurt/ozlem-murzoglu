@@ -64,7 +64,7 @@ export class GebelikDonemiCategoryComponent implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
   
   ngOnInit(): void {
-    const pageTitle = 'Gebelik Dönemi | Kaynaklar | Özlem Mürzoğlu';
+    const pageTitle = 'Gebelik Dönemi | Kaynaklar | Özlem Murzoğlu';
     const description = 'Gebelik ve bebeğin gelecekteki yaşamı için hazırlık rehberleri. Emzirme, bebek odası güvenliği, beslenme ve bakım konularında bilgiler.';
     
     this.title.setTitle(pageTitle);

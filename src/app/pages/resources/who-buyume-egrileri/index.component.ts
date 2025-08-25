@@ -64,7 +64,7 @@ export class WhoBuyumeEgrileriCategoryComponent implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
   
   ngOnInit(): void {
-    const pageTitle = 'WHO Büyüme Eğrileri | Kaynaklar | Özlem Mürzoğlu';
+    const pageTitle = 'WHO Büyüme Eğrileri | Kaynaklar | Özlem Murzoğlu';
     const description = 'Dünya Sağlık Örgütü (WHO) uluslararası büyüme standartları ve eğrileri. Küresel çocuk gelişim standartlarına göre hazırlanmış tablolar.';
     
     this.title.setTitle(pageTitle);

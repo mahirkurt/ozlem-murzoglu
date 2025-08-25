@@ -64,7 +64,7 @@ export class AsilarCategoryComponent implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
   
   ngOnInit(): void {
-    const pageTitle = 'Aşılar | Kaynaklar | Özlem Mürzoğlu';
+    const pageTitle = 'Aşılar | Kaynaklar | Özlem Murzoğlu';
     const description = 'Çocukluk çağı aşıları hakkında detaylı bilgi föyleri. HPV, influenza, KKK, meningokok ve diğer aşılar hakkında bilgi edinin.';
     
     this.title.setTitle(pageTitle);

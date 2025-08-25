@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Dr. Özlem Mürzoğlu | Çocuk Sağlığı ve Hastalıkları Uzmanı';
+  title = 'Dr. Özlem Murzoğlu | Çocuk Sağlığı ve Hastalıkları Uzmanı';
   locale = 'tr';
   
   // Services

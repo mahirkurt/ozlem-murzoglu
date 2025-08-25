@@ -61,7 +61,10 @@
       "Read(/D:\\GitHub Repos\\Saglik-Petegim/**)",
       "Read(/D:\\GitHub Repos\\Saglik-Petegim/**)",
       "Read(/D:\\GitHub Repos\\Saglik-Petegim\\apps\\flutter_app\\lib\\features\\appointments\\models/**)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(for file in src/app/pages/services/**/*.html)",
+      "Bash(do sed -i 's/Mürzoğlu/Murzoğlu/g' \"$file\")",
+      "Bash(for file in src/app/pages/resources/**/*.ts)"
     ],
     "deny": []
   }
