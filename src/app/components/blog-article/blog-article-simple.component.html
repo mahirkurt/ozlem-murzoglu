@@ -2,7 +2,7 @@
 <div *ngIf="isLoading" class="loading-container">
   <div class="loading-spinner">
     <div class="spinner"></div>
-    <p>Makale yükleniyor...</p>
+    <p>{{ 'BLOG.LOADING_ARTICLE' | translate }}</p>
   </div>
 </div>
 
@@ -15,7 +15,7 @@
       <nav class="breadcrumb">
         <a routerLink="/blog">
           <span class="material-icons">arrow_back</span>
-          Blog'a Dön
+          {{ 'BLOG.BACK_TO_BLOG' | translate }}
         </a>
       </nav>
 
@@ -30,7 +30,7 @@
           </span>
           <span class="article-read-time">
             <span class="material-icons">schedule</span>
-            {{article.readTime}} dk okuma
+            {{article.readTime}} {{ 'BLOG.MIN' | translate }} {{ 'BLOG.MIN_READ' | translate }}
           </span>
           <span class="article-author">
             <span class="material-icons">person</span>
@@ -48,26 +48,26 @@
       <!-- Article Actions -->
       <div class="article-actions">
         <div class="social-share">
-          <span class="share-label">Paylaş:</span>
-          <button (click)="shareArticle('whatsapp')" class="share-btn whatsapp" title="WhatsApp'ta Paylaş">
+          <span class="share-label">{{ 'COMMON.SHARE' | translate }}:</span>
+          <button (click)="shareArticle('whatsapp')" class="share-btn whatsapp" [attr.title]="'BLOG.SHARE_WHATSAPP' | translate">
             <span class="material-icons">chat</span>
           </button>
-          <button (click)="shareArticle('twitter')" class="share-btn twitter" title="Twitter'da Paylaş">
+          <button (click)="shareArticle('twitter')" class="share-btn twitter" [attr.title]="'BLOG.SHARE_TWITTER' | translate">
             <span class="material-icons">share</span>
           </button>
-          <button (click)="shareArticle('facebook')" class="share-btn facebook" title="Facebook'ta Paylaş">
+          <button (click)="shareArticle('facebook')" class="share-btn facebook" [attr.title]="'BLOG.SHARE_FACEBOOK' | translate">
             <span class="material-icons">facebook</span>
           </button>
-          <button (click)="shareArticle('linkedin')" class="share-btn linkedin" title="LinkedIn'de Paylaş">
+          <button (click)="shareArticle('linkedin')" class="share-btn linkedin" [attr.title]="'BLOG.SHARE_LINKEDIN' | translate">
             <span class="material-icons">business</span>
           </button>
-          <button (click)="copyLink()" class="share-btn copy" title="Bağlantıyı Kopyala">
+          <button (click)="copyLink()" class="share-btn copy" [attr.title]="'BLOG.COPY_LINK' | translate">
             <span class="material-icons">link</span>
           </button>
         </div>
         
         <div class="article-tools">
-          <button (click)="printArticle()" class="tool-btn" title="Yazdır">
+          <button (click)="printArticle()" class="tool-btn" [attr.title]="'ACTIONS.PRINT' | translate">
             <span class="material-icons">print</span>
           </button>
         </div>
@@ -95,7 +95,7 @@
 
         <!-- Article Tags -->
         <div class="article-tags" *ngIf="article.tags && article.tags.length">
-          <h4>Etiketler:</h4>
+          <h4>{{ 'BLOG.TAGS' | translate }}:</h4>
           <div class="tags-list">
             <span *ngFor="let tag of article.tags" class="tag">{{tag}}</span>
           </div>
@@ -105,7 +105,7 @@
         <div class="article-navigation">
           <button (click)="scrollToTop()" class="scroll-top-btn">
             <span class="material-icons">keyboard_arrow_up</span>
-            <span>Başa Dön</span>
+            <span>{{ 'COMMON.BACK_TO_TOP' | translate }}</span>
           </button>
         </div>
       </div>
@@ -115,7 +115,7 @@
   <!-- Related Articles -->
   <section class="related-articles" *ngIf="relatedArticles.length > 0">
     <div class="container">
-      <h2>İlgili Makaleler</h2>
+      <h2>{{ 'BLOG.RELATED_ARTICLES' | translate }}</h2>
       <div class="related-grid">
         <article *ngFor="let related of relatedArticles" class="related-card">
           <div class="related-image">
@@ -141,7 +141,7 @@
     <div class="container">
       <a routerLink="/blog" class="back-btn">
         <span class="material-icons">arrow_back</span>
-        <span>Tüm Makalelere Dön</span>
+        <span>{{ 'BLOG.ALL_ARTICLES' | translate }}</span>
       </a>
     </div>
   </section>

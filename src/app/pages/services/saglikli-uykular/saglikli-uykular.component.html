@@ -5,14 +5,14 @@
     <div class="container">
       <div class="hero-content">
         <div class="breadcrumb">
-          <a routerLink="/">Ana Sayfa</a>
+          <a routerLink="/">{{ 'HEADER.NAV_HOME' | translate }}</a>
           <span class="material-icons">chevron_right</span>
-          <a routerLink="/hizmetlerimiz">Hizmetlerimiz</a>
+          <a routerLink="/hizmetlerimiz">{{ 'HEADER.NAV_SERVICES' | translate }}</a>
           <span class="material-icons">chevron_right</span>
-          <span>Sağlıklı Uykular Programı</span>
+          <span>{{ 'SERVICES.SERVICE_SLEEP.BREADCRUMB' | translate }}</span>
         </div>
-        <h1 class="hero-title">Sağlıklı Uykular™ Programı</h1>
-        <p class="hero-subtitle">Uyku eğitimi ve danışmanlığı ile huzurlu geceler</p>
+        <h1 class="hero-title">{{ 'SERVICES.SERVICE_SLEEP.HERO_TITLE' | translate }}</h1>
+        <p class="hero-subtitle">{{ 'SERVICES.SERVICE_SLEEP.HERO_SUBTITLE' | translate }}</p>
       </div>
     </div>
   </section>
@@ -29,63 +29,55 @@
               <span class="section-icon">
                 <span class="material-icons">bedtime</span>
               </span>
-              <h2 class="section-title">Sağlıklı Uykular™ Nedir?</h2>
+              <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.WHAT_IS' | translate }}</h2>
             </div>
             
             <div class="section-description">
-              <p class="lead">
-                Sağlıklı Uykular™, bebek ve çocukların yaşlarına uygun, sağlıklı uyku alışkanlıkları kazanmalarını hedefleyen kapsamlı bir uyku eğitimi ve danışmanlık programıdır.
-              </p>
+              <p class="lead">{{ 'SERVICES.SERVICE_SLEEP.WHAT_IS_DESC' | translate }}</p>
               
-              <p>
-                Program, ailelerin uyku konusundaki sorunlarını çözmek, çocukların kaliteli ve yeterli uyku almalarını sağlamak amacıyla Dr. Özlem Murzoğlu tarafından geliştirilmiştir. Hem sosyal pediatri hem de çocuk gelişimi alanındaki uzmanlığı ile oluşturulan bu program, bilimsel temellere dayanmaktadır.
-              </p>
+              <p>{{ 'SERVICES.SERVICE_SLEEP.WHAT_IS_DESC2' | translate }}</p>
               
               <div class="highlight-box">
                 <span class="material-icons">auto_awesome</span>
-                <p>
-                  <strong>%95 başarı oranı</strong> ile ailelerin uyku sorunlarına kalıcı çözümler sunuyoruz.
-                </p>
+                <p [innerHTML]="'SERVICES.SERVICE_SLEEP.SUCCESS_RATE' | translate"></p>
               </div>
               
-              <p>
-                Her çocuğun benzersiz olduğu gerçeğinden yola çıkarak, kişiselleştirilmiş uyku planları hazırlıyoruz. Aileler ve çocuklar için stressiz, nazik ve bilimsel yöntemlerle sağlıklı uyku rutinleri oluşturuyoruz.
-              </p>
+              <p>{{ 'SERVICES.SERVICE_SLEEP.WHAT_IS_DESC3' | translate }}</p>
             </div>
           </div>
           
           <div class="section-features">
-            <h3>Program Kapsamı</h3>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_SCOPE' | translate }}</h3>
             <div class="features-list">
               <div class="feature-item">
                 <span class="material-icons">child_care</span>
                 <div>
-                  <h4>0-5 Yaş Arası</h4>
-                  <p>Yenidoğandan okul öncesine</p>
+                  <h4>{{ 'SERVICES.SERVICE_SLEEP.AGE_RANGE' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_SLEEP.AGE_RANGE_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="feature-item">
                 <span class="material-icons">psychology</span>
                 <div>
-                  <h4>Bilimsel Yaklaşım</h4>
-                  <p>Kanıta dayalı yöntemler</p>
+                  <h4>{{ 'SERVICES.SERVICE_SLEEP.SCIENTIFIC_APPROACH' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_SLEEP.SCIENTIFIC_APPROACH_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="feature-item">
                 <span class="material-icons">favorite</span>
                 <div>
-                  <h4>Nazik Teknikler</h4>
-                  <p>Ağlatmadan uyku eğitimi</p>
+                  <h4>{{ 'SERVICES.SERVICE_SLEEP.GENTLE_TECHNIQUES' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_SLEEP.GENTLE_TECHNIQUES_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="feature-item">
                 <span class="material-icons">support_agent</span>
                 <div>
-                  <h4>7/24 Destek</h4>
-                  <p>WhatsApp danışmanlık hattı</p>
+                  <h4>{{ 'SERVICES.SERVICE_SLEEP.SUPPORT_247' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_SLEEP.SUPPORT_247_DESC' | translate }}</p>
                 </div>
               </div>
             </div>
@@ -99,44 +91,44 @@
           <span class="section-icon">
             <span class="material-icons">help_outline</span>
           </span>
-          <h2 class="section-title">Çözüm Sunduğumuz Uyku Sorunları</h2>
+          <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.PROBLEMS_TITLE' | translate }}</h2>
         </div>
         
         <div class="problems-grid">
           <div class="problem-card">
             <span class="material-icons">nights_stay</span>
-            <h3>Uykuya Dalma Güçlüğü</h3>
-            <p>Saatlerce uyutma çabaları, uyumak istemeyen bebekler</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_1' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_1_DESC' | translate }}</p>
           </div>
           
           <div class="problem-card">
             <span class="material-icons">alarm</span>
-            <h3>Sık Uyanmalar</h3>
-            <p>Gece boyunca defalarca uyanan, tekrar uyumakta zorlanan çocuklar</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_2' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_2_DESC' | translate }}</p>
           </div>
           
           <div class="problem-card">
             <span class="material-icons">schedule</span>
-            <h3>Erken Uyanma</h3>
-            <p>Sabah çok erken saatlerde uyanan ve tekrar uyumayan çocuklar</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_3' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_3_DESC' | translate }}</p>
           </div>
           
           <div class="problem-card">
             <span class="material-icons">king_bed</span>
-            <h3>Yatağa Geçiş</h3>
-            <p>Beşikten yatağa, aile yatağından kendi yatağına geçiş sorunları</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_4' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_4_DESC' | translate }}</p>
           </div>
           
           <div class="problem-card">
             <span class="material-icons">airline_seat_flat</span>
-            <h3>Gündüz Uykuları</h3>
-            <p>Düzensiz veya yetersiz gündüz uykuları</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_5' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_5_DESC' | translate }}</p>
           </div>
           
           <div class="problem-card">
             <span class="material-icons">dark_mode</span>
-            <h3>Uyku Korkuları</h3>
-            <p>Karanlık korkusu, kâbus görme, yalnız uyuyamama</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_6' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.PROBLEM_6_DESC' | translate }}</p>
           </div>
         </div>
       </section>
@@ -149,7 +141,7 @@
               <span class="section-icon">
                 <span class="material-icons">timeline</span>
               </span>
-              <h2 class="section-title">Süreç Nasıl İşliyor?</h2>
+              <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.PROCESS_TITLE' | translate }}</h2>
             </div>
             
             <div class="section-description">
@@ -157,40 +149,40 @@
                 <div class="timeline-step">
                   <div class="step-number">1</div>
                   <div class="step-content">
-                    <h4>Ön Değerlendirme</h4>
-                    <p>Detaylı anamnez ve uyku günlüğü analizi yapıyoruz. Çocuğunuzun mevcut uyku düzenini, aile dinamiklerini ve yaşam koşullarını değerlendiriyoruz.</p>
+                    <h4>{{ 'SERVICES.SERVICE_SLEEP.STEP_1' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_SLEEP.STEP_1_DESC' | translate }}</p>
                   </div>
                 </div>
                 
                 <div class="timeline-step">
                   <div class="step-number">2</div>
                   <div class="step-content">
-                    <h4>Kişisel Plan Hazırlama</h4>
-                    <p>Çocuğunuzun yaşı, mizacı ve ailenizin yaşam tarzına uygun, tamamen kişiselleştirilmiş bir uyku planı oluşturuyoruz.</p>
+                    <h4>{{ 'SERVICES.SERVICE_SLEEP.STEP_2' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_SLEEP.STEP_2_DESC' | translate }}</p>
                   </div>
                 </div>
                 
                 <div class="timeline-step">
                   <div class="step-number">3</div>
                   <div class="step-content">
-                    <h4>Uygulama Başlangıcı</h4>
-                    <p>Planı detaylıca açıklıyor, sorularınızı yanıtlıyor ve uygulamaya başlıyoruz. İlk gece özel takip sağlıyoruz.</p>
+                    <h4>{{ 'SERVICES.SERVICE_SLEEP.STEP_3' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_SLEEP.STEP_3_DESC' | translate }}</p>
                   </div>
                 </div>
                 
                 <div class="timeline-step">
                   <div class="step-number">4</div>
                   <div class="step-content">
-                    <h4>Günlük Takip</h4>
-                    <p>WhatsApp üzerinden 7/24 destek veriyor, günlük ilerlemeyi takip ediyor, gerektiğinde planı güncelliyoruz.</p>
+                    <h4>{{ 'SERVICES.SERVICE_SLEEP.STEP_4' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_SLEEP.STEP_4_DESC' | translate }}</p>
                   </div>
                 </div>
                 
                 <div class="timeline-step">
                   <div class="step-number">5</div>
                   <div class="step-content">
-                    <h4>Sonuç ve Takip</h4>
-                    <p>3-14 gün içinde hedeflere ulaşıyoruz. Program sonrası 30 gün boyunca takip desteği sağlıyoruz.</p>
+                    <h4>{{ 'SERVICES.SERVICE_SLEEP.STEP_5' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_SLEEP.STEP_5_DESC' | translate }}</p>
                   </div>
                 </div>
               </div>
@@ -198,42 +190,42 @@
           </div>
           
           <div class="section-features">
-            <h3>Uygulama Detayları</h3>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.APPLICATION_DETAILS' | translate }}</h3>
             <div class="application-details">
               <div class="detail-card">
                 <span class="material-icons">description</span>
-                <h4>Uyku Günlüğü</h4>
-                <p>7-10 günlük detaylı uyku kaydı tutulması</p>
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.SLEEP_DIARY' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.SLEEP_DIARY_DESC' | translate }}</p>
               </div>
               
               <div class="detail-card">
                 <span class="material-icons">video_call</span>
-                <h4>Online Görüşme</h4>
-                <p>60 dakikalık değerlendirme ve planlama seansı</p>
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.ONLINE_MEETING' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.ONLINE_MEETING_DESC' | translate }}</p>
               </div>
               
               <div class="detail-card">
                 <span class="material-icons">article</span>
-                <h4>Yazılı Plan</h4>
-                <p>Adım adım uygulama rehberi</p>
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.WRITTEN_PLAN' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.WRITTEN_PLAN_DESC' | translate }}</p>
               </div>
               
               <div class="detail-card">
                 <span class="material-icons">chat</span>
-                <h4>WhatsApp Desteği</h4>
-                <p>Anlık soru-cevap ve yönlendirme</p>
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.WHATSAPP_SUPPORT' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.WHATSAPP_SUPPORT_DESC' | translate }}</p>
               </div>
               
               <div class="detail-card">
                 <span class="material-icons">update</span>
-                <h4>Plan Güncellemeleri</h4>
-                <p>İhtiyaca göre revizyon</p>
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.PLAN_UPDATES' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.PLAN_UPDATES_DESC' | translate }}</p>
               </div>
               
               <div class="detail-card">
                 <span class="material-icons">event_available</span>
-                <h4>30 Gün Takip</h4>
-                <p>Program sonrası destek</p>
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.FOLLOW_UP_30' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.FOLLOW_UP_30_DESC' | translate }}</p>
               </div>
             </div>
           </div>
@@ -246,7 +238,7 @@
           <span class="section-icon">
             <span class="material-icons">auto_fix_high</span>
           </span>
-          <h2 class="section-title">Kullandığımız Yöntemler</h2>
+          <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.METHODS_TITLE' | translate }}</h2>
         </div>
         
         <div class="methods-grid">
@@ -254,38 +246,38 @@
             <div class="method-icon">
               <span class="material-icons">chair</span>
             </div>
-            <h3>Sandalye Yöntemi</h3>
-            <p>Kademeli uzaklaşma ile bağımsız uyuma alıştırma</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.METHOD_CHAIR' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.METHOD_CHAIR_DESC' | translate }}</p>
           </div>
           
           <div class="method-card">
             <div class="method-icon">
               <span class="material-icons">stairs</span>
             </div>
-            <h3>Kademeli Yaklaşım</h3>
-            <p>Aşamalı olarak desteği azaltma tekniği</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.METHOD_GRADUAL' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.METHOD_GRADUAL_DESC' | translate }}</p>
           </div>
           
           <div class="method-card">
             <div class="method-icon">
               <span class="material-icons">visibility</span>
             </div>
-            <h3>Kontrol Et ve Rahatla</h3>
-            <p>Periyodik kontrol ve teselli yöntemi</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.METHOD_CHECK' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.METHOD_CHECK_DESC' | translate }}</p>
           </div>
           
           <div class="method-card">
             <div class="method-icon">
               <span class="material-icons">self_improvement</span>
             </div>
-            <h3>Fading Yöntemi</h3>
-            <p>Yavaş yavaş müdahaleyi azaltma</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.METHOD_FADING' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.METHOD_FADING_DESC' | translate }}</p>
           </div>
         </div>
         
         <div class="method-note">
           <span class="material-icons">info</span>
-          <p><strong>Önemli Not:</strong> "Ağlat bırak" yöntemini kesinlikle kullanmıyoruz. Tüm yöntemlerimiz çocuğun duygusal güvenliğini koruyacak şekilde uygulanır.</p>
+          <p [innerHTML]="'SERVICES.SERVICE_SLEEP.METHOD_NOTE' | translate"></p>
         </div>
       </section>
 
@@ -295,32 +287,32 @@
           <span class="section-icon">
             <span class="material-icons">star</span>
           </span>
-          <h2 class="section-title">Başarı Hikayeleri</h2>
+          <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.SUCCESS_STORIES' | translate }}</h2>
         </div>
         
         <div class="success-stats">
           <div class="stat-card">
             <div class="stat-number">500+</div>
-            <h3>Mutlu Aile</h3>
-            <p>Uyku sorunu çözülen</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.HAPPY_FAMILIES' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.HAPPY_FAMILIES_DESC' | translate }}</p>
           </div>
           
           <div class="stat-card">
             <div class="stat-number">%95</div>
-            <h3>Başarı Oranı</h3>
-            <p>İlk 14 günde sonuç</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.SUCCESS_RATE_TITLE' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.SUCCESS_RATE_DESC' | translate }}</p>
           </div>
           
           <div class="stat-card">
-            <div class="stat-number">7 Gün</div>
-            <h3>Ortalama Süre</h3>
-            <p>Tam uyum sağlama</p>
+            <div class="stat-number">{{ 'SERVICES.SERVICE_SLEEP.AVG_DURATION_NUM' | translate }}</div>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.AVG_DURATION' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.AVG_DURATION_DESC' | translate }}</p>
           </div>
           
           <div class="stat-card">
             <div class="stat-number">%100</div>
-            <h3>Memnuniyet</h3>
-            <p>Aile geri bildirimleri</p>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.SATISFACTION' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.SATISFACTION_DESC' | translate }}</p>
           </div>
         </div>
       </section>
@@ -329,39 +321,39 @@
       <section class="package-section">
         <div class="section-grid reverse">
           <div class="section-features">
-            <h3>Paket İçeriği</h3>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_CONTENT' | translate }}</h3>
             <div class="package-list">
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>Detaylı ön değerlendirme görüşmesi</p>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_1' | translate }}</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>7-10 günlük uyku günlüğü analizi</p>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_2' | translate }}</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>Kişiselleştirilmiş uyku planı</p>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_3' | translate }}</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>14 gün WhatsApp desteği</p>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_4' | translate }}</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>Günlük ilerleme takibi</p>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_5' | translate }}</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>Plan güncellemeleri</p>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_6' | translate }}</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>30 gün sonrası takip desteği</p>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_7' | translate }}</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>Uyku rehberi e-kitap</p>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_8' | translate }}</p>
               </div>
             </div>
           </div>
@@ -371,44 +363,42 @@
               <span class="section-icon">
                 <span class="material-icons">card_giftcard</span>
               </span>
-              <h2 class="section-title">Özel Durumlar</h2>
+              <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.SPECIAL_CASES' | translate }}</h2>
             </div>
             
             <div class="section-description">
-              <p class="lead">
-                Her çocuğun özel ihtiyaçlarını göz önünde bulunduruyoruz.
-              </p>
+              <p class="lead">{{ 'SERVICES.SERVICE_SLEEP.SPECIAL_CASES_DESC' | translate }}</p>
               
               <div class="special-cases">
                 <div class="case-item">
                   <span class="material-icons">baby_changing_station</span>
                   <div>
-                    <h4>Prematüre Bebekler</h4>
-                    <p>Düzeltilmiş yaşa göre özel planlama</p>
+                    <h4>{{ 'SERVICES.SERVICE_SLEEP.PREMATURE' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_SLEEP.PREMATURE_DESC' | translate }}</p>
                   </div>
                 </div>
                 
                 <div class="case-item">
                   <span class="material-icons">family_restroom</span>
                   <div>
-                    <h4>İkiz/Üçüz Bebekler</h4>
-                    <p>Çoklu bebek uyku düzeni oluşturma</p>
+                    <h4>{{ 'SERVICES.SERVICE_SLEEP.TWINS' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_SLEEP.TWINS_DESC' | translate }}</p>
                   </div>
                 </div>
                 
                 <div class="case-item">
                   <span class="material-icons">medical_services</span>
                   <div>
-                    <h4>Özel Sağlık Durumları</h4>
-                    <p>Reflü, kolik, alerji gibi durumlar için uyarlama</p>
+                    <h4>{{ 'SERVICES.SERVICE_SLEEP.SPECIAL_HEALTH' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_SLEEP.SPECIAL_HEALTH_DESC' | translate }}</p>
                   </div>
                 </div>
                 
                 <div class="case-item">
                   <span class="material-icons">flight</span>
                   <div>
-                    <h4>Seyahat ve Jet Lag</h4>
-                    <p>Saat dilimi değişikliklerine uyum</p>
+                    <h4>{{ 'SERVICES.SERVICE_SLEEP.TRAVEL' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_SLEEP.TRAVEL_DESC' | translate }}</p>
                   </div>
                 </div>
               </div>
@@ -416,8 +406,8 @@
               <div class="info-card">
                 <span class="material-icons">star</span>
                 <div>
-                  <h4>Başarı Garantisi</h4>
-                  <p>Programı tamamlayan ve önerileri uygulayan ailelere %95 başarı oranı ile sağlıklı uyku rutini kazandırıyoruz.</p>
+                  <h4>{{ 'SERVICES.SERVICE_SLEEP.SUCCESS_GUARANTEE' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_SLEEP.SUCCESS_GUARANTEE_DESC' | translate }}</p>
                 </div>
               </div>
             </div>
@@ -428,16 +418,16 @@
       <!-- CTA Section -->
       <section class="cta-section">
         <div class="cta-content">
-          <h3>Huzurlu Uykular İçin İlk Adımı Atın</h3>
-          <p>Çocuğunuzun ve sizin kaliteli uykunuz için bugün başlayın</p>
+          <h3>{{ 'SERVICES.SERVICE_SLEEP.CTA_TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.CTA_DESC' | translate }}</p>
           <div class="cta-buttons">
             <a routerLink="/iletisim" class="btn btn-primary">
               <span class="material-icons">nightlight</span>
-              Uyku Danışmanlığı Al
+              {{ 'SERVICES.SERVICE_SLEEP.CTA_BUTTON' | translate }}
             </a>
             <a href="tel:+902166884483" class="btn btn-secondary">
               <span class="material-icons">phone</span>
-              Hemen Ara
+              {{ 'SERVICES.SERVICE_SLEEP.CTA_CALL' | translate }}
             </a>
           </div>
         </div>

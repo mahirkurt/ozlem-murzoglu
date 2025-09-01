@@ -1,0 +1,36 @@
+FROM node:20-alpine
+
+# Install dependencies for building native modules
+RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git > /dev/null 2>&1
+
+# Set working directory
+WORKDIR /opt/app
+
+# Copy package files
+COPY package*.json ./
+
+# Install Strapi globally
+RUN npm install -g create-strapi-app@latest
+
+# Create Strapi project with PostgreSQL
+RUN npx create-strapi-app@latest cms-ozlem-murzoglu \
+    --dbclient=postgres \
+    --dbhost=postgres \
+    --dbport=5432 \
+    --dbname=strapi \
+    --dbusername=strapi \
+    --dbpassword=strapi_password \
+    --dbssl=false \
+    --no-run
+
+WORKDIR /opt/app/cms-ozlem-murzoglu
+
+# Copy custom configurations if they exist
+# Note: These directories might not exist initially, so we'll create empty ones
+RUN mkdir -p ./config ./src
+
+# Expose port
+EXPOSE 1337
+
+# Run Strapi
+CMD ["npm", "run", "develop"]

@@ -5,14 +5,14 @@
     <div class="container">
       <div class="hero-content">
         <div class="breadcrumb">
-          <a routerLink="/">Ana Sayfa</a>
+          <a routerLink="/">{{ 'HEADER.NAV_HOME' | translate }}</a>
           <span class="material-icons">chevron_right</span>
-          <a routerLink="/hizmetlerimiz">Hizmetlerimiz</a>
+          <a routerLink="/hizmetlerimiz">{{ 'HEADER.NAV_SERVICES' | translate }}</a>
           <span class="material-icons">chevron_right</span>
-          <span>Laboratuvar ve Görüntüleme</span>
+          <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.BREADCRUMB' | translate }}</span>
         </div>
-        <h1 class="hero-title">Laboratuvar ve Görüntüleme Hizmetleri</h1>
-        <p class="hero-subtitle">Kapsamlı tanı hizmetleri, güvenilir sonuçlar</p>
+        <h1 class="hero-title">{{ 'SERVICES.SERVICE_LAB_IMAGING.HERO_TITLE' | translate }}</h1>
+        <p class="hero-subtitle">{{ 'SERVICES.SERVICE_LAB_IMAGING.HERO_SUBTITLE' | translate }}</p>
       </div>
     </div>
   </section>
@@ -29,77 +29,69 @@
               <span class="section-icon">
                 <span class="material-icons">biotech</span>
               </span>
-              <h2 class="section-title">Laboratuvar Hizmetleri</h2>
+              <h2 class="section-title">{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_SERVICES' | translate }}</h2>
             </div>
             
             <div class="partner-badge">
               <img src="/images/biruni-logo.png" alt="Biruni Laboratuvarları" class="partner-logo">
-              <span>Kurumsal Ortağımız</span>
+              <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.CORPORATE_PARTNER' | translate }}</span>
             </div>
             
             <div class="section-description">
-              <p class="lead">
-                Laboratuvar hizmetlerimizi kurumsal ortağımız <strong>Biruni Laboratuvarları</strong> desteğiyle doğrudan kliniğimizde sunmaktayız.
-              </p>
+              <p class="lead" [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC' | translate"></p>
               
-              <p>
-                Gerekli görülen tetkikler için numuneleri sizleri başka bir birime yönlendirmeksizin kliniğimizde alıyoruz.
-              </p>
+              <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC2' | translate }}</p>
               
               <div class="highlight-box">
                 <span class="material-icons">verified</span>
-                <p>
-                  Özel sağlık sigortası provizyon işlemlerini de Biruni Laboratuvarları personelinin desteğiyle kliniğimizde tamamlıyoruz.
-                </p>
+                <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_PROCESS' | translate }}</p>
               </div>
               
-              <p>
-                Bu kapsamda tüm biyokimya testleri, kan ve idrar analizleri, mikrobiyoloji tetkikleri, antikor ve antijen tespitleri (COVID-19, influenza, beta hemolitik streptokok ve diğer solunum yolu enfeksiyonları etkenleri başta olmak üzere) için sizleri başka bir adrese yönlendirmeden ve zaman kaybettirmeden hizmet sunuyoruz.
-              </p>
+              <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC3' | translate }}</p>
               
               <div class="info-card email-info">
                 <span class="material-icons">email</span>
                 <div>
-                  <h4>Sonuç Bildirimi</h4>
-                  <p>Test sonuçlarının e-posta ile sizlere ulaşmasını sağlıyoruz.</p>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULT_NOTIFICATION' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULT_EMAIL' | translate }}</p>
                 </div>
               </div>
             </div>
           </div>
           
           <div class="section-features">
-            <h3>Laboratuvar Hizmetlerimiz</h3>
+            <h3>{{ 'SERVICES.SERVICE_LAB_IMAGING.OUR_LAB_SERVICES' | translate }}</h3>
             <div class="features-grid">
               <div class="feature-card">
                 <div class="feature-icon">
                   <span class="material-icons">science</span>
                 </div>
-                <h4>Biyokimya Testleri</h4>
-                <p>Kapsamlı kan ve idrar analizleri</p>
+                <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.BIOCHEMISTRY' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.BIOCHEMISTRY_DESC' | translate }}</p>
               </div>
               
               <div class="feature-card">
                 <div class="feature-icon">
                   <span class="material-icons">coronavirus</span>
                 </div>
-                <h4>Mikrobiyoloji</h4>
-                <p>Enfeksiyon etkenlerinin tespiti</p>
+                <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.MICROBIOLOGY' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.MICROBIOLOGY_DESC' | translate }}</p>
               </div>
               
               <div class="feature-card">
                 <div class="feature-icon">
                   <span class="material-icons">vaccines</span>
                 </div>
-                <h4>Antikor/Antijen</h4>
-                <p>COVID-19, influenza ve diğer testler</p>
+                <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.ANTIBODY_ANTIGEN' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.ANTIBODY_DESC' | translate }}</p>
               </div>
               
               <div class="feature-card">
                 <div class="feature-icon">
                   <span class="material-icons">health_and_safety</span>
                 </div>
-                <h4>Sigorta İşlemleri</h4>
-                <p>Provizyon işlemleri kliniğimizde</p>
+                <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_SERVICES' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_DESC' | translate }}</p>
               </div>
             </div>
           </div>
@@ -117,37 +109,37 @@
       <section class="service-section imaging-section">
         <div class="section-grid reverse">
           <div class="section-features">
-            <h3>Görüntüleme Hizmetlerimiz</h3>
+            <h3>{{ 'SERVICES.SERVICE_LAB_IMAGING.OUR_IMAGING_SERVICES' | translate }}</h3>
             <div class="imaging-services">
               <div class="imaging-service">
                 <span class="material-icons">medical_services</span>
                 <div>
-                  <h4>MR Görüntüleme</h4>
-                  <p>Manyetik rezonans görüntüleme</p>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_IMAGING' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="imaging-service">
                 <span class="material-icons">computer</span>
                 <div>
-                  <h4>Bilgisayarlı Tomografi</h4>
-                  <p>BT görüntüleme hizmetleri</p>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_SCAN' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="imaging-service">
                 <span class="material-icons">monitor_heart</span>
                 <div>
-                  <h4>Ultrasonografi</h4>
-                  <p>Detaylı ultrason incelemeleri</p>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="imaging-service">
                 <span class="material-icons">skeleton</span>
                 <div>
-                  <h4>Dijital Röntgen</h4>
-                  <p>Yüksek çözünürlüklü röntgen</p>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY_DESC' | translate }}</p>
                 </div>
               </div>
             </div>
@@ -156,11 +148,11 @@
             <div class="location-card">
               <div class="location-header">
                 <span class="material-icons">location_on</span>
-                <h4>Sonomed Ataşehir</h4>
+                <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.SONOMED_ATASEHIR' | translate }}</h4>
               </div>
-              <p>Kliniğimize çok yakın konumda</p>
+              <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.NEAR_LOCATION' | translate }}</p>
               <a href="https://maps.google.com/?q=Sonomed+Ataşehir" target="_blank" class="location-link">
-                <span>Yol Tarifi Al</span>
+                <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.GET_DIRECTIONS' | translate }}</span>
                 <span class="material-icons">directions</span>
               </a>
             </div>
@@ -171,39 +163,31 @@
               <span class="section-icon">
                 <span class="material-icons">medical_information</span>
               </span>
-              <h2 class="section-title">Görüntüleme Hizmetleri</h2>
+              <h2 class="section-title">{{ 'SERVICES.SERVICE_LAB_IMAGING.IMAGING_SERVICES' | translate }}</h2>
             </div>
             
             <div class="partner-badge">
               <img src="/images/sonomed-logo.png" alt="Sonomed" class="partner-logo">
-              <span>Kurumsal Ortağımız</span>
+              <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.CORPORATE_PARTNER' | translate }}</span>
             </div>
             
             <div class="section-description">
-              <p class="lead">
-                Tüm görüntüleme hizmetlerini kurumsal ortağımız <strong>Sonomed Tıbbi Görüntüleme Merkezleri</strong> üzerinden sunmaktayız.
-              </p>
+              <p class="lead" [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.IMAGING_DESC' | translate"></p>
               
-              <p>
-                Gerekli görülen görüntüleme işlemleri için sizleri Sonomed görüntüleme merkezlerine yönlendiriyoruz.
-              </p>
+              <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.IMAGING_DESC2' | translate }}</p>
               
               <div class="highlight-box">
                 <span class="material-icons">place</span>
-                <p>
-                  Kliniğimize oldukça yakın bir konumda olan <strong>Sonomed Ataşehir</strong> şubesinde manyetik rezonans (MR) görüntüleme, bilgisayarlı tomografi (BT), ultrasonografi ve dijital röntgen hizmetleri sunulmaktadır.
-                </p>
+                <p [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.SONOMED_LOCATION' | translate"></p>
               </div>
               
-              <p>
-                Özel sağlık sigortanız mevcutsa gerekli provizyonların alınmasını sağlayabilirsiniz.
-              </p>
+              <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_INFO' | translate }}</p>
               
               <div class="info-card report-info">
                 <span class="material-icons">assessment</span>
                 <div>
-                  <h4>Raporlama ve Bilgilendirme</h4>
-                  <p>Sonomed tarafından online olarak kliniğimizle paylaşılan görüntüler ve radyoloji raporları hakkında sizleri bilgilendiriyor ve gerekli yönlendirmeleri yapıyoruz.</p>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING_DESC' | translate }}</p>
                 </div>
               </div>
             </div>
@@ -214,16 +198,16 @@
       <!-- CTA Section -->
       <section class="cta-section">
         <div class="cta-content">
-          <h3>Hemen Randevu Alın</h3>
-          <p>Çocuğunuzun sağlığı için güvenilir tanı hizmetleri</p>
+          <h3>{{ 'SERVICES.SERVICE_LAB_IMAGING.CTA_TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.CTA_DESC' | translate }}</p>
           <div class="cta-buttons">
             <a routerLink="/iletisim" class="btn btn-primary">
               <span class="material-icons">calendar_today</span>
-              Randevu Al
+              {{ 'SERVICES.SERVICE_LAB_IMAGING.CTA_BUTTON' | translate }}
             </a>
             <a href="tel:+902166884483" class="btn btn-secondary">
               <span class="material-icons">phone</span>
-              Hemen Ara
+              {{ 'SERVICES.SERVICE_LAB_IMAGING.CTA_CALL' | translate }}
             </a>
           </div>
         </div>

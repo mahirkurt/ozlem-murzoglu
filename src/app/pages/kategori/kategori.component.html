@@ -3,7 +3,7 @@
   <nav class="breadcrumb">
     <ol class="breadcrumb-list">
       <li class="breadcrumb-item">
-        <a routerLink="/kaynaklar" class="breadcrumb-link">Kaynaklar</a>
+        <a routerLink="/kaynaklar" class="breadcrumb-link">{{ 'RESOURCES.TITLE' | translate }}</a>
       </li>
       <li class="breadcrumb-separator">
         <span class="material-icons">chevron_right</span>
@@ -27,11 +27,11 @@
           <div class="category-stats">
             <div class="stat">
               <span class="stat-number">{{category.documentCount}}</span>
-              <span class="stat-label">Dokuman</span>
+              <span class="stat-label">{{ 'CATEGORY.DOCUMENTS' | translate }}</span>
             </div>
             <div class="stat">
               <span class="stat-number">{{getFileTypes().length}}</span>
-              <span class="stat-label">Farklı Format</span>
+              <span class="stat-label">{{ 'CATEGORY.FORMATS' | translate }}</span>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@
           <input 
             type="text" 
             class="search-input"
-            placeholder="Bu kategoride ara..." 
+            [placeholder]="'SEARCH.IN_CATEGORY' | translate" 
             [(ngModel)]="searchQuery"
             (input)="onSearchChange($event)">
           <button *ngIf="searchQuery" class="clear-search" (click)="clearSearch()">
@@ -95,13 +95,13 @@
       
       <div class="filter-options">
         <div class="filter-group">
-          <label class="filter-label">Dosya Türü:</label>
+          <label class="filter-label">{{ 'FILTER.FILE_TYPE' | translate }}:</label>
           <div class="filter-buttons">
             <button 
               class="filter-btn" 
               [class.active]="fileTypeFilter === 'all'"
               (click)="setFileTypeFilter('all')">
-              Tümü ({{filteredDocuments.length}})
+              {{ 'FILTER.ALL' | translate }} ({{filteredDocuments.length}})
             </button>
             <button 
               *ngFor="let type of getFileTypes()"
@@ -114,11 +114,11 @@
         </div>
         
         <div class="sort-group">
-          <label class="sort-label">Sıralama:</label>
+          <label class="sort-label">{{ 'SORT.LABEL' | translate }}:</label>
           <select class="sort-select" [(ngModel)]="sortBy" (change)="applySorting()">
-            <option value="title">Başlığa Göre (A-Z)</option>
-            <option value="title-desc">Başlığa Göre (Z-A)</option>
-            <option value="type">Dosya Türüne Göre</option>
+            <option value="title">{{ 'SORT.TITLE_ASC' | translate }}</option>
+            <option value="title-desc">{{ 'SORT.TITLE_DESC' | translate }}</option>
+            <option value="type">{{ 'SORT.BY_TYPE' | translate }}</option>
           </select>
         </div>
       </div>
@@ -132,13 +132,12 @@
         <div class="empty-icon">
           <span class="material-icons">search_off</span>
         </div>
-        <h3 class="empty-title">Dokuman Bulunamadı</h3>
+        <h3 class="empty-title">{{ 'SEARCH.NO_DOCUMENTS' | translate }}</h3>
         <p class="empty-description">
-          Arama kriterlerinize uygun dokuman bulunamadı. 
-          Farklı anahtar kelimeler deneyebilir veya filtreleri sıfırlayabilirsiniz.
+          {{ 'SEARCH.NO_RESULTS_DESC' | translate }}
         </p>
         <button class="reset-filters-btn" (click)="resetFilters()">
-          Filtreleri Sıfırla
+          {{ 'FILTER.RESET' | translate }}
         </button>
       </div>
 
@@ -153,12 +152,12 @@
             <div class="document-actions">
               <button class="action-btn download-btn" 
                       (click)="downloadDocument(document); $event.stopPropagation()"
-                      [title]="'İndir: ' + document.title">
+                      [attr.title]="('ACTIONS.DOWNLOAD' | translate) + ': ' + document.title">
                 <span class="material-icons">download</span>
               </button>
               <button class="action-btn view-btn" 
                       (click)="viewDocument(document); $event.stopPropagation()"
-                      [title]="'Görüntüle: ' + document.title">
+                      [attr.title]="('ACTIONS.VIEW' | translate) + ': ' + document.title">
                 <span class="material-icons">visibility</span>
               </button>
             </div>
@@ -180,7 +179,7 @@
   <!-- Related Categories -->
   <section class="related-section" *ngIf="relatedCategories.length > 0">
     <div class="related-container">
-      <h2 class="related-title">İlgili Kategoriler</h2>
+      <h2 class="related-title">{{ 'CATEGORY.RELATED' | translate }}</h2>
       <div class="related-grid">
         <div *ngFor="let relatedCategory of relatedCategories" 
              class="related-card"
@@ -190,7 +189,7 @@
           </div>
           <div class="related-content">
             <h4 class="related-card-title">{{relatedCategory.title}}</h4>
-            <p class="related-count">{{relatedCategory.documentCount}} dokuman</p>
+            <p class="related-count">{{relatedCategory.documentCount}} {{ 'CATEGORY.DOCUMENTS' | translate | lowercase }}</p>
           </div>
         </div>
       </div>
@@ -202,6 +201,6 @@
 <div *ngIf="!category" class="loading-container">
   <div class="loading-spinner">
     <div class="spinner"></div>
-    <p class="loading-text">Kategori yükleniyor...</p>
+    <p class="loading-text">{{ 'LOADING.CATEGORY' | translate }}</p>
   </div>
 </div>

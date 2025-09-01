@@ -5,17 +5,17 @@
     <div class="container">
       <div class="hero-content">
         <div class="breadcrumb">
-          <a routerLink="/">Ana Sayfa</a>
+          <a routerLink="/">{{ 'HEADER.NAV_HOME' | translate }}</a>
           <span class="material-icons">chevron_right</span>
-          <a routerLink="/hizmetlerimiz">Hizmetlerimiz</a>
+          <a routerLink="/hizmetlerimiz">{{ 'HEADER.NAV_SERVICES' | translate }}</a>
           <span class="material-icons">chevron_right</span>
-          <span>Triple P Programı</span>
+          <span>{{ 'SERVICES.SERVICE_TRIPLE_P.BREADCRUMB' | translate }}</span>
         </div>
         <div class="hero-badge">
           <img src="/images/Triple_P.svg" alt="Triple P Logo" class="program-logo">
         </div>
-        <h1 class="hero-title">Triple P® – Olumlu Ebeveynlik Programı</h1>
-        <p class="hero-subtitle">Queensland Üniversitesi lisanslı ebeveynlik ve aile destek sistemi</p>
+        <h1 class="hero-title">{{ 'SERVICES.SERVICE_TRIPLE_P.HERO_TITLE' | translate }}</h1>
+        <p class="hero-subtitle">{{ 'SERVICES.SERVICE_TRIPLE_P.HERO_SUBTITLE' | translate }}</p>
       </div>
     </div>
   </section>
@@ -32,63 +32,55 @@
               <span class="section-icon">
                 <span class="material-icons">family_restroom</span>
               </span>
-              <h2 class="section-title">Triple P Nedir?</h2>
+              <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS' | translate }}</h2>
             </div>
             
             <div class="section-description">
-              <p class="lead">
-                Triple P – Olumlu Ebeveynlik Programı®, çocuklarda ve gençlerde davranışsal ve duygusal sorunları önlemek ve aynı zamanda tedavi etmek için tasarlanmış bir ebeveynlik ve aile destek sistemidir.
-              </p>
+              <p class="lead">{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC' | translate }}</p>
               
-              <p>
-                Queensland Üniversitesi tarafından geliştirilmiş olan program, 35 yılı aşkın klinik araştırmalara dayanmaktadır. Günümüzde 25'ten fazla ülkede uygulanmakta ve dünya çapında 4 milyondan fazla çocuk ve aileye ulaşmış durumdadır.
-              </p>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC2' | translate }}</p>
               
               <div class="highlight-box">
                 <span class="material-icons">psychology</span>
-                <p>
-                  Dr. Özlem Murzoğlu, Queensland Üniversitesi tarafından onaylanmış <strong>Triple P Grup Programı Uygulayıcısı</strong> lisansına sahiptir.
-                </p>
+                <p [innerHTML]="'SERVICES.SERVICE_TRIPLE_P.DR_CERTIFIED' | translate"></p>
               </div>
               
-              <p>
-                Triple P, ebeveynlere çocuklarıyla daha güçlü, sağlıklı ilişkiler kurmaları ve çocuklarının gelişimlerini desteklemek için kendilerine güven duymaları için ihtiyaç duydukları becerileri kazandırır.
-              </p>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC3' | translate }}</p>
             </div>
           </div>
           
           <div class="section-features">
-            <h3>Program Özellikleri</h3>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_FEATURES' | translate }}</h3>
             <div class="features-list">
               <div class="feature-item">
                 <span class="material-icons">verified</span>
                 <div>
-                  <h4>Kanıta Dayalı</h4>
-                  <p>180+ bilimsel araştırma ile desteklenmiş</p>
+                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.EVIDENCE_BASED' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.EVIDENCE_BASED_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="feature-item">
                 <span class="material-icons">public</span>
                 <div>
-                  <h4>Dünya Çapında</h4>
-                  <p>25+ ülkede, 20+ dilde uygulanıyor</p>
+                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.WORLDWIDE' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WORLDWIDE_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="feature-item">
                 <span class="material-icons">groups</span>
                 <div>
-                  <h4>4+ Milyon Aile</h4>
-                  <p>Programdan faydalanan aile sayısı</p>
+                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.FAMILIES' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.FAMILIES_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="feature-item">
                 <span class="material-icons">school</span>
                 <div>
-                  <h4>Queensland Üniversitesi</h4>
-                  <p>Geliştirildiği ve onaylandığı kurum</p>
+                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.UNIVERSITY' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.UNIVERSITY_DESC' | translate }}</p>
                 </div>
               </div>
             </div>
@@ -102,7 +94,7 @@
           <span class="section-icon">
             <span class="material-icons">stars</span>
           </span>
-          <h2 class="section-title">Programın Faydaları</h2>
+          <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_TITLE' | translate }}</h2>
         </div>
         
         <div class="benefits-grid">
@@ -110,13 +102,13 @@
             <div class="benefit-icon">
               <span class="material-icons">mood</span>
             </div>
-            <h3>Çocuklar İçin</h3>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN' | translate }}</h3>
             <ul>
-              <li>Davranış sorunlarında azalma</li>
-              <li>Duygusal düzenleme becerilerinde gelişme</li>
-              <li>Sosyal becerilerde artış</li>
-              <li>Okul başarısında iyileşme</li>
-              <li>Özgüven gelişimi</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_1' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_2' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_3' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_4' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_5' | translate }}</li>
             </ul>
           </div>
           
@@ -124,13 +116,13 @@
             <div class="benefit-icon">
               <span class="material-icons">favorite</span>
             </div>
-            <h3>Ebeveynler İçin</h3>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS' | translate }}</h3>
             <ul>
-              <li>Ebeveynlik becerilerinde güçlenme</li>
-              <li>Stres ve kaygıda azalma</li>
-              <li>Tutarlı disiplin yöntemleri</li>
-              <li>Olumlu iletişim teknikleri</li>
-              <li>Kendine güven artışı</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_1' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_2' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_3' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_4' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_5' | translate }}</li>
             </ul>
           </div>
           
@@ -138,13 +130,13 @@
             <div class="benefit-icon">
               <span class="material-icons">home</span>
             </div>
-            <h3>Aile İçin</h3>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY' | translate }}</h3>
             <ul>
-              <li>Aile içi uyumda artış</li>
-              <li>Çatışmalarda azalma</li>
-              <li>Kaliteli zaman artışı</li>
-              <li>Güçlü bağların oluşması</li>
-              <li>Pozitif aile ortamı</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_1' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_2' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_3' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_4' | translate }}</li>
+              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_5' | translate }}</li>
             </ul>
           </div>
         </div>
@@ -154,45 +146,45 @@
       <section class="structure-section">
         <div class="section-grid reverse">
           <div class="section-features">
-            <h3>Program Yapısı</h3>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_STRUCTURE' | translate }}</h3>
             <div class="structure-timeline">
               <div class="timeline-item">
                 <div class="timeline-marker">1</div>
                 <div class="timeline-content">
-                  <h4>Olumlu Ebeveynlik</h4>
-                  <p>Güvenli ve ilgi çekici bir ortam yaratma</p>
+                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_1' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_1_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="timeline-item">
                 <div class="timeline-marker">2</div>
                 <div class="timeline-content">
-                  <h4>Çocuk Gelişimi</h4>
-                  <p>Çocukların gelişimini destekleme</p>
+                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_2' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_2_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="timeline-item">
                 <div class="timeline-marker">3</div>
                 <div class="timeline-content">
-                  <h4>Davranış Yönetimi</h4>
-                  <p>Yeni beceriler öğretme</p>
+                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_3' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_3_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="timeline-item">
                 <div class="timeline-marker">4</div>
                 <div class="timeline-content">
-                  <h4>Problem Davranışlar</h4>
-                  <p>Zor davranışlarla başa çıkma</p>
+                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_4' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_4_DESC' | translate }}</p>
                 </div>
               </div>
               
               <div class="timeline-item">
                 <div class="timeline-marker">5</div>
                 <div class="timeline-content">
-                  <h4>Aile Rutinleri</h4>
-                  <p>Yüksek riskli durumları yönetme</p>
+                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_5' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_5_DESC' | translate }}</p>
                 </div>
               </div>
             </div>
@@ -203,57 +195,53 @@
               <span class="section-icon">
                 <span class="material-icons">calendar_month</span>
               </span>
-              <h2 class="section-title">Grup Triple P Programı</h2>
+              <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.GROUP_PROGRAM' | translate }}</h2>
             </div>
             
             <div class="section-description">
-              <p class="lead">
-                Kliniğimizde <strong>2-12 yaş arası çocukların ebeveynleri</strong> için Grup Triple P programı uygulanmaktadır.
-              </p>
+              <p class="lead" [innerHTML]="'SERVICES.SERVICE_TRIPLE_P.GROUP_DESC' | translate"></p>
               
               <div class="program-details">
                 <div class="detail-item">
                   <span class="material-icons">schedule</span>
                   <div>
-                    <h4>Program Süresi</h4>
-                    <p>8 hafta boyunca, haftada bir seans</p>
+                    <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_DURATION' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_DURATION_DESC' | translate }}</p>
                   </div>
                 </div>
                 
                 <div class="detail-item">
                   <span class="material-icons">timer</span>
                   <div>
-                    <h4>Seans Süresi</h4>
-                    <p>Her seans 2 saat (toplam 16 saat)</p>
+                    <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.SESSION_DURATION' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_TRIPLE_P.SESSION_DURATION_DESC' | translate }}</p>
                   </div>
                 </div>
                 
                 <div class="detail-item">
                   <span class="material-icons">group</span>
                   <div>
-                    <h4>Grup Büyüklüğü</h4>
-                    <p>6-8 ebeveyn ile sınırlı</p>
+                    <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.GROUP_SIZE' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_TRIPLE_P.GROUP_SIZE_DESC' | translate }}</p>
                   </div>
                 </div>
                 
                 <div class="detail-item">
                   <span class="material-icons">phone_in_talk</span>
                   <div>
-                    <h4>Telefon Desteği</h4>
-                    <p>Haftada 15-30 dakika bireysel destek</p>
+                    <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.PHONE_SUPPORT' | translate }}</h4>
+                    <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PHONE_SUPPORT_DESC' | translate }}</p>
                   </div>
                 </div>
               </div>
               
-              <p>
-                Program boyunca ebeveynler, video örnekleri izler, grup tartışmalarına katılır ve evde uygulayabilecekleri pratik stratejiler öğrenir. Her hafta verilen ev ödevleri ile öğrenilen tekniklerin günlük yaşama aktarılması sağlanır.
-              </p>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_DESC' | translate }}</p>
               
               <div class="info-card">
                 <span class="material-icons">info</span>
                 <div>
-                  <h4>Bireysel Destek</h4>
-                  <p>Grup seanslarına ek olarak, her ebeveyne haftada bir kez 15-30 dakikalık telefon desteği sunulmaktadır.</p>
+                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.INDIVIDUAL_SUPPORT' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.INDIVIDUAL_SUPPORT_DESC' | translate }}</p>
                 </div>
               </div>
             </div>
@@ -267,32 +255,32 @@
           <span class="section-icon">
             <span class="material-icons">science</span>
           </span>
-          <h2 class="section-title">Bilimsel Doğrulama</h2>
+          <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.SCIENTIFIC_VALIDATION' | translate }}</h2>
         </div>
         
         <div class="validation-cards">
           <div class="validation-card">
             <div class="validation-number">180+</div>
-            <h3>Bilimsel Çalışma</h3>
-            <p>Randomize kontrollü çalışmalarla kanıtlanmış etkinlik</p>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.STUDIES' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STUDIES_DESC' | translate }}</p>
           </div>
           
           <div class="validation-card">
             <div class="validation-number">%60-70</div>
-            <h3>İyileşme Oranı</h3>
-            <p>Çocuk davranış sorunlarında belirgin azalma</p>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.IMPROVEMENT' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.IMPROVEMENT_DESC' | translate }}</p>
           </div>
           
           <div class="validation-card">
             <div class="validation-number">35+</div>
-            <h3>Yıllık Deneyim</h3>
-            <p>Sürekli gelişen ve güncellenen program içeriği</p>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.EXPERIENCE' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.EXPERIENCE_DESC' | translate }}</p>
           </div>
           
           <div class="validation-card who-approved">
             <span class="material-icons">verified_user</span>
-            <h3>WHO Onaylı</h3>
-            <p>Dünya Sağlık Örgütü tarafından önerilen program</p>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.WHO_APPROVED' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WHO_APPROVED_DESC' | translate }}</p>
           </div>
         </div>
       </section>
@@ -300,32 +288,32 @@
       <!-- Registration Section -->
       <section class="registration-section">
         <div class="registration-content">
-          <h2>Yeni Grup Başlangıçları</h2>
-          <p>Bir sonraki grup programımız için kayıtlar devam ediyor</p>
+          <h2>{{ 'SERVICES.SERVICE_TRIPLE_P.REGISTRATION' | translate }}</h2>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.REGISTRATION_DESC' | translate }}</p>
           
           <div class="registration-info">
             <div class="info-item">
               <span class="material-icons">event</span>
-              <p>Dönemsel başlangıçlar</p>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.SEASONAL_START' | translate }}</p>
             </div>
             <div class="info-item">
               <span class="material-icons">people</span>
-              <p>Sınırlı kontenjan</p>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.LIMITED_QUOTA' | translate }}</p>
             </div>
             <div class="info-item">
               <span class="material-icons">badge</span>
-              <p>Sertifikalı uygulayıcı</p>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.CERTIFIED_PRACTITIONER' | translate }}</p>
             </div>
           </div>
           
           <div class="registration-buttons">
             <a routerLink="/iletisim" class="btn btn-primary">
               <span class="material-icons">app_registration</span>
-              Ön Kayıt Yaptırın
+              {{ 'SERVICES.SERVICE_TRIPLE_P.PRE_REGISTER' | translate }}
             </a>
             <a href="tel:+902166884483" class="btn btn-secondary">
               <span class="material-icons">phone</span>
-              Bilgi Alın
+              {{ 'SERVICES.SERVICE_TRIPLE_P.GET_INFO' | translate }}
             </a>
           </div>
         </div>

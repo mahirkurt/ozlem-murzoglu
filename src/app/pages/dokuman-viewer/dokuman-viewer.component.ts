@@ -74,7 +74,7 @@ export class DokumanViewerComponent implements OnInit, OnDestroy {
       this.loadRelatedDocuments();
       this.error = null;
     } else {
-      this.error = 'Aradığınız dokuman bulunamadı veya kaldırılmış olabilir.';
+      this.error = this.translate.instant('ERRORS.DOCUMENT_NOT_FOUND_DESC');
     }
   }
 

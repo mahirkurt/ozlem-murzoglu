@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { RESOURCES_INDEX, ResourceLink } from './resources-index';
+import { ResourceSearchComponent } from '../../components/resource-search/resource-search.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface ResourceCategory {
   id: string;
@@ -16,7 +18,7 @@ interface ResourceCategory {
 @Component({
   selector: 'app-resources',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ResourceSearchComponent, TranslateModule],
   templateUrl: './resources.component.html',
   styleUrl: './resources.component.css'
 })

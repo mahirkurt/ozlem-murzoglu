@@ -7,7 +7,7 @@
       <div class="hero-image-placeholder">
         <img 
           src="/images/placeholder-doctor.svg" 
-          alt="Dr. Özlem Murzoğlu" 
+          [alt]="'COMMON.DOCTOR_NAME' | translate" 
           class="hero-image"
           loading="eager"
         />
@@ -20,9 +20,11 @@
     <div class="container">
       <!-- Main Value Proposition -->
       <div class="hero-main">
+        <div class="hero-subtitle">
+          {{ 'HERO.SUBTITLE' | translate }}
+        </div>
         <h1 class="hero-title">
-          Çocuk hekimliğini sosyal pediatri ve çocuk gelişimi konseptleriyle 
-          bütünleştiren kapsamlı sağlık hizmeti
+          {{ 'HERO.TITLE' | translate }}
         </h1>
 
         <!-- Primary CTAs -->
@@ -35,8 +37,8 @@
                 </svg>
               </div>
               <div class="btn-text-group">
-                <span class="btn-main-text">Hemen Randevu Al</span>
-                <span class="btn-sub-text">Online Rezervasyon</span>
+                <span class="btn-main-text">{{ 'HOME.CTA_APPOINTMENT' | translate }}</span>
+                <span class="btn-sub-text">{{ 'CONTACT.ONLINE_APPOINTMENT' | translate }}</span>
               </div>
             </div>
           </a>
@@ -49,8 +51,8 @@
                 </svg>
               </div>
               <div class="btn-text-group">
-                <span class="btn-main-text">Hasta Girişi</span>
-                <span class="btn-sub-text">Sağlık Peteğim Portalı</span>
+                <span class="btn-main-text">{{ 'CONTACT.HEALTH_NETWORK' | translate }}</span>
+                <span class="btn-sub-text">{{ 'CONTACT.HEALTH_NETWORK_PORTAL' | translate }}</span>
               </div>
             </div>
           </a>

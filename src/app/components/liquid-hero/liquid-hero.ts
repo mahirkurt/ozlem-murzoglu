@@ -26,13 +26,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
       <div class="hero-content">
         <div class="container">
           <div class="content-wrapper">
-            <div class="hero-subtitle">{{ 'HOME.HERO_SUBTITLE' | translate }}</div>
+            <div class="hero-subtitle">{{ 'HERO.SUBTITLE' | translate }}</div>
             <h1 class="hero-title">
-              {{ 'HOME.HERO_TITLE' | translate }}
+              {{ 'HERO.TITLE' | translate }}
             </h1>
-            <p class="hero-description">
-              {{ 'HOME.HERO_DESCRIPTION' | translate }}
-            </p>
             
             <div class="hero-cta">
               <a href="/hakkimizda" class="cta-button primary">
@@ -214,38 +211,32 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     }
     
     .hero-subtitle {
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.95);
       font-family: 'DM Sans', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      margin-bottom: 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
       animation: fade-in-down 0.8s ease-out;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
       position: relative;
+      opacity: 0.9;
     }
     
     .hero-title {
       font-family: 'Figtree', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 2rem;
+      font-size: clamp(2rem, 4.2vw, 3.4rem);
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 3rem;
       letter-spacing: -0.02em;
       animation: fade-in-up 0.8s ease-out;
-      background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #ffffff 40%,
-        rgba(255, 183, 77, 0.9) 60%,
-        #ffffff 80%,
-        #ffffff 100%
-      );
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradient-shift 8s ease infinite, fade-in-up 0.8s ease-out;
+      color: #ffffff;
+      text-shadow: 0 3px 15px rgba(0, 0, 0, 0.25);
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     @keyframes gradient-shift {
@@ -254,18 +245,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     }
     
     
-    .hero-description {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(1.125rem, 2vw, 1.375rem);
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.8;
-      margin-bottom: 3rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: fade-in-up 0.8s ease-out 0.3s both;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    }
+    /* Hero description removed */
     
     /* CTA */
     .hero-cta {

@@ -2,11 +2,11 @@
   <!-- Hero Section with Parallax Effect -->
   <section class="hero-section">
     <div class="hero-image-container">
-      <img src="images/20230416_174226~2.jpg" alt="Klinik Girişi" class="hero-image">
+      <img src="images/20230416_174226~2.jpg" [alt]="'CLINIC_DESIGN.ALT_ENTRANCE' | translate" class="hero-image">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1 class="hero-title">Klinik Tasarımı</h1>
-        <p class="hero-subtitle">Çocuklarınızın çok seveceği bir ortam yarattık.</p>
+        <h1 class="hero-title">{{ 'CLINIC_DESIGN.TITLE' | translate }}</h1>
+        <p class="hero-subtitle">{{ 'CLINIC_DESIGN.SUBTITLE' | translate }}</p>
       </div>
     </div>
   </section>
@@ -19,16 +19,16 @@
       <div class="container">
         <div class="intro-grid">
           <div class="intro-text">
-            <h2 class="section-title">Samimi ve Güvenli Bir Ortam</h2>
+            <h2 class="section-title">{{ 'CLINIC_DESIGN.INTRO_TITLE' | translate }}</h2>
             <p class="lead-text">
-              Minik misafirlerimiz için doktor ziyaretini olumlu bir deneyime dönüştürecek samimi bir ortam yaratmak için yola çıktık.
+              {{ 'CLINIC_DESIGN.INTRO_TEXT' | translate }}
             </p>
             <p>
-              Kliniği tasarlarken asıl amacımız, çocuklarda olumsuz anılar bırakmayan ve doktora gitme korkusuna sebep olmayacak bir atmosfer yaratmaktı.
+              {{ 'CLINIC_DESIGN.INTRO_DESC' | translate }}
             </p>
           </div>
           <div class="intro-image">
-            <img src="images/20230416_174343~2.jpg" alt="Klinik Bekleme Alanı" class="rounded-image">
+            <img src="images/20230416_174343~2.jpg" [alt]="'CLINIC.ALT_WAITING_AREA' | translate" class="rounded-image">
           </div>
         </div>
       </div>
@@ -39,8 +39,8 @@
       <div class="container">
         <div class="team-content">
           <div class="team-image-grid">
-            <img src="images/20230416_174431~2.jpg" alt="Klinik İç Mekan" class="grid-image">
-            <img src="images/20230416_174537~2.jpg" alt="Çocuk Oyun Alanı" class="grid-image">
+            <img src="images/20230416_174431~2.jpg" [alt]="'CLINIC.ALT_INTERIOR' | translate" class="grid-image">
+            <img src="images/20230416_174537~2.jpg" [alt]="'ALT_TEXTS.PLAY_AREA' | translate" class="grid-image">
           </div>
           <div class="team-text">
             <h3 class="subsection-title">Uzman Ekip İle Tasarım</h3>
@@ -77,37 +77,37 @@
         <h2 class="section-title text-center">Kliniğimizden Görüntüler</h2>
         <div class="gallery-grid">
           <div class="gallery-item large">
-            <img src="images/20230416_174550~2.jpg" alt="Ana Muayene Odası">
+            <img src="images/20230416_174550~2.jpg" [alt]="'ALT_TEXTS.EXAMINATION_ROOM' | translate">
             <div class="gallery-overlay">
               <span class="gallery-caption">Muayene Odası</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="images/20230416_174704~2.jpg" alt="Oyun Köşesi">
+            <img src="images/20230416_174704~2.jpg" [alt]="'ALT_TEXTS.PLAY_CORNER' | translate">
             <div class="gallery-overlay">
               <span class="gallery-caption">Oyun Köşesi</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="images/20230416_174740~2.jpg" alt="Bekleme Alanı">
+            <img src="images/20230416_174740~2.jpg" [alt]="'ALT_TEXTS.WAITING_AREA' | translate">
             <div class="gallery-overlay">
               <span class="gallery-caption">Bekleme Alanı</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="images/20230416_175117~2.jpg" alt="Emzirme Odası">
+            <img src="images/20230416_175117~2.jpg" [alt]="'ALT_TEXTS.NURSING_ROOM' | translate">
             <div class="gallery-overlay">
               <span class="gallery-caption">Emzirme Odası</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="images/20230416_175137~2.jpg" alt="Koridor">
+            <img src="images/20230416_175137~2.jpg" [alt]="'ALT_TEXTS.CORRIDOR' | translate">
             <div class="gallery-overlay">
               <span class="gallery-caption">Koridor Alanı</span>
             </div>
           </div>
           <div class="gallery-item large">
-            <img src="images/20230416_175158~2.jpg" alt="Genel Görünüm">
+            <img src="images/20230416_175158~2.jpg" [alt]="'ALT_TEXTS.GENERAL_VIEW' | translate">
             <div class="gallery-overlay">
               <span class="gallery-caption">Genel Görünüm</span>
             </div>
@@ -152,7 +152,7 @@
             </div>
           </div>
           <div class="montessori-image">
-            <img src="images/20230416_174146~2.jpg" alt="Montessori Oyun Alanı">
+            <img src="images/20230416_174146~2.jpg" [alt]="'ALT_TEXTS.MONTESSORI_PLAY_AREA' | translate">
           </div>
         </div>
       </div>
