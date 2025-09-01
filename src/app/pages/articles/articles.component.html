@@ -1,7 +1,7 @@
 <section class="articles-page">
   <app-hero-section
-    [title]="'Makaleler'"
-    [subtitle]="'Çocuk sağlığı hakkında güncel bilgiler'"
+    [title]="'ARTICLES.TITLE' | translate"
+    [subtitle]="'ARTICLES.SUBTITLE' | translate"
     [breadcrumbs]="breadcrumbs"
     colorTheme="purple">
   </app-hero-section>
@@ -9,8 +9,8 @@
   <div class="container">
     <div class="coming-soon">
       <span class="material-icons">article</span>
-      <h2>Yakında</h2>
-      <p>Makaleler bölümü yakında sizlerle olacak.</p>
+      <h2>{{ 'COMMON.COMING_SOON' | translate }}</h2>
+      <p>{{ 'ARTICLES.COMING_SOON_DESC' | translate }}</p>
     </div>
   </div>
 </section>

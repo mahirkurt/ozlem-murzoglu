@@ -52,21 +52,21 @@ export class ContactComponent {
     
     console.log('Form submitted:', this.formData);
     // Form gönderme işlemi burada yapılacak
-    alert('Mesajınız alındı. En kısa sürede size dönüş yapacağız.');
+    alert(this.translate.instant('CONTACT.FORM_SUCCESS'));
     this.resetForm();
   }
   
   validateForm(): boolean {
     // Name validation
     if (!this.formData.name || this.formData.name.trim().length < 3) {
-      alert('Lütfen geçerli bir ad soyad giriniz (en az 3 karakter).');
+      alert(this.translate.instant('CONTACT.VALIDATION.NAME'));
       return false;
     }
     
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!this.formData.email || !emailRegex.test(this.formData.email)) {
-      alert('Lütfen geçerli bir e-posta adresi giriniz.');
+      alert(this.translate.instant('CONTACT.VALIDATION.EMAIL'));
       return false;
     }
     
@@ -74,13 +74,13 @@ export class ContactComponent {
     const phoneRegex = /^(\+90|0)?[0-9]{10}$/;
     const cleanPhone = this.formData.phone.replace(/[\s()-]/g, '');
     if (!cleanPhone || !phoneRegex.test(cleanPhone)) {
-      alert('Lütfen geçerli bir telefon numarası giriniz.');
+      alert(this.translate.instant('CONTACT.VALIDATION.PHONE'));
       return false;
     }
     
     // Message validation
     if (!this.formData.message || this.formData.message.trim().length < 10) {
-      alert('Lütfen mesajınızı giriniz (en az 10 karakter).');
+      alert(this.translate.instant('CONTACT.VALIDATION.MESSAGE'));
       return false;
     }
     

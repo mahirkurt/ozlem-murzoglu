@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { BlogService, BlogArticle } from '../../services/blog.service';
 import { ThemeService } from '../../services/theme.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-blog-article',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './blog-article.component.html',
   styleUrl: './blog-article.component.css'
 })
@@ -108,7 +109,7 @@ export class BlogArticleComponent implements OnInit {
   copyLink() {
     navigator.clipboard.writeText(window.location.href).then(() => {
       // You could show a toast notification here
-      console.log('Link copied to clipboard');
+      // Link copied to clipboard - notification could be shown here
     });
   }
 

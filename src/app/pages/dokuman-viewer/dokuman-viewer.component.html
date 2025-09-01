@@ -3,7 +3,7 @@
   <nav class="breadcrumb">
     <ol class="breadcrumb-list">
       <li class="breadcrumb-item">
-        <a routerLink="/kaynaklar" class="breadcrumb-link">Kaynaklar</a>
+        <a routerLink="/kaynaklar" class="breadcrumb-link">{{ 'RESOURCES.TITLE' | translate }}</a>
       </li>
       <li class="breadcrumb-separator">
         <span class="material-icons">chevron_right</span>
@@ -32,15 +32,15 @@
           <p class="document-description" *ngIf="document.description">{{document.description}}</p>
           <div class="document-meta">
             <div class="meta-item">
-              <span class="meta-label">Kategori:</span>
+              <span class="meta-label">{{ 'DOCUMENTS.CATEGORY' | translate }}:</span>
               <span class="meta-value">{{getCategoryTitle()}}</span>
             </div>
             <div class="meta-item">
-              <span class="meta-label">Format:</span>
+              <span class="meta-label">{{ 'DOCUMENTS.FORMAT' | translate }}:</span>
               <span class="meta-value file-type" [class]="document.fileType">{{document.fileType.toUpperCase()}}</span>
             </div>
             <div class="meta-item" *ngIf="document.size">
-              <span class="meta-label">Dosya Boyutu:</span>
+              <span class="meta-label">{{ 'DOCUMENTS.FILE_SIZE' | translate }}:</span>
               <span class="meta-value">{{document.size}}</span>
             </div>
           </div>
@@ -50,15 +50,15 @@
       <div class="document-actions">
         <button class="action-btn primary download-btn" (click)="downloadDocument()">
           <span class="material-icons">download</span>
-          <span>İndir</span>
+          <span>{{ 'ACTIONS.DOWNLOAD' | translate }}</span>
         </button>
         <button class="action-btn secondary share-btn" (click)="shareDocument()" *ngIf="canShare">
           <span class="material-icons">share</span>
-          <span>Paylaş</span>
+          <span>{{ 'ACTIONS.SHARE' | translate }}</span>
         </button>
         <button class="action-btn secondary print-btn" (click)="printDocument()">
           <span class="material-icons">print</span>
-          <span>Yazdır</span>
+          <span>{{ 'ACTIONS.PRINT' | translate }}</span>
         </button>
       </div>
     </div>
@@ -108,7 +108,7 @@
                   </p>
                   <button class="fallback-download-btn" (click)="downloadDocument()">
                     <span class="material-icons">download</span>
-                    <span>PDF'yi İndir</span>
+                    <span>{{ 'ACTIONS.DOWNLOAD_PDF' | translate }}</span>
                   </button>
                 </div>
               </div>
@@ -124,15 +124,14 @@
                 <span class="material-icons">info</span>
               </div>
               <div class="notice-text">
-                <h3>Word Dokuman Önizlemesi</h3>
-                <p>Word dokuman dosyaları web tarayıcısında tam olarak görüntülenemez. 
-                   Dosyanın tüm içeriğini görmek için indirmeniz gerekmektedir.</p>
+                <h3>{{ 'VIEWER.WORD_PREVIEW' | translate }}</h3>
+                <p>{{ 'VIEWER.WORD_CANNOT_DISPLAY' | translate }}</p>
               </div>
             </div>
             <div class="notice-actions">
               <button class="notice-download-btn" (click)="downloadDocument()">
                 <span class="material-icons">download</span>
-                <span>Şimdi İndir</span>
+                <span>{{ 'VIEWER.DOWNLOAD_NOW' | translate }}</span>
               </button>
             </div>
           </div>
@@ -146,7 +145,7 @@
               <h4 class="preview-title">{{document.title}}</h4>
               <p class="preview-description">{{document.description}}</p>
               <div class="preview-info">
-                <span class="info-item">Microsoft Word Dokuman</span>
+                <span class="info-item">{{ 'VIEWER.MICROSOFT_WORD_DOC' | translate }}</span>
                 <span class="info-item" *ngIf="document.size">{{document.size}}</span>
               </div>
             </div>
@@ -157,18 +156,18 @@
       <!-- Sidebar -->
       <aside class="document-sidebar">
         <div class="sidebar-section">
-          <h3 class="sidebar-title">Belge Bilgileri</h3>
+          <h3 class="sidebar-title">{{ 'VIEWER.DOCUMENT_INFO' | translate }}</h3>
           <div class="sidebar-info">
             <div class="info-row">
-              <span class="info-label">Dosya Adı:</span>
+              <span class="info-label">{{ 'VIEWER.FILE_NAME' | translate }}:</span>
               <span class="info-value">{{document.fileName}}</span>
             </div>
             <div class="info-row">
-              <span class="info-label">Kategori:</span>
+              <span class="info-label">{{ 'VIEWER.CATEGORY' | translate }}:</span>
               <span class="info-value">{{getCategoryTitle()}}</span>
             </div>
             <div class="info-row">
-              <span class="info-label">Format:</span>
+              <span class="info-label">{{ 'DOCUMENTS.FORMAT' | translate }}:</span>
               <span class="info-value">{{document.fileType.toUpperCase()}}</span>
             </div>
           </div>
@@ -176,7 +175,7 @@
 
         <!-- Related Documents -->
         <div class="sidebar-section" *ngIf="relatedDocuments.length > 0">
-          <h3 class="sidebar-title">İlgili Dokuman</h3>
+          <h3 class="sidebar-title">{{ 'VIEWER.RELATED_DOCUMENTS' | translate }}</h3>
           <div class="related-documents">
             <div *ngFor="let relatedDoc of relatedDocuments" 
                  class="related-doc-item"
@@ -194,23 +193,23 @@
 
         <!-- Quick Actions -->
         <div class="sidebar-section">
-          <h3 class="sidebar-title">Hızlı İşlemler</h3>
+          <h3 class="sidebar-title">{{ 'VIEWER.QUICK_ACTIONS' | translate }}</h3>
           <div class="quick-actions">
             <button class="quick-action-btn" (click)="downloadDocument()">
               <span class="material-icons">download</span>
-              <span>İndir</span>
+              <span>{{ 'ACTIONS.DOWNLOAD' | translate }}</span>
             </button>
             <button class="quick-action-btn" (click)="shareDocument()" *ngIf="canShare">
               <span class="material-icons">share</span>
-              <span>Paylaş</span>
+              <span>{{ 'ACTIONS.SHARE' | translate }}</span>
             </button>
             <button class="quick-action-btn" (click)="printDocument()">
               <span class="material-icons">print</span>
-              <span>Yazdır</span>
+              <span>{{ 'ACTIONS.PRINT' | translate }}</span>
             </button>
             <button class="quick-action-btn" (click)="goBackToCategory()">
               <span class="material-icons">arrow_back</span>
-              <span>Kategoriye Dön</span>
+              <span>{{ 'VIEWER.BACK_TO_CATEGORY' | translate }}</span>
             </button>
           </div>
         </div>
@@ -223,7 +222,7 @@
 <div *ngIf="!document && !error" class="loading-container">
   <div class="loading-spinner">
     <div class="spinner"></div>
-    <p class="loading-text">Dokuman yükleniyor...</p>
+    <p class="loading-text">{{ 'LOADING.DOCUMENT' | translate }}</p>
   </div>
 </div>
 
@@ -233,12 +232,12 @@
     <div class="error-icon">
       <span class="material-icons">error_outline</span>
     </div>
-    <h2 class="error-title">Dokuman Bulunamadı</h2>
+    <h2 class="error-title">{{ 'ERRORS.DOCUMENT_NOT_FOUND' | translate }}</h2>
     <p class="error-description">{{error}}</p>
     <div class="error-actions">
       <button class="error-btn primary" routerLink="/kaynaklar">
         <span class="material-icons">arrow_back</span>
-        <span>Kaynaklara Dön</span>
+        <span>{{ 'VIEWER.BACK_TO_RESOURCES' | translate }}</span>
       </button>
     </div>
   </div>

@@ -1,15 +1,15 @@
 <div class="doctor-profile-container">
   <div class="hero-section">
     <div class="hero-content">
-      <h1 class="hero-title">Dr. Özlem Murzoğlu</h1>
-      <p class="hero-subtitle">Çocuk Sağlığı ve Hastalıkları Uzmanı</p>
+      <h1 class="hero-title">{{ 'ABOUT.DR_PAGE.HERO_TITLE' | translate }}</h1>
+      <p class="hero-subtitle">{{ 'ABOUT.DR_PAGE.HERO_SUBTITLE' | translate }}</p>
     </div>
   </div>
 
   <div class="content-section">
     <div class="profile-layout">
       <div class="profile-image-section">
-        <img src="images/dr_murzoglu_fish.jpg" alt="Dr. Özlem Murzoğlu" class="profile-image">
+        <img src="images/dr_murzoglu_fish.jpg" [alt]="'COMMON.DOCTOR_NAME' | translate" class="profile-image">
         <div class="credentials">
           <div class="credential-item">
             <i class="fas fa-graduation-cap"></i>
@@ -17,33 +17,28 @@
           </div>
           <div class="credential-item">
             <i class="fas fa-certificate"></i>
-            <span>Pediatri Uzmanı</span>
+            <span>{{ 'ABOUT.DR_PAGE.BADGE_PEDIATRICIAN' | translate }}</span>
           </div>
           <div class="credential-item">
             <i class="fas fa-book"></i>
-            <span>Sosyal Pediatri Doktorası</span>
+            <span>{{ 'ABOUT.DR_PAGE.BADGE_SOCIAL_PEDIATRICS' | translate }}</span>
           </div>
         </div>
       </div>
 
       <div class="story-section">
-        <h2 class="section-title">Benim Hikayem</h2>
+        <h2 class="section-title">{{ 'ABOUT.DR_PAGE.MY_STORY' | translate }}</h2>
         
         <div class="story-content">
-          <p class="intro">Ben Özlem Murzoğlu.</p>
+          <p class="intro">{{ 'ABOUT.DR_PAGE.INTRO_TEXT' | translate }}</p>
 
           <div class="story-block">
-            <h3><i class="fas fa-home"></i> Köklerim</h3>
-            <p>
-              Küçük ve kendine münhasır otantik bir Karadeniz şehrinde Temel Fıkralarını yaşayarak büyüdüm. 
-              Okul öncesi en iyi arkadaşlarım olan annem ve dedemle ağaçlara, toprağa tutkumu paylaştım. 
-              Dört çocuklu bir ailenin tekne kazıntısı olarak sevgi dolu ablamın sabrını yıllarca çokça 
-              zorlayarak çok sevildim, çok sevdim.
-            </p>
+            <h3><i class="fas fa-home"></i> {{ 'ABOUT.DR_PAGE.ROOTS_TITLE' | translate }}</h3>
+            <p>{{ 'ABOUT.DR_PAGE.ROOTS_TEXT' | translate }}</p>
           </div>
 
           <div class="story-block">
-            <h3><i class="fas fa-school"></i> Eğitim Yolculuğum</h3>
+            <h3><i class="fas fa-school"></i> {{ 'ABOUT.DR_PAGE.EDUCATION_JOURNEY' | translate }}</h3>
             <p>
               İlkokula kaydımı üniversite öğrencisi olan ablam, ilkokulda dershane kaydımı ise yine 
               üniversite öğrencisi olan abim yaptırdı. Canım babamın tarif ettiği becerikli çocuk olarak 
@@ -57,7 +52,7 @@
           </div>
 
           <div class="story-block">
-            <h3><i class="fas fa-heart"></i> Aile</h3>
+            <h3><i class="fas fa-heart"></i> {{ 'ABOUT.DR_PAGE.FAMILY_TITLE' | translate }}</h3>
             <p>
               Bir süre ilaç sektöründe çalıştım. Bu sırada nesillerdir süren aile geleneğimize uyarak çoktan 
               aşık olmuştum. Feminist babaannemin çocukluğum boyunca aşılamaya çalıştığı evlilik karşıtlığına 
@@ -66,7 +61,7 @@
           </div>
 
           <div class="story-block">
-            <h3><i class="fas fa-stethoscope"></i> Pediatri Serüvenim</h3>
+            <h3><i class="fas fa-stethoscope"></i> {{ 'ABOUT.DR_PAGE.PEDIATRICS_JOURNEY_TITLE' | translate }}</h3>
             <p>
               Tüm profesyonel muhakemelerden uzak bir temellendirme ile sadece çocukları çok sevdiğim için 
               2011'de <strong>Marmara Üniversitesi</strong>'nde Pediatri ihtisasına başladım. Üniversite yaklaşımı ile 
@@ -82,7 +77,7 @@
           </div>
 
           <div class="story-block">
-            <h3><i class="fas fa-baby"></i> Sağlıklı Çocuk Hekimliği</h3>
+            <h3><i class="fas fa-baby"></i> {{ 'ABOUT.DR_PAGE.HEALTHY_CHILD' | translate }}</h3>
             <p>
               O zamana kadar hasta çocuklarla pratiği fazlaca olan bir hekimken; 2014'te kızımın doğacak 
               olması beni büyük bir merakla "Sağlıklı Çocuk Hekimliği" konusuna itti. Doyamadığım alan 
@@ -94,7 +89,7 @@
           </div>
 
           <div class="story-block">
-            <h3><i class="fas fa-clinic-medical"></i> Yeni Başlangıç</h3>
+            <h3><i class="fas fa-clinic-medical"></i> {{ 'ABOUT.DR_PAGE.NEW_BEGINNING' | translate }}</h3>
             <p>
               Hayran olduğum bir hocamın dediği gibi "İyi doktor olmak için yeterince hasta ve doğru kitaplar 
               yeter" tecrübesini doğrulama fırsatım olan işim-okulum Marmara Üniversitesi Pendik Eğitim ve 
@@ -115,17 +110,17 @@
     </div>
 
     <div class="services-section">
-      <h2 class="section-title">Hizmet Alanlarım</h2>
+      <h2 class="section-title">{{ 'ABOUT.DR_PAGE.SERVICE_AREAS' | translate }}</h2>
       <div class="services-grid">
         <div class="service-card">
           <i class="fas fa-baby-carriage"></i>
-          <h4>Sağlıklı Çocuk Takibi</h4>
-          <p>Düzenli gelişim kontrolü ve izlem</p>
+          <h4>{{ 'ABOUT.DR_PAGE.SERVICE_1' | translate }}</h4>
+          <p>{{ 'ABOUT.DR_PAGE.SERVICE_1_DESC' | translate }}</p>
         </div>
         <div class="service-card">
           <i class="fas fa-syringe"></i>
-          <h4>Aşılama</h4>
-          <p>Ulusal ve özel aşı takvimi uygulaması</p>
+          <h4>{{ 'ABOUT.DR_PAGE.SERVICE_2' | translate }}</h4>
+          <p>{{ 'ABOUT.DR_PAGE.SERVICE_2_DESC' | translate }}</p>
         </div>
         <div class="service-card">
           <i class="fas fa-heartbeat"></i>

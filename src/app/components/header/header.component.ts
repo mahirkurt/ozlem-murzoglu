@@ -54,21 +54,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
       labelKey: 'HEADER.NAV_INFO_CENTER',
       href: '/bilgi-merkezi',
       children: [
-        { label: 'Tüm Kaynaklar', href: '/bilgi-merkezi' },
-        { label: 'Aşı Bilgileri', href: '/bilgi-merkezi/asilar' },
-        { label: 'Gelişim Rehberleri', href: '/bilgi-merkezi/gelisim-rehberleri' },
-        { label: 'Genel Bilgiler', href: '/bilgi-merkezi/genel-bilgiler' },
-        { label: 'Büyüme Eğrileri', href: '/bilgi-merkezi/cdc-buyume-egrileri' },
-        { label: 'Aile Medya Planı', href: '/bilgi-merkezi/aile-medya-plani' }
+        { labelKey: 'RESOURCES.ALL_RESOURCES', href: '/bilgi-merkezi' },
+        { labelKey: 'RESOURCES.CATEGORIES.VACCINES', href: '/bilgi-merkezi/asilar' },
+        { labelKey: 'RESOURCES.CATEGORIES.DEVELOPMENT', href: '/bilgi-merkezi/gelisim-rehberleri' },
+        { labelKey: 'RESOURCES.CATEGORIES.GENERAL_INFO', href: '/bilgi-merkezi/genel-bilgiler' },
+        { labelKey: 'RESOURCES.CATEGORIES.CDC_GROWTH', href: '/bilgi-merkezi/cdc-buyume-egrileri' },
+        { labelKey: 'RESOURCES.CATEGORIES.MEDIA_PLAN', href: '/bilgi-merkezi/aile-medya-plani' }
       ]
     },
     {
-      label: 'Saygıyla',
+      labelKey: 'HEADER.NAV_RESPECT',
       href: '/saygiyla',
       children: [
-        { label: 'İlham Verenlere', href: '/saygiyla' },
-        { label: 'Teşekkürlerimiz', href: '/saygiyla/tesekkurler' },
-        { label: 'Özel Anılar', href: '/saygiyla/anilar' }
+        { labelKey: 'HEADER.NAV_INSPIRING', href: '/saygiyla' },
+        { labelKey: 'HEADER.NAV_THANKS', href: '/saygiyla/tesekkurler' },
+        { labelKey: 'HEADER.NAV_MEMORIES', href: '/saygiyla/anilar' }
       ]
     },
     {

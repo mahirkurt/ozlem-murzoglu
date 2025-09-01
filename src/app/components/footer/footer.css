@@ -248,7 +248,7 @@
 .copyright {
   margin: 0;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
 }
 
 .footer-bottom-links {
@@ -258,15 +258,15 @@
 }
 
 .footer-bottom-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
   text-decoration: none;
   font-size: 0.875rem;
-  transition: color 0.3s;
+  transition: opacity 0.3s;
   position: relative;
 }
 
 .footer-bottom-link:hover {
-  color: white;
+  opacity: 0.85;
 }
 
 .footer-bottom-link:not(:last-child)::after {

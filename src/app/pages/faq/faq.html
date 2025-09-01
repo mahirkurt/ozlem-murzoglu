@@ -8,12 +8,12 @@
     </div>
     <div class="container">
       <div class="hero-content">
-        <h1 class="page-title">Sık Sorulan Sorular</h1>
-        <p class="page-subtitle">Merak ettiğiniz konular hakkında detaylı bilgiler</p>
+        <h1 class="page-title">{{ 'FAQ.TITLE' | translate }}</h1>
+        <p class="page-subtitle">{{ 'FAQ.SUBTITLE' | translate }}</p>
         
         <div class="search-box">
           <span class="material-icons">search</span>
-          <input type="text" placeholder="Sorunuzu arayın..." />
+          <input type="text" [placeholder]="'FAQ.SEARCH_PLACEHOLDER' | translate" />
         </div>
       </div>
     </div>
@@ -26,11 +26,11 @@
       <div class="category-tabs">
         <button 
           *ngFor="let category of categories"
-          [class.active]="selectedCategory === category"
-          (click)="selectCategory(category)"
+          [class.active]="selectedCategory === category.key"
+          (click)="selectCategory(category.key)"
           class="category-tab">
-          {{category}}
-          <span class="count">{{getCategoryCount(category)}}</span>
+          {{ category.label | translate }}
+          <span class="count">{{getCategoryCount(category.key)}}</span>
         </button>
       </div>
 
@@ -44,7 +44,7 @@
           <div class="faq-header" (click)="toggleFaq(faq)">
             <div class="faq-question">
               <span class="question-number">{{i + 1 < 10 ? '0' : ''}}{{i + 1}}</span>
-              <h3>{{faq.question}}</h3>
+              <h3>{{ faq.question | translate }}</h3>
             </div>
             <button class="toggle-btn">
               <span class="material-icons">{{faq.isOpen ? 'remove' : 'add'}}</span>
@@ -53,12 +53,12 @@
           
           <div class="faq-answer" [style.maxHeight]="faq.isOpen ? '500px' : '0'">
             <div class="answer-content">
-              <p>{{faq.answer}}</p>
+              <p>{{ faq.answer | translate }}</p>
               <div class="answer-footer">
-                <span class="category-badge">{{faq.category}}</span>
+                <span class="category-badge">{{ 'FAQ.CATEGORY_' + (faq.category | uppercase) | translate }}</span>
                 <button class="helpful-btn">
                   <span class="material-icons">thumb_up</span>
-                  <span>Bu cevap yardımcı oldu</span>
+                  <span>{{ 'FAQ.HELPFUL' | translate }}</span>
                 </button>
               </div>
             </div>
@@ -69,8 +69,8 @@
       <!-- No Results -->
       <div *ngIf="filteredFaqs.length === 0" class="no-results">
         <span class="material-icons">help_outline</span>
-        <h3>Sonuç bulunamadı</h3>
-        <p>Bu kategoride henüz soru bulunmamaktadır.</p>
+        <h3>{{ 'FAQ.NO_RESULTS_TITLE' | translate }}</h3>
+        <p>{{ 'FAQ.NO_RESULTS_DESC' | translate }}</p>
       </div>
     </div>
   </div>
@@ -78,41 +78,27 @@
   <!-- Contact Section -->
   <div class="contact-section">
     <div class="container">
-      <div class="contact-card">
-        <div class="contact-illustration">
-          <div class="illustration-icon">
-            <span class="material-icons">support_agent</span>
-          </div>
-        </div>
+      <div class="contact-content">
+        <h2>{{ 'FAQ.CONTACT_TITLE' | translate }}</h2>
+        <p>{{ 'FAQ.CONTACT_DESC' | translate }}</p>
         
-        <div class="contact-content">
-          <h2>Sorunuz mu var?</h2>
-          <p>Aradığınız cevabı bulamadıysanız, bize ulaşın. Size yardımcı olmaktan mutluluk duyarız.</p>
+        <div class="contact-options">
+          <div class="contact-card">
+            <span class="material-icons">phone</span>
+            <h4>{{ 'FAQ.CALL_US' | translate }}</h4>
+            <p>{{ phoneNumber }}</p>
+          </div>
           
-          <div class="contact-options">
-            <a href="tel:+902222378400" class="contact-option">
-              <span class="material-icons">phone</span>
-              <div>
-                <h4>Bizi Arayın</h4>
-                <p>0222 237 84 00</p>
-              </div>
-            </a>
-            
-            <a href="https://wa.me/905462378400" target="_blank" class="contact-option">
-              <span class="material-icons">chat</span>
-              <div>
-                <h4>WhatsApp</h4>
-                <p>Mesaj Gönderin</p>
-              </div>
-            </a>
-            
-            <a href="mailto:info@ozlemmurzoglu.com" class="contact-option">
-              <span class="material-icons">email</span>
-              <div>
-                <h4>E-posta</h4>
-                <p>info&#64;ozlemmurzoglu.com</p>
-              </div>
-            </a>
+          <div class="contact-card">
+            <span class="material-icons">chat</span>
+            <h4>WhatsApp</h4>
+            <p>{{ whatsappNumber }}</p>
+          </div>
+          
+          <div class="contact-card">
+            <span class="material-icons">email</span>
+            <h4>{{ 'FAQ.EMAIL' | translate }}</h4>
+            <p>{{ 'FAQ.SEND_MESSAGE' | translate }}</p>
           </div>
         </div>
       </div>

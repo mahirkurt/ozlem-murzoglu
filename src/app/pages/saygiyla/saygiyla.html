@@ -9,14 +9,11 @@
       <div class="hero-content">
         <div class="hero-badge">
           <span class="badge-line"></span>
-          <span class="badge-text">SAYGIYLA</span>
+          <span class="badge-text">{{ 'SAYGIYLA.BADGE' | translate }}</span>
           <span class="badge-line"></span>
         </div>
-        <h1 class="hero-title">Tıbbın Öncüleri</h1>
-        <p class="hero-description">
-          Çocuk sağlığı ve modern tıbbın gelişimine katkıda bulunan, 
-          insanlığın sağlık yolculuğunda iz bırakan değerli isimlere saygıyla...
-        </p>
+        <h1 class="hero-title">{{ 'SAYGIYLA.PAGE_TITLE' | translate }}</h1>
+        <p class="hero-description">{{ 'SAYGIYLA.PAGE_SUBTITLE' | translate }}</p>
       </div>
     </div>
   </div>
@@ -64,7 +61,7 @@
             <!-- Card Footer -->
             <div class="card-footer">
               <a [routerLink]="pioneer.link" class="read-more-link">
-                <span>Detaylı Bilgi</span>
+                <span>{{ 'SAYGIYLA.READ_MORE' | translate }}</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -80,13 +77,10 @@
   <div class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2 class="cta-title">Bilimin Işığında, Sevgiyle</h2>
-        <p class="cta-description">
-          Bu öncü isimlerin açtığı yolda, modern tıbbın tüm imkanlarıyla 
-          çocuklarınızın sağlığı için hizmet veriyoruz.
-        </p>
+        <h2 class="cta-title">{{ 'SAYGIYLA.CTA_TITLE' | translate }}</h2>
+        <p class="cta-description">{{ 'SAYGIYLA.CTA_DESCRIPTION' | translate }}</p>
         <a routerLink="/hakkimizda" class="cta-button">
-          <span>Kliniğimizi Tanıyın</span>
+          <span>{{ 'SAYGIYLA.CTA_BUTTON' | translate }}</span>
           <span class="material-icons">arrow_forward</span>
         </a>
       </div>

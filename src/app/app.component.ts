@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Dr. Özlem Murzoğlu | Çocuk Sağlığı ve Hastalıkları Uzmanı';
+  title = '';
   locale = 'tr';
   
   // Services
@@ -52,6 +52,22 @@ export class AppComponent {
   }
   
   ngOnInit() {
-    // Language initialization is handled in constructor
+    // Set page title based on language
+    this.translate.get('COMMON.PAGE_TITLE').subscribe((title: string) => {
+      this.title = title;
+      if (typeof document !== 'undefined') {
+        document.title = title;
+      }
+    });
+    
+    // Update title when language changes
+    this.translate.onLangChange.subscribe(() => {
+      this.translate.get('COMMON.PAGE_TITLE').subscribe((title: string) => {
+        this.title = title;
+        if (typeof document !== 'undefined') {
+          document.title = title;
+        }
+      });
+    });
   }
 }

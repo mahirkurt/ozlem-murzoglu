@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Google Place ID</title>
+    <script>
+        // Test Place ID
+        const PLACE_ID = 'ChIJ83R9VUTJyhQRM2o-M-eoZyQ';
+        const API_KEY = 'AIzaSyDZNlErCHqvQYj0gh_zTwyyzj_Lwoo7V94';
+        
+        function initMap() {
+            const service = new google.maps.places.PlacesService(document.createElement('div'));
+            
+            const request = {
+                placeId: PLACE_ID,
+                fields: ['name', 'formatted_address', 'reviews', 'rating', 'user_ratings_total', 'url']
+            };
+            
+            service.getDetails(request, (place, status) => {
+                const output = document.getElementById('output');
+                
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    output.innerHTML = `
+                        <h2>Place Details:</h2>
+                        <p><strong>Name:</strong> ${place.name}</p>
+                        <p><strong>Address:</strong> ${place.formatted_address}</p>
+                        <p><strong>Rating:</strong> ${place.rating}</p>
+                        <p><strong>Total Reviews:</strong> ${place.user_ratings_total}</p>
+                        <p><strong>Google Maps URL:</strong> <a href="${place.url}" target="_blank">${place.url}</a></p>
+                        <h3>Reviews (${place.reviews ? place.reviews.length : 0}):</h3>
+                        <div id="reviews"></div>
+                    `;
+                    
+                    if (place.reviews && place.reviews.length > 0) {
+                        const reviewsDiv = document.getElementById('reviews');
+                        place.reviews.forEach(review => {
+                            reviewsDiv.innerHTML += `
+                                <div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+                                    <p><strong>${review.author_name}</strong> - ${review.rating} stars</p>
+                                    <p>${review.text}</p>
+                                    <p><small>${review.relative_time_description}</small></p>
+                                </div>
+                            `;
+                        });
+                    }
+                } else {
+                    output.innerHTML = `
+                        <h2>Error:</h2>
+                        <p>Status: ${status}</p>
+                        <p>Place ID: ${PLACE_ID}</p>
+                        <p>This Place ID might be incorrect or the API key doesn't have proper permissions.</p>
+                    `;
+                }
+            });
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZNlErCHqvQYj0gh_zTwyyzj_Lwoo7V94&libraries=places&callback=initMap&language=tr">
+    </script>
+</head>
+<body>
+    <h1>Testing Google Place ID</h1>
+    <div id="output">Loading...</div>
+</body>
+</html>

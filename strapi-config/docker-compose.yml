@@ -1,0 +1,62 @@
+version: '3'
+services:
+  strapi:
+    image: strapi/strapi:latest
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: strapi
+      DATABASE_USERNAME: strapi
+      DATABASE_PASSWORD: strapi_password
+      DATABASE_SSL: 'false'
+      NODE_ENV: development
+      APP_KEYS: 'toBeModified1,toBeModified2'
+      API_TOKEN_SALT: 'toBeModified'
+      ADMIN_JWT_SECRET: 'toBeModified'
+      JWT_SECRET: 'toBeModified'
+      # İlk admin kullanıcı
+      STRAPI_ADMIN_EMAIL: admin@ozlemmurzoglu.com
+      STRAPI_ADMIN_PASSWORD: Admin123456!
+    volumes:
+      - ./config:/opt/app/config
+      - ./src:/opt/app/src
+      - ./package.json:/opt/package.json
+      - ./yarn.lock:/opt/yarn.lock
+      - ./.env:/opt/app/.env
+      - ./public/uploads:/opt/app/public/uploads
+    ports:
+      - '1337:1337'
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_DB: strapi
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapi_password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@ozlemmurzoglu.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    ports:
+      - '5050:80'
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  pgadmin-data:

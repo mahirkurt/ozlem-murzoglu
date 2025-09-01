@@ -1,0 +1,41 @@
+FROM node:20-alpine
+
+# Install dependencies for building native modules
+RUN apk update && apk add --no-cache \
+    build-base \
+    gcc \
+    autoconf \
+    automake \
+    zlib-dev \
+    libpng-dev \
+    vips-dev \
+    git \
+    python3 \
+    make \
+    g++
+
+# Set working directory
+WORKDIR /opt/app
+
+# Create a new Strapi project
+RUN npx create-strapi-app@latest my-strapi \
+    --dbclient=postgres \
+    --dbhost=postgres \
+    --dbport=5432 \
+    --dbname=strapi \
+    --dbusername=strapi \
+    --dbpassword=strapi_password \
+    --dbssl=false \
+    --no-run \
+    --quickstart
+
+WORKDIR /opt/app/my-strapi
+
+# Build admin panel
+RUN npm run build
+
+# Expose port
+EXPOSE 1337
+
+# Start Strapi
+CMD ["npm", "run", "develop"]

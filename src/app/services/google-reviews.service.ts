@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, timer, from } from 'rxjs';
 import { map, catchError, switchMap } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 declare global {
   interface Window {
@@ -30,66 +31,71 @@ export class GoogleReviewsService {
   private readonly MIN_REVIEW_LENGTH = 100; // Minimum character count for reviews
   
   // Fallback reviews for when API is unavailable
-  private fallbackReviews: GoogleReview[] = [
+  private getFallbackReviews(): GoogleReview[] {
+    return [
     {
       author_name: 'Ayşe Yılmaz',
       rating: 5,
-      relative_time_description: '3 ay önce',
+      relative_time_description: this.translate.instant('REVIEWS.TIME_AGO.MONTHS', { count: 3 }),
       text: 'Dr. Özlem Hanım gerçekten çocuklara nasıl yaklaşılacağını bilen çok özel bir doktor. Oğlumun her kontrolünde gösterdiği özen ve sabır, verdiği detaylı bilgiler sayesinde kendimi çok daha güvende hissediyorum. Çocuk doktoru seçerken çok araştırdım, kesinlikle doğru tercih yapmışım.',
       time: Date.now() - 7776000000
     },
     {
       author_name: 'Mehmet Kaya',
       rating: 5,
-      relative_time_description: '2 ay önce',
+      relative_time_description: this.translate.instant('REVIEWS.TIME_AGO.MONTHS', { count: 2 }),
       text: 'Kliniğin temizliği ve modern ekipmanları dikkatimi çekti. Dr. Özlem Hanım\'ın sosyal pediatri yaklaşımı sayesinde kızımın doktor korkusu tamamen geçti. Randevu almak da çok kolay, asistanları da son derece ilgili ve yardımcı.',
       time: Date.now() - 5184000000
     },
     {
       author_name: 'Fatma Sezer',
       rating: 5,
-      relative_time_description: '1 ay önce',
+      relative_time_description: this.translate.instant('REVIEWS.TIME_AGO.MONTHS', { count: 1 }),
       text: 'Çocuğumun sürekli tekrarlayan enfeksiyonu vardı. Dr. Özlem Hanım\'ın doğru teşhisi ve sabırlı tedavisi sayesinde artık çok daha sağlıklı. Hem bilgisi hem de çocuklara karşı yaklaşımı mükemmel. Ailem olarak çok memnunuz.',
       time: Date.now() - 2592000000
     },
     {
       author_name: 'Ali Rıza',
       rating: 5,
-      relative_time_description: '3 hafta önce',
+      relative_time_description: this.translate.instant('REVIEWS.TIME_AGO.WEEKS', { count: 3 }),
       text: 'Oğlumun büyüme-gelişim takibi için gidiyoruz. Dr. Özlem Hanım her seferinde çok detaylı muayene yapıyor ve merak ettiğimiz her soruyu sabırla yanıtlıyor. Kliniğin atmosferi de çocuklar için çok rahat ve huzurlu.',
       time: Date.now() - 1814400000
     },
     {
       author_name: 'Zeynep Türk',
       rating: 5,
-      relative_time_description: '2 hafta önce',
+      relative_time_description: this.translate.instant('REVIEWS.TIME_AGO.WEEKS', { count: 2 }),
       text: 'İkiz bebeklerim için başvurduğumuzda Dr. Özlem Hanım bize çok destek oldu. Beslenme sorunlarımızı çözdü ve uyku düzenlerini oturtmamıza yardım etti. Gerçekten deneyimli ve çocuk seven bir doktor. Herkese tavsiye ederim.',
       time: Date.now() - 1209600000
     },
     {
       author_name: 'Burak Mutlu',
       rating: 5,
-      relative_time_description: '1 hafta önce',
+      relative_time_description: this.translate.instant('REVIEWS.TIME_AGO.WEEKS', { count: 1 }),
       text: 'Çocuğumun aşı takibi için düzenli gidiyoruz. Dr. Özlem Hanım aşılar hakkında çok detaylı bilgi veriyor ve hiç acele etmiyor. Klinikte bekleme süremiz de hiç uzun olmuyor. Randevu sistemi çok düzenli çalışıyor.',
       time: Date.now() - 604800000
     },
     {
       author_name: 'Elif Demir',
       rating: 5,
-      relative_time_description: '4 gün önce',
+      relative_time_description: this.translate.instant('REVIEWS.TIME_AGO.DAYS', { count: 4 }),
       text: 'Bebeğimin reflü problemi için başvurdum. Dr. Özlem Hanım\'ın önerileri sayesinde çok kısa sürede düzelme gördük. Ayrıca emzirme konusunda da çok değerli bilgiler verdi. Kendisi gerçekten işini çok seven ve bilgili bir doktor.',
       time: Date.now() - 345600000
     },
     {
       author_name: 'Selin Akın',
       rating: 5,
-      relative_time_description: '1 ay önce',
+      relative_time_description: this.translate.instant('REVIEWS.TIME_AGO.MONTHS', { count: 1 }),
       text: 'Kızımın alerjik astım tedavisi için Dr. Özlem Hanım\'a geldik. Tedavi planını çok detaylı açıkladı ve takipleri düzenli yaptı. Şu an çok daha iyiyiz. Ayrıca çocuklarla iletişimi harika, kızım doktor kontrollerine severek geliyor.',
       time: Date.now() - 2592000000
     }
   ];
+  }
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private translate: TranslateService
+  ) {}
 
   /**
    * Fetches reviews from Google Places API
@@ -106,7 +112,7 @@ export class GoogleReviewsService {
       catchError((error) => {
         console.error('Error with Google Maps API:', error);
         console.log('Using fallback reviews');
-        return of(this.fallbackReviews);
+        return of(this.getFallbackReviews());
       })
     );
   }
@@ -145,7 +151,7 @@ export class GoogleReviewsService {
   private fetchReviewsViaJavaScriptAPI(): Observable<GoogleReview[]> {
     return new Observable(observer => {
       if (!window.google || !window.google.maps) {
-        observer.next(this.fallbackReviews);
+        observer.next(this.getFallbackReviews());
         observer.complete();
         return;
       }
@@ -163,10 +169,10 @@ export class GoogleReviewsService {
         if (status === window.google.maps.places.PlacesServiceStatus.OK && place.reviews) {
           console.log(`Fetched ${place.reviews.length} Google reviews`);
           const processedReviews = this.processReviews(place.reviews);
-          observer.next(processedReviews.length > 0 ? processedReviews : this.fallbackReviews);
+          observer.next(processedReviews.length > 0 ? processedReviews : this.getFallbackReviews());
         } else {
           console.log('No reviews found or error, using fallback');
-          observer.next(this.fallbackReviews);
+          observer.next(this.getFallbackReviews());
         }
         observer.complete();
       });
@@ -291,19 +297,19 @@ export class GoogleReviewsService {
     const years = Math.floor(days / 365);
 
     if (years > 0) {
-      return `${years} yıl önce`;
+      return this.translate.instant('REVIEWS.TIME_AGO.YEARS', { count: years });
     } else if (months > 0) {
-      return `${months} ay önce`;
+      return this.translate.instant('REVIEWS.TIME_AGO.MONTHS', { count: months });
     } else if (weeks > 0) {
-      return `${weeks} hafta önce`;
+      return this.translate.instant('REVIEWS.TIME_AGO.WEEKS', { count: weeks });
     } else if (days > 0) {
-      return `${days} gün önce`;
+      return this.translate.instant('REVIEWS.TIME_AGO.DAYS', { count: days });
     } else if (hours > 0) {
-      return `${hours} saat önce`;
+      return this.translate.instant('REVIEWS.TIME_AGO.HOURS', { count: hours });
     } else if (minutes > 0) {
-      return `${minutes} dakika önce`;
+      return this.translate.instant('REVIEWS.TIME_AGO.MINUTES', { count: minutes });
     } else {
-      return 'Az önce';
+      return this.translate.instant('REVIEWS.TIME_AGO.JUST_NOW');
     }
   }
 }

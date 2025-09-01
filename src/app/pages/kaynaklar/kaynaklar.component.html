@@ -1,31 +1,28 @@
 <div class="content-container" [@listAnimation]="sections.length">
   <!-- SAYFA BAŞLIĞI VE GİRİŞ METNİ -->
   <header class="page-header">
-    <h1 class="page-title">Çocuğunuzun Sağlığı İçin Güvenilir Kaynaklar</h1>
-    <p class="page-lead">
-      Amerikan Pediatri Akademisi'nin hazırladığı güvenilir bilgilerle, çocuğunuzun her yaş döneminde yanınızdayız. 
-      Bu dijital sığınakta, ihtiyacınız olan tüm bilgileri bulabilir ve çocuğunuzun gelişimine güvenle eşlik edebilirsiniz.
-    </p>
+    <h1 class="page-title">{{ 'RESOURCES.PAGE_TITLE' | translate }}</h1>
+    <p class="page-lead">{{ 'RESOURCES.SUBTITLE' | translate }}</p>
   </header>
 
   <!-- ARAMA BÖLÜMÜ (VURGU KARTI) -->
   <mat-card class="info-card accent-card search-card" *ngIf="showSearch">
     <mat-card-header>
       <mat-icon mat-card-avatar>search</mat-icon>
-      <mat-card-title class="section-headline">Hızlı Arama</mat-card-title>
+      <mat-card-title class="section-headline">{{ 'COMMON.SEARCH' | translate }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <mat-form-field appearance="outline" class="search-field">
-        <mat-label>Dokümanlarda ara...</mat-label>
+        <mat-label>{{ 'RESOURCES.SEARCH_PLACEHOLDER' | translate }}</mat-label>
         <input matInput 
                [(ngModel)]="searchQuery"
                (input)="onSearchChange($event)"
-               placeholder="Örn: aşı takvimi, uyku düzeni, emzirme">
+               [placeholder]="'RESOURCES.SEARCH_PLACEHOLDER' | translate">
         <mat-icon matSuffix>search</mat-icon>
         <button mat-icon-button matSuffix 
                 *ngIf="searchQuery" 
                 (click)="clearSearch()"
-                aria-label="Temizle">
+                [attr.aria-label]="'ACTIONS.CLEAR' | translate">
           <mat-icon>clear</mat-icon>
         </button>
       </mat-form-field>
@@ -35,7 +32,7 @@
         <mat-divider></mat-divider>
         <h3 class="results-title">
           <mat-icon>check_circle</mat-icon>
-          {{ searchResults.length }} sonuç bulundu
+          {{ searchResults.length }} {{ 'SEARCH.RESULTS_FOUND' | translate }}
         </h3>
         <mat-list>
           <mat-list-item *ngFor="let doc of searchResults" 
@@ -55,17 +52,17 @@
     <mat-card class="stat-card">
       <mat-icon>folder_open</mat-icon>
       <div class="stat-number">{{ categories.length }}</div>
-      <div class="stat-label">Kategori</div>
+      <div class="stat-label">{{ 'RESOURCES.CATEGORY' | translate }}</div>
     </mat-card>
     <mat-card class="stat-card">
       <mat-icon>description</mat-icon>
       <div class="stat-number">{{ getTotalDocumentCount() }}</div>
-      <div class="stat-label">Doküman</div>
+      <div class="stat-label">{{ 'RESOURCES.DOCUMENT' | translate }}</div>
     </mat-card>
     <mat-card class="stat-card">
       <mat-icon>verified</mat-icon>
       <div class="stat-number">AAP</div>
-      <div class="stat-label">Onaylı</div>
+      <div class="stat-label">{{ 'RESOURCES.APPROVED' | translate }}</div>
     </mat-card>
   </section>
 
@@ -116,7 +113,7 @@
                            class="category-item">
               <mat-icon matListItemIcon>{{ getQuickAccessIcon(cat.id) }}</mat-icon>
               <div matListItemTitle>{{ cat.title }}</div>
-              <div matListItemLine>{{ cat.documentCount }} doküman</div>
+              <div matListItemLine>{{ cat.documentCount }} {{ 'RESOURCES.DOCUMENT' | translate | lowercase }}</div>
               <mat-icon matListItemMeta>arrow_forward</mat-icon>
             </mat-list-item>
           </mat-list>
@@ -167,7 +164,7 @@
   <section class="popular-section" *ngIf="popularDocuments.length > 0">
     <h2 class="section-title">
       <mat-icon>star</mat-icon>
-      En Çok İndirilen Dokümanlar
+      {{ 'RESOURCES.MOST_DOWNLOADED' | translate }}
     </h2>
     <div class="popular-grid">
       <mat-card *ngFor="let doc of popularDocuments" 
@@ -196,8 +193,7 @@
     <mat-card class="footer-card">
       <mat-icon>info</mat-icon>
       <p>
-        Tüm dokümanlar Amerikan Pediatri Akademisi (AAP) ve güvenilir sağlık kuruluşları tarafından hazırlanmıştır.
-        Bilgiler güncel tutulmaya çalışılmaktadır ancak her zaman doktorunuza danışmanız önerilir.
+        {{ 'RESOURCES.DISCLAIMER' | translate }}
       </p>
     </mat-card>
   </footer>

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=drmahirkurt@gmail.com
+      - N8N_BASIC_AUTH_PASSWORD=%Mkhu7979
+      - N8N_LICENSE_ACTIVATION_KEY=f63603e2-f40e-4ecc-952a-90e2a1f8a6b4
+      - N8N_PUBLIC_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNTBiNzViNS00MDAxLTQxNjktOGJiMS00ZmFiOGYyZGEwYTUiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzU2NDc3NTczfQ.qnV1rCuMtDPzELhkEWLRmERimFieKcW1_7IFv9oCya4
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=production
+      - WEBHOOK_URL=http://localhost:5678/
+      - GENERIC_TIMEZONE=Europe/Istanbul
+      - N8N_RUNNERS_ENABLED=true
+      - DB_SQLITE_POOL_SIZE=2
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+      - ./local_files:/files

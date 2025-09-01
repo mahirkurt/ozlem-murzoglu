@@ -77,7 +77,7 @@ export class AppointmentComponent {
     // Basit validasyon
     if (!this.formData.parentName || !this.formData.parentPhone || 
         !this.formData.childName || !this.formData.preferredDate) {
-      alert('Lütfen zorunlu alanları doldurun');
+      alert(this.translate.instant('APPOINTMENT.VALIDATION.REQUIRED_FIELDS'));
       return false;
     }
     return true;

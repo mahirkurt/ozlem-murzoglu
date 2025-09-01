@@ -13,8 +13,8 @@ import { HeroSectionComponent } from '../../../shared/components/hero-section/he
 })
 export class AnilarComponent {
   breadcrumbs = [
-    { label: 'Ana Sayfa', route: '/' },
-    { label: 'Saygıyla', route: '/saygiyla' },
-    { label: 'Anılar', route: '/saygiyla/anilar' }
+    { labelKey: 'HEADER.NAV_HOME', route: '/' },
+    { labelKey: 'HEADER.NAV_RESPECT', route: '/saygiyla' },
+    { labelKey: 'HEADER.NAV_MEMORIES', route: '/saygiyla/anilar' }
   ];
 }

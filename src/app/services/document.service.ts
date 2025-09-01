@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 export interface Document {
   id: string;
@@ -26,6 +27,21 @@ export interface DocumentCategory {
   providedIn: 'root'
 })
 export class DocumentService {
+  constructor(private translate: TranslateService) {}
+
+  getCategories(): DocumentCategory[] {
+    return this.categories.map(cat => ({
+      ...cat,
+      title: this.translate.instant(`DOCUMENTS.CATEGORIES.${cat.id.toUpperCase().replace(/-/g, '_')}.TITLE`),
+      description: this.translate.instant(`DOCUMENTS.CATEGORIES.${cat.id.toUpperCase().replace(/-/g, '_')}.DESCRIPTION`),
+      documents: cat.documents.map(doc => ({
+        ...doc,
+        title: this.translate.instant(`DOCUMENTS.${cat.id.toUpperCase().replace(/-/g, '_')}.${doc.id.toUpperCase().replace(/-/g, '_')}.TITLE`),
+        description: this.translate.instant(`DOCUMENTS.${cat.id.toUpperCase().replace(/-/g, '_')}.${doc.id.toUpperCase().replace(/-/g, '_')}.DESCRIPTION`)
+      }))
+    }));
+  }
+
   private categories: DocumentCategory[] = [
     {
       id: 'aile-medya-plani',
@@ -1246,16 +1262,14 @@ export class DocumentService {
     }
   ];
 
-  getCategories(): DocumentCategory[] {
-    return this.categories;
-  }
-
   getCategoryById(id: string): DocumentCategory | undefined {
-    return this.categories.find(category => category.id === id);
+    const categories = this.getCategories();
+    return categories.find(category => category.id === id);
   }
 
   getDocumentById(documentId: string): Document | undefined {
-    for (const category of this.categories) {
+    const categories = this.getCategories();
+    for (const category of categories) {
       const document = category.documents.find(doc => doc.id === documentId);
       if (document) {
         return document;
@@ -1267,8 +1281,9 @@ export class DocumentService {
   searchDocuments(query: string): Document[] {
     const lowerQuery = query.toLowerCase();
     const results: Document[] = [];
+    const categories = this.getCategories();
     
-    for (const category of this.categories) {
+    for (const category of categories) {
       for (const document of category.documents) {
         if (
           document.title.toLowerCase().includes(lowerQuery) ||

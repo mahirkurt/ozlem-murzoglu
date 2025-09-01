@@ -1,7 +1,7 @@
 /* Import enhanced MD3 content styles */
 @import '../../resource-content-styles.css';
 
-/* Dynamic Hero Gradient */
+/* Dynamic Hero Gradient with Hexagon Pattern */
 .resource-hero.dynamic-gradient {
   background: linear-gradient(135deg, #005F73 0%, #0A9396 25%, #94D3AC 50%, #0A9396 75%, #005F73 100%);
   background-size: 400% 400%;
@@ -16,13 +16,36 @@
   100% { background-position: 0% 50%; }
 }
 
+/* Hexagon Pattern Overlay */
+.hero-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.15;
+  background-image: 
+    repeating-linear-gradient(30deg, transparent, transparent 35px, rgba(255,255,255,0.1) 35px, rgba(255,255,255,0.1) 70px),
+    repeating-linear-gradient(-30deg, transparent, transparent 35px, rgba(255,255,255,0.05) 35px, rgba(255,255,255,0.05) 70px),
+    repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(255,255,255,0.03) 35px, rgba(255,255,255,0.03) 70px);
+  animation: hexagonFloat 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hexagonFloat {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-10px) translateX(5px); }
+  50% { transform: translateY(5px) translateX(-5px); }
+  75% { transform: translateY(-5px) translateX(10px); }
+}
+
 .resource-hero .gradient-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 100%);
   z-index: 1;
 }
 
@@ -79,23 +102,30 @@
 
 /* İçerik Bölümleri */
 .content-section {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   padding: 2rem;
   border-radius: var(--radius-lg);
   background: white;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .content-section:first-child {
   margin-top: 0; /* İlk bölümün üstündeki boşluğu kaldır */
 }
 
-/* Gradient Arka Planlar */
+.content-section:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Gradient Arka Planlar - Soft Styles */
 .gradient-section {
-  background: linear-gradient(135deg, #ffffff 0%, #ffffff 60%);
-  border: 2px solid transparent;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  border: none;
   position: relative;
 }
 
@@ -105,13 +135,13 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 3px;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  opacity: 0.7;
 }
 
 .purple-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, var(--brand-teal-bg) 100%);
-  border-color: var(--brand-teal);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(0, 95, 115, 0.03) 100%);
 }
 
 .purple-gradient::before {
@@ -119,8 +149,7 @@
 }
 
 .green-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, var(--brand-green-bg) 100%);
-  border-color: var(--brand-green);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(10, 147, 150, 0.03) 100%);
 }
 
 .green-gradient::before {
@@ -183,6 +212,7 @@
   color: #1a1a1a;
   margin: 0;
   letter-spacing: -0.5px;
+  text-transform: capitalize;
 }
 
 /* İçerik Grid Sistemi */
@@ -340,10 +370,11 @@
   padding: 0.75rem;
   background: linear-gradient(135deg, #f8f8f8, #ffffff);
   border-radius: var(--radius-sm);
-  border-left: 3px solid var(--brand-green);
+  border-left: 3px solid rgba(10, 147, 150, 0.3);
   font-size: 0.9rem;
   color: #444;
   transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .sub-item-card:hover {

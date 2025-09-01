@@ -1,0 +1,61 @@
+services:
+  postgres:
+    image: postgres:14-alpine
+    container_name: strapi-postgres
+    environment:
+      POSTGRES_DB: strapi
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapi_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - strapi
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U strapi"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  strapi:
+    image: node:20-alpine
+    container_name: strapi-cms
+    working_dir: /srv/app
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: strapi
+      DATABASE_USERNAME: strapi
+      DATABASE_PASSWORD: strapi_password
+      DATABASE_SSL: false
+      NODE_ENV: development
+      APP_KEYS: "toBeModified1,toBeModified2"
+      API_TOKEN_SALT: tobemodified
+      ADMIN_JWT_SECRET: tobemodified
+      JWT_SECRET: tobemodified
+      TRANSFER_TOKEN_SALT: tobemodified
+    volumes:
+      - ./strapi-app:/srv/app
+      - ./init-strapi.sh:/init-strapi.sh
+    ports:
+      - "1337:1337"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - strapi
+    command: >
+      sh -c "
+        apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git python3 make g++ netcat-openbsd &&
+        chmod +x /init-strapi.sh &&
+        /init-strapi.sh
+      "
+
+networks:
+  strapi:
+    driver: bridge
+
+volumes:
+  postgres_data:

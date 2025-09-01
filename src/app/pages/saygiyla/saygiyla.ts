@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 interface Pioneer {
   id: string;
@@ -16,80 +17,93 @@ interface Pioneer {
 @Component({
   selector: 'app-saygiyla',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './saygiyla.html',
   styleUrl: './saygiyla.css'
 })
-export class SaygiylaComponent {
-  pioneers: Pioneer[] = [
+export class SaygiylaComponent implements OnInit {
+  pioneers: Pioneer[] = [];
+
+  constructor(private translate: TranslateService) {}
+
+  ngOnInit(): void {
+    this.loadPioneers();
+    this.translate.onLangChange.subscribe(() => {
+      this.loadPioneers();
+    });
+  }
+
+  private loadPioneers(): void {
+    this.pioneers = [
     {
       id: 'jonas-salk',
-      name: 'Dr. Jonas Salk',
-      title: 'Çocuk Felci Aşısının Mucidi',
-      lifespan: '1914 - 1995',
+      name: this.translate.instant('SAYGIYLA.PIONEERS.JONAS_SALK.NAME'),
+      title: this.translate.instant('SAYGIYLA.PIONEERS.JONAS_SALK.TITLE'),
+      lifespan: this.translate.instant('SAYGIYLA.PIONEERS.JONAS_SALK.LIFESPAN'),
       contributions: [
-        'Polyo (çocuk felci) aşısını geliştirdi',
-        'Milyonlarca çocuğun hayatını kurtardı',
-        'Aşı patentini almayarak insanlığa armağan etti',
-        'Salk Enstitüsü\'nü kurdu'
+        this.translate.instant('SAYGIYLA.PIONEERS.JONAS_SALK.CONTRIBUTION_1'),
+        this.translate.instant('SAYGIYLA.PIONEERS.JONAS_SALK.CONTRIBUTION_2'),
+        this.translate.instant('SAYGIYLA.PIONEERS.JONAS_SALK.CONTRIBUTION_3'),
+        this.translate.instant('SAYGIYLA.PIONEERS.JONAS_SALK.CONTRIBUTION_4')
       ],
-      quote: 'Güneşi patentleyebilir misiniz?',
+      quote: this.translate.instant('SAYGIYLA.PIONEERS.JONAS_SALK.QUOTE'),
       link: '/saygiyla/jonas-salk'
     },
     {
       id: 'louis-pasteur',
-      name: 'Louis Pasteur',
-      title: 'Mikrobiyolojinin Babası',
-      lifespan: '1822 - 1895',
+      name: this.translate.instant('SAYGIYLA.PIONEERS.LOUIS_PASTEUR.NAME'),
+      title: this.translate.instant('SAYGIYLA.PIONEERS.LOUIS_PASTEUR.TITLE'),
+      lifespan: this.translate.instant('SAYGIYLA.PIONEERS.LOUIS_PASTEUR.LIFESPAN'),
       contributions: [
-        'Pastörizasyon yöntemini geliştirdi',
-        'Kuduz aşısını buldu',
-        'Mikrop teorisini kanıtladı',
-        'Modern tıbbın temellerini attı'
+        this.translate.instant('SAYGIYLA.PIONEERS.LOUIS_PASTEUR.CONTRIBUTION_1'),
+        this.translate.instant('SAYGIYLA.PIONEERS.LOUIS_PASTEUR.CONTRIBUTION_2'),
+        this.translate.instant('SAYGIYLA.PIONEERS.LOUIS_PASTEUR.CONTRIBUTION_3'),
+        this.translate.instant('SAYGIYLA.PIONEERS.LOUIS_PASTEUR.CONTRIBUTION_4')
       ],
-      quote: 'Bilim bir ülkeye değil, insanlığa aittir.',
+      quote: this.translate.instant('SAYGIYLA.PIONEERS.LOUIS_PASTEUR.QUOTE'),
       link: '/saygiyla/louis-pasteur'
     },
     {
       id: 'nils-rosen',
-      name: 'Nils Rosén von Rosenstein',
-      title: 'Modern Pediatrinin Kurucusu',
-      lifespan: '1706 - 1773',
+      name: this.translate.instant('SAYGIYLA.PIONEERS.NILS_ROSEN.NAME'),
+      title: this.translate.instant('SAYGIYLA.PIONEERS.NILS_ROSEN.TITLE'),
+      lifespan: this.translate.instant('SAYGIYLA.PIONEERS.NILS_ROSEN.LIFESPAN'),
       contributions: [
-        'İlk pediatri ders kitabını yazdı',
-        'Çocuk hastalıklarını sistematik olarak sınıflandırdı',
-        'Çocuk ölüm oranlarının azalmasına katkıda bulundu',
-        'Uppsala Üniversitesi\'nde pediatri eğitimini başlattı'
+        this.translate.instant('SAYGIYLA.PIONEERS.NILS_ROSEN.CONTRIBUTION_1'),
+        this.translate.instant('SAYGIYLA.PIONEERS.NILS_ROSEN.CONTRIBUTION_2'),
+        this.translate.instant('SAYGIYLA.PIONEERS.NILS_ROSEN.CONTRIBUTION_3'),
+        this.translate.instant('SAYGIYLA.PIONEERS.NILS_ROSEN.CONTRIBUTION_4')
       ],
-      quote: 'Çocukların sağlığı, bir ulusun geleceğidir.',
+      quote: this.translate.instant('SAYGIYLA.PIONEERS.NILS_ROSEN.QUOTE'),
       link: '/saygiyla/nils-rosen'
     },
     {
       id: 'waldo-nelson',
-      name: 'Dr. Waldo Nelson',
-      title: 'Nelson Pediatri Ders Kitabının Yazarı',
-      lifespan: '1898 - 1997',
+      name: this.translate.instant('SAYGIYLA.PIONEERS.WALDO_NELSON.NAME'),
+      title: this.translate.instant('SAYGIYLA.PIONEERS.WALDO_NELSON.TITLE'),
+      lifespan: this.translate.instant('SAYGIYLA.PIONEERS.WALDO_NELSON.LIFESPAN'),
       contributions: [
-        'Nelson Textbook of Pediatrics\'in yazarı',
-        'Modern pediatri eğitiminin öncüsü',
-        'Çocuk sağlığı araştırmalarına öncülük etti',
-        'Pediatri uzmanlık eğitimini standartlaştırdı'
+        this.translate.instant('SAYGIYLA.PIONEERS.WALDO_NELSON.CONTRIBUTION_1'),
+        this.translate.instant('SAYGIYLA.PIONEERS.WALDO_NELSON.CONTRIBUTION_2'),
+        this.translate.instant('SAYGIYLA.PIONEERS.WALDO_NELSON.CONTRIBUTION_3'),
+        this.translate.instant('SAYGIYLA.PIONEERS.WALDO_NELSON.CONTRIBUTION_4')
       ],
       link: '/saygiyla/waldo-nelson'
     },
     {
       id: 'ursula-leguin',
-      name: 'Ursula K. Le Guin',
-      title: 'Yazar ve Düşünür',
-      lifespan: '1929 - 2018',
+      name: this.translate.instant('SAYGIYLA.PIONEERS.URSULA_LEGUIN.NAME'),
+      title: this.translate.instant('SAYGIYLA.PIONEERS.URSULA_LEGUIN.TITLE'),
+      lifespan: this.translate.instant('SAYGIYLA.PIONEERS.URSULA_LEGUIN.LIFESPAN'),
       contributions: [
-        'Bilimkurgu ve fantezi edebiyatının öncüsü',
-        'Çocuk edebiyatına katkıları',
-        'Toplumsal cinsiyet ve eşitlik konularında öncü',
-        'Earthsea serisi ile çocuk edebiyatını zenginleştirdi'
+        this.translate.instant('SAYGIYLA.PIONEERS.URSULA_LEGUIN.CONTRIBUTION_1'),
+        this.translate.instant('SAYGIYLA.PIONEERS.URSULA_LEGUIN.CONTRIBUTION_2'),
+        this.translate.instant('SAYGIYLA.PIONEERS.URSULA_LEGUIN.CONTRIBUTION_3'),
+        this.translate.instant('SAYGIYLA.PIONEERS.URSULA_LEGUIN.CONTRIBUTION_4')
       ],
-      quote: 'Çocuklar yetişkinlerden daha az ciddi okuyucular değildir.',
+      quote: this.translate.instant('SAYGIYLA.PIONEERS.URSULA_LEGUIN.QUOTE'),
       link: '/saygiyla/ursula-leguin'
     }
   ];
+  }
 }
