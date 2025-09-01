@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 export interface BlogArticle {
   id: string;
@@ -20,12 +21,15 @@ export interface BlogArticle {
   providedIn: 'root'
 })
 export class BlogService {
-  private articles: BlogArticle[] = [
+  constructor(private translate: TranslateService) {}
+  
+  private getArticles(): BlogArticle[] {
+    return [
     {
       id: '1',
       slug: 'dis-cikarma-sureci',
-      title: 'Diş Çıkarma Süreci',
-      excerpt: 'Bebeğinizde diş çıkarma süreci nasıl geçer? Bu doğal süreçte nelere dikkat etmelisiniz?',
+      title: this.translate.instant('BLOG.ARTICLES.TEETHING.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.TEETHING.EXCERPT'),
       content: `
         <h2>Diş Çıkarma Süreci</h2>
         <p>Diş çıkarma süreci genellikle 6 ay civarında başlar ve yaklaşık 2 yaşına kadar devam eder. İlk dişler genellikle 6 ay civarında çıkmaya başlar ve çoğunlukla alt ön dişlerdir. Çoğu çocukta 3 yaşına kadar tüm süt dişleri çıkmış olacaktır.</p>
@@ -63,7 +67,7 @@ export class BlogService {
         
         <p>Diş çıkarma sürecinde bireysel rehberlik için pediatristle görüşmeniz önemlidir.</p>
       `,
-      category: 'Bebek Bakımı',
+      category: this.translate.instant('BLOG.CATEGORIES.BABY_CARE'),
       tags: ['diş çıkarma', 'bebek', 'diş eti', 'teething'],
       date: '15 Mart 2024',
       readTime: 5,
@@ -74,8 +78,8 @@ export class BlogService {
     {
       id: '2',
       slug: 'cocuklar-arasi-zorbalik',
-      title: 'Çocuklar Arası Zorbalık',
-      excerpt: 'Zorbalık nedir, nasıl fark edilir ve çocuklarımızı nasıl koruyabiliriz?',
+      title: this.translate.instant('BLOG.ARTICLES.BULLYING.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.BULLYING.EXCERPT'),
       content: `
         <h2>Çocuklar Arası Zorbalık</h2>
         <p>Zorbalık, "bir çocuğun başka bir çocuğa tekrar tekrar saldırması" olarak tanımlanır ve güç dengesizliği olduğunda gerçekleşir.</p>
@@ -125,7 +129,7 @@ export class BlogService {
         
         <p>İletişim, destek ve çocuklar için güvenli bir ortam yaratmanın önemi vurgulanmaktadır.</p>
       `,
-      category: 'Çocuk Psikolojisi',
+      category: this.translate.instant('BLOG.CATEGORIES.CHILD_PSYCHOLOGY'),
       tags: ['zorbalık', 'okul', 'çocuk psikolojisi', 'güvenlik'],
       date: '10 Mart 2024',
       readTime: 6,
@@ -136,8 +140,8 @@ export class BlogService {
     {
       id: '3',
       slug: 'emzik-ve-emzik-birakma',
-      title: 'Emzikler ve Emzik Bırakma',
-      excerpt: 'Emzik kullanımı ve doğru zamanda bırakma stratejileri hakkında bilgiler.',
+      title: this.translate.instant('BLOG.ARTICLES.PACIFIER.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.PACIFIER.EXCERPT'),
       content: `
         <h2>Emzikler ve Emzik Bırakma</h2>
         <p>Emzikler bebeğin doğal emme içgüdüsünü karşılar ve onları sakinleştirmeye yardımcı olabilir. 6 aydan önce kullanıldığında Ani Bebek Ölümü Sendromu (SIDS) riskini azaltabilir.</p>
@@ -174,7 +178,7 @@ export class BlogService {
         
         <p>Makale, çocukların emzik kullanımından uzaklaşmalarına yardımcı olurken nazik ve destekleyici bir yaklaşım vurgulamaktadır.</p>
       `,
-      category: 'Bebek Bakımı',
+      category: this.translate.instant('BLOG.CATEGORIES.BABY_CARE'),
       tags: ['emzik', 'bebek', 'bırakma', 'gelişim'],
       date: '5 Mart 2024',
       readTime: 7,
@@ -185,8 +189,8 @@ export class BlogService {
     {
       id: '4',
       slug: 'tuvalet-egitimi',
-      title: 'Tuvalet Eğitimi',
-      excerpt: 'Tuvalet eğitiminin doğru zamanı ve etkili stratejiler.',
+      title: this.translate.instant('BLOG.ARTICLES.POTTY_TRAINING.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.POTTY_TRAINING.EXCERPT'),
       content: `
         <h2>Tuvalet Eğitimi</h2>
         <p>Tuvalet eğitimi genellikle 18 ay ile 4 yaş arasında gerçekleşir. Her çocuk farklı gelişir, bu nedenle karşılaştırmalardan kaçının.</p>
@@ -227,7 +231,7 @@ export class BlogService {
         
         <p>Makale sabır, bireyselleştirilmiş yaklaşım ve tuvalet eğitimi için olumlu bir öğrenme ortamı yaratmayı vurgulamaktadır.</p>
       `,
-      category: 'Çocuk Gelişimi',
+      category: this.translate.instant('BLOG.CATEGORIES.CHILD_DEVELOPMENT'),
       tags: ['tuvalet eğitimi', 'çocuk gelişimi', 'ebeveynlik'],
       date: '28 Şubat 2024',
       readTime: 8,
@@ -238,8 +242,8 @@ export class BlogService {
     {
       id: '5',
       slug: 'bir-ergenle-iletisim-kurmak',
-      title: 'Bir Ergenle İletişim Kurmak',
-      excerpt: 'Ergenlik dönemindeki çocuklarla etkili iletişim kurma yolları.',
+      title: this.translate.instant('BLOG.ARTICLES.TEEN_COMMUNICATION.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.TEEN_COMMUNICATION.EXCERPT'),
       content: `
         <h2>Bir Ergenle İletişim Kurmak</h2>
         <p>Ergenler bağımsız düşünceler, duygular ve değerler geliştirmektedir. Artık çocuk değiller ancak henüz yetişkin de değiller. Ebeveynler bu geçiş sırasında çocuklarının güvenliği konusunda endişe duyarlar.</p>
@@ -288,7 +292,7 @@ export class BlogService {
         
         <p>Makale ergenlik yıllarında gezinmek için anlayış, saygı ve açık iletişimin anahtar olduğunu vurgulamaktadır.</p>
       `,
-      category: 'Ergenlik',
+      category: this.translate.instant('BLOG.CATEGORIES.ADOLESCENCE'),
       tags: ['ergenlik', 'iletişim', 'ebeveynlik', 'çocuk psikolojisi'],
       date: '20 Şubat 2024',
       readTime: 9,
@@ -299,8 +303,8 @@ export class BlogService {
     {
       id: '6',
       slug: 'araba-guvenlik-koltuklari',
-      title: 'Araba Güvenlik Koltukları',
-      excerpt: 'Çocuk güvenliği için doğru araç koltuğu seçimi ve kullanımı.',
+      title: this.translate.instant('BLOG.ARTICLES.CAR_SAFETY.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.CAR_SAFETY.EXCERPT'),
       content: `
         <h2>Araba Güvenlik Koltukları</h2>
         <p>13 yaşın altındaki çocuklar her zaman arka koltukta seyahat etmelidir. Bebekler ve küçük çocuklar en az 2 yaşına, tercihen 4 yaşına kadar arkaya dönük araç koltukları kullanmalıdır.</p>
@@ -329,7 +333,7 @@ export class BlogService {
         
         <p>Makale, ulaşım sırasında çocuk güvenliği için uygun araç koltuğu kullanımının kritik önemde olduğunu, farklı yaş ve boylar için uygun araç koltukları seçme ve kurma konusunda detaylı rehberlik sağlayarak vurgulamaktadır.</p>
       `,
-      category: 'Güvenlik',
+      category: this.translate.instant('BLOG.CATEGORIES.SAFETY'),
       tags: ['araç güvenliği', 'çocuk koltuğu', 'güvenlik', 'seyahat'],
       date: '15 Şubat 2024',
       readTime: 6,
@@ -340,8 +344,8 @@ export class BlogService {
     {
       id: '7',
       slug: 'guvenli-uyku',
-      title: 'Güvenli Uyku',
-      excerpt: 'Bebeklerde güvenli uyku ve Ani Bebek Ölümü Sendromundan korunma.',
+      title: this.translate.instant('BLOG.ARTICLES.SAFE_SLEEP.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.SAFE_SLEEP.EXCERPT'),
       content: `
         <h2>Güvenli Uyku ve Ani Bebek Ölümünden Korunma</h2>
         
@@ -374,7 +378,7 @@ export class BlogService {
         
         <p>Makale, Ani Bebek Ölümü Sendromu'nun (SIDS) 5.000 bebekten 1'ini etkilediğini ve bu kılavuzların riski önemli ölçüde azaltabileceğini vurgulamaktadır.</p>
       `,
-      category: 'Bebek Bakımı',
+      category: this.translate.instant('BLOG.CATEGORIES.BABY_CARE'),
       tags: ['güvenli uyku', 'SIDS', 'bebek güvenliği', 'uyku'],
       date: '10 Şubat 2024',
       readTime: 5,
@@ -385,8 +389,8 @@ export class BlogService {
     {
       id: '8',
       slug: 'saglikli-disler',
-      title: 'Sağlıklı Dişler',
-      excerpt: 'Çocuklarda diş sağlığını koruma ve çürük önleme stratejileri.',
+      title: this.translate.instant('BLOG.ARTICLES.HEALTHY_TEETH.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.HEALTHY_TEETH.EXCERPT'),
       content: `
         <h2>Sağlıklı Dişler</h2>
         <p>Diş çürükleri en yaygın kronik çocukluk hastalığıdır. 12-18 yaş arası çocukların %60'ında en az bir çürük bulunur. Çürükler, asit üreten bakterilerin diş minesini aşındırmasıyla oluşur.</p>
@@ -423,7 +427,7 @@ export class BlogService {
         
         <p>Makale, diş çürüklerinden korunmak için bebeklikten itibaren başlayan önleyici diş bakımını vurgulamaktadır.</p>
       `,
-      category: 'Diş Sağlığı',
+      category: this.translate.instant('BLOG.CATEGORIES.DENTAL_HEALTH'),
       tags: ['diş sağlığı', 'çürük önleme', 'florür', 'ağız bakımı'],
       date: '5 Şubat 2024',
       readTime: 6,
@@ -434,8 +438,8 @@ export class BlogService {
     {
       id: '9',
       slug: 'emzik-parmak-emme',
-      title: 'Emzik & Parmak Emme',
-      excerpt: 'Emzik kullanımı ve parmak emme davranışları hakkında rehber.',
+      title: this.translate.instant('BLOG.ARTICLES.THUMB_SUCKING.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.THUMB_SUCKING.EXCERPT'),
       content: `
         <h2>Emzik & Parmak Emme</h2>
         <p>Emme bebekler için doğal bir reflekstir, doğum öncesi ultrason görüntülerinde bile görülür. Emme rahatlık sağlar ve bebeklerin kendilerini güvende hissetmelerine yardımcı olur.</p>
@@ -472,7 +476,7 @@ export class BlogService {
         
         <p>Makale, hem emzik kullanımının hem de parmak emmenin çocuklara rahatlık sağlayan doğal davranışlar olduğunu, ancak belirli gelişim aşamalarının ötesinde devam ederlerse izlenmesi ve potansiyel olarak ele alınması gerektiğini vurgulamaktadır.</p>
       `,
-      category: 'Bebek Bakımı',
+      category: this.translate.instant('BLOG.CATEGORIES.BABY_CARE'),
       tags: ['emzik', 'parmak emme', 'çocuk gelişimi', 'alışkanlık'],
       date: '30 Ocak 2024',
       readTime: 7,
@@ -483,8 +487,8 @@ export class BlogService {
     {
       id: '10',
       slug: 'kolik',
-      title: 'Kolik',
-      excerpt: 'Bebeklerde kolik ve sakinleştirme stratejileri.',
+      title: this.translate.instant('BLOG.ARTICLES.COLIC.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.COLIC.EXCERPT'),
       content: `
         <h2>Kolik</h2>
         <p>Kolik, bebeklerde uzun süreli, yoğun ağlama ile karakterize bir durumdur. Genellikle bebekler 2-3 haftalıkken başlar ve 3-4 aylığa kadar sürer.</p>
@@ -515,7 +519,7 @@ export class BlogService {
         
         <p>Makale, sakin kalmayı ve bu ağlama nöbetlerinin bebeğin rahim dışındaki dünyaya uyum sağlama sürecinin doğal bir parçası olduğunu anlamayı vurgulamaktadır.</p>
       `,
-      category: 'Bebek Bakımı',
+      category: this.translate.instant('BLOG.CATEGORIES.BABY_CARE'),
       tags: ['kolik', 'bebek ağlaması', 'sakinleştirme', 'bebek bakımı'],
       date: '25 Ocak 2024',
       readTime: 6,
@@ -526,8 +530,8 @@ export class BlogService {
     {
       id: '11',
       slug: 'ayrilik-kaygisi',
-      title: 'Ayrılık Kaygısı',
-      excerpt: 'Bebeklerde ayrılık kaygısını anlama ve başa çıkma yolları.',
+      title: this.translate.instant('BLOG.ARTICLES.SEPARATION_ANXIETY.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.SEPARATION_ANXIETY.EXCERPT'),
       content: `
         <h2>Ayrılık Kaygısı</h2>
         <p>Ayrılık kaygısı genellikle 6-8 aylık yaşta başlar, 1 yaş civarında zirveye çıkar ve 15-18 ay civarında azalmaya başlar. Bebekler 8 ay civarında nesne kalıcılığı geliştirirler ve şeylerin gözden kaybolduğunda hala var olduğunu anlarlar.</p>
@@ -555,7 +559,7 @@ export class BlogService {
         
         <p>Makale, bu fazın normal olduğunu ve çocuğun hafızası ve anlayışı geliştikçe doğal olarak çözüleceğini vurgulamaktadır.</p>
       `,
-      category: 'Çocuk Psikolojisi',
+      category: this.translate.instant('BLOG.CATEGORIES.CHILD_PSYCHOLOGY'),
       tags: ['ayrılık kaygısı', 'çocuk psikolojisi', 'bağlanma', 'gelişim'],
       date: '20 Ocak 2024',
       readTime: 5,
@@ -566,8 +570,8 @@ export class BlogService {
     {
       id: '12',
       slug: 'pisikler',
-      title: 'Pişikler',
-      excerpt: 'Bebeklerde pişik oluşumu, nedenleri ve önleme yolları.',
+      title: this.translate.instant('BLOG.ARTICLES.DIAPER_RASH.TITLE'),
+      excerpt: this.translate.instant('BLOG.ARTICLES.DIAPER_RASH.EXCERPT'),
       content: `
         <h2>Pişikler Neden Oluşur ve Nasıl Önlenir</h2>
         <p>Pişik, tüm bebeklerin en az yarısını bir noktada etkiler. Önleme stratejileri şunları içerir:</p>
@@ -601,7 +605,7 @@ export class BlogService {
         
         <p>Makale, pişiği önlemek ve tedavi etmek için nazik bakım, bez bölgesini temiz ve kuru tutma ve koruyucu bariyer kremler kullanmayı vurgulamaktadır.</p>
       `,
-      category: 'Bebek Bakımı',
+      category: this.translate.instant('BLOG.CATEGORIES.BABY_CARE'),
       tags: ['pişik', 'bez dermatiti', 'cilt bakımı', 'bebek bakımı'],
       date: '15 Ocak 2024',
       readTime: 4,
@@ -609,12 +613,21 @@ export class BlogService {
       author: 'Dr. Özlem Murzoğlu',
       featured: false
     }
-  ];
+    ];
+  }
 
-  private articlesSubject = new BehaviorSubject<BlogArticle[]>(this.articles);
+  private articlesSubject = new BehaviorSubject<BlogArticle[]>([]);
   public articles$ = this.articlesSubject.asObservable();
 
-  constructor() { }
+  constructor() {
+    // Initialize articles when service is created
+    this.articlesSubject.next(this.getArticles());
+    
+    // Update articles when language changes
+    this.translate.onLangChange.subscribe(() => {
+      this.articlesSubject.next(this.getArticles());
+    });
+  }
 
   getAllArticles(): Observable<BlogArticle[]> {
     return this.articles$;
@@ -622,7 +635,8 @@ export class BlogService {
 
   getArticleBySlug(slug: string): Observable<BlogArticle | undefined> {
     return new Observable(observer => {
-      const article = this.articles.find(a => a.slug === slug);
+      const articles = this.getArticles();
+      const article = articles.find(a => a.slug === slug);
       observer.next(article);
       observer.complete();
     });
@@ -630,7 +644,8 @@ export class BlogService {
 
   getFeaturedArticles(): Observable<BlogArticle[]> {
     return new Observable(observer => {
-      const featured = this.articles.filter(a => a.featured);
+      const articles = this.getArticles();
+      const featured = articles.filter(a => a.featured);
       observer.next(featured);
       observer.complete();
     });
@@ -638,10 +653,12 @@ export class BlogService {
 
   getArticlesByCategory(category: string): Observable<BlogArticle[]> {
     return new Observable(observer => {
-      if (category === 'Tümü' || !category) {
-        observer.next(this.articles);
+      const allCategoryKey = this.translate.instant('COMMON.ALL');
+      const articles = this.getArticles();
+      if (category === allCategoryKey || !category) {
+        observer.next(articles);
       } else {
-        const filtered = this.articles.filter(a => a.category === category);
+        const filtered = articles.filter(a => a.category === category);
         observer.next(filtered);
       }
       observer.complete();
@@ -649,14 +666,17 @@ export class BlogService {
   }
 
   getCategories(): string[] {
-    const categories = ['Tümü', ...new Set(this.articles.map(a => a.category))];
+    const allCategoryKey = this.translate.instant('COMMON.ALL');
+    const articles = this.getArticles();
+    const categories = [allCategoryKey, ...new Set(articles.map(a => a.category))];
     return categories;
   }
 
   searchArticles(query: string): Observable<BlogArticle[]> {
     return new Observable(observer => {
       const searchQuery = query.toLowerCase();
-      const filtered = this.articles.filter(article => 
+      const articles = this.getArticles();
+      const filtered = articles.filter(article => 
         article.title.toLowerCase().includes(searchQuery) ||
         article.excerpt.toLowerCase().includes(searchQuery) ||
         article.content.toLowerCase().includes(searchQuery) ||
