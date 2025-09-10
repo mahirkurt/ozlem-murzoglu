@@ -34,7 +34,6 @@
   font-weight: 700;
 }
 
-
 .section-header p {
   color: var(--md-sys-color-on-surface-variant);
   max-width: 600px;
@@ -44,7 +43,7 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
   margin-bottom: 48px;
 }
@@ -135,8 +134,8 @@
 
 .service-card:hover .service-icon-wrapper {
   transform: scale(1.15) rotate(10deg);
-  box-shadow: 
-    inset var(--neu-shadow-dark), 
+  box-shadow:
+    inset var(--neu-shadow-dark),
     inset var(--neu-shadow-light);
 }
 
@@ -181,7 +180,7 @@
 
 .service-arrow .material-icons {
   font-size: 18px;
-  color: #005F73;
+  color: #005f73;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -190,7 +189,7 @@
 }
 
 .service-card--secondary .service-arrow .material-icons {
-  color: #F57C00;
+  color: #f57c00;
 }
 
 .service-card--tertiary .service-arrow {
@@ -198,19 +197,19 @@
 }
 
 .service-card--tertiary .service-arrow .material-icons {
-  color: #5E92F3;
+  color: #5e92f3;
 }
 
 .service-card:hover .service-arrow {
-  background: #005F73;
+  background: #005f73;
 }
 
 .service-card--secondary:hover .service-arrow {
-  background: #F57C00;
+  background: #f57c00;
 }
 
 .service-card--tertiary:hover .service-arrow {
-  background: #5E92F3;
+  background: #5e92f3;
 }
 
 .service-card:hover .service-arrow .material-icons {
@@ -228,7 +227,7 @@
   align-items: center;
   gap: 12px;
   padding: 14px 32px;
-  background: linear-gradient(135deg, #005F73 0%, #0A8FA3 100%);
+  background: linear-gradient(135deg, #005f73 0%, #0a8fa3 100%);
   color: white;
   border-radius: 28px;
   text-decoration: none;

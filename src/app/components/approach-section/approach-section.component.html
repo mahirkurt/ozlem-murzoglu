@@ -1,28 +1,30 @@
 <section class="approach-section">
-  <div class="container">
+  <div class="container md3-container">
     <div class="section-header">
       <h2 class="section-title">{{ 'APPROACH.SUBTITLE' | translate }}</h2>
     </div>
 
     <div class="approach-grid">
-      <a 
-        *ngFor="let item of approaches; let i = index" 
-        [routerLink]="item.href" 
-        class="approach-card approach-card--{{item.color}}"
+      <a
+        *ngFor="let item of approaches; let i = index"
+        [routerLink]="item.href"
+        class="approach-card approach-card--{{ item.color }}"
       >
         <div class="card-glow"></div>
-        
+
         <div class="card-header">
           <div class="card-icon">
-            <span class="material-icons">{{item.icon}}</span>
+            <span class="material-icons">{{ item.icon }}</span>
           </div>
         </div>
-        
+
         <div class="card-content">
           <h3 class="card-title md-sys-typescale-title-large">{{ item.titleKey | translate }}</h3>
-          <p class="card-description md-sys-typescale-body-medium">{{ item.descriptionKey | translate }}</p>
+          <p class="card-description md-sys-typescale-body-medium">
+            {{ item.descriptionKey | translate }}
+          </p>
         </div>
-        
+
         <div class="card-action">
           <span class="action-text">{{ 'COMMON.READ_MORE' | translate }}</span>
           <span class="material-icons action-icon">chevron_right</span>
