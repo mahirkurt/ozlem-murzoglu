@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run lint check
+echo "🔍 Running ESLint..."
+npm run lint
+
+if [ $? -ne 0 ]; then
+  echo "❌ Lint errors found! Please fix them before committing."
+  echo "Run 'npm run lint:fix' to auto-fix some issues."
+  exit 1
+fi
+
+echo "✅ Lint check passed!"
+
+# Run translation validation before commit
+echo "🔍 Validating translations..."
+npm run i18n:validate
+
+if [ $? -ne 0 ]; then
+  echo "❌ Translation validation failed! Please fix the issues before committing."
+  echo "Run 'npm run i18n:validate' to see the full report."
+  exit 1
+fi
+
+echo "✅ Translation validation passed!"
+
+# Run prettier format check
+echo "🔍 Checking code formatting..."
+npm run format:check
+
+if [ $? -ne 0 ]; then
+  echo "❌ Formatting issues found! Please format your code before committing."
+  echo "Run 'npm run format' to auto-format."
+  exit 1
+fi
+
+echo "✅ Format check passed!"
+echo "✨ Pre-commit checks completed successfully!"

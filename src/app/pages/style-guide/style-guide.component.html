@@ -1,0 +1,228 @@
+<div class="style-guide">
+  <app-resource-hero
+    title="MD3 Design System Style Guide"
+    category="Developer Resources"
+    categoryLink="/developer"
+    description="Living documentation of our Material Design 3 implementation with interactive examples"
+    icon="palette"
+    [showMeta]="false"
+  ></app-resource-hero>
+
+  <div class="style-guide__content">
+    <div class="container">
+      <div class="content-layout">
+        <!-- Colors Section -->
+        <section id="colors" class="style-section">
+          <h2 class="section-title">🎨 Color System</h2>
+          <p class="section-description">Our MD3 color tokens with dynamic theming support</p>
+
+          <div class="color-groups">
+            <div
+              class="color-group"
+              *ngFor="let group of ['primary', 'secondary', 'tertiary', 'neutral']"
+            >
+              <h3 class="color-group__title">{{ group | titlecase }}</h3>
+              <div class="color-grid">
+                <div class="color-token" *ngFor="let color of colorTokens[group]">
+                  <div class="color-swatch" [style.background]="color.value"></div>
+                  <div class="color-info">
+                    <code class="color-name">{{ color.name }}</code>
+                    <span class="color-value">{{ getColorValue(color.value) }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section id="typography" class="style-section">
+          <h2 class="section-title">📝 Typography Scale</h2>
+          <p class="section-description">MD3 type scale with Figtree and DM Sans fonts</p>
+
+          <div class="typography-samples">
+            <div class="type-sample" *ngFor="let type of typographyScale">
+              <div class="type-preview" [class]="type.class">
+                {{ type.name }}
+              </div>
+              <div class="type-info">
+                <code>{{ type.class }}</code>
+                <span class="type-specs">{{ type.size }} / {{ type.weight }}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Spacing Section -->
+        <section id="spacing" class="style-section">
+          <h2 class="section-title">📐 Spacing System</h2>
+          <p class="section-description">Consistent spacing tokens for layout and components</p>
+
+          <div class="spacing-list">
+            <div class="spacing-item" *ngFor="let space of spacingTokens">
+              <div class="spacing-visual">
+                <div
+                  class="spacing-bar"
+                  [style.width]="space.value"
+                  [style.height]="space.value"
+                ></div>
+              </div>
+              <code class="spacing-name">{{ space.name }}</code>
+              <span class="spacing-value">{{ space.value }}</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Border Radius Section -->
+        <section id="radius" class="style-section">
+          <h2 class="section-title">⭕ Border Radius</h2>
+          <p class="section-description">Shape tokens for rounded corners</p>
+
+          <div class="radius-grid">
+            <div class="radius-item" *ngFor="let radius of radiusTokens">
+              <div class="radius-preview" [style.border-radius]="radius.cssVar"></div>
+              <code>{{ radius.name }}</code>
+              <span>{{ radius.value }}</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Elevation Section -->
+        <section id="elevation" class="style-section">
+          <h2 class="section-title">🎭 Elevation</h2>
+          <p class="section-description">Shadow tokens for depth and hierarchy</p>
+
+          <div class="elevation-grid">
+            <div class="elevation-item" *ngFor="let elevation of elevationTokens">
+              <div class="elevation-preview" [class]="'elevation-' + elevation.level"></div>
+              <code>{{ elevation.name }}</code>
+              <span>Level {{ elevation.level }}</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Layout Primitives Section -->
+        <section id="layout" class="style-section">
+          <h2 class="section-title">🏗️ Layout Primitives</h2>
+          <p class="section-description">Compositional layout patterns</p>
+
+          <div class="layout-examples">
+            <div class="layout-example" *ngFor="let layout of layoutPrimitives">
+              <h3>{{ layout.name }}</h3>
+              <p>{{ layout.description }}</p>
+              <div class="layout-demo" [class]="layout.name.toLowerCase()">
+                <div class="demo-item" *ngFor="let i of [1, 2, 3]">Item {{ i }}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Animation Section -->
+        <section id="animations" class="style-section">
+          <h2 class="section-title">✨ Animations</h2>
+          <p class="section-description">Material motion system examples</p>
+
+          <div class="animation-grid">
+            <div class="animation-card" *ngFor="let anim of animationExamples">
+              <div
+                class="animation-preview"
+                [@stagger]="activeAnimation === anim.trigger ? 'in' : 'out'"
+                [class.active]="activeAnimation === anim.trigger"
+              >
+                <div class="preview-box"></div>
+              </div>
+              <h3>{{ anim.name }}</h3>
+              <button class="trigger-btn" (click)="triggerAnimation(anim.trigger)">
+                Trigger Animation
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Components Showcase Section -->
+        <section id="components" class="style-section">
+          <h2 class="section-title">🧩 Component Showcase</h2>
+          <p class="section-description">Atomic components for resource pages</p>
+
+          <div class="component-demos">
+            <!-- Resource Hero Demo -->
+            <div class="component-demo">
+              <h3>Resource Hero Component</h3>
+              <div class="demo-container">
+                <app-resource-hero
+                  title="Sample Resource Title"
+                  category="Demo Category"
+                  description="This is a demonstration of the resource hero component with gradient background"
+                  icon="article"
+                  gradient="blue"
+                  [showPattern]="true"
+                ></app-resource-hero>
+              </div>
+            </div>
+
+            <!-- TOC Sidebar Demo -->
+            <div class="component-demo">
+              <h3>TOC Sidebar Component</h3>
+              <div class="demo-container sidebar-demo">
+                <app-toc-sidebar
+                  [toc]="sampleToc"
+                  [sticky]="false"
+                  [showProgress]="true"
+                ></app-toc-sidebar>
+              </div>
+            </div>
+
+            <!-- Content Card Demo -->
+            <div class="component-demo">
+              <h3>Content Card Component</h3>
+              <div class="demo-container">
+                <app-content-card [elevated]="true">
+                  <h2>Sample Content</h2>
+                  <p>
+                    This is a content card component with elevated style. It provides consistent
+                    styling for document content.
+                  </p>
+                  <ul>
+                    <li>Supports lists</li>
+                    <li>Tables</li>
+                    <li>Code blocks</li>
+                  </ul>
+                </app-content-card>
+              </div>
+            </div>
+
+            <!-- Action Bar Demo -->
+            <div class="component-demo">
+              <h3>Action Bar Component</h3>
+              <div class="demo-container">
+                <app-action-bar
+                  [downloadLink]="'/sample.pdf'"
+                  [showFeedback]="true"
+                ></app-action-bar>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Container Queries Section -->
+        <section id="container-queries" class="style-section">
+          <h2 class="section-title">📦 Container Queries</h2>
+          <p class="section-description">Responsive design based on container size</p>
+
+          <div class="container-demo">
+            <div class="resizable-container">
+              <div class="container-content">
+                <p>Resize this container to see responsive changes</p>
+                <div class="responsive-grid">
+                  <div class="grid-item">Item 1</div>
+                  <div class="grid-item">Item 2</div>
+                  <div class="grid-item">Item 3</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
