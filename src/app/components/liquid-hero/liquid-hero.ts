@@ -55,14 +55,14 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     `
       .liquid-hero {
         position: relative;
-        height: calc(100vh - 140px);
+        height: calc(100vh - 80px);
         min-height: 600px;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         padding: 0;
-        margin-top: 140px;
+        margin-top: 80px;
         padding-top: 0;
         background:
           radial-gradient(at 40% 20%, var(--md-sys-color-primary) 0px, transparent 50%),
@@ -263,8 +263,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         .liquid-hero {
           animation: heroWaveAnimation 25s ease infinite;
           animation-delay: 0s;
-          margin-top: 115px;
-          height: calc(100vh - 115px);
+          margin-top: 60px;
+          height: calc(100vh - 60px);
           min-height: 500px;
         }
       }
@@ -321,13 +321,13 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         padding: var(--spacing-md) var(--spacing-xl);
         font-size: 1.125rem;
         box-shadow: var(--elevation-level-2);
-        
+
         &:hover {
           transform: translateY(-3px) scale(1.02);
           background: rgba(255, 255, 255, 1);
           box-shadow: var(--elevation-level-3);
         }
-        
+
         &:active {
           transform: translateY(0);
           box-shadow: var(--elevation-level-1);

@@ -1,15 +1,15 @@
 <section class="services-section">
-  <div class="container">
+  <div class="container md3-container">
     <div class="section-header">
       <h2 class="md-sys-typescale-display-small">{{ 'SERVICES.SECTION_TITLE' | translate }}</h2>
       <p class="md-sys-typescale-body-large">{{ 'SERVICES.SUBTITLE' | translate }}</p>
     </div>
 
     <div class="services-grid">
-      <div *ngFor="let service of services" class="service-card service-card--{{service.color}}">
+      <div *ngFor="let service of services" class="service-card service-card--{{ service.color }}">
         <a [routerLink]="service.href" class="service-link">
           <div class="service-icon-wrapper">
-            <span class="material-icons service-icon">{{service.icon}}</span>
+            <span class="material-icons service-icon">{{ service.icon }}</span>
           </div>
           <div class="service-content">
             <h3 class="service-title">{{ service.titleKey | translate }}</h3>

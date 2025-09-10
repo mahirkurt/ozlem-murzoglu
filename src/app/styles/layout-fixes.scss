@@ -1,0 +1,387 @@
+// ====================================
+// Layout Fixes - Ana Sayfa Düzeltmeleri
+// MD3 Design System ile Uyumlu
+// ====================================
+
+@import 'tokens/index';
+
+// ====================================
+// 1. Global Container Fix
+// ====================================
+.container,
+.md3-container {
+  width: 100%;
+  max-width: 1200px !important; // Force consistent max-width
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+  box-sizing: border-box;
+  
+  @media (min-width: 768px) {
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+  
+  @media (min-width: 1024px) {
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+  }
+  
+  @media (max-width: 480px) {
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+  }
+}
+
+// ====================================
+// 2. Hero Section Fixes
+// ====================================
+.liquid-hero {
+  margin-top: 80px !important; // Header height için makul değer
+  
+  @media (max-width: 768px) {
+    margin-top: 60px !important;
+    min-height: calc(100vh - 60px);
+    height: auto;
+  }
+}
+
+.hero-content {
+  padding: var(--spacing-xxl) var(--spacing-md) !important;
+  
+  .md3-container {
+    max-width: 1200px !important;
+  }
+}
+
+// ====================================
+// 3. Section Padding Fixes
+// ====================================
+section,
+.section,
+[class*="section"] {
+  padding: var(--spacing-xxl) 0;
+  
+  @media (max-width: 768px) {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  &.section-header,
+  &.section-title,
+  &.section-subtitle {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  &.section-cta {
+    padding: var(--spacing-xl) 0;
+  }
+}
+
+// ====================================
+// 4. Typography MD3 Compliance
+// ====================================
+h1 {
+  font-size: var(--md-sys-typescale-display-large-size);
+  font-weight: var(--md-sys-typescale-display-large-weight);
+  line-height: var(--md-sys-typescale-display-large-line-height);
+  letter-spacing: var(--md-sys-typescale-display-large-tracking);
+  
+  @media (max-width: 768px) {
+    font-size: var(--md-sys-typescale-display-medium-size);
+    line-height: var(--md-sys-typescale-display-medium-line-height);
+  }
+}
+
+h2 {
+  font-size: var(--md-sys-typescale-headline-large-size);
+  font-weight: var(--md-sys-typescale-headline-large-weight);
+  line-height: var(--md-sys-typescale-headline-large-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-large-tracking);
+  
+  @media (max-width: 768px) {
+    font-size: var(--md-sys-typescale-headline-medium-size);
+    line-height: var(--md-sys-typescale-headline-medium-line-height);
+  }
+}
+
+h3 {
+  font-size: var(--md-sys-typescale-title-large-size);
+  font-weight: var(--md-sys-typescale-title-large-weight);
+  line-height: var(--md-sys-typescale-title-large-line-height);
+  letter-spacing: var(--md-sys-typescale-title-large-tracking);
+}
+
+// ====================================
+// 5. Horizontal Overflow Fix
+// ====================================
+body {
+  overflow-x: hidden !important;
+}
+
+.liquid-hero,
+app-liquid-hero {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+// Tüm section'lar için overflow kontrolü
+section,
+.section {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+// ====================================
+// 6. Component Spacing
+// ====================================
+app-approach-section,
+app-doctor-bio,
+app-services-section,
+app-appointment-section,
+app-clinic-gallery {
+  display: block;
+  padding: var(--spacing-xxl) 0;
+  
+  @media (max-width: 768px) {
+    padding: var(--spacing-xl) 0;
+  }
+}
+
+// ====================================
+// 7. Button Standardization
+// ====================================
+button,
+.btn,
+.cta-button,
+.hero-button,
+a[class*="button"] {
+  // MD3 button standards
+  min-height: 40px;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  transition: var(--transition-all);
+  
+  &:not(.icon-button) {
+    min-width: 64px;
+  }
+}
+
+// ====================================
+// 8. Footer Fixes
+// ====================================
+footer {
+  .footer-section {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .footer-brand-section {
+    padding: var(--spacing-xl) 0;
+  }
+}
+
+// ====================================
+// 9. Responsive Container
+// ====================================
+@media (max-width: 768px) {
+  .container,
+  .md3-container {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .md3-container {
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+  }
+}
+
+// ====================================
+// 10. Z-index Standardization
+// ====================================
+:root {
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+}
+
+.modern-header {
+  z-index: var(--z-index-sticky) !important;
+}
+
+.floating-actions {
+  z-index: var(--z-index-fixed) !important;
+}
+
+.modal-overlay {
+  z-index: var(--z-index-modal) !important;
+}
+
+// ====================================
+// 11. Service Cards Fix
+// ====================================
+.services-section {
+  .service-grid {
+    gap: var(--spacing-lg);
+    
+    .service-card {
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+      background: var(--md-sys-color-surface);
+      box-shadow: var(--elevation-level-1);
+      transition: var(--transition-all);
+      
+      &:hover {
+        box-shadow: var(--elevation-level-2);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// ====================================
+// 12. Appointment Section
+// ====================================
+.appointment-section {
+  background: var(--md-sys-color-surface-container-low);
+  
+  .appointment-grid {
+    gap: var(--spacing-lg);
+    
+    .appointment-card {
+      padding: var(--spacing-lg);
+      background: var(--md-sys-color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--elevation-level-1);
+    }
+  }
+}
+
+// ====================================
+// 13. Gallery Section
+// ====================================
+.clinic-gallery {
+  .gallery-grid {
+    gap: var(--spacing-md);
+    
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--elevation-level-1);
+    }
+  }
+}
+
+// ====================================
+// 14. Global Overflow Protection
+// ====================================
+* {
+  max-width: 100vw;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Mobile specific overflow fixes
+@media (max-width: 768px) {
+  * {
+    max-width: 100vw !important;
+  }
+  
+  .container,
+  .md3-container {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  section,
+  .section {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .liquid-hero {
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  
+  // Fix service and gallery grids on mobile
+  .services-grid,
+  .gallery-features {
+    grid-template-columns: 1fr !important;
+    gap: var(--spacing-md) !important;
+  }
+  
+  .service-card,
+  .feature-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  // Force service cards to respect viewport on mobile
+  .services-section .services-grid {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+  
+  .services-section .service-card {
+    width: 100% !important;
+    max-width: calc(100vw - 48px) !important;
+  }
+  
+  .services-section .service-link {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  
+  .services-section .service-arrow {
+    position: relative !important;
+    right: auto !important;
+    margin-top: var(--spacing-md) !important;
+  }
+  
+  // Fix overflowing buttons
+  .cta-button,
+  .view-all-btn,
+  .section-cta a {
+    width: auto !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+  
+  // Prevent any absolute positioned elements from causing overflow
+  [style*="position: absolute"],
+  [style*="position: fixed"] {
+    max-width: 100vw !important;
+  }
+}
+
+// ====================================
+// 15. Mobile Menu Fix
+// ====================================
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-index-modal);
+  background: var(--md-sys-color-surface);
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+}
