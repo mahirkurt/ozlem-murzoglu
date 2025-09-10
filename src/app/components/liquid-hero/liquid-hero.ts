@@ -8,34 +8,41 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   standalone: true,
   imports: [CommonModule, RouterModule, TranslateModule],
   template: `
-    <section class="liquid-hero">
+    <section class="liquid-hero homepage-hero md3-relative">
       <!-- Liquid Background -->
-      <div class="liquid-background">
+      <div class="liquid-background md3-absolute">
         <canvas #liquidCanvas></canvas>
       </div>
-      
+
       <!-- Floating Elements -->
-      <div class="floating-elements">
+      <div class="floating-elements md3-absolute">
         <div class="float-element element-1"></div>
         <div class="float-element element-2"></div>
         <div class="float-element element-3"></div>
         <div class="float-element element-4"></div>
       </div>
-      
+
       <!-- Content -->
-      <div class="hero-content">
-        <div class="container">
-          <div class="content-wrapper">
-            <div class="hero-subtitle">{{ 'HERO.SUBTITLE' | translate }}</div>
-            <h1 class="hero-title">
+      <div class="hero-content md3-relative">
+        <div class="md3-container">
+          <div class="content-wrapper md3-flex md3-flex-col md3-items-center md3-justify-center">
+            <h1 class="hero-title md3-display-large md3-text-on-primary">
               {{ 'HERO.TITLE' | translate }}
             </h1>
-            
-            <div class="hero-cta">
-              <a href="/hakkimizda" class="cta-button primary">
+
+            <div class="hero-cta md3-flex md3-items-center md3-justify-center md3-gap-lg md3-mt-xl">
+              <a href="/hakkimizda" class="md3-button md3-button-filled hero-button">
                 <span class="button-text">{{ 'HOME.CTA_LEARN_MORE' | translate }}</span>
-                <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                <svg
+                  class="button-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
             </div>
@@ -44,373 +51,397 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
       </div>
     </section>
   `,
-  styles: [`
-    .liquid-hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding-top: 140px;
-      background: 
-        radial-gradient(at 40% 20%, var(--color-secondary) 0px, transparent 50%),
-        radial-gradient(at 80% 0%, var(--color-primary-light) 0px, transparent 50%),
-        radial-gradient(at 10% 50%, var(--color-accent-light) 0px, transparent 50%),
-        radial-gradient(at 80% 80%, var(--color-secondary-light) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, var(--color-primary) 0px, transparent 50%),
-        linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-    }
-    
-    .liquid-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: 
-        repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 2px,
-          rgba(255, 255, 255, 0.03) 2px,
-          rgba(255, 255, 255, 0.03) 4px
-        ),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 2px,
-          rgba(255, 255, 255, 0.03) 2px,
-          rgba(255, 255, 255, 0.03) 4px
-        );
-      pointer-events: none;
-    }
-    
-    .liquid-hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
-      pointer-events: none;
-      opacity: 0.03;
-      mix-blend-mode: overlay;
-    }
-    
-    /* Liquid Background */
-    .liquid-background {
-      position: absolute;
-      inset: 0;
-      opacity: 0.3;
-    }
-    
-    canvas {
-      width: 100%;
-      height: 100%;
-    }
-    
-    /* Floating Elements - Enhanced */
-    .floating-elements {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-    
-    .float-element {
-      position: absolute;
-      border-radius: 50%;
-      animation: float-random 20s infinite ease-in-out;
-    }
-    
-    .float-element::before {
-      content: '';
-      position: absolute;
-      inset: -20px;
-      border-radius: inherit;
-      background: inherit;
-      filter: blur(60px);
-      opacity: 0.5;
-    }
-    
-    .element-1 {
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle at 30% 30%, rgba(255, 183, 77, 0.4) 0%, transparent 60%);
-      top: 10%;
-      left: 10%;
-      animation-duration: 25s;
-      filter: blur(30px);
-    }
-    
-    .element-2 {
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle at 70% 70%, rgba(148, 187, 233, 0.5) 0%, transparent 60%);
-      top: 60%;
-      right: 10%;
-      animation-duration: 30s;
-      animation-delay: -5s;
-      filter: blur(25px);
-    }
-    
-    .element-3 {
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
-      bottom: -10%;
-      left: 30%;
-      animation-duration: 35s;
-      animation-delay: -10s;
-      filter: blur(35px);
-    }
-    
-    .element-4 {
-      width: 350px;
-      height: 350px;
-      background: radial-gradient(circle at 40% 40%, rgba(10, 147, 150, 0.3) 0%, transparent 60%);
-      top: 30%;
-      right: 30%;
-      animation-duration: 28s;
-      animation-delay: -15s;
-      filter: blur(28px);
-    }
-    
-    @keyframes float-random {
-      0%, 100% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-      }
-      25% {
-        transform: translate(50px, -50px) scale(1.1) rotate(90deg);
-      }
-      50% {
-        transform: translate(-30px, 30px) scale(0.9) rotate(180deg);
-      }
-      75% {
-        transform: translate(40px, 20px) scale(1.05) rotate(270deg);
-      }
-    }
-    
-    /* Content */
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      padding: 2rem 0;
-      display: flex;
-      justify-content: center;
-    }
-    
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: center;
-    }
-    
-    .content-wrapper {
-      max-width: 900px;
-      text-align: center;
-    }
-    
-    .hero-subtitle {
-      color: rgba(255, 255, 255, 0.95);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      animation: fade-in-down 0.8s ease-out;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      position: relative;
-      opacity: 0.9;
-    }
-    
-    .hero-title {
-      font-family: 'Figtree', sans-serif;
-      font-size: clamp(2rem, 4.2vw, 3.4rem);
-      font-weight: 600;
-      line-height: 1.25;
-      margin-bottom: 3rem;
-      letter-spacing: -0.02em;
-      animation: fade-in-up 0.8s ease-out;
-      color: #ffffff;
-      text-shadow: 0 3px 15px rgba(0, 0, 0, 0.25);
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    @keyframes gradient-shift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-    
-    
-    /* Hero description removed */
-    
-    /* CTA */
-    .hero-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      animation: fade-in-up 0.8s ease-out 0.5s both;
-    }
-    
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1rem 2rem;
-      background: rgba(255, 255, 255, 0.95);
-      border: none;
-      border-radius: 12px;
-      color: var(--color-primary);
-      text-decoration: none;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.1),
-        0 2px 8px rgba(255, 255, 255, 0.1);
-      cursor: pointer;
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 1);
-      box-shadow: 
-        0 8px 30px rgba(0, 0, 0, 0.15),
-        0 4px 16px rgba(255, 255, 255, 0.2);
-    }
-    
-    .cta-button:active {
-      transform: translateY(0);
-    }
-    
-    .button-text {
-      position: relative;
-      z-index: 1;
-    }
-    
-    .button-icon {
-      width: 20px;
-      height: 20px;
-      transition: transform 0.3s ease;
-    }
-    
-    .cta-button:hover .button-icon {
-      transform: translateX(4px);
-    }
-    
-    @keyframes fade-in-down {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes fade-in-up {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero-section {
-        min-height: 100vh;
-        padding-top: 120px;
-      }
-      
-      .hero-content {
-        padding: 0 20px;
-      }
-      
-      .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-      }
-      
-      .hero-title {
-        font-size: 1.75rem;
-        line-height: 1.3;
-        margin-bottom: 1.5rem;
-      }
-      
-      .hero-subtitle {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 2rem;
-      }
-      
-      .hero-stats {
-        gap: 1.5rem;
-        flex-direction: column;
-      }
-      
-      .stat-item {
-        width: 100%;
-        text-align: center;
-      }
-      
-      .stat-number {
-        font-size: 1.75rem;
-      }
-      
-      .stat-label {
-        font-size: 0.875rem;
-      }
-      
-      .hero-cta {
-        flex-direction: column;
+  styles: [
+    `
+      .liquid-hero {
+        position: relative;
+        height: calc(100vh - 140px);
+        min-height: 600px;
+        display: flex;
         align-items: center;
-        gap: 1rem;
-        width: 100%;
-      }
-      
-      .cta-button {
-        width: 100%;
         justify-content: center;
-        padding: 16px 32px;
+        overflow: hidden;
+        padding: 0;
+        margin-top: 140px;
+        padding-top: 0;
+        background:
+          radial-gradient(at 40% 20%, var(--md-sys-color-primary) 0px, transparent 50%),
+          radial-gradient(at 80% 0%, var(--md-sys-color-secondary) 0px, transparent 50%),
+          radial-gradient(at 10% 50%, var(--md-sys-color-tertiary) 0px, transparent 50%),
+          radial-gradient(at 80% 80%, var(--md-sys-color-primary-container) 0px, transparent 50%),
+          radial-gradient(at 0% 100%, var(--md-sys-color-primary) 0px, transparent 50%),
+          linear-gradient(
+            135deg,
+            var(--md-sys-color-primary) 0%,
+            var(--md-sys-color-primary-container) 25%,
+            var(--md-sys-color-secondary-container) 50%,
+            var(--md-sys-color-primary-container) 75%,
+            var(--md-sys-color-primary) 100%
+          );
+        background-size: 400% 400%;
+        animation: heroWaveAnimation 20s var(--md-sys-motion-easing-standard) infinite;
       }
-      
-      .cta-secondary {
+
+      @keyframes heroWaveAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        25% {
+          background-position: 50% 25%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        75% {
+          background-position: 50% 75%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Disable complex animations on mobile */
+      @media (prefers-reduced-motion: reduce) {
+        .liquid-hero,
+        .float-element,
+        .hero-title,
+        .hero-cta {
+          animation: none !important;
+        }
+      }
+
+      .liquid-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px
+          ),
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px
+          );
+        pointer-events: none;
+      }
+
+      .liquid-hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+        pointer-events: none;
+        opacity: 0.03;
+        mix-blend-mode: overlay;
+      }
+
+      /* Liquid Background */
+      .liquid-background {
+        inset: 0;
+        opacity: 0.3;
+      }
+
+      canvas {
         width: 100%;
+        height: 100%;
+      }
+
+      /* Floating Elements - Enhanced */
+      .floating-elements {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .float-element {
+        position: absolute;
+        border-radius: 50%;
+        animation: float-random 20s infinite ease-in-out;
+        will-change: transform;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+      }
+
+      .float-element::before {
+        content: '';
+        position: absolute;
+        inset: -20px;
+        border-radius: inherit;
+        background: inherit;
+        filter: blur(60px);
+        opacity: 0.5;
+      }
+
+      .element-1 {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle at 30% 30%,
+          color-mix(in srgb, var(--md-sys-color-secondary) 40%, transparent) 0%,
+          transparent 60%
+        );
+        top: 10%;
+        left: 10%;
+        animation-duration: 25s;
+        filter: blur(30px);
+      }
+
+      .element-2 {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle at 70% 70%,
+          color-mix(in srgb, var(--md-sys-color-tertiary) 50%, transparent) 0%,
+          transparent 60%
+        );
+        top: 60%;
+        right: 10%;
+        animation-duration: 30s;
+        animation-delay: -5s;
+        filter: blur(25px);
+      }
+
+      .element-3 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(255, 255, 255, 0.15) 0%,
+          transparent 60%
+        );
+        bottom: -10%;
+        left: 30%;
+        animation-duration: 35s;
+        animation-delay: -10s;
+        filter: blur(35px);
+      }
+
+      .element-4 {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(
+          circle at 40% 40%,
+          color-mix(in srgb, var(--md-sys-color-primary) 30%, transparent) 0%,
+          transparent 60%
+        );
+        top: 30%;
+        right: 30%;
+        animation-duration: 28s;
+        animation-delay: -15s;
+        filter: blur(28px);
+      }
+
+      @keyframes float-random {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        25% {
+          transform: translate3d(50px, -50px, 0) scale(1.1);
+        }
+        50% {
+          transform: translate3d(-30px, 30px, 0) scale(0.9);
+        }
+        75% {
+          transform: translate3d(40px, 20px, 0) scale(1.05);
+        }
+      }
+
+      /* Mobile optimizations */
+      @media (max-width: 768px) {
+        .floating-elements {
+          display: none;
+        }
+
+        .liquid-hero {
+          animation: heroWaveAnimation 25s ease infinite;
+          animation-delay: 0s;
+          margin-top: 115px;
+          height: calc(100vh - 115px);
+          min-height: 500px;
+        }
+      }
+
+      /* Content */
+      .hero-content {
+        z-index: 10;
+        width: 100%;
+        min-height: auto;
+        display: flex;
+        align-items: center;
         justify-content: center;
+        padding: var(--spacing-xxl) 0;
       }
-      
-      .scroll-indicator {
-        bottom: 20px;
+
+      .content-wrapper {
+        max-width: 1000px;
+        text-align: center;
+        width: 100%;
       }
-    }
-    
-    @media (max-width: 480px) {
+
       .hero-title {
-        font-size: 1.5rem;
+        animation: fade-in-up 0.9s var(--md-sys-motion-easing-emphasized) 0.15s both;
+        color: #ffffff;
+        text-shadow:
+          0 6px 30px rgba(0, 0, 0, 0.25),
+          0 2px 6px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: var(--spacing-xl);
       }
-      
-      .hero-subtitle {
-        font-size: 0.9rem;
+
+      @keyframes gradient-shift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
       }
-      
-      .hero-subtitle {
-        font-size: 0.9rem;
+
+      /* Hero description removed */
+
+      /* CTA */
+      .hero-cta {
+        animation: fade-in-up 1s var(--md-sys-motion-easing-emphasized) 0.3s both;
       }
-    }
-  `]
+
+      .hero-button {
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--md-sys-color-primary);
+        padding: var(--spacing-md) var(--spacing-xl);
+        font-size: 1.125rem;
+        box-shadow: var(--elevation-level-2);
+        
+        &:hover {
+          transform: translateY(-3px) scale(1.02);
+          background: rgba(255, 255, 255, 1);
+          box-shadow: var(--elevation-level-3);
+        }
+        
+        &:active {
+          transform: translateY(0);
+          box-shadow: var(--elevation-level-1);
+        }
+      }
+
+      .button-text {
+        position: relative;
+        z-index: 1;
+      }
+
+      .button-icon {
+        width: 20px;
+        height: 20px;
+        transition: transform var(--transition-transform);
+      }
+
+      .hero-button:hover .button-icon {
+        transform: translateX(4px);
+      }
+
+      @keyframes fade-in-down {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .liquid-hero {
+          min-height: 100vh;
+          height: 100vh;
+        }
+
+        .hero-content {
+          padding: var(--spacing-xxl) var(--spacing-md);
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .hero-title {
+          font-size: clamp(1.5rem, 4.5vw, 1.875rem);
+          line-height: 1.2;
+          margin-bottom: var(--spacing-lg);
+        }
+
+        .hero-button {
+          width: 100%;
+          max-width: 280px;
+          justify-content: center;
+          padding: var(--spacing-sm) var(--spacing-lg);
+          font-size: 1rem;
+        }
+
+        .button-icon {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-content {
+          padding: 75px 16px;
+        }
+
+        .hero-title {
+          font-size: 1.25rem;
+          line-height: 1.15;
+          margin-bottom: 1.5rem;
+        }
+
+        .hero-cta {
+          margin-top: 1rem;
+        }
+
+        .cta-button {
+          padding: 12px 20px;
+          font-size: 0.9rem;
+          max-width: 260px;
+        }
+      }
+
+      @media (max-height: 700px) and (max-width: 768px) {
+        .hero-title {
+          margin-bottom: 1.5rem;
+          font-size: 1.4rem;
+        }
+
+        .hero-cta {
+          margin-top: 1rem;
+        }
+      }
+    `,
+  ],
 })
 export class LiquidHeroComponent implements OnInit {
-  
   ngOnInit() {
     // Component initialization if needed
   }

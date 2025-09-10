@@ -1,0 +1,497 @@
+// ====================================
+// MD3 Utility Classes
+// Comprehensive utility system for consistent styling
+// ====================================
+
+@import '../tokens/index';
+
+// ====================================
+// Typography Utilities
+// ====================================
+
+// Display
+.md3-display-large {
+  font-family: var(--md-sys-typescale-display-large-font);
+  font-size: var(--md-sys-typescale-display-large-size);
+  font-weight: var(--md-sys-typescale-display-large-weight);
+  line-height: var(--md-sys-typescale-display-large-line-height);
+  letter-spacing: var(--md-sys-typescale-display-large-tracking);
+}
+
+.md3-display-medium {
+  font-family: var(--md-sys-typescale-display-medium-font);
+  font-size: var(--md-sys-typescale-display-medium-size);
+  font-weight: var(--md-sys-typescale-display-medium-weight);
+  line-height: var(--md-sys-typescale-display-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-display-medium-tracking);
+}
+
+.md3-display-small {
+  font-family: var(--md-sys-typescale-display-small-font);
+  font-size: var(--md-sys-typescale-display-small-size);
+  font-weight: var(--md-sys-typescale-display-small-weight);
+  line-height: var(--md-sys-typescale-display-small-line-height);
+  letter-spacing: var(--md-sys-typescale-display-small-tracking);
+}
+
+// Headlines
+.md3-headline-large {
+  font-family: var(--md-sys-typescale-headline-large-font);
+  font-size: var(--md-sys-typescale-headline-large-size);
+  font-weight: var(--md-sys-typescale-headline-large-weight);
+  line-height: var(--md-sys-typescale-headline-large-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-large-tracking);
+}
+
+.md3-headline-medium {
+  font-family: var(--md-sys-typescale-headline-medium-font);
+  font-size: var(--md-sys-typescale-headline-medium-size);
+  font-weight: var(--md-sys-typescale-headline-medium-weight);
+  line-height: var(--md-sys-typescale-headline-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-medium-tracking);
+}
+
+.md3-headline-small {
+  font-family: var(--md-sys-typescale-headline-small-font);
+  font-size: var(--md-sys-typescale-headline-small-size);
+  font-weight: var(--md-sys-typescale-headline-small-weight);
+  line-height: var(--md-sys-typescale-headline-small-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+}
+
+// Titles
+.md3-title-large {
+  font-family: var(--md-sys-typescale-title-large-font);
+  font-size: var(--md-sys-typescale-title-large-size);
+  font-weight: var(--md-sys-typescale-title-large-weight);
+  line-height: var(--md-sys-typescale-title-large-line-height);
+  letter-spacing: var(--md-sys-typescale-title-large-tracking);
+}
+
+.md3-title-medium {
+  font-family: var(--md-sys-typescale-title-medium-font);
+  font-size: var(--md-sys-typescale-title-medium-size);
+  font-weight: var(--md-sys-typescale-title-medium-weight);
+  line-height: var(--md-sys-typescale-title-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-title-medium-tracking);
+}
+
+.md3-title-small {
+  font-family: var(--md-sys-typescale-title-small-font);
+  font-size: var(--md-sys-typescale-title-small-size);
+  font-weight: var(--md-sys-typescale-title-small-weight);
+  line-height: var(--md-sys-typescale-title-small-line-height);
+  letter-spacing: var(--md-sys-typescale-title-small-tracking);
+}
+
+// Body
+.md3-body-large {
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  font-weight: var(--md-sys-typescale-body-large-weight);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+}
+
+.md3-body-medium {
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-body-medium-tracking);
+}
+
+.md3-body-small {
+  font-family: var(--md-sys-typescale-body-small-font);
+  font-size: var(--md-sys-typescale-body-small-size);
+  font-weight: var(--md-sys-typescale-body-small-weight);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  letter-spacing: var(--md-sys-typescale-body-small-tracking);
+}
+
+// Labels
+.md3-label-large {
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+}
+
+.md3-label-medium {
+  font-family: var(--md-sys-typescale-label-medium-font);
+  font-size: var(--md-sys-typescale-label-medium-size);
+  font-weight: var(--md-sys-typescale-label-medium-weight);
+  line-height: var(--md-sys-typescale-label-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-label-medium-tracking);
+}
+
+.md3-label-small {
+  font-family: var(--md-sys-typescale-label-small-font);
+  font-size: var(--md-sys-typescale-label-small-size);
+  font-weight: var(--md-sys-typescale-label-small-weight);
+  line-height: var(--md-sys-typescale-label-small-line-height);
+  letter-spacing: var(--md-sys-typescale-label-small-tracking);
+}
+
+// ====================================
+// Color Utilities
+// ====================================
+
+// Background colors
+.md3-bg-primary { background-color: var(--md-sys-color-primary); }
+.md3-bg-secondary { background-color: var(--md-sys-color-secondary); }
+.md3-bg-tertiary { background-color: var(--md-sys-color-tertiary); }
+.md3-bg-error { background-color: var(--md-sys-color-error); }
+.md3-bg-surface { background-color: var(--md-sys-color-surface); }
+.md3-bg-surface-variant { background-color: var(--md-sys-color-surface-variant); }
+.md3-bg-background { background-color: var(--md-sys-color-background); }
+
+// Container backgrounds
+.md3-bg-primary-container { background-color: var(--md-sys-color-primary-container); }
+.md3-bg-secondary-container { background-color: var(--md-sys-color-secondary-container); }
+.md3-bg-tertiary-container { background-color: var(--md-sys-color-tertiary-container); }
+.md3-bg-error-container { background-color: var(--md-sys-color-error-container); }
+
+// Surface containers
+.md3-bg-surface-container-lowest { background-color: var(--md-sys-color-surface-container-lowest); }
+.md3-bg-surface-container-low { background-color: var(--md-sys-color-surface-container-low); }
+.md3-bg-surface-container { background-color: var(--md-sys-color-surface-container); }
+.md3-bg-surface-container-high { background-color: var(--md-sys-color-surface-container-high); }
+.md3-bg-surface-container-highest { background-color: var(--md-sys-color-surface-container-highest); }
+
+// Text colors
+.md3-text-primary { color: var(--md-sys-color-on-surface); }
+.md3-text-secondary { color: var(--md-sys-color-on-surface-variant); }
+.md3-text-on-primary { color: var(--md-sys-color-on-primary); }
+.md3-text-on-secondary { color: var(--md-sys-color-on-secondary); }
+.md3-text-on-tertiary { color: var(--md-sys-color-on-tertiary); }
+.md3-text-on-error { color: var(--md-sys-color-on-error); }
+.md3-text-on-surface { color: var(--md-sys-color-on-surface); }
+.md3-text-on-surface-variant { color: var(--md-sys-color-on-surface-variant); }
+
+// ====================================
+// Spacing Utilities
+// ====================================
+
+// Padding
+.md3-p-0 { padding: 0; }
+.md3-p-xs { padding: var(--spacing-xs); }
+.md3-p-sm { padding: var(--spacing-sm); }
+.md3-p-md { padding: var(--spacing-md); }
+.md3-p-lg { padding: var(--spacing-lg); }
+.md3-p-xl { padding: var(--spacing-xl); }
+.md3-p-xxl { padding: var(--spacing-xxl); }
+
+// Padding X-axis
+.md3-px-0 { padding-left: 0; padding-right: 0; }
+.md3-px-xs { padding-left: var(--spacing-xs); padding-right: var(--spacing-xs); }
+.md3-px-sm { padding-left: var(--spacing-sm); padding-right: var(--spacing-sm); }
+.md3-px-md { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.md3-px-lg { padding-left: var(--spacing-lg); padding-right: var(--spacing-lg); }
+.md3-px-xl { padding-left: var(--spacing-xl); padding-right: var(--spacing-xl); }
+.md3-px-xxl { padding-left: var(--spacing-xxl); padding-right: var(--spacing-xxl); }
+
+// Padding Y-axis
+.md3-py-0 { padding-top: 0; padding-bottom: 0; }
+.md3-py-xs { padding-top: var(--spacing-xs); padding-bottom: var(--spacing-xs); }
+.md3-py-sm { padding-top: var(--spacing-sm); padding-bottom: var(--spacing-sm); }
+.md3-py-md { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }
+.md3-py-lg { padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg); }
+.md3-py-xl { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
+.md3-py-xxl { padding-top: var(--spacing-xxl); padding-bottom: var(--spacing-xxl); }
+
+// Margin
+.md3-m-0 { margin: 0; }
+.md3-m-xs { margin: var(--spacing-xs); }
+.md3-m-sm { margin: var(--spacing-sm); }
+.md3-m-md { margin: var(--spacing-md); }
+.md3-m-lg { margin: var(--spacing-lg); }
+.md3-m-xl { margin: var(--spacing-xl); }
+.md3-m-xxl { margin: var(--spacing-xxl); }
+.md3-m-auto { margin: auto; }
+
+// Margin X-axis
+.md3-mx-0 { margin-left: 0; margin-right: 0; }
+.md3-mx-xs { margin-left: var(--spacing-xs); margin-right: var(--spacing-xs); }
+.md3-mx-sm { margin-left: var(--spacing-sm); margin-right: var(--spacing-sm); }
+.md3-mx-md { margin-left: var(--spacing-md); margin-right: var(--spacing-md); }
+.md3-mx-lg { margin-left: var(--spacing-lg); margin-right: var(--spacing-lg); }
+.md3-mx-xl { margin-left: var(--spacing-xl); margin-right: var(--spacing-xl); }
+.md3-mx-xxl { margin-left: var(--spacing-xxl); margin-right: var(--spacing-xxl); }
+.md3-mx-auto { margin-left: auto; margin-right: auto; }
+
+// Margin Y-axis
+.md3-my-0 { margin-top: 0; margin-bottom: 0; }
+.md3-my-xs { margin-top: var(--spacing-xs); margin-bottom: var(--spacing-xs); }
+.md3-my-sm { margin-top: var(--spacing-sm); margin-bottom: var(--spacing-sm); }
+.md3-my-md { margin-top: var(--spacing-md); margin-bottom: var(--spacing-md); }
+.md3-my-lg { margin-top: var(--spacing-lg); margin-bottom: var(--spacing-lg); }
+.md3-my-xl { margin-top: var(--spacing-xl); margin-bottom: var(--spacing-xl); }
+.md3-my-xxl { margin-top: var(--spacing-xxl); margin-bottom: var(--spacing-xxl); }
+
+// Individual margins
+.md3-mt-0 { margin-top: 0; }
+.md3-mt-xs { margin-top: var(--spacing-xs); }
+.md3-mt-sm { margin-top: var(--spacing-sm); }
+.md3-mt-md { margin-top: var(--spacing-md); }
+.md3-mt-lg { margin-top: var(--spacing-lg); }
+.md3-mt-xl { margin-top: var(--spacing-xl); }
+.md3-mt-xxl { margin-top: var(--spacing-xxl); }
+
+.md3-mb-0 { margin-bottom: 0; }
+.md3-mb-xs { margin-bottom: var(--spacing-xs); }
+.md3-mb-sm { margin-bottom: var(--spacing-sm); }
+.md3-mb-md { margin-bottom: var(--spacing-md); }
+.md3-mb-lg { margin-bottom: var(--spacing-lg); }
+.md3-mb-xl { margin-bottom: var(--spacing-xl); }
+.md3-mb-xxl { margin-bottom: var(--spacing-xxl); }
+
+// ====================================
+// Shape Utilities
+// ====================================
+
+.md3-rounded-none { border-radius: 0; }
+.md3-rounded-xs { border-radius: var(--radius-xs); }
+.md3-rounded-sm { border-radius: var(--radius-sm); }
+.md3-rounded-md { border-radius: var(--radius-md); }
+.md3-rounded-lg { border-radius: var(--radius-lg); }
+.md3-rounded-xl { border-radius: var(--radius-xl); }
+.md3-rounded-full { border-radius: var(--radius-full); }
+
+// ====================================
+// Elevation Utilities
+// ====================================
+
+.md3-elevation-0 { box-shadow: var(--elevation-none); }
+.md3-elevation-1 { box-shadow: var(--elevation-level-1); }
+.md3-elevation-2 { box-shadow: var(--elevation-level-2); }
+.md3-elevation-3 { box-shadow: var(--elevation-level-3); }
+.md3-elevation-4 { box-shadow: var(--elevation-level-4); }
+.md3-elevation-5 { box-shadow: var(--elevation-level-5); }
+
+// ====================================
+// Layout Utilities
+// ====================================
+
+// Display
+.md3-hidden { display: none; }
+.md3-block { display: block; }
+.md3-inline-block { display: inline-block; }
+.md3-inline { display: inline; }
+.md3-flex { display: flex; }
+.md3-inline-flex { display: inline-flex; }
+.md3-grid { display: grid; }
+
+// Flexbox
+.md3-flex-row { flex-direction: row; }
+.md3-flex-col { flex-direction: column; }
+.md3-flex-wrap { flex-wrap: wrap; }
+.md3-flex-nowrap { flex-wrap: nowrap; }
+.md3-flex-1 { flex: 1; }
+.md3-flex-auto { flex: auto; }
+.md3-flex-none { flex: none; }
+
+// Alignment
+.md3-items-start { align-items: flex-start; }
+.md3-items-center { align-items: center; }
+.md3-items-end { align-items: flex-end; }
+.md3-items-stretch { align-items: stretch; }
+
+.md3-justify-start { justify-content: flex-start; }
+.md3-justify-center { justify-content: center; }
+.md3-justify-end { justify-content: flex-end; }
+.md3-justify-between { justify-content: space-between; }
+.md3-justify-around { justify-content: space-around; }
+.md3-justify-evenly { justify-content: space-evenly; }
+
+// Gap
+.md3-gap-0 { gap: 0; }
+.md3-gap-xs { gap: var(--spacing-xs); }
+.md3-gap-sm { gap: var(--spacing-sm); }
+.md3-gap-md { gap: var(--spacing-md); }
+.md3-gap-lg { gap: var(--spacing-lg); }
+.md3-gap-xl { gap: var(--spacing-xl); }
+.md3-gap-xxl { gap: var(--spacing-xxl); }
+
+// Position
+.md3-relative { position: relative; }
+.md3-absolute { position: absolute; }
+.md3-fixed { position: fixed; }
+.md3-sticky { position: sticky; }
+.md3-static { position: static; }
+
+// Width & Height
+.md3-w-full { width: 100%; }
+.md3-w-auto { width: auto; }
+.md3-h-full { height: 100%; }
+.md3-h-auto { height: auto; }
+.md3-h-screen { height: 100vh; }
+.md3-min-h-screen { min-height: 100vh; }
+
+// Container
+.md3-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+  
+  @media (min-width: 768px) {
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+}
+
+// ====================================
+// Transition Utilities
+// ====================================
+
+.md3-transition-none { transition: none; }
+.md3-transition-all { transition: var(--transition-all); }
+.md3-transition-colors { transition: var(--transition-colors); }
+.md3-transition-opacity { transition: var(--transition-opacity); }
+.md3-transition-transform { transition: var(--transition-transform); }
+.md3-transition-shadow { transition: var(--transition-shadow); }
+
+// ====================================
+// State Utilities
+// ====================================
+
+.md3-hover-bg:hover {
+  background-color: rgba(var(--md-sys-color-on-surface), var(--md-sys-state-hover-opacity));
+}
+
+.md3-focus-visible:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+.md3-disabled {
+  opacity: var(--md-sys-state-disabled-opacity);
+  pointer-events: none;
+}
+
+// ====================================
+// Component Utilities
+// ====================================
+
+// Cards
+.md3-card {
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elevation-level-1);
+  transition: var(--transition-shadow);
+  
+  &:hover {
+    box-shadow: var(--elevation-level-2);
+  }
+}
+
+.md3-card-filled {
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--radius-lg);
+}
+
+.md3-card-outlined {
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-lg);
+}
+
+// Buttons
+.md3-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-all);
+  border: none;
+  
+  &:focus-visible {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.md3-button-filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  
+  &:hover {
+    box-shadow: var(--elevation-level-1);
+    background-color: color-mix(in srgb, var(--md-sys-color-primary) 92%, var(--md-sys-color-on-primary));
+  }
+  
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.md3-button-outlined {
+  background-color: transparent;
+  color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-outline);
+  
+  &:hover {
+    background-color: rgba(var(--md-sys-color-primary), var(--md-sys-state-hover-opacity));
+  }
+}
+
+.md3-button-text {
+  background-color: transparent;
+  color: var(--md-sys-color-primary);
+  
+  &:hover {
+    background-color: rgba(var(--md-sys-color-primary), var(--md-sys-state-hover-opacity));
+  }
+}
+
+.md3-button-elevated {
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-primary);
+  box-shadow: var(--elevation-level-1);
+  
+  &:hover {
+    box-shadow: var(--elevation-level-2);
+  }
+}
+
+.md3-button-tonal {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  
+  &:hover {
+    box-shadow: var(--elevation-level-1);
+    background-color: color-mix(in srgb, var(--md-sys-color-secondary-container) 92%, var(--md-sys-color-on-secondary-container));
+  }
+}
+
+// ====================================
+// Responsive Utilities
+// ====================================
+
+@media (max-width: 767px) {
+  .md3-hidden-mobile { display: none; }
+  .md3-block-mobile { display: block; }
+}
+
+@media (min-width: 768px) {
+  .md3-hidden-tablet { display: none; }
+  .md3-block-tablet { display: block; }
+}
+
+@media (min-width: 1024px) {
+  .md3-hidden-desktop { display: none; }
+  .md3-block-desktop { display: block; }
+}
