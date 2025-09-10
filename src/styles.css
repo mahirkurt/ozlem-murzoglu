@@ -167,9 +167,9 @@ label {
   max-width: 960px;
 }
 
-@media (max-width: 1800px) {
+@media (max-width: 1440px) {
   .container {
-    max-width: 100%;
+    max-width: 1200px;
     padding: 0 24px;
   }
 }
@@ -448,5 +448,62 @@ img[loading='lazy'] {
 
   .lazy-loaded.fade-in {
     animation: none;
+  }
+}
+
+/* Critical MD3 Layout Fixes */
+.liquid-hero {
+  margin-top: 80px !important;
+  height: calc(100vh - 80px) !important;
+}
+
+@media (max-width: 768px) {
+  .liquid-hero {
+    margin-top: 60px !important;
+    height: calc(100vh - 60px) !important;
+  }
+}
+
+/* Force consistent container widths */
+.container,
+.md3-container {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Section spacing fixes */
+section,
+.section {
+  padding: 48px 0;
+}
+
+@media (max-width: 768px) {
+  section,
+  .section {
+    padding: 32px 0;
+  }
+}
+
+/* Service grid mobile fixes */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  
+  .service-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .gallery-features {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .feature-card {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
