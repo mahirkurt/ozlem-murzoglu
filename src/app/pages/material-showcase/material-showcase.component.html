@@ -1,0 +1,277 @@
+<div class="showcase-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <mat-toolbar color="primary" class="rounded-large elevation-2">
+      <span class="mat-headline-medium">MD3 Expressive Tema Vitrin</span>
+      <span class="flex-1"></span>
+      <button mat-icon-button matTooltip="Bildirimler">
+        <mat-icon matBadge="3" matBadgeColor="accent">notifications</mat-icon>
+      </button>
+    </mat-toolbar>
+  </section>
+
+  <!-- Typography Showcase -->
+  <section class="my-8">
+    <mat-card class="elevation-1">
+      <mat-card-header>
+        <mat-card-title class="mat-headline-medium">Tipografi Hiyerarşisi</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="typography-grid">
+          <h1 class="mat-display-large">Display Large</h1>
+          <h2 class="mat-display-medium">Display Medium</h2>
+          <h3 class="mat-display-small">Display Small</h3>
+          <h4 class="mat-headline-large">Headline Large</h4>
+          <h5 class="mat-headline-medium">Headline Medium</h5>
+          <h6 class="mat-headline-small">Headline Small</h6>
+          <p class="mat-body-large">Body Large - DM Sans font kullanılıyor</p>
+          <p class="mat-body-medium">Body Medium - Standart gövde metni</p>
+          <p class="mat-body-small">Body Small - Küçük açıklama metinleri</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <!-- Buttons Showcase -->
+  <section class="my-8">
+    <mat-card class="elevation-1">
+      <mat-card-header>
+        <mat-card-title class="mat-headline-medium">Butonlar - Hap Şeklinde</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="d-flex flex-wrap gap-2">
+          <button mat-raised-button color="primary">Primary Raised</button>
+          <button mat-flat-button color="accent">Accent Flat</button>
+          <button mat-stroked-button color="warn">Warn Stroked</button>
+          <button mat-button>Basic Button</button>
+          <button mat-raised-button disabled>Disabled</button>
+        </div>
+
+        <mat-divider class="my-4"></mat-divider>
+
+        <div class="d-flex flex-wrap gap-2">
+          <button mat-fab color="primary" matTooltip="Ana aksiyon">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button mat-mini-fab color="accent" matTooltip="İkincil aksiyon">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-fab extended color="primary">
+            <mat-icon>shopping_cart</mat-icon>
+            Sepete Ekle
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <!-- Form Fields -->
+  <section class="my-8">
+    <mat-card class="elevation-1">
+      <mat-card-header>
+        <mat-card-title class="mat-headline-medium">Form Elemanları</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="form-grid">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>E-posta</mat-label>
+            <input matInput placeholder="ornek@email.com" [(ngModel)]="email" type="email" />
+            <mat-icon matPrefix>email</mat-icon>
+            <mat-hint>Geçerli bir e-posta adresi girin</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Şifre</mat-label>
+            <input matInput type="password" [(ngModel)]="password" />
+            <mat-icon matPrefix>lock</mat-icon>
+            <mat-hint>En az 8 karakter</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Mesajınız</mat-label>
+            <textarea matInput rows="4" placeholder="Mesajınızı buraya yazın..."></textarea>
+            <mat-hint align="end">0 / 500</mat-hint>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <!-- Chips & Tags -->
+  <section class="my-8">
+    <mat-card class="elevation-1">
+      <mat-card-header>
+        <mat-card-title class="mat-headline-medium">Chips & Etiketler</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-chip-set>
+          <mat-chip color="primary" selected>Pediatri</mat-chip>
+          <mat-chip color="accent" selected>Aşılama</mat-chip>
+          <mat-chip>Gelişim Takibi</mat-chip>
+          <mat-chip>Beslenme</mat-chip>
+          <mat-chip>
+            <mat-icon matChipTrailingIcon>cancel</mat-icon>
+            Kaldırılabilir
+          </mat-chip>
+        </mat-chip-set>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <!-- Tabs -->
+  <section class="my-8">
+    <mat-card class="elevation-1">
+      <mat-card-header>
+        <mat-card-title class="mat-headline-medium">Sekmeler</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-tab-group animationDuration="300ms">
+          <mat-tab label="Hizmetler">
+            <div class="tab-content p-4">
+              <h3 class="mat-title-large">Hizmetlerimiz</h3>
+              <p class="mat-body-large">
+                Bright Futures, Triple P, SOS Feeding gibi özel programlarımızla çocuğunuzun
+                sağlıklı gelişimine destek oluyoruz.
+              </p>
+            </div>
+          </mat-tab>
+          <mat-tab label="Kaynaklar">
+            <div class="tab-content p-4">
+              <h3 class="mat-title-large">Ebeveyn Kaynakları</h3>
+              <p class="mat-body-large">
+                Gelişim rehberleri, aşı bilgileri ve ebeveynlik ipuçları için zengin kaynak
+                kütüphanemizi keşfedin.
+              </p>
+            </div>
+          </mat-tab>
+          <mat-tab label="İletişim">
+            <div class="tab-content p-4">
+              <h3 class="mat-title-large">Bize Ulaşın</h3>
+              <p class="mat-body-large">
+                Randevu almak veya bilgi edinmek için bizimle iletişime geçin.
+              </p>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <!-- Cards Grid -->
+  <section class="my-8">
+    <h2 class="mat-headline-large mb-4">Hizmet Kartları</h2>
+    <div class="cards-grid">
+      <mat-card *ngFor="let service of services" class="service-card elevation-2">
+        <mat-card-header>
+          <div mat-card-avatar>
+            <mat-icon [color]="service.color">{{ service.icon }}</mat-icon>
+          </div>
+          <mat-card-title>{{ service.name }}</mat-card-title>
+          <mat-card-subtitle>Özel Program</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="mat-body-medium">
+            Çocuğunuzun sağlıklı gelişimi için tasarlanmış özel programımız.
+          </p>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-button color="primary">Detaylar</button>
+          <button mat-button color="accent">Randevu Al</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Progress & Loading -->
+  <section class="my-8">
+    <mat-card class="elevation-1">
+      <mat-card-header>
+        <mat-card-title class="mat-headline-medium">İlerleme Göstergeleri</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="progress-section">
+          <p class="mat-label-large mb-2">Tamamlanma Oranı: {{ progressValue }}%</p>
+          <mat-progress-bar
+            mode="determinate"
+            [value]="progressValue"
+            color="primary"
+          ></mat-progress-bar>
+
+          <p class="mat-label-large mt-4 mb-2">Yükleniyor...</p>
+          <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <!-- Lists -->
+  <section class="my-8">
+    <mat-card class="elevation-1">
+      <mat-card-header>
+        <mat-card-title class="mat-headline-medium">Liste Bileşenleri</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <mat-icon matListItemIcon color="primary">vaccines</mat-icon>
+            <span matListItemTitle>Aşı Takvimi</span>
+            <span matListItemLine>Çocuğunuzun aşı takibi</span>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <mat-icon matListItemIcon color="accent">child_care</mat-icon>
+            <span matListItemTitle>Gelişim Kontrolleri</span>
+            <span matListItemLine>Düzenli gelişim takibi</span>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <mat-icon matListItemIcon color="warn">medical_services</mat-icon>
+            <span matListItemTitle>Laboratuvar Hizmetleri</span>
+            <span matListItemLine>Kapsamlı test ve analizler</span>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <!-- Snackbar Trigger -->
+  <section class="my-8 text-center">
+    <button mat-raised-button color="primary" (click)="showSnackbar()" class="mx-auto">
+      <mat-icon>celebration</mat-icon>
+      Snackbar Göster
+    </button>
+  </section>
+
+  <!-- Color Palette Display -->
+  <section class="my-8">
+    <mat-card class="elevation-1">
+      <mat-card-header>
+        <mat-card-title class="mat-headline-medium">Renk Paleti</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="color-grid">
+          <div class="color-swatch primary-color">
+            <span>Primary</span>
+            <small>#2E6E6A</small>
+          </div>
+          <div class="color-swatch secondary-color">
+            <span>Secondary</span>
+            <small>#a65800</small>
+          </div>
+          <div class="color-swatch tertiary-color">
+            <span>Tertiary</span>
+            <small>#637b6f</small>
+          </div>
+          <div class="color-swatch surface-color">
+            <span>Surface</span>
+            <small>#FAF8F5</small>
+          </div>
+          <div class="color-swatch error-color">
+            <span>Error</span>
+            <small>#ba1a1a</small>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</div>

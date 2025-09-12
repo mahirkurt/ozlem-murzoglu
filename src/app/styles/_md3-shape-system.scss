@@ -1,0 +1,432 @@
+// ====================================================================
+// MD3 Shape System - Kapsamlı Şekil Ölçeği
+// ====================================================================
+// Material Design 3'ün tam şekil sistemini CSS değişkenleri olarak
+// tanımlar ve bileşenler arasında görsel tutarlılık sağlar
+// ====================================================================
+
+// Shape Scale - MD3 Resmi Değerleri
+// ====================================================================
+
+// Extra Small - 4dp
+:root {
+  --md-sys-shape-corner-none: 0;
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-extra-small-top: 4px 4px 0 0;
+
+  // Small - 8dp
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-small-top: 8px 8px 0 0;
+  --md-sys-shape-corner-small-end: 0 8px 8px 0;
+  --md-sys-shape-corner-small-start: 8px 0 0 8px;
+
+  // Medium - 12dp
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-medium-top: 12px 12px 0 0;
+  --md-sys-shape-corner-medium-end: 0 12px 12px 0;
+  --md-sys-shape-corner-medium-start: 12px 0 0 12px;
+
+  // Large - 16dp
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-large-top: 16px 16px 0 0;
+  --md-sys-shape-corner-large-end: 0 16px 16px 0;
+  --md-sys-shape-corner-large-start: 16px 0 0 16px;
+
+  // Extra Large - 28dp
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-extra-large-top: 28px 28px 0 0;
+
+  // Full - Tam yuvarlak
+  --md-sys-shape-corner-full: 9999px;
+}
+
+// Component-Specific Shape Tokens
+// ====================================================================
+
+// Buttons
+$button-shapes: (
+  text: var(--md-sys-shape-corner-full),
+  outlined: var(--md-sys-shape-corner-full),
+  filled: var(--md-sys-shape-corner-full),
+  elevated: var(--md-sys-shape-corner-full),
+  tonal: var(--md-sys-shape-corner-full),
+  fab-small: var(--md-sys-shape-corner-medium),
+  fab-regular: var(--md-sys-shape-corner-large),
+  fab-large: var(--md-sys-shape-corner-extra-large),
+  fab-extended: var(--md-sys-shape-corner-large),
+  icon-button: var(--md-sys-shape-corner-full),
+);
+
+// Cards
+$card-shapes: (
+  elevated: var(--md-sys-shape-corner-medium),
+  filled: var(--md-sys-shape-corner-medium),
+  outlined: var(--md-sys-shape-corner-medium),
+  image-top: var(--md-sys-shape-corner-medium-top),
+  interactive: var(--md-sys-shape-corner-large),
+);
+
+// Chips
+$chip-shapes: (
+  assist: var(--md-sys-shape-corner-small),
+  filter: var(--md-sys-shape-corner-small),
+  input: var(--md-sys-shape-corner-small),
+  suggestion: var(--md-sys-shape-corner-small),
+);
+
+// Dialogs & Sheets
+$dialog-shapes: (
+  basic: var(--md-sys-shape-corner-extra-large),
+  full-screen: var(--md-sys-shape-corner-none),
+  bottom-sheet: var(--md-sys-shape-corner-extra-large-top),
+  side-sheet: var(--md-sys-shape-corner-large-start),
+);
+
+// Navigation
+$navigation-shapes: (
+  drawer: var(--md-sys-shape-corner-large-end),
+  rail: var(--md-sys-shape-corner-none),
+  bar-item: var(--md-sys-shape-corner-full),
+  tab-indicator: var(--md-sys-shape-corner-small-top),
+);
+
+// Form Fields
+$form-shapes: (
+  text-field-filled: var(--md-sys-shape-corner-small-top),
+  text-field-outlined: var(--md-sys-shape-corner-small),
+  select: var(--md-sys-shape-corner-small),
+  checkbox: var(--md-sys-shape-corner-extra-small),
+  radio: var(--md-sys-shape-corner-full),
+  switch-track: var(--md-sys-shape-corner-full),
+  switch-handle: var(--md-sys-shape-corner-full),
+  slider-handle: var(--md-sys-shape-corner-full),
+);
+
+// Lists & Menus
+$list-shapes: (
+  list-item: var(--md-sys-shape-corner-none),
+  list-item-interactive: var(--md-sys-shape-corner-small),
+  menu: var(--md-sys-shape-corner-small),
+  menu-item: var(--md-sys-shape-corner-none),
+);
+
+// Other Components
+$misc-shapes: (
+  badge: var(--md-sys-shape-corner-full),
+  tooltip: var(--md-sys-shape-corner-small),
+  snackbar: var(--md-sys-shape-corner-small),
+  search-bar: var(--md-sys-shape-corner-full),
+  search-view: var(--md-sys-shape-corner-extra-large),
+  progress-linear: var(--md-sys-shape-corner-none),
+  progress-circular: var(--md-sys-shape-corner-full),
+  divider: var(--md-sys-shape-corner-none),
+  avatar: var(--md-sys-shape-corner-full),
+  banner: var(--md-sys-shape-corner-large),
+);
+
+// Shape Utility Classes
+// ====================================================================
+
+// Corner radius utilities
+.shape-none {
+  border-radius: var(--md-sys-shape-corner-none) !important;
+}
+.shape-extra-small {
+  border-radius: var(--md-sys-shape-corner-extra-small) !important;
+}
+.shape-small {
+  border-radius: var(--md-sys-shape-corner-small) !important;
+}
+.shape-medium {
+  border-radius: var(--md-sys-shape-corner-medium) !important;
+}
+.shape-large {
+  border-radius: var(--md-sys-shape-corner-large) !important;
+}
+.shape-extra-large {
+  border-radius: var(--md-sys-shape-corner-extra-large) !important;
+}
+.shape-full {
+  border-radius: var(--md-sys-shape-corner-full) !important;
+}
+
+// Directional shapes
+.shape-top-small {
+  border-radius: var(--md-sys-shape-corner-small-top) !important;
+}
+.shape-top-medium {
+  border-radius: var(--md-sys-shape-corner-medium-top) !important;
+}
+.shape-top-large {
+  border-radius: var(--md-sys-shape-corner-large-top) !important;
+}
+.shape-top-extra-large {
+  border-radius: var(--md-sys-shape-corner-extra-large-top) !important;
+}
+
+.shape-end-small {
+  border-radius: var(--md-sys-shape-corner-small-end) !important;
+}
+.shape-end-medium {
+  border-radius: var(--md-sys-shape-corner-medium-end) !important;
+}
+.shape-end-large {
+  border-radius: var(--md-sys-shape-corner-large-end) !important;
+}
+
+.shape-start-small {
+  border-radius: var(--md-sys-shape-corner-small-start) !important;
+}
+.shape-start-medium {
+  border-radius: var(--md-sys-shape-corner-medium-start) !important;
+}
+.shape-start-large {
+  border-radius: var(--md-sys-shape-corner-large-start) !important;
+}
+
+// Shape Mixins
+// ====================================================================
+
+// Ana shape mixin
+@mixin apply-shape($component-type, $variant: 'default') {
+  @if $component-type == 'button' {
+    @if map-has-key($button-shapes, $variant) {
+      border-radius: map-get($button-shapes, $variant);
+    }
+  } @else if $component-type == 'card' {
+    @if map-has-key($card-shapes, $variant) {
+      border-radius: map-get($card-shapes, $variant);
+    }
+  } @else if $component-type == 'chip' {
+    @if map-has-key($chip-shapes, $variant) {
+      border-radius: map-get($chip-shapes, $variant);
+    }
+  } @else if $component-type == 'dialog' {
+    @if map-has-key($dialog-shapes, $variant) {
+      border-radius: map-get($dialog-shapes, $variant);
+    }
+  } @else if $component-type == 'form' {
+    @if map-has-key($form-shapes, $variant) {
+      border-radius: map-get($form-shapes, $variant);
+    }
+  } @else if $component-type == 'navigation' {
+    @if map-has-key($navigation-shapes, $variant) {
+      border-radius: map-get($navigation-shapes, $variant);
+    }
+  } @else if $component-type == 'list' {
+    @if map-has-key($list-shapes, $variant) {
+      border-radius: map-get($list-shapes, $variant);
+    }
+  } @else {
+    @if map-has-key($misc-shapes, $variant) {
+      border-radius: map-get($misc-shapes, $variant);
+    }
+  }
+}
+
+// Responsive shape mixin
+@mixin responsive-shape($base: small, $md: medium, $lg: large) {
+  border-radius: var(--md-sys-shape-corner-#{$base});
+
+  @media (min-width: 768px) {
+    border-radius: var(--md-sys-shape-corner-#{$md});
+  }
+
+  @media (min-width: 1024px) {
+    border-radius: var(--md-sys-shape-corner-#{$lg});
+  }
+}
+
+// Adaptive shape mixin (içeriğe göre)
+@mixin adaptive-shape($has-image: false, $is-interactive: false) {
+  @if $has-image {
+    border-radius: var(--md-sys-shape-corner-medium);
+
+    img:first-child,
+    picture:first-child {
+      border-radius: var(--md-sys-shape-corner-medium-top);
+    }
+  } @else if $is-interactive {
+    border-radius: var(--md-sys-shape-corner-small);
+    transition: border-radius 200ms cubic-bezier(0.2, 0, 0, 1);
+
+    &:hover {
+      border-radius: var(--md-sys-shape-corner-medium);
+    }
+
+    &:active {
+      border-radius: var(--md-sys-shape-corner-large);
+    }
+  } @else {
+    border-radius: var(--md-sys-shape-corner-medium);
+  }
+}
+
+// Component Shape Applications
+// ====================================================================
+
+// Buttons
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-flat-button,
+.mat-mdc-stroked-button,
+.mat-mdc-icon-button {
+  @include apply-shape('button', 'filled');
+}
+
+.mat-mdc-fab {
+  &.mat-mdc-fab-small {
+    @include apply-shape('button', 'fab-small');
+  }
+
+  &:not(.mat-mdc-fab-small):not(.mat-mdc-extended-fab) {
+    @include apply-shape('button', 'fab-regular');
+  }
+}
+
+.mat-mdc-extended-fab {
+  @include apply-shape('button', 'fab-extended');
+}
+
+// Cards
+.mat-mdc-card {
+  @include apply-shape('card', 'elevated');
+
+  &.card-interactive {
+    @include apply-shape('card', 'interactive');
+  }
+
+  .mat-mdc-card-image:first-child {
+    border-radius: var(--md-sys-shape-corner-medium-top);
+  }
+}
+
+// Chips
+.mat-mdc-chip {
+  @include apply-shape('chip', 'assist');
+
+  &.mat-mdc-chip-selected {
+    @include apply-shape('chip', 'filter');
+  }
+}
+
+// Form Fields
+.mat-mdc-form-field {
+  &.mat-form-field-appearance-fill {
+    .mat-mdc-text-field-wrapper {
+      @include apply-shape('form', 'text-field-filled');
+    }
+  }
+
+  &.mat-form-field-appearance-outline {
+    .mat-mdc-text-field-wrapper {
+      @include apply-shape('form', 'text-field-outlined');
+    }
+  }
+}
+
+// Dialogs
+.mat-mdc-dialog-container {
+  @include apply-shape('dialog', 'basic');
+
+  &.full-screen-dialog {
+    @include apply-shape('dialog', 'full-screen');
+  }
+}
+
+// Bottom Sheet
+.mat-bottom-sheet-container {
+  @include apply-shape('dialog', 'bottom-sheet');
+}
+
+// Navigation
+.mat-drawer {
+  &.mat-drawer-end {
+    @include apply-shape('navigation', 'drawer');
+  }
+}
+
+// Lists
+.mat-mdc-list-item {
+  @include apply-shape('list', 'list-item');
+
+  &.interactive-list-item {
+    @include apply-shape('list', 'list-item-interactive');
+  }
+}
+
+// Menus
+.mat-mdc-menu-panel {
+  @include apply-shape('list', 'menu');
+}
+
+// Tooltips
+.mat-mdc-tooltip {
+  @include apply-shape('misc', 'tooltip');
+}
+
+// Snackbar
+.mat-mdc-snack-bar-container {
+  @include apply-shape('misc', 'snackbar');
+}
+
+// Custom Shape Animations
+// ====================================================================
+
+@keyframes shape-morph {
+  0% {
+    border-radius: var(--md-sys-shape-corner-small);
+  }
+  50% {
+    border-radius: var(--md-sys-shape-corner-large);
+  }
+  100% {
+    border-radius: var(--md-sys-shape-corner-small);
+  }
+}
+
+.shape-morph {
+  animation: shape-morph 2s ease-in-out infinite;
+}
+
+// Shape Hover Effects
+.shape-hover-grow {
+  transition: border-radius 200ms cubic-bezier(0.2, 0, 0, 1);
+
+  &:hover {
+    border-radius: calc(var(--md-sys-shape-corner-medium) * 1.5);
+  }
+}
+
+.shape-hover-shrink {
+  transition: border-radius 200ms cubic-bezier(0.2, 0, 0, 1);
+
+  &:hover {
+    border-radius: calc(var(--md-sys-shape-corner-medium) * 0.5);
+  }
+}
+
+// Asymmetric Shapes (for special cases)
+.shape-asymmetric-1 {
+  border-radius: var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-small)
+    var(--md-sys-shape-corner-medium) var(--md-sys-shape-corner-extra-large);
+}
+
+.shape-asymmetric-2 {
+  border-radius: 0 var(--md-sys-shape-corner-extra-large) 0 var(--md-sys-shape-corner-extra-large);
+}
+
+// Dynamic Shape Based on Content
+[data-shape-dynamic] {
+  &[data-content-type='image'] {
+    @include adaptive-shape(true, false);
+  }
+
+  &[data-content-type='interactive'] {
+    @include adaptive-shape(false, true);
+  }
+
+  &[data-content-type='text'] {
+    border-radius: var(--md-sys-shape-corner-small);
+  }
+}

@@ -14,5 +14,5 @@ export class HeroSectionComponent {
   @Input() title: string = '';
   @Input() subtitle?: string;
   @Input() breadcrumbs?: { label: string; link?: string }[] = [];
-  @Input() colorTheme: 'blue' | 'yellow' | 'purple' = 'blue';
+  @Input() colorTheme: 'blue' | 'yellow' | 'purple' | 'green' | 'teal' | 'orange' = 'blue';
 }

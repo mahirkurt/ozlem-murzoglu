@@ -1,30 +1,27 @@
 <section class="resources-page">
   <!-- Hero Section -->
-  <div class="resources-hero">
-    <div class="hero-background">
-      <div class="hero-shape shape-1"></div>
-      <div class="hero-shape shape-2"></div>
-      <div class="hero-shape shape-3"></div>
-    </div>
+  <app-hero-section 
+    title="{{ 'RESOURCES.TITLE' | translate }}"
+    subtitle="{{ 'RESOURCES.SUBTITLE' | translate }}"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="green">
+  </app-hero-section>
+  
+  <!-- Stats Section -->
+  <div class="stats-section">
     <div class="container">
-      <div class="hero-content">
-        <h1 class="page-title">Ebeveyn Kaynak Merkezi</h1>
-        <p class="page-subtitle">
-          Çocuğunuzun sağlığı ve gelişimi için güvenilir, bilimsel kaynaklar
-        </p>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-number">220+</span>
-            <span class="stat-label">Bilimsel Kaynak</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">11</span>
-            <span class="stat-label">Kategori</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">AAP</span>
-            <span class="stat-label">Onaylı İçerik</span>
-          </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">220+</span>
+          <span class="stat-label">{{ 'RESOURCES.STAT_DOCUMENTS' | translate }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">11</span>
+          <span class="stat-label">{{ 'RESOURCES.STAT_CATEGORIES' | translate }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">AAP</span>
+          <span class="stat-label">{{ 'RESOURCES.STAT_APPROVED' | translate }}</span>
         </div>
       </div>
     </div>

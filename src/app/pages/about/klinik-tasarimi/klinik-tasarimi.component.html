@@ -1,15 +1,11 @@
 <div class="clinic-design-container">
-  <!-- Hero Section with Parallax Effect -->
-  <section class="hero-section">
-    <div class="hero-image-container">
-      <img src="images/20230416_174226~2.jpg" alt="Klinik Girişi" class="hero-image">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">Klinik Tasarımı</h1>
-        <p class="hero-subtitle">Çocuklarınızın çok seveceği bir ortam yarattık.</p>
-      </div>
-    </div>
-  </section>
+  <!-- Hero Section -->
+  <app-hero-section 
+    title="{{ 'KLINIK_TASARIMI.TITLE' | translate }}"
+    subtitle="{{ 'KLINIK_TASARIMI.SUBTITLE' | translate }}"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="yellow">
+  </app-hero-section>
 
   <!-- Main Content -->
   <div class="content-wrapper">
@@ -19,12 +15,12 @@
       <div class="container">
         <div class="intro-grid">
           <div class="intro-text">
-            <h2 class="section-title">Samimi ve Güvenli Bir Ortam</h2>
+            <h2 class="section-title">{{ 'KLINIK_TASARIMI.INTRO_TITLE' | translate }}</h2>
             <p class="lead-text">
-              Minik misafirlerimiz için doktor ziyaretini olumlu bir deneyime dönüştürecek samimi bir ortam yaratmak için yola çıktık.
+              {{ 'KLINIK_TASARIMI.INTRO_LEAD' | translate }}
             </p>
             <p>
-              Kliniği tasarlarken asıl amacımız, çocuklarda olumsuz anılar bırakmayan ve doktora gitme korkusuna sebep olmayacak bir atmosfer yaratmaktı.
+              {{ 'KLINIK_TASARIMI.INTRO_TEXT' | translate }}
             </p>
           </div>
           <div class="intro-image">
@@ -43,27 +39,23 @@
             <img src="images/20230416_174537~2.jpg" alt="Çocuk Oyun Alanı" class="grid-image">
           </div>
           <div class="team-text">
-            <h3 class="subsection-title">Uzman Ekip İle Tasarım</h3>
-            <p>
-              Bu amaçla <strong>CH Mimarlık</strong>'tan Yüksek Mimar <strong>Ebru Hacıoğlu</strong> ve 
-              Mimar <strong>Coşkun Hacıoğlu</strong> ile birlikte çalıştık.
+            <h3 class="subsection-title">{{ 'KLINIK_TASARIMI.TEAM_TITLE' | translate }}</h3>
+            <p [innerHTML]="'KLINIK_TASARIMI.TEAM_TEXT1' | translate">
             </p>
-            <p>
-              Yine özel olarak tasarlanan ve üretilen mobilyalar İç Mimar <strong>Özkan Coşkun</strong> ve 
-              ekibi tarafından imal ve monte edildi.
+            <p [innerHTML]="'KLINIK_TASARIMI.TEAM_TEXT2' | translate">
             </p>
             <div class="design-features">
               <div class="feature-item">
                 <i class="fas fa-palette"></i>
-                <span>Beyaz lake ve ceviz kaplama mobilyalar</span>
+                <span>{{ 'KLINIK_TASARIMI.FEATURE_FURNITURE' | translate }}</span>
               </div>
               <div class="feature-item">
                 <i class="fas fa-home"></i>
-                <span>Sade ve sıcak ortam</span>
+                <span>{{ 'KLINIK_TASARIMI.FEATURE_ENVIRONMENT' | translate }}</span>
               </div>
               <div class="feature-item">
                 <i class="fas fa-child"></i>
-                <span>Çocuk dostu tasarım</span>
+                <span>{{ 'KLINIK_TASARIMI.FEATURE_CHILD_FRIENDLY' | translate }}</span>
               </div>
             </div>
           </div>
@@ -74,30 +66,30 @@
     <!-- Gallery Section -->
     <section class="gallery-section">
       <div class="container">
-        <h2 class="section-title text-center">Kliniğimizden Görüntüler</h2>
+        <h2 class="section-title text-center">{{ 'KLINIK_TASARIMI.GALLERY_TITLE' | translate }}</h2>
         <div class="gallery-grid">
           <div class="gallery-item large">
             <img src="images/20230416_174550~2.jpg" alt="Ana Muayene Odası">
             <div class="gallery-overlay">
-              <span class="gallery-caption">Muayene Odası</span>
+              <span class="gallery-caption">{{ 'KLINIK_TASARIMI.GALLERY_EXAM_ROOM' | translate }}</span>
             </div>
           </div>
           <div class="gallery-item">
             <img src="images/20230416_174704~2.jpg" alt="Oyun Köşesi">
             <div class="gallery-overlay">
-              <span class="gallery-caption">Oyun Köşesi</span>
+              <span class="gallery-caption">{{ 'KLINIK_TASARIMI.GALLERY_PLAY_CORNER' | translate }}</span>
             </div>
           </div>
           <div class="gallery-item">
             <img src="images/20230416_174740~2.jpg" alt="Bekleme Alanı">
             <div class="gallery-overlay">
-              <span class="gallery-caption">Bekleme Alanı</span>
+              <span class="gallery-caption">{{ 'KLINIK_TASARIMI.GALLERY_WAITING_AREA' | translate }}</span>
             </div>
           </div>
           <div class="gallery-item">
             <img src="images/20230416_175117~2.jpg" alt="Emzirme Odası">
             <div class="gallery-overlay">
-              <span class="gallery-caption">Emzirme Odası</span>
+              <span class="gallery-caption">{{ 'KLINIK_TASARIMI.GALLERY_NURSING_ROOM' | translate }}</span>
             </div>
           </div>
           <div class="gallery-item">

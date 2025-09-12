@@ -1,24 +1,11 @@
 <div class="triple-p-page">
   <!-- Hero Section -->
-  <section class="service-hero">
-    <div class="hero-gradient"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="breadcrumb">
-          <a routerLink="/">Ana Sayfa</a>
-          <span class="material-icons">chevron_right</span>
-          <a routerLink="/hizmetlerimiz">Hizmetlerimiz</a>
-          <span class="material-icons">chevron_right</span>
-          <span>Triple P Programı</span>
-        </div>
-        <div class="hero-badge">
-          <img src="/images/Triple_P.svg" alt="Triple P Logo" class="program-logo">
-        </div>
-        <h1 class="hero-title">Triple P® – Olumlu Ebeveynlik Programı</h1>
-        <p class="hero-subtitle">Queensland Üniversitesi lisanslı ebeveynlik ve aile destek sistemi</p>
-      </div>
-    </div>
-  </section>
+  <app-hero-section
+    title="Triple P® – Olumlu Ebeveynlik Programı"
+    subtitle="Queensland Üniversitesi lisanslı ebeveynlik ve aile destek sistemi"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="purple">
+  </app-hero-section>
 
   <!-- Main Content -->
   <div class="content-wrapper">
@@ -37,22 +24,22 @@
             
             <div class="section-description">
               <p class="lead">
-                Triple P – Olumlu Ebeveynlik Programı®, çocuklarda ve gençlerde davranışsal ve duygusal sorunları önlemek ve aynı zamanda tedavi etmek için tasarlanmış bir ebeveynlik ve aile destek sistemidir.
+                Triple P, tüm dünyada milyonlarca ailenin güvendiği, size dayatmalar sunmak yerine ebeveynlik becerilerinizi güçlendiren, kanıta dayalı bir 'araç kutusudur'. 40 yılı aşkın araştırma ve geliştirme sonucunda ortaya çıkmış, dünya çapında 25'ten fazla ülkede uygulanan bir programdır.
               </p>
               
               <p>
-                Queensland Üniversitesi tarafından geliştirilmiş olan program, 35 yılı aşkın klinik araştırmalara dayanmaktadır. Günümüzde 25'ten fazla ülkede uygulanmakta ve dünya çapında 4 milyondan fazla çocuk ve aileye ulaşmış durumdadır.
+                Triple P'nin temelinde basit ama güçlü bir fikir yatar: Çocuklar, güvenli, sevgi dolu ve öngörülebilir bir ortamda en iyi şekilde gelişirler. Pozitif ebeveynlik, çocuklarınıza bağırıp çağırmadan, tutarlı ve kararlı bir disiplinle sınırlar koyarken, onlarla sıcak ve destekleyici bir ilişki kurmayı hedefler.
               </p>
               
               <div class="highlight-box">
                 <span class="material-icons">psychology</span>
                 <p>
-                  Dr. Özlem Murzoğlu, Queensland Üniversitesi tarafından onaylanmış <strong>Triple P Grup Programı Uygulayıcısı</strong> lisansına sahiptir.
+                  Dr. Özlem Murzoğlu, <strong>Triple P Uygulayıcı Sertifikası</strong>'na sahip, bu alanda eğitim almış nadir uzmanlardan biridir.
                 </p>
               </div>
               
               <p>
-                Triple P, ebeveynlere çocuklarıyla daha güçlü, sağlıklı ilişkiler kurmaları ve çocuklarının gelişimlerini desteklemek için kendilerine güven duymaları için ihtiyaç duydukları becerileri kazandırır.
+                Bu yaklaşım, çocukların problem çözme, sorumluluk alma ve özgüven gibi yaşam boyu sürecek beceriler geliştirmesine olanak tanır. Program, her ailenin ihtiyacına göre farklı yoğunluk seviyelerinde destek sağlar.
               </p>
             </div>
           </div>
@@ -64,33 +51,100 @@
                 <span class="material-icons">verified</span>
                 <div>
                   <h4>Kanıta Dayalı</h4>
-                  <p>180+ bilimsel araştırma ile desteklenmiş</p>
+                  <p>180'den fazla klinik araştırma ile desteklenen bilimsel yöntemler</p>
                 </div>
               </div>
               
               <div class="feature-item">
                 <span class="material-icons">public</span>
                 <div>
-                  <h4>Dünya Çapında</h4>
-                  <p>25+ ülkede, 20+ dilde uygulanıyor</p>
+                  <h4>Dünya Çapında Kabul</h4>
+                  <p>25+ ülkede 4 milyon aileye ulaşmış başarılı program</p>
                 </div>
               </div>
               
               <div class="feature-item">
                 <span class="material-icons">groups</span>
                 <div>
-                  <h4>4+ Milyon Aile</h4>
-                  <p>Programdan faydalanan aile sayısı</p>
+                  <h4>Her Aileye Uygun</h4>
+                  <p>Farklı kültür ve aile yapılarına uyarlanabilir stratejiler</p>
                 </div>
               </div>
               
               <div class="feature-item">
                 <span class="material-icons">school</span>
                 <div>
-                  <h4>Queensland Üniversitesi</h4>
-                  <p>Geliştirildiği ve onaylandığı kurum</p>
+                  <h4>Üniversite Destekli</h4>
+                  <p>Queensland Üniversitesi tarafından geliştirilmiş akademik program</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 Principles Section -->
+      <section class="principles-section">
+        <div class="section-header center">
+          <span class="section-icon">
+            <span class="material-icons">fact_check</span>
+          </span>
+          <h2 class="section-title">Pozitif Ebeveynliğin 5 Temel İlkesi</h2>
+        </div>
+        
+        <div class="principles-list">
+          <div class="principle-item">
+            <div class="principle-number">1</div>
+            <div class="principle-content">
+              <div class="principle-header">
+                <span class="material-icons">security</span>
+                <h3>Güvenli ve İlgi Çekici Bir Ortam Yaratmak</h3>
+              </div>
+              <p>Evde fiziksel ve duygusal güvenliği sağlamak. Çocuğunuzun keşfetmesini ve öğrenmesini teşvik eden, yaşına uygun bir çevre oluşturmak.</p>
+            </div>
+          </div>
+          
+          <div class="principle-item">
+            <div class="principle-number">2</div>
+            <div class="principle-content">
+              <div class="principle-header">
+                <span class="material-icons">lightbulb</span>
+                <h3>Pozitif Bir Öğrenme Ortamı Oluşturmak</h3>
+              </div>
+              <p>Çocuğunuzla kaliteli zaman geçirerek, onunla konuşarak ve çabasını (sadece sonucunu değil) takdir ederek öğrenme hevesini artırmak.</p>
+            </div>
+          </div>
+          
+          <div class="principle-item">
+            <div class="principle-number">3</div>
+            <div class="principle-content">
+              <div class="principle-header">
+                <span class="material-icons">balance</span>
+                <h3>Tutarlı ve Kararlı Disiplin Uygulamak</h3>
+              </div>
+              <p>Kuralları net bir şekilde belirlemek ve bu kuralları sakin, öngörülebilir ve tutarlı bir şekilde uygulamak. Fiziksel cezadan kaçınarak, davranışların sonuçlarını öğrenmesine yardımcı olmak.</p>
+            </div>
+          </div>
+          
+          <div class="principle-item">
+            <div class="principle-number">4</div>
+            <div class="principle-content">
+              <div class="principle-header">
+                <span class="material-icons">psychology</span>
+                <h3>Gerçekçi Beklentilere Sahip Olmak</h3>
+              </div>
+              <p>Hem çocuğunuzdan hem de kendinizden mükemmel olmanızı beklememek. Her çocuğun gelişim hızının farklı olduğunu ve hataların öğrenme sürecinin bir parçası olduğunu kabul etmek.</p>
+            </div>
+          </div>
+          
+          <div class="principle-item">
+            <div class="principle-number">5</div>
+            <div class="principle-content">
+              <div class="principle-header">
+                <span class="material-icons">self_improvement</span>
+                <h3>Bir Ebeveyn Olarak Kendinize İyi Bakmak</h3>
+              </div>
+              <p>Kendi fiziksel ve zihinsel sağlığınıza özen göstermek. Unutmayın, kendi bardağınız dolu olmadan çocuğunuza en iyi desteği veremezsiniz.</p>
             </div>
           </div>
         </div>
@@ -113,9 +167,9 @@
             <h3>Çocuklar İçin</h3>
             <ul>
               <li>Davranış sorunlarında azalma</li>
-              <li>Duygusal düzenleme becerilerinde gelişme</li>
-              <li>Sosyal becerilerde artış</li>
-              <li>Okul başarısında iyileşme</li>
+              <li>Duygusal düzenleme becerileri</li>
+              <li>Sosyal beceriler gelişimi</li>
+              <li>Okul başarısında artış</li>
               <li>Özgüven gelişimi</li>
             </ul>
           </div>
@@ -126,11 +180,11 @@
             </div>
             <h3>Ebeveynler İçin</h3>
             <ul>
-              <li>Ebeveynlik becerilerinde güçlenme</li>
+              <li>Ebeveynlik becerilerinde artış</li>
               <li>Stres ve kaygıda azalma</li>
               <li>Tutarlı disiplin yöntemleri</li>
-              <li>Olumlu iletişim teknikleri</li>
-              <li>Kendine güven artışı</li>
+              <li>Ebeveyn-çocuk ilişkisinde iyileşme</li>
+              <li>Özgüven ve yeterlilik hissi</li>
             </ul>
           </div>
           
@@ -140,11 +194,11 @@
             </div>
             <h3>Aile İçin</h3>
             <ul>
-              <li>Aile içi uyumda artış</li>
-              <li>Çatışmalarda azalma</li>
-              <li>Kaliteli zaman artışı</li>
-              <li>Güçlü bağların oluşması</li>
-              <li>Pozitif aile ortamı</li>
+              <li>Aile içi çatışmalarda azalma</li>
+              <li>Pozitif aile atmosferi</li>
+              <li>Ebeveynler arası uyum</li>
+              <li>Kardeşler arası ilişkilerde iyileşme</li>
+              <li>Genel aile mutluluğunda artış</li>
             </ul>
           </div>
         </div>
@@ -152,63 +206,125 @@
 
       <!-- Program Structure Section -->
       <section class="structure-section">
-        <div class="section-grid reverse">
-          <div class="section-features">
-            <h3>Program Yapısı</h3>
-            <div class="structure-timeline">
-              <div class="timeline-item">
-                <div class="timeline-marker">1</div>
-                <div class="timeline-content">
-                  <h4>Olumlu Ebeveynlik</h4>
-                  <p>Güvenli ve ilgi çekici bir ortam yaratma</p>
-                </div>
-              </div>
-              
-              <div class="timeline-item">
-                <div class="timeline-marker">2</div>
-                <div class="timeline-content">
-                  <h4>Çocuk Gelişimi</h4>
-                  <p>Çocukların gelişimini destekleme</p>
-                </div>
-              </div>
-              
-              <div class="timeline-item">
-                <div class="timeline-marker">3</div>
-                <div class="timeline-content">
-                  <h4>Davranış Yönetimi</h4>
-                  <p>Yeni beceriler öğretme</p>
-                </div>
-              </div>
-              
-              <div class="timeline-item">
-                <div class="timeline-marker">4</div>
-                <div class="timeline-content">
-                  <h4>Problem Davranışlar</h4>
-                  <p>Zor davranışlarla başa çıkma</p>
-                </div>
-              </div>
-              
-              <div class="timeline-item">
-                <div class="timeline-marker">5</div>
-                <div class="timeline-content">
-                  <h4>Aile Rutinleri</h4>
-                  <p>Yüksek riskli durumları yönetme</p>
-                </div>
-              </div>
+        <div class="section-header center">
+          <span class="section-icon">
+            <span class="material-icons">architecture</span>
+          </span>
+          <h2 class="section-title">Program Yapısı</h2>
+        </div>
+        
+        <div class="structure-timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker">1</div>
+            <div class="timeline-content">
+              <h4>Pozitif İlişki Kurma</h4>
+              <p>Çocuğunuzla güvenli ve sevgi dolu bağ oluşturma teknikleri</p>
             </div>
           </div>
           
+          <div class="timeline-item">
+            <div class="timeline-marker">2</div>
+            <div class="timeline-content">
+              <h4>Olumlu Davranışları Destekleme</h4>
+              <p>İstenen davranışları teşvik etme ve pekiştirme yöntemleri</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker">3</div>
+            <div class="timeline-content">
+              <h4>Yeni Beceriler Öğretme</h4>
+              <p>Çocuğunuza yaşamsal ve sosyal beceriler kazandırma</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker">4</div>
+            <div class="timeline-content">
+              <h4>Sorun Davranışları Yönetme</h4>
+              <p>Olumsuz davranışlarla başa çıkma stratejileri</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker">5</div>
+            <div class="timeline-content">
+              <h4>Zorlu Durumlarla Başa Çıkma</h4>
+              <p>Özel durumlarda ebeveynlik becerileri</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Program Levels Section -->
+      <section class="levels-section">
+        <div class="section-header center">
+          <span class="section-icon">
+            <span class="material-icons">stairs</span>
+          </span>
+          <h2 class="section-title">Size En Uygun Destek: Triple P Program Seviyeleri</h2>
+        </div>
+        
+        <div class="levels-grid">
+          <div class="level-card">
+            <div class="level-icon">
+              <span class="material-icons">event</span>
+            </div>
+            <h3>Hafif Dokunuşlar: Seminerler ve Kısa Bilgilendirmeler</h3>
+            <p>Genel ebeveynlik bilgileri almak veya belirli bir konuda ipuçları öğrenmek isteyen tüm ebeveynler için idealdir. Genellikle 90 dakikalık üç ayrı seminerden oluşan bir seridir.</p>
+          </div>
+          
+          <div class="level-card">
+            <div class="level-icon">
+              <span class="material-icons">groups</span>
+            </div>
+            <h3>Biraz Daha Fazlası: Grup Programları ve Çevrimiçi Kurslar</h3>
+            <p>Belirli davranış sorunları yaşayan ve diğer ebeveynlerle deneyimlerini paylaşarak öğrenmek isteyen aileler için uygundur. Grup Triple P veya Triple P Online seçenekleri mevcuttur.</p>
+          </div>
+          
+          <div class="level-card">
+            <div class="level-icon">
+              <span class="material-icons">person</span>
+            </div>
+            <h3>Yoğun Destek: Bireysel Danışmanlık</h3>
+            <p>Daha karmaşık veya şiddetli davranış sorunları yaşayan veya grup ortamını tercih etmeyen aileler için en etkili yöntemdir. Yaklaşık 10 seanslık bire bir görüşmelerdir.</p>
+          </div>
+        </div>
+        
+        <div class="special-programs">
+          <h3>Özel Durumlar İçin Uzmanlaşmış Programlar</h3>
+          
+          <div class="special-program-item">
+            <h4>Stepping Stones (Değerli Adımlar)</h4>
+            <p>Gelişimsel yetersizliği (otizm spektrum bozukluğu, zihinsel engel) olan çocukların ebeveynlerine yöneliktir.</p>
+          </div>
+          
+          <div class="special-program-item">
+            <h4>Family Transitions (Aile Geçişleri)</h4>
+            <p>Boşanma veya ayrılık sürecinde olan ebeveynler için tasarlanmıştır.</p>
+          </div>
+          
+          <div class="special-program-item">
+            <h4>Fear-Less Triple P (Korkusuz Çocuklar)</h4>
+            <p>Çocuklarında anksiyete ve kaygı sorunları olan ailelere pratik stratejiler öğretir.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Group Program Details -->
+      <section class="group-program-section">
+        <div class="section-grid">
           <div class="section-content">
             <div class="section-header">
               <span class="section-icon">
                 <span class="material-icons">calendar_month</span>
               </span>
-              <h2 class="section-title">Grup Triple P Programı</h2>
+              <h2 class="section-title">Grup Programı</h2>
             </div>
             
             <div class="section-description">
               <p class="lead">
-                Kliniğimizde <strong>2-12 yaş arası çocukların ebeveynleri</strong> için Grup Triple P programı uygulanmaktadır.
+                Triple P Grup Programı, 2-12 yaş arası çocuğu olan ebeveynler için tasarlanmış, 8 haftalık interaktif bir eğitim programıdır.
               </p>
               
               <div class="program-details">
@@ -216,15 +332,15 @@
                   <span class="material-icons">schedule</span>
                   <div>
                     <h4>Program Süresi</h4>
-                    <p>8 hafta boyunca, haftada bir seans</p>
+                    <p>8 hafta boyunca haftada bir görüşme</p>
                   </div>
                 </div>
                 
                 <div class="detail-item">
                   <span class="material-icons">timer</span>
                   <div>
-                    <h4>Seans Süresi</h4>
-                    <p>Her seans 2 saat (toplam 16 saat)</p>
+                    <h4>Oturum Süresi</h4>
+                    <p>Her oturum 2 saat</p>
                   </div>
                 </div>
                 
@@ -232,7 +348,7 @@
                   <span class="material-icons">group</span>
                   <div>
                     <h4>Grup Büyüklüğü</h4>
-                    <p>6-8 ebeveyn ile sınırlı</p>
+                    <p>Maksimum 12 ebeveyn</p>
                   </div>
                 </div>
                 
@@ -240,20 +356,20 @@
                   <span class="material-icons">phone_in_talk</span>
                   <div>
                     <h4>Telefon Desteği</h4>
-                    <p>Haftada 15-30 dakika bireysel destek</p>
+                    <p>3 adet bireysel telefon görüşmesi</p>
                   </div>
                 </div>
               </div>
               
               <p>
-                Program boyunca ebeveynler, video örnekleri izler, grup tartışmalarına katılır ve evde uygulayabilecekleri pratik stratejiler öğrenir. Her hafta verilen ev ödevleri ile öğrenilen tekniklerin günlük yaşama aktarılması sağlanır.
+                Program boyunca ebeveynler, diğer ailelerle deneyimlerini paylaşır, birbirlerinden öğrenir ve uzman rehberliğinde pratik yaparlar.
               </p>
               
               <div class="info-card">
                 <span class="material-icons">info</span>
                 <div>
                   <h4>Bireysel Destek</h4>
-                  <p>Grup seanslarına ek olarak, her ebeveyne haftada bir kez 15-30 dakikalık telefon desteği sunulmaktadır.</p>
+                  <p>Grup programına katılamayan veya özel desteğe ihtiyaç duyan aileler için bireysel Triple P danışmanlığı da sunulmaktadır.</p>
                 </div>
               </div>
             </div>
@@ -267,32 +383,107 @@
           <span class="section-icon">
             <span class="material-icons">science</span>
           </span>
-          <h2 class="section-title">Bilimsel Doğrulama</h2>
+          <h2 class="section-title">Bilimsel Geçerlilik</h2>
+          <p class="section-subtitle">Dünyada en kapsamlı araştırılmış ebeveynlik programlarından biri</p>
         </div>
         
         <div class="validation-cards">
           <div class="validation-card">
+            <div class="validation-number">1100+</div>
+            <h3>Toplam Yayın</h3>
+            <p>Hakemli makale, kitap bölümü ve bilimsel rapor</p>
+          </div>
+          
+          <div class="validation-card">
+            <div class="validation-number">390+</div>
+            <h3>Etkinlik Çalışması</h3>
+            <p>Programın etkinliğini değerlendiren araştırmalar</p>
+          </div>
+          
+          <div class="validation-card">
             <div class="validation-number">180+</div>
-            <h3>Bilimsel Çalışma</h3>
-            <p>Randomize kontrollü çalışmalarla kanıtlanmış etkinlik</p>
+            <h3>RCT Çalışması</h3>
+            <p>Randomize Kontrollü Çalışmalar - bilimsel kanıt hiyerarşisinin zirvesi</p>
+          </div>
+        </div>
+        
+        <div class="clinical-results">
+          <div class="result-header">
+            <span class="material-icons">trending_up</span>
+            <h3>Klinik Sonuçlar</h3>
           </div>
           
-          <div class="validation-card">
-            <div class="validation-number">%60-70</div>
-            <h3>İyileşme Oranı</h3>
-            <p>Çocuk davranış sorunlarında belirgin azalma</p>
+          <div class="result-stats">
+            <div class="stat-item">
+              <div class="stat-number">%60-80</div>
+              <p>Klinik tanı eşiğinin altına düşen çocuk oranı</p>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">%70</div>
+              <p>Davranış sorunlarında ortalama azalma</p>
+            </div>
           </div>
           
-          <div class="validation-card">
-            <div class="validation-number">35+</div>
-            <h3>Yıllık Deneyim</h3>
-            <p>Sürekli gelişen ve güncellenen program içeriği</p>
+          <p class="result-description">
+            Level 4 (Yoğun) Triple P programı sonrası, klinik düzeydeki davranış sorunları olan çocukların büyük çoğunluğu artık tanı kriterlerini karşılamamaktadır.
+          </p>
+        </div>
+        
+        <div class="research-history">
+          <div class="history-header">
+            <span class="material-icons">history</span>
+            <h3>Araştırma Geçmişi</h3>
           </div>
           
-          <div class="validation-card who-approved">
-            <span class="material-icons">verified_user</span>
-            <h3>WHO Onaylı</h3>
-            <p>Dünya Sağlık Örgütü tarafından önerilen program</p>
+          <div class="history-timeline">
+            <div class="history-item">
+              <span class="year">1970</span>
+              <p>Queensland Üniversitesi'nde başlangıç</p>
+            </div>
+            <div class="history-item">
+              <span class="year">40+</span>
+              <p>Yıllık sürekli gelişim</p>
+            </div>
+          </div>
+          
+          <p>Prof. Matt Sanders ve ekibi tarafından geliştirilmiş, sürekli güncellenen ve yeni modüllerle zenginleştirilen program</p>
+        </div>
+        
+        <div class="global-recognition">
+          <div class="recognition-header">
+            <span class="material-icons">public</span>
+            <h3>Küresel Tanınırlık</h3>
+          </div>
+          
+          <div class="organizations">
+            <div class="org-item">
+              <span class="material-icons">verified</span>
+              <p>Dünya Sağlık Örgütü</p>
+            </div>
+            <div class="org-item">
+              <span class="material-icons">verified</span>
+              <p>UNICEF</p>
+            </div>
+            <div class="org-item">
+              <span class="material-icons">verified</span>
+              <p>Dünya Bankası</p>
+            </div>
+          </div>
+          
+          <p>INSPIRE stratejisinde referans gösterilen, çocuklara yönelik şiddeti önlemede kanıta dayalı ebeveynlik programı örneği</p>
+        </div>
+        
+        <div class="meta-analysis">
+          <div class="analysis-header">
+            <span class="material-icons">analytics</span>
+            <h3>Meta-Analiz Sonuçları</h3>
+          </div>
+          
+          <p>Triple P'nin çocuklardaki yıkıcı davranış bozukluklarını azaltmada ve ebeveynlik becerilerini geliştirmede tutarlı ve güçlü etkisi kanıtlanmıştır.</p>
+          
+          <div class="journal-note">
+            <span class="material-icons">menu_book</span>
+            <p>Journal of Clinical Child & Adolescent Psychology ve benzeri saygın dergilerde yayınlanan meta-analizlerle desteklenmektedir.</p>
           </div>
         </div>
       </section>

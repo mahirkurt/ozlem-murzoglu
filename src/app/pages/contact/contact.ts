@@ -16,25 +16,39 @@ export class ContactComponent {
   private translate = inject(TranslateService);
   
   breadcrumbs = [
-    { label: 'CONTACT.HOME_BREADCRUMB', link: '/' },
-    { label: 'CONTACT.CONTACT_BREADCRUMB' }
+    { label: 'Ana Sayfa', link: '/' },
+    { label: 'İletişim' }
   ];
   contactInfo = {
-    phone: '+90 222 237 84 00',
-    email: 'info@ozlemmurzoglu.com',
+    phone: '+90 216 688 44 83',
+    mobilePhone: '+90 546 688 44 83',
+    email: 'klinik@drmurzoglu.com',
     address: {
-      street: 'Yeşiltepe Mah. Huzur Sokak No:2',
-      building: 'Neorama İş Merkezi Kat:3 D:15',
-      district: 'Tepebaşı',
-      city: 'Eskişehir'
+      street: 'Barbaros Mah. Ak Zambak Sok. No: 3',
+      building: 'Uphill Towers A-30',
+      district: 'Ataşehir',
+      city: 'İstanbul'
     }
   };
 
   workingHours = [
-    { dayKey: 'CONTACT.WEEKDAYS', hoursKey: 'CONTACT.WEEKDAYS_HOURS' },
-    { dayKey: 'CONTACT.SATURDAY', hoursKey: 'CONTACT.SATURDAY_HOURS' },
-    { dayKey: 'CONTACT.SUNDAY', hoursKey: 'CONTACT.SUNDAY_HOURS' }
+    { dayKey: 'CONTACT.WEEKDAYS', hoursKey: 'CONTACT.WEEKDAYS_HOURS', day: 'Pazartesi - Cuma', hours: '09:00 - 18:00' },
+    { dayKey: 'CONTACT.SATURDAY', hoursKey: 'CONTACT.SATURDAY_HOURS', day: 'Cumartesi', hours: '09:00 - 14:00' },
+    { dayKey: 'CONTACT.SUNDAY', hoursKey: 'CONTACT.SUNDAY_HOURS', day: 'Pazar', hours: 'Kapalı' }
   ];
+
+  parkingOptions = [
+    {
+      title: 'Vale Hizmeti',
+      description: 'Uphill Towers önündeki vale hizmetini kullanabilirsiniz (ücretlidir).'
+    },
+    {
+      title: 'Bulvar 216 AVM Otoparkı',
+      highlight: '0-3 Saat Ücretsiz',
+      description: 'Hemen yandaki Bulvar 216 AVM otoparkını kullanabilirsiniz. İlk 3 saat ücretsizdir.'
+    }
+  ];
+
 
   formData = {
     name: '',

@@ -1,0 +1,509 @@
+/* ============================================== */
+/* GLOBAL HERO SECTION - ANIMATED GRADIENT       */
+/* ============================================== */
+
+/* CSS Variables */
+:root {
+  --hero-gradient-1: #005f73;
+  --hero-gradient-2: #0a9396;
+  --hero-gradient-3: #94d3ac;
+  --hero-padding-y: 6rem;
+  --hero-min-height: 360px;
+  --hero-text-primary: #ffffff;
+  --hero-text-secondary: rgba(255, 255, 255, 0.85);
+  --hero-text-muted: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================== */
+/* HERO SECTION BASE                             */
+/* ============================================== */
+/* Exclude homepage hero from global styles */
+.hero-section:not(.homepage-hero) {
+  position: relative;
+  padding: var(--hero-padding-y) 0;
+  margin-top: 60px;
+  min-height: var(--hero-min-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--hero-gradient-1) 0%,
+    var(--hero-gradient-2) 25%,
+    var(--hero-gradient-3) 50%,
+    var(--hero-gradient-2) 75%,
+    var(--hero-gradient-1) 100%
+  ) !important;
+  background-size: 400% 400% !important;
+  animation: waveAnimation 15s ease infinite !important;
+}
+
+/* Apply to all hero variations except homepage */
+.resource-hero,
+.page-hero,
+.service-hero,
+section[class*='hero']:not(.hero-content):not(.homepage-hero) {
+  position: relative;
+  padding: var(--hero-padding-y) 0;
+  margin-top: 60px;
+  min-height: var(--hero-min-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--hero-gradient-1) 0%,
+    var(--hero-gradient-2) 25%,
+    var(--hero-gradient-3) 50%,
+    var(--hero-gradient-2) 75%,
+    var(--hero-gradient-1) 100%
+  ) !important;
+  background-size: 400% 400% !important;
+  animation: waveAnimation 15s ease infinite !important;
+}
+
+/* ============================================== */
+/* ANIMATED GRADIENT KEYFRAMES                   */
+/* ============================================== */
+@keyframes waveAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Webkit support */
+@-webkit-keyframes waveAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ============================================== */
+/* PATTERN OVERLAY                               */
+/* ============================================== */
+.hero-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.12;
+  background-image:
+    repeating-linear-gradient(
+      30deg,
+      transparent,
+      transparent 35px,
+      rgba(255, 255, 255, 0.08) 35px,
+      rgba(255, 255, 255, 0.08) 70px
+    ),
+    repeating-linear-gradient(
+      -30deg,
+      transparent,
+      transparent 35px,
+      rgba(255, 255, 255, 0.04) 35px,
+      rgba(255, 255, 255, 0.04) 70px
+    );
+  animation: patternMove 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes patternMove {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(5px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-5px) translateX(10px);
+  }
+}
+
+/* ============================================== */
+/* GRADIENT OVERLAY                              */
+/* ============================================== */
+.hero-overlay,
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.03) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================== */
+/* HERO CONTENT CONTAINER                        */
+/* ============================================== */
+.hero-content,
+.hero-main {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Ensure container inside hero-content centers properly */
+.hero-content .container,
+.hero-main .container {
+  width: 100%;
+  max-width: min(1440px, 90vw);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================== */
+/* MENU HIERARCHY - BREADCRUMB                   */
+/* ============================================== */
+.breadcrumb,
+nav.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a,
+.breadcrumb-link {
+  color: var(--hero-text-secondary) !important;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumb a:hover,
+.breadcrumb-link:hover {
+  color: var(--hero-text-primary) !important;
+  transform: translateX(2px);
+}
+
+.breadcrumb .material-icons,
+.breadcrumb .separator {
+  color: var(--hero-text-muted) !important;
+  font-size: 1.125rem;
+  margin: 0 0.25rem;
+}
+
+.breadcrumb span:last-child:not(.material-icons),
+.breadcrumb .current {
+  color: var(--hero-text-primary) !important;
+  font-weight: 500;
+}
+
+/* ============================================== */
+/* MAIN TITLE                                    */
+/* ============================================== */
+.hero-title,
+.page-title,
+h1.hero-title,
+.hero-section h1 {
+  font-family: 'Figtree', sans-serif !important;
+  font-size: clamp(2.25rem, 5vw, 3rem) !important;
+  font-weight: 700 !important;
+  color: var(--hero-text-primary) !important;
+  margin: 0 0 1rem 0 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================== */
+/* SUBTITLE                                      */
+/* ============================================== */
+.hero-subtitle,
+.page-subtitle,
+.hero-section p.hero-subtitle {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem) !important;
+  font-weight: 400 !important;
+  color: var(--hero-text-secondary) !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.01em !important;
+  max-width: 800px;
+}
+
+/* ============================================== */
+/* SPECIAL ELEMENTS                              */
+/* ============================================== */
+/* Hero Badge (for logos like Triple P) */
+.hero-badge {
+  margin-bottom: 1.5rem;
+}
+
+.hero-badge img,
+.program-logo {
+  width: 180px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+/* Meta Information */
+.meta-info {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 100px;
+  color: var(--hero-text-primary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.meta-item .material-icons {
+  font-size: 1.25rem;
+}
+
+/* ============================================== */
+/* CTA BUTTONS                                   */
+/* ============================================== */
+.hero-ctas {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-ctas .btn,
+.hero-ctas a[class*='btn'] {
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-ctas .btn-primary {
+  background: #ffb74d;
+  color: white;
+  border: 2px solid transparent;
+}
+
+.hero-ctas .btn-primary:hover {
+  background: #ffa726;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(255, 167, 38, 0.4);
+}
+
+.hero-ctas .btn-secondary {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--hero-gradient-1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-ctas .btn-secondary:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================== */
+/* ANIMATIONS                                    */
+/* ============================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content > * {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.breadcrumb {
+  animation-delay: 0.1s;
+}
+.hero-badge {
+  animation-delay: 0.15s;
+}
+.hero-title {
+  animation-delay: 0.2s;
+}
+.hero-subtitle {
+  animation-delay: 0.3s;
+}
+.meta-info {
+  animation-delay: 0.4s;
+}
+.hero-ctas {
+  animation-delay: 0.5s;
+}
+
+/* ============================================== */
+/* RESPONSIVE DESIGN                             */
+/* ============================================== */
+@media (max-width: 768px) {
+  :root {
+    --hero-padding-y: 5rem;
+    --hero-min-height: 320px;
+  }
+
+  .hero-section:not(.homepage-hero),
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero) {
+    padding: var(--hero-padding-y) 0;
+    min-height: var(--hero-min-height);
+  }
+
+  .breadcrumb {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge img,
+  .program-logo {
+    width: 150px;
+  }
+
+  .meta-info {
+    gap: 1rem;
+  }
+
+  .meta-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-ctas .btn,
+  .hero-ctas a[class*='btn'] {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --hero-padding-y: 4rem;
+    --hero-min-height: 280px;
+  }
+
+  .hero-content .container,
+  .hero-main .container {
+    padding: 0 1.25rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.8125rem;
+    gap: 0.5rem;
+  }
+
+  .hero-badge img,
+  .program-logo {
+    width: 120px;
+  }
+}
+
+/* ============================================== */
+/* PERFORMANCE OPTIMIZATION                      */
+/* ============================================== */
+.hero-section,
+.resource-hero,
+.page-hero,
+.service-hero,
+section[class*='hero']:not(.hero-content) {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  will-change: background-position;
+}
+
+/* ============================================== */
+/* FORCE ANIMATION OVERRIDE                      */
+/* ============================================== */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--hero-gradient-1) 0%,
+    var(--hero-gradient-2) 25%,
+    var(--hero-gradient-3) 50%,
+    var(--hero-gradient-2) 75%,
+    var(--hero-gradient-1) 100%
+  );
+  background-size: 400% 400%;
+  animation: waveAnimation 15s ease infinite;
+  -webkit-animation: waveAnimation 15s ease infinite;
+  z-index: 0;
+}
+
+.hero-section > * {
+  position: relative;
+  z-index: 1;
+}

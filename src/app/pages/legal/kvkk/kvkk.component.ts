@@ -15,8 +15,8 @@ export class KvkkComponent {
   private translate = inject(TranslateService);
   
   breadcrumbs = [
-    { label: 'HEADER.NAV_HOME', link: '/' },
-    { label: 'LEGAL.KVKK_TITLE' }
+    { label: 'Ana Sayfa', link: '/' },
+    { label: 'Yasal' }
   ];
 
   lastUpdated = '01.01.2025';

@@ -3,46 +3,7 @@
   background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFB 100%);
 }
 
-/* Hero Section */
-.hero-section {
-  position: relative;
-  background: linear-gradient(135deg, #005F73 0%, #0A9396 50%, #94BBE9 100%);
-  padding: 200px 0 100px;
-  overflow: hidden;
-  margin-top: 80px;
-}
-
-.hero-image-container {
-  display: none;
-}
-
-.hero-overlay {
-  display: none;
-}
-
-.hero-content {
-  text-align: center;
-  color: white;
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-  animation: fadeInUp 0.8s ease;
-}
-
-.hero-subtitle {
-  font-size: 1.4rem;
-  font-weight: 300;
-  opacity: 0.95;
-  animation: fadeInUp 1s ease;
-}
+/* Hero section styles removed - using app-hero-section component */
 
 /* Container */
 .container {

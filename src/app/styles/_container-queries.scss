@@ -1,0 +1,410 @@
+// ====================================
+// Container Queries
+// Modern Responsive Design with Container-Based Layouts
+// ====================================
+
+@use 'tokens/index' as tokens;
+
+// ====================================
+// Container Definitions
+// ====================================
+
+// Content containers
+.content-container {
+  container-type: inline-size;
+  container-name: content;
+}
+
+.card-container {
+  container-type: inline-size;
+  container-name: card;
+}
+
+.sidebar-container {
+  container-type: inline-size;
+  container-name: sidebar;
+}
+
+.grid-container {
+  container-type: inline-size;
+  container-name: grid;
+}
+
+.article-container {
+  container-type: inline-size;
+  container-name: article;
+}
+
+// ====================================
+// Container Query Breakpoints
+// ====================================
+
+// Container sizes
+$container-xs: 320px;
+$container-sm: 480px;
+$container-md: 768px;
+$container-lg: 1024px;
+$container-xl: 1280px;
+
+// ====================================
+// Content Card - Responsive based on container
+// ====================================
+
+.content-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  background: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  transition: var(--transition-all);
+
+  // Default mobile layout
+  .content-card__image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+  }
+
+  .content-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .content-card__title {
+    font-size: var(--md-sys-typescale-headline-small-size);
+    font-weight: var(--font-weight-semibold);
+    color: var(--md-sys-color-on-surface);
+  }
+
+  .content-card__description {
+    font-size: var(--md-sys-typescale-body-medium-size);
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  .content-card__actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: auto;
+  }
+}
+
+// Container query: Small container (480px+)
+@container content (min-width: #{$container-sm}) {
+  .content-card {
+    flex-direction: row;
+    align-items: flex-start;
+
+    .content-card__image {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+    }
+
+    .content-card__body {
+      flex: 1;
+    }
+  }
+}
+
+// Container query: Medium container (768px+)
+@container content (min-width: #{$container-md}) {
+  .content-card {
+    padding: var(--spacing-lg);
+
+    .content-card__image {
+      width: 160px;
+      height: 160px;
+    }
+
+    .content-card__title {
+      font-size: var(--md-sys-typescale-headline-medium-size);
+    }
+
+    .content-card__description {
+      font-size: var(--md-sys-typescale-body-large-size);
+    }
+  }
+}
+
+// Container query: Large container (1024px+)
+@container content (min-width: #{$container-lg}) {
+  .content-card {
+    .content-card__image {
+      width: 200px;
+      height: 200px;
+    }
+
+    .content-card__actions {
+      gap: var(--spacing-md);
+    }
+  }
+}
+
+// ====================================
+// Grid Items - Responsive based on grid container
+// ====================================
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
+  background: var(--md-sys-color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-card);
+
+  .grid-item__header {
+    font-size: var(--md-sys-typescale-title-medium-size);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .grid-item__content {
+    font-size: var(--md-sys-typescale-body-small-size);
+  }
+}
+
+// Container query: Grid with 2+ columns
+@container grid (min-width: #{$container-sm}) {
+  .grid-item {
+    .grid-item__header {
+      font-size: var(--md-sys-typescale-title-large-size);
+    }
+
+    .grid-item__content {
+      font-size: var(--md-sys-typescale-body-medium-size);
+    }
+  }
+}
+
+// Container query: Grid with 3+ columns
+@container grid (min-width: #{$container-md}) {
+  .grid-item {
+    padding: var(--spacing-lg);
+
+    .grid-item__header {
+      font-size: var(--md-sys-typescale-headline-small-size);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .grid-item__content {
+      font-size: var(--md-sys-typescale-body-large-size);
+    }
+  }
+}
+
+// ====================================
+// Sidebar Items - Responsive based on sidebar width
+// ====================================
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-all);
+
+  &:hover {
+    background: var(--md-sys-color-surface-container);
+  }
+
+  .sidebar-item__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .sidebar-item__label {
+    display: none;
+  }
+}
+
+// Container query: Expanded sidebar (240px+)
+@container sidebar (min-width: 240px) {
+  .sidebar-item {
+    .sidebar-item__label {
+      display: block;
+      font-size: var(--md-sys-typescale-body-medium-size);
+    }
+  }
+}
+
+// Container query: Wide sidebar (300px+)
+@container sidebar (min-width: 300px) {
+  .sidebar-item {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+
+    .sidebar-item__icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .sidebar-item__label {
+      font-size: var(--md-sys-typescale-body-large-size);
+    }
+
+    .sidebar-item__badge {
+      margin-left: auto;
+      padding: var(--spacing-xs) var(--spacing-sm);
+      background: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      border-radius: var(--radius-full);
+      font-size: var(--md-sys-typescale-label-small-size);
+    }
+  }
+}
+
+// ====================================
+// Article Layout - Responsive typography
+// ====================================
+
+.article {
+  container-type: inline-size;
+  container-name: article;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block: var(--spacing-lg) var(--spacing-md);
+  }
+
+  p {
+    margin-block: var(--spacing-md);
+    line-height: 1.6;
+  }
+}
+
+// Container query: Narrow article
+@container article (max-width: #{$container-sm}) {
+  .article {
+    h1 {
+      font-size: var(--md-sys-typescale-headline-medium-size);
+    }
+    h2 {
+      font-size: var(--md-sys-typescale-headline-small-size);
+    }
+    h3 {
+      font-size: var(--md-sys-typescale-title-large-size);
+    }
+    p {
+      font-size: var(--md-sys-typescale-body-medium-size);
+    }
+  }
+}
+
+// Container query: Medium article
+@container article (min-width: #{$container-sm}) and (max-width: #{$container-md}) {
+  .article {
+    h1 {
+      font-size: var(--md-sys-typescale-headline-large-size);
+    }
+    h2 {
+      font-size: var(--md-sys-typescale-headline-medium-size);
+    }
+    h3 {
+      font-size: var(--md-sys-typescale-headline-small-size);
+    }
+    p {
+      font-size: var(--md-sys-typescale-body-large-size);
+    }
+  }
+}
+
+// Container query: Wide article
+@container article (min-width: #{$container-md}) {
+  .article {
+    max-width: 65ch;
+    margin-inline: auto;
+
+    h1 {
+      font-size: var(--md-sys-typescale-display-small-size);
+    }
+    h2 {
+      font-size: var(--md-sys-typescale-headline-large-size);
+    }
+    h3 {
+      font-size: var(--md-sys-typescale-headline-medium-size);
+    }
+    p {
+      font-size: var(--md-sys-typescale-body-large-size);
+      line-height: 1.8;
+    }
+  }
+}
+
+// ====================================
+// Utility Classes for Container Queries
+// ====================================
+
+// Show/hide based on container size
+@container (min-width: #{$container-sm}) {
+  .container\:hidden-sm {
+    display: none !important;
+  }
+  .container\:block-sm {
+    display: block !important;
+  }
+}
+
+@container (min-width: #{$container-md}) {
+  .container\:hidden-md {
+    display: none !important;
+  }
+  .container\:block-md {
+    display: block !important;
+  }
+}
+
+@container (min-width: #{$container-lg}) {
+  .container\:hidden-lg {
+    display: none !important;
+  }
+  .container\:block-lg {
+    display: block !important;
+  }
+}
+
+// Flex direction based on container
+@container (min-width: #{$container-sm}) {
+  .container\:flex-row-sm {
+    flex-direction: row !important;
+  }
+  .container\:flex-col-sm {
+    flex-direction: column !important;
+  }
+}
+
+@container (min-width: #{$container-md}) {
+  .container\:flex-row-md {
+    flex-direction: row !important;
+  }
+  .container\:flex-col-md {
+    flex-direction: column !important;
+  }
+}
+
+// Grid columns based on container
+@container (min-width: #{$container-sm}) {
+  .container\:grid-cols-2-sm {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@container (min-width: #{$container-md}) {
+  .container\:grid-cols-3-md {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@container (min-width: #{$container-lg}) {
+  .container\:grid-cols-4-lg {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}

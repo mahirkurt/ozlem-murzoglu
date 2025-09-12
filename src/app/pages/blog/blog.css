@@ -1,0 +1,168 @@
+.blog-page {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: min(1440px, 90vw);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Filter Section */
+.filter-section {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.search-field {
+  width: 100%;
+}
+
+.category-filter {
+  min-width: 200px;
+}
+
+.clear-filters-btn {
+  white-space: nowrap;
+}
+
+/* Featured Section */
+.featured-section {
+  margin-bottom: 4rem;
+}
+
+.featured-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.featured-card {
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Articles Section */
+.articles-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.article-card {
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Article Image */
+.article-image {
+  height: 200px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.article-card:hover .article-image img {
+  transform: scale(1.05);
+}
+
+/* Article Meta */
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.category {
+  background: var(--accent-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Chip styling */
+mat-chip-listbox {
+  margin: 0;
+}
+
+mat-chip-option {
+  font-size: 0.75rem;
+  height: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-container,
+  .category-filter {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .featured-grid,
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-section h2,
+  .articles-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .article-image {
+    height: 160px;
+  }
+}

@@ -1,0 +1,797 @@
+// MD3 Advanced System - Master Level Implementation
+// ==================================================
+// State-of-the-art Material Design 3 with enhanced expressiveness
+
+@use 'sass:color';
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:list';
+
+// ============================================
+// 1. ADVANCED STATE LAYER SYSTEM
+// ============================================
+
+// State opacity values according to MD3 specs
+$state-opacities: (
+  hover: 0.08,
+  focus: 0.12,
+  pressed: 0.12,
+  dragged: 0.16,
+  selected: 0.08,
+  activated: 0.12,
+  disabled: 0.38,
+);
+
+// Advanced state layer mixin with ripple support
+@mixin advanced-state-layer($color: currentColor, $ripple: true) {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  // State overlay
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: $color;
+    opacity: 0;
+    transition: opacity 200ms cubic-bezier(0.2, 0, 0, 1);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  // Ripple effect container
+  @if $ripple {
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at var(--ripple-x, 50%) var(--ripple-y, 50%),
+        $color 0%,
+        transparent 70%
+      );
+      opacity: 0;
+      transform: scale(0);
+      transition:
+        transform 600ms cubic-bezier(0.2, 0, 0, 1),
+        opacity 600ms cubic-bezier(0.2, 0, 0, 1);
+      pointer-events: none;
+      z-index: 2;
+    }
+  }
+
+  // State interactions
+  &:hover:not(:disabled) {
+    &::before {
+      opacity: map.get($state-opacities, hover);
+    }
+  }
+
+  &:focus-visible:not(:disabled) {
+    &::before {
+      opacity: map.get($state-opacities, focus);
+    }
+  }
+
+  &:active:not(:disabled) {
+    &::before {
+      opacity: map.get($state-opacities, pressed);
+    }
+
+    @if $ripple {
+      &::after {
+        opacity: map.get($state-opacities, pressed);
+        transform: scale(2.5);
+      }
+    }
+  }
+
+  &.selected:not(:disabled) {
+    &::before {
+      opacity: map.get($state-opacities, selected);
+    }
+  }
+
+  &.activated:not(:disabled) {
+    &::before {
+      opacity: map.get($state-opacities, activated);
+    }
+  }
+
+  &:disabled {
+    opacity: map.get($state-opacities, disabled);
+    cursor: not-allowed;
+  }
+}
+
+// Multi-layer state system for complex components
+@mixin multi-state-layer($primary-color, $secondary-color: null) {
+  @include advanced-state-layer($primary-color);
+
+  @if $secondary-color {
+    &.secondary-state {
+      &::before {
+        background-color: $secondary-color;
+      }
+
+      &::after {
+        background: radial-gradient(
+          circle at var(--ripple-x, 50%) var(--ripple-y, 50%),
+          $secondary-color 0%,
+          transparent 70%
+        );
+      }
+    }
+  }
+}
+
+// ============================================
+// 2. ADVANCED MOTION SYSTEM
+// ============================================
+
+// Enhanced easing functions
+$easing-functions: (
+  standard: cubic-bezier(0.2, 0, 0, 1),
+  emphasized: cubic-bezier(0.2, 0, 0, 1),
+  emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1),
+  emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15),
+  legacy-standard: cubic-bezier(0.4, 0, 0.2, 1),
+  legacy-accelerate: cubic-bezier(0.4, 0, 1, 1),
+  legacy-decelerate: cubic-bezier(0, 0, 0.2, 1),
+  spring: cubic-bezier(0.175, 0.885, 0.32, 1.275),
+  bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55),
+  smooth: cubic-bezier(0.4, 0, 0.6, 1),
+);
+
+// Duration scale with semantic naming
+$duration-scale: (
+  instant: 0ms,
+  fast: 100ms,
+  quick: 200ms,
+  moderate: 300ms,
+  deliberate: 400ms,
+  slow: 500ms,
+  leisurely: 600ms,
+  extended: 800ms,
+  prolonged: 1000ms,
+);
+
+// Stagger animation mixin
+@mixin stagger-animation($child-selector, $delay: 50ms, $max-items: 20) {
+  @for $i from 1 through $max-items {
+    #{$child-selector}:nth-child(#{$i}) {
+      animation-delay: #{$i * $delay};
+    }
+  }
+}
+
+// Page transition animations
+@mixin page-transition($type: 'fade-scale') {
+  @if $type == 'fade-scale' {
+    &.page-enter {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    &.page-enter-active {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 400ms map.get($easing-functions, emphasized-decelerate);
+    }
+
+    &.page-exit {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &.page-exit-active {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 300ms map.get($easing-functions, emphasized-accelerate);
+    }
+  }
+
+  @if $type == 'slide-up' {
+    &.page-enter {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    &.page-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 400ms map.get($easing-functions, emphasized-decelerate);
+    }
+
+    &.page-exit {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &.page-exit-active {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 300ms map.get($easing-functions, emphasized-accelerate);
+    }
+  }
+
+  @if $type == 'shared-axis-x' {
+    &.page-enter {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+
+    &.page-enter-active {
+      opacity: 1;
+      transform: translateX(0);
+      transition: all 400ms map.get($easing-functions, emphasized-decelerate);
+    }
+
+    &.page-exit {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    &.page-exit-active {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 300ms map.get($easing-functions, emphasized-accelerate);
+    }
+  }
+}
+
+// Micro-interactions
+@mixin micro-interaction($type: 'pulse') {
+  @if $type == 'pulse' {
+    @keyframes micro-pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    &:active {
+      animation: micro-pulse 300ms map.get($easing-functions, spring);
+    }
+  }
+
+  @if $type == 'shake' {
+    @keyframes micro-shake {
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-2px);
+      }
+      75% {
+        transform: translateX(2px);
+      }
+    }
+
+    &.error {
+      animation: micro-shake 300ms map.get($easing-functions, spring);
+    }
+  }
+
+  @if $type == 'success' {
+    @keyframes micro-success {
+      0% {
+        transform: scale(0) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.2) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+      }
+    }
+
+    &.success {
+      animation: micro-success 400ms map.get($easing-functions, bounce);
+    }
+  }
+}
+
+// ============================================
+// 3. DARK MODE SYSTEM
+// ============================================
+
+// Dark mode color transformations
+@function dark-surface($elevation: 0) {
+  $base-dark: #1c1b1f;
+  $overlay-percentages: (
+    0: 0%,
+    1: 5%,
+    2: 8%,
+    3: 11%,
+    4: 12%,
+    5: 14%,
+  );
+
+  $overlay: map.get($overlay-percentages, $elevation);
+  @return color.mix(white, $base-dark, $overlay);
+}
+
+// Generate dark theme palette
+@mixin generate-dark-palette($light-primary, $light-secondary: null) {
+  --md-sys-color-primary-dark: #{color.scale($light-primary, $lightness: 20%)};
+  --md-sys-color-on-primary-dark: #{color.scale($light-primary, $lightness: -90%)};
+  --md-sys-color-primary-container-dark: #{color.scale($light-primary, $lightness: -60%)};
+  --md-sys-color-on-primary-container-dark: #{color.scale($light-primary, $lightness: 80%)};
+
+  @if $light-secondary {
+    --md-sys-color-secondary-dark: #{color.scale($light-secondary, $lightness: 20%)};
+    --md-sys-color-on-secondary-dark: #{color.scale($light-secondary, $lightness: -90%)};
+    --md-sys-color-secondary-container-dark: #{color.scale($light-secondary, $lightness: -60%)};
+    --md-sys-color-on-secondary-container-dark: #{color.scale($light-secondary, $lightness: 80%)};
+  }
+
+  // Surface colors with elevation
+  @for $i from 0 through 5 {
+    --md-sys-color-surface-#{$i}-dark: #{dark-surface($i)};
+  }
+
+  --md-sys-color-background-dark: #1c1b1f;
+  --md-sys-color-on-background-dark: #e6e1e5;
+  --md-sys-color-on-surface-dark: #e6e1e5;
+  --md-sys-color-on-surface-variant-dark: #cac4d0;
+  --md-sys-color-outline-dark: #938f99;
+  --md-sys-color-outline-variant-dark: #49454f;
+}
+
+// Dark mode mixin
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+
+  [data-theme='dark'] & {
+    @content;
+  }
+}
+
+// Auto dark mode support
+@mixin auto-dark-mode($property, $light-value, $dark-value) {
+  #{$property}: $light-value;
+
+  @include dark-mode {
+    #{$property}: $dark-value;
+  }
+}
+
+// ============================================
+// 4. ADVANCED ELEVATION SYSTEM
+// ============================================
+
+// Colored elevation
+@mixin colored-elevation($level: 1, $color: null) {
+  $shadow-color: if($color, $color, rgba(0, 0, 0, 1));
+
+  @if $level == 0 {
+    box-shadow: none;
+  } @else if $level == 1 {
+    box-shadow:
+      0px 1px 2px rgba($shadow-color, 0.3),
+      0px 1px 3px 1px rgba($shadow-color, 0.15);
+  } @else if $level == 2 {
+    box-shadow:
+      0px 1px 2px rgba($shadow-color, 0.3),
+      0px 2px 6px 2px rgba($shadow-color, 0.15);
+  } @else if $level == 3 {
+    box-shadow:
+      0px 4px 8px 3px rgba($shadow-color, 0.15),
+      0px 1px 3px rgba($shadow-color, 0.3);
+  } @else if $level == 4 {
+    box-shadow:
+      0px 6px 10px 4px rgba($shadow-color, 0.15),
+      0px 2px 3px rgba($shadow-color, 0.3);
+  } @else if $level == 5 {
+    box-shadow:
+      0px 8px 12px 6px rgba($shadow-color, 0.15),
+      0px 4px 4px rgba($shadow-color, 0.3);
+  }
+}
+
+// Dynamic elevation on interaction
+@mixin dynamic-elevation($rest: 1, $hover: 2, $active: 1) {
+  @include colored-elevation($rest);
+  transition: box-shadow 200ms map.get($easing-functions, emphasized);
+
+  &:hover:not(:disabled) {
+    @include colored-elevation($hover);
+  }
+
+  &:active:not(:disabled) {
+    @include colored-elevation($active);
+  }
+}
+
+// ============================================
+// 5. ADAPTIVE LAYOUT SYSTEM
+// ============================================
+
+// Breakpoint system with container queries support
+$breakpoints: (
+  compact: 0px,
+  // 0-599px
+  medium: 600px,
+  // 600-839px
+  expanded: 840px,
+  // 840-1239px
+  large: 1240px,
+  // 1240-1439px
+  extra-large: 1440px, // 1440px+
+);
+
+// Window size classes for adaptive layouts
+@mixin window-class($class) {
+  @if $class == 'compact' {
+    @media (max-width: 599px) {
+      @content;
+    }
+  } @else if $class == 'medium' {
+    @media (min-width: 600px) and (max-width: 839px) {
+      @content;
+    }
+  } @else if $class == 'expanded' {
+    @media (min-width: 840px) and (max-width: 1239px) {
+      @content;
+    }
+  } @else if $class == 'large' {
+    @media (min-width: 1240px) and (max-width: 1439px) {
+      @content;
+    }
+  } @else if $class == 'extra-large' {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  }
+}
+
+// Canonical layouts
+@mixin canonical-layout($type: 'list-detail') {
+  @if $type == 'list-detail' {
+    display: grid;
+
+    @include window-class('compact') {
+      grid-template-columns: 1fr;
+    }
+
+    @include window-class('medium') {
+      grid-template-columns: 360px 1fr;
+      gap: 24px;
+    }
+
+    @include window-class('expanded') {
+      grid-template-columns: 360px 1fr;
+      gap: 24px;
+    }
+
+    @include window-class('large') {
+      grid-template-columns: 360px 1fr 360px;
+      gap: 24px;
+    }
+  }
+
+  @if $type == 'supporting-pane' {
+    display: grid;
+
+    @include window-class('compact') {
+      grid-template-columns: 1fr;
+    }
+
+    @include window-class('medium') {
+      grid-template-columns: 1fr;
+    }
+
+    @include window-class('expanded') {
+      grid-template-columns: 1fr 360px;
+      gap: 24px;
+    }
+
+    @include window-class('large') {
+      grid-template-columns: 360px 1fr 360px;
+      gap: 24px;
+    }
+  }
+}
+
+// ============================================
+// 6. ADVANCED COMPONENT PATTERNS
+// ============================================
+
+// Extended FAB with animation
+@mixin extended-fab($collapsed: false) {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 16px;
+  @include colored-elevation(3);
+  @include advanced-state-layer(white, true);
+  transition: all 300ms map.get($easing-functions, emphasized);
+
+  @if $collapsed {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    justify-content: center;
+
+    .fab-label {
+      width: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+  } @else {
+    padding: 16px 24px;
+
+    .fab-label {
+      width: auto;
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    @include colored-elevation(4);
+    transform: scale(1.05);
+  }
+}
+
+// Navigation rail with animations
+@mixin animated-navigation-rail {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  padding: 12px 0;
+  gap: 12px;
+  @include colored-elevation(0);
+  background: var(--md-sys-color-surface);
+  transition: width 300ms map.get($easing-functions, emphasized);
+
+  &.expanded {
+    width: 256px;
+
+    .nav-item {
+      justify-content: flex-start;
+      padding: 0 24px;
+
+      .nav-label {
+        opacity: 1;
+        width: auto;
+        margin-left: 12px;
+      }
+    }
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    border-radius: 28px;
+    @include advanced-state-layer(var(--md-sys-color-primary));
+    transition: all 200ms map.get($easing-functions, standard);
+    cursor: pointer;
+
+    .nav-label {
+      opacity: 0;
+      width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: all 300ms map.get($easing-functions, emphasized);
+    }
+
+    &.active {
+      background: var(--md-sys-color-secondary-container);
+
+      .nav-icon {
+        color: var(--md-sys-color-on-secondary-container);
+      }
+    }
+  }
+}
+
+// Search bar with morphing animation
+@mixin morphing-search-bar {
+  position: relative;
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    background: var(--md-sys-color-surface-container-highest);
+    border-radius: 28px;
+    padding: 0 16px;
+    height: 48px;
+    @include colored-elevation(0);
+    transition: all 300ms map.get($easing-functions, emphasized);
+
+    &.focused {
+      @include colored-elevation(2);
+      background: var(--md-sys-color-surface);
+
+      .search-input {
+        width: 300px;
+      }
+    }
+  }
+
+  .search-input {
+    border: none;
+    background: transparent;
+    width: 200px;
+    font-size: 16px;
+    transition: width 300ms map.get($easing-functions, emphasized);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .search-icon {
+    color: var(--md-sys-color-on-surface-variant);
+    margin-right: 8px;
+  }
+}
+
+// ============================================
+// 7. SCROLL-DRIVEN ANIMATIONS
+// ============================================
+
+// Parallax scrolling
+@mixin parallax-layer($speed: 0.5, $z-index: -1) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-index;
+  transform: translateY(calc(var(--scroll-y, 0) * #{$speed}));
+  will-change: transform;
+}
+
+// Reveal on scroll
+@mixin reveal-on-scroll($direction: 'up', $delay: 0ms) {
+  opacity: 0;
+
+  @if $direction == 'up' {
+    transform: translateY(30px);
+  } @else if $direction == 'down' {
+    transform: translateY(-30px);
+  } @else if $direction == 'left' {
+    transform: translateX(30px);
+  } @else if $direction == 'right' {
+    transform: translateX(-30px);
+  }
+
+  &.revealed {
+    opacity: 1;
+    transform: translate(0);
+    transition: all 600ms map.get($easing-functions, emphasized-decelerate) $delay;
+  }
+}
+
+// Sticky header with scroll effects
+@mixin scroll-aware-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--md-sys-color-surface);
+  @include colored-elevation(0);
+  transition: all 200ms map.get($easing-functions, standard);
+
+  &.scrolled {
+    @include colored-elevation(2);
+    background: var(--md-sys-color-surface-container);
+  }
+
+  &.hidden {
+    transform: translateY(-100%);
+  }
+}
+
+// ============================================
+// 8. ADVANCED ACCESSIBILITY
+// ============================================
+
+// Focus management
+@mixin focus-visible-only {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+}
+
+// High contrast mode support
+@mixin high-contrast-mode {
+  @media (prefers-contrast: high) {
+    @content;
+  }
+}
+
+// Reduced motion support
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Screen reader only with animation
+@mixin sr-only-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+// ============================================
+// 9. PERFORMANCE OPTIMIZATIONS
+// ============================================
+
+// GPU acceleration
+@mixin gpu-accelerate {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+// Optimize for 60fps animations
+@mixin smooth-animation {
+  @include gpu-accelerate;
+  transform-style: preserve-3d;
+}
+
+// Container queries polyfill
+@mixin container-query($container-name, $min-width) {
+  container-name: $container-name;
+  container-type: inline-size;
+
+  @container #{$container-name} (min-width: #{$min-width}) {
+    @content;
+  }
+}
+
+// ============================================
+// EXPORTS
+// ============================================
+
+// Export all mixins for use in components
+@mixin md3-advanced {
+  // This mixin includes all advanced features
+  // Use in your main styles file
+}

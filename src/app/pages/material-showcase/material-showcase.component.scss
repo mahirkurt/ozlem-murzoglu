@@ -1,0 +1,310 @@
+// Material Showcase Component Styles
+// ===================================
+
+.showcase-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: var(--md-sys-color-background);
+  min-height: 100vh;
+}
+
+.hero-section {
+  margin-bottom: 3rem;
+
+  mat-toolbar {
+    height: 80px;
+    padding: 0 2rem;
+  }
+}
+
+// Typography Grid
+.typography-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+}
+
+// Form Grid
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+
+  .full-width {
+    width: 100%;
+  }
+}
+
+// Cards Grid
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+
+  .service-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(46, 110, 106, 0.15) !important;
+    }
+
+    mat-card-header {
+      padding-bottom: 1rem;
+
+      [mat-card-avatar] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: var(--md-sys-color-primary-container);
+        border-radius: var(--md-sys-shape-corner-medium);
+
+        mat-icon {
+          font-size: 24px;
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}
+
+// Tab Content
+.tab-content {
+  min-height: 150px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Progress Section
+.progress-section {
+  padding: 1rem 0;
+
+  mat-progress-bar {
+    margin: 0.5rem 0;
+  }
+}
+
+// Color Swatches
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+
+  .color-swatch {
+    height: 100px;
+    border-radius: var(--md-sys-shape-corner-medium);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    small {
+      font-size: 12px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    &.primary-color {
+      background: var(--md-sys-color-primary);
+    }
+
+    &.secondary-color {
+      background: var(--md-sys-color-secondary);
+    }
+
+    &.tertiary-color {
+      background: var(--md-sys-color-tertiary);
+    }
+
+    &.surface-color {
+      background: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      border: 1px solid var(--md-sys-color-outline-variant);
+    }
+
+    &.error-color {
+      background: var(--md-sys-color-error);
+    }
+  }
+}
+
+// Material Overrides for this component
+:host ::ng-deep {
+  // Enhanced card shadows
+  .mat-mdc-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      .mat-mdc-card-header {
+        .mat-mdc-card-title {
+          color: var(--md-sys-color-primary);
+        }
+      }
+    }
+  }
+
+  // Button enhancements
+  .mat-mdc-button,
+  .mat-mdc-raised-button {
+    &:not(:disabled) {
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(46, 110, 106, 0.2);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Form field focus enhancements
+  .mat-mdc-form-field {
+    &.mat-focused {
+      .mat-mdc-form-field-outline {
+        stroke-width: 2px;
+      }
+    }
+  }
+
+  // Chip interactions
+  .mat-mdc-chip {
+    transition: all 0.2s ease;
+
+    &:hover:not(.mat-mdc-chip-selected) {
+      background-color: var(--md-sys-color-surface-variant);
+      transform: translateY(-1px);
+    }
+
+    &.mat-mdc-chip-selected {
+      animation: chipSelect 0.3s ease;
+    }
+  }
+
+  @keyframes chipSelect {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  // Tab indicator customization
+  .mat-mdc-tab-group {
+    .mdc-tab-indicator__content {
+      border-radius: var(--md-sys-shape-corner-full);
+      height: 3px;
+    }
+
+    .mdc-tab {
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: rgba(46, 110, 106, 0.04);
+      }
+    }
+  }
+
+  // List item interactions
+  .mat-mdc-list-item {
+    transition: all 0.2s ease;
+    border-radius: var(--md-sys-shape-corner-small);
+    margin: 0.25rem 0;
+
+    &:hover {
+      background-color: var(--md-sys-color-surface-variant);
+      padding-left: 1.25rem;
+    }
+  }
+
+  // Snackbar customization
+  .mat-mdc-snack-bar-container {
+    background: var(--md-sys-color-inverse-surface) !important;
+    color: var(--md-sys-color-inverse-on-surface) !important;
+
+    .mat-mdc-button {
+      color: var(--md-sys-color-inverse-primary) !important;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .showcase-container {
+    padding: 1rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .color-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-section mat-toolbar {
+    padding: 0 1rem;
+
+    .mat-headline-medium {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .showcase-container {
+    padding: 0;
+
+    section {
+      page-break-inside: avoid;
+    }
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

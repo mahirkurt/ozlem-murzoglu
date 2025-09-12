@@ -27,8 +27,8 @@ export class ServicesComponent {
   private translate = inject(TranslateService);
   
   breadcrumbs = [
-    { label: 'SERVICES.HOME_BREADCRUMB', link: '/' },
-    { label: 'SERVICES.SERVICES_BREADCRUMB' }
+    { label: 'Ana Sayfa', link: '/' },
+    { label: 'Hizmetlerimiz' }
   ];
   services: Service[] = [
     {
@@ -93,6 +93,22 @@ export class ServicesComponent {
         'Gelişimsel tarama testleri',
         'Aile merkezli bakım',
         'Kanıta dayalı yaklaşım'
+      ]
+    },
+    {
+      id: 'sos-feeding',
+      titleKey: 'SERVICES.SERVICE_SOS_FEEDING.TITLE',
+      subtitleKey: 'Beslenme Terapisi Programı',
+      descriptionKey: 'SERVICES.SERVICE_SOS_FEEDING.DESC',
+      icon: 'restaurant',
+      color: 'primary',
+      features: [
+        'Seçici yeme davranışı tedavisi',
+        'Duyusal entegrasyon yaklaşımı',
+        'Aile merkezli terapi',
+        'Oyun tabanlı öğrenme',
+        'Kanıta dayalı yöntemler',
+        'Uluslararası sertifika'
       ]
     },
     {
