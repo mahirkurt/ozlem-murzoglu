@@ -1,90 +1,74 @@
-/* Page Hero */
-.page-hero {
-  position: relative;
-  padding: 140px 0 80px;
-  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
-  overflow: hidden;
-}
+/* Hero Section - Using Global Styles */
+/* Local hero styles removed - now using global hero classes from src/styles.css */
 
-.hero-background {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.hero-gradient {
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(255, 183, 77, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(148, 187, 233, 0.1) 0%, transparent 50%);
-}
-
-.hero-pattern {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, 0.02) 35px, rgba(255, 255, 255, 0.02) 70px);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
+/* Badge Section */
+.badge-section {
+  padding: 2rem 0;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1) 0%, rgba(79, 70, 229, 0.1) 100%);
+  border-bottom: 1px solid #e0e0e0;
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
   animation: fade-in-down 0.8s ease-out;
 }
 
-.badge-line {
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-}
-
-.badge-text {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.hero-title {
-  font-family: 'Figtree', sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  color: white;
-  margin: 0 0 1.5rem;
-  animation: fade-in-up 0.8s ease-out 0.2s both;
-}
-
-.hero-description {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-  animation: fade-in-up 0.8s ease-out 0.4s both;
-}
-
-/* Pioneers Section */
-.pioneers-section {
+/* Categories Section */
+.categories-section {
   padding: 80px 0;
   background: #ffffff;
+}
+
+.categories-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: 'Figtree', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #005F73;
+  margin: 0 0 0.5rem;
+}
+
+.section-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.125rem;
+  color: #666;
+  margin: 0;
+}
+
+.category-group {
+  margin-bottom: 4rem;
+}
+
+.category-group:last-child {
+  margin-bottom: 0;
+}
+
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #005F73;
+  margin: 0 0 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(0, 95, 115, 0.1);
+}
+
+.category-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(255, 183, 77, 0.15) 0%, rgba(255, 183, 77, 0.25) 100%);
+  border-radius: 12px;
+  color: #D97706;
 }
 
 .pioneers-grid {
@@ -151,6 +135,10 @@
   font-weight: 600;
   color: #005F73;
   margin: 0 0 0.25rem;
+}
+
+.card-inner h4.pioneer-name {
+  font-size: 1.125rem;
 }
 
 .pioneer-title {

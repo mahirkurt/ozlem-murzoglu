@@ -18,8 +18,8 @@ export class AppointmentComponent {
   private sanitizer = inject(DomSanitizer);
   
   breadcrumbs = [
-    { label: 'HEADER.NAV_HOME', link: '/' },
-    { label: 'APPOINTMENT.TITLE' }
+    { label: 'Ana Sayfa', link: '/' },
+    { label: 'Randevu' }
   ];
 
   // Sağlık Peteğim URL

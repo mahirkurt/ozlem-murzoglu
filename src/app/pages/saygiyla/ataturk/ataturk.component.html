@@ -1,0 +1,154 @@
+<section class="pioneer-detail-page">
+  <!-- Hero Section -->
+  <app-hero-section 
+    [title]="'SAYGIYLA.PIONEERS.ATATURK.NAME' | translate"
+    [subtitle]="'SAYGIYLA.PIONEERS.ATATURK.TITLE' | translate"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="purple">
+  </app-hero-section>
+
+  <!-- Biography Section -->
+  <div class="biography-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>{{ 'SAYGIYLA.PIONEERS.ATATURK.SECTION_BIOGRAPHY' | translate }}</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="biography-content">
+        <div class="biography-text">
+          <!-- Photo Section -->
+          <div class="biography-photo">
+            <img
+              src="/assets/images/kemal_ataturk.png"
+              alt="{{ 'SAYGIYLA.PIONEERS.ATATURK.NAME' | translate }}"
+              loading="lazy"
+            />
+            <p class="photo-caption">{{ 'SAYGIYLA.PIONEERS.ATATURK.NAME' | translate }}</p>
+          </div>
+
+          <p class="lead">
+            {{ 'SAYGIYLA.PIONEERS.ATATURK.INTRO_TEXT' | translate }}
+          </p>
+
+          <p>{{ 'SAYGIYLA.PIONEERS.ATATURK.INTRO_P1' | translate }}</p>
+          <p>{{ 'SAYGIYLA.PIONEERS.ATATURK.INTRO_P2' | translate }}</p>
+
+          <h3>{{ 'SAYGIYLA.PIONEERS.ATATURK.SECTION_COMMANDER' | translate }}</h3>
+          <p>{{ 'SAYGIYLA.PIONEERS.ATATURK.COMMANDER_P1' | translate }}</p>
+          <p>{{ 'SAYGIYLA.PIONEERS.ATATURK.COMMANDER_P2' | translate }}</p>
+
+          <p class="highlight-quote">
+            {{ 'SAYGIYLA.PIONEERS.ATATURK.QUOTE_REPUBLIC' | translate }}
+          </p>
+
+          <h3>{{ 'SAYGIYLA.PIONEERS.ATATURK.SECTION_EDUCATION' | translate }}</h3>
+          <p>{{ 'SAYGIYLA.PIONEERS.ATATURK.EDUCATION_P1' | translate }}</p>
+          <p>{{ 'SAYGIYLA.PIONEERS.ATATURK.EDUCATION_P2' | translate }}</p>
+
+          <h3>{{ 'SAYGIYLA.PIONEERS.ATATURK.SECTION_CHILDREN' | translate }}</h3>
+          <p>{{ 'SAYGIYLA.PIONEERS.ATATURK.CHILDREN_P1' | translate }}</p>
+          <p>{{ 'SAYGIYLA.PIONEERS.ATATURK.CHILDREN_P2' | translate }}</p>
+
+          <p class="highlight-quote">
+            {{ 'SAYGIYLA.PIONEERS.ATATURK.QUOTE_SOVEREIGNTY' | translate }}
+          </p>
+
+          <p>{{ 'SAYGIYLA.PIONEERS.ATATURK.CHILDREN_P3' | translate }}</p>
+
+          <h3>{{ 'SAYGIYLA.PIONEERS.ATATURK.SECTION_LEGACY' | translate }}</h3>
+          <p>{{ 'SAYGIYLA.PIONEERS.ATATURK.LEGACY_P1' | translate }}</p>
+          <p>{{ 'SAYGIYLA.PIONEERS.ATATURK.LEGACY_CONCLUSION' | translate }}</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-container">
+          <h3>Yaşam Kronolojisi</h3>
+          <div class="timeline">
+            <div *ngFor="let item of timeline" class="timeline-item">
+              <div class="timeline-year">{{ item.year }}</div>
+              <div class="timeline-content">
+                <div class="timeline-dot"></div>
+                <p>{{ item.event }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Books Section -->
+  <div class="books-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Önemli Eserleri</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="books-grid">
+        <div *ngFor="let book of books" class="book-card">
+          <div class="book-year">{{ book.year }}</div>
+          <h3>{{ book.title }}</h3>
+          <span class="book-genre">{{ book.genre }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contributions Section -->
+  <div class="contributions-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Topluma Katkıları</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="contributions-grid">
+        <div *ngFor="let contribution of contributions" class="contribution-card">
+          <div class="contribution-icon">
+            <span class="material-icons">{{ contribution.icon }}</span>
+          </div>
+          <h3>{{ contribution.title }}</h3>
+          <p>{{ contribution.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quotes Section -->
+  <div class="quotes-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Unutulmaz Sözleri</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="quotes-grid">
+        <div *ngFor="let quote of quotes" class="quote-card">
+          <svg class="quote-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+          </svg>
+          <blockquote>
+            <p>{{ quote.text }}</p>
+            <cite>{{ quote.context }}</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>İlham Veren Diğer İsimler</h2>
+        <p>Tıp ve bilim tarihinde iz bırakan diğer öncüleri keşfedin</p>
+        <a routerLink="/saygiyla" class="cta-button">
+          <span>Tümünü Görüntüle</span>
+          <span class="material-icons">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

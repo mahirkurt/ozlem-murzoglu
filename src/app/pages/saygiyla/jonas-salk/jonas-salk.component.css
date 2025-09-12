@@ -1,0 +1,443 @@
+/* Pioneer Detail Page - MD3 Design System */
+.pioneer-detail-page {
+  min-height: 100vh;
+  background: #f8fafb;
+}
+
+/* Biography Section */
+.biography-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-family: 'Figtree', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin: 0 0 1rem 0;
+}
+
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #ffb74d 0%, #ffa726 100%);
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+.biography-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  max-width: min(1440px, 90vw);
+  margin: 0 auto;
+}
+
+.biography-text {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+.biography-text .lead {
+  font-size: 1.25rem;
+  color: #1565c0;
+  margin-bottom: 2rem;
+}
+
+.biography-text h3 {
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin: 2rem 0 1rem 0;
+}
+
+.biography-text p {
+  margin-bottom: 1.5rem;
+}
+
+/* Biography Photo */
+.biography-photo {
+  float: right;
+  width: 300px;
+  margin: 0 0 2rem 2rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.biography-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: sepia(0.3);
+}
+
+.biography-photo .photo-caption {
+  background: #1565c0;
+  color: white;
+  padding: 0.75rem;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Highlight Quote */
+.highlight-quote {
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1565c0;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-left: 4px solid #ffb74d;
+  border-radius: 12px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Timeline */
+.timeline-container {
+  background: #f8fafb;
+  border-radius: 24px;
+  padding: 2rem;
+  border: 1px solid #e0e0e0;
+}
+
+.timeline-container h3 {
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin: 0 0 2rem 0;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #1976d2 0%, #1565c0 100%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-year {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.5rem;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  background: #1976d2;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.3);
+}
+
+.timeline-content p {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  color: #666;
+}
+
+/* Books Section */
+.books-section {
+  padding: 80px 0;
+  background: #f8fafb;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: min(1440px, 90vw);
+  margin: 0 auto;
+}
+
+.book-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  border-color: #1976d2;
+  box-shadow: 0 10px 30px rgba(25, 118, 210, 0.1);
+}
+
+.book-year {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+}
+
+.book-card h3 {
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.book-genre {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #f8fafb;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: #1565c0;
+}
+
+/* Contributions Section */
+.contributions-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.contributions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: min(1440px, 90vw);
+  margin: 0 auto;
+}
+
+.contribution-card {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contribution-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(21, 101, 192, 0.15);
+}
+
+.contribution-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.contribution-icon .material-icons {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.contribution-card h3 {
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin: 0 0 1rem 0;
+}
+
+.contribution-card p {
+  font-family: 'DM Sans', sans-serif;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Quotes Section */
+.quotes-section {
+  padding: 80px 0;
+  background: #f8fafb;
+}
+
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: min(1440px, 90vw);
+  margin: 0 auto;
+}
+
+.quote-card {
+  background: white;
+  border-left: 4px solid #1976d2;
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.quote-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 10px 30px rgba(25, 118, 210, 0.1);
+}
+
+.quote-icon {
+  color: #1976d2;
+  opacity: 0.3;
+  margin-bottom: 1rem;
+}
+
+.quote-card blockquote {
+  margin: 0;
+}
+
+.quote-card p {
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+.quote-card cite {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-family: 'Figtree', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 1rem 0;
+}
+
+.cta-content p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 2rem 0;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #ffb74d 0%, #ffa726 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 167, 38, 0.4);
+}
+
+.container {
+  max-width: min(1440px, 90vw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .biography-content {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-container {
+    order: 2;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .biography-photo {
+    float: none;
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-quote-compact {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-quote-compact .quote-text {
+    font-size: 1.1rem;
+  }
+
+  .contributions-grid,
+  .quotes-grid {
+    grid-template-columns: 1fr;
+  }
+}

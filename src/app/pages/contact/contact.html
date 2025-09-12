@@ -1,8 +1,8 @@
 <section class="contact-page">
   <!-- Hero Section -->
-  <app-hero-section
-    [title]="'CONTACT.SECTION_TITLE' | translate"
-    [subtitle]="'CONTACT.SUBTITLE' | translate"
+  <app-hero-section 
+    title="{{ 'CONTACT.TITLE' | translate }}"
+    subtitle="{{ 'CONTACT.SUBTITLE' | translate }}"
     [breadcrumbs]="breadcrumbs"
     colorTheme="blue">
   </app-hero-section>
@@ -10,93 +10,92 @@
   <!-- Contact Content -->
   <div class="contact-content">
     <div class="container">
+      <div class="content-header">
+        <h2 class="section-title">Bize Ulaşın</h2>
+        <p class="section-description">
+          Sorularınız için aşağıdaki formu doldurabilir veya doğrudan iletişim bilgilerimizden bize ulaşabilirsiniz.
+        </p>
+      </div>
+
       <div class="contact-grid">
-        
         <!-- Contact Form -->
         <div class="contact-form-wrapper">
-          <div class="form-card">
-            <h2 class="form-title">{{ 'CONTACT.GET_IN_TOUCH' | translate }}</h2>
-            <p class="form-description">
-              {{ 'CONTACT.FORM_DESC' | translate }}
-            </p>
-            
-            <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">{{ 'CONTACT.FORM_NAME' | translate }}</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    name="name"
-                    [(ngModel)]="formData.name" 
-                    required
-                    [placeholder]="'CONTACT.FORM_NAME_PLACEHOLDER' | translate"
-                  />
-                </div>
-                
-                <div class="form-group">
-                  <label for="phone">{{ 'CONTACT.FORM_PHONE' | translate }}</label>
-                  <input 
-                    type="tel" 
-                    id="phone" 
-                    name="phone"
-                    [(ngModel)]="formData.phone" 
-                    required
-                    [placeholder]="'CONTACT.FORM_PHONE_PLACEHOLDER' | translate"
-                  />
-                </div>
-              </div>
-              
+          <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
+            <div class="form-row">
               <div class="form-group">
-                <label for="email">{{ 'CONTACT.FORM_EMAIL' | translate }}</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email"
-                  [(ngModel)]="formData.email" 
-                  required
-                  [placeholder]="'CONTACT.FORM_EMAIL_PLACEHOLDER' | translate"
-                />
-              </div>
-              
-              <div class="form-group">
-                <label for="subject">{{ 'CONTACT.FORM_SUBJECT' | translate }}</label>
+                <label for="name">Ad Soyad <span class="required">*</span></label>
                 <input 
                   type="text" 
-                  id="subject" 
-                  name="subject"
-                  [(ngModel)]="formData.subject"
-                  [placeholder]="'CONTACT.FORM_SUBJECT_PLACEHOLDER' | translate"
+                  id="name" 
+                  name="name"
+                  [(ngModel)]="formData.name" 
+                  required
+                  placeholder="Adınız Soyadınız"
                 />
               </div>
               
               <div class="form-group">
-                <label for="message">{{ 'CONTACT.FORM_MESSAGE' | translate }}</label>
-                <textarea 
-                  id="message" 
-                  name="message"
-                  [(ngModel)]="formData.message" 
-                  rows="5" 
+                <label for="phone">Telefon <span class="required">*</span></label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone"
+                  [(ngModel)]="formData.phone" 
                   required
-                  [placeholder]="'CONTACT.FORM_MESSAGE_PLACEHOLDER' | translate"
-                ></textarea>
+                  placeholder="5XX XXX XX XX"
+                />
               </div>
-              
-              <button type="submit" class="submit-btn" [disabled]="!contactForm.form.valid">
-                <span class="btn-text">{{ 'CONTACT.FORM_SUBMIT' | translate }}</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                </svg>
-              </button>
-            </form>
-          </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">E-posta <span class="required">*</span></label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                [(ngModel)]="formData.email" 
+                required
+                placeholder="ornek@email.com"
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Konu</label>
+              <input 
+                type="text" 
+                id="subject" 
+                name="subject"
+                [(ngModel)]="formData.subject"
+                placeholder="Mesajınızın konusu"
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Mesajınız <span class="required">*</span></label>
+              <textarea 
+                id="message" 
+                name="message"
+                [(ngModel)]="formData.message" 
+                rows="5" 
+                required
+                placeholder="Mesajınızı buraya yazabilirsiniz..."
+              ></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn" [disabled]="!contactForm.form.valid">
+              <span>Gönder</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+              </svg>
+            </button>
+          </form>
         </div>
         
         <!-- Contact Info -->
         <div class="contact-info-wrapper">
           <!-- Contact Information Card -->
           <div class="info-card">
-            <h3 class="info-title">{{ 'CONTACT.CONTACT_INFO_TITLE' | translate }}</h3>
+            <h3 class="card-title">İletişim Bilgileri</h3>
             
             <div class="info-item">
               <div class="info-icon">
@@ -105,8 +104,9 @@
                 </svg>
               </div>
               <div class="info-content">
-                <h4>{{ 'CONTACT.PHONE_TITLE' | translate }}</h4>
+                <h4>Telefon</h4>
                 <a href="tel:{{contactInfo.phone}}" class="info-link">{{contactInfo.phone}}</a>
+                <a href="tel:{{contactInfo.mobilePhone}}" class="info-link">{{contactInfo.mobilePhone}}</a>
               </div>
             </div>
             
@@ -117,7 +117,7 @@
                 </svg>
               </div>
               <div class="info-content">
-                <h4>{{ 'CONTACT.EMAIL_TITLE' | translate }}</h4>
+                <h4>E-posta</h4>
                 <a href="mailto:{{contactInfo.email}}" class="info-link">{{contactInfo.email}}</a>
               </div>
             </div>
@@ -129,7 +129,7 @@
                 </svg>
               </div>
               <div class="info-content">
-                <h4>{{ 'CONTACT.ADDRESS_TITLE' | translate }}</h4>
+                <h4>Adres</h4>
                 <p class="address-text">
                   {{contactInfo.address.street}}<br>
                   {{contactInfo.address.building}}<br>
@@ -141,54 +141,130 @@
           
           <!-- Working Hours Card -->
           <div class="info-card">
-            <h3 class="info-title">{{ 'CONTACT.HOURS_TITLE' | translate }}</h3>
+            <h3 class="card-title">Çalışma Saatleri</h3>
             
             <div class="hours-list">
               <div *ngFor="let schedule of workingHours" class="hours-item">
-                <span class="day">{{ schedule.dayKey | translate }}</span>
-                <span class="time">{{ schedule.hoursKey | translate }}</span>
+                <span class="day">{{ schedule.day }}</span>
+                <span class="time">{{ schedule.hours }}</span>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transportation & Location Section -->
+  <div class="transportation-location-section">
+    <div class="container">
+      <div class="section-layout">
+        <!-- Transportation Info (Left Side) -->
+        <div class="transport-content">
+          <h2 class="section-title">Kliniğimize Ulaşım</h2>
           
-          <!-- Quick Actions Card -->
-          <div class="info-card">
-            <h3 class="info-title">{{ 'CONTACT.QUICK_ACTIONS' | translate }}</h3>
+          <!-- Compact Transport Options -->
+          <div class="transport-compact">
+            <!-- Metro M4 -->
+            <div class="transport-item metro">
+              <div class="transport-icon-wrapper">
+                <div class="metro-icon">M4</div>
+              </div>
+              <div class="transport-details">
+                <h4>Metro M4 Hattı</h4>
+                <p>Yenisahra - Kozyatağı istasyonlarından taksi/otobüs</p>
+              </div>
+            </div>
             
-            <div class="quick-actions">
-              <a href="/randevu" class="action-btn primary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            <!-- Bus -->
+            <div class="transport-item bus">
+              <div class="transport-icon-wrapper">
+                <svg class="bus-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11V6h14v5H5z"/>
                 </svg>
-                <span>{{ 'CONTACT.ONLINE_APPOINTMENT' | translate }}</span>
+              </div>
+              <div class="transport-details">
+                <h4>Otobüs Durakları</h4>
+                <p>Ataşehir Bulvarı üzerindeki duraklardan 5 dk yürüme</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parking Options -->
+          <div class="parking-compact">
+            <h3 class="subsection-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="title-icon">
+                <path d="M6 3h12v12l-6 6-6-6V3z"/>
+              </svg>
+              Otopark Seçenekleri
+            </h3>
+            <div class="parking-list">
+              <div *ngFor="let option of parkingOptions" class="parking-item">
+                <div class="parking-info">
+                  <h4 class="parking-name">{{ option.title }}</h4>
+                  <div *ngIf="option.highlight" class="parking-badge">{{ option.highlight }}</div>
+                </div>
+                <p class="parking-desc">{{ option.description }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direction Links -->
+          <div class="direction-links">
+            <h3 class="subsection-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="title-icon">
+                <path d="M21.71 11.29l-9-9a.996.996 0 00-1.41 0l-9 9A1.004 1.004 0 003 13h2v7c0 .55.45 1 1 1h3v-8h4v8h3c.55 0 1-.45 1-1v-7h2a1.001 1.001 0 00.71-1.71z"/>
+              </svg>
+              Yol Tarifi
+            </h3>
+            <div class="map-buttons">
+              <a href="https://maps.google.com/?q=40.9612,29.1015" target="_blank" rel="noopener noreferrer" class="map-btn google">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                </svg>
+                Google Maps
               </a>
-              
-              <a href="https://saglikpetegim.com" target="_blank" rel="noopener noreferrer" class="action-btn secondary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              <a href="https://maps.apple.com/?ll=40.9612,29.1015" target="_blank" rel="noopener noreferrer" class="map-btn apple">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
                 </svg>
-                <span>{{ 'CONTACT.HEALTH_NETWORK' | translate }}</span>
+                Apple Maps
               </a>
             </div>
           </div>
         </div>
-        
+
+        <!-- Map & QR Section (Right Side) -->
+        <div class="location-panel">
+          <!-- Map -->
+          <div class="map-container-compact">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3013.0894674869866!2d29.0992652!3d40.9612195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac7d7d7d7d7d7%3A0x7d7d7d7d7d7d7d7d!2sBarbaros%20Mah.%20Ak%20Zambak%20Sok.%20No%3A3%2C%20Uphill%20Towers%20A-30%2C%20Ata%C5%9Fehir%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1683024000000"
+              width="100%" 
+              height="280" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <!-- WhatsApp QR -->
+          <div class="whatsapp-qr-compact">
+            <div class="qr-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="whatsapp-icon">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.924 3.485"/>
+              </svg>
+              <span>WhatsApp Konum</span>
+            </div>
+            <div class="qr-code">
+              <!-- QR Code will be generated for WhatsApp location sharing -->
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/?text=Dr.%20Özlem%20Murzoğlu%20Kliniği%20-%20Barbaros%20Mah.%20Ak%20Zambak%20Sok.%20No:%203,%20Uphill%20Towers%20A-30,%20Ataşehir/İstanbul%20-%20Konum:%20https://maps.google.com/?q=40.9612,29.1015" alt="WhatsApp QR Code" />
+              <p class="qr-text">QR kodu tarayarak konumu WhatsApp'ta paylaşın</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  
-  <!-- Map Section -->
-  <div class="map-section">
-    <div class="map-container">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.654847849851!2d30.514719515845487!3d39.76660897944731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cc1650dc9dc547%3A0x0!2s39.766609%2C30.517315!5e0!3m2!1str!2str!4v1234567890"
-        width="100%" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
     </div>
   </div>
 </section>

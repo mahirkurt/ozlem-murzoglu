@@ -1,0 +1,218 @@
+{
+  "COMMON_ADDITIONS": {
+    "BACK_TO_TOP": "Yukarı Dön"
+  },
+  
+  "CONTACT_ADDITIONS": {
+    "HEALTH_NETWORK_PORTAL": "Sağlık Peteğim Portalı",
+    "EMAIL": "E-posta",
+    "PHONE": "Telefon"
+  },
+  
+  "ACTIONS": {
+    "PRINT": "Yazdır",
+    "DOWNLOAD": "İndir",
+    "DOWNLOAD_PDF": "PDF İndir",
+    "VIEW": "Görüntüle",
+    "SHARE": "Paylaş",
+    "CLEAR": "Temizle"
+  },
+  
+  "BLOG_ADDITIONS": {
+    "MIN": "dk",
+    "COPY_LINK": "Bağlantıyı Kopyala",
+    "SHARE_FACEBOOK": "Facebook'ta Paylaş",
+    "SHARE_TWITTER": "Twitter'da Paylaş",
+    "SHARE_LINKEDIN": "LinkedIn'de Paylaş",
+    "SHARE_WHATSAPP": "WhatsApp'ta Paylaş",
+    "CATEGORY_ARTICLES": "Kategori Yazıları",
+    "SEARCH_RESULTS": "Arama Sonuçları"
+  },
+  
+  "CLINIC_DESIGN": {
+    "TITLE": "Klinik Tasarımı",
+    "SUBTITLE": "Modern ve çocuk dostu klinik ortamımız",
+    "INTRO_TITLE": "Çocuklar İçin Tasarlandı",
+    "INTRO_TEXT": "Kliniğimiz, çocukların kendilerini güvende ve mutlu hissedecekleri bir ortam oluşturmak üzere özel olarak tasarlanmıştır.",
+    "INTRO_DESC": "Renkli duvarları, oyun alanları ve modern ekipmanlarıyla kliniğimiz, çocukların doktor korkusunu yenmelerine yardımcı olur.",
+    "ALT_ENTRANCE": "Klinik Girişi"
+  },
+  
+  "ALT_TEXTS": {
+    "CORRIDOR": "Klinik Koridoru",
+    "EXAMINATION_ROOM": "Muayene Odası",
+    "GENERAL_VIEW": "Genel Görünüm",
+    "MONTESSORI_PLAY_AREA": "Montessori Oyun Alanı",
+    "NURSING_ROOM": "Emzirme Odası",
+    "PLAY_AREA": "Oyun Alanı",
+    "PLAY_CORNER": "Oyun Köşesi",
+    "WAITING_AREA": "Bekleme Alanı"
+  },
+  
+  "CLINIC_ADDITIONS": {
+    "ALT_INTERIOR": "Klinik İç Mekan",
+    "ALT_WAITING_AREA": "Bekleme Salonu"
+  },
+  
+  "DOCUMENTS": {
+    "CATEGORY": "Kategori",
+    "FILE_SIZE": "Dosya Boyutu",
+    "FORMAT": "Format"
+  },
+  
+  "ERRORS": {
+    "DOCUMENT_NOT_FOUND": "Doküman bulunamadı"
+  },
+  
+  "LOADING": {
+    "DOCUMENT": "Doküman yükleniyor...",
+    "CATEGORY": "Kategori yükleniyor..."
+  },
+  
+  "FILTER": {
+    "ALL": "Tümü",
+    "FILE_TYPE": "Dosya Tipi",
+    "RESET": "Sıfırla"
+  },
+  
+  "SEARCH": {
+    "IN_CATEGORY": "Kategoride Ara",
+    "NO_DOCUMENTS": "Doküman bulunamadı",
+    "NO_RESULTS_DESC": "Arama kriterlerinize uygun doküman bulunamadı",
+    "RESULTS_FOUND": "sonuç bulundu"
+  },
+  
+  "SORT": {
+    "BY_TYPE": "Türe Göre",
+    "LABEL": "Sırala",
+    "TITLE_ASC": "Başlık (A-Z)",
+    "TITLE_DESC": "Başlık (Z-A)"
+  },
+  
+  "CATEGORY": {
+    "DOCUMENTS": "Doküman",
+    "FORMATS": "Farklı Format",
+    "RELATED": "İlgili Kategoriler"
+  },
+  
+  "FAQ_ADDITIONS": {
+    "CATEGORY_": "Kategori"
+  },
+  
+  "APPOINTMENT_ADDITIONS": {
+    "EMERGENCY_NOTE": "Acil durumlar için lütfen 112'yi arayın"
+  },
+  
+  "ARTICLES": {
+    "TITLE": "Makaleler",
+    "SUBTITLE": "Sağlık ve ebeveynlik hakkında bilgilendirici yazılar",
+    "COMING_SOON_DESC": "Yakında yeni makalelerimizle sizlerle olacağız"
+  },
+  
+  "SERVICES_BRIGHT_FUTURES": {
+    "HERO_TITLE": "Bright Futures® Programı",
+    "HERO_SUBTITLE": "AAP standartlarında kapsamlı çocuk sağlığı izlemi",
+    "BREADCRUMB": "Bright Futures Programı",
+    "WHAT_IS": "Bright Futures Nedir?",
+    "AAP_STANDARDS": "AAP Standartları",
+    "AAP_STANDARDS_DESC": "Amerikan Pediatri Akademisi tarafından önerilen",
+    "AGE_RANGE": "0-21 Yaş",
+    "AGE_RANGE_DESC": "Doğumdan genç yetişkinliğe kadar",
+    "VISITS_COUNT": "31 Kontrol",
+    "VISITS_DESC": "Düzenli sağlık kontrolleri",
+    "GLOBAL_STANDARD": "Küresel Standart",
+    "GLOBAL_STANDARD_DESC": "Dünya çapında kabul görmüş program",
+    "PROGRAM_SCOPE": "Program Kapsamı",
+    "VISIT_SCHEDULE": "Ziyaret Takvimi",
+    "BABY_PERIOD": "Bebek Dönemi",
+    "EARLY_CHILDHOOD": "Erken Çocukluk",
+    "SCHOOL_AGE": "Okul Çağı",
+    "THREE_PILLARS": "Üç Temel Yaklaşım"
+  },
+  
+  "SERVICES_LAB_IMAGING": {
+    "HERO_TITLE": "Laboratuvar ve Görüntüleme",
+    "HERO_SUBTITLE": "Güvenilir tanı için modern teknoloji",
+    "LAB_SERVICES": "Laboratuvar Hizmetleri",
+    "IMAGING_SERVICES": "Görüntüleme Hizmetleri",
+    "BIOCHEMISTRY": "Biyokimya",
+    "BIOCHEMISTRY_DESC": "Kan şekeri, karaciğer ve böbrek fonksiyon testleri",
+    "MICROBIOLOGY": "Mikrobiyoloji",
+    "MICROBIOLOGY_DESC": "Kültür, antibiyogram ve enfeksiyon testleri",
+    "HEMATOLOGY": "Hematoloji",
+    "HEMATOLOGY_DESC": "Tam kan sayımı ve kan hastalıkları testleri",
+    "HORMONE": "Hormon",
+    "HORMONE_DESC": "Tiroid, büyüme hormonu ve diğer hormon testleri",
+    "ALLERGY": "Alerji",
+    "ALLERGY_DESC": "Besin ve solunum alerjisi testleri",
+    "GENETICS": "Genetik",
+    "GENETICS_DESC": "Kalıtsal hastalık taramaları",
+    "ULTRASOUND": "Ultrasonografi",
+    "ULTRASOUND_DESC": "Karın, kalça ve tiroid ultrasonları",
+    "XRAY": "Röntgen",
+    "XRAY_DESC": "Akciğer grafisi ve kemik radyografileri",
+    "ECHO": "Ekokardiyografi",
+    "ECHO_DESC": "Kalp ultrasonografisi",
+    "PARTNERS": "İş Ortaklarımız",
+    "BIRUNI_LAB": "Biruni Laboratuvarları",
+    "BIRUNI_DESC": "Güvenilir ve hızlı laboratuvar hizmetleri",
+    "SONOMED": "Sonomed Görüntüleme",
+    "SONOMED_DESC": "İleri teknoloji görüntüleme merkezi",
+    "APPOINTMENT_INFO": "Randevu Bilgilendirmesi",
+    "APPOINTMENT_DESC": "Tetkik ve görüntüleme hizmetleri için randevu almanız gerekmektedir",
+    "RESULTS": "Sonuç Takibi",
+    "RESULTS_DESC": "Test sonuçlarınızı online olarak takip edebilirsiniz",
+    "INTERPRETATION": "Sonuç Yorumlama",
+    "INTERPRETATION_DESC": "Tüm test sonuçları detaylı olarak değerlendirilir"
+  },
+  
+  "SERVICES_SLEEP": {
+    "AGE_RANGE": "Yaş Aralığı",
+    "METHODS_TITLE": "Uygulanan Yöntemler",
+    "SCIENTIFIC_APPROACH": "Bilimsel Yaklaşım",
+    "SCIENTIFIC_APPROACH_DESC": "Kanıta dayalı uyku eğitimi yöntemleri",
+    "CUSTOMIZED_PLAN": "Kişisel Plan",
+    "CUSTOMIZED_PLAN_DESC": "Her aileye özel uyku programı",
+    "FAMILY_SUPPORT": "Aile Desteği",
+    "FAMILY_SUPPORT_DESC": "Anne-baba eğitimi ve rehberliği",
+    "FOLLOW_UP": "Takip",
+    "FOLLOW_UP_DESC": "Düzenli kontrol ve destek",
+    "SUCCESS_GUARANTEE": "Başarı Garantisi",
+    "WHATSAPP_SUPPORT": "WhatsApp Desteği",
+    "METHOD_1": "Kademeli Uzaklaşma",
+    "METHOD_1_DESC": "Bebeğin kendi kendine uykuya dalmasını öğrenmesi",
+    "METHOD_2": "Kontrollü Ağlatma",
+    "METHOD_2_DESC": "Belirli aralıklarla kontrol ve teselli",
+    "METHOD_3": "Fading Yöntemi",
+    "METHOD_3_DESC": "Ebeveyn desteğinin kademeli azaltılması",
+    "METHOD_4": "Pick Up/Put Down",
+    "METHOD_4_DESC": "Kucağa alma ve yatağa koyma tekniği",
+    "BENEFITS": "Programın Faydaları",
+    "BENEFIT_1": "Daha kaliteli uyku",
+    "BENEFIT_2": "Gece uyanmalarında azalma",
+    "BENEFIT_3": "Düzenli uyku rutini",
+    "BENEFIT_4": "Aile huzuru",
+    "PROGRAM_DURATION": "Program Süresi",
+    "DURATION_DESC": "2-4 hafta süren kapsamlı program",
+    "INITIAL_ASSESSMENT": "İlk Değerlendirme",
+    "INITIAL_ASSESSMENT_DESC": "Uyku günlüğü ve alışkanlık analizi",
+    "IMPLEMENTATION": "Uygulama",
+    "IMPLEMENTATION_DESC": "Adım adım uyku eğitimi",
+    "MONITORING": "İzlem",
+    "MONITORING_DESC": "Günlük takip ve düzenleme",
+    "SUCCESS_RATE": "Başarı Oranı",
+    "TESTIMONIAL_1": "3 gecede bebeğim sabaha kadar uyumaya başladı",
+    "TESTIMONIAL_2": "Artık yatma vakti mücadele etmiyoruz",
+    "TESTIMONIAL_3": "Tüm aile nihayet dinlenebiliyor",
+    "FAQ_TITLE": "Sık Sorulan Sorular",
+    "FAQ_1": "Program ne kadar sürer?",
+    "FAQ_1_ANSWER": "Ortalama 2-4 hafta sürer",
+    "FAQ_2": "Hangi yaş gruplarına uygun?",
+    "FAQ_2_ANSWER": "4 ay - 6 yaş arası tüm çocuklar",
+    "FAQ_3": "Başarı garantisi var mı?",
+    "FAQ_3_ANSWER": "%95 başarı oranımız var",
+    "CTA_TITLE": "Huzurlu Uykular İçin",
+    "CTA_DESC": "Ailenizin uyku düzenini yeniden kazanın",
+    "CTA_BUTTON": "Hemen Başvurun"
+  }
+}

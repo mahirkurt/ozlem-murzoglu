@@ -1,0 +1,392 @@
+// ====================================
+// Layout Primitives
+// Compositional Layout Patterns for Consistent UI
+// ====================================
+
+@use 'tokens/index' as tokens;
+
+// ====================================
+// Stack - Vertical flow with consistent spacing
+// ====================================
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, var(--spacing-md));
+
+  &.stack--xs {
+    --gap: var(--spacing-xs);
+  }
+  &.stack--sm {
+    --gap: var(--spacing-sm);
+  }
+  &.stack--md {
+    --gap: var(--spacing-md);
+  }
+  &.stack--lg {
+    --gap: var(--spacing-lg);
+  }
+  &.stack--xl {
+    --gap: var(--spacing-xl);
+  }
+  &.stack--2xl {
+    --gap: var(--spacing-2xl);
+  }
+
+  // Recursive stacking
+  &.stack--recursive {
+    * {
+      margin-block: 0;
+    }
+
+    * + * {
+      margin-block-start: var(--gap, var(--spacing-md));
+    }
+  }
+}
+
+// ====================================
+// Cluster - Horizontal flow with wrapping
+// ====================================
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap, var(--spacing-sm));
+  align-items: var(--align, center);
+  justify-content: var(--justify, flex-start);
+
+  &.cluster--xs {
+    --gap: var(--spacing-xs);
+  }
+  &.cluster--sm {
+    --gap: var(--spacing-sm);
+  }
+  &.cluster--md {
+    --gap: var(--spacing-md);
+  }
+  &.cluster--lg {
+    --gap: var(--spacing-lg);
+  }
+
+  &.cluster--start {
+    --align: flex-start;
+  }
+  &.cluster--center {
+    --align: center;
+  }
+  &.cluster--end {
+    --align: flex-end;
+  }
+  &.cluster--baseline {
+    --align: baseline;
+  }
+  &.cluster--stretch {
+    --align: stretch;
+  }
+
+  &.cluster--between {
+    --justify: space-between;
+  }
+  &.cluster--around {
+    --justify: space-around;
+  }
+  &.cluster--evenly {
+    --justify: space-evenly;
+  }
+}
+
+// ====================================
+// Box - Container with consistent padding
+// ====================================
+.box {
+  padding: var(--padding, var(--spacing-lg));
+  border: var(--border-width-thin) solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius, var(--md-sys-shape-corner-medium));
+  background: var(--bg, var(--md-sys-color-surface));
+
+  &.box--xs {
+    --padding: var(--spacing-xs);
+  }
+  &.box--sm {
+    --padding: var(--spacing-sm);
+  }
+  &.box--md {
+    --padding: var(--spacing-md);
+  }
+  &.box--lg {
+    --padding: var(--spacing-lg);
+  }
+  &.box--xl {
+    --padding: var(--spacing-xl);
+  }
+
+  &.box--no-border {
+    border: none;
+  }
+
+  &.box--elevated {
+    border: none;
+    box-shadow: var(--elevation-card);
+
+    &:hover {
+      box-shadow: var(--elevation-card-hover);
+    }
+  }
+
+  &.box--inset {
+    background: var(--md-sys-color-surface-container-low);
+  }
+}
+
+// ====================================
+// Center - Center content horizontally and/or vertically
+// ====================================
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.center--text {
+    text-align: center;
+  }
+
+  &.center--horizontal {
+    justify-content: center;
+    align-items: initial;
+  }
+
+  &.center--vertical {
+    align-items: center;
+    justify-content: initial;
+  }
+
+  &.center--block {
+    display: block;
+    margin-inline: auto;
+  }
+}
+
+// ====================================
+// Sidebar Layout - Two-column layout with sidebar
+// ====================================
+.sidebar-layout {
+  display: grid;
+  gap: var(--gap, var(--spacing-xl));
+
+  @media (min-width: 960px) {
+    grid-template-columns: var(--sidebar-width, 280px) 1fr;
+
+    &.sidebar-layout--reverse {
+      grid-template-columns: 1fr var(--sidebar-width, 280px);
+    }
+
+    &.sidebar-layout--narrow {
+      --sidebar-width: 240px;
+    }
+
+    &.sidebar-layout--wide {
+      --sidebar-width: 320px;
+    }
+  }
+
+  @media (max-width: 959px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ====================================
+// Grid - Responsive grid layout
+// ====================================
+.grid {
+  display: grid;
+  gap: var(--gap, var(--spacing-md));
+  grid-template-columns: repeat(var(--columns, auto-fill), minmax(var(--min-width, 250px), 1fr));
+
+  &.grid--2 {
+    --columns: 2;
+  }
+  &.grid--3 {
+    --columns: 3;
+  }
+  &.grid--4 {
+    --columns: 4;
+  }
+  &.grid--5 {
+    --columns: 5;
+  }
+  &.grid--6 {
+    --columns: 6;
+  }
+
+  &.grid--auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-width, 250px), 1fr));
+  }
+
+  &.grid--auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(var(--min-width, 250px), 1fr));
+  }
+
+  @media (max-width: 768px) {
+    &:not(.grid--fixed) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// ====================================
+// Frame - Aspect ratio container
+// ====================================
+.frame {
+  aspect-ratio: var(--ratio, 16 / 9);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.frame--square {
+    --ratio: 1;
+  }
+  &.frame--4-3 {
+    --ratio: 4 / 3;
+  }
+  &.frame--16-9 {
+    --ratio: 16 / 9;
+  }
+  &.frame--21-9 {
+    --ratio: 21 / 9;
+  }
+  &.frame--golden {
+    --ratio: 1.618;
+  }
+
+  > img,
+  > video {
+    width: 100%;
+    height: 100%;
+    object-fit: var(--fit, cover);
+  }
+
+  &.frame--contain {
+    --fit: contain;
+  }
+}
+
+// ====================================
+// Switcher - Switch between horizontal and vertical layout
+// ====================================
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap, var(--spacing-md));
+
+  > * {
+    flex-grow: 1;
+    flex-basis: calc((var(--threshold, 30rem) - 100%) * 999);
+  }
+
+  &.switcher--narrow {
+    --threshold: 20rem;
+  }
+
+  &.switcher--wide {
+    --threshold: 40rem;
+  }
+}
+
+// ====================================
+// Cover - Full viewport cover with centered content
+// ====================================
+.cover {
+  display: flex;
+  flex-direction: column;
+  min-height: var(--min-height, 100vh);
+  padding: var(--spacing-md);
+
+  > * {
+    margin-block: var(--spacing-md);
+  }
+
+  > :first-child:not(.cover__center) {
+    margin-block-start: 0;
+  }
+
+  > :last-child:not(.cover__center) {
+    margin-block-end: 0;
+  }
+
+  > .cover__center {
+    margin-block: auto;
+  }
+}
+
+// ====================================
+// Reel - Horizontal scrolling container
+// ====================================
+.reel {
+  display: flex;
+  gap: var(--gap, var(--spacing-md));
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--md-sys-color-outline) transparent;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--md-sys-color-outline);
+    border-radius: var(--radius-full);
+  }
+
+  > * {
+    flex: 0 0 auto;
+  }
+
+  &.reel--no-scrollbar {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+// ====================================
+// Imposter - Absolutely positioned overlay
+// ====================================
+.imposter {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+
+  &.imposter--fixed {
+    position: fixed;
+  }
+
+  &.imposter--top {
+    inset-block-start: var(--spacing-md);
+    transform: translateX(-50%);
+  }
+
+  &.imposter--bottom {
+    inset-block-start: auto;
+    inset-block-end: var(--spacing-md);
+    transform: translateX(-50%);
+  }
+
+  &.imposter--left {
+    inset-inline-start: var(--spacing-md);
+    transform: translateY(-50%);
+  }
+
+  &.imposter--right {
+    inset-inline-start: auto;
+    inset-inline-end: var(--spacing-md);
+    transform: translateY(-50%);
+  }
+}

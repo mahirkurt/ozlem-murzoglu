@@ -1,80 +1,216 @@
 <section class="saygiyla-page">
   <!-- Hero Section -->
-  <div class="page-hero">
-    <div class="hero-background">
-      <div class="hero-gradient"></div>
-      <div class="hero-pattern"></div>
-    </div>
+  <app-hero-section 
+    title="{{ 'SAYGIYLA.TITLE' | translate }}"
+    subtitle="{{ 'SAYGIYLA.SUBTITLE' | translate }}"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="purple">
+  </app-hero-section>
+  
+  <!-- Badge Section -->
+  <div class="badge-section">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="badge-line"></span>
-          <span class="badge-text">SAYGIYLA</span>
-          <span class="badge-line"></span>
-        </div>
-        <h1 class="hero-title">Tıbbın Öncüleri</h1>
-        <p class="hero-description">
-          Çocuk sağlığı ve modern tıbbın gelişimine katkıda bulunan, 
-          insanlığın sağlık yolculuğunda iz bırakan değerli isimlere saygıyla...
-        </p>
+      <div class="hero-badge">
+        <span class="badge-line"></span>
+        <span class="badge-text">{{ 'SAYGIYLA.BADGE_TEXT' | translate }}</span>
+        <span class="badge-line"></span>
       </div>
     </div>
   </div>
 
-  <!-- Pioneers Grid -->
-  <div class="pioneers-section">
+  <!-- Categories Section -->
+  <div class="categories-section">
     <div class="container">
-      <div class="pioneers-grid">
-        <article *ngFor="let pioneer of pioneers" class="pioneer-card">
-          <div class="card-inner">
-            <!-- Card Header -->
-            <div class="card-header">
-              <div class="pioneer-avatar">
-                <span class="avatar-initial">{{pioneer.name.split(' ')[1][0]}}</span>
+      <div class="categories-header">
+        <h2 class="section-title">Öncülerimiz</h2>
+        <p class="section-subtitle">Türkiye'den ve dünyadan bilim, tıp ve eğitim öncüleri</p>
+      </div>
+      
+      <!-- Turkish Pioneers -->
+      <div class="category-group">
+        <h3 class="category-title">
+          <span class="category-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </span>
+          Türkiye'nin Öncüleri
+        </h3>
+        <div class="pioneers-grid">
+          <article *ngFor="let pioneer of getPioneersByCategory('turkish')" class="pioneer-card">
+            <div class="card-inner">
+              <!-- Card Header -->
+              <div class="card-header">
+                <div class="pioneer-avatar">
+                  <span class="avatar-initial">{{getInitial(pioneer.name)}}</span>
+                </div>
+                <div class="pioneer-info">
+                  <h4 class="pioneer-name">{{pioneer.name}}</h4>
+                  <p class="pioneer-title">{{pioneer.title}}</p>
+                  <span class="pioneer-lifespan">{{pioneer.lifespan}}</span>
+                </div>
               </div>
-              <div class="pioneer-info">
-                <h3 class="pioneer-name">{{pioneer.name}}</h3>
-                <p class="pioneer-title">{{pioneer.title}}</p>
-                <span class="pioneer-lifespan">{{pioneer.lifespan}}</span>
+
+              <!-- Contributions -->
+              <div class="card-body">
+                <ul class="contributions-list">
+                  <li *ngFor="let contribution of pioneer.contributions.slice(0, 3)">
+                    <span class="contribution-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                      </svg>
+                    </span>
+                    <span>{{contribution}}</span>
+                  </li>
+                </ul>
               </div>
-            </div>
 
-            <!-- Contributions -->
-            <div class="card-body">
-              <ul class="contributions-list">
-                <li *ngFor="let contribution of pioneer.contributions.slice(0, 3)">
-                  <span class="contribution-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                    </svg>
-                  </span>
-                  <span>{{contribution}}</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Quote (if exists) -->
-            <div *ngIf="pioneer.quote" class="card-quote">
-              <svg class="quote-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-              </svg>
-              <p class="quote-text">{{pioneer.quote}}</p>
-            </div>
-
-            <!-- Card Footer -->
-            <div class="card-footer">
-              <a [routerLink]="pioneer.link" class="read-more-link">
-                <span>Detaylı Bilgi</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+              <!-- Quote (if exists) -->
+              <div *ngIf="pioneer.quote" class="card-quote">
+                <svg class="quote-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
                 </svg>
-              </a>
+                <p class="quote-text">{{pioneer.quote}}</p>
+              </div>
+
+              <!-- Card Footer -->
+              <div class="card-footer">
+                <a [routerLink]="pioneer.link" class="read-more-link">
+                  <span>Detaylı Bilgi</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
+      </div>
+
+      <!-- Medical Pioneers -->
+      <div class="category-group">
+        <h3 class="category-title">
+          <span class="category-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3zM4 8h8v2H4zM4 13h8v2H4zM4 18h8v2H4z"/>
+            </svg>
+          </span>
+          Tıp Öncüleri
+        </h3>
+        <div class="pioneers-grid">
+          <article *ngFor="let pioneer of getPioneersByCategory('medical')" class="pioneer-card">
+            <div class="card-inner">
+              <!-- Card Header -->
+              <div class="card-header">
+                <div class="pioneer-avatar">
+                  <span class="avatar-initial">{{getInitial(pioneer.name)}}</span>
+                </div>
+                <div class="pioneer-info">
+                  <h4 class="pioneer-name">{{pioneer.name}}</h4>
+                  <p class="pioneer-title">{{pioneer.title}}</p>
+                  <span class="pioneer-lifespan">{{pioneer.lifespan}}</span>
+                </div>
+              </div>
+
+              <!-- Contributions -->
+              <div class="card-body">
+                <ul class="contributions-list">
+                  <li *ngFor="let contribution of pioneer.contributions.slice(0, 3)">
+                    <span class="contribution-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                      </svg>
+                    </span>
+                    <span>{{contribution}}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Quote (if exists) -->
+              <div *ngIf="pioneer.quote" class="card-quote">
+                <svg class="quote-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+                </svg>
+                <p class="quote-text">{{pioneer.quote}}</p>
+              </div>
+
+              <!-- Card Footer -->
+              <div class="card-footer">
+                <a [routerLink]="pioneer.link" class="read-more-link">
+                  <span>Detaylı Bilgi</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Education & Literature Pioneers -->
+      <div class="category-group">
+        <h3 class="category-title">
+          <span class="category-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+            </svg>
+          </span>
+          Eğitim ve Edebiyat Öncüleri
+        </h3>
+        <div class="pioneers-grid">
+          <article *ngFor="let pioneer of getPioneersByCategory('education')" class="pioneer-card">
+            <div class="card-inner">
+              <!-- Card Header -->
+              <div class="card-header">
+                <div class="pioneer-avatar">
+                  <span class="avatar-initial">{{getInitial(pioneer.name)}}</span>
+                </div>
+                <div class="pioneer-info">
+                  <h4 class="pioneer-name">{{pioneer.name}}</h4>
+                  <p class="pioneer-title">{{pioneer.title}}</p>
+                  <span class="pioneer-lifespan">{{pioneer.lifespan}}</span>
+                </div>
+              </div>
+
+              <!-- Contributions -->
+              <div class="card-body">
+                <ul class="contributions-list">
+                  <li *ngFor="let contribution of pioneer.contributions.slice(0, 3)">
+                    <span class="contribution-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                      </svg>
+                    </span>
+                    <span>{{contribution}}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Quote (if exists) -->
+              <div *ngIf="pioneer.quote" class="card-quote">
+                <svg class="quote-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+                </svg>
+                <p class="quote-text">{{pioneer.quote}}</p>
+              </div>
+
+              <!-- Card Footer -->
+              <div class="card-footer">
+                <a [routerLink]="pioneer.link" class="read-more-link">
+                  <span>Detaylı Bilgi</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </div>
+
 
   <!-- Call to Action -->
   <div class="cta-section">

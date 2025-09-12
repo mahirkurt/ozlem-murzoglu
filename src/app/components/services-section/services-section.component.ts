@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface Service {
   key: string;
@@ -14,7 +15,7 @@ interface Service {
 @Component({
   selector: 'app-services-section',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './services-section.component.html',
   styleUrl: './services-section.component.css'
 })
@@ -24,51 +25,51 @@ export class ServicesSectionComponent {
   services: Service[] = [
     {
       key: 'bright-futures',
-      title: 'Bright Futures®',
-      description: 'Amerikan Pediatri Akademisi Sağlıklı Çocuk İzlemi',
+      title: 'Bright Futures Program',
+      description: 'Çocukların sağlıklı gelişimi için kapsamlı izlem ve değerlendirme programı.',
       icon: 'child_care',
       color: 'primary',
       href: '/hizmetlerimiz/bright-futures-program'
     },
     {
       key: 'triple-p',
-      title: 'Triple P® Programı',
-      description: 'Olumlu Ebeveynlik Programı - Queensland Üniversitesi lisanslı',
+      title: 'Triple P',
+      description: 'Ebeveynler için pozitif çocuk yetiştirme teknikleri ve aile danışmanlığı.',
       icon: 'family_restroom',
       color: 'secondary',
       href: '/hizmetlerimiz/triple-p'
     },
     {
       key: 'sleep',
-      title: 'Sağlıklı Uykular™',
-      description: 'Uyku Eğitimi ve Danışmanlığı Programı',
+      title: 'Sağlıklı Uykular',
+      description: 'Bebek ve çocukların uyku problemleri için uzman danışmanlık hizmeti.',
       icon: 'bedtime',
       color: 'tertiary',
       href: '/hizmetlerimiz/saglikli-uykular'
     },
     {
+      key: 'sos-feeding',
+      title: 'SOS Feeding',
+      description: 'Bebek ve çocuklarda beslenme sorunları için özel terapi programı.',
+      icon: 'restaurant',
+      color: 'primary',
+      href: '/hizmetlerimiz/sos-feeding'
+    },
+    {
       key: 'lab',
       title: 'Laboratuvar ve Görüntüleme',
-      description: 'Biruni Lab ve Sonomed Görüntüleme ortaklığı',
+      description: 'Kapsamlı laboratuvar testleri ve görüntüleme hizmetleri.',
       icon: 'biotech',
-      color: 'primary',
+      color: 'secondary',
       href: '/hizmetlerimiz/laboratuvar-goruntuleme'
     },
     {
       key: 'vaccination',
       title: 'Aşı Takibi',
-      description: 'Ulusal ve özel aşı uygulamaları',
+      description: 'Güncel aşı takvimi ile çocuğunuzun aşı programını takip edin.',
       icon: 'vaccines',
-      color: 'secondary',
-      href: '/hizmetlerimiz/asi-takibi'
-    },
-    {
-      key: 'development',
-      title: 'Gelişim Değerlendirmesi',
-      description: 'Sosyal pediatri yaklaşımıyla gelişim takibi',
-      icon: 'trending_up',
       color: 'tertiary',
-      href: '/hizmetlerimiz/gelisim-degerlendirmesi'
+      href: '/hizmetlerimiz/asi-takibi'
     }
   ];
 }

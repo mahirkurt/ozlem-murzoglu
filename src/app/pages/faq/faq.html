@@ -1,20 +1,18 @@
 <section class="faq-page">
   <!-- Hero Section -->
-  <div class="faq-hero">
-    <div class="hero-decoration">
-      <div class="decoration-circle circle-1"></div>
-      <div class="decoration-circle circle-2"></div>
-      <div class="decoration-circle circle-3"></div>
-    </div>
+  <app-hero-section 
+    [title]="'FAQ.TITLE' | translate"
+    [subtitle]="'FAQ.SUBTITLE' | translate"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="blue">
+  </app-hero-section>
+  
+  <!-- Search Box -->
+  <div class="search-section">
     <div class="container">
-      <div class="hero-content">
-        <h1 class="page-title">Sık Sorulan Sorular</h1>
-        <p class="page-subtitle">Merak ettiğiniz konular hakkında detaylı bilgiler</p>
-        
-        <div class="search-box">
-          <span class="material-icons">search</span>
-          <input type="text" placeholder="Sorunuzu arayın..." />
-        </div>
+      <div class="search-box">
+        <span class="material-icons">search</span>
+        <input type="text" placeholder="{{ 'FAQ.SEARCH_PLACEHOLDER' | translate }}" />
       </div>
     </div>
   </div>
@@ -58,7 +56,7 @@
                 <span class="category-badge">{{faq.category}}</span>
                 <button class="helpful-btn">
                   <span class="material-icons">thumb_up</span>
-                  <span>Bu cevap yardımcı oldu</span>
+                  <span>{{ 'FAQ.HELPFUL_ANSWER' | translate }}</span>
                 </button>
               </div>
             </div>
@@ -69,8 +67,8 @@
       <!-- No Results -->
       <div *ngIf="filteredFaqs.length === 0" class="no-results">
         <span class="material-icons">help_outline</span>
-        <h3>Sonuç bulunamadı</h3>
-        <p>Bu kategoride henüz soru bulunmamaktadır.</p>
+        <h3>{{ 'FAQ.NO_RESULTS' | translate }}</h3>
+        <p>{{ 'FAQ.NO_RESULTS_DESC' | translate }}</p>
       </div>
     </div>
   </div>
@@ -86,14 +84,14 @@
         </div>
         
         <div class="contact-content">
-          <h2>Sorunuz mu var?</h2>
-          <p>Aradığınız cevabı bulamadıysanız, bize ulaşın. Size yardımcı olmaktan mutluluk duyarız.</p>
+          <h2>{{ 'FAQ.HAVE_QUESTION' | translate }}</h2>
+          <p>{{ 'FAQ.CONTACT_DESC' | translate }}</p>
           
           <div class="contact-options">
             <a href="tel:+902222378400" class="contact-option">
               <span class="material-icons">phone</span>
               <div>
-                <h4>Bizi Arayın</h4>
+                <h4>{{ 'FAQ.CALL_US' | translate }}</h4>
                 <p>0222 237 84 00</p>
               </div>
             </a>

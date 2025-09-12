@@ -1,0 +1,317 @@
+// ====================================
+// Resources: Component Styles
+// Reusable components for resource pages
+// ====================================
+
+@use '../tokens/index' as tokens;
+@use '../layout-primitives' as layout;
+
+// Info Box Component
+.info-box {
+  @extend .box;
+  background: var(--md-sys-color-surface-container-low);
+  border-left: 4px solid var(--md-sys-color-primary);
+
+  .info-box__icon {
+    color: var(--md-sys-color-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .info-box__title {
+    font-size: var(--md-sys-typescale-title-medium-size);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .info-box__content {
+    font-size: var(--md-sys-typescale-body-medium-size);
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  &.info-box--warning {
+    border-left-color: var(--color-warning);
+    background: rgba(255, 152, 0, 0.05);
+
+    .info-box__icon {
+      color: var(--color-warning);
+    }
+  }
+
+  &.info-box--error {
+    border-left-color: var(--md-sys-color-error);
+    background: var(--md-sys-color-error-container);
+
+    .info-box__icon {
+      color: var(--md-sys-color-error);
+    }
+  }
+
+  &.info-box--success {
+    border-left-color: var(--color-success);
+    background: rgba(76, 175, 80, 0.05);
+
+    .info-box__icon {
+      color: var(--color-success);
+    }
+  }
+}
+
+// Download Card Component
+.download-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-md);
+  transition: var(--transition-all);
+  cursor: pointer;
+  container-type: inline-size;
+  container-name: download-card;
+
+  &:hover {
+    box-shadow: var(--elevation-card-hover);
+    border-color: var(--md-sys-color-primary);
+  }
+
+  .download-card__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+  }
+
+  .download-card__content {
+    flex: 1;
+
+    .download-card__title {
+      font-size: var(--md-sys-typescale-title-medium-size);
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: var(--spacing-xs);
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .download-card__description {
+      font-size: var(--md-sys-typescale-body-small-size);
+      color: var(--md-sys-color-on-surface-variant);
+    }
+  }
+
+  .download-card__action {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--md-sys-color-primary);
+    font-weight: var(--font-weight-medium);
+  }
+}
+
+// Milestone Timeline Component
+.milestone-timeline {
+  position: relative;
+  padding-left: var(--spacing-xl);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--md-sys-color-outline-variant);
+  }
+
+  .milestone-item {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--spacing-xl) + 8px);
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      background: var(--md-sys-color-primary);
+      border: 2px solid var(--md-sys-color-surface);
+      border-radius: var(--radius-full);
+      box-shadow: var(--elevation-low);
+    }
+
+    .milestone-header {
+      display: flex;
+      align-items: baseline;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-sm);
+
+      .milestone-age {
+        font-size: var(--md-sys-typescale-title-large-size);
+        font-weight: var(--font-weight-semibold);
+        color: var(--md-sys-color-primary);
+      }
+
+      .milestone-title {
+        font-size: var(--md-sys-typescale-title-medium-size);
+        color: var(--md-sys-color-on-surface);
+      }
+    }
+
+    .milestone-content {
+      font-size: var(--md-sys-typescale-body-medium-size);
+      color: var(--md-sys-color-on-surface-variant);
+
+      ul {
+        margin-top: var(--spacing-sm);
+        padding-left: var(--spacing-lg);
+      }
+    }
+
+    &.milestone-item--completed {
+      opacity: 0.7;
+
+      &::before {
+        background: var(--color-success);
+      }
+    }
+
+    &.milestone-item--current {
+      &::before {
+        width: 12px;
+        height: 12px;
+        left: calc(-1 * var(--spacing-xl) + 6px);
+        animation: pulse 2s infinite;
+      }
+    }
+  }
+}
+
+// Checklist Component
+.checklist {
+  list-style: none;
+  padding: 0;
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+
+    .checklist-checkbox {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      border: 2px solid var(--md-sys-color-outline);
+      border-radius: var(--radius-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-all);
+      cursor: pointer;
+
+      &:hover {
+        border-color: var(--md-sys-color-primary);
+        background: var(--md-sys-color-primary-container);
+      }
+
+      &.checked {
+        background: var(--md-sys-color-primary);
+        border-color: var(--md-sys-color-primary);
+
+        &::after {
+          content: '✓';
+          color: var(--md-sys-color-on-primary);
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .checklist-content {
+      flex: 1;
+      font-size: var(--md-sys-typescale-body-medium-size);
+      color: var(--md-sys-color-on-surface);
+
+      &.completed {
+        text-decoration: line-through;
+        color: var(--md-sys-color-on-surface-variant);
+      }
+    }
+  }
+}
+
+// Tab Navigation Component
+.tab-navigation {
+  display: flex;
+  gap: var(--spacing-xs);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  margin-bottom: var(--spacing-lg);
+  overflow-x: auto;
+
+  .tab-item {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--md-sys-typescale-label-large-size);
+    font-weight: var(--font-weight-medium);
+    color: var(--md-sys-color-on-surface-variant);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-all);
+    white-space: nowrap;
+
+    &:hover {
+      color: var(--md-sys-color-on-surface);
+      background: var(--md-sys-color-surface-container-low);
+    }
+
+    &.active {
+      color: var(--md-sys-color-primary);
+      border-bottom-color: var(--md-sys-color-primary);
+    }
+  }
+}
+
+// Resource Grid Component
+.resource-grid {
+  @extend .grid;
+  --gap: var(--spacing-lg);
+  --min-width: 280px;
+  container-type: inline-size;
+  container-name: resource-grid;
+
+  .resource-grid-item {
+    @extend .content-card;
+  }
+}
+
+// Container query adjustments
+@container download-card (max-width: 400px) {
+  .download-card {
+    flex-direction: column;
+    text-align: center;
+
+    .download-card__content {
+      text-align: center;
+    }
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--md-sys-color-primary), 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(var(--md-sys-color-primary), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--md-sys-color-primary), 0);
+  }
+}

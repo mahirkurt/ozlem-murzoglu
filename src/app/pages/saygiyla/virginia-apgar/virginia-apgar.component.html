@@ -1,0 +1,317 @@
+<section class="pioneer-detail-page">
+  <!-- Hero Section -->
+  <app-hero-section 
+    [title]="'SAYGIYLA.PIONEERS.VIRGINIA_APGAR.NAME' | translate"
+    subtitle="Hayatın İlk Dakikasının Kahramanı"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="purple">
+  </app-hero-section>
+
+  <!-- Biography Section -->
+  <div class="biography-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>{{ 'SAYGIYLA.PIONEERS.VIRGINIA_APGAR.SECTION_BIOGRAPHY' | translate }}</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="biography-content">
+        <div class="biography-text">
+          <!-- Photo Section -->
+          <div class="biography-photo">
+            <img
+              src="/assets/images/virginia_apgar.png"
+              alt="{{ 'SAYGIYLA.PIONEERS.VIRGINIA_APGAR.NAME' | translate }}"
+              loading="lazy"
+            />
+            <p class="photo-caption">{{ 'SAYGIYLA.PIONEERS.VIRGINIA_APGAR.NAME' | translate }}</p>
+          </div>
+
+          <p class="lead">
+            Yirminci yüzyılın ortalarına kadar, doğum odası sadece annenin hayatta kalma
+            mücadelesine odaklanmış bir savaş alanıydı. Bebek doğduğunda, tüm dikkat ve çaba,
+            kanamayı durdurmak, anneyi stabil hale getirmek üzerine yoğunlaşırdı. O anlarda dünyaya
+            gelen savunmasız varlık, çoğu zaman bir kenara konulur, bir nefes alıp almadığı, bir
+            ağlama sesi çıkarıp çıkarmadığı belirsiz bir kaderle baş başa bırakılırdı.
+          </p>
+
+          <p>
+            "Mavi bebekler" sık görülür, birçoğu sessizce hayata veda ederdi ve bu durum, doğumun
+            "doğal" ve acı bir parçası olarak kabul edilirdi. O kritik ilk anlarda neye
+            bakılacağını, nasıl müdahale edileceğini standardize eden basit bir yöntem yoktu. Tıbbın
+            tüm karmaşık bilgisi içinde, hayatın en temel anı, sistemsiz bir karmaşaya teslim
+            edilmişti.
+          </p>
+
+          <p>
+            İşte bu karmaşanın ortasına, inatçı, neşeli ve durdurulamaz bir kadın, cerrah olmayı
+            hayal etmiş ama dönemin cinsiyetçi engelleri yüzünden anesteziyolojiye yönelmiş bir öncü
+            olan {{ 'SAYGIYLA.PIONEERS.VIRGINIA_APGAR.NAME' | translate }}
+            adımını atacaktı. O, sadece anneyi değil, o ana kadar tıp dünyasının neredeyse
+            "görünmez" kabul ettiği bebeği de hastası olarak görecek ve hayatın ilk dakikasını bir
+            bilim dalına dönüştürecekti.
+          </p>
+
+          <h3>Cerrahiden Anesteziye: Engellerle Dolu Bir Yol</h3>
+          <p>
+            {{ 'SAYGIYLA.PIONEERS.VIRGINIA_APGAR.NAME' | translate }}, Columbia Üniversitesi Tıp
+            Fakültesi'nden mezun olduğunda hayali, bir cerrah olmaktı. Zekası ve yeteneğiyle öne
+            çıksa da, dönemin önde gelen cerrahlarından biri ona acı gerçeği söyledi: Bir kadının
+            cerrahide başarılı olması neredeyse imkansızdı, çünkü erkek hastalar ona güvenmez, erkek
+            meslektaşları onu kabul etmezdi. Yıkılmış ama pes etmemişti. Mademki ameliyathaneden
+            ayrılamıyordu, o zaman oranın en kritik rollerinden birini üstlenecekti: anesteziyoloji.
+          </p>
+
+          <p>
+            O yıllarda anestezi, hemşireler tarafından uygulanan, pek de önemsenmeyen bir alandı.
+            Apgar, bu alanı bir tıp uzmanlığına dönüştürmek için savaştı. Özellikle obstetrik
+            anesteziye, yani doğum sırasındaki anesteziye odaklandı. Binlerce doğuma girip çıkarken,
+            annenin aldığı ilaçların bebeği nasıl etkilediğini ilk elden gözlemliyordu.
+          </p>
+
+          <p>
+            Ve her seferinde aynı trajik manzarayla karşılaşıyordu: Doğum ekibinin tüm dikkati
+            annedeyken, soluksuz, morarmış, tepkisiz bebekler bir kenarda kaderine terk ediliyordu.
+            Onların bir sese, bir savunucuya ihtiyacı vardı. O ses,
+            {{ 'SAYGIYLA.PIONEERS.VIRGINIA_APGAR.NAME' | translate }} olacaktı.
+          </p>
+
+          <h3>Dâhiyane Basitlik: "Apgar Skoru"</h3>
+          <p>
+            Apgar, bir gün kahvaltıda bir tıp öğrencisinin sorduğu basit bir soruyla aydınlandı:
+            "Yeni doğan bir bebeğin durumunu değerlendirmek için ne yapmalıyız?" O ana kadar buna
+            verilmiş net, standart bir cevap yoktu. Apgar, o an aklına gelenleri bir kağıda
+            karalamaya başladı. Bir bebeğin sağlığını, doğumdan hemen sonra hızlıca ve objektif
+            olarak değerlendirebilecek beş basit kritere ihtiyacı vardı:
+          </p>
+
+          <ul
+            style="
+              margin: 1.5rem 0;
+              padding-left: 2rem;
+              font-family: 'DM Sans', sans-serif;
+              color: #333;
+            "
+          >
+            <li>
+              <strong>A</strong>
+              ppearance (Görünüm / Cilt Rengi)
+            </li>
+            <li>
+              <strong>P</strong>
+              ulse (Kalp Atışı)
+            </li>
+            <li>
+              <strong>G</strong>
+              rimace (Refleks Tepkisi)
+            </li>
+            <li>
+              <strong>A</strong>
+              ctivity (Aktivite / Kas Tonusu)
+            </li>
+            <li>
+              <strong>R</strong>
+              espiration (Solunum)
+            </li>
+          </ul>
+
+          <p>
+            Her bir kritere 0, 1 veya 2 puan verilecekti. Toplamda 10 üzerinden yapılan bu
+            değerlendirme, doğumdan sonraki birinci ve beşinci dakikalarda tekrarlanacaktı. Bu
+            kadar! Basit, hatırlanması kolay ve inanılmaz derecede etkiliydi. Soyadının harflerinden
+            oluşan bu akılda kalıcı sistem, "Apgar Skoru" olarak tarihe geçti.
+          </p>
+
+          <p class="highlight-quote">
+            Bu skor, bir devrimdi. Artık doğum odasındaki her hemşire ve doktor, bebeğe bakar bakmaz
+            ne yapması gerektiğini biliyordu. Düşük skor alan bir bebeğin acil müdahaleye ihtiyacı
+            olduğu anında anlaşılıyordu.
+          </p>
+
+          <p>
+            Apgar Skoru, doğum ekibini bebeğe odaklanmaya mecbur etti. O güne dek "takdir-i ilahi"
+            denen birçok bebek ölümü, aslında önlenebilir bir solunum sıkıntısından kaynaklanıyordu.
+            {{ 'SAYGIYLA.PIONEERS.VIRGINIA_APGAR.NAME' | translate }}, sadece 60 saniye içinde
+            uygulanabilen bu basit testle, sayısız bebeği hayata döndürdü.
+          </p>
+
+          <h3>Bilimden Savunuculuğa: Kusurlu Doğanların Meleği</h3>
+          <p>
+            Apgar, skorlama sisteminin tüm dünyada bir standart haline gelmesini sağladıktan sonra
+            durmadı. Emekli olmak yerine hayatının ikinci büyük mücadelesine başladı. Doğum
+            kusurları ve zihinsel engeller üzerine çalışmaya karar verdi ve Ulusal Doğum Kusurları
+            Vakfı'nın (March of Dimes) başına geçti.
+          </p>
+
+          <p>
+            Ülkeyi karış karış gezerek halkı, kızamıkçık aşısının önemi, hamilelikte ilaç ve alkol
+            kullanımının tehlikeleri gibi konularda bilinçlendirdi. O, sadece doğum anını değil,
+            doğumdan önceki süreci de daha güvenli hale getirmek için savaştı.
+          </p>
+
+          <h3>Kalıcı Miras</h3>
+          <p>
+            {{ 'SAYGIYLA.PIONEERS.VIRGINIA_APGAR.NAME' | translate }}, hayatını tıp dünyasının en
+            savunmasız hastalarına adadı. O, kadınların önündeki engelleri yıkan bir öncü,
+            anesteziyolojiyi bir bilim dalı haline getiren bir akademisyen ve en önemlisi, hayatın
+            ilk nefesine ses veren bir kahramandı.
+          </p>
+
+          <p>
+            Bugün dünyanın neresinde bir bebek doğarsa doğsun, hayata attığı ilk adımı
+            {{ 'SAYGIYLA.PIONEERS.VIRGINIA_APGAR.NAME' | translate }}'ın mirasıyla, onun
+            geliştirdiği o basit ama hayat kurtaran skorla değerlendirilir. O, her birimize verilmiş
+            ilk "geçer notun" sessiz mimarıdır.
+          </p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-container">
+          <h3>Yaşam Kronolojisi</h3>
+          <div class="timeline">
+            <div *ngFor="let item of timeline" class="timeline-item">
+              <div class="timeline-year">{{ item.year }}</div>
+              <div class="timeline-content">
+                <div class="timeline-dot"></div>
+                <p>{{ item.event }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apgar Score Section -->
+  <div class="books-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Apgar Skorlama Sistemi</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div style="overflow-x: auto; margin: 0 auto; max-width: 900px">
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <thead>
+            <tr style="background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%); color: white">
+              <th style="padding: 1rem; text-align: left; font-family: 'Figtree', sans-serif">
+                Kriter
+              </th>
+              <th style="padding: 1rem; text-align: center; font-family: 'Figtree', sans-serif">
+                0 Puan
+              </th>
+              <th style="padding: 1rem; text-align: center; font-family: 'Figtree', sans-serif">
+                1 Puan
+              </th>
+              <th style="padding: 1rem; text-align: center; font-family: 'Figtree', sans-serif">
+                2 Puan
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let score of apgarScore; let i = index"
+              [style.background]="i % 2 === 0 ? '#F8FAFB' : 'white'"
+            >
+              <td
+                style="
+                  padding: 1rem;
+                  font-family: 'DM Sans', sans-serif;
+                  font-weight: 600;
+                  color: #1565c0;
+                "
+              >
+                {{ score.criterion }}
+              </td>
+              <td style="padding: 1rem; text-align: center; font-family: 'DM Sans', sans-serif">
+                {{ score.score0 }}
+              </td>
+              <td style="padding: 1rem; text-align: center; font-family: 'DM Sans', sans-serif">
+                {{ score.score1 }}
+              </td>
+              <td style="padding: 1rem; text-align: center; font-family: 'DM Sans', sans-serif">
+                {{ score.score2 }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem">
+        <p style="font-family: 'DM Sans', sans-serif; color: #666; line-height: 1.6">
+          <strong>7-10 puan:</strong>
+          Normal |
+          <strong>4-6 puan:</strong>
+          Orta düzeyde depresyon |
+          <strong>0-3 puan:</strong>
+          Ciddi depresyon
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contributions Section -->
+  <div class="contributions-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tıbba Katkıları</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="contributions-grid">
+        <div *ngFor="let contribution of contributions" class="contribution-card">
+          <div class="contribution-icon">
+            <span class="material-icons">{{ contribution.icon }}</span>
+          </div>
+          <h3>{{ contribution.title }}</h3>
+          <p>{{ contribution.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quotes Section -->
+  <div class="quotes-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Unutulmaz Sözleri</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="quotes-grid">
+        <div *ngFor="let quote of quotes" class="quote-card">
+          <svg class="quote-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+          </svg>
+          <blockquote>
+            <p>{{ quote.text }}</p>
+            <cite>{{ quote.context }}</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>İlham Veren Diğer İsimler</h2>
+        <p>Tıp ve bilim tarihinde iz bırakan diğer öncüleri keşfedin</p>
+        <a routerLink="/saygiyla" class="cta-button">
+          <span>Tümünü Görüntüle</span>
+          <span class="material-icons">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,21 +1,11 @@
 <div class="healthy-sleep-page">
   <!-- Hero Section -->
-  <section class="service-hero">
-    <div class="hero-gradient"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="breadcrumb">
-          <a routerLink="/">Ana Sayfa</a>
-          <span class="material-icons">chevron_right</span>
-          <a routerLink="/hizmetlerimiz">Hizmetlerimiz</a>
-          <span class="material-icons">chevron_right</span>
-          <span>Sağlıklı Uykular Programı</span>
-        </div>
-        <h1 class="hero-title">Sağlıklı Uykular™ Programı</h1>
-        <p class="hero-subtitle">Uyku eğitimi ve danışmanlığı ile huzurlu geceler</p>
-      </div>
-    </div>
-  </section>
+  <app-hero-section
+    title="Sağlıklı Uykular™"
+    subtitle="Bebeğinizin ve çocuğunuzun kaliteli uyku alışkanlıkları kazanması için profesyonel destek"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="teal"
+  ></app-hero-section>
 
   <!-- Main Content -->
   <div class="content-wrapper">
@@ -34,34 +24,34 @@
             
             <div class="section-description">
               <p class="lead">
-                Sağlıklı Uykular™, bebek ve çocukların yaşlarına uygun, sağlıklı uyku alışkanlıkları kazanmalarını hedefleyen kapsamlı bir uyku eğitimi ve danışmanlık programıdır.
+                Uyku, çocukların fiziksel, zihinsel ve duygusal gelişimi için hayati öneme sahiptir. Kaliteli uyku, büyüme hormonu salgısını artırır, bağışıklık sistemini güçlendirir ve öğrenme kapasitesini geliştirir.
               </p>
               
               <p>
-                Program, ailelerin uyku konusundaki sorunlarını çözmek, çocukların kaliteli ve yeterli uyku almalarını sağlamak amacıyla Dr. Özlem Murzoğlu tarafından geliştirilmiştir. Hem sosyal pediatri hem de çocuk gelişimi alanındaki uzmanlığı ile oluşturulan bu program, bilimsel temellere dayanmaktadır.
+                Sağlıklı Uykular™ programı, bebeğinizin veya çocuğunuzun yaşına uygun uyku düzenini oluşturmanıza yardımcı olan bilimsel temelli bir yaklaşımdır.
               </p>
               
               <div class="highlight-box">
                 <span class="material-icons">auto_awesome</span>
                 <p>
-                  <strong>%95 başarı oranı</strong> ile ailelerin uyku sorunlarına kalıcı çözümler sunuyoruz.
+                  <strong>%92</strong> başarı oranı ile ailelerin uyku sorunlarına kalıcı çözümler sunuyoruz.
                 </p>
               </div>
               
               <p>
-                Her çocuğun benzersiz olduğu gerçeğinden yola çıkarak, kişiselleştirilmiş uyku planları hazırlıyoruz. Aileler ve çocuklar için stressiz, nazik ve bilimsel yöntemlerle sağlıklı uyku rutinleri oluşturuyoruz.
+                Programımız, her çocuğun benzersiz ihtiyaçlarına göre özelleştirilir ve ailenin yaşam tarzına uygun çözümler sunar.
               </p>
             </div>
           </div>
           
           <div class="section-features">
-            <h3>Program Kapsamı</h3>
+            <h3>Sağlıklı Uykular™ Program Kapsamı</h3>
             <div class="features-list">
               <div class="feature-item">
                 <span class="material-icons">child_care</span>
                 <div>
-                  <h4>0-5 Yaş Arası</h4>
-                  <p>Yenidoğandan okul öncesine</p>
+                  <h4>0-12 Yaş</h4>
+                  <p>Yenidoğandan ergenliğe kadar</p>
                 </div>
               </div>
               
@@ -69,7 +59,7 @@
                 <span class="material-icons">psychology</span>
                 <div>
                   <h4>Bilimsel Yaklaşım</h4>
-                  <p>Kanıta dayalı yöntemler</p>
+                  <p>Kanıta dayalı uyku eğitimi</p>
                 </div>
               </div>
               
@@ -77,7 +67,7 @@
                 <span class="material-icons">favorite</span>
                 <div>
                   <h4>Nazik Teknikler</h4>
-                  <p>Ağlatmadan uyku eğitimi</p>
+                  <p>Ağlatmadan uyku eğitimi seçenekleri</p>
                 </div>
               </div>
               
@@ -85,7 +75,7 @@
                 <span class="material-icons">support_agent</span>
                 <div>
                   <h4>7/24 Destek</h4>
-                  <p>WhatsApp danışmanlık hattı</p>
+                  <p>WhatsApp destek hattı</p>
                 </div>
               </div>
             </div>
@@ -105,38 +95,38 @@
         <div class="problems-grid">
           <div class="problem-card">
             <span class="material-icons">nights_stay</span>
-            <h3>Uykuya Dalma Güçlüğü</h3>
-            <p>Saatlerce uyutma çabaları, uyumak istemeyen bebekler</p>
+            <h3>Uyumakta Zorlanma</h3>
+            <p>Yatma saati direnci ve uyku öncesi huzursuzluk</p>
           </div>
           
           <div class="problem-card">
             <span class="material-icons">alarm</span>
             <h3>Sık Uyanmalar</h3>
-            <p>Gece boyunca defalarca uyanan, tekrar uyumakta zorlanan çocuklar</p>
+            <p>Gece boyunca tekrarlayan uyanmalar</p>
           </div>
           
           <div class="problem-card">
             <span class="material-icons">schedule</span>
             <h3>Erken Uyanma</h3>
-            <p>Sabah çok erken saatlerde uyanan ve tekrar uyumayan çocuklar</p>
+            <p>Sabah çok erken saatlerde uyanma</p>
           </div>
           
           <div class="problem-card">
             <span class="material-icons">king_bed</span>
-            <h3>Yatağa Geçiş</h3>
-            <p>Beşikten yatağa, aile yatağından kendi yatağına geçiş sorunları</p>
+            <h3>Uyku Korku ve Kaygıları</h3>
+            <p>Karanlık korkusu, ayrılık kaygısı</p>
           </div>
           
           <div class="problem-card">
             <span class="material-icons">airline_seat_flat</span>
-            <h3>Gündüz Uykuları</h3>
-            <p>Düzensiz veya yetersiz gündüz uykuları</p>
+            <h3>Düzensiz Uyku</h3>
+            <p>Tutarsız uyku-uyanma saatleri</p>
           </div>
           
           <div class="problem-card">
             <span class="material-icons">dark_mode</span>
-            <h3>Uyku Korkuları</h3>
-            <p>Karanlık korkusu, kâbus görme, yalnız uyuyamama</p>
+            <h3>Gündüz Uykuları</h3>
+            <p>Yetersiz veya aşırı gündüz uykusu</p>
           </div>
         </div>
       </section>
@@ -149,7 +139,7 @@
               <span class="section-icon">
                 <span class="material-icons">timeline</span>
               </span>
-              <h2 class="section-title">Süreç Nasıl İşliyor?</h2>
+              <h2 class="section-title">Sağlıklı Uykular™ Danışmanlık Süreci</h2>
             </div>
             
             <div class="section-description">
@@ -157,40 +147,40 @@
                 <div class="timeline-step">
                   <div class="step-number">1</div>
                   <div class="step-content">
-                    <h4>Ön Değerlendirme</h4>
-                    <p>Detaylı anamnez ve uyku günlüğü analizi yapıyoruz. Çocuğunuzun mevcut uyku düzenini, aile dinamiklerini ve yaşam koşullarını değerlendiriyoruz.</p>
+                    <h4>Değerlendirme</h4>
+                    <p>Detaylı uyku günlüğü ve aile görüşmesi</p>
                   </div>
                 </div>
                 
                 <div class="timeline-step">
                   <div class="step-number">2</div>
                   <div class="step-content">
-                    <h4>Kişisel Plan Hazırlama</h4>
-                    <p>Çocuğunuzun yaşı, mizacı ve ailenizin yaşam tarzına uygun, tamamen kişiselleştirilmiş bir uyku planı oluşturuyoruz.</p>
+                    <h4>Plan Oluşturma</h4>
+                    <p>Kişiselleştirilmiş uyku planı hazırlama</p>
                   </div>
                 </div>
                 
                 <div class="timeline-step">
                   <div class="step-number">3</div>
                   <div class="step-content">
-                    <h4>Uygulama Başlangıcı</h4>
-                    <p>Planı detaylıca açıklıyor, sorularınızı yanıtlıyor ve uygulamaya başlıyoruz. İlk gece özel takip sağlıyoruz.</p>
+                    <h4>Uygulama</h4>
+                    <p>Adım adım uygulama ve destek</p>
                   </div>
                 </div>
                 
                 <div class="timeline-step">
                   <div class="step-number">4</div>
                   <div class="step-content">
-                    <h4>Günlük Takip</h4>
-                    <p>WhatsApp üzerinden 7/24 destek veriyor, günlük ilerlemeyi takip ediyor, gerektiğinde planı güncelliyoruz.</p>
+                    <h4>Takip</h4>
+                    <p>Düzenli kontrol ve plan güncellemeleri</p>
                   </div>
                 </div>
                 
                 <div class="timeline-step">
                   <div class="step-number">5</div>
                   <div class="step-content">
-                    <h4>Sonuç ve Takip</h4>
-                    <p>3-14 gün içinde hedeflere ulaşıyoruz. Program sonrası 30 gün boyunca takip desteği sağlıyoruz.</p>
+                    <h4>Takip</h4>
+                    <p>30 gün boyunca WhatsApp desteği</p>
                   </div>
                 </div>
               </div>
@@ -203,37 +193,37 @@
               <div class="detail-card">
                 <span class="material-icons">description</span>
                 <h4>Uyku Günlüğü</h4>
-                <p>7-10 günlük detaylı uyku kaydı tutulması</p>
+                <p>7 gün boyunca bebeğinizin uyku düzenini kayıt altına alıyoruz</p>
               </div>
               
               <div class="detail-card">
                 <span class="material-icons">video_call</span>
                 <h4>Online Görüşme</h4>
-                <p>60 dakikalık değerlendirme ve planlama seansı</p>
+                <p>60-90 dakikalık detaylı değerlendirme ve planlama görüşmesi</p>
               </div>
               
               <div class="detail-card">
                 <span class="material-icons">article</span>
                 <h4>Yazılı Plan</h4>
-                <p>Adım adım uygulama rehberi</p>
+                <p>Adım adım uygulanacak kişiye özel uyku planı</p>
               </div>
               
               <div class="detail-card">
                 <span class="material-icons">chat</span>
                 <h4>WhatsApp Desteği</h4>
-                <p>Anlık soru-cevap ve yönlendirme</p>
+                <p>Uygulama süresince günlük mesaj desteği</p>
               </div>
               
               <div class="detail-card">
                 <span class="material-icons">update</span>
                 <h4>Plan Güncellemeleri</h4>
-                <p>İhtiyaca göre revizyon</p>
+                <p>İhtiyaç durumunda planın revize edilmesi</p>
               </div>
               
               <div class="detail-card">
                 <span class="material-icons">event_available</span>
-                <h4>30 Gün Takip</h4>
-                <p>Program sonrası destek</p>
+                <h4>30 Günlük Takip</h4>
+                <p>Uyku düzeninin kalıcı olması için takip desteği</p>
               </div>
             </div>
           </div>
@@ -246,7 +236,7 @@
           <span class="section-icon">
             <span class="material-icons">auto_fix_high</span>
           </span>
-          <h2 class="section-title">Kullandığımız Yöntemler</h2>
+          <h2 class="section-title">Sağlıklı Uykular™ Yöntemleri</h2>
         </div>
         
         <div class="methods-grid">
@@ -255,37 +245,37 @@
               <span class="material-icons">chair</span>
             </div>
             <h3>Sandalye Yöntemi</h3>
-            <p>Kademeli uzaklaşma ile bağımsız uyuma alıştırma</p>
+            <p>Ebeveynin bebeğin yanında oturarak kademeli uzaklaşması</p>
           </div>
           
           <div class="method-card">
             <div class="method-icon">
               <span class="material-icons">stairs</span>
             </div>
-            <h3>Kademeli Yaklaşım</h3>
-            <p>Aşamalı olarak desteği azaltma tekniği</p>
+            <h3>Kademeli Uzaklaşma</h3>
+            <p>Her gece biraz daha uzaklaşarak bağımsız uyumayı öğretme</p>
           </div>
           
           <div class="method-card">
             <div class="method-icon">
               <span class="material-icons">visibility</span>
             </div>
-            <h3>Kontrol Et ve Rahatla</h3>
-            <p>Periyodik kontrol ve teselli yöntemi</p>
+            <h3>Kontrollü Ağlama</h3>
+            <p>Belirli aralıklarla kontrol ederek kendi kendine uyumayı öğretme</p>
           </div>
           
           <div class="method-card">
             <div class="method-icon">
               <span class="material-icons">self_improvement</span>
             </div>
-            <h3>Fading Yöntemi</h3>
-            <p>Yavaş yavaş müdahaleyi azaltma</p>
+            <h3>Solma Yöntemi</h3>
+            <p>Uyku desteğini kademeli olarak azaltma</p>
           </div>
         </div>
         
         <div class="method-note">
           <span class="material-icons">info</span>
-          <p><strong>Önemli Not:</strong> "Ağlat bırak" yöntemini kesinlikle kullanmıyoruz. Tüm yöntemlerimiz çocuğun duygusal güvenliğini koruyacak şekilde uygulanır.</p>
+          <p><strong>Önemli:</strong> Sağlıklı Uykular™ programında her çocuk özeldir. Uygulanacak yöntem, çocuğunuzun yaşı, mizacı ve ailenizin dinamiklerine göre belirlenir.</p>
         </div>
       </section>
 
@@ -295,7 +285,7 @@
           <span class="section-icon">
             <span class="material-icons">star</span>
           </span>
-          <h2 class="section-title">Başarı Hikayeleri</h2>
+          <h2 class="section-title">Başarı Oranlarımız</h2>
         </div>
         
         <div class="success-stats">
@@ -306,19 +296,19 @@
           </div>
           
           <div class="stat-card">
-            <div class="stat-number">%95</div>
+            <div class="stat-number">%92</div>
             <h3>Başarı Oranı</h3>
             <p>İlk 14 günde sonuç</p>
           </div>
           
           <div class="stat-card">
-            <div class="stat-number">7 Gün</div>
+            <div class="stat-number">7-10 Gün</div>
             <h3>Ortalama Süre</h3>
             <p>Tam uyum sağlama</p>
           </div>
           
           <div class="stat-card">
-            <div class="stat-number">%100</div>
+            <div class="stat-number">%98</div>
             <h3>Memnuniyet</h3>
             <p>Aile geri bildirimleri</p>
           </div>
@@ -333,11 +323,11 @@
             <div class="package-list">
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>Detaylı ön değerlendirme görüşmesi</p>
+                <p>Detaylı ön değerlendirme görüşmesi (60-90 dakika)</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>7-10 günlük uyku günlüğü analizi</p>
+                <p>7 günlük uyku günlüğü analizi</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
@@ -345,15 +335,15 @@
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>14 gün WhatsApp desteği</p>
+                <p>14 gün yoğun WhatsApp desteği</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>Günlük ilerleme takibi</p>
+                <p>Günlük ilerleme takibi ve raporlama</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>Plan güncellemeleri</p>
+                <p>İhtiyaca göre plan güncellemeleri</p>
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
@@ -361,7 +351,7 @@
               </div>
               <div class="package-item">
                 <span class="material-icons">check_circle</span>
-                <p>Uyku rehberi e-kitap</p>
+                <p>Yaşa özel uyku rehberi dökümanları</p>
               </div>
             </div>
           </div>
@@ -408,7 +398,7 @@
                   <span class="material-icons">flight</span>
                   <div>
                     <h4>Seyahat ve Jet Lag</h4>
-                    <p>Saat dilimi değişikliklerine uyum</p>
+                    <p>Saat dilimi değişikliklerine uyum desteği</p>
                   </div>
                 </div>
               </div>
@@ -417,7 +407,7 @@
                 <span class="material-icons">star</span>
                 <div>
                   <h4>Başarı Garantisi</h4>
-                  <p>Programı tamamlayan ve önerileri uygulayan ailelere %95 başarı oranı ile sağlıklı uyku rutini kazandırıyoruz.</p>
+                  <p>Programı tamamlayan ve önerileri uygulayan ailelere %92 başarı oranı ile sağlıklı uyku rutini kazandırıyoruz.</p>
                 </div>
               </div>
             </div>

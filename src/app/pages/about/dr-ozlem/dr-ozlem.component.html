@@ -1,0 +1,185 @@
+<app-hero-section 
+  [title]="'DR_OZLEM.TITLE' | translate" 
+  [subtitle]="'DR_OZLEM.SUBTITLE' | translate"
+  [breadcrumbs]="breadcrumbs">
+</app-hero-section>
+
+<div class="container mx-auto px-4 py-16">
+  <!-- Profil Bölümü -->
+  <div class="grid md:grid-cols-3 gap-12 mb-16">
+    <div class="md:col-span-1">
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <img
+          src="/assets/images/dr-ozlem-murzoglu.jpg"
+          alt="Dr. Özlem Murzoğlu"
+          class="w-full h-auto"
+          onerror="this.src='/logos/OM-Icon-Color.svg'"
+        />
+        <div class="p-6">
+          <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ 'DR_OZLEM.NAME' | translate }}</h2>
+          <p class="text-pink-600 font-medium mb-4">{{ 'DR_OZLEM.SUBTITLE' | translate }}</p>
+          <div class="space-y-2 text-sm text-gray-600">
+            <p>
+              <i class="material-icons text-pink-400 text-base align-middle mr-2">school</i>
+              {{ 'DR_OZLEM.YEARS_EXPERIENCE' | translate }}
+            </p>
+            <p>
+              <i class="material-icons text-pink-400 text-base align-middle mr-2">verified</i>
+              {{ 'DR_OZLEM.BRIGHT_FUTURES_CERTIFIED' | translate }}
+            </p>
+            <p>
+              <i class="material-icons text-pink-400 text-base align-middle mr-2">psychology</i>
+              {{ 'DR_OZLEM.TRIPLE_P_TRAINER' | translate }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:col-span-2">
+      <h1 class="text-4xl font-bold text-gray-800 mb-6">{{ 'DR_OZLEM.GREETING' | translate }}</h1>
+
+      <div class="prose prose-lg max-w-none text-gray-600 space-y-4">
+        <p>
+          {{ 'DR_OZLEM.INTRO_TEXT1' | translate }}
+        </p>
+
+        <p>
+          {{ 'DR_OZLEM.INTRO_TEXT2' | translate }}
+        </p>
+
+        <p>
+          {{ 'DR_OZLEM.INTRO_TEXT3' | translate }}
+        </p>
+
+        <blockquote class="border-l-4 border-pink-400 pl-6 py-2 my-6 italic text-gray-700">
+          "{{ 'DR_OZLEM.QUOTE' | translate }}"
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- Eğitim ve Deneyim -->
+  <div class="grid md:grid-cols-2 gap-12 mb-16">
+    <!-- Eğitim -->
+    <div>
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <i class="material-icons text-pink-400 mr-3">school</i>
+        {{ 'DR_OZLEM.EDUCATION_TITLE' | translate }}
+      </h2>
+      <div class="space-y-4">
+        <div
+          *ngFor="let edu of education"
+          class="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+        >
+          <div class="flex items-start">
+            <span class="bg-pink-100 text-pink-600 font-bold px-3 py-1 rounded-full text-sm mr-4">
+              {{ edu.year }}
+            </span>
+            <div>
+              <h3 class="font-semibold text-gray-800">{{ edu.titleKey | translate }}</h3>
+              <p class="text-gray-600 text-sm">{{ edu.institution }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deneyim -->
+    <div>
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <i class="material-icons text-pink-400 mr-3">work</i>
+        {{ 'DR_OZLEM.EXPERIENCE_TITLE' | translate }}
+      </h2>
+      <div class="space-y-4">
+        <div
+          *ngFor="let exp of experience"
+          class="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+        >
+          <div class="flex items-start">
+            <span
+              class="bg-blue-100 text-blue-600 font-bold px-3 py-1 rounded-full text-sm mr-4 whitespace-nowrap"
+            >
+              {{ exp.period }}
+            </span>
+            <div>
+              <h3 class="font-semibold text-gray-800">{{ exp.positionKey | translate }}</h3>
+              <p class="text-gray-600 text-sm">{{ exp.institution }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Uzmanlık Alanları -->
+  <div class="mb-16">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+      <i class="material-icons text-pink-400 mr-3">medical_services</i>
+      {{ 'DR_OZLEM.SPECIALTIES_TITLE' | translate }}
+    </h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div
+        *ngFor="let areaKey of specialAreasKeys"
+        class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-4 border border-pink-200 hover:shadow-md transition-shadow"
+      >
+        <p class="text-gray-700 font-medium flex items-center">
+          <i class="material-icons text-pink-400 text-base mr-2">check_circle</i>
+          {{ areaKey | translate }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Üyelikler -->
+  <div class="mb-16">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+      <i class="material-icons text-pink-400 mr-3">groups</i>
+      {{ 'DR_OZLEM.MEMBERSHIPS_TITLE' | translate }}
+    </h2>
+    <div class="bg-white rounded-lg shadow-lg p-8">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div *ngFor="let membershipKey of membershipsKeys" class="flex items-center">
+          <i class="material-icons text-pink-400 mr-3">verified_user</i>
+          <span class="text-gray-700">{{ membershipKey | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Yaklaşım -->
+  <div class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-8 md:p-12">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tedavi Yaklaşımım</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div
+          class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg"
+        >
+          <i class="material-icons text-pink-500 text-3xl">favorite</i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Sevgi ve Şefkat</h3>
+        <p class="text-gray-600">Her çocuğa sevgi ve şefkatle yaklaşırım</p>
+      </div>
+
+      <div class="text-center">
+        <div
+          class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg"
+        >
+          <i class="material-icons text-purple-500 text-3xl">psychology</i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Bütüncül Yaklaşım</h3>
+        <p class="text-gray-600">Fiziksel, duygusal ve sosyal gelişimi birlikte değerlendiririm</p>
+      </div>
+
+      <div class="text-center">
+        <div
+          class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg"
+        >
+          <i class="material-icons text-blue-500 text-3xl">family_restroom</i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Aile Odaklı</h3>
+        <p class="text-gray-600">Aileleri tedavi sürecinin aktif bir parçası olarak görürüm</p>
+      </div>
+    </div>
+  </div>
+</div>

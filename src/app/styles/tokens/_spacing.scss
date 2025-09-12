@@ -1,0 +1,100 @@
+// ====================================
+// Design Tokens: Spacing
+// Single Source of Truth for Spacing System
+// Based on 4px Grid & Golden Ratio (1.618)
+// ====================================
+
+// SCSS Variables for import in _index.scss
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+
+// Golden Ratio for harmonic spacing
+$golden-ratio: 1.618;
+
+:root {
+  // Base unit for spacing calculations
+  --spacing-base: 4px;
+  --golden-ratio: 1.618;
+
+  // Spacing scale (based on 4px grid with harmonic progression)
+  --spacing-0: 0;
+  --spacing-1: calc(var(--spacing-base) * 1); // 4px
+  --spacing-2: calc(var(--spacing-base) * 2); // 8px
+  --spacing-3: calc(var(--spacing-base) * 3); // 12px
+  --spacing-4: calc(var(--spacing-base) * 4); // 16px
+  --spacing-5: calc(var(--spacing-base) * 5); // 20px
+  --spacing-6: calc(var(--spacing-base) * 6); // 24px
+  --spacing-7: calc(var(--spacing-base) * 7); // 28px
+  --spacing-8: calc(var(--spacing-base) * 8); // 32px
+  --spacing-10: calc(var(--spacing-base) * 10); // 40px
+  --spacing-12: calc(var(--spacing-base) * 12); // 48px
+  --spacing-14: calc(var(--spacing-base) * 14); // 56px
+  --spacing-16: calc(var(--spacing-base) * 16); // 64px
+  --spacing-20: calc(var(--spacing-base) * 20); // 80px
+  --spacing-24: calc(var(--spacing-base) * 24); // 96px
+  --spacing-32: calc(var(--spacing-base) * 32); // 128px
+  --spacing-40: calc(var(--spacing-base) * 40); // 160px
+  --spacing-48: calc(var(--spacing-base) * 48); // 192px
+  --spacing-56: calc(var(--spacing-base) * 56); // 224px
+  --spacing-64: calc(var(--spacing-base) * 64); // 256px
+
+  // Semantic spacing aliases
+  --spacing-xxs: var(--spacing-1); // 4px
+  --spacing-xs: var(--spacing-2); // 8px
+  --spacing-sm: var(--spacing-3); // 12px
+  --spacing-md: var(--spacing-4); // 16px
+  --spacing-lg: var(--spacing-6); // 24px
+  --spacing-xl: var(--spacing-8); // 32px
+  --spacing-2xl: var(--spacing-12); // 48px
+  --spacing-3xl: var(--spacing-16); // 64px
+  --spacing-4xl: var(--spacing-20); // 80px
+  --spacing-5xl: var(--spacing-24); // 96px
+
+  // Component-specific spacing
+  --spacing-inline-xxs: var(--spacing-1);
+  --spacing-inline-xs: var(--spacing-2);
+  --spacing-inline-sm: var(--spacing-3);
+  --spacing-inline-md: var(--spacing-4);
+  --spacing-inline-lg: var(--spacing-6);
+
+  --spacing-stack-xxs: var(--spacing-1);
+  --spacing-stack-xs: var(--spacing-2);
+  --spacing-stack-sm: var(--spacing-3);
+  --spacing-stack-md: var(--spacing-4);
+  --spacing-stack-lg: var(--spacing-6);
+  --spacing-stack-xl: var(--spacing-8);
+
+  // Layout spacing
+  --spacing-section-padding: var(--spacing-20);
+  --spacing-container-padding: var(--spacing-8);
+  --spacing-card-padding: var(--spacing-6);
+  --spacing-button-padding-x: var(--spacing-6);
+  --spacing-button-padding-y: var(--spacing-3);
+  --spacing-input-padding-x: var(--spacing-4);
+  --spacing-input-padding-y: var(--spacing-3);
+
+  // Gap spacing for flexbox/grid
+  --gap-xxs: var(--spacing-1);
+  --gap-xs: var(--spacing-2);
+  --gap-sm: var(--spacing-3);
+  --gap-md: var(--spacing-4);
+  --gap-lg: var(--spacing-6);
+  --gap-xl: var(--spacing-8);
+  --gap-2xl: var(--spacing-12);
+
+  // Responsive spacing adjustments
+  @media (max-width: 768px) {
+    --spacing-section-padding: var(--spacing-16);
+    --spacing-container-padding: var(--spacing-4);
+  }
+
+  @media (max-width: 480px) {
+    --spacing-section-padding: var(--spacing-12);
+    --spacing-container-padding: var(--spacing-3);
+    --spacing-card-padding: var(--spacing-4);
+  }
+}

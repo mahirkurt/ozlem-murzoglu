@@ -23,24 +23,24 @@ export class ApproachSectionComponent implements OnInit {
   
   approaches: ApproachItem[] = [
     {
-      titleKey: 'APPROACH.TITLE',
-      descriptionKey: 'APPROACH.COMPREHENSIVE_DESC',
-      icon: 'check_circle',
-      href: '/hakkimizda',
+      titleKey: 'APPROACH.DEVELOPMENT_TITLE',
+      descriptionKey: 'APPROACH.DEVELOPMENT_DESC',
+      icon: 'trending_up',
+      href: '/hizmetlerimiz/gelisim-takibi',
       color: 'primary'
     },
     {
-      titleKey: 'SERVICES.SECTION_TITLE',
-      descriptionKey: 'SERVICES.SUBTITLE',
-      icon: 'medical_services',
-      href: '/hizmetlerimiz',
+      titleKey: 'APPROACH.FAMILY_EDUCATION_TITLE',
+      descriptionKey: 'APPROACH.FAMILY_EDUCATION_DESC',
+      icon: 'family_restroom',
+      href: '/hizmetlerimiz/triple-p',
       color: 'secondary'
     },
     {
-      titleKey: 'APPOINTMENT.TITLE',
-      descriptionKey: 'APPOINTMENT.SUBTITLE',
-      icon: 'calendar_today',
-      href: '/randevu',
+      titleKey: 'APPROACH.SLEEP_NUTRITION_TITLE',
+      descriptionKey: 'APPROACH.SLEEP_NUTRITION_DESC',
+      icon: 'restaurant_menu',
+      href: '/hizmetlerimiz',
       color: 'tertiary'
     }
   ];

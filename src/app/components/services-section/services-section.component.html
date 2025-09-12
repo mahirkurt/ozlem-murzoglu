@@ -1,10 +1,7 @@
 <section class="services-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="md-sys-typescale-display-small">Hizmetlerimiz</h2>
-      <p class="md-sys-typescale-body-large">
-        Çocuğunuzun sağlığı için kapsamlı pediatri hizmetleri
-      </p>
+      <h2 class="section-title">{{ 'SERVICES.SECTION_TITLE' | translate }}</h2>
     </div>
 
     <div class="services-grid">
@@ -14,8 +11,8 @@
             <span class="material-icons service-icon">{{service.icon}}</span>
           </div>
           <div class="service-content">
-            <h3 class="service-title">{{service.title}}</h3>
-            <p class="service-description">{{service.description}}</p>
+            <h3 class="service-title">{{ service.title }}</h3>
+            <p class="service-description">{{ service.description }}</p>
           </div>
           <div class="service-arrow">
             <span class="material-icons">arrow_forward</span>
@@ -26,7 +23,7 @@
 
     <div class="section-cta">
       <a routerLink="/hizmetlerimiz" class="cta-button">
-        <span>Tüm Hizmetlerimizi Görüntüle</span>
+        <span>Tüm Hizmetleri Gör</span>
         <span class="material-icons">arrow_forward</span>
       </a>
     </div>

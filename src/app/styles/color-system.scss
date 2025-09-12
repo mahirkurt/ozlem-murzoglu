@@ -1,0 +1,389 @@
+// MD3 Expressive Color System - ozlemmurzoglu.com
+// =================================================
+// Pediatri kliniği için özel tasarlanmış renk paleti
+// Teal (güven/sağlık) + Amber (neşe/enerji) + Coral (sıcaklık/şefkat)
+
+@use 'sass:color';
+@use 'sass:map';
+
+// ==========================================
+// 1. CORE BRAND COLORS
+// ==========================================
+
+// Primary - Teal/Camgöbeği (Güven, Sağlık, Huzur)
+$teal-palette: (
+  0: #000000,
+  5: #001413,
+  10: #00201e,
+  20: #003734,
+  25: #004340,
+  30: #00504b,
+  35: #005d57,
+  40: #006a63,
+  50: #00897b,
+  // Main Primary
+  60: #00a693,
+  70: #21c0ac,
+  80: #4ddbc7,
+  90: #6ff7e2,
+  95: #b4fff0,
+  98: #e0fff9,
+  99: #f0fffc,
+  100: #ffffff,
+);
+
+// Secondary - Amber/Sarı (Enerji, Pozitiflik, Çocuk Neşesi)
+$amber-palette: (
+  0: #000000,
+  5: #1f0e00,
+  10: #311300,
+  20: #502400,
+  25: #602d00,
+  30: #703600,
+  35: #803f00,
+  40: #914900,
+  50: #ffb300,
+  // Main Secondary (Logo Yellow)
+  60: #ffbf00,
+  70: #ffca28,
+  80: #ffd54f,
+  90: #ffe082,
+  95: #ffecb3,
+  98: #fff8e1,
+  99: #fffbf0,
+  100: #ffffff,
+);
+
+// Tertiary - Coral/Mercan (Sıcaklık, Şefkat, Bakım)
+$coral-palette: (
+  0: #000000,
+  5: #200a06,
+  10: #33110a,
+  20: #561d13,
+  25: #682418,
+  30: #7b2b1d,
+  35: #8e3322,
+  40: #a23b27,
+  50: #ff7043,
+  // Main Tertiary
+  60: #ff8a65,
+  70: #ffab91,
+  80: #ffccbc,
+  90: #fbe9e7,
+  95: #fff3f0,
+  98: #fff9f8,
+  99: #fffbfa,
+  100: #ffffff,
+);
+
+// Neutral - Grey (UI Elements)
+$neutral-palette: (
+  0: #000000,
+  5: #0f0f0f,
+  10: #1a1a1a,
+  20: #2e2e2e,
+  25: #3a3a3a,
+  30: #474747,
+  35: #545454,
+  40: #616161,
+  50: #7b7b7b,
+  60: #959595,
+  70: #afafaf,
+  80: #c9c9c9,
+  90: #e3e3e3,
+  95: #f1f1f1,
+  98: #faf8f5,
+  // Brand warm white
+  99: #fcfcfc,
+  100: #ffffff,
+);
+
+// Error - Red
+$error-palette: (
+  0: #000000,
+  10: #410002,
+  20: #690005,
+  30: #93000a,
+  40: #ba1a1a,
+  50: #d32f2f,
+  // Main Error
+  60: #e85449,
+  70: #f87c70,
+  80: #ffb4ab,
+  90: #ffdad6,
+  95: #ffedea,
+  99: #fffbff,
+  100: #ffffff,
+);
+
+// ==========================================
+// 2. SEMANTIC COLOR MAPPING
+// ==========================================
+
+@mixin define-semantic-colors() {
+  :root {
+    // Primary colors
+    --md-sys-color-primary: #{map.get($teal-palette, 50)};
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-primary-container: #{map.get($teal-palette, 90)};
+    --md-sys-color-on-primary-container: #{map.get($teal-palette, 10)};
+
+    // Secondary colors
+    --md-sys-color-secondary: #{map.get($amber-palette, 50)};
+    --md-sys-color-on-secondary: #{map.get($amber-palette, 10)};
+    --md-sys-color-secondary-container: #{map.get($amber-palette, 90)};
+    --md-sys-color-on-secondary-container: #{map.get($amber-palette, 10)};
+
+    // Tertiary colors
+    --md-sys-color-tertiary: #{map.get($coral-palette, 50)};
+    --md-sys-color-on-tertiary: #ffffff;
+    --md-sys-color-tertiary-container: #{map.get($coral-palette, 90)};
+    --md-sys-color-on-tertiary-container: #{map.get($coral-palette, 10)};
+
+    // Error colors
+    --md-sys-color-error: #{map.get($error-palette, 50)};
+    --md-sys-color-on-error: #ffffff;
+    --md-sys-color-error-container: #{map.get($error-palette, 90)};
+    --md-sys-color-on-error-container: #{map.get($error-palette, 10)};
+
+    // Surface colors
+    --md-sys-color-surface: #{map.get($neutral-palette, 99)};
+    --md-sys-color-on-surface: #{map.get($neutral-palette, 10)};
+    --md-sys-color-surface-variant: #{map.get($neutral-palette, 95)};
+    --md-sys-color-on-surface-variant: #{map.get($neutral-palette, 30)};
+    --md-sys-color-surface-container: #{map.get($neutral-palette, 98)};
+    --md-sys-color-surface-container-high: #{map.get($neutral-palette, 95)};
+    --md-sys-color-surface-container-highest: #{map.get($neutral-palette, 90)};
+    --md-sys-color-surface-container-low: #ffffff;
+    --md-sys-color-surface-container-lowest: #ffffff;
+
+    // Background colors
+    --md-sys-color-background: #ffffff;
+    --md-sys-color-on-background: #{map.get($neutral-palette, 10)};
+
+    // Outline colors
+    --md-sys-color-outline: #{map.get($neutral-palette, 50)};
+    --md-sys-color-outline-variant: #{map.get($neutral-palette, 80)};
+
+    // Inverse colors
+    --md-sys-color-inverse-surface: #{map.get($neutral-palette, 20)};
+    --md-sys-color-inverse-on-surface: #{map.get($neutral-palette, 95)};
+    --md-sys-color-inverse-primary: #{map.get($teal-palette, 80)};
+
+    // Shadow color
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: rgba(0, 0, 0, 0.32);
+  }
+}
+
+// ==========================================
+// 3. DARK THEME COLORS
+// ==========================================
+
+@mixin define-dark-theme-colors() {
+  :root[data-theme='dark'],
+  .dark-theme {
+    // Primary colors
+    --md-sys-color-primary: #{map.get($teal-palette, 80)};
+    --md-sys-color-on-primary: #{map.get($teal-palette, 20)};
+    --md-sys-color-primary-container: #{map.get($teal-palette, 30)};
+    --md-sys-color-on-primary-container: #{map.get($teal-palette, 90)};
+
+    // Secondary colors
+    --md-sys-color-secondary: #{map.get($amber-palette, 80)};
+    --md-sys-color-on-secondary: #{map.get($amber-palette, 20)};
+    --md-sys-color-secondary-container: #{map.get($amber-palette, 30)};
+    --md-sys-color-on-secondary-container: #{map.get($amber-palette, 90)};
+
+    // Tertiary colors
+    --md-sys-color-tertiary: #{map.get($coral-palette, 80)};
+    --md-sys-color-on-tertiary: #{map.get($coral-palette, 20)};
+    --md-sys-color-tertiary-container: #{map.get($coral-palette, 30)};
+    --md-sys-color-on-tertiary-container: #{map.get($coral-palette, 90)};
+
+    // Error colors
+    --md-sys-color-error: #{map.get($error-palette, 80)};
+    --md-sys-color-on-error: #{map.get($error-palette, 20)};
+    --md-sys-color-error-container: #{map.get($error-palette, 30)};
+    --md-sys-color-on-error-container: #{map.get($error-palette, 90)};
+
+    // Surface colors
+    --md-sys-color-surface: #{map.get($neutral-palette, 10)};
+    --md-sys-color-on-surface: #{map.get($neutral-palette, 90)};
+    --md-sys-color-surface-variant: #{map.get($neutral-palette, 30)};
+    --md-sys-color-on-surface-variant: #{map.get($neutral-palette, 80)};
+    --md-sys-color-surface-container: #{map.get($neutral-palette, 20)};
+    --md-sys-color-surface-container-high: #{map.get($neutral-palette, 25)};
+    --md-sys-color-surface-container-highest: #{map.get($neutral-palette, 30)};
+    --md-sys-color-surface-container-low: #{map.get($neutral-palette, 10)};
+    --md-sys-color-surface-container-lowest: #{map.get($neutral-palette, 5)};
+
+    // Background colors
+    --md-sys-color-background: #{map.get($neutral-palette, 10)};
+    --md-sys-color-on-background: #{map.get($neutral-palette, 90)};
+
+    // Outline colors
+    --md-sys-color-outline: #{map.get($neutral-palette, 60)};
+    --md-sys-color-outline-variant: #{map.get($neutral-palette, 30)};
+
+    // Inverse colors
+    --md-sys-color-inverse-surface: #{map.get($neutral-palette, 90)};
+    --md-sys-color-inverse-on-surface: #{map.get($neutral-palette, 20)};
+    --md-sys-color-inverse-primary: #{map.get($teal-palette, 40)};
+  }
+}
+
+// ==========================================
+// 4. STATE LAYERS & OPACITY
+// ==========================================
+
+$state-layers: (
+  hover: 0.08,
+  focus: 0.12,
+  pressed: 0.16,
+  dragged: 0.16,
+  disabled: 0.38,
+  disabled-container: 0.12,
+);
+
+@mixin define-state-layers() {
+  :root {
+    @each $state, $opacity in $state-layers {
+      --md-sys-state-#{$state}-opacity: #{$opacity};
+    }
+  }
+}
+
+// ==========================================
+// 5. ELEVATION COLORS
+// ==========================================
+
+@mixin surface-tint-color($level: 1) {
+  @if $level == 1 {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(var(--md-sys-color-primary-rgb), 0.05),
+        rgba(var(--md-sys-color-primary-rgb), 0.05)
+      ),
+      var(--md-sys-color-surface);
+  } @else if $level == 2 {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(var(--md-sys-color-primary-rgb), 0.08),
+        rgba(var(--md-sys-color-primary-rgb), 0.08)
+      ),
+      var(--md-sys-color-surface);
+  } @else if $level == 3 {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(var(--md-sys-color-primary-rgb), 0.11),
+        rgba(var(--md-sys-color-primary-rgb), 0.11)
+      ),
+      var(--md-sys-color-surface);
+  } @else if $level == 4 {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(var(--md-sys-color-primary-rgb), 0.12),
+        rgba(var(--md-sys-color-primary-rgb), 0.12)
+      ),
+      var(--md-sys-color-surface);
+  } @else if $level == 5 {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(var(--md-sys-color-primary-rgb), 0.14),
+        rgba(var(--md-sys-color-primary-rgb), 0.14)
+      ),
+      var(--md-sys-color-surface);
+  }
+}
+
+// ==========================================
+// 6. COLOR UTILITIES
+// ==========================================
+
+@mixin color-utilities() {
+  // Primary utilities
+  .color-primary {
+    color: var(--md-sys-color-primary) !important;
+  }
+  .bg-primary {
+    background-color: var(--md-sys-color-primary) !important;
+  }
+  .bg-primary-container {
+    background-color: var(--md-sys-color-primary-container) !important;
+  }
+
+  // Secondary utilities
+  .color-secondary {
+    color: var(--md-sys-color-secondary) !important;
+  }
+  .bg-secondary {
+    background-color: var(--md-sys-color-secondary) !important;
+  }
+  .bg-secondary-container {
+    background-color: var(--md-sys-color-secondary-container) !important;
+  }
+
+  // Tertiary utilities
+  .color-tertiary {
+    color: var(--md-sys-color-tertiary) !important;
+  }
+  .bg-tertiary {
+    background-color: var(--md-sys-color-tertiary) !important;
+  }
+  .bg-tertiary-container {
+    background-color: var(--md-sys-color-tertiary-container) !important;
+  }
+
+  // Surface utilities
+  .bg-surface {
+    background-color: var(--md-sys-color-surface) !important;
+  }
+  .bg-surface-variant {
+    background-color: var(--md-sys-color-surface-variant) !important;
+  }
+  .bg-surface-container {
+    background-color: var(--md-sys-color-surface-container) !important;
+  }
+
+  // Text utilities
+  .text-on-primary {
+    color: var(--md-sys-color-on-primary) !important;
+  }
+  .text-on-secondary {
+    color: var(--md-sys-color-on-secondary) !important;
+  }
+  .text-on-tertiary {
+    color: var(--md-sys-color-on-tertiary) !important;
+  }
+  .text-on-surface {
+    color: var(--md-sys-color-on-surface) !important;
+  }
+  .text-on-surface-variant {
+    color: var(--md-sys-color-on-surface-variant) !important;
+  }
+}
+
+// ==========================================
+// 7. EXPORT & APPLY
+// ==========================================
+
+// Apply all color definitions
+@include define-semantic-colors();
+@include define-dark-theme-colors();
+@include define-state-layers();
+@include color-utilities();
+
+// Export palettes for use in other files
+$color-system: (
+  primary: $teal-palette,
+  secondary: $amber-palette,
+  tertiary: $coral-palette,
+  neutral: $neutral-palette,
+  error: $error-palette,
+);

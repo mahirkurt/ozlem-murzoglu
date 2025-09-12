@@ -26,7 +26,6 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
       <div class="hero-content">
         <div class="container">
           <div class="content-wrapper">
-            <div class="hero-subtitle">{{ 'HOME.HERO_SUBTITLE' | translate }}</div>
             <h1 class="hero-title">
               {{ 'HOME.HERO_TITLE' | translate }}
             </h1>

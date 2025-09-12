@@ -1,24 +1,11 @@
 <div class="bright-futures-page">
   <!-- Hero Section -->
-  <section class="service-hero">
-    <div class="hero-gradient"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="breadcrumb">
-          <a routerLink="/">Ana Sayfa</a>
-          <span class="material-icons">chevron_right</span>
-          <a routerLink="/hizmetlerimiz">Hizmetlerimiz</a>
-          <span class="material-icons">chevron_right</span>
-          <span>Bright Futures Programı</span>
-        </div>
-        <div class="hero-badge">
-          <img src="/images/Bright_Futures.svg" alt="Bright Futures Logo" class="program-logo">
-        </div>
-        <h1 class="hero-title">Bright Futures® Sağlıklı Çocuk İzlemi</h1>
-        <p class="hero-subtitle">Amerikan Pediatri Akademisi standartlarında çocuk takibi</p>
-      </div>
-    </div>
-  </section>
+  <app-hero-section
+    [title]="'Bright Futures® Sağlıklı Çocuk İzlemi'"
+    [subtitle]="'Amerikan Pediatri Akademisi standartlarında çocuk takibi'"
+    [breadcrumbs]="breadcrumbs"
+    [colorTheme]="'teal'">
+  </app-hero-section>
 
   <!-- Main Content -->
   <div class="content-wrapper">
@@ -29,9 +16,9 @@
         <div class="section-grid">
           <div class="section-content">
             <div class="section-header">
-              <span class="section-icon">
-                <span class="material-icons">child_care</span>
-              </span>
+              <div class="program-badge-container">
+                <img src="/images/Bright_Futures.svg" alt="Bright Futures Logo" class="program-badge">
+              </div>
               <h2 class="section-title">Bright Futures® Nedir?</h2>
             </div>
             
@@ -724,24 +711,15 @@
         </div>
       </section>
 
-      <!-- CTA Section -->
-      <section class="cta-section">
-        <div class="cta-content">
-          <h3>Çocuğunuzun Sağlıklı Geleceği İçin</h3>
-          <p>Amerikan standartlarında çocuk takibi için randevu alın</p>
-          <div class="cta-buttons">
-            <a routerLink="/iletisim" class="btn btn-primary">
-              <span class="material-icons">event_available</span>
-              Randevu Al
-            </a>
-            <a href="tel:+902166884483" class="btn btn-secondary">
-              <span class="material-icons">phone</span>
-              Bilgi Alın
-            </a>
-          </div>
-        </div>
-      </section>
       
     </div>
   </div>
 </div>
+
+<!-- Global CTA Section -->
+<app-cta-section
+  [title]="'Çocuğunuzun Sağlıklı Geleceği İçin Bizimle İletişime Geçin'"
+  [description]="'Amerikan standartlarında çocuk takibi ve uzman danışmanlık hizmeti'"
+  [buttonText]="'Randevu Al'"
+  [buttonLink]="'/iletisim'">
+</app-cta-section>

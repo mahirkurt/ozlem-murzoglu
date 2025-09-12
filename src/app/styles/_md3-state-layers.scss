@@ -1,0 +1,530 @@
+// ====================================================================
+// MD3 Rafine State Layer System
+// ====================================================================
+// Material Design 3'ün durum katmanlarını (state layers) tüm
+// interaktif bileşenlerde tutarlı şekilde uygulayan gelişmiş sistem
+// ====================================================================
+
+@use 'sass:color';
+@use 'sass:math';
+
+// State Layer Opacity Values (MD3 Standards)
+// ====================================================================
+$state-opacities: (
+  hover: 0.08,
+  focus: 0.12,
+  pressed: 0.12,
+  dragged: 0.16,
+  disabled: 0.38,
+  disabled-container: 0.12,
+  selected-hover: 0.18,
+  selected-focus: 0.22,
+  selected-pressed: 0.22,
+);
+
+// State Layer Colors
+// ====================================================================
+$state-colors: (
+  primary: var(--md-sys-color-primary),
+  secondary: var(--md-sys-color-secondary),
+  tertiary: var(--md-sys-color-tertiary),
+  error: var(--md-sys-color-error),
+  surface: var(--md-sys-color-on-surface),
+  inverse: var(--md-sys-color-inverse-surface),
+);
+
+// Transition Durations (MD3 Motion Tokens)
+// ====================================================================
+$transitions: (
+  short1: 50ms,
+  short2: 100ms,
+  short3: 150ms,
+  short4: 200ms,
+  medium1: 250ms,
+  medium2: 300ms,
+  medium3: 350ms,
+  medium4: 400ms,
+);
+
+// Easing Functions (MD3 Motion)
+// ====================================================================
+$easing: (
+  standard: cubic-bezier(0.2, 0, 0, 1),
+  emphasized: cubic-bezier(0.2, 0, 0, 1),
+  emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1),
+  emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15),
+);
+
+// Master State Layer Mixin
+// ====================================================================
+@mixin state-layer(
+  $color: currentColor,
+  $ripple: true,
+  $shape: null,
+  $elevation: true,
+  $selected: false
+) {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  // Shape application
+  @if $shape {
+    border-radius: $shape;
+  }
+
+  // Base state layer
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: $color;
+    opacity: 0;
+    transition: opacity map-get($transitions, 'short4') map-get($easing, 'standard');
+    pointer-events: none;
+    z-index: 1;
+
+    @if $shape {
+      border-radius: inherit;
+    }
+  }
+
+  // Hover state
+  &:hover:not(:disabled) {
+    &::before {
+      opacity: if(
+        $selected,
+        map-get($state-opacities, 'selected-hover'),
+        map-get($state-opacities, 'hover')
+      );
+    }
+
+    @if $elevation {
+      @include elevation-change(1);
+    }
+  }
+
+  // Focus state
+  &:focus-visible:not(:disabled) {
+    outline: none;
+
+    &::before {
+      opacity: if(
+        $selected,
+        map-get($state-opacities, 'selected-focus'),
+        map-get($state-opacities, 'focus')
+      );
+    }
+
+    // Focus ring
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border: 2px solid $color;
+      border-radius: inherit;
+      opacity: 1;
+      z-index: 2;
+    }
+
+    @if $elevation {
+      @include elevation-change(2);
+    }
+  }
+
+  // Active/Pressed state
+  &:active:not(:disabled) {
+    &::before {
+      opacity: if(
+        $selected,
+        map-get($state-opacities, 'selected-pressed'),
+        map-get($state-opacities, 'pressed')
+      );
+    }
+
+    @if $elevation {
+      @include elevation-change(0);
+    }
+  }
+
+  // Disabled state
+  &:disabled,
+  &[aria-disabled='true'] {
+    cursor: not-allowed;
+    opacity: map-get($state-opacities, 'disabled');
+
+    &::before {
+      opacity: map-get($state-opacities, 'disabled-container');
+      background-color: var(--md-sys-color-on-surface);
+    }
+  }
+
+  // Ripple effect
+  @if $ripple {
+    @include ripple-effect($color);
+  }
+}
+
+// Ripple Effect Mixin
+// ====================================================================
+@mixin ripple-effect($color: currentColor) {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: $color;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &:active:not(:disabled)::after {
+    animation: ripple-animation map-get($transitions, 'medium4')
+      map-get($easing, 'emphasized-decelerate');
+  }
+}
+
+@keyframes ripple-animation {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.32;
+  }
+  100% {
+    width: 300%;
+    height: 300%;
+    opacity: 0;
+  }
+}
+
+// Elevation Change Mixin
+// ====================================================================
+@mixin elevation-change($level: 1) {
+  $shadows: (
+    0: none,
+    1: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
+    2: 0 2px 4px -1px rgba(0, 0, 0, 0.3),
+    3: 0 3px 5px -1px rgba(0, 0, 0, 0.3),
+    4: 0 4px 6px -2px rgba(0, 0, 0, 0.3),
+    5: 0 5px 8px -2px rgba(0, 0, 0, 0.3),
+  );
+
+  box-shadow: map-get($shadows, $level);
+  transition: box-shadow map-get($transitions, 'short4') map-get($easing, 'emphasized');
+}
+
+// Component-Specific State Layers
+// ====================================================================
+
+// Button State Layer
+@mixin button-state-layer($variant: 'filled', $color: primary) {
+  $state-color: map-get($state-colors, $color);
+
+  @if $variant == 'filled' or $variant == 'tonal' {
+    @include state-layer(
+      $color: var(--md-sys-color-on-#{$color}),
+      $ripple: true,
+      $shape: var(--md-sys-shape-corner-full),
+      $elevation: (
+        $variant == 'filled',
+      )
+    );
+  } @else if $variant == 'outlined' {
+    @include state-layer(
+      $color: $state-color,
+      $ripple: true,
+      $shape: var(--md-sys-shape-corner-full),
+      $elevation: false
+    );
+  } @else if $variant == 'text' {
+    @include state-layer(
+      $color: $state-color,
+      $ripple: true,
+      $shape: var(--md-sys-shape-corner-full),
+      $elevation: false
+    );
+  }
+}
+
+// Card State Layer
+@mixin card-state-layer($interactive: true) {
+  @if $interactive {
+    @include state-layer(
+      $color: var(--md-sys-color-on-surface),
+      $ripple: false,
+      $shape: var(--md-sys-shape-corner-medium),
+      $elevation: true
+    );
+
+    transition: transform map-get($transitions, 'medium2') map-get($easing, 'emphasized');
+
+    &:hover:not(:disabled) {
+      transform: scale(1.02);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+  }
+}
+
+// List Item State Layer
+@mixin list-item-state-layer($selected: false) {
+  @include state-layer(
+    $color: var(--md-sys-color-on-surface),
+    $ripple: true,
+    $shape: 0,
+    $elevation: false,
+    $selected: $selected
+  );
+
+  @if $selected {
+    background-color: var(--md-sys-color-secondary-container);
+
+    &::before {
+      background-color: var(--md-sys-color-on-secondary-container);
+    }
+  }
+}
+
+// Chip State Layer
+@mixin chip-state-layer($selected: false) {
+  @include state-layer(
+    $color: if(
+        $selected,
+        var(--md-sys-color-on-secondary-container),
+        var(--md-sys-color-on-surface)
+      ),
+    $ripple: true,
+    $shape: var(--md-sys-shape-corner-small),
+    $elevation: false,
+    $selected: $selected
+  );
+
+  @if $selected {
+    background-color: var(--md-sys-color-secondary-container);
+  }
+}
+
+// Icon Button State Layer
+@mixin icon-button-state-layer($toggle: false, $selected: false) {
+  @include state-layer(
+    $color: if($selected, var(--md-sys-color-primary), var(--md-sys-color-on-surface-variant)),
+    $ripple: true,
+    $shape: var(--md-sys-shape-corner-full),
+    $elevation: false,
+    $selected: $selected
+  );
+
+  @if $toggle and $selected {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+  }
+}
+
+// FAB State Layer
+@mixin fab-state-layer($size: 'regular', $extended: false) {
+  $shape: if(
+    $extended,
+    var(--md-sys-shape-corner-large),
+    if(
+      $size == 'small',
+      var(--md-sys-shape-corner-medium),
+      if($size == 'large', var(--md-sys-shape-corner-extra-large), var(--md-sys-shape-corner-large))
+    )
+  );
+
+  @include state-layer(
+    $color: var(--md-sys-color-on-primary-container),
+    $ripple: true,
+    $shape: $shape,
+    $elevation: true
+  );
+
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+// Navigation Item State Layer
+@mixin navigation-item-state-layer($selected: false) {
+  @include state-layer(
+    $color: var(--md-sys-color-on-surface),
+    $ripple: true,
+    $shape: var(--md-sys-shape-corner-full),
+    $elevation: false,
+    $selected: $selected
+  );
+
+  @if $selected {
+    background-color: var(--md-sys-color-secondary-container);
+
+    .navigation-icon,
+    .navigation-label {
+      color: var(--md-sys-color-on-secondary-container);
+    }
+  }
+}
+
+// Switch State Layer
+@mixin switch-state-layer($checked: false) {
+  .switch-track {
+    @include state-layer(
+      $color: if($checked, var(--md-sys-color-primary), var(--md-sys-color-surface-variant)),
+      $ripple: false,
+      $shape: var(--md-sys-shape-corner-full),
+      $elevation: false
+    );
+  }
+
+  .switch-thumb {
+    @include state-layer(
+      $color: if($checked, var(--md-sys-color-on-primary), var(--md-sys-color-outline)),
+      $ripple: true,
+      $shape: var(--md-sys-shape-corner-full),
+      $elevation: true
+    );
+  }
+}
+
+// Utility Classes for State Layers
+// ====================================================================
+
+// Basic state layer
+.state-layer {
+  @include state-layer();
+}
+
+// Colored state layers
+.state-layer-primary {
+  @include state-layer($color: var(--md-sys-color-primary));
+}
+
+.state-layer-secondary {
+  @include state-layer($color: var(--md-sys-color-secondary));
+}
+
+.state-layer-tertiary {
+  @include state-layer($color: var(--md-sys-color-tertiary));
+}
+
+.state-layer-error {
+  @include state-layer($color: var(--md-sys-color-error));
+}
+
+// No ripple variant
+.state-layer-no-ripple {
+  @include state-layer($ripple: false);
+}
+
+// Selected state
+.state-layer-selected {
+  @include state-layer($selected: true);
+}
+
+// Apply to Material Components
+// ====================================================================
+
+// Buttons
+.mat-mdc-button {
+  @include button-state-layer('text');
+}
+
+.mat-mdc-raised-button {
+  @include button-state-layer('filled');
+}
+
+.mat-mdc-flat-button {
+  @include button-state-layer('tonal');
+}
+
+.mat-mdc-stroked-button {
+  @include button-state-layer('outlined');
+}
+
+.mat-mdc-icon-button {
+  @include icon-button-state-layer();
+
+  &.mat-mdc-button-toggle-checked {
+    @include icon-button-state-layer(true, true);
+  }
+}
+
+.mat-mdc-fab {
+  @include fab-state-layer();
+
+  &.mat-mdc-mini-fab {
+    @include fab-state-layer('small');
+  }
+
+  &.mat-mdc-extended-fab {
+    @include fab-state-layer('regular', true);
+  }
+}
+
+// Cards
+.mat-mdc-card {
+  &.interactive,
+  &[tabindex='0'],
+  &[role='button'] {
+    @include card-state-layer(true);
+  }
+}
+
+// List Items
+.mat-mdc-list-item {
+  @include list-item-state-layer();
+
+  &.selected,
+  &[aria-selected='true'] {
+    @include list-item-state-layer(true);
+  }
+}
+
+// Chips
+.mat-mdc-chip {
+  @include chip-state-layer();
+
+  &.mat-mdc-chip-selected {
+    @include chip-state-layer(true);
+  }
+}
+
+// Navigation
+.mat-mdc-tab {
+  @include navigation-item-state-layer();
+
+  &.mat-mdc-tab-active {
+    @include navigation-item-state-layer(true);
+  }
+}
+
+// Custom Components
+.nav-rail-item,
+.bottom-nav-item {
+  @include navigation-item-state-layer();
+
+  &.active {
+    @include navigation-item-state-layer(true);
+  }
+}
+
+// Global State Layer Configuration
+// ====================================================================
+:root {
+  // State opacities as CSS variables
+  --md-sys-state-hover-opacity: #{map-get($state-opacities, 'hover')};
+  --md-sys-state-focus-opacity: #{map-get($state-opacities, 'focus')};
+  --md-sys-state-pressed-opacity: #{map-get($state-opacities, 'pressed')};
+  --md-sys-state-dragged-opacity: #{map-get($state-opacities, 'dragged')};
+  --md-sys-state-disabled-opacity: #{map-get($state-opacities, 'disabled')};
+
+  // Allow customization per component
+  --component-state-layer-color: var(--md-sys-color-on-surface);
+}

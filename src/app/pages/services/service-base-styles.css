@@ -1,0 +1,210 @@
+/* ============================================== */
+/* SERVICE PAGES BASE STYLES                     */
+/* Uses global hero-section-global.css           */
+/* No custom hero styles - following guidelines  */
+/* ============================================== */
+
+/* Service-specific styles only - no hero overrides */
+
+.service-container {
+  min-height: 100vh;
+  background: #f8fafb;
+}
+
+/* Container */
+.container {
+  max-width: min(1440px, 90vw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Logo (if needed) */
+.hero-logo {
+  width: 200px;
+  height: auto;
+  margin: 0 auto 30px;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 2.5rem;
+  color: var(--hero-gradient-start, #005f73);
+  margin-bottom: 30px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0f2fe;
+}
+
+.section-title i {
+  margin-right: 15px;
+  font-size: 2rem;
+}
+
+.section-title.text-center {
+  display: block;
+  text-align: center;
+}
+
+/* Content Sections */
+.overview-section,
+.features-section,
+.benefits-section,
+.process-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.overview-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.overview-text {
+  padding-right: 20px;
+}
+
+.lead-text {
+  font-size: 1.3rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Cards */
+.feature-cards,
+.benefit-cards,
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-card,
+.benefit-card,
+.service-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.feature-card:hover,
+.benefit-card:hover,
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--hero-gradient-start, #005f73);
+}
+
+.card-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(
+    135deg,
+    var(--hero-gradient-start, #005f73),
+    var(--hero-gradient-end, #0a9396)
+  );
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: white;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.card-description {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 100px 0;
+  background: linear-gradient(
+    135deg,
+    var(--hero-gradient-start, #005f73),
+    var(--hero-gradient-end, #0a9396)
+  );
+  text-align: center;
+  color: white;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  opacity: 0.95;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 40px;
+  background: white;
+  color: var(--hero-gradient-start, #005f73);
+  border-radius: 100px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .overview-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .overview-text {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .feature-cards,
+  .benefit-cards,
+  .service-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-section,
+  .features-section,
+  .benefits-section,
+  .process-section {
+    padding: 60px 0;
+  }
+}

@@ -1,0 +1,290 @@
+<div class="sos-feeding-container">
+  <!-- Hero Section -->
+  <app-hero-section
+    [title]="'SERVICE_SOS_FEEDING.TITLE' | translate"
+    [subtitle]="'SERVICE_SOS_FEEDING.SUBTITLE' | translate"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="orange"
+  ></app-hero-section>
+
+  <!-- Introduction Section -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h2>{{ 'SERVICE_SOS_FEEDING.WHAT_IS_TITLE' | translate }}</h2>
+          <p class="lead-text">{{ 'SERVICE_SOS_FEEDING.WHAT_IS_DESC' | translate }}</p>
+          <p>{{ 'SERVICE_SOS_FEEDING.WHAT_IS_DETAIL' | translate }}</p>
+
+          <div class="key-points">
+            <div class="point-item">
+              <span class="material-icons">check_circle</span>
+              <span>{{ 'SERVICE_SOS_FEEDING.POINT_1' | translate }}</span>
+            </div>
+            <div class="point-item">
+              <span class="material-icons">check_circle</span>
+              <span>{{ 'SERVICE_SOS_FEEDING.POINT_2' | translate }}</span>
+            </div>
+            <div class="point-item">
+              <span class="material-icons">check_circle</span>
+              <span>{{ 'SERVICE_SOS_FEEDING.POINT_3' | translate }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="intro-image">
+          <img
+            src="assets/program_logos/SOS_Feeding.svg"
+            alt="SOS Feeding Logo"
+            class="sos-logo"
+            loading="lazy"
+          />
+          <div class="certification-badges">
+            <div class="badge" *ngFor="let cert of certifications">
+              <span class="material-icons">{{ cert.icon }}</span>
+              <div class="badge-content">
+                <h4>{{ cert.level }}</h4>
+                <p>{{ cert.title }}</p>
+                <span class="date">{{ cert.date }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eater Types Section -->
+  <section class="eater-types-section">
+    <div class="container">
+      <h2 class="section-title">{{ 'SERVICE_SOS_FEEDING.EATER_TYPES_TITLE' | translate }}</h2>
+      <p class="section-subtitle">{{ 'SERVICE_SOS_FEEDING.EATER_TYPES_DESC' | translate }}</p>
+
+      <div class="eater-comparison">
+        <div class="eater-card picky">
+          <h3>{{ 'SERVICE_SOS_FEEDING.PICKY_EATER_TITLE' | translate }}</h3>
+          <ul>
+            <li>{{ 'SERVICE_SOS_FEEDING.PICKY_POINT_1' | translate }}</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.PICKY_POINT_2' | translate }}</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.PICKY_POINT_3' | translate }}</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.PICKY_POINT_4' | translate }}</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.PICKY_POINT_5' | translate }}</li>
+          </ul>
+        </div>
+        <div class="eater-card problem">
+          <h3>{{ 'SERVICE_SOS_FEEDING.PROBLEM_EATER_TITLE' | translate }}</h3>
+          <ul>
+            <li>{{ 'SERVICE_SOS_FEEDING.PROBLEM_POINT_1' | translate }}</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.PROBLEM_POINT_2' | translate }}</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.PROBLEM_POINT_3' | translate }}</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.PROBLEM_POINT_4' | translate }}</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.PROBLEM_POINT_5' | translate }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who Needs Section -->
+  <section class="needs-section">
+    <div class="container">
+      <h2 class="section-title">{{ 'SERVICE_SOS_FEEDING.WHO_NEEDS_TITLE' | translate }}</h2>
+      <p class="section-subtitle">{{ 'SERVICE_SOS_FEEDING.WHO_NEEDS_DESC' | translate }}</p>
+
+      <!-- Warning Card -->
+      <div class="warning-card">
+        <div class="warning-card-header">
+          <i class="fas fa-exclamation-triangle"></i>
+          <h4>Önemli Uyarı</h4>
+        </div>
+        <div class="warning-card-content">
+          <p>
+            Eğer çocuğunuz aşağıdaki durumlardan birini yaşıyorsa, profesyonel destek almanız
+            önerilir:
+          </p>
+          <ul>
+            <li>20'den az farklı yiyecek tüketiyor</li>
+            <li>Bütün besin gruplarından yemiyor</li>
+            <li>Yemek saatleri aile için stresli geçiyor</li>
+            <li>Kilo alımı veya büyüme hızı yavaşladı</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="issues-grid">
+        <div class="issue-card" *ngFor="let issue of feedingIssues">
+          <div class="issue-icon">
+            <span class="material-icons">{{ issue.icon }}</span>
+          </div>
+          <h3>{{ 'SERVICE_SOS_FEEDING.' + issue.key + '_TITLE' | translate }}</h3>
+          <p>{{ 'SERVICE_SOS_FEEDING.' + issue.key + '_DESC' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 32 Steps Section -->
+  <section class="steps-32-section">
+    <div class="container">
+      <h2 class="section-title">{{ 'SERVICE_SOS_FEEDING.STEPS_32_TITLE' | translate }}</h2>
+      <p class="section-subtitle">{{ 'SERVICE_SOS_FEEDING.STEPS_32_DESC' | translate }}</p>
+
+      <div class="steps-hierarchy">
+        <div class="hierarchy-level" *ngFor="let level of hierarchyLevels">
+          <div class="level-header">
+            <h3>{{ 'SERVICE_SOS_FEEDING.' + level.key + '_TITLE' | translate }}</h3>
+            <span class="step-count">
+              {{ 'SERVICE_SOS_FEEDING.' + level.key + '_STEPS' | translate }}
+            </span>
+          </div>
+          <div class="level-steps">
+            <div class="step-item" *ngFor="let step of level.steps">
+              <span class="material-icons">{{ step.icon }}</span>
+              <span>{{ 'SERVICE_SOS_FEEDING.' + step.key | translate }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="process-section">
+    <div class="container">
+      <h2 class="section-title">{{ 'SERVICE_SOS_FEEDING.HOW_IT_WORKS_TITLE' | translate }}</h2>
+      <p class="section-subtitle">{{ 'SERVICE_SOS_FEEDING.HOW_IT_WORKS_DESC' | translate }}</p>
+
+      <div class="steps-timeline">
+        <div class="step-item" *ngFor="let step of approachSteps">
+          <div class="step-number">{{ step.number }}</div>
+          <div class="step-content">
+            <div class="step-icon">
+              <span class="material-icons">{{ step.icon }}</span>
+            </div>
+            <h3>{{ 'SERVICE_SOS_FEEDING.' + step.key + '_TITLE' | translate }}</h3>
+            <p>{{ 'SERVICE_SOS_FEEDING.' + step.key + '_DESC' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Expertise Section -->
+  <section class="expertise-section modern">
+    <div class="container">
+      <div class="expertise-header">
+        <h2>{{ 'SERVICE_SOS_FEEDING.EXPERTISE_TITLE' | translate }}</h2>
+        <p class="subtitle">{{ 'SERVICE_SOS_FEEDING.EXPERTISE_DESC' | translate }}</p>
+      </div>
+
+      <div class="certifications-grid">
+        <h3 class="certifications-title">{{ 'SERVICE_SOS_FEEDING.CERTIFICATIONS' | translate }}</h3>
+
+        <div class="certification-cards">
+          <div class="cert-card">
+            <div class="cert-card-header">
+              <div class="cert-icon">
+                <span class="material-icons">school</span>
+              </div>
+              <div class="cert-content">
+                <h4>{{ 'SERVICE_SOS_FEEDING.CERT_1_TITLE' | translate }}</h4>
+                <p class="cert-year">{{ 'SERVICE_SOS_FEEDING.CERT_1_DESC' | translate }}</p>
+              </div>
+            </div>
+            <div class="cert-card-body">
+              <div class="cert-points">
+                <span class="point-item">
+                  <span class="material-icons">check_circle</span>
+                  {{ 'SERVICE_SOS_FEEDING.CERT_1_POINT_1' | translate }}
+                </span>
+                <span class="point-item">
+                  <span class="material-icons">check_circle</span>
+                  {{ 'SERVICE_SOS_FEEDING.CERT_1_POINT_2' | translate }}
+                </span>
+                <span class="point-item">
+                  <span class="material-icons">check_circle</span>
+                  {{ 'SERVICE_SOS_FEEDING.CERT_1_POINT_3' | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card advanced">
+            <div class="cert-card-header">
+              <div class="cert-icon">
+                <span class="material-icons">workspace_premium</span>
+              </div>
+              <div class="cert-content">
+                <h4>{{ 'SERVICE_SOS_FEEDING.CERT_2_TITLE' | translate }}</h4>
+                <p class="cert-year">{{ 'SERVICE_SOS_FEEDING.CERT_2_DESC' | translate }}</p>
+              </div>
+            </div>
+            <div class="cert-card-body">
+              <div class="cert-points">
+                <span class="point-item">
+                  <span class="material-icons">check_circle</span>
+                  {{ 'SERVICE_SOS_FEEDING.CERT_2_POINT_1' | translate }}
+                </span>
+                <span class="point-item">
+                  <span class="material-icons">check_circle</span>
+                  {{ 'SERVICE_SOS_FEEDING.CERT_2_POINT_2' | translate }}
+                </span>
+                <span class="point-item">
+                  <span class="material-icons">check_circle</span>
+                  {{ 'SERVICE_SOS_FEEDING.CERT_2_POINT_3' | translate }}
+                </span>
+                <span class="point-item">
+                  <span class="material-icons">check_circle</span>
+                  {{ 'SERVICE_SOS_FEEDING.CERT_2_POINT_4' | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="container">
+      <h2 class="section-title">{{ 'SERVICE_SOS_FEEDING.BENEFITS_TITLE' | translate }}</h2>
+
+      <!-- Success Card -->
+      <div class="success-card">
+        <div class="success-card-header">
+          <i class="fas fa-check-circle"></i>
+          <h4>Başarı Oranımız</h4>
+        </div>
+        <div class="success-card-content">
+          <p>
+            SOS Feeding yaklaşımı ile tedavi ettiğimiz çocukların
+            <strong>%85'inden fazlasında</strong>
+            önemli iyileşmeler gözlemliyoruz:
+          </p>
+          <div class="success-stats">
+            <div class="stat-item">
+              <span class="stat-number">32+</span>
+              <span class="stat-label">Adımlık Program</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">%85</span>
+              <span class="stat-label">Başarı Oranı</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Mutlu Aile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card" *ngFor="let benefit of benefits">
+          <span class="material-icons">{{ benefit.icon }}</span>
+          <h3>{{ 'SERVICE_SOS_FEEDING.' + benefit.key + '_TITLE' | translate }}</h3>
+          <p>{{ 'SERVICE_SOS_FEEDING.' + benefit.key + '_DESC' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
