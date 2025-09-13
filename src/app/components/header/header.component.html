@@ -61,7 +61,7 @@
     <div class="container">
       <div class="nav-content">
         <!-- Logo -->
-        <a href="/" class="logo">
+        <a routerLink="/" class="logo">
           <img 
             src="/logos/OM-Wide-Color.svg" 
             alt="Dr. Özlem Murzoğlu" 
@@ -80,7 +80,7 @@
                class="nav-item"
                (mouseenter)="item.children && setActiveDropdown(item.labelKey || item.label)"
                (mouseleave)="setActiveDropdown(null)">
-            <a [href]="item.href" class="nav-link">
+            <a [routerLink]="item.href" class="nav-link">
               {{ item.labelKey ? (item.labelKey | translate) : item.label }}
               <svg *ngIf="item.children" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="dropdown-icon">
                 <path d="M7 10l5 5 5-5z"/>
@@ -90,7 +90,7 @@
             <!-- Dropdown Menu -->
             <div *ngIf="item.children && activeDropdown === (item.labelKey || item.label)" class="dropdown-menu">
               <a *ngFor="let child of item.children"
-                 [href]="child.href"
+                 [routerLink]="child.href"
                  class="dropdown-link">
                 {{ child.labelKey ? (child.labelKey | translate) : child.label }}
               </a>
@@ -155,12 +155,12 @@
   </div>
   <nav class="mobile-menu-nav">
     <div *ngFor="let item of primaryMenu" class="mobile-menu-item">
-      <a [href]="item.href" class="mobile-menu-link" (click)="toggleMobileMenu()">
+      <a [routerLink]="item.href" class="mobile-menu-link" (click)="toggleMobileMenu()">
         {{ item.labelKey ? (item.labelKey | translate) : item.label }}
       </a>
       <div *ngIf="item.children" class="mobile-submenu">
         <a *ngFor="let child of item.children"
-           [href]="child.href"
+           [routerLink]="child.href"
            class="mobile-submenu-link"
            (click)="toggleMobileMenu()">
           {{ child.labelKey ? (child.labelKey | translate) : child.label }}
