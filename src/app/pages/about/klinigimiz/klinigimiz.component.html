@@ -10,7 +10,7 @@
   <!-- Main Content -->
   <div class="content-wrapper">
     <!-- Introduction Section -->
-    <section class="intro-section">
+    <section class="intro-section section-bg-white">
       <div class="container">
         <div class="intro-grid">
           <div class="intro-text">
@@ -34,7 +34,7 @@
     </section>
 
     <!-- Design Team Section -->
-    <section class="design-team-section">
+    <section class="design-team-section section-bg-light">
       <div class="container">
         <h2 class="section-title text-center">{{ 'CLINIC_DESIGN.TEAM_TITLE' | translate }}</h2>
         
@@ -43,7 +43,7 @@
           <div class="team-card">
             <div class="team-card-header">
               <i class="fas fa-drafting-compass"></i>
-              <h3>CH Mimarlık</h3>
+              <h3>{{ 'CLINIC_DESIGN.TEAM_CARD1_TITLE' | translate }}</h3>
             </div>
             <div class="team-card-content">
               <p [innerHTML]="'CLINIC_DESIGN.TEAM_DESC1' | translate"></p>
@@ -53,7 +53,7 @@
           <div class="team-card">
             <div class="team-card-header">
               <i class="fas fa-paint-roller"></i>
-              <h3>İç Mekan Tasarımı</h3>
+              <h3>{{ 'CLINIC_DESIGN.TEAM_CARD2_TITLE' | translate }}</h3>
             </div>
             <div class="team-card-content">
               <p [innerHTML]="'CLINIC_DESIGN.TEAM_DESC2' | translate"></p>
@@ -69,21 +69,21 @@
                 <i class="fas fa-palette"></i>
               </div>
               <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_1' | translate }}</h4>
-              <p class="md3-card-description">Çocukların gelişimini destekleyen yumuşak tonlar</p>
+              <p class="md3-card-description">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_1_DESC' | translate }}</p>
             </div>
             <div class="md3-card feature-card pastel-green">
               <div class="design-icon-wrapper">
                 <i class="fas fa-home"></i>
               </div>
               <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_2' | translate }}</h4>
-              <p class="md3-card-description">Ailece rahat edebileceğiniz sıcak ortam</p>
+              <p class="md3-card-description">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_2_DESC' | translate }}</p>
             </div>
             <div class="md3-card feature-card pastel-blue">
               <div class="design-icon-wrapper">
                 <i class="fas fa-baby"></i>
               </div>
               <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_3' | translate }}</h4>
-              <p class="md3-card-description">Özel emzirme ve bakım alanları</p>
+              <p class="md3-card-description">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_3_DESC' | translate }}</p>
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@
               [alt]="'CLINIC.ALT_INTERIOR' | translate"
             />
             <div class="image-overlay">
-              <span>Klinik İç Mekan</span>
+              <span>{{ 'CLINIC_DESIGN.IMAGE_CLINIC_INTERIOR' | translate }}</span>
             </div>
           </div>
           <div class="showcase-image">
@@ -105,7 +105,7 @@
               [alt]="'ALT_TEXTS.PLAY_AREA' | translate"
             />
             <div class="image-overlay">
-              <span>Oyun Alanı</span>
+              <span>{{ 'CLINIC_DESIGN.IMAGE_PLAY_AREA' | translate }}</span>
             </div>
           </div>
           <div class="showcase-image">
@@ -114,7 +114,7 @@
               [alt]="'ALT_TEXTS.WAITING_AREA' | translate"
             />
             <div class="image-overlay">
-              <span>Bekleme Alanı</span>
+              <span>{{ 'CLINIC_DESIGN.IMAGE_WAITING_AREA' | translate }}</span>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery-section">
+    <section class="gallery-section section-bg-white">
       <div class="container">
         <h2 class="section-title text-center">{{ 'CLINIC_DESIGN.GALLERY_TITLE' | translate }}</h2>
         <div class="gallery-grid">
@@ -182,7 +182,7 @@
     </section>
 
     <!-- Montessori Section with Enhanced Geometry -->
-    <section class="montessori-section">
+    <section class="montessori-section section-bg-gradient-light">
       <div class="container">
         <div class="montessori-header text-center">
           <h2 class="section-title">
@@ -228,21 +228,21 @@
                 src="images/20230416_174146~2.jpg"
                 [alt]="'ALT_TEXTS.MONTESSORI_PLAY_AREA' | translate"
               />
-              <div class="image-caption">Montessori Oyun Alanı</div>
+              <div class="image-caption">{{ 'CLINIC_DESIGN.IMAGE_MONTESSORI_AREA' | translate }}</div>
             </div>
             <div class="gallery-item side-image-1">
               <img
                 src="images/20230416_174704~2.jpg"
                 [alt]="'ALT_TEXTS.PLAY_CORNER' | translate"
               />
-              <div class="image-caption">Eğitici Oyuncaklar</div>
+              <div class="image-caption">{{ 'CLINIC_DESIGN.IMAGE_EDUCATIONAL_TOYS' | translate }}</div>
             </div>
             <div class="gallery-item side-image-2">
               <img
                 src="images/20230416_174740~2.jpg"
                 [alt]="'ALT_TEXTS.WAITING_AREA' | translate"
               />
-              <div class="image-caption">Kitap Köşesi</div>
+              <div class="image-caption">{{ 'CLINIC_DESIGN.IMAGE_BOOK_CORNER' | translate }}</div>
             </div>
           </div>
         </div>
@@ -254,7 +254,7 @@
     </section>
 
     <!-- Safety Section -->
-    <section class="safety-section">
+    <section class="safety-section section-bg-white">
       <div class="container">
         <h2 class="section-title text-center">
           {{ 'CLINIC_DESIGN.SAFETY_TITLE' | translate }}
@@ -286,7 +286,7 @@
     </section>
 
     <!-- Hygiene Section -->
-    <section class="hygiene-section">
+    <section class="hygiene-section section-bg-light">
       <div class="container">
         <div class="hygiene-content">
           <div class="hygiene-text">
