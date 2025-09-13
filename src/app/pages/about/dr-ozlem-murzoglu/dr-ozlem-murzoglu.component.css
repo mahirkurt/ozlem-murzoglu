@@ -34,13 +34,23 @@
   top: 100px;
 }
 
+/* Profile Image Container - Glass effect box */
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
 .profile-image {
   width: 100%;
   max-width: 350px;
   border-radius: var(--md-sys-shape-corner-large, 16px);
   box-shadow: var(--md-sys-elevation-level2, 0 8px 24px rgba(0, 0, 0, 0.15));
-  margin-bottom: 30px; /* Increased space between image and credentials */
+  margin-bottom: 0; /* Margin is now on the container */
   transition: transform var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-emphasized);
+  display: block; /* Ensure no extra space below image */
 }
 
 .profile-image:hover {
