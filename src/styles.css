@@ -17,6 +17,9 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 
   /* MD3 Color System Variables */
   --md-sys-color-primary: #00897b; /* Teal */
@@ -54,6 +57,36 @@ html {
   --color-primary: var(--md-sys-color-primary);
   --color-secondary: var(--md-sys-color-secondary);
   --color-tertiary: var(--md-sys-color-tertiary);
+
+  /* Spacing System - Consistent spacing across the app */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;      /* 8px */
+  --spacing-md: 1rem;        /* 16px */
+  --spacing-lg: 1.5rem;      /* 24px */
+  --spacing-xl: 2rem;        /* 32px */
+  --spacing-xxl: 3rem;       /* 48px */
+  --spacing-xxxl: 4rem;      /* 64px */
+
+  /* Header Heights - For consistent margin-top calculations */
+  --header-height-desktop: 80px;
+  --header-height-mobile: 60px;
+
+  /* Transitions */
+  --transition-transform: transform 0.3s ease;
+  --transition-all: all 0.3s ease;
+
+  /* Elevation Levels */
+  --elevation-level-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --elevation-level-2: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+  --elevation-level-3: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.10);
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-xxl: 24px;
+  --radius-full: 9999px;
 }
 
 body {
@@ -63,9 +96,12 @@ body {
   font-weight: 400;
   color: #333333;
   background-color: #ffffff;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -168,14 +204,16 @@ label {
 }
 
 @media (max-width: 1440px) {
-  .container {
+  .container,
+  .md3-container {
     max-width: 1200px;
     padding: 0 24px;
   }
 }
 
 @media (max-width: 768px) {
-  .container {
+  .container,
+  .md3-container {
     padding: 0 16px;
   }
 }
@@ -451,16 +489,30 @@ img[loading='lazy'] {
   }
 }
 
-/* Critical MD3 Layout Fixes */
+/* Critical MD3 Layout Fixes - Using CSS Variables */
 .liquid-hero {
-  margin-top: 80px !important;
-  height: calc(100vh - 80px) !important;
+  margin-top: var(--header-height-desktop) !important;
+  height: calc(100vh - var(--header-height-desktop)) !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  position: relative !important;
+}
+
+.liquid-hero .hero-content {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.liquid-hero .md3-container {
+  margin: 0 auto !important;
 }
 
 @media (max-width: 768px) {
   .liquid-hero {
-    margin-top: 60px !important;
-    height: calc(100vh - 60px) !important;
+    margin-top: var(--header-height-mobile) !important;
+    height: calc(100vh - var(--header-height-mobile)) !important;
   }
 }
 
@@ -468,9 +520,10 @@ img[loading='lazy'] {
 .container,
 .md3-container {
   max-width: 1200px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
   box-sizing: border-box !important;
+  width: 100% !important;
 }
 
 /* Section spacing fixes */
@@ -516,12 +569,14 @@ section,
     position: relative !important;
   }
   
+  /* Consistent mobile container padding */
   .container,
   .md3-container {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    max-width: calc(100vw - 32px) !important;
+    padding: 0 16px !important;
+    max-width: 100% !important;
     margin: 0 auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   
   /* Prevent any element from causing horizontal scroll */

@@ -29,9 +29,12 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
             <h1 class="hero-title md3-display-large md3-text-on-primary">
               {{ 'HERO.TITLE' | translate }}
             </h1>
+            <p class="hero-subtitle md3-headline-medium md3-text-on-primary">
+              {{ 'HERO.SUBTITLE' | translate }}
+            </p>
 
             <div class="hero-cta md3-flex md3-items-center md3-justify-center md3-gap-lg md3-mt-xl">
-              <a href="/hakkimizda" class="md3-button md3-button-filled hero-button">
+              <a routerLink="/hakkimizda" class="md3-button md3-button-filled hero-button">
                 <span class="button-text">{{ 'HOME.CTA_LEARN_MORE' | translate }}</span>
                 <svg
                   class="button-icon"
@@ -55,14 +58,14 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     `
       .liquid-hero {
         position: relative;
-        height: calc(100vh - 80px);
+        height: calc(100vh - var(--header-height-desktop));
         min-height: 600px;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         padding: 0;
-        margin-top: 80px;
+        margin-top: var(--header-height-desktop);
         padding-top: 0;
         background:
           radial-gradient(at 40% 20%, var(--md-sys-color-primary) 0px, transparent 50%),
@@ -263,8 +266,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         .liquid-hero {
           animation: heroWaveAnimation 25s ease infinite;
           animation-delay: 0s;
-          margin-top: 60px;
-          height: calc(100vh - 60px);
+          margin-top: var(--header-height-mobile);
+          height: calc(100vh - var(--header-height-mobile));
           min-height: 500px;
         }
       }
@@ -308,7 +311,21 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         }
       }
 
-      /* Hero description removed */
+      .hero-subtitle {
+        animation: fade-in-up 0.95s var(--md-sys-motion-easing-emphasized) 0.2s both;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow:
+          0 4px 20px rgba(0, 0, 0, 0.2),
+          0 2px 4px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        margin-bottom: var(--spacing-xxl);
+        font-size: 1.25rem;
+        line-height: 1.6;
+        font-weight: 400;
+      }
 
       /* CTA */
       .hero-cta {
