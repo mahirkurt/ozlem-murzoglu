@@ -1,18 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { HeroSectionComponent } from '../../../components/shared/hero-section/hero-section.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-triple-p',
   standalone: true,
-  imports: [RouterLink, HeroSectionComponent],
+  imports: [RouterLink, TranslateModule, CommonModule],
   templateUrl: './triple-p.component.html',
   styleUrl: './triple-p.component.css'
 })
 export class TriplePComponent {
-  breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Hizmetlerimiz', link: '/hizmetlerimiz' },
-    { label: 'Triple P Programı' }
-  ];
+
 }

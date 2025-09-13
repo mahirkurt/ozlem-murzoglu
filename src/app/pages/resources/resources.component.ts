@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
-import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
 import { RESOURCES_INDEX, ResourceLink } from './resources-index';
+import { ResourceSearchComponent } from '../../components/resource-search/resource-search.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface ResourceCategory {
   id: string;
@@ -18,16 +18,11 @@ interface ResourceCategory {
 @Component({
   selector: 'app-resources',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslateModule, HeroSectionComponent],
+  imports: [CommonModule, RouterModule, ResourceSearchComponent, TranslateModule],
   templateUrl: './resources.component.html',
   styleUrl: './resources.component.css'
 })
 export class ResourcesComponent {
-  breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Bilgi Merkezi' }
-  ];
-  
   query = '';
   results: { title: string; path: string; category: string }[] = [];
   categories: ResourceCategory[] = [

@@ -1,27 +1,28 @@
 <section class="resources-page">
   <!-- Hero Section -->
-  <app-hero-section 
-    title="{{ 'RESOURCES.TITLE' | translate }}"
-    subtitle="{{ 'RESOURCES.SUBTITLE' | translate }}"
-    [breadcrumbs]="breadcrumbs"
-    colorTheme="green">
-  </app-hero-section>
-  
-  <!-- Stats Section -->
-  <div class="stats-section">
+  <div class="resources-hero">
+    <div class="hero-background">
+      <div class="hero-shape shape-1"></div>
+      <div class="hero-shape shape-2"></div>
+      <div class="hero-shape shape-3"></div>
+    </div>
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <span class="stat-number">220+</span>
-          <span class="stat-label">{{ 'RESOURCES.STAT_DOCUMENTS' | translate }}</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">11</span>
-          <span class="stat-label">{{ 'RESOURCES.STAT_CATEGORIES' | translate }}</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">AAP</span>
-          <span class="stat-label">{{ 'RESOURCES.STAT_APPROVED' | translate }}</span>
+      <div class="hero-content">
+        <h1 class="page-title">{{ 'RESOURCES_PAGE.HERO_TITLE' | translate }}</h1>
+        <p class="page-subtitle">{{ 'RESOURCES_PAGE.HERO_SUBTITLE' | translate }}</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">220+</span>
+            <span class="stat-label">{{ 'RESOURCES_PAGE.STAT_RESOURCES' | translate }}</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">11</span>
+            <span class="stat-label">{{ 'RESOURCES_PAGE.STAT_CATEGORIES' | translate }}</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">AAP</span>
+            <span class="stat-label">{{ 'RESOURCES_PAGE.STAT_APPROVED' | translate }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -30,15 +31,18 @@
   <!-- Categories Grid -->
   <div class="categories-section">
     <div class="container">
-      <!-- Search -->
-      <div class="search-bar">
+      <!-- Enhanced Search Component -->
+      <app-resource-search></app-resource-search>
+      
+      <!-- Legacy Search (hidden but kept for backward compatibility) -->
+      <div class="search-bar" style="display: none;">
         <span class="material-icons">search</span>
-        <input #q type="text" placeholder="Kaynaklarda ara..." (input)="onSearch(q.value)" />
+        <input #q type="text" [placeholder]="'RESOURCES_PAGE.SEARCH_PLACEHOLDER' | translate" (input)="onSearch(q.value)" />
       </div>
-      <div class="search-results" *ngIf="query && results.length">
+      <div class="search-results" *ngIf="query && results.length" style="display: none;">
         <div class="results-header">
           <span class="material-icons">list_alt</span>
-          <span>{{ results.length }} sonuç</span>
+          <span>{{ results.length }} {{ 'RESOURCES_PAGE.SEARCH_RESULTS' | translate }}</span>
         </div>
         <div class="results-list">
           <a *ngFor="let r of results" [routerLink]="r.path" class="result-item">
@@ -66,7 +70,7 @@
             </div>
             <div class="document-count">
               <span class="count">{{ category.documentCount }}</span>
-              <span class="label">Döküman</span>
+              <span class="label">{{ 'RESOURCES_PAGE.DOCUMENTS' | translate }}</span>
             </div>
           </div>
           <div class="card-body">
@@ -75,7 +79,7 @@
           </div>
           <div class="card-footer">
             <span class="view-link">
-              <span>Kaynakları Görüntüle</span>
+              <span>{{ 'RESOURCES_PAGE.VIEW_RESOURCES' | translate }}</span>
               <span class="material-icons">arrow_forward</span>
             </span>
           </div>
@@ -92,32 +96,32 @@
           <div class="feature-icon">
             <span class="material-icons">verified</span>
           </div>
-          <h3>Güvenilir Kaynaklar</h3>
-          <p>Amerikan Pediatri Akademisi ve DSÖ gibi uluslararası kuruluşların onayladığı içerikler</p>
+          <h3>{{ 'RESOURCES_PAGE.FEATURE_1_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES_PAGE.FEATURE_1_DESC' | translate }}</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <span class="material-icons">translate</span>
           </div>
-          <h3>Türkçe İçerik</h3>
-          <p>Tüm kaynaklar uzman hekimler tarafından Türkçe'ye çevrilmiş ve uyarlanmıştır</p>
+          <h3>{{ 'RESOURCES_PAGE.FEATURE_2_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES_PAGE.FEATURE_2_DESC' | translate }}</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <span class="material-icons">download</span>
           </div>
-          <h3>İndirilebilir</h3>
-          <p>Tüm dökümanları PDF formatında indirebilir ve yazdırabilirsiniz</p>
+          <h3>{{ 'RESOURCES_PAGE.FEATURE_3_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES_PAGE.FEATURE_3_DESC' | translate }}</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <span class="material-icons">update</span>
           </div>
-          <h3>Güncel Bilgiler</h3>
-          <p>En son bilimsel gelişmeler ışığında sürekli güncellenen içerikler</p>
+          <h3>{{ 'RESOURCES_PAGE.FEATURE_4_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES_PAGE.FEATURE_4_DESC' | translate }}</p>
         </div>
       </div>
     </div>
@@ -126,23 +130,23 @@
   <!-- Quick Links -->
   <div class="quick-links-section">
     <div class="container">
-      <h2 class="section-title">Popüler Kaynaklar</h2>
+      <h2 class="section-title">{{ 'RESOURCES_PAGE.POPULAR_RESOURCES' | translate }}</h2>
       <div class="quick-links-grid">
         <a routerLink="/bilgi-merkezi/asilar/hpv-a-s-bilgi-f-y" class="quick-link">
           <span class="material-icons">description</span>
-          <span>HPV Aşısı Bilgi Föyü</span>
+          <span>{{ 'RESOURCES_PAGE.POPULAR_1' | translate }}</span>
         </a>
         <a routerLink="/bilgi-merkezi/bright-futures-aile/1-ay-aile-in-bilgiler" class="quick-link">
           <span class="material-icons">description</span>
-          <span>1. Ay - Aile İçin Bilgiler</span>
+          <span>{{ 'RESOURCES_PAGE.POPULAR_2' | translate }}</span>
         </a>
         <a routerLink="/bilgi-merkezi/asilar/kkk-a-s-bilgi-f-y" class="quick-link">
           <span class="material-icons">description</span>
-          <span>KKK Aşısı Bilgi Föyü</span>
+          <span>{{ 'RESOURCES_PAGE.POPULAR_3' | translate }}</span>
         </a>
         <a routerLink="/bilgi-merkezi" class="quick-link">
           <span class="material-icons">folder</span>
-          <span>Tüm Kaynaklar</span>
+          <span>{{ 'RESOURCES_PAGE.ALL_RESOURCES' | translate }}</span>
         </a>
       </div>
     </div>

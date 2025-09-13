@@ -1,11 +1,21 @@
 <div class="lab-imaging-page">
   <!-- Hero Section -->
-  <app-hero-section
-    title="Laboratuvar ve Görüntüleme Hizmetleri"
-    subtitle="Güvenilir test sonuçları ve hızlı tanı imkanları"
-    [breadcrumbs]="breadcrumbs"
-    colorTheme="yellow">
-  </app-hero-section>
+  <section class="service-hero">
+    <div class="hero-gradient"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="breadcrumb">
+          <a routerLink="/">{{ 'HEADER.NAV_HOME' | translate }}</a>
+          <span class="material-icons">chevron_right</span>
+          <a routerLink="/hizmetlerimiz">{{ 'HEADER.NAV_SERVICES' | translate }}</a>
+          <span class="material-icons">chevron_right</span>
+          <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.BREADCRUMB' | translate }}</span>
+        </div>
+        <h1 class="hero-title">{{ 'SERVICES.SERVICE_LAB_IMAGING.HERO_TITLE' | translate }}</h1>
+        <p class="hero-subtitle">{{ 'SERVICES.SERVICE_LAB_IMAGING.HERO_SUBTITLE' | translate }}</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Main Content -->
   <div class="content-wrapper">
@@ -13,117 +23,76 @@
       
       <!-- Laboratory Section -->
       <section class="service-section laboratory-section">
-        <div class="section-header center">
-          <span class="section-icon">
-            <span class="material-icons">biotech</span>
-          </span>
-          <h2 class="section-title">Laboratuvar Hizmetlerimiz</h2>
-          <p class="section-subtitle">Kliniğimizde, çocuklarınızın sağlık durumunu değerlendirmek için kapsamlı laboratuvar testleri sunuyoruz. Tüm testlerimiz güvenilir laboratuvarlarla işbirliği içinde gerçekleştirilmektedir.</p>
-        </div>
-
-        <!-- Partner Card -->
-        <div class="partner-card">
-          <div class="partner-logo-container">
-            <img src="/assets/images/biruni-logo.png" alt="Biruni Laboratuvarları" class="partner-logo">
-          </div>
-          <div class="partner-info">
-            <h3>Biruni Laboratuvarları</h3>
-            <p>Kurumsal Laboratuvar İşbirliği</p>
-            <div class="partner-features">
-              <div class="partner-feature">
+        <div class="section-grid">
+          <div class="section-content">
+            <div class="section-header">
+              <span class="section-icon">
+                <span class="material-icons">biotech</span>
+              </span>
+              <h2 class="section-title">{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_SERVICES' | translate }}</h2>
+            </div>
+            
+            <div class="partner-badge">
+              <img src="/images/biruni-logo.png" alt="Biruni Laboratuvarları" class="partner-logo">
+              <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.CORPORATE_PARTNER' | translate }}</span>
+            </div>
+            
+            <div class="section-description">
+              <p class="lead" [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC' | translate"></p>
+              
+              <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC2' | translate }}</p>
+              
+              <div class="highlight-box">
                 <span class="material-icons">verified</span>
-                <span>Uluslararası Akreditasyon</span>
+                <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_PROCESS' | translate }}</p>
               </div>
-              <div class="partner-feature">
-                <span class="material-icons">science</span>
-                <span>2000+ Test Çeşidi</span>
+              
+              <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC3' | translate }}</p>
+              
+              <div class="info-card email-info">
+                <span class="material-icons">email</span>
+                <div>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULT_NOTIFICATION' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULT_EMAIL' | translate }}</p>
+                </div>
               </div>
-              <div class="partner-feature">
-                <span class="material-icons">location_on</span>
-                <span>Kliniğimizde Numune Alma</span>
+            </div>
+          </div>
+          
+          <div class="section-features">
+            <h3>{{ 'SERVICES.SERVICE_LAB_IMAGING.OUR_LAB_SERVICES' | translate }}</h3>
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <span class="material-icons">science</span>
+                </div>
+                <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.BIOCHEMISTRY' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.BIOCHEMISTRY_DESC' | translate }}</p>
               </div>
-            </div>
-            <a href="https://www.birunilaboratuvar.com" target="_blank" class="partner-link">
-              <span class="material-icons">open_in_new</span>
-              <span>Biruni Hakkında</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Lab Services Grid -->
-        <div class="lab-services-grid">
-          <div class="lab-service-card">
-            <div class="service-icon">
-              <span class="material-icons">biotech</span>
-            </div>
-            <h4>Biyokimya Testleri</h4>
-            <p>Kan şekeri, karaciğer ve böbrek fonksiyonları, elektrolitler</p>
-          </div>
-          
-          <div class="lab-service-card">
-            <div class="service-icon">
-              <span class="material-icons">coronavirus</span>
-            </div>
-            <h4>Mikrobiyoloji</h4>
-            <p>İdrar, boğaz, dışkı kültürleri ve antibiyogram</p>
-          </div>
-          
-          <div class="lab-service-card">
-            <div class="service-icon">
-              <span class="material-icons">vaccines</span>
-            </div>
-            <h4>Antikor/Antijen Testleri</h4>
-            <p>Viral ve bakteriyel enfeksiyon belirteçleri</p>
-          </div>
-          
-          <div class="lab-service-card">
-            <div class="service-icon">
-              <span class="material-icons">bloodtype</span>
-            </div>
-            <h4>Hematoloji</h4>
-            <p>Tam kan sayımı, anemi taraması, pıhtılaşma testleri</p>
-          </div>
-          
-          <div class="lab-service-card">
-            <div class="service-icon">
-              <span class="material-icons">monitor_weight</span>
-            </div>
-            <h4>Hormon Testleri</h4>
-            <p>Büyüme hormonu, tiroid fonksiyonları, vitamin D</p>
-          </div>
-          
-          <div class="lab-service-card">
-            <div class="service-icon">
-              <span class="material-icons">grass</span>
-            </div>
-            <h4>Alerji Testleri</h4>
-            <p>Besin ve solunum alerjenleri, spesifik IgE testleri</p>
-          </div>
-        </div>
-
-        <!-- Lab Features -->
-        <div class="lab-features">
-          <div class="lab-feature">
-            <span class="material-icons">schedule</span>
-            <div>
-              <h4>Hızlı Sonuç</h4>
-              <p>Çoğu test sonucu aynı gün içinde</p>
-            </div>
-          </div>
-          
-          <div class="lab-feature">
-            <span class="material-icons">email</span>
-            <div>
-              <h4>E-posta Bildirimi</h4>
-              <p>Sonuçlar otomatik olarak e-posta ile gönderilir</p>
-            </div>
-          </div>
-          
-          <div class="lab-feature">
-            <span class="material-icons">verified_user</span>
-            <div>
-              <h4>Sigorta İşlemleri</h4>
-              <p>Tüm sigorta provizyon işlemleri kliniğimizde</p>
+              
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <span class="material-icons">coronavirus</span>
+                </div>
+                <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.MICROBIOLOGY' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.MICROBIOLOGY_DESC' | translate }}</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <span class="material-icons">vaccines</span>
+                </div>
+                <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.ANTIBODY_ANTIGEN' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.ANTIBODY_DESC' | translate }}</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <span class="material-icons">health_and_safety</span>
+                </div>
+                <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_SERVICES' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_DESC' | translate }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -138,143 +107,90 @@
 
       <!-- Imaging Section -->
       <section class="service-section imaging-section">
-        <div class="section-header center">
-          <span class="section-icon">
-            <span class="material-icons">medical_information</span>
-          </span>
-          <h2 class="section-title">Görüntüleme Hizmetleri</h2>
-          <p class="section-subtitle">Modern görüntüleme yöntemleriyle hızlı ve doğru tanı</p>
-        </div>
-
-        <!-- Partner Card -->
-        <div class="partner-card">
-          <div class="partner-logo-container">
-            <img src="/assets/images/sonomed-logo.png" alt="Sonomed" class="partner-logo">
-          </div>
-          <div class="partner-info">
-            <h3>Sonomed Tıbbi Görüntüleme Merkezleri</h3>
-            <p>Ataşehir Şubesi - Kliniğimize yakın konumda</p>
+        <div class="section-grid reverse">
+          <div class="section-features">
+            <h3>{{ 'SERVICES.SERVICE_LAB_IMAGING.OUR_IMAGING_SERVICES' | translate }}</h3>
+            <div class="imaging-services">
+              <div class="imaging-service">
+                <span class="material-icons">medical_services</span>
+                <div>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_IMAGING' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_DESC' | translate }}</p>
+                </div>
+              </div>
+              
+              <div class="imaging-service">
+                <span class="material-icons">computer</span>
+                <div>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_SCAN' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_DESC' | translate }}</p>
+                </div>
+              </div>
+              
+              <div class="imaging-service">
+                <span class="material-icons">monitor_heart</span>
+                <div>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND_DESC' | translate }}</p>
+                </div>
+              </div>
+              
+              <div class="imaging-service">
+                <span class="material-icons">skeleton</span>
+                <div>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY_DESC' | translate }}</p>
+                </div>
+              </div>
+            </div>
             
-            <div class="contact-info">
-              <div class="contact-item">
+            <!-- Location Card -->
+            <div class="location-card">
+              <div class="location-header">
                 <span class="material-icons">location_on</span>
-                <div>
-                  <strong>Adres:</strong>
-                  <p>Ataşehir, Ataşehir Bulvarı, Ata 2/3 Plaza Kat:3 No:30 Ataşehir/İstanbul</p>
-                </div>
+                <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.SONOMED_ATASEHIR' | translate }}</h4>
               </div>
-              
-              <div class="contact-item">
-                <span class="material-icons">phone</span>
-                <div>
-                  <strong>Telefon:</strong>
-                  <p>0216 456 28 23</p>
-                </div>
-              </div>
-              
-              <div class="contact-item">
-                <span class="material-icons">schedule</span>
-                <div>
-                  <strong>Çalışma Saatleri:</strong>
-                  <p>Pazartesi - Cumartesi: 08:00 - 20:00</p>
-                </div>
-              </div>
+              <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.NEAR_LOCATION' | translate }}</p>
+              <a href="https://maps.google.com/?q=Sonomed+Ataşehir" target="_blank" class="location-link">
+                <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.GET_DIRECTIONS' | translate }}</span>
+                <span class="material-icons">directions</span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="section-content">
+            <div class="section-header">
+              <span class="section-icon">
+                <span class="material-icons">medical_information</span>
+              </span>
+              <h2 class="section-title">{{ 'SERVICES.SERVICE_LAB_IMAGING.IMAGING_SERVICES' | translate }}</h2>
             </div>
             
-            <div class="partner-actions">
-              <a href="https://maps.google.com/?q=Sonomed+Ataşehir" target="_blank" class="action-link">
-                <span class="material-icons">directions</span>
-                <span>Yol Tarifi Al</span>
-              </a>
-              <a href="https://www.sonomed.com.tr" target="_blank" class="action-link">
-                <span class="material-icons">open_in_new</span>
-                <span>Sonomed Hakkında</span>
-              </a>
+            <div class="partner-badge">
+              <img src="/images/sonomed-logo.png" alt="Sonomed" class="partner-logo">
+              <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.CORPORATE_PARTNER' | translate }}</span>
             </div>
-          </div>
-        </div>
-
-        <!-- Imaging Services Grid -->
-        <div class="imaging-services-grid">
-          <div class="imaging-service-card">
-            <div class="service-header">
-              <span class="material-icons">radiology</span>
-              <h4>3 Tesla MR</h4>
+            
+            <div class="section-description">
+              <p class="lead" [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.IMAGING_DESC' | translate"></p>
+              
+              <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.IMAGING_DESC2' | translate }}</p>
+              
+              <div class="highlight-box">
+                <span class="material-icons">place</span>
+                <p [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.SONOMED_LOCATION' | translate"></p>
+              </div>
+              
+              <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_INFO' | translate }}</p>
+              
+              <div class="info-card report-info">
+                <span class="material-icons">assessment</span>
+                <div>
+                  <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING_DESC' | translate }}</p>
+                </div>
+              </div>
             </div>
-            <h5>Manyetik Rezonans Görüntüleme</h5>
-            <p>Yüksek çözünürlüklü, radyasyon içermeyen görüntüleme</p>
-          </div>
-          
-          <div class="imaging-service-card">
-            <div class="service-header">
-              <span class="material-icons">computer</span>
-              <h4>128 Kesit BT</h4>
-            </div>
-            <h5>Bilgisayarlı Tomografi</h5>
-            <p>Hızlı ve detaylı kesitsel görüntüleme</p>
-          </div>
-          
-          <div class="imaging-service-card">
-            <div class="service-header">
-              <span class="material-icons">monitor_heart</span>
-              <h4>4D USG</h4>
-            </div>
-            <h5>Ultrasonografi</h5>
-            <p>Karın, kalça, tiroid ve yumuşak doku ultrasonları</p>
-          </div>
-          
-          <div class="imaging-service-card">
-            <div class="service-header">
-              <span class="material-icons">skeleton</span>
-              <h4>Dijital Röntgen</h4>
-            </div>
-            <h5>Röntgen</h5>
-            <p>Akciğer grafisi, kemik grafisi, sinüs grafileri</p>
-          </div>
-          
-          <div class="imaging-service-card">
-            <div class="service-header">
-              <span class="material-icons">favorite</span>
-              <h4>Doppler EKO</h4>
-            </div>
-            <h5>Ekokardiyografi</h5>
-            <p>Kalp yapı ve fonksiyon değerlendirmesi</p>
-          </div>
-          
-          <div class="imaging-service-card">
-            <div class="service-header">
-              <span class="material-icons">assessment</span>
-              <h4>Uzman Radyolog</h4>
-            </div>
-            <h5>Raporlama</h5>
-            <p>Detaylı radyoloji raporlaması ve değerlendirme</p>
-          </div>
-        </div>
-
-        <!-- Imaging Features -->
-        <div class="imaging-features">
-          <div class="feature-item">
-            <span class="material-icons">speed</span>
-            <h4>Hızlı Sonuç</h4>
-            <p>Acil durumlar için aynı gün sonuç</p>
-          </div>
-          
-          <div class="feature-item">
-            <span class="material-icons">security</span>
-            <h4>Güvenilir Tanı</h4>
-            <p>Uluslararası kalite standartları</p>
-          </div>
-          
-          <div class="feature-item">
-            <span class="material-icons">groups</span>
-            <h4>Uzman Kadro</h4>
-            <p>Deneyimli teknisyen ve uzmanlar</p>
-          </div>
-          
-          <div class="feature-item">
-            <span class="material-icons">devices</span>
-            <h4>Modern Cihazlar</h4>
-            <p>Son teknoloji ekipmanlar</p>
           </div>
         </div>
       </section>
@@ -282,16 +198,16 @@
       <!-- CTA Section -->
       <section class="cta-section">
         <div class="cta-content">
-          <h3>Hemen Randevu Alın</h3>
-          <p>Çocuğunuzun sağlığı için güvenilir tanı hizmetleri</p>
+          <h3>{{ 'SERVICES.SERVICE_LAB_IMAGING.CTA_TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.CTA_DESC' | translate }}</p>
           <div class="cta-buttons">
             <a routerLink="/iletisim" class="btn btn-primary">
               <span class="material-icons">calendar_today</span>
-              Randevu Al
+              {{ 'SERVICES.SERVICE_LAB_IMAGING.CTA_BUTTON' | translate }}
             </a>
             <a href="tel:+902166884483" class="btn btn-secondary">
               <span class="material-icons">phone</span>
-              Hemen Ara
+              {{ 'SERVICES.SERVICE_LAB_IMAGING.CTA_CALL' | translate }}
             </a>
           </div>
         </div>
