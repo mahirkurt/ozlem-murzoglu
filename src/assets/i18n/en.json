@@ -693,7 +693,13 @@
     "FAMILY_TITLE": "Family-Centered Care",
     "FAMILY_DESC": "We include the entire family in the treatment process",
     "EVIDENCE_TITLE": "Evidence-Based",
-    "EVIDENCE_DESC": "Our treatments are based on the latest scientific research"
+    "EVIDENCE_DESC": "Our treatments are based on the latest scientific research",
+    "DEVELOPMENT_TITLE": "Development Tracking",
+    "DEVELOPMENT_DESC": "We track your child's development according to Bright Futures standards",
+    "FAMILY_EDUCATION_TITLE": "Family Education",
+    "FAMILY_EDUCATION_DESC": "We teach parents positive parenting techniques through the Triple P program",
+    "SLEEP_NUTRITION_TITLE": "Sleep & Nutrition",
+    "SLEEP_NUTRITION_DESC": "Healthy sleep habits and nutrition counseling services"
   },
   "TESTIMONIALS": {
     "TITLE": "Reviews from Our Families",
