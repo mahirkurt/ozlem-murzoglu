@@ -630,7 +630,13 @@
     "FAMILY_TITLE": "Aile Merkezli Bakım",
     "FAMILY_DESC": "Tedavi sürecine tüm aileyi dahil ediyoruz",
     "EVIDENCE_TITLE": "Kanıta Dayalı",
-    "EVIDENCE_DESC": "Tedavilerimiz en güncel bilimsel araştırmalara dayanıyor"
+    "EVIDENCE_DESC": "Tedavilerimiz en güncel bilimsel araştırmalara dayanıyor",
+    "DEVELOPMENT_TITLE": "Gelişim Takibi",
+    "DEVELOPMENT_DESC": "Bright Futures standartlarına göre çocuğunuzun gelişimini takip ediyoruz",
+    "FAMILY_EDUCATION_TITLE": "Aile Eğitimi",
+    "FAMILY_EDUCATION_DESC": "Triple P programı ile ebeveynlere pozitif çocuk yetiştirme teknikleri öğretiyoruz",
+    "SLEEP_NUTRITION_TITLE": "Uyku ve Beslenme",
+    "SLEEP_NUTRITION_DESC": "Sağlıklı uyku alışkanlıkları ve beslenme danışmanlığı hizmetleri"
   },
   "TESTIMONIALS": {
     "TITLE": "Ailelerimizden Gelen Yorumlar",
