@@ -39,7 +39,7 @@
   max-width: 350px;
   border-radius: var(--md-sys-shape-corner-large, 16px);
   box-shadow: var(--md-sys-elevation-level2, 0 8px 24px rgba(0, 0, 0, 0.15));
-  margin-bottom: 0;
+  margin-bottom: 30px; /* Increased space between image and credentials */
   transition: transform var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-emphasized);
 }
 
@@ -57,7 +57,7 @@
 /* Compact Credential Cards */
 .credentials.compact {
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 0; /* Removed extra margin since image already has margin-bottom */
 }
 
 .credential-card-compact {
@@ -90,7 +90,7 @@
 /* Story Content */
 .story-content {
   padding-top: 0;
-  margin-top: -10px;
+  margin-top: 0; /* Optimized margin after removing duplicate title */
 }
 
 .intro {
