@@ -640,6 +640,44 @@ app-footer {
 }
 
 /* ========================================
+   Section Backgrounds - Global
+   ======================================== */
+.section-bg-white {
+  background: var(--md-sys-color-background, #ffffff);
+}
+
+.section-bg-light {
+  background: var(--md-sys-color-surface-container-lowest, #f8fafb);
+}
+
+.section-bg-gradient-light {
+  background: linear-gradient(135deg, 
+    var(--md-sys-color-surface, #ffffff) 0%, 
+    var(--md-sys-color-surface-container-lowest, #f8fafb) 100%);
+}
+
+.section-bg-primary-light {
+  background: linear-gradient(135deg, #e8f5f7 0%, #ffffff 100%);
+}
+
+.section-bg-warm {
+  background: linear-gradient(135deg, #fff5e6 0%, #ffffff 100%);
+}
+
+/* Section padding utility classes */
+.section-padding {
+  padding: 80px 0;
+}
+
+.section-padding-sm {
+  padding: 60px 0;
+}
+
+.section-padding-lg {
+  padding: 100px 0;
+}
+
+/* ========================================
    Premium Global Styles
    ======================================== */
 
