@@ -5,8 +5,8 @@ import { TranslateModule } from '@ngx-translate/core';
 
 interface Service {
   key: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   icon: string;
   color: 'primary' | 'secondary' | 'tertiary';
   href: string;
@@ -25,51 +25,51 @@ export class ServicesSectionComponent {
   services: Service[] = [
     {
       key: 'bright-futures',
-      title: 'Bright Futures Program',
-      description: 'Çocukların sağlıklı gelişimi için kapsamlı izlem ve değerlendirme programı.',
+      titleKey: 'SERVICES.SERVICE_BRIGHT_FUTURES.TITLE',
+      descriptionKey: 'SERVICES.SERVICE_BRIGHT_FUTURES.DESC',
       icon: 'child_care',
       color: 'primary',
       href: '/hizmetlerimiz/bright-futures-program'
     },
     {
       key: 'triple-p',
-      title: 'Triple P',
-      description: 'Ebeveynler için pozitif çocuk yetiştirme teknikleri ve aile danışmanlığı.',
+      titleKey: 'SERVICES.SERVICE_TRIPLE_P.TITLE',
+      descriptionKey: 'SERVICES.SERVICE_TRIPLE_P.DESC',
       icon: 'family_restroom',
       color: 'secondary',
       href: '/hizmetlerimiz/triple-p'
     },
     {
       key: 'sleep',
-      title: 'Sağlıklı Uykular',
-      description: 'Bebek ve çocukların uyku problemleri için uzman danışmanlık hizmeti.',
+      titleKey: 'SERVICES.SERVICE_SLEEP.TITLE',
+      descriptionKey: 'SERVICES.SERVICE_SLEEP.DESC',
       icon: 'bedtime',
       color: 'tertiary',
       href: '/hizmetlerimiz/saglikli-uykular'
     },
     {
-      key: 'sos-feeding',
-      title: 'SOS Feeding',
-      description: 'Bebek ve çocuklarda beslenme sorunları için özel terapi programı.',
-      icon: 'restaurant',
-      color: 'primary',
-      href: '/hizmetlerimiz/sos-feeding'
-    },
-    {
       key: 'lab',
-      title: 'Laboratuvar ve Görüntüleme',
-      description: 'Kapsamlı laboratuvar testleri ve görüntüleme hizmetleri.',
+      titleKey: 'SERVICES.SERVICE_LAB.TITLE',
+      descriptionKey: 'SERVICES.SERVICE_LAB.DESC',
       icon: 'biotech',
-      color: 'secondary',
+      color: 'primary',
       href: '/hizmetlerimiz/laboratuvar-goruntuleme'
     },
     {
       key: 'vaccination',
-      title: 'Aşı Takibi',
-      description: 'Güncel aşı takvimi ile çocuğunuzun aşı programını takip edin.',
+      titleKey: 'SERVICES.SERVICE_VACCINATION.TITLE',
+      descriptionKey: 'SERVICES.SERVICE_VACCINATION.DESC',
       icon: 'vaccines',
-      color: 'tertiary',
+      color: 'secondary',
       href: '/hizmetlerimiz/asi-takibi'
+    },
+    {
+      key: 'development',
+      titleKey: 'SERVICES.SERVICE_DEVELOPMENT.TITLE',
+      descriptionKey: 'SERVICES.SERVICE_DEVELOPMENT.DESC',
+      icon: 'trending_up',
+      color: 'tertiary',
+      href: '/hizmetlerimiz/gelisim-degerlendirmesi'
     }
   ];
 }

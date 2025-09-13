@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       children: [
         { labelKey: 'HEADER.NAV_ABOUT_US', href: '/hakkimizda' },
         { labelKey: 'HEADER.NAV_DR_OZLEM', href: '/hakkimizda/dr-ozlem-murzoglu' },
-        { labelKey: 'HEADER.NAV_CLINIC_DESIGN', href: '/hakkimizda/klinigimiz' },
+        { labelKey: 'HEADER.NAV_CLINIC_DESIGN', href: '/hakkimizda/klinik-tasarimi' },
         { labelKey: 'HEADER.NAV_FAQ', href: '/hakkimizda/sss' }
       ]
     },
@@ -47,29 +47,28 @@ export class HeaderComponent implements OnInit, OnDestroy {
         { labelKey: 'SERVICES.SERVICE_LAB.TITLE', href: '/hizmetlerimiz/laboratuvar-goruntuleme' },
         { labelKey: 'SERVICES.SERVICE_TRIPLE_P.TITLE', href: '/hizmetlerimiz/triple-p' },
         { labelKey: 'SERVICES.SERVICE_SLEEP.TITLE', href: '/hizmetlerimiz/saglikli-uykular' },
-        { labelKey: 'SERVICES.SERVICE_BRIGHT_FUTURES.TITLE', href: '/hizmetlerimiz/bright-futures-program' },
-        { labelKey: 'SERVICES.SERVICE_SOS_FEEDING.TITLE', href: '/hizmetlerimiz/sos-feeding' }
+        { labelKey: 'SERVICES.SERVICE_BRIGHT_FUTURES.TITLE', href: '/hizmetlerimiz/bright-futures-program' }
       ]
     },
     {
       labelKey: 'HEADER.NAV_INFO_CENTER',
       href: '/bilgi-merkezi',
       children: [
-        { labelKey: 'HEADER.NAV_INFO_ALL_RESOURCES', href: '/bilgi-merkezi' },
-        { labelKey: 'HEADER.NAV_INFO_VACCINES', href: '/bilgi-merkezi/asilar' },
-        { labelKey: 'HEADER.NAV_INFO_DEVELOPMENT', href: '/bilgi-merkezi/gelisim-rehberleri' },
-        { labelKey: 'HEADER.NAV_INFO_GENERAL', href: '/bilgi-merkezi/genel-bilgiler' },
-        { labelKey: 'HEADER.NAV_INFO_GROWTH', href: '/bilgi-merkezi/cdc-buyume-egrileri' },
-        { labelKey: 'HEADER.NAV_INFO_MEDIA_PLAN', href: '/bilgi-merkezi/aile-medya-plani' }
+        { labelKey: 'RESOURCES.ALL_RESOURCES', href: '/bilgi-merkezi' },
+        { labelKey: 'RESOURCES.CATEGORIES.VACCINES', href: '/bilgi-merkezi/asilar' },
+        { labelKey: 'RESOURCES.CATEGORIES.DEVELOPMENT', href: '/bilgi-merkezi/gelisim-rehberleri' },
+        { labelKey: 'RESOURCES.CATEGORIES.GENERAL_INFO', href: '/bilgi-merkezi/genel-bilgiler' },
+        { labelKey: 'RESOURCES.CATEGORIES.CDC_GROWTH', href: '/bilgi-merkezi/cdc-buyume-egrileri' },
+        { labelKey: 'RESOURCES.CATEGORIES.MEDIA_PLAN', href: '/bilgi-merkezi/aile-medya-plani' }
       ]
     },
     {
-      labelKey: 'HEADER.NAV_SAYGIYLA',
+      labelKey: 'HEADER.NAV_RESPECT',
       href: '/saygiyla',
       children: [
-        { labelKey: 'HEADER.NAV_SAYGIYLA_INSPIRERS', href: '/saygiyla' },
-        { labelKey: 'HEADER.NAV_SAYGIYLA_THANKS', href: '/saygiyla/tesekkurler' },
-        { labelKey: 'HEADER.NAV_SAYGIYLA_MEMORIES', href: '/saygiyla/anilar' }
+        { labelKey: 'HEADER.NAV_INSPIRING', href: '/saygiyla' },
+        { labelKey: 'HEADER.NAV_THANKS', href: '/saygiyla/tesekkurler' },
+        { labelKey: 'HEADER.NAV_MEMORIES', href: '/saygiyla/anilar' }
       ]
     },
     {

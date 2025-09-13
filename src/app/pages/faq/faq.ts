@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 interface FAQ {
   question: string;
@@ -13,91 +12,97 @@ interface FAQ {
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [CommonModule, TranslateModule, HeroSectionComponent],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './faq.html',
   styleUrl: './faq.css'
 })
 export class FaqComponent {
-  breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Sık Sorulan Sorular' }
+  selectedCategory = 'all';
+  categories = [
+    { key: 'all', label: 'FAQ.CATEGORY_ALL' },
+    { key: 'appointment', label: 'FAQ.CATEGORY_APPOINTMENT' },
+    { key: 'services', label: 'FAQ.CATEGORY_SERVICES' },
+    { key: 'payment', label: 'FAQ.CATEGORY_PAYMENT' },
+    { key: 'general', label: 'FAQ.CATEGORY_GENERAL' }
   ];
   
-  selectedCategory = 'Tümü';
-  categories = ['Tümü', 'Randevu', 'Hizmetler', 'Ödeme', 'Genel'];
+  phoneNumber = '+90 216 688 44 83';
+  whatsappNumber = '+90 546 688 44 83';
+  
+  constructor(private translate: TranslateService) {}
   
   faqs: FAQ[] = [
     {
-      question: 'Kliniğinizde hangi yaş grubu çocuklara bakıyorsunuz?',
-      answer: 'Kliniğimizde 0-18 yaş arası tüm çocuklara hizmet vermekteyiz. Yenidoğan döneminden ergenlik döneminin sonuna kadar her yaş grubuna özel yaklaşımlarımız bulunmaktadır.',
-      category: 'Genel'
+      question: 'FAQ.Q1',
+      answer: 'FAQ.A1',
+      category: 'general'
     },
     {
-      question: 'Randevu almak için ne yapmam gerekiyor?',
-      answer: 'Web sitemizden online randevu alabilir, 0222 237 84 00 numaralı telefondan bizi arayabilir veya WhatsApp hattımızdan mesaj gönderebilirsiniz. Online randevu sistemimiz 7/24 hizmet vermektedir.',
-      category: 'Randevu'
+      question: 'FAQ.Q2',
+      answer: 'FAQ.A2',
+      category: 'appointment'
     },
     {
-      question: 'Muayene ücreti ne kadar?',
-      answer: 'Muayene ücretlerimiz hizmetin kapsamına göre değişmektedir. Bright Futures kapsamlı muayene, standart muayene ve kontrol muayenesi için farklı ücretlendirmelerimiz bulunmaktadır. Detaylı bilgi için bizi arayabilirsiniz.',
-      category: 'Ödeme'
+      question: 'FAQ.Q3',
+      answer: 'FAQ.A3',
+      category: 'payment'
     },
     {
-      question: 'Özel sağlık sigortam geçerli mi?',
-      answer: 'Anlaşmalı olduğumuz özel sağlık sigortaları bulunmaktadır. Sigortanızın geçerli olup olmadığını öğrenmek için muayene öncesinde bizi arayarak bilgi alabilirsiniz.',
-      category: 'Ödeme'
+      question: 'FAQ.Q4',
+      answer: 'FAQ.A4',
+      category: 'payment'
     },
     {
-      question: 'Bright Futures programı nedir?',
-      answer: 'Bright Futures, Amerikan Pediatri Akademisi tarafından geliştirilen, çocuğunuzun doğumdan ergenliğe kadar olan süreçte fiziksel, zihinsel ve sosyal gelişimini takip eden kapsamlı bir sağlık izlem programıdır. Her yaş grubuna özel değerlendirme formları ve en az 1 saatlik detaylı muayene içerir.',
-      category: 'Hizmetler'
+      question: 'FAQ.Q5',
+      answer: 'FAQ.A5',
+      category: 'services'
     },
     {
-      question: 'Acil durumlarda kliniğinize gelebilir miyim?',
-      answer: 'Kliniğimiz randevu sistemi ile çalışmaktadır. Acil durumlar için en yakın hastane acil servisine başvurmanızı öneririz. Ancak randevulu hastalarımız için acil danışmanlık hizmeti vermekteyiz.',
-      category: 'Genel'
+      question: 'FAQ.Q6',
+      answer: 'FAQ.A6',
+      category: 'general'
     },
     {
-      question: 'Aşı takvimine uygun aşılarımızı yaptırabilir miyiz?',
-      answer: 'Evet, kliniğimizde Sağlık Bakanlığı\'nın güncel aşı takvimine uygun tüm rutin aşılar ve özel aşılar uygulanmaktadır. Aşı takibi dijital olarak yapılmakta ve hatırlatma servisi sunulmaktadır.',
-      category: 'Hizmetler'
+      question: 'FAQ.Q7',
+      answer: 'FAQ.A7',
+      category: 'services'
     },
     {
-      question: 'Online danışmanlık hizmeti veriyor musunuz?',
-      answer: 'Evet, özellikle takip hastalarımız için online danışmanlık hizmeti vermekteyiz. Video konferans yöntemiyle uzaktan muayene ve danışmanlık hizmetlerimiz bulunmaktadır.',
-      category: 'Hizmetler'
+      question: 'FAQ.Q8',
+      answer: 'FAQ.A8',
+      category: 'services'
     },
     {
-      question: 'Laboratuvar tetkikleri klinikte mi yapılıyor?',
-      answer: 'Kliniğimizde kan sayımı, idrar tahlili, hızlı testler gibi temel laboratuvar tetkikleri yapılabilmektedir. Daha kapsamlı tetkikler için anlaşmalı laboratuvarlarımıza yönlendirme yapmaktayız.',
-      category: 'Hizmetler'
+      question: 'FAQ.Q9',
+      answer: 'FAQ.A9',
+      category: 'services'
     },
     {
-      question: 'Randevumu iptal etmek veya değiştirmek istiyorum, ne yapmalıyım?',
-      answer: 'Randevunuzu en az 24 saat öncesinden iptal edebilir veya değiştirebilirsiniz. Online sistem üzerinden, telefonla veya WhatsApp\'tan bize ulaşarak randevu değişikliği yapabilirsiniz.',
-      category: 'Randevu'
+      question: 'FAQ.Q10',
+      answer: 'FAQ.A10',
+      category: 'appointment'
     },
     {
-      question: 'İlk muayeneye gelirken neleri getirmeliyim?',
-      answer: 'İlk muayeneye gelirken çocuğunuzun kimlik bilgileri, varsa önceki tıbbi raporları, aşı kartı, kullandığı ilaçların listesi ve sigortanız varsa sigorta evraklarınızı getirmenizi rica ederiz.',
-      category: 'Genel'
+      question: 'FAQ.Q11',
+      answer: 'FAQ.A11',
+      category: 'general'
     },
     {
-      question: 'Muayene ne kadar sürer?',
-      answer: 'Standart muayenelerimiz ortalama 30-45 dakika, Bright Futures kapsamlı muayenelerimiz ise minimum 1 saat sürmektedir. İlk muayeneler genellikle daha uzun sürmektedir.',
-      category: 'Genel'
+      question: 'FAQ.Q12',
+      answer: 'FAQ.A12',
+      category: 'general'
     }
   ];
   
   get filteredFaqs(): FAQ[] {
-    if (this.selectedCategory === 'Tümü') {
+    if (this.selectedCategory === 'all') {
       return this.faqs;
     }
     return this.faqs.filter(faq => faq.category === this.selectedCategory);
   }
   
   getCategoryCount(category: string): number {
-    if (category === 'Tümü') {
+    if (category === 'all') {
       return this.faqs.length;
     }
     return this.faqs.filter(faq => faq.category === category).length;
@@ -105,7 +110,6 @@ export class FaqComponent {
   
   selectCategory(category: string) {
     this.selectedCategory = category;
-    // Close all FAQs when changing category
     this.faqs.forEach(faq => faq.isOpen = false);
   }
   

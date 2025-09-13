@@ -51,3 +51,5 @@ public/documents/
 firebase-debug.log
 .firebaserc
 dr-murzoglu-firebase-adminsdkjson.json
+n8n-docker/n8n_data/*.sqlite*
+n8n-docker/n8n_data/config
