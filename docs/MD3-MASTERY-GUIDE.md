@@ -294,58 +294,108 @@ interface ColorAdjustment {
 #### Typography System (Pure CSS)
 ```css
 :root {
-  /* Font families */
-  --md-sys-typescale-font-brand: 'Roboto Flex', sans-serif;
-  --md-sys-typescale-font-plain: 'Roboto', sans-serif;
+  /* Font families - Pediatri Kliniği Özel Font Stratejisi */
+  --md-sys-typescale-font-brand: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --md-sys-typescale-font-plain: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   
-  /* Display */
+  /* Display - Figtree kullanımı */
   --md-sys-typescale-display-large-font: var(--md-sys-typescale-font-brand);
   --md-sys-typescale-display-large-size: 57px;
   --md-sys-typescale-display-large-line-height: 64px;
-  --md-sys-typescale-display-large-weight: 400;
+  --md-sys-typescale-display-large-weight: 700;
   --md-sys-typescale-display-large-tracking: -0.25px;
   
   --md-sys-typescale-display-medium-font: var(--md-sys-typescale-font-brand);
   --md-sys-typescale-display-medium-size: 45px;
   --md-sys-typescale-display-medium-line-height: 52px;
-  --md-sys-typescale-display-medium-weight: 400;
+  --md-sys-typescale-display-medium-weight: 600;
   --md-sys-typescale-display-medium-tracking: 0;
   
   --md-sys-typescale-display-small-font: var(--md-sys-typescale-font-brand);
   --md-sys-typescale-display-small-size: 36px;
   --md-sys-typescale-display-small-line-height: 44px;
-  --md-sys-typescale-display-small-weight: 400;
+  --md-sys-typescale-display-small-weight: 600;
   --md-sys-typescale-display-small-tracking: 0;
   
-  /* Headline */
+  /* Headline - Figtree kullanımı */
   --md-sys-typescale-headline-large-font: var(--md-sys-typescale-font-brand);
   --md-sys-typescale-headline-large-size: 32px;
   --md-sys-typescale-headline-large-line-height: 40px;
-  --md-sys-typescale-headline-large-weight: 400;
+  --md-sys-typescale-headline-large-weight: 600;
   --md-sys-typescale-headline-large-tracking: 0;
   
-  /* Title */
-  --md-sys-typescale-title-large-font: var(--md-sys-typescale-font-plain);
+  --md-sys-typescale-headline-medium-font: var(--md-sys-typescale-font-brand);
+  --md-sys-typescale-headline-medium-size: 28px;
+  --md-sys-typescale-headline-medium-line-height: 36px;
+  --md-sys-typescale-headline-medium-weight: 500;
+  --md-sys-typescale-headline-medium-tracking: 0;
+  
+  --md-sys-typescale-headline-small-font: var(--md-sys-typescale-font-brand);
+  --md-sys-typescale-headline-small-size: 24px;
+  --md-sys-typescale-headline-small-line-height: 32px;
+  --md-sys-typescale-headline-small-weight: 500;
+  --md-sys-typescale-headline-small-tracking: 0;
+  
+  /* Title - Figtree kullanımı */
+  --md-sys-typescale-title-large-font: var(--md-sys-typescale-font-brand);
   --md-sys-typescale-title-large-size: 22px;
   --md-sys-typescale-title-large-line-height: 28px;
-  --md-sys-typescale-title-large-weight: 400;
+  --md-sys-typescale-title-large-weight: 500;
   --md-sys-typescale-title-large-tracking: 0;
   
-  /* Body */
+  --md-sys-typescale-title-medium-font: var(--md-sys-typescale-font-brand);
+  --md-sys-typescale-title-medium-size: 16px;
+  --md-sys-typescale-title-medium-line-height: 24px;
+  --md-sys-typescale-title-medium-weight: 600;
+  --md-sys-typescale-title-medium-tracking: 0.15px;
+  
+  --md-sys-typescale-title-small-font: var(--md-sys-typescale-font-brand);
+  --md-sys-typescale-title-small-size: 14px;
+  --md-sys-typescale-title-small-line-height: 20px;
+  --md-sys-typescale-title-small-weight: 600;
+  --md-sys-typescale-title-small-tracking: 0.1px;
+  
+  /* Body - DM Sans kullanımı */
   --md-sys-typescale-body-large-font: var(--md-sys-typescale-font-plain);
   --md-sys-typescale-body-large-size: 16px;
   --md-sys-typescale-body-large-line-height: 24px;
   --md-sys-typescale-body-large-weight: 400;
   --md-sys-typescale-body-large-tracking: 0.5px;
   
-  /* Label */
+  --md-sys-typescale-body-medium-font: var(--md-sys-typescale-font-plain);
+  --md-sys-typescale-body-medium-size: 14px;
+  --md-sys-typescale-body-medium-line-height: 20px;
+  --md-sys-typescale-body-medium-weight: 400;
+  --md-sys-typescale-body-medium-tracking: 0.25px;
+  
+  --md-sys-typescale-body-small-font: var(--md-sys-typescale-font-plain);
+  --md-sys-typescale-body-small-size: 12px;
+  --md-sys-typescale-body-small-line-height: 16px;
+  --md-sys-typescale-body-small-weight: 400;
+  --md-sys-typescale-body-small-tracking: 0.4px;
+  
+  /* Label - DM Sans kullanımı */
   --md-sys-typescale-label-large-font: var(--md-sys-typescale-font-plain);
   --md-sys-typescale-label-large-size: 14px;
   --md-sys-typescale-label-large-line-height: 20px;
   --md-sys-typescale-label-large-weight: 500;
   --md-sys-typescale-label-large-tracking: 0.1px;
+  
+  --md-sys-typescale-label-medium-font: var(--md-sys-typescale-font-plain);
+  --md-sys-typescale-label-medium-size: 12px;
+  --md-sys-typescale-label-medium-line-height: 16px;
+  --md-sys-typescale-label-medium-weight: 500;
+  --md-sys-typescale-label-medium-tracking: 0.5px;
+  
+  --md-sys-typescale-label-small-font: var(--md-sys-typescale-font-plain);
+  --md-sys-typescale-label-small-size: 11px;
+  --md-sys-typescale-label-small-line-height: 16px;
+  --md-sys-typescale-label-small-weight: 500;
+  --md-sys-typescale-label-small-tracking: 0.5px;
 }
-```
+
+/* Font Import ve Variable Font Desteği */
+@import url('https://fonts.googleapis.com/css2?family
 
 #### Shape System
 ```css
