@@ -1,24 +1,15 @@
 <div class="bright-futures-page">
   <!-- Hero Section -->
-  <section class="service-hero">
-    <div class="hero-gradient"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="breadcrumb">
-          <a routerLink="/">{{ 'HEADER.NAV_HOME' | translate }}</a>
-          <span class="material-icons">chevron_right</span>
-          <a routerLink="/hizmetlerimiz">{{ 'HEADER.NAV_SERVICES' | translate }}</a>
-          <span class="material-icons">chevron_right</span>
-          <span>{{ 'SERVICES.SERVICE_BRIGHT.BREADCRUMB' | translate }}</span>
-        </div>
-        <div class="hero-badge">
-          <img src="/images/Bright_Futures.svg" alt="Bright Futures Logo" class="program-logo">
-        </div>
-        <h1 class="hero-title">{{ 'SERVICES.SERVICE_BRIGHT.HERO_TITLE' | translate }}</h1>
-        <p class="hero-subtitle">{{ 'SERVICES.SERVICE_BRIGHT.HERO_SUBTITLE' | translate }}</p>
-      </div>
-    </div>
-  </section>
+  <app-hero-section
+    [title]="'SERVICES.SERVICE_BRIGHT.HERO_TITLE' | translate"
+    [subtitle]="'SERVICES.SERVICE_BRIGHT.HERO_SUBTITLE' | translate"
+    [breadcrumbs]="[
+      {label: 'HEADER.NAV_HOME', link: '/'},
+      {label: 'HEADER.NAV_SERVICES', link: '/hizmetlerimiz'},
+      {label: 'SERVICES.SERVICE_BRIGHT.BREADCRUMB'}
+    ]"
+    colorTheme="blue">
+  </app-hero-section>
 
   <!-- Main Content -->
   <div class="content-wrapper">
@@ -36,28 +27,23 @@
             </div>
             
             <div class="section-description">
-              <p class="lead">
-                Bright Futures®, Amerikan Pediatri Akademisi (AAP) tarafından geliştirilen, doğumdan 21 yaşına kadar çocuk ve gençlerin sağlığını ve gelişimini izlemek için oluşturulmuş kapsamlı bir rehber programdır.
-              </p>
+              <p class="lead">{{ 'SERVICES.SERVICE_BRIGHT.WHAT_IS_DESC' | translate }}</p>
               
-              <p>
-                Bu program, çocuk sağlığı profesyonellerine ve ailelere, çocukların optimal büyüme ve gelişimlerini desteklemek için kanıta dayalı öneriler sunar. Her yaş grubuna özel muayene protokolleri, aşı takvimleri, gelişim değerlendirmeleri ve koruyucu sağlık hizmetlerini içerir.
-              </p>
+              <p>{{ 'SERVICES.SERVICE_BRIGHT.WHAT_IS_DESC2' | translate }}</p>
               
               <div class="highlight-box">
                 <span class="material-icons">verified</span>
-                <p>
-                  Dr. Özlem Murzoğlu, <strong>Amerikan Pediatri Akademisi'nin Bright Futures® standartlarını</strong> kliniğinde uygulayan nadir uzmanlardan biridir.
-                </p>
+                <p>{{ 'SERVICES.SERVICE_BRIGHT.CLINIC_INFO' | translate }}</p>
               </div>
               
-              <p>
-                Program, hastalıkların tedavisinden ziyade önlenmesine odaklanır. Çocukların fiziksel, zihinsel, sosyal ve duygusal gelişimlerini bir bütün olarak ele alarak, potansiyel sorunların erken tespitini ve müdahalesini sağlar.
-              </p>
+              <p>{{ 'SERVICES.SERVICE_BRIGHT.WHAT_IS_DESC3' | translate }}</p>
             </div>
           </div>
           
           <div class="section-features">
+            <div class="bright-futures-logo">
+              <img src="assets/program_logos/Bright_Futures.svg" alt="Bright Futures Logo" loading="lazy">
+            </div>
             <h3>{{ 'SERVICES.SERVICE_BRIGHT.PROGRAM_SCOPE' | translate }}</h3>
             <div class="features-list">
               <div class="feature-item">
@@ -92,6 +78,63 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Five Foundations Section -->
+      <section class="foundations-section">
+        <div class="section-header center">
+          <span class="section-icon">
+            <span class="material-icons">account_tree</span>
+          </span>
+          <h2 class="section-title">{{ 'SERVICES.SERVICE_BRIGHT.FIVE_FOUNDATIONS' | translate }}</h2>
+        </div>
+        
+        <div class="foundations-container">
+          <div class="foundation-card">
+            <div class="foundation-number">1</div>
+            <div class="foundation-icon">
+              <span class="material-icons">monitor_heart</span>
+            </div>
+            <h3>{{ 'SERVICES.SERVICE_BRIGHT.FOUNDATION_1' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_BRIGHT.FOUNDATION_1_DESC' | translate }}</p>
+          </div>
+          
+          <div class="foundation-card">
+            <div class="foundation-number">2</div>
+            <div class="foundation-icon">
+              <span class="material-icons">psychology</span>
+            </div>
+            <h3>{{ 'SERVICES.SERVICE_BRIGHT.FOUNDATION_2' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_BRIGHT.FOUNDATION_2_DESC' | translate }}</p>
+          </div>
+          
+          <div class="foundation-card">
+            <div class="foundation-number">3</div>
+            <div class="foundation-icon">
+              <span class="material-icons">favorite</span>
+            </div>
+            <h3>{{ 'SERVICES.SERVICE_BRIGHT.FOUNDATION_3' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_BRIGHT.FOUNDATION_3_DESC' | translate }}</p>
+          </div>
+          
+          <div class="foundation-card">
+            <div class="foundation-number">4</div>
+            <div class="foundation-icon">
+              <span class="material-icons">security</span>
+            </div>
+            <h3>{{ 'SERVICES.SERVICE_BRIGHT.FOUNDATION_4' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_BRIGHT.FOUNDATION_4_DESC' | translate }}</p>
+          </div>
+          
+          <div class="foundation-card highlight">
+            <div class="foundation-number">5</div>
+            <div class="foundation-icon">
+              <span class="material-icons">lightbulb</span>
+            </div>
+            <h3>{{ 'SERVICES.SERVICE_BRIGHT.FOUNDATION_5' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_BRIGHT.FOUNDATION_5_DESC' | translate }}</p>
           </div>
         </div>
       </section>
@@ -448,42 +491,6 @@
         </div>
       </section>
 
-      <!-- Success Metrics Section -->
-      <section class="metrics-section">
-        <div class="section-header center">
-          <span class="section-icon">
-            <span class="material-icons">analytics</span>
-          </span>
-          <h2 class="section-title">Program Etkinliği</h2>
-        </div>
-        
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <div class="metric-number">%90</div>
-            <h3>Erken Tanı</h3>
-            <p>Gelişimsel gecikmelerin tespiti</p>
-          </div>
-          
-          <div class="metric-card">
-            <div class="metric-number">%95</div>
-            <h3>Aşılama Oranı</h3>
-            <p>Tam aşılı çocuk oranı</p>
-          </div>
-          
-          <div class="metric-card">
-            <div class="metric-number">%85</div>
-            <h3>Aile Memnuniyeti</h3>
-            <p>Program memnuniyet oranı</p>
-          </div>
-          
-          <div class="metric-card">
-            <div class="metric-number">%75</div>
-            <h3>Sorun Önleme</h3>
-            <p>Potansiyel sorunların önlenmesi</p>
-          </div>
-        </div>
-      </section>
-
       <!-- Journey Timeline Section -->
       <section class="journey-section">
         <div class="section-header center">
@@ -720,24 +727,6 @@
                 <span class="material-icons">arrow_forward</span>
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA Section -->
-      <section class="cta-section">
-        <div class="cta-content">
-          <h3>Çocuğunuzun Sağlıklı Geleceği İçin</h3>
-          <p>Amerikan standartlarında çocuk takibi için randevu alın</p>
-          <div class="cta-buttons">
-            <a routerLink="/iletisim" class="btn btn-primary">
-              <span class="material-icons">event_available</span>
-              Randevu Al
-            </a>
-            <a href="tel:+902166884483" class="btn btn-secondary">
-              <span class="material-icons">phone</span>
-              Bilgi Alın
-            </a>
           </div>
         </div>
       </section>

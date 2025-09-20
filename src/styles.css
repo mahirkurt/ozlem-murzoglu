@@ -87,6 +87,10 @@ html {
   --radius-xl: 16px;
   --radius-xxl: 24px;
   --radius-full: 9999px;
+
+  /* Container Configuration - Standardized across all components */
+  --container-max-width: 1240px;
+  --container-padding-x: 24px;
 }
 
 body {
@@ -177,44 +181,53 @@ label {
   letter-spacing: 0.005em;
 }
 
-/* Container - Consistent width with MD3 design system */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+/* ==========================================================================
+   #GRID - Proje Geneli Container Yapısı
+   ========================================================================== */
+
+/*
+ * Hem header'daki `.container` sınıfı hem de hero'daki `.md3-container` sınıfı için
+ * ortak stil kuralları tanımlanıyor. Bu, hizalamayı standartlaştırır.
+ */
+.container,
+.md3-container {
   width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
   box-sizing: border-box;
 }
 
-/* Specific container sizes */
+/* Specific container sizes - opsiyonel varyasyonlar */
 .container-xl {
-  max-width: 1200px;
+  max-width: 1440px;
 }
 
 .container-lg {
-  max-width: 1200px;
+  max-width: 1240px;
 }
 
 .container-md {
-  max-width: 1200px;
+  max-width: 1024px;
 }
 
 .container-sm {
   max-width: 960px;
 }
 
-@media (max-width: 1440px) {
-  .container,
-  .md3-container {
-    max-width: 1200px;
-    padding: 0 24px;
-  }
-}
+/* ==========================================================================
+   #RESPONSIVE - Duyarlılık Ayarları
+   ========================================================================== */
 
+/*
+ * Tablet ve daha küçük ekranlarda kenar boşluklarını azaltarak
+ * içeriğe daha fazla alan tanıyoruz.
+ */
 @media (max-width: 768px) {
-  .container,
-  .md3-container {
-    padding: 0 16px;
+  :root {
+    --container-padding-x: 16px;
   }
 }
 
@@ -505,9 +518,7 @@ img[loading='lazy'] {
   margin-right: 0 !important;
 }
 
-.liquid-hero .md3-container {
-  margin: 0 auto !important;
-}
+/* Liquid hero artık standart container yapısını kullanıyor */
 
 @media (max-width: 768px) {
   .liquid-hero {
@@ -516,15 +527,7 @@ img[loading='lazy'] {
   }
 }
 
-/* Force consistent container widths */
-.container,
-.md3-container {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
-  box-sizing: border-box !important;
-  width: 100% !important;
-}
+/* Container override'ları kaldırıldı - artık CSS değişkenlerle yönetiliyor */
 
 /* Section spacing fixes */
 section,
@@ -569,15 +572,7 @@ section,
     position: relative !important;
   }
   
-  /* Consistent mobile container padding */
-  .container,
-  .md3-container {
-    padding: 0 16px !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
+  /* Mobile container'lar artık CSS değişkenleriyle yönetiliyor */
   
   /* Prevent any element from causing horizontal scroll */
   * {

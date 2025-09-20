@@ -87,7 +87,8 @@
       "Bash(echo \"$file\")",
       "Bash(npx tsc:*)",
       "Bash(firebase --version)",
-      "Bash(del nul)"
+      "Bash(del nul)",
+      "Bash(firebase hosting:version:delete:*)"
     ],
     "deny": []
   }

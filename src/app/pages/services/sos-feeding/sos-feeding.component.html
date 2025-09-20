@@ -3,9 +3,8 @@
   <app-hero-section
     [title]="'SERVICE_SOS_FEEDING.TITLE' | translate"
     [subtitle]="'SERVICE_SOS_FEEDING.SUBTITLE' | translate"
-    [breadcrumbs]="breadcrumbs"
-    colorTheme="orange"
-  ></app-hero-section>
+    colorTheme="yellow">
+  </app-hero-section>
 
   <!-- Introduction Section -->
   <section class="intro-section">
@@ -15,7 +14,7 @@
           <h2>{{ 'SERVICE_SOS_FEEDING.WHAT_IS_TITLE' | translate }}</h2>
           <p class="lead-text">{{ 'SERVICE_SOS_FEEDING.WHAT_IS_DESC' | translate }}</p>
           <p>{{ 'SERVICE_SOS_FEEDING.WHAT_IS_DETAIL' | translate }}</p>
-
+          
           <div class="key-points">
             <div class="point-item">
               <span class="material-icons">check_circle</span>
@@ -32,12 +31,7 @@
           </div>
         </div>
         <div class="intro-image">
-          <img
-            src="assets/program_logos/SOS_Feeding.svg"
-            alt="SOS Feeding Logo"
-            class="sos-logo"
-            loading="lazy"
-          />
+          <img src="assets/program_logos/SOS_Feeding.svg" alt="SOS Feeding Logo" class="sos-logo" loading="lazy">
           <div class="certification-badges">
             <div class="badge" *ngFor="let cert of certifications">
               <span class="material-icons">{{ cert.icon }}</span>
@@ -58,7 +52,7 @@
     <div class="container">
       <h2 class="section-title">{{ 'SERVICE_SOS_FEEDING.EATER_TYPES_TITLE' | translate }}</h2>
       <p class="section-subtitle">{{ 'SERVICE_SOS_FEEDING.EATER_TYPES_DESC' | translate }}</p>
-
+      
       <div class="eater-comparison">
         <div class="eater-card picky">
           <h3>{{ 'SERVICE_SOS_FEEDING.PICKY_EATER_TITLE' | translate }}</h3>
@@ -89,7 +83,7 @@
     <div class="container">
       <h2 class="section-title">{{ 'SERVICE_SOS_FEEDING.WHO_NEEDS_TITLE' | translate }}</h2>
       <p class="section-subtitle">{{ 'SERVICE_SOS_FEEDING.WHO_NEEDS_DESC' | translate }}</p>
-
+      
       <!-- Warning Card -->
       <div class="warning-card">
         <div class="warning-card-header">
@@ -97,10 +91,7 @@
           <h4>Önemli Uyarı</h4>
         </div>
         <div class="warning-card-content">
-          <p>
-            Eğer çocuğunuz aşağıdaki durumlardan birini yaşıyorsa, profesyonel destek almanız
-            önerilir:
-          </p>
+          <p>Eğer çocuğunuz aşağıdaki durumlardan birini yaşıyorsa, profesyonel destek almanız önerilir:</p>
           <ul>
             <li>20'den az farklı yiyecek tüketiyor</li>
             <li>Bütün besin gruplarından yemiyor</li>
@@ -109,14 +100,14 @@
           </ul>
         </div>
       </div>
-
+      
       <div class="issues-grid">
         <div class="issue-card" *ngFor="let issue of feedingIssues">
           <div class="issue-icon">
             <span class="material-icons">{{ issue.icon }}</span>
           </div>
-          <h3>{{ 'SERVICE_SOS_FEEDING.' + issue.key + '_TITLE' | translate }}</h3>
-          <p>{{ 'SERVICE_SOS_FEEDING.' + issue.key + '_DESC' | translate }}</p>
+          <h3>{{ ('SERVICE_SOS_FEEDING.' + issue.key + '_TITLE') | translate }}</h3>
+          <p>{{ ('SERVICE_SOS_FEEDING.' + issue.key + '_DESC') | translate }}</p>
         </div>
       </div>
     </div>
@@ -127,19 +118,17 @@
     <div class="container">
       <h2 class="section-title">{{ 'SERVICE_SOS_FEEDING.STEPS_32_TITLE' | translate }}</h2>
       <p class="section-subtitle">{{ 'SERVICE_SOS_FEEDING.STEPS_32_DESC' | translate }}</p>
-
+      
       <div class="steps-hierarchy">
         <div class="hierarchy-level" *ngFor="let level of hierarchyLevels">
           <div class="level-header">
-            <h3>{{ 'SERVICE_SOS_FEEDING.' + level.key + '_TITLE' | translate }}</h3>
-            <span class="step-count">
-              {{ 'SERVICE_SOS_FEEDING.' + level.key + '_STEPS' | translate }}
-            </span>
+            <h3>{{ ('SERVICE_SOS_FEEDING.' + level.key + '_TITLE') | translate }}</h3>
+            <span class="step-count">{{ ('SERVICE_SOS_FEEDING.' + level.key + '_STEPS') | translate }}</span>
           </div>
           <div class="level-steps">
             <div class="step-item" *ngFor="let step of level.steps">
               <span class="material-icons">{{ step.icon }}</span>
-              <span>{{ 'SERVICE_SOS_FEEDING.' + step.key | translate }}</span>
+              <span>{{ ('SERVICE_SOS_FEEDING.' + step.key) | translate }}</span>
             </div>
           </div>
         </div>
@@ -152,7 +141,7 @@
     <div class="container">
       <h2 class="section-title">{{ 'SERVICE_SOS_FEEDING.HOW_IT_WORKS_TITLE' | translate }}</h2>
       <p class="section-subtitle">{{ 'SERVICE_SOS_FEEDING.HOW_IT_WORKS_DESC' | translate }}</p>
-
+      
       <div class="steps-timeline">
         <div class="step-item" *ngFor="let step of approachSteps">
           <div class="step-number">{{ step.number }}</div>
@@ -160,8 +149,8 @@
             <div class="step-icon">
               <span class="material-icons">{{ step.icon }}</span>
             </div>
-            <h3>{{ 'SERVICE_SOS_FEEDING.' + step.key + '_TITLE' | translate }}</h3>
-            <p>{{ 'SERVICE_SOS_FEEDING.' + step.key + '_DESC' | translate }}</p>
+            <h3>{{ ('SERVICE_SOS_FEEDING.' + step.key + '_TITLE') | translate }}</h3>
+            <p>{{ ('SERVICE_SOS_FEEDING.' + step.key + '_DESC') | translate }}</p>
           </div>
         </div>
       </div>
@@ -175,10 +164,10 @@
         <h2>{{ 'SERVICE_SOS_FEEDING.EXPERTISE_TITLE' | translate }}</h2>
         <p class="subtitle">{{ 'SERVICE_SOS_FEEDING.EXPERTISE_DESC' | translate }}</p>
       </div>
-
+      
       <div class="certifications-grid">
         <h3 class="certifications-title">{{ 'SERVICE_SOS_FEEDING.CERTIFICATIONS' | translate }}</h3>
-
+        
         <div class="certification-cards">
           <div class="cert-card">
             <div class="cert-card-header">
@@ -207,7 +196,7 @@
               </div>
             </div>
           </div>
-
+          
           <div class="cert-card advanced">
             <div class="cert-card-header">
               <div class="cert-icon">
@@ -248,7 +237,7 @@
   <section class="benefits-section">
     <div class="container">
       <h2 class="section-title">{{ 'SERVICE_SOS_FEEDING.BENEFITS_TITLE' | translate }}</h2>
-
+      
       <!-- Success Card -->
       <div class="success-card">
         <div class="success-card-header">
@@ -256,11 +245,7 @@
           <h4>Başarı Oranımız</h4>
         </div>
         <div class="success-card-content">
-          <p>
-            SOS Feeding yaklaşımı ile tedavi ettiğimiz çocukların
-            <strong>%85'inden fazlasında</strong>
-            önemli iyileşmeler gözlemliyoruz:
-          </p>
+          <p>SOS Feeding yaklaşımı ile tedavi ettiğimiz çocukların <strong>%85'inden fazlasında</strong> önemli iyileşmeler gözlemliyoruz:</p>
           <div class="success-stats">
             <div class="stat-item">
               <span class="stat-number">32+</span>
@@ -277,14 +262,15 @@
           </div>
         </div>
       </div>
-
+      
       <div class="benefits-grid">
         <div class="benefit-card" *ngFor="let benefit of benefits">
           <span class="material-icons">{{ benefit.icon }}</span>
-          <h3>{{ 'SERVICE_SOS_FEEDING.' + benefit.key + '_TITLE' | translate }}</h3>
-          <p>{{ 'SERVICE_SOS_FEEDING.' + benefit.key + '_DESC' | translate }}</p>
+          <h3>{{ ('SERVICE_SOS_FEEDING.' + benefit.key + '_TITLE') | translate }}</h3>
+          <p>{{ ('SERVICE_SOS_FEEDING.' + benefit.key + '_DESC') | translate }}</p>
         </div>
       </div>
     </div>
   </section>
+
 </div>

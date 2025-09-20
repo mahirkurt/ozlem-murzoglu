@@ -1,324 +1,461 @@
 <div class="triple-p-page">
-  <!-- Hero Section -->
-  <section class="service-hero">
-    <div class="hero-gradient"></div>
+  <app-hero-section
+    [title]="'SERVICES.SERVICE_TRIPLE_P.HERO_TITLE' | translate"
+    [subtitle]="'SERVICES.SERVICE_TRIPLE_P.HERO_SUBTITLE' | translate"
+    [breadcrumbs]="[
+      {label: 'HEADER.NAV_HOME', link: '/'},
+      {label: 'HEADER.NAV_SERVICES', link: '/hizmetlerimiz'},
+      {label: 'SERVICES.SERVICE_TRIPLE_P.BREADCRUMB'}
+    ]"
+    colorTheme="blue">
+  </app-hero-section>
+
+  <!-- Overview Section -->
+  <section class="overview-section">
     <div class="container">
-      <div class="hero-content">
-        <div class="breadcrumb">
-          <a routerLink="/">{{ 'HEADER.NAV_HOME' | translate }}</a>
-          <span class="material-icons">chevron_right</span>
-          <a routerLink="/hizmetlerimiz">{{ 'HEADER.NAV_SERVICES' | translate }}</a>
-          <span class="material-icons">chevron_right</span>
-          <span>{{ 'SERVICES.SERVICE_TRIPLE_P.BREADCRUMB' | translate }}</span>
+      <div class="section-grid">
+        <div class="section-content">
+          <div class="section-header">
+            <span class="section-icon">
+              <span class="material-icons">family_restroom</span>
+            </span>
+            <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS' | translate }}</h2>
+          </div>
+          
+          <div class="section-description">
+            <p class="lead">{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC' | translate }}</p>
+            
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC2' | translate }}</p>
+            
+            <div class="highlight-box">
+              <span class="material-icons">psychology</span>
+              <p [innerHTML]="'SERVICES.SERVICE_TRIPLE_P.DR_CERTIFIED' | translate"></p>
+            </div>
+            
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC3' | translate }}</p>
+          </div>
         </div>
-        <div class="hero-badge">
-          <img src="/images/Triple_P.svg" alt="Triple P Logo" class="program-logo">
+        
+        <div class="section-features">
+          <div class="triple-p-logo">
+            <img src="assets/program_logos/Triple_P_logo.svg" alt="Triple P Logo" loading="lazy">
+          </div>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_FEATURES' | translate }}</h3>
+          <div class="features-list">
+            <div class="feature-item">
+              <span class="material-icons">verified</span>
+              <div>
+                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.EVIDENCE_BASED' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.EVIDENCE_BASED_DESC' | translate }}</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <span class="material-icons">public</span>
+              <div>
+                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.WORLDWIDE' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WORLDWIDE_DESC' | translate }}</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <span class="material-icons">groups</span>
+              <div>
+                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.FAMILIES' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.FAMILIES_DESC' | translate }}</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <span class="material-icons">school</span>
+              <div>
+                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.UNIVERSITY' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.UNIVERSITY_DESC' | translate }}</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 class="hero-title">{{ 'SERVICES.SERVICE_TRIPLE_P.HERO_TITLE' | translate }}</h1>
-        <p class="hero-subtitle">{{ 'SERVICES.SERVICE_TRIPLE_P.HERO_SUBTITLE' | translate }}</p>
       </div>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <div class="content-wrapper">
+  <!-- Five Principles Section -->
+  <section class="principles-section">
     <div class="container">
+      <div class="section-header center">
+        <span class="section-icon">
+          <span class="material-icons">fact_check</span>
+        </span>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.FIVE_PRINCIPLES' | translate }}</h2>
+      </div>
       
-      <!-- Overview Section -->
-      <section class="overview-section">
-        <div class="section-grid">
-          <div class="section-content">
-            <div class="section-header">
-              <span class="section-icon">
-                <span class="material-icons">family_restroom</span>
-              </span>
-              <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS' | translate }}</h2>
-            </div>
-            
-            <div class="section-description">
-              <p class="lead">{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC' | translate }}</p>
-              
-              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC2' | translate }}</p>
-              
-              <div class="highlight-box">
-                <span class="material-icons">psychology</span>
-                <p [innerHTML]="'SERVICES.SERVICE_TRIPLE_P.DR_CERTIFIED' | translate"></p>
-              </div>
-              
-              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC3' | translate }}</p>
-            </div>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <div class="principle-number">1</div>
+          <div class="principle-icon">
+            <span class="material-icons">security</span>
           </div>
-          
-          <div class="section-features">
-            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_FEATURES' | translate }}</h3>
-            <div class="features-list">
-              <div class="feature-item">
-                <span class="material-icons">verified</span>
-                <div>
-                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.EVIDENCE_BASED' | translate }}</h4>
-                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.EVIDENCE_BASED_DESC' | translate }}</p>
-                </div>
-              </div>
-              
-              <div class="feature-item">
-                <span class="material-icons">public</span>
-                <div>
-                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.WORLDWIDE' | translate }}</h4>
-                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WORLDWIDE_DESC' | translate }}</p>
-                </div>
-              </div>
-              
-              <div class="feature-item">
-                <span class="material-icons">groups</span>
-                <div>
-                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.FAMILIES' | translate }}</h4>
-                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.FAMILIES_DESC' | translate }}</p>
-                </div>
-              </div>
-              
-              <div class="feature-item">
-                <span class="material-icons">school</span>
-                <div>
-                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.UNIVERSITY' | translate }}</h4>
-                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.UNIVERSITY_DESC' | translate }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Benefits Section -->
-      <section class="benefits-section">
-        <div class="section-header center">
-          <span class="section-icon">
-            <span class="material-icons">stars</span>
-          </span>
-          <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_TITLE' | translate }}</h2>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_1' | translate }}</h3>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_1_DESC' | translate }}</p>
         </div>
         
-        <div class="benefits-grid">
-          <div class="benefit-card">
-            <div class="benefit-icon">
-              <span class="material-icons">mood</span>
-            </div>
-            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN' | translate }}</h3>
-            <ul>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_1' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_2' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_3' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_4' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_5' | translate }}</li>
-            </ul>
+        <div class="principle-card">
+          <div class="principle-number">2</div>
+          <div class="principle-icon">
+            <span class="material-icons">lightbulb</span>
           </div>
-          
-          <div class="benefit-card">
-            <div class="benefit-icon">
-              <span class="material-icons">favorite</span>
-            </div>
-            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS' | translate }}</h3>
-            <ul>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_1' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_2' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_3' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_4' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_5' | translate }}</li>
-            </ul>
-          </div>
-          
-          <div class="benefit-card">
-            <div class="benefit-icon">
-              <span class="material-icons">home</span>
-            </div>
-            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY' | translate }}</h3>
-            <ul>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_1' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_2' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_3' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_4' | translate }}</li>
-              <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_5' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Program Structure Section -->
-      <section class="structure-section">
-        <div class="section-grid reverse">
-          <div class="section-features">
-            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_STRUCTURE' | translate }}</h3>
-            <div class="structure-timeline">
-              <div class="timeline-item">
-                <div class="timeline-marker">1</div>
-                <div class="timeline-content">
-                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_1' | translate }}</h4>
-                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_1_DESC' | translate }}</p>
-                </div>
-              </div>
-              
-              <div class="timeline-item">
-                <div class="timeline-marker">2</div>
-                <div class="timeline-content">
-                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_2' | translate }}</h4>
-                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_2_DESC' | translate }}</p>
-                </div>
-              </div>
-              
-              <div class="timeline-item">
-                <div class="timeline-marker">3</div>
-                <div class="timeline-content">
-                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_3' | translate }}</h4>
-                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_3_DESC' | translate }}</p>
-                </div>
-              </div>
-              
-              <div class="timeline-item">
-                <div class="timeline-marker">4</div>
-                <div class="timeline-content">
-                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_4' | translate }}</h4>
-                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_4_DESC' | translate }}</p>
-                </div>
-              </div>
-              
-              <div class="timeline-item">
-                <div class="timeline-marker">5</div>
-                <div class="timeline-content">
-                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_5' | translate }}</h4>
-                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_5_DESC' | translate }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="section-content">
-            <div class="section-header">
-              <span class="section-icon">
-                <span class="material-icons">calendar_month</span>
-              </span>
-              <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.GROUP_PROGRAM' | translate }}</h2>
-            </div>
-            
-            <div class="section-description">
-              <p class="lead" [innerHTML]="'SERVICES.SERVICE_TRIPLE_P.GROUP_DESC' | translate"></p>
-              
-              <div class="program-details">
-                <div class="detail-item">
-                  <span class="material-icons">schedule</span>
-                  <div>
-                    <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_DURATION' | translate }}</h4>
-                    <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_DURATION_DESC' | translate }}</p>
-                  </div>
-                </div>
-                
-                <div class="detail-item">
-                  <span class="material-icons">timer</span>
-                  <div>
-                    <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.SESSION_DURATION' | translate }}</h4>
-                    <p>{{ 'SERVICES.SERVICE_TRIPLE_P.SESSION_DURATION_DESC' | translate }}</p>
-                  </div>
-                </div>
-                
-                <div class="detail-item">
-                  <span class="material-icons">group</span>
-                  <div>
-                    <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.GROUP_SIZE' | translate }}</h4>
-                    <p>{{ 'SERVICES.SERVICE_TRIPLE_P.GROUP_SIZE_DESC' | translate }}</p>
-                  </div>
-                </div>
-                
-                <div class="detail-item">
-                  <span class="material-icons">phone_in_talk</span>
-                  <div>
-                    <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.PHONE_SUPPORT' | translate }}</h4>
-                    <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PHONE_SUPPORT_DESC' | translate }}</p>
-                  </div>
-                </div>
-              </div>
-              
-              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_DESC' | translate }}</p>
-              
-              <div class="info-card">
-                <span class="material-icons">info</span>
-                <div>
-                  <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.INDIVIDUAL_SUPPORT' | translate }}</h4>
-                  <p>{{ 'SERVICES.SERVICE_TRIPLE_P.INDIVIDUAL_SUPPORT_DESC' | translate }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Scientific Validation Section -->
-      <section class="validation-section">
-        <div class="section-header center">
-          <span class="section-icon">
-            <span class="material-icons">science</span>
-          </span>
-          <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.SCIENTIFIC_VALIDATION' | translate }}</h2>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_2' | translate }}</h3>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_2_DESC' | translate }}</p>
         </div>
         
-        <div class="validation-cards">
-          <div class="validation-card">
-            <div class="validation-number">180+</div>
-            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.STUDIES' | translate }}</h3>
-            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STUDIES_DESC' | translate }}</p>
+        <div class="principle-card">
+          <div class="principle-number">3</div>
+          <div class="principle-icon">
+            <span class="material-icons">balance</span>
           </div>
-          
-          <div class="validation-card">
-            <div class="validation-number">%60-70</div>
-            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.IMPROVEMENT' | translate }}</h3>
-            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.IMPROVEMENT_DESC' | translate }}</p>
-          </div>
-          
-          <div class="validation-card">
-            <div class="validation-number">35+</div>
-            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.EXPERIENCE' | translate }}</h3>
-            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.EXPERIENCE_DESC' | translate }}</p>
-          </div>
-          
-          <div class="validation-card who-approved">
-            <span class="material-icons">verified_user</span>
-            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.WHO_APPROVED' | translate }}</h3>
-            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WHO_APPROVED_DESC' | translate }}</p>
-          </div>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_3' | translate }}</h3>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_3_DESC' | translate }}</p>
         </div>
-      </section>
-
-      <!-- Registration Section -->
-      <section class="registration-section">
-        <div class="registration-content">
-          <h2>{{ 'SERVICES.SERVICE_TRIPLE_P.REGISTRATION' | translate }}</h2>
-          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.REGISTRATION_DESC' | translate }}</p>
-          
-          <div class="registration-info">
-            <div class="info-item">
-              <span class="material-icons">event</span>
-              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.SEASONAL_START' | translate }}</p>
-            </div>
-            <div class="info-item">
-              <span class="material-icons">people</span>
-              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.LIMITED_QUOTA' | translate }}</p>
-            </div>
-            <div class="info-item">
-              <span class="material-icons">badge</span>
-              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.CERTIFIED_PRACTITIONER' | translate }}</p>
-            </div>
+        
+        <div class="principle-card">
+          <div class="principle-number">4</div>
+          <div class="principle-icon">
+            <span class="material-icons">psychology</span>
           </div>
-          
-          <div class="registration-buttons">
-            <a routerLink="/iletisim" class="btn btn-primary">
-              <span class="material-icons">app_registration</span>
-              {{ 'SERVICES.SERVICE_TRIPLE_P.PRE_REGISTER' | translate }}
-            </a>
-            <a href="tel:+902166884483" class="btn btn-secondary">
-              <span class="material-icons">phone</span>
-              {{ 'SERVICES.SERVICE_TRIPLE_P.GET_INFO' | translate }}
-            </a>
-          </div>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_4' | translate }}</h3>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_4_DESC' | translate }}</p>
         </div>
-      </section>
-      
+        
+        <div class="principle-card highlight">
+          <div class="principle-number">5</div>
+          <div class="principle-icon">
+            <span class="material-icons">self_improvement</span>
+          </div>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_5' | translate }}</h3>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_5_DESC' | translate }}</p>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-icon">
+          <span class="material-icons">stars</span>
+        </span>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_TITLE' | translate }}</h2>
+      </div>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <span class="material-icons">mood</span>
+          </div>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN' | translate }}</h3>
+          <ul>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_1' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_2' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_3' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_4' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_CHILDREN_5' | translate }}</li>
+          </ul>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <span class="material-icons">favorite</span>
+          </div>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS' | translate }}</h3>
+          <ul>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_1' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_2' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_3' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_4' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_PARENTS_5' | translate }}</li>
+          </ul>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <span class="material-icons">home</span>
+          </div>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY' | translate }}</h3>
+          <ul>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_1' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_2' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_3' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_4' | translate }}</li>
+            <li>{{ 'SERVICES.SERVICE_TRIPLE_P.BENEFITS_FAMILY_5' | translate }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Structure Section -->
+  <section class="structure-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-icon">
+          <span class="material-icons">architecture</span>
+        </span>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_STRUCTURE' | translate }}</h2>
+      </div>
+      
+      <div class="structure-grid">
+        <div class="structure-item">
+          <div class="structure-marker">1</div>
+          <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_1' | translate }}</h4>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_1_DESC' | translate }}</p>
+        </div>
+        
+        <div class="structure-item">
+          <div class="structure-marker">2</div>
+          <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_2' | translate }}</h4>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_2_DESC' | translate }}</p>
+        </div>
+        
+        <div class="structure-item">
+          <div class="structure-marker">3</div>
+          <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_3' | translate }}</h4>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_3_DESC' | translate }}</p>
+        </div>
+        
+        <div class="structure-item">
+          <div class="structure-marker">4</div>
+          <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_4' | translate }}</h4>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_4_DESC' | translate }}</p>
+        </div>
+        
+        <div class="structure-item">
+          <div class="structure-marker">5</div>
+          <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_5' | translate }}</h4>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEP_5_DESC' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Levels Section -->
+  <section class="levels-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-icon">
+          <span class="material-icons">stairs</span>
+        </span>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_LEVELS' | translate }}</h2>
+      </div>
+      
+      <div class="levels-container">
+        <div class="level-card">
+          <div class="level-header">
+            <span class="material-icons">event</span>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.LEVEL_SEMINARS' | translate }}</h3>
+          </div>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.LEVEL_SEMINARS_DESC' | translate }}</p>
+        </div>
+        
+        <div class="level-card">
+          <div class="level-header">
+            <span class="material-icons">groups</span>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.LEVEL_GROUP' | translate }}</h3>
+          </div>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.LEVEL_GROUP_DESC' | translate }}</p>
+        </div>
+        
+        <div class="level-card">
+          <div class="level-header">
+            <span class="material-icons">person</span>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.LEVEL_INDIVIDUAL' | translate }}</h3>
+          </div>
+          <p>{{ 'SERVICES.SERVICE_TRIPLE_P.LEVEL_INDIVIDUAL_DESC' | translate }}</p>
+        </div>
+      </div>
+      
+      <div class="special-programs">
+        <h3 class="special-title">{{ 'SERVICES.SERVICE_TRIPLE_P.SPECIAL_PROGRAMS' | translate }}</h3>
+        <div class="special-grid">
+          <div class="special-card">
+            <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.STEPPING_STONES' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.STEPPING_STONES_DESC' | translate }}</p>
+          </div>
+          <div class="special-card">
+            <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.FAMILY_TRANSITIONS' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.FAMILY_TRANSITIONS_DESC' | translate }}</p>
+          </div>
+          <div class="special-card">
+            <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.FEAR_LESS' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.FEAR_LESS_DESC' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Group Program Section -->
+  <section class="group-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-icon">
+          <span class="material-icons">calendar_month</span>
+        </span>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.GROUP_PROGRAM' | translate }}</h2>
+      </div>
+      
+      <div class="group-content">
+        <p class="lead" [innerHTML]="'SERVICES.SERVICE_TRIPLE_P.GROUP_DESC' | translate"></p>
+        
+        <div class="program-details-grid">
+          <div class="detail-item">
+            <span class="material-icons">schedule</span>
+            <div>
+              <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_DURATION' | translate }}</h4>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_DURATION_DESC' | translate }}</p>
+            </div>
+          </div>
+          
+          <div class="detail-item">
+            <span class="material-icons">timer</span>
+            <div>
+              <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.SESSION_DURATION' | translate }}</h4>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.SESSION_DURATION_DESC' | translate }}</p>
+            </div>
+          </div>
+          
+          <div class="detail-item">
+            <span class="material-icons">group</span>
+            <div>
+              <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.GROUP_SIZE' | translate }}</h4>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.GROUP_SIZE_DESC' | translate }}</p>
+            </div>
+          </div>
+          
+          <div class="detail-item">
+            <span class="material-icons">phone_in_talk</span>
+            <div>
+              <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.PHONE_SUPPORT' | translate }}</h4>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PHONE_SUPPORT_DESC' | translate }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_DESC' | translate }}</p>
+        
+        <div class="info-card">
+          <span class="material-icons">info</span>
+          <div>
+            <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.INDIVIDUAL_SUPPORT' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.INDIVIDUAL_SUPPORT_DESC' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scientific Validation Section -->
+  <section class="validation-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-icon">
+          <span class="material-icons">science</span>
+        </span>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.SCIENTIFIC_VALIDATION' | translate }}</h2>
+        <p class="section-subtitle">{{ 'SERVICES.SERVICE_TRIPLE_P.SCIENTIFIC_SUBTITLE' | translate }}</p>
+      </div>
+      
+      <div class="validation-overview">
+        <div class="research-stats">
+          <div class="stat-item primary">
+            <div class="stat-number">1100+</div>
+            <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.TOTAL_PUBLICATIONS' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.TOTAL_PUBLICATIONS_DESC' | translate }}</p>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">390+</div>
+            <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.EFFECTIVENESS_STUDIES' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.EFFECTIVENESS_STUDIES_DESC' | translate }}</p>
+          </div>
+          <div class="stat-item highlight">
+            <div class="stat-number">180+</div>
+            <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.RCT_STUDIES' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.RCT_STUDIES_DESC' | translate }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="validation-cards">
+        <div class="validation-card improvement">
+          <div class="card-header">
+            <span class="material-icons">trending_up</span>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.CLINICAL_OUTCOMES' | translate }}</h3>
+          </div>
+          <div class="outcome-stats">
+            <div class="outcome-item">
+              <span class="percentage">%60-80</span>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.CLINICAL_IMPROVEMENT' | translate }}</p>
+            </div>
+            <div class="outcome-item">
+              <span class="percentage">%70</span>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.BEHAVIOR_REDUCTION' | translate }}</p>
+            </div>
+          </div>
+          <p class="card-detail">{{ 'SERVICES.SERVICE_TRIPLE_P.CLINICAL_DETAIL' | translate }}</p>
+        </div>
+        
+        <div class="validation-card experience">
+          <div class="card-header">
+            <span class="material-icons">history</span>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.RESEARCH_HISTORY' | translate }}</h3>
+          </div>
+          <div class="timeline-info">
+            <div class="timeline-item">
+              <span class="year">1970</span>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.FOUNDED' | translate }}</p>
+            </div>
+            <div class="timeline-item">
+              <span class="year">40+</span>
+              <p>{{ 'SERVICES.SERVICE_TRIPLE_P.YEARS_DEVELOPMENT' | translate }}</p>
+            </div>
+          </div>
+          <p class="card-detail">{{ 'SERVICES.SERVICE_TRIPLE_P.QUEENSLAND_INFO' | translate }}</p>
+        </div>
+        
+        <div class="validation-card recognition">
+          <div class="card-header">
+            <span class="material-icons">public</span>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.GLOBAL_RECOGNITION' | translate }}</h3>
+          </div>
+          <div class="org-list">
+            <div class="org-item">
+              <span class="material-icons">verified</span>
+              <span>{{ 'SERVICES.SERVICE_TRIPLE_P.WHO' | translate }}</span>
+            </div>
+            <div class="org-item">
+              <span class="material-icons">verified</span>
+              <span>{{ 'SERVICES.SERVICE_TRIPLE_P.UNICEF' | translate }}</span>
+            </div>
+            <div class="org-item">
+              <span class="material-icons">verified</span>
+              <span>{{ 'SERVICES.SERVICE_TRIPLE_P.WORLD_BANK' | translate }}</span>
+            </div>
+          </div>
+          <p class="card-detail">{{ 'SERVICES.SERVICE_TRIPLE_P.INSPIRE_INFO' | translate }}</p>
+        </div>
+        
+        <div class="validation-card meta-analysis">
+          <div class="card-header">
+            <span class="material-icons">analytics</span>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.META_ANALYSIS' | translate }}</h3>
+          </div>
+          <p class="card-detail">{{ 'SERVICES.SERVICE_TRIPLE_P.META_ANALYSIS_DESC' | translate }}</p>
+          <div class="journal-mention">
+            <span class="material-icons">menu_book</span>
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.JOURNAL_INFO' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

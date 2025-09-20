@@ -24,14 +24,10 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets"
               }
             ],
             "styles": [
+              "src/app/styles/tokens/_index.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -87,11 +83,6 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets"
               }
             ],
             "styles": [
