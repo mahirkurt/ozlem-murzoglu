@@ -47,15 +47,11 @@
     "CLOSE_MENU": "Menüyü kapat"
   },
   "HOME": {
-    "HERO_TITLE": "Bilimin Rehberliğinde Şefkatli Bir Dokunuş",
-    "HERO_SUBTITLE": "Sosyal Pediatri ve Çocuk Gelişimi Disiplinlerini Entegre Eden Bütüncül Yaklaşım",
+    "HERO_TITLE": "Sosyal Pediatri ve Çocuk Gelişimi uzmanlıklarını şefkat ve sevgiyle bütünleştiren bütüncül hekimlik yaklaşımı",
+    "HERO_SUBTITLE": "UZM.DR. ÖZLEM MURZOĞLU ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ",
     "HERO_DESCRIPTION": "",
     "CTA_APPOINTMENT": "Hemen Randevu Al",
     "CTA_LEARN_MORE": "Detaylı Bilgi"
-  },
-  "HERO": {
-    "TITLE": "Bilimin Rehberliğinde Şefkatli Bir Dokunuş",
-    "SUBTITLE": "Sosyal Pediatri ve Çocuk Gelişimi Disiplinlerini Entegre Eden Bütüncül Yaklaşım"
   },
   "ABOUT": {
     "PAGE_TITLE": "Hakkımızda",
@@ -357,7 +353,6 @@
     "SECTION_TITLE": "Bilgi Merkezi",
     "PAGE_TITLE": "Bilgi Merkezi",
     "SUBTITLE": "Ailelere ve çocuklara yönelik bilgilendirici kaynaklar",
-    "ALL_RESOURCES": "Tüm Kaynaklar",
     "HOME_BREADCRUMB": "Ana Sayfa",
     "RESOURCES_BREADCRUMB": "Bilgi Merkezi",
     "SEARCH_PLACEHOLDER": "Kaynak ara...",
@@ -1038,7 +1033,7 @@
     },
     "SERVICE_BRIGHT": {
       "BREADCRUMB": "Bright Futures Programı",
-      "HERO_TITLE": "Bright Futures® Sağlıklı Çocuk İzlemi", 
+      "HERO_TITLE": "Bright Futures® Sağlıklı Çocuk İzlemi",
       "HERO_SUBTITLE": "Amerikan Pediatri Akademisi standartlarında çocuk takibi",
       "WHAT_IS": "Bright Futures® Nedir?",
       "WHAT_IS_DESC": "Bright Futures®, Amerikan Pediatri Akademisi (AAP) tarafından geliştirilen, doğumdan 21 yaşına kadar çocuk ve gençlerin sağlığını ve gelişimini izlemek için oluşturulmuş kapsamlı bir rehber programdır.",

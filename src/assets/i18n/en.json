@@ -14,7 +14,7 @@
     "LEARN_MORE": "Learn More",
     "GET_INFO": "Get Information",
     "YEARS_AGO": "years ago",
-    "MONTHS_AGO": "months ago", 
+    "MONTHS_AGO": "months ago",
     "WEEKS_AGO": "weeks ago",
     "DAYS_AGO": "days ago",
     "HOURS_AGO": "hours ago",
@@ -47,15 +47,11 @@
     "CLOSE_MENU": "Close menu"
   },
   "HOME": {
-    "HERO_TITLE": "A Compassionate Touch Guided by Science",
-    "HERO_SUBTITLE": "A Holistic Approach Integrating Social Pediatrics and Child Development Disciplines",
+    "HERO_TITLE": "A holistic medical practice bringing together social pediatrics and child development disciplines with compassion and love",
+    "HERO_SUBTITLE": "SPEC.DR. ÖZLEM MURZOĞLU PEDIATRICS AND CHILD HEALTH CLINIC",
     "HERO_DESCRIPTION": "",
     "CTA_APPOINTMENT": "Book Appointment",
     "CTA_LEARN_MORE": "Learn More"
-  },
-  "HERO": {
-    "TITLE": "A Compassionate Touch Guided by Science",
-    "SUBTITLE": "A Holistic Approach Integrating Social Pediatrics and Child Development Disciplines"
   },
   "ABOUT": {
     "PAGE_TITLE": "About Us",
@@ -1798,7 +1794,7 @@
     "BLOG": {
       "CATEGORIES": {
         "BABY_CARE": "Baby Care",
-        "CHILD_PSYCHOLOGY": "Child Psychology", 
+        "CHILD_PSYCHOLOGY": "Child Psychology",
         "CHILD_DEVELOPMENT": "Child Development",
         "ADOLESCENCE": "Adolescence",
         "SAFETY": "Safety",
