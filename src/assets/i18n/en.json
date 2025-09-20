@@ -47,11 +47,15 @@
     "CLOSE_MENU": "Close menu"
   },
   "HOME": {
-    "HERO_TITLE": "A holistic medical practice bringing together social pediatrics and child development disciplines with compassion and love",
-    "HERO_SUBTITLE": "SPEC.DR. ÖZLEM MURZOĞLU PEDIATRICS AND CHILD HEALTH CLINIC",
+    "HERO_TITLE": "A Compassionate Touch Guided by Science",
+    "HERO_SUBTITLE": "A Holistic Approach Integrating Social Pediatrics and Child Development Disciplines",
     "HERO_DESCRIPTION": "",
     "CTA_APPOINTMENT": "Book Appointment",
     "CTA_LEARN_MORE": "Learn More"
+  },
+  "HERO": {
+    "TITLE": "A Compassionate Touch Guided by Science",
+    "SUBTITLE": "A Holistic Approach Integrating Social Pediatrics and Child Development Disciplines"
   },
   "ABOUT": {
     "PAGE_TITLE": "About Us",

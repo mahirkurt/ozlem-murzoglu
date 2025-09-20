@@ -35,9 +35,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       href: '/hakkimizda',
       children: [
         { labelKey: 'HEADER.NAV_ABOUT_US', href: '/hakkimizda' },
-        { labelKey: 'HEADER.NAV_DR_OZLEM', href: '/saygiyla' },
-        { labelKey: 'HEADER.NAV_CLINIC_DESIGN', href: '/hakkimizda/klinik-tasarimi' },
-        { labelKey: 'HEADER.NAV_FAQ', href: '/hakkimizda/sss' }
+        { labelKey: 'HEADER.NAV_DR_OZLEM', href: '/hakkimizda' },
+        { labelKey: 'HEADER.NAV_CLINIC_DESIGN', href: '/hakkimizda' },
+        { labelKey: 'HEADER.NAV_FAQ', href: '/sss' }
       ]
     },
     {
@@ -52,9 +52,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
     {
       labelKey: 'HEADER.NAV_INFO_CENTER',
-      href: '/bilgi-merkezi',
+      href: '/kaynaklar',
       children: [
-        { labelKey: 'RESOURCES.ALL_RESOURCES', href: '/bilgi-merkezi' },
+        { labelKey: 'RESOURCES.ALL_RESOURCES', href: '/kaynaklar' },
         { labelKey: 'RESOURCES.CATEGORIES.VACCINES', href: '/bilgi-merkezi/asilar' },
         { labelKey: 'RESOURCES.CATEGORIES.DEVELOPMENT', href: '/bilgi-merkezi/gelisim-rehberleri' },
         { labelKey: 'RESOURCES.CATEGORIES.GENERAL_INFO', href: '/bilgi-merkezi/genel-bilgiler' },
@@ -66,9 +66,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       labelKey: 'HEADER.NAV_RESPECT',
       href: '/saygiyla',
       children: [
-        { labelKey: 'HEADER.NAV_INSPIRING', href: '/saygiyla' },
-        { labelKey: 'HEADER.NAV_THANKS', href: '/saygiyla/tesekkurler' },
-        { labelKey: 'HEADER.NAV_MEMORIES', href: '/saygiyla/anilar' }
+        { label: 'Mustafa Kemal Atatürk', href: '/saygiyla' },
+        { label: 'Prof. Dr. Albert Sabin', href: '/saygiyla' },
+        { label: 'Prof. Dr. İhsan Doğramacı', href: '/saygiyla' },
+        { label: 'Prof. Dr. Türkan Saylan', href: '/saygiyla' }
       ]
     },
     {
