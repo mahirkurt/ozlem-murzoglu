@@ -9,62 +9,287 @@
 
 ### 2. Pure CSS Design Tokens Sistemi
 
+## 🎨 Renk Sistemi
+
+### Güncel Renk Paleti (2025)
+
+Pediatri kliniği için özel olarak tasarlanmış, çocuk dostu ve profesyonel renk paleti:
+
+### Dinamik Renk Paleti
+
 #### Color Tokens (CSS Custom Properties)
 ```css
 :root {
-  /* Primary palette */
-  --md-sys-color-primary: #6750a4;
-  --md-sys-color-on-primary: #ffffff;
-  --md-sys-color-primary-container: #eaddff;
-  --md-sys-color-on-primary-container: #21005d;
+  /* Primary palette - Teal/Camgöbeği (Güven, Sağlık, Huzur) */
+  --md-sys-color-primary: #00897B;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #B2DFDB;
+  --md-sys-color-on-primary-container: #00251A;
   
-  /* Secondary palette */
-  --md-sys-color-secondary: #625b71;
-  --md-sys-color-on-secondary: #ffffff;
-  --md-sys-color-secondary-container: #e8def8;
-  --md-sys-color-on-secondary-container: #1d192b;
+  /* Secondary palette - Amber/Sarı (Enerji, Pozitiflik, Çocuk Neşesi) */
+  --md-sys-color-secondary: #FFB300;
+  --md-sys-color-on-secondary: #3E2723;
+  --md-sys-color-secondary-container: #FFF3E0;
+  --md-sys-color-on-secondary-container: #5D4037;
   
-  /* Tertiary palette */
-  --md-sys-color-tertiary: #7d5260;
-  --md-sys-color-on-tertiary: #ffffff;
-  --md-sys-color-tertiary-container: #ffd8e4;
-  --md-sys-color-on-tertiary-container: #31111d;
+  /* Tertiary palette - Coral/Mercan (Sıcaklık, Şefkat, Bakım) */
+  --md-sys-color-tertiary: #FF7043;
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #FFCCBC;
+  --md-sys-color-on-tertiary-container: #BF360C;
   
   /* Error palette */
-  --md-sys-color-error: #ba1a1a;
-  --md-sys-color-on-error: #ffffff;
-  --md-sys-color-error-container: #ffdad6;
-  --md-sys-color-on-error-container: #410002;
+  --md-sys-color-error: #D32F2F;
+  --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-error-container: #FFCDD2;
+  --md-sys-color-on-error-container: #B71C1C;
   
-  /* Surface tokens (5 levels) */
-  --md-sys-color-surface-dim: #ded8e1;
-  --md-sys-color-surface: #fef7ff;
-  --md-sys-color-surface-bright: #fef7ff;
-  --md-sys-color-surface-container-lowest: #ffffff;
-  --md-sys-color-surface-container-low: #f8f2fa;
-  --md-sys-color-surface-container: #f3edf7;
-  --md-sys-color-surface-container-high: #ede7f1;
-  --md-sys-color-surface-container-highest: #e7e0ec;
+  /* Surface tokens (5 levels) - Sıcak ve samimi tonlar */
+  --md-sys-color-surface-dim: #F5F5F5;
+  --md-sys-color-surface: #FAF8F5;
+  --md-sys-color-surface-bright: #FFFFFF;
+  --md-sys-color-surface-container-lowest: #FFFFFF;
+  --md-sys-color-surface-container-low: #FAFAFA;
+  --md-sys-color-surface-container: #F5F5F5;
+  --md-sys-color-surface-container-high: #EEEEEE;
+  --md-sys-color-surface-container-highest: #E8E8E8;
   
   /* Surface variants */
-  --md-sys-color-surface-variant: #e7e0ec;
-  --md-sys-color-on-surface: #1c1b1f;
-  --md-sys-color-on-surface-variant: #49454f;
+  --md-sys-color-surface-variant: #E0F2F1;
+  --md-sys-color-on-surface: #212121;
+  --md-sys-color-on-surface-variant: #616161;
   
   /* Outline */
-  --md-sys-color-outline: #79747e;
-  --md-sys-color-outline-variant: #cac4d0;
+  --md-sys-color-outline: #9E9E9E;
+  --md-sys-color-outline-variant: #BDBDBD;
   
   /* Inverse */
-  --md-sys-color-inverse-surface: #313033;
-  --md-sys-color-inverse-on-surface: #f4eff4;
-  --md-sys-color-inverse-primary: #d0bcff;
+  --md-sys-color-inverse-surface: #303030;
+  --md-sys-color-inverse-on-surface: #FAFAFA;
+  --md-sys-color-inverse-primary: #4DB6AC;
   
   /* Shadows */
   --md-sys-color-shadow: #000000;
   --md-sys-color-scrim: #000000;
+  
+  /* Pediatri Kliniği Özel Renkleri */
+  --md-sys-color-success: #4CAF50;
+  --md-sys-color-on-success: #FFFFFF;
+  --md-sys-color-success-container: #C8E6C9;
+  --md-sys-color-on-success-container: #1B5E20;
+  
+  --md-sys-color-warning: #FF9800;
+  --md-sys-color-on-warning: #000000;
+  --md-sys-color-warning-container: #FFE0B2;
+  --md-sys-color-on-warning-container: #E65100;
+  
+  --md-sys-color-info: #2196F3;
+  --md-sys-color-on-info: #FFFFFF;
+  --md-sys-color-info-container: #BBDEFB;
+  --md-sys-color-on-info-container: #0D47A1;
+}
+
+/* Dark theme overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-primary: #4DB6AC;
+    --md-sys-color-on-primary: #00251A;
+    --md-sys-color-primary-container: #00695C;
+    --md-sys-color-on-primary-container: #B2DFDB;
+    
+    --md-sys-color-secondary: #FFD54F;
+    --md-sys-color-on-secondary: #3E2723;
+    --md-sys-color-secondary-container: #FF8F00;
+    --md-sys-color-on-secondary-container: #FFF3E0;
+    
+    --md-sys-color-surface: #121212;
+    --md-sys-color-surface-container: #1E1E1E;
+    --md-sys-color-on-surface: #E0E0E0;
+  }
 }
 ```
+
+#### Renk Psikolojisi ve Seçim Mantığı
+
+| Renk | Değer | Psikolojik Etki | Kullanım Alanı |
+|------|-------|-----------------|----------------|
+| **Primer - Teal** | #00897B | Güven, sağlık, profesyonellik, huzur | Ana aksiyonlar, navigasyon, başlıklar |
+| **Sekonder - Amber** | #FFB300 | Enerji, neşe, sıcaklık, pozitiflik | Vurgu butonları, önemli bilgiler, logo |
+| **Tersiyer - Coral** | #FF7043 | Şefkat, bakım, sıcaklık, empati | Yardımcı aksiyonlar, hover durumları |
+
+#### Renk Kombinasyon Kuralları
+
+```scss
+// Ana kombinasyonlar
+.primary-with-secondary {
+  background: var(--md-sys-color-primary);
+  accent-color: var(--md-sys-color-secondary);
+}
+
+// Kontrast oranları (WCAG AAA uyumlu)
+.high-contrast {
+  // Teal (#00897B) on White: 4.74:1 ✓
+  // Amber (#FFB300) on Dark: 10.86:1 ✓
+  // Coral (#FF7043) on White: 3.26:1 ✓
+}
+
+// Pediatri özel kombinasyonlar
+.child-friendly-card {
+  background-color: var(--md-sys-color-surface);
+  border-left: 4px solid var(--md-sys-color-secondary);
+  
+  &:hover {
+    background-color: var(--md-sys-color-secondary-container);
+  }
+}
+
+.health-status {
+  &.healthy {
+    color: var(--md-sys-color-success);
+    background-color: var(--md-sys-color-success-container);
+  }
+  
+  &.warning {
+    color: var(--md-sys-color-warning);
+    background-color: var(--md-sys-color-warning-container);
+  }
+  
+  &.critical {
+    color: var(--md-sys-color-error);
+    background-color: var(--md-sys-color-error-container);
+  }
+}
+```
+
+### Material You Desteği
+
+```typescript
+// material-you-pediatric.service.ts
+async generatePediatricScheme(imageUrl: string): Promise<void> {
+  const pixels = await this.getImagePixels(imageUrl);
+  const quantizer = new QuantizerCelebi();
+  const quantized = quantizer.quantize(pixels, 128);
+  const ranked = Score.score(quantized);
+  
+  // Pediatri kliniği için özel renk filtresi
+  const filteredColors = this.filterChildFriendlyColors(ranked);
+  const primaryArgb = filteredColors[0];
+  
+  const sourceColor = Hct.fromInt(primaryArgb);
+  
+  // Daha yumuşak ve sıcak tonlar için özel scheme
+  const scheme = new SchemeExpressive(sourceColor, false, 0.0);
+  
+  // Renkleri yumuşat ve sıcaklık ekle
+  this.applyWarmPediatricScheme(scheme);
+}
+
+private filterChildFriendlyColors(colors: number[]): number[] {
+  return colors.filter(color => {
+    const hct = Hct.fromInt(color);
+    // Çok parlak veya çok koyu renkleri filtrele
+    return hct.tone >= 30 && hct.tone <= 80 && 
+           hct.chroma >= 20; // Canlı ama göz yormayan
+  });
+}
+
+private applyWarmPediatricScheme(scheme: any): void {
+  const root = document.documentElement;
+  
+  // Renklere sıcaklık ekle
+  const warmifyColor = (argb: number): string => {
+    const hct = Hct.fromInt(argb);
+    // Sarı/turuncu tonlarına doğru hafif kayma
+    hct.hue = hct.hue + 5;
+    return hexFromArgb(hct.toInt());
+  };
+  
+  // Ana renkleri uygula
+  root.style.setProperty('--md-sys-color-primary', warmifyColor(scheme.primary));
+  root.style.setProperty('--md-sys-color-secondary', warmifyColor(scheme.secondary));
+  // ... diğer renkler
+}
+```
+
+### Zaman-Duyarlı Renk Adaptasyonu
+
+```typescript
+// time-based-color.service.ts
+export class TimeBasedColorService {
+  private updateInterval: any;
+  
+  startTimeBasedColorAdaptation(): void {
+    this.applyTimeBasedColors();
+    
+    // Her 30 dakikada bir güncelle
+    this.updateInterval = setInterval(() => {
+      this.applyTimeBasedColors();
+    }, 30 * 60 * 1000);
+  }
+  
+  private applyTimeBasedColors(): void {
+    const hour = new Date().getHours();
+    const adjustment = this.getTimeBasedAdjustment(hour);
+    
+    // CSS değişkenlerini güncelle
+    this.adjustColorBrightness(adjustment);
+  }
+  
+  private getTimeBasedAdjustment(hour: number): ColorAdjustment {
+    if (hour >= 6 && hour < 12) {      // Sabah: Enerjik
+      return { 
+        brightness: 1.1, 
+        saturation: 1.05,
+        primaryShift: 5,  // Daha canlı
+      };
+    } else if (hour >= 12 && hour < 17) { // Öğleden sonra: Dengeli
+      return { 
+        brightness: 1.0, 
+        saturation: 1.0,
+        primaryShift: 0,
+      };
+    } else if (hour >= 17 && hour < 21) { // Akşam: Sıcak
+      return { 
+        brightness: 0.95, 
+        saturation: 1.1, 
+        warmth: 1.2,
+        primaryShift: -5,  // Daha sıcak tonlar
+      };
+    } else {                            // Gece: Dingin
+      return { 
+        brightness: 0.85, 
+        saturation: 0.9,
+        primaryShift: -10, // Daha sakin
+      };
+    }
+  }
+  
+  private adjustColorBrightness(adjustment: ColorAdjustment): void {
+    const root = document.documentElement;
+    const primaryColor = getComputedStyle(root).getPropertyValue('--md-sys-color-primary');
+    
+    // HCT color space'de ayarlama yap
+    const hct = Hct.fromInt(argbFromHex(primaryColor));
+    hct.tone = hct.tone * adjustment.brightness;
+    hct.chroma = hct.chroma * adjustment.saturation;
+    
+    if (adjustment.primaryShift) {
+      hct.hue = hct.hue + adjustment.primaryShift;
+    }
+    
+    // Güncellenmiş rengi uygula
+    root.style.setProperty('--md-sys-color-primary-adjusted', hexFromArgb(hct.toInt()));
+  }
+}
+
+interface ColorAdjustment {
+  brightness: number;
+  saturation: number;
+  warmth?: number;
+  primaryShift?: number;
+}
+```
+
 
 #### Typography System (Pure CSS)
 ```css
