@@ -79,7 +79,11 @@
     "CHILD_DEVELOPMENT": "Child Development Specialist",
     "DOCTORATE": "Doctorate - Social Pediatrics",
     "BACHELOR": "Bachelor - Child Development",
+    "PRESENTP": "Present",
     "SPECIALIZATION": "Specialization - Pediatrics and Child Health",
+    "NOV": "Nov",
+    "OCT": "Oct",
+    "FEB": "Feb",
     "MEDICAL_DOCTOR": "Medical Doctor",
     "HIGH_SCHOOL": "High School",
     "CLINIC_FOUNDER": "Pediatrician - Clinic Founder",
@@ -128,7 +132,57 @@
       "HEALTHY_CHILD_TEXT": "[EN] Healthy Child Text",
       "NEW_BEGINNING": "[EN] New Beginning",
       "NEW_BEGINNING_TEXT": "[EN] New Beginning Text"
-    }
+    },
+    "AUG": "Aug",
+    "PRESENT": "Present",
+    "JUL": "Jul",
+    "JUN": "Jun",
+    "DEC": "Dec",
+    "JAN": "Jan",
+    "APR": "Apr",
+    "INSTITUTION": {
+      "MARMARA_UNIVERSITY": "Marmara University",
+      "ISTANBUL_UNIVERSITY": "Istanbul University",
+      "ISTANBUL_MEDICAL": "Istanbul University Istanbul Faculty of Medicine",
+      "RIZE_ANADOLU": "Rize Anadolu High School"
+    },
+    "COMPANY": {
+      "OWN_CLINIC": "Dr. Özlem Murzoğlu Clinic",
+      "MARMARA_HOSPITAL": "Marmara University Pendik Training and Research Hospital",
+      "IGDIR_HOSPITAL": "Iğdır Tuzluca State Hospital",
+      "MARMARA_UNIVERSITY": "Marmara University",
+      "ACTAVIS": "Actavis",
+      "ARTVIN_HEALTH_CENTER": "Artvin Borçka Community Health Center"
+    },
+    "LOCATION": {
+      "ATASEHIR_ISTANBUL": "Ataşehir, Istanbul",
+      "ISTANBUL": "Istanbul",
+      "IGDIR": "Iğdır",
+      "ARTVIN": "Artvin"
+    },
+    "JOB_DESC": {
+      "MEDICAL_CONSULTANT": "Medical affairs manager for anti-infectives, dermatology and neurology"
+    },
+    "CERT": {
+      "SOS_FEEDING_TITLE": "SOS Approach to Feeding",
+      "SOS_FEEDING_PROVIDER": "SOS Approach to Feeding",
+      "DENVER_TITLE": "Denver II Developmental Screening Test",
+      "DENVER_PROVIDER": "Kim Psychology",
+      "TEEN_TRIPLE_P_TITLE": "Level 4 Group Teen Triple P",
+      "QUEENSLAND_UNIVERSITY": "The University of Queensland",
+      "GROUP_TRIPLE_P_TITLE": "Level 4 Group Triple P",
+      "EARLY_INTERVENTION_TITLE": "Interaction-Based Early Childhood Intervention Program",
+      "PILUMUNUS_PROVIDER": "Pilumunus Consulting",
+      "BREASTFEEDING_TITLE": "Advanced Breastfeeding Consultation",
+      "ISTANBUL_CHILD_HEALTH": "Istanbul University Institute of Child Health",
+      "BAYLEY_TITLE": "Bayley III Developmental Assessment Scale",
+      "CHILD_NEUROLOGY_ASSOC": "Developmental Child Neurology Association",
+      "GIDR_TITLE": "International Guide for Monitoring Child Development (GMCD)",
+      "ANKARA_MEDICAL": "Ankara University Faculty of Medicine"
+    },
+    "NOV": "Nov",
+    "OCT": "Oct",
+    "FEB": "Feb"
   },
   "SERVICES": {
     "PAGE_TITLE": "Our Services",
@@ -900,7 +954,15 @@
     "FAMILY_EDUCATION_TITLE": "Family Education",
     "FAMILY_EDUCATION_DESC": "We teach parents positive parenting techniques through the Triple P program",
     "SLEEP_NUTRITION_TITLE": "Sleep & Nutrition",
-    "SLEEP_NUTRITION_DESC": "Healthy sleep habits and nutrition counseling services"
+    "SLEEP_NUTRITION_DESC": "Healthy sleep habits and nutrition counseling services",
+    "LOVE_COMPASSION_TITLE": "Love and Compassion",
+    "LOVE_COMPASSION_DESC": "We approach every child and family with love, compassion and empathy",
+    "SOCIAL_PEDIATRICS_TITLE": "Social Pediatrics",
+    "SOCIAL_PEDIATRICS_DESC": "We support not only physical but also social and emotional development",
+    "FAMILY_CENTERED_TITLE": "Family-Centered Care",
+    "FAMILY_CENTERED_DESC": "We make families an active part of the treatment process",
+    "EVIDENCE_BASED_TITLE": "Evidence-Based Approach",
+    "EVIDENCE_BASED_DESC": "We apply treatment protocols based on the latest scientific research"
   },
   "TESTIMONIALS": {
     "TITLE": "Reviews from Our Families",

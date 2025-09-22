@@ -16,7 +16,7 @@ export class AboutComponent {
   private translate = inject(TranslateService);
   
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Hakkımızda' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_ABOUT' }
   ];
 }

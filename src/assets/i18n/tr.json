@@ -79,7 +79,57 @@
     "CHILD_DEVELOPMENT": "Çocuk Gelişimci",
     "DOCTORATE": "Doktora - Sosyal Pediatri",
     "BACHELOR": "Lisans - Çocuk Gelişimi",
+    "PRESENTP": "Halen",
     "SPECIALIZATION": "Uzmanlık - Çocuk Sağlığı ve Hastalıkları",
+    "AUG": "Ağu",
+    "JUL": "Tem",
+    "JUN": "Haz",
+    "DEC": "Ara",
+    "JAN": "Oca",
+    "APR": "Nis",
+    "NOV": "Kas",
+    "OCT": "Eki",
+    "FEB": "Şub",
+    "INSTITUTION": {
+      "MARMARA_UNIVERSITY": "Marmara Üniversitesi",
+      "ISTANBUL_UNIVERSITY": "İstanbul Üniversitesi",
+      "ISTANBUL_MEDICAL": "İstanbul Üniversitesi İstanbul Tıp Fakültesi",
+      "RIZE_ANADOLU": "Rize Anadolu Lisesi"
+    },
+    "COMPANY": {
+      "OWN_CLINIC": "Dr. Özlem Murzoğlu Çocuk Sağlığı ve Hastalıkları Kliniği",
+      "MARMARA_HOSPITAL": "Marmara Üniversitesi Pendik E.A.H",
+      "IGDIR_HOSPITAL": "Iğdır Devlet Hastanesi",
+      "MARMARA_UNIVERSITY": "Marmara Üniversitesi Tıp Fakültesi",
+      "ACTAVIS": "Actavis İlaç",
+      "ARTVIN_HEALTH_CENTER": "Artvin Yusufeli 2 Nolu Sağlık Ocağı"
+    },
+    "LOCATION": {
+      "ATASEHIR_ISTANBUL": "Ataşehir, İstanbul",
+      "ISTANBUL": "İstanbul",
+      "IGDIR": "Iğdır",
+      "ARTVIN": "Artvin"
+    },
+    "JOB_DESC": {
+      "MEDICAL_CONSULTANT": "Medikal Danışman"
+    },
+    "CERT": {
+      "SOS_FEEDING_TITLE": "SOS Approach to Feeding",
+      "SOS_FEEDING_PROVIDER": "Dr. Kay Toomey - Uzman SOS Eğitmeni",
+      "DENVER_TITLE": "Denver II Gelişimsel Tarama Testi",
+      "DENVER_PROVIDER": "Türkiye Denver II Eğitim Merkezi",
+      "TEEN_TRIPLE_P_TITLE": "Teen Triple P Ergen Ebeveynlik Programı",
+      "GROUP_TRIPLE_P_TITLE": "Group Triple P Grup Ebeveynlik Programı",
+      "QUEENSLAND_UNIVERSITY": "Queensland University",
+      "EARLY_INTERVENTION_TITLE": "Gelişimsel Gerilikte Erken Müdahale Programı",
+      "PILUMUNUS_PROVIDER": "Pilumunus Eğitim",
+      "BREASTFEEDING_TITLE": "Anne Sütü ve Emzirme Danışmanlığı",
+      "ISTANBUL_CHILD_HEALTH": "İstanbul Çocuk Sağlığı Derneği",
+      "BAYLEY_TITLE": "Bayley III Gelişim Değerlendirme Ölçeği",
+      "CHILD_NEUROLOGY_ASSOC": "Türkiye Çocuk Nöroloji Derneği",
+      "GIDR_TITLE": "GİDR Gelişimi İzleme ve Destekleme Rehberi",
+      "ANKARA_MEDICAL": "Ankara Üniversitesi Tıp Fakültesi"
+    },
     "MEDICAL_DOCTOR": "Tıp Doktoru",
     "HIGH_SCHOOL": "Lise",
     "CLINIC_FOUNDER": "Pediatri Uzmanı - Klinik Kurucusu",
@@ -128,7 +178,57 @@
       "HEALTHY_CHILD_TEXT": "[TR] Healthy Child Text",
       "NEW_BEGINNING": "[TR] New Beginning",
       "NEW_BEGINNING_TEXT": "[TR] New Beginning Text"
-    }
+    },
+    "AUG": "Ağu",
+    "PRESENT": "Halen",
+    "JUL": "Tem",
+    "JUN": "Haz",
+    "DEC": "Ara",
+    "JAN": "Oca",
+    "APR": "Nis",
+    "INSTITUTION": {
+      "MARMARA_UNIVERSITY": "Marmara Üniversitesi",
+      "ISTANBUL_UNIVERSITY": "İstanbul Üniversitesi",
+      "ISTANBUL_MEDICAL": "İstanbul Üniversitesi İstanbul Tıp Fakültesi",
+      "RIZE_ANADOLU": "Rize Anadolu Lisesi"
+    },
+    "COMPANY": {
+      "OWN_CLINIC": "Uzm.Dr. Özlem Murzoğlu Kliniği",
+      "MARMARA_HOSPITAL": "Marmara Üniversitesi Pendik Eğitim ve Araştırma Hastanesi",
+      "IGDIR_HOSPITAL": "Iğdır Tuzluca Devlet Hastanesi",
+      "MARMARA_UNIVERSITY": "Marmara Üniversitesi",
+      "ACTAVIS": "Actavis",
+      "ARTVIN_HEALTH_CENTER": "Artvin Borçka Toplum Sağlığı Merkezi"
+    },
+    "LOCATION": {
+      "ATASEHIR_ISTANBUL": "Ataşehir, İstanbul",
+      "ISTANBUL": "İstanbul",
+      "IGDIR": "Iğdır",
+      "ARTVIN": "Artvin"
+    },
+    "JOB_DESC": {
+      "MEDICAL_CONSULTANT": "Anti-infektifler, dermatoloji ve nöroloji alanlarında medikal işler sorumlusu"
+    },
+    "CERT": {
+      "SOS_FEEDING_TITLE": "SOS Approach to Feeding",
+      "SOS_FEEDING_PROVIDER": "SOS Approach to Feeding",
+      "DENVER_TITLE": "Denver II Gelişimsel Tarama Testi",
+      "DENVER_PROVIDER": "Kim Psikoloji",
+      "TEEN_TRIPLE_P_TITLE": "Level 4 Group Teen Triple P",
+      "QUEENSLAND_UNIVERSITY": "The University of Queensland",
+      "GROUP_TRIPLE_P_TITLE": "Level 4 Group Triple P",
+      "EARLY_INTERVENTION_TITLE": "Etkileşim Temelli Erken Çocuklukta Müdahale Programı",
+      "PILUMUNUS_PROVIDER": "Pilumunus Danışmanlık",
+      "BREASTFEEDING_TITLE": "İleri Düzey Anne Sütü Danışmanlığı",
+      "ISTANBUL_CHILD_HEALTH": "İstanbul Üniversitesi Çocuk Sağlığı Enstitüsü",
+      "BAYLEY_TITLE": "Bayley III Gelişimsel Tarama Ölçeği",
+      "CHILD_NEUROLOGY_ASSOC": "Gelişimsel Çocuk Nörolojisi Derneği",
+      "GIDR_TITLE": "Uluslararası Gelişimi İzleme ve Destekleme Rehberi (GİDR)",
+      "ANKARA_MEDICAL": "Ankara Üniversitesi Tıp Fakültesi"
+    },
+    "NOV": "Kas",
+    "OCT": "Eki",
+    "FEB": "Şub"
   },
   "SERVICES": {
     "PAGE_TITLE": "Hizmetlerimiz",
@@ -846,12 +946,28 @@
     "FAMILY_DESC": "Tedavi sürecine tüm aileyi dahil ediyoruz",
     "EVIDENCE_TITLE": "Kanıta Dayalı",
     "EVIDENCE_DESC": "Tedavilerimiz en güncel bilimsel araştırmalara dayanıyor",
+    "LOVE_COMPASSION_TITLE": "Sevgi ve Şefkat",
+    "LOVE_COMPASSION_DESC": "Her çocuğa kendi evlatlarımız gibi yaklaşıyoruz",
+    "SOCIAL_PEDIATRICS_TITLE": "Sosyal Pediatri",
+    "SOCIAL_PEDIATRICS_DESC": "Çocuğun sosyal çevresini ve gelişimini bir bütün olarak değerlendiriyoruz",
+    "FAMILY_CENTERED_TITLE": "Aile Merkezli Bakım",
+    "FAMILY_CENTERED_DESC": "Aileleri tedavi sürecinin aktif bir parçası haline getiriyoruz",
+    "EVIDENCE_BASED_TITLE": "Kanıta Dayalı Yaklaşım",
+    "EVIDENCE_BASED_DESC": "En güncel bilimsel araştırmalara dayalı tedavi protokolleri uyguluyoruz",
     "DEVELOPMENT_TITLE": "Gelişim Takibi",
     "DEVELOPMENT_DESC": "Bright Futures standartlarına göre çocuğunuzun gelişimini takip ediyoruz",
     "FAMILY_EDUCATION_TITLE": "Aile Eğitimi",
     "FAMILY_EDUCATION_DESC": "Triple P programı ile ebeveynlere pozitif çocuk yetiştirme teknikleri öğretiyoruz",
     "SLEEP_NUTRITION_TITLE": "Uyku ve Beslenme",
-    "SLEEP_NUTRITION_DESC": "Sağlıklı uyku alışkanlıkları ve beslenme danışmanlığı hizmetleri"
+    "SLEEP_NUTRITION_DESC": "Sağlıklı uyku alışkanlıkları ve beslenme danışmanlığı hizmetleri",
+    "LOVE_COMPASSION_TITLE": "Sevgi ve Şefkat",
+    "LOVE_COMPASSION_DESC": "Her çocuğa ve aileye sevgi, şefkat ve empati ile yaklaşırız",
+    "SOCIAL_PEDIATRICS_TITLE": "Sosyal Pediatri",
+    "SOCIAL_PEDIATRICS_DESC": "Çocuğun sadece fiziksel değil, sosyal ve duygusal gelişimini de destekleriz",
+    "FAMILY_CENTERED_TITLE": "Aile Merkezli Yaklaşım",
+    "FAMILY_CENTERED_DESC": "Tedavi sürecine aileyi de dahil ederek bütüncül bir yaklaşım sergileriz",
+    "EVIDENCE_BASED_TITLE": "Kanıta Dayalı Tıp",
+    "EVIDENCE_BASED_DESC": "En güncel bilimsel araştırmalar ışığında tedavi yöntemleri uygularız"
   },
   "TESTIMONIALS": {
     "TITLE": "Ailelerimizden Gelen Yorumlar",
