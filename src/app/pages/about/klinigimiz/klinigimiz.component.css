@@ -5,6 +5,8 @@
 .klinigimiz-page {
   min-height: 100vh;
   background: linear-gradient(180deg, var(--md-sys-color-surface) 0%, var(--md-sys-color-surface-variant) 100%);
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* Content Wrapper */
@@ -78,7 +80,7 @@
   z-index: 1;
 }
 
-.mission-icon-wrapper .material-symbols-outlined {
+.mission-icon-wrapper i {
   font-size: 40px;
   color: white;
 }
@@ -171,7 +173,7 @@
   margin-bottom: 20px;
 }
 
-.card-icon .material-symbols-outlined {
+.card-icon i {
   font-size: 28px;
   color: var(--md-sys-color-on-secondary-container);
 }
@@ -226,7 +228,7 @@
   margin-bottom: 20px;
 }
 
-.section-badge .material-symbols-outlined {
+.section-badge i {
   font-size: 20px;
 }
 
@@ -259,7 +261,7 @@
   background: var(--md-sys-color-surface-variant);
 }
 
-.feature-item .material-symbols-outlined {
+.feature-item i {
   font-size: 24px;
   color: var(--md-sys-color-primary);
 }
@@ -303,7 +305,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.safety-card .material-symbols-outlined {
+.safety-card i {
   font-size: 32px;
   margin-bottom: 12px;
   color: var(--md-sys-color-secondary);
@@ -325,7 +327,7 @@
   gap: 16px;
 }
 
-.baby-room-info .material-symbols-outlined {
+.baby-room-info i {
   font-size: 28px;
   color: var(--md-sys-color-on-secondary-container);
 }
@@ -419,7 +421,7 @@
   margin-bottom: 16px;
 }
 
-.card-header .material-symbols-outlined {
+.card-header i {
   font-size: 28px;
   color: var(--md-sys-color-tertiary);
 }
@@ -519,6 +521,7 @@
 
 .cta-section {
   padding: 80px 0;
+  margin-bottom: 0;
   background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-secondary-container) 100%);
   position: relative;
   overflow: hidden;
@@ -578,7 +581,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.md3-button-filled .material-symbols-outlined {
+.md3-button-filled i {
   font-size: 20px;
 }
 
