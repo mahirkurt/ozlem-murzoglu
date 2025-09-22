@@ -4,7 +4,7 @@
     title="CLINIC.HERO.TITLE"
     subtitle="CLINIC.HERO.SUBTITLE"
     [breadcrumbs]="breadcrumbs"
-    colorTheme="primary"
+    colorTheme="blue"
   ></app-hero-section>
 
   <!-- Main Content with MD3 Surface Hierarchy -->
@@ -15,7 +15,7 @@
       <div class="container">
         <div class="mission-card md3-elevation-1">
           <div class="mission-icon-wrapper">
-            <span class="material-symbols-outlined md3-primary">favorite</span>
+            <i class="fas fa-heart md3-primary"></i>
           </div>
           <h2 class="md3-display-small">{{ 'CLINIC.MISSION.TITLE' | translate }}</h2>
           <p class="md3-body-large">{{ 'CLINIC.MISSION.TEXT' | translate }}</p>
@@ -36,7 +36,7 @@
           <!-- CH Architecture Card -->
           <div class="team-card md3-card-filled md3-elevation-1">
             <div class="card-icon">
-              <span class="material-symbols-outlined">architecture</span>
+              <i class="fas fa-drafting-compass"></i>
             </div>
             <h3 class="md3-headline-small">{{ 'CLINIC.TEAM.CH_TITLE' | translate }}</h3>
             <p class="md3-body-medium">{{ 'CLINIC.TEAM.CH_NAMES' | translate }}</p>
@@ -46,7 +46,7 @@
           <!-- Interior Design Card -->
           <div class="team-card md3-card-filled md3-elevation-1">
             <div class="card-icon">
-              <span class="material-symbols-outlined">palette</span>
+              <i class="fas fa-palette"></i>
             </div>
             <h3 class="md3-headline-small">{{ 'CLINIC.TEAM.INTERIOR_TITLE' | translate }}</h3>
             <p class="md3-body-medium">{{ 'CLINIC.TEAM.INTERIOR_NAME' | translate }}</p>
@@ -56,7 +56,7 @@
           <!-- Design Philosophy Card -->
           <div class="team-card md3-card-filled md3-elevation-1">
             <div class="card-icon">
-              <span class="material-symbols-outlined">psychology</span>
+              <i class="fas fa-brain"></i>
             </div>
             <h3 class="md3-headline-small">{{ 'CLINIC.TEAM.PHILOSOPHY_TITLE' | translate }}</h3>
             <p class="md3-body-medium">{{ 'CLINIC.TEAM.PHILOSOPHY_DESC' | translate }}</p>
@@ -79,7 +79,7 @@
           </div>
           <div class="montessori-content">
             <div class="section-badge md3-primary-container">
-              <span class="material-symbols-outlined md3-on-primary-container">child_care</span>
+              <i class="fas fa-child md3-on-primary-container"></i>
               <span class="md3-label-large md3-on-primary-container">{{ 'CLINIC.MONTESSORI.BADGE' | translate }}</span>
             </div>
             <h2 class="md3-display-small">{{ 'CLINIC.MONTESSORI.TITLE' | translate }}</h2>
@@ -89,15 +89,15 @@
             <!-- Features List -->
             <div class="features-list">
               <div class="feature-item">
-                <span class="material-symbols-outlined md3-primary">check_circle</span>
+                <i class="fas fa-check-circle md3-primary"></i>
                 <span class="md3-body-medium">{{ 'CLINIC.MONTESSORI.FEATURE1' | translate }}</span>
               </div>
               <div class="feature-item">
-                <span class="material-symbols-outlined md3-primary">check_circle</span>
+                <i class="fas fa-check-circle md3-primary"></i>
                 <span class="md3-body-medium">{{ 'CLINIC.MONTESSORI.FEATURE2' | translate }}</span>
               </div>
               <div class="feature-item">
-                <span class="material-symbols-outlined md3-primary">check_circle</span>
+                <i class="fas fa-check-circle md3-primary"></i>
                 <span class="md3-body-medium">{{ 'CLINIC.MONTESSORI.FEATURE3' | translate }}</span>
               </div>
             </div>
@@ -109,19 +109,19 @@
           <h3 class="md3-headline-medium text-center">{{ 'CLINIC.SAFETY.TITLE' | translate }}</h3>
           <div class="safety-cards">
             <div class="safety-card md3-card-outlined">
-              <span class="material-symbols-outlined md3-secondary">security</span>
+              <i class="fas fa-shield-alt md3-secondary"></i>
               <p class="md3-label-large">{{ 'CLINIC.SAFETY.CORNERS' | translate }}</p>
             </div>
             <div class="safety-card md3-card-outlined">
-              <span class="material-symbols-outlined md3-secondary">electrical_services</span>
+              <i class="fas fa-plug md3-secondary"></i>
               <p class="md3-label-large">{{ 'CLINIC.SAFETY.ELECTRICAL' | translate }}</p>
             </div>
             <div class="safety-card md3-card-outlined">
-              <span class="material-symbols-outlined md3-secondary">window</span>
+              <i class="fas fa-window-maximize md3-secondary"></i>
               <p class="md3-label-large">{{ 'CLINIC.SAFETY.WINDOWS' | translate }}</p>
             </div>
             <div class="safety-card md3-card-outlined">
-              <span class="material-symbols-outlined md3-secondary">lock</span>
+              <i class="fas fa-lock md3-secondary"></i>
               <p class="md3-label-large">{{ 'CLINIC.SAFETY.LOCKS' | translate }}</p>
             </div>
           </div>
@@ -129,7 +129,7 @@
 
         <!-- Baby Care Room -->
         <div class="baby-room-info md3-secondary-container">
-          <span class="material-symbols-outlined md3-on-secondary-container">baby_changing_station</span>
+          <i class="fas fa-baby md3-on-secondary-container"></i>
           <p class="md3-body-large md3-on-secondary-container">{{ 'CLINIC.BABY_ROOM' | translate }}</p>
         </div>
       </div>
@@ -139,7 +139,7 @@
     <section class="hygiene-section md3-surface-container-high">
       <div class="container">
         <div class="hygiene-header text-center">
-          <span class="material-symbols-outlined md3-tertiary icon-large">sanitizer</span>
+          <i class="fas fa-pump-soap md3-tertiary icon-large"></i>
           <h2 class="md3-display-small">{{ 'CLINIC.HYGIENE.TITLE' | translate }}</h2>
           <p class="md3-title-large">{{ 'CLINIC.HYGIENE.SUBTITLE' | translate }}</p>
         </div>
@@ -151,7 +151,7 @@
             <!-- UV-C Disinfection -->
             <div class="hygiene-card md3-card-elevated">
               <div class="card-header">
-                <span class="material-symbols-outlined md3-tertiary">light_mode</span>
+                <i class="fas fa-sun md3-tertiary"></i>
                 <h3 class="md3-title-medium">{{ 'CLINIC.HYGIENE.UVC_TITLE' | translate }}</h3>
               </div>
               <p class="md3-body-medium">{{ 'CLINIC.HYGIENE.UVC_TEXT' | translate }}</p>
@@ -160,7 +160,7 @@
             <!-- Surface Disinfection -->
             <div class="hygiene-card md3-card-elevated">
               <div class="card-header">
-                <span class="material-symbols-outlined md3-tertiary">cleaning_services</span>
+                <i class="fas fa-spray-can md3-tertiary"></i>
                 <h3 class="md3-title-medium">{{ 'CLINIC.HYGIENE.SURFACE_TITLE' | translate }}</h3>
               </div>
               <p class="md3-body-medium">{{ 'CLINIC.HYGIENE.SURFACE_TEXT' | translate }}</p>
@@ -169,7 +169,7 @@
             <!-- Available for Parents -->
             <div class="hygiene-card md3-card-elevated">
               <div class="card-header">
-                <span class="material-symbols-outlined md3-tertiary">family_restroom</span>
+                <i class="fas fa-users md3-tertiary"></i>
                 <h3 class="md3-title-medium">{{ 'CLINIC.HYGIENE.PARENTS_TITLE' | translate }}</h3>
               </div>
               <p class="md3-body-medium">{{ 'CLINIC.HYGIENE.PARENTS_TEXT' | translate }}</p>
@@ -247,7 +247,7 @@
         <h3 class="md3-headline-large md3-on-primary-container">{{ 'CLINIC.CTA.TITLE' | translate }}</h3>
         <p class="md3-body-large md3-on-primary-container">{{ 'CLINIC.CTA.SUBTITLE' | translate }}</p>
         <a routerLink="/iletisim" class="md3-button-filled">
-          <span class="material-symbols-outlined">calendar_today</span>
+          <i class="fas fa-calendar-check"></i>
           {{ 'CLINIC.CTA.BUTTON' | translate }}
         </a>
       </div>
