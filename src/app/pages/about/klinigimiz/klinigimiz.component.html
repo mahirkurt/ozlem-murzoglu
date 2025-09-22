@@ -1,120 +1,178 @@
 <section class="klinigimiz-page">
-  <!-- Hero Section with Global Component -->
+  <!-- Hero Section with MD3 Design -->
   <app-hero-section
-    title="CLINIC_DESIGN.TITLE"
-    subtitle="CLINIC_DESIGN.SUBTITLE"
+    title="CLINIC.HERO.TITLE"
+    subtitle="CLINIC.HERO.SUBTITLE"
     [breadcrumbs]="breadcrumbs"
-    colorTheme="blue"
+    colorTheme="primary"
   ></app-hero-section>
 
-  <!-- Main Content -->
+  <!-- Main Content with MD3 Surface Hierarchy -->
   <div class="content-wrapper">
-    <!-- Introduction Section -->
-    <section class="intro-section section-bg-white">
+
+    <!-- Mission Section -->
+    <section class="mission-section md3-surface-container-low">
       <div class="container">
-        <div class="intro-grid">
-          <div class="intro-text">
-            <h2 class="section-title">{{ 'CLINIC_DESIGN.INTRO_TITLE' | translate }}</h2>
-            <p class="lead-text">
-              {{ 'CLINIC_DESIGN.INTRO_TEXT' | translate }}
-            </p>
-            <p>
-              {{ 'CLINIC_DESIGN.INTRO_DESC' | translate }}
-            </p>
+        <div class="mission-card md3-elevation-1">
+          <div class="mission-icon-wrapper">
+            <span class="material-symbols-outlined md3-primary">favorite</span>
           </div>
-          <div class="intro-image">
-            <img
-              src="images/20230416_174343~2.jpg"
-              [alt]="'CLINIC.ALT_WAITING_AREA' | translate"
-              class="rounded-image"
-            />
-          </div>
+          <h2 class="md3-display-small">{{ 'CLINIC.MISSION.TITLE' | translate }}</h2>
+          <p class="md3-body-large">{{ 'CLINIC.MISSION.TEXT' | translate }}</p>
+          <p class="md3-body-medium">{{ 'CLINIC.MISSION.GOAL' | translate }}</p>
         </div>
       </div>
     </section>
 
     <!-- Design Team Section -->
-    <section class="design-team-section section-bg-light">
+    <section class="design-team-section md3-surface">
       <div class="container">
-        <h2 class="section-title text-center">{{ 'CLINIC_DESIGN.TEAM_TITLE' | translate }}</h2>
-        
-        <!-- Team Cards -->
-        <div class="team-cards">
-          <div class="team-card">
-            <div class="team-card-header">
-              <i class="fas fa-drafting-compass"></i>
-              <h3>{{ 'CLINIC_DESIGN.TEAM_CARD1_TITLE' | translate }}</h3>
+        <div class="section-header">
+          <h2 class="md3-display-medium text-center">{{ 'CLINIC.TEAM.TITLE' | translate }}</h2>
+          <p class="md3-title-large text-center">{{ 'CLINIC.TEAM.SUBTITLE' | translate }}</p>
+        </div>
+
+        <div class="team-grid">
+          <!-- CH Architecture Card -->
+          <div class="team-card md3-card-filled md3-elevation-1">
+            <div class="card-icon">
+              <span class="material-symbols-outlined">architecture</span>
             </div>
-            <div class="team-card-content">
-              <p [innerHTML]="'CLINIC_DESIGN.TEAM_DESC1' | translate"></p>
-            </div>
+            <h3 class="md3-headline-small">{{ 'CLINIC.TEAM.CH_TITLE' | translate }}</h3>
+            <p class="md3-body-medium">{{ 'CLINIC.TEAM.CH_NAMES' | translate }}</p>
+            <p class="md3-body-small md3-on-surface-variant">{{ 'CLINIC.TEAM.CH_DESC' | translate }}</p>
           </div>
-          
-          <div class="team-card">
-            <div class="team-card-header">
-              <i class="fas fa-paint-roller"></i>
-              <h3>{{ 'CLINIC_DESIGN.TEAM_CARD2_TITLE' | translate }}</h3>
+
+          <!-- Interior Design Card -->
+          <div class="team-card md3-card-filled md3-elevation-1">
+            <div class="card-icon">
+              <span class="material-symbols-outlined">palette</span>
             </div>
-            <div class="team-card-content">
-              <p [innerHTML]="'CLINIC_DESIGN.TEAM_DESC2' | translate"></p>
+            <h3 class="md3-headline-small">{{ 'CLINIC.TEAM.INTERIOR_TITLE' | translate }}</h3>
+            <p class="md3-body-medium">{{ 'CLINIC.TEAM.INTERIOR_NAME' | translate }}</p>
+            <p class="md3-body-small md3-on-surface-variant">{{ 'CLINIC.TEAM.INTERIOR_DESC' | translate }}</p>
+          </div>
+
+          <!-- Design Philosophy Card -->
+          <div class="team-card md3-card-filled md3-elevation-1">
+            <div class="card-icon">
+              <span class="material-symbols-outlined">psychology</span>
+            </div>
+            <h3 class="md3-headline-small">{{ 'CLINIC.TEAM.PHILOSOPHY_TITLE' | translate }}</h3>
+            <p class="md3-body-medium">{{ 'CLINIC.TEAM.PHILOSOPHY_DESC' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Montessori Approach Section -->
+    <section class="montessori-section md3-surface-container">
+      <div class="container">
+        <div class="montessori-grid">
+          <div class="montessori-image">
+            <img
+              src="images/20230416_174704~2.jpg"
+              [alt]="'CLINIC.ALT.PLAY_AREA' | translate"
+              class="md3-image-rounded"
+              loading="lazy"
+            />
+          </div>
+          <div class="montessori-content">
+            <div class="section-badge md3-primary-container">
+              <span class="material-symbols-outlined md3-on-primary-container">child_care</span>
+              <span class="md3-label-large md3-on-primary-container">{{ 'CLINIC.MONTESSORI.BADGE' | translate }}</span>
+            </div>
+            <h2 class="md3-display-small">{{ 'CLINIC.MONTESSORI.TITLE' | translate }}</h2>
+            <p class="md3-body-large">{{ 'CLINIC.MONTESSORI.TEXT' | translate }}</p>
+            <p class="md3-body-medium">{{ 'CLINIC.MONTESSORI.COLORS' | translate }}</p>
+
+            <!-- Features List -->
+            <div class="features-list">
+              <div class="feature-item">
+                <span class="material-symbols-outlined md3-primary">check_circle</span>
+                <span class="md3-body-medium">{{ 'CLINIC.MONTESSORI.FEATURE1' | translate }}</span>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined md3-primary">check_circle</span>
+                <span class="md3-body-medium">{{ 'CLINIC.MONTESSORI.FEATURE2' | translate }}</span>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined md3-primary">check_circle</span>
+                <span class="md3-body-medium">{{ 'CLINIC.MONTESSORI.FEATURE3' | translate }}</span>
+              </div>
             </div>
           </div>
         </div>
-        
-        <!-- Design Features with MD3 Cards -->
-        <div class="design-features-geometric">
-          <div class="md3-info-grid three-column">
-            <div class="md3-card feature-card pastel-yellow">
-              <div class="design-icon-wrapper">
-                <i class="fas fa-palette"></i>
-              </div>
-              <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_1' | translate }}</h4>
-              <p class="md3-card-description">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_1_DESC' | translate }}</p>
+
+        <!-- Safety Measures Grid -->
+        <div class="safety-grid">
+          <h3 class="md3-headline-medium text-center">{{ 'CLINIC.SAFETY.TITLE' | translate }}</h3>
+          <div class="safety-cards">
+            <div class="safety-card md3-card-outlined">
+              <span class="material-symbols-outlined md3-secondary">security</span>
+              <p class="md3-label-large">{{ 'CLINIC.SAFETY.CORNERS' | translate }}</p>
             </div>
-            <div class="md3-card feature-card pastel-green">
-              <div class="design-icon-wrapper">
-                <i class="fas fa-home"></i>
-              </div>
-              <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_2' | translate }}</h4>
-              <p class="md3-card-description">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_2_DESC' | translate }}</p>
+            <div class="safety-card md3-card-outlined">
+              <span class="material-symbols-outlined md3-secondary">electrical_services</span>
+              <p class="md3-label-large">{{ 'CLINIC.SAFETY.ELECTRICAL' | translate }}</p>
             </div>
-            <div class="md3-card feature-card pastel-blue">
-              <div class="design-icon-wrapper">
-                <i class="fas fa-baby"></i>
-              </div>
-              <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_3' | translate }}</h4>
-              <p class="md3-card-description">{{ 'CLINIC_DESIGN.DESIGN_FEATURE_3_DESC' | translate }}</p>
+            <div class="safety-card md3-card-outlined">
+              <span class="material-symbols-outlined md3-secondary">window</span>
+              <p class="md3-label-large">{{ 'CLINIC.SAFETY.WINDOWS' | translate }}</p>
+            </div>
+            <div class="safety-card md3-card-outlined">
+              <span class="material-symbols-outlined md3-secondary">lock</span>
+              <p class="md3-label-large">{{ 'CLINIC.SAFETY.LOCKS' | translate }}</p>
             </div>
           </div>
         </div>
-        
-        <!-- Images Gallery -->
-        <div class="team-images-showcase">
-          <div class="showcase-image large">
-            <img
-              src="images/20230416_174431~2.jpg"
-              [alt]="'CLINIC.ALT_INTERIOR' | translate"
-            />
-            <div class="image-overlay">
-              <span>{{ 'CLINIC_DESIGN.IMAGE_CLINIC_INTERIOR' | translate }}</span>
+
+        <!-- Baby Care Room -->
+        <div class="baby-room-info md3-secondary-container">
+          <span class="material-symbols-outlined md3-on-secondary-container">baby_changing_station</span>
+          <p class="md3-body-large md3-on-secondary-container">{{ 'CLINIC.BABY_ROOM' | translate }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hygiene Standards Section -->
+    <section class="hygiene-section md3-surface-container-high">
+      <div class="container">
+        <div class="hygiene-header text-center">
+          <span class="material-symbols-outlined md3-tertiary icon-large">sanitizer</span>
+          <h2 class="md3-display-small">{{ 'CLINIC.HYGIENE.TITLE' | translate }}</h2>
+          <p class="md3-title-large">{{ 'CLINIC.HYGIENE.SUBTITLE' | translate }}</p>
+        </div>
+
+        <div class="hygiene-content">
+          <p class="md3-body-large text-center">{{ 'CLINIC.HYGIENE.TEXT' | translate }}</p>
+
+          <div class="hygiene-cards">
+            <!-- UV-C Disinfection -->
+            <div class="hygiene-card md3-card-elevated">
+              <div class="card-header">
+                <span class="material-symbols-outlined md3-tertiary">light_mode</span>
+                <h3 class="md3-title-medium">{{ 'CLINIC.HYGIENE.UVC_TITLE' | translate }}</h3>
+              </div>
+              <p class="md3-body-medium">{{ 'CLINIC.HYGIENE.UVC_TEXT' | translate }}</p>
             </div>
-          </div>
-          <div class="showcase-image">
-            <img
-              src="images/20230416_174537~2.jpg"
-              [alt]="'ALT_TEXTS.PLAY_AREA' | translate"
-            />
-            <div class="image-overlay">
-              <span>{{ 'CLINIC_DESIGN.IMAGE_PLAY_AREA' | translate }}</span>
+
+            <!-- Surface Disinfection -->
+            <div class="hygiene-card md3-card-elevated">
+              <div class="card-header">
+                <span class="material-symbols-outlined md3-tertiary">cleaning_services</span>
+                <h3 class="md3-title-medium">{{ 'CLINIC.HYGIENE.SURFACE_TITLE' | translate }}</h3>
+              </div>
+              <p class="md3-body-medium">{{ 'CLINIC.HYGIENE.SURFACE_TEXT' | translate }}</p>
             </div>
-          </div>
-          <div class="showcase-image">
-            <img
-              src="images/20230416_174550~2.jpg"
-              [alt]="'ALT_TEXTS.WAITING_AREA' | translate"
-            />
-            <div class="image-overlay">
-              <span>{{ 'CLINIC_DESIGN.IMAGE_WAITING_AREA' | translate }}</span>
+
+            <!-- Available for Parents -->
+            <div class="hygiene-card md3-card-elevated">
+              <div class="card-header">
+                <span class="material-symbols-outlined md3-tertiary">family_restroom</span>
+                <h3 class="md3-title-medium">{{ 'CLINIC.HYGIENE.PARENTS_TITLE' | translate }}</h3>
+              </div>
+              <p class="md3-body-medium">{{ 'CLINIC.HYGIENE.PARENTS_TEXT' | translate }}</p>
             </div>
           </div>
         </div>
@@ -122,209 +180,58 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery-section section-bg-white">
+    <section class="gallery-section md3-surface">
       <div class="container">
-        <h2 class="section-title text-center">{{ 'CLINIC_DESIGN.GALLERY_TITLE' | translate }}</h2>
+        <h2 class="md3-display-medium text-center">{{ 'CLINIC.GALLERY.TITLE' | translate }}</h2>
         <div class="gallery-grid">
           <div class="gallery-item large">
             <img
               src="images/20230416_174550~2.jpg"
-              [alt]="'ALT_TEXTS.EXAMINATION_ROOM' | translate"
+              [alt]="'CLINIC.ALT.WAITING_AREA' | translate"
+              loading="lazy"
             />
             <div class="gallery-overlay">
-              <span class="gallery-caption">
-                {{ 'CLINIC_DESIGN.GALLERY_EXAM_ROOM' | translate }}
-              </span>
+              <span class="md3-label-large">{{ 'CLINIC.GALLERY.WAITING' | translate }}</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="images/20230416_174704~2.jpg" [alt]="'ALT_TEXTS.PLAY_CORNER' | translate" />
+            <img
+              src="images/20230416_174431~2.jpg"
+              [alt]="'CLINIC.ALT.EXAMINATION' | translate"
+              loading="lazy"
+            />
             <div class="gallery-overlay">
-              <span class="gallery-caption">
-                {{ 'CLINIC_DESIGN.GALLERY_PLAY_CORNER' | translate }}
-              </span>
+              <span class="md3-label-large">{{ 'CLINIC.GALLERY.EXAMINATION' | translate }}</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="images/20230416_174740~2.jpg" [alt]="'ALT_TEXTS.WAITING_AREA' | translate" />
+            <img
+              src="images/20230416_174704~2.jpg"
+              [alt]="'CLINIC.ALT.PLAY_CORNER' | translate"
+              loading="lazy"
+            />
             <div class="gallery-overlay">
-              <span class="gallery-caption">
-                {{ 'CLINIC_DESIGN.GALLERY_WAITING_AREA' | translate }}
-              </span>
+              <span class="md3-label-large">{{ 'CLINIC.GALLERY.PLAY' | translate }}</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="images/20230416_175117~2.jpg" [alt]="'ALT_TEXTS.NURSING_ROOM' | translate" />
+            <img
+              src="images/20230416_175117~2.jpg"
+              [alt]="'CLINIC.ALT.NURSING' | translate"
+              loading="lazy"
+            />
             <div class="gallery-overlay">
-              <span class="gallery-caption">
-                {{ 'CLINIC_DESIGN.GALLERY_NURSING_ROOM' | translate }}
-              </span>
+              <span class="md3-label-large">{{ 'CLINIC.GALLERY.NURSING' | translate }}</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="images/20230416_175137~2.jpg" [alt]="'ALT_TEXTS.CORRIDOR' | translate" />
+            <img
+              src="images/20230416_174343~2.jpg"
+              [alt]="'CLINIC.ALT.ENTRANCE' | translate"
+              loading="lazy"
+            />
             <div class="gallery-overlay">
-              <span class="gallery-caption">
-                {{ 'CLINIC_DESIGN.GALLERY_CORRIDOR' | translate }}
-              </span>
-            </div>
-          </div>
-          <div class="gallery-item large">
-            <img src="images/20230416_175158~2.jpg" [alt]="'ALT_TEXTS.GENERAL_VIEW' | translate" />
-            <div class="gallery-overlay">
-              <span class="gallery-caption">
-                {{ 'CLINIC_DESIGN.GALLERY_GENERAL_VIEW' | translate }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Montessori Section with Enhanced Geometry -->
-    <section class="montessori-section section-bg-gradient-light">
-      <div class="container">
-        <div class="montessori-header text-center">
-          <h2 class="section-title">
-            {{ 'CLINIC_DESIGN.MONTESSORI_TITLE' | translate }}
-          </h2>
-          <p class="highlight-text max-width-800">
-            {{ 'CLINIC_DESIGN.MONTESSORI_DESC' | translate }}
-          </p>
-        </div>
-        
-        <div class="montessori-geometric-layout">
-          <!-- Hexagonal Card Grid -->
-          <div class="md3-hexagon-grid">
-            <div class="md3-card hexagon-card montessori-books">
-              <div class="montessori-icon-wrapper gradient-purple">
-                <i class="fas fa-book"></i>
-              </div>
-              <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.MONTESSORI_BOOKS' | translate }}</h4>
-              <p class="md3-card-description">{{ 'CLINIC_DESIGN.MONTESSORI_BOOKS_DESC' | translate }}</p>
-            </div>
-            
-            <div class="md3-card hexagon-card montessori-games">
-              <div class="montessori-icon-wrapper gradient-orange">
-                <i class="fas fa-gamepad"></i>
-              </div>
-              <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.MONTESSORI_GAMES' | translate }}</h4>
-              <p class="md3-card-description">{{ 'CLINIC_DESIGN.MONTESSORI_GAMES_DESC' | translate }}</p>
-            </div>
-            
-            <div class="md3-card hexagon-card montessori-toys">
-              <div class="montessori-icon-wrapper gradient-teal">
-                <i class="fas fa-horse"></i>
-              </div>
-              <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.MONTESSORI_TOYS' | translate }}</h4>
-              <p class="md3-card-description">{{ 'CLINIC_DESIGN.MONTESSORI_TOYS_DESC' | translate }}</p>
-            </div>
-          </div>
-          
-          <!-- Asymmetric Image Gallery -->
-          <div class="montessori-gallery-grid">
-            <div class="gallery-item main-image">
-              <img
-                src="images/20230416_174146~2.jpg"
-                [alt]="'ALT_TEXTS.MONTESSORI_PLAY_AREA' | translate"
-              />
-              <div class="image-caption">{{ 'CLINIC_DESIGN.IMAGE_MONTESSORI_AREA' | translate }}</div>
-            </div>
-            <div class="gallery-item side-image-1">
-              <img
-                src="images/20230416_174704~2.jpg"
-                [alt]="'ALT_TEXTS.PLAY_CORNER' | translate"
-              />
-              <div class="image-caption">{{ 'CLINIC_DESIGN.IMAGE_EDUCATIONAL_TOYS' | translate }}</div>
-            </div>
-            <div class="gallery-item side-image-2">
-              <img
-                src="images/20230416_174740~2.jpg"
-                [alt]="'ALT_TEXTS.WAITING_AREA' | translate"
-              />
-              <div class="image-caption">{{ 'CLINIC_DESIGN.IMAGE_BOOK_CORNER' | translate }}</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="montessori-philosophy">
-          <p class="philosophy-text" [innerHTML]="'CLINIC_DESIGN.MONTESSORI_TEXT' | translate"></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Safety Section -->
-    <section class="safety-section section-bg-white">
-      <div class="container">
-        <h2 class="section-title text-center">
-          {{ 'CLINIC_DESIGN.SAFETY_TITLE' | translate }}
-        </h2>
-        <div class="md3-info-grid">
-          <div class="md3-card">
-            <div class="safety-icon-wrapper">
-              <i class="fas fa-child"></i>
-            </div>
-            <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.SAFETY_PHYSICAL' | translate }}</h4>
-            <p class="md3-card-description">{{ 'CLINIC_DESIGN.SAFETY_PHYSICAL_DESC' | translate }}</p>
-          </div>
-          <div class="md3-card">
-            <div class="safety-icon-wrapper">
-              <i class="fas fa-plug"></i>
-            </div>
-            <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.SAFETY_ELECTRICAL' | translate }}</h4>
-            <p class="md3-card-description">{{ 'CLINIC_DESIGN.SAFETY_ELECTRICAL_DESC' | translate }}</p>
-          </div>
-          <div class="md3-card">
-            <div class="safety-icon-wrapper">
-              <i class="fas fa-video"></i>
-            </div>
-            <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.SAFETY_MONITORING' | translate }}</h4>
-            <p class="md3-card-description">{{ 'CLINIC_DESIGN.SAFETY_MONITORING_DESC' | translate }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Hygiene Section -->
-    <section class="hygiene-section section-bg-light">
-      <div class="container">
-        <div class="hygiene-content">
-          <div class="hygiene-text">
-            <h2 class="section-title">{{ 'CLINIC_DESIGN.HYGIENE_TITLE' | translate }}</h2>
-            <p class="lead-text">
-              {{ 'CLINIC_DESIGN.HYGIENE_DESC' | translate }}
-            </p>
-            <p>
-              {{ 'CLINIC_DESIGN.HYGIENE_TEXT' | translate }}
-            </p>
-            <div class="md3-info-grid">
-              <div class="md3-card hygiene-card">
-                <div class="hygiene-icon-wrapper">
-                  <i class="fas fa-spray-can"></i>
-                </div>
-                <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.HYGIENE_1' | translate }}</h4>
-                <p class="md3-card-description">{{ 'CLINIC_DESIGN.HYGIENE_1_DESC' | translate }}</p>
-              </div>
-              <div class="md3-card hygiene-card">
-                <div class="hygiene-icon-wrapper">
-                  <i class="fas fa-sun"></i>
-                </div>
-                <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.HYGIENE_2' | translate }}</h4>
-                <p class="md3-card-description">{{ 'CLINIC_DESIGN.HYGIENE_2_DESC' | translate }}</p>
-              </div>
-              <div class="md3-card hygiene-card">
-                <div class="hygiene-icon-wrapper">
-                  <i class="fas fa-hand-sparkles"></i>
-                </div>
-                <h4 class="md3-card-title">{{ 'CLINIC_DESIGN.HYGIENE_3' | translate }}</h4>
-                <p class="md3-card-description">{{ 'CLINIC_DESIGN.HYGIENE_3_DESC' | translate }}</p>
-              </div>
-            </div>
-            <div class="hygiene-note">
-              <i class="fas fa-info-circle"></i>
-              <p>
-                {{ 'CLINIC_DESIGN.HYGIENE_NOTE' | translate }}
-              </p>
+              <span class="md3-label-large">{{ 'CLINIC.GALLERY.ENTRANCE' | translate }}</span>
             </div>
           </div>
         </div>
@@ -334,14 +241,16 @@
   </div>
 
   <!-- CTA Section -->
-  <div class="cta-section">
-    <div class="cta-content">
-      <h3 class="cta-title headline-medium">{{ 'CLINIC_DESIGN.CTA_TITLE' | translate }}</h3>
-      <p class="cta-subtitle body-large">{{ 'CLINIC_DESIGN.CTA_SUBTITLE' | translate }}</p>
-      <a routerLink="/contact" class="cta-button">
-        <i class="fas fa-calendar-check"></i> 
-        {{ 'CLINIC_DESIGN.CTA_BUTTON' | translate }}
-      </a>
+  <section class="cta-section md3-primary-container">
+    <div class="container">
+      <div class="cta-content text-center">
+        <h3 class="md3-headline-large md3-on-primary-container">{{ 'CLINIC.CTA.TITLE' | translate }}</h3>
+        <p class="md3-body-large md3-on-primary-container">{{ 'CLINIC.CTA.SUBTITLE' | translate }}</p>
+        <a routerLink="/iletisim" class="md3-button-filled">
+          <span class="material-symbols-outlined">calendar_today</span>
+          {{ 'CLINIC.CTA.BUTTON' | translate }}
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
 </section>
