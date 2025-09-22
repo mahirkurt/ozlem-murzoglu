@@ -965,7 +965,7 @@
   },
   "TESTIMONIALS": {
     "TITLE": "Reviews from Our Families",
-    "SUBTITLE": "We are happy to have served hundreds of families with our 15 years of experience",
+    "SUBTITLE": "We are happy to have served dozens of families with our 15 years of experience",
     "REVIEW_COUNT": "57 reviews",
     "VIEW_ALL_REVIEWS": "View All Reviews",
     "WRITE_REVIEW": "Write a Review",
@@ -2035,10 +2035,12 @@
   },
   "REVIEWS": {
     "TIME_AGO": {
+      "YEARS": "{{count}} years ago",
       "MONTHS": "{{count}} months ago",
       "WEEKS": "{{count}} weeks ago",
       "DAYS": "{{count}} days ago",
       "HOURS": "{{count}} hours ago",
+      "MINUTES": "{{count}} minutes ago",
       "JUST_NOW": "Just now"
     }
   }

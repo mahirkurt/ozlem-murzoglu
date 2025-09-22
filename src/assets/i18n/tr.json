@@ -922,7 +922,7 @@
   },
   "TESTIMONIALS": {
     "TITLE": "Ailelerimizden Gelen Yorumlar",
-    "SUBTITLE": "15 yıllık deneyimimizle yüzlerce aileye hizmet vermenin mutluluğunu yaşıyoruz",
+    "SUBTITLE": "15 yıllık deneyimimizle onlarca aileye hizmet vermenin mutluluğunu yaşıyoruz",
     "REVIEW_COUNT": "57 yorum",
     "VIEW_ALL_REVIEWS": "Tüm Yorumları Görüntüle",
     "WRITE_REVIEW": "Siz de Yorum Yapın",
@@ -2001,10 +2001,12 @@
   },
   "REVIEWS": {
     "TIME_AGO": {
+      "YEARS": "{{count}} yıl önce",
       "MONTHS": "{{count}} ay önce",
       "WEEKS": "{{count}} hafta önce",
       "DAYS": "{{count}} gün önce",
       "HOURS": "{{count}} saat önce",
+      "MINUTES": "{{count}} dakika önce",
       "JUST_NOW": "Az önce"
     }
   }
