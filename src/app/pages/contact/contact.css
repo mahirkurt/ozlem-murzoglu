@@ -16,7 +16,7 @@
 
 /* Contact Content */
 .contact-content {
-  padding: 80px 0;
+  padding: var(--md-sys-spacing-20) 0;
   background: white;
 }
 
@@ -26,17 +26,17 @@
 }
 
 .section-title {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 2.5rem;
   font-weight: 600;
-  color: #005F73;
+  color: var(--md-sys-color-primary);
   margin: 0 0 1rem 0;
 }
 
 .section-description {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 1.125rem;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.7;
@@ -51,7 +51,7 @@
 /* Contact Form */
 .contact-form-wrapper {
   background: #f8fafb;
-  border-radius: 24px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   padding: 2.5rem;
 }
 
@@ -73,10 +73,10 @@
 }
 
 .form-group label {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-weight: 500;
   font-size: 0.9rem;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
   margin-bottom: 0.5rem;
 }
 
@@ -88,8 +88,8 @@
 .form-group textarea {
   padding: 0.875rem 1rem;
   border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  font-family: 'DM Sans', sans-serif;
+  border-radius: var(--md-sys-shape-corner-medium);
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 1rem;
   transition: all 0.3s ease;
   background: white;
@@ -98,8 +98,8 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #005F73;
-  box-shadow: 0 0 0 3px rgba(0, 95, 115, 0.1);
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--md-sys-color-primary-rgb), 0.1);
 }
 
 .form-group input::placeholder,
@@ -118,11 +118,11 @@
   justify-content: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary) 100%);
   color: white;
   border: none;
   border-radius: 50px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -132,7 +132,7 @@
 
 .submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 95, 115, 0.3);
+  box-shadow: 0 10px 30px rgba(var(--md-sys-color-primary-rgb), 0.3);
 }
 
 .submit-btn:disabled {
@@ -150,16 +150,16 @@
 /* Info Cards */
 .info-card {
   background: white;
-  border-radius: 20px;
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(var(--md-sys-color-shadow), 0.08);
 }
 
 .card-title {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.5rem;
   font-weight: 600;
-  color: #005F73;
+  color: var(--md-sys-color-primary);
   margin: 0 0 1.5rem 0;
 }
 
@@ -176,8 +176,8 @@
 .info-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, rgba(0, 95, 115, 0.1) 0%, rgba(10, 147, 150, 0.1) 100%);
-  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(var(--md-sys-color-primary-rgb), 0.1) 0%, rgba(10, 147, 150, 0.1) 100%);
+  border-radius: var(--md-sys-shape-corner-medium);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,20 +185,20 @@
 }
 
 .info-icon svg {
-  color: #005F73;
+  color: var(--md-sys-color-primary);
 }
 
 .info-content h4 {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-weight: 600;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
   margin: 0 0 0.5rem 0;
 }
 
 .info-link {
-  font-family: 'DM Sans', sans-serif;
-  color: #005F73;
+  font-family: var(--md-sys-typescale-font-plain);
+  color: var(--md-sys-color-primary);
   text-decoration: none;
   display: block;
   margin-bottom: 0.25rem;
@@ -206,12 +206,12 @@
 }
 
 .info-link:hover {
-  color: #0A9396;
+  color: var(--md-sys-color-primary);
 }
 
 .address-text {
-  font-family: 'DM Sans', sans-serif;
-  color: #333;
+  font-family: var(--md-sys-typescale-font-plain);
+  color: var(--md-sys-color-on-surface);
   line-height: 1.7;
   margin: 0;
 }
@@ -228,18 +228,18 @@
   justify-content: space-between;
   padding: 0.75rem;
   background: #f8fafb;
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
 }
 
 .day {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-weight: 500;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
 }
 
 .time {
-  font-family: 'DM Sans', sans-serif;
-  color: #666;
+  font-family: var(--md-sys-typescale-font-plain);
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 /* Quick Actions */
@@ -254,15 +254,15 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 1.5rem;
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   text-decoration: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .action-btn.primary {
-  background: linear-gradient(135deg, #EE6123 0%, #FFB74D 100%);
+  background: linear-gradient(135deg, #EE6123 0%, var(--md-sys-color-secondary) 100%);
   color: white;
 }
 
@@ -273,18 +273,18 @@
 
 .action-btn.secondary {
   background: #f8fafb;
-  color: #005F73;
+  color: var(--md-sys-color-primary);
   border: 2px solid #e0e0e0;
 }
 
 .action-btn.secondary:hover {
   background: white;
-  border-color: #005F73;
+  border-color: var(--md-sys-color-primary);
 }
 
 /* Transportation & Location Section - MD3 Design */
 .transportation-location-section {
-  padding: 80px 0;
+  padding: var(--md-sys-spacing-20) 0;
   background: linear-gradient(135deg, #f8fafb 0%, #f0f9ff 100%);
 }
 
@@ -303,10 +303,10 @@
 }
 
 .subsection-title {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.5rem;
   font-weight: 600;
-  color: #005F73;
+  color: var(--md-sys-color-primary);
   margin: 0 0 1.5rem 0;
   display: flex;
   align-items: center;
@@ -314,7 +314,7 @@
 }
 
 .title-icon {
-  color: #0A9396;
+  color: var(--md-sys-color-primary);
 }
 
 /* Compact Transport Options - MD3 Style */
@@ -329,17 +329,17 @@
   align-items: center;
   gap: 1rem;
   background: white;
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 1.25rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 95, 115, 0.08);
+  box-shadow: 0 2px 12px rgba(var(--md-sys-color-shadow), 0.08);
+  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .transport-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-  border-color: rgba(0, 95, 115, 0.2);
+  box-shadow: 0 4px 20px rgba(var(--md-sys-color-shadow), 0.12);
+  border-color: rgba(var(--md-sys-color-primary-rgb), 0.2);
 }
 
 .transport-icon-wrapper {
@@ -352,11 +352,11 @@
   height: 48px;
   background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
   color: white;
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-weight: 700;
   font-size: 1.25rem;
   box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
@@ -366,14 +366,14 @@
 .bus-icon {
   width: 48px;
   height: 48px;
-  padding: 12px;
-  background: linear-gradient(135deg, #0A9396 0%, #005F73 100%);
-  border-radius: 12px;
+  padding: var(--md-sys-spacing-3);
+  background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary) 100%);
+  border-radius: var(--md-sys-shape-corner-medium);
   color: white;
 }
 
 .transport-details h4 {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.125rem;
   font-weight: 600;
   color: #1F2937;
@@ -381,7 +381,7 @@
 }
 
 .transport-details p {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.9rem;
   color: #6B7280;
   margin: 0;
@@ -391,10 +391,10 @@
 /* Parking Compact */
 .parking-compact {
   background: white;
-  border-radius: 20px;
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 2rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 95, 115, 0.06);
+  box-shadow: 0 4px 16px rgba(var(--md-sys-color-shadow), 0.08);
+  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.06);
 }
 
 .parking-list {
@@ -406,8 +406,8 @@
 .parking-item {
   padding: 1.25rem;
   background: #f8fafb;
-  border-radius: 12px;
-  border-left: 4px solid #0A9396;
+  border-radius: var(--md-sys-shape-corner-medium);
+  border-left: 4px solid var(--md-sys-color-primary);
 }
 
 .parking-info {
@@ -418,7 +418,7 @@
 }
 
 .parking-name {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1rem;
   font-weight: 600;
   color: #1F2937;
@@ -430,14 +430,14 @@
   padding: 0.25rem 0.75rem;
   background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
   color: white;
-  border-radius: 20px;
-  font-family: 'DM Sans', sans-serif;
+  border-radius: var(--md-sys-shape-corner-large);
+  font-family: var(--md-sys-typescale-font-plain);
   font-weight: 600;
   font-size: 0.75rem;
 }
 
 .parking-desc {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.9rem;
   color: #6B7280;
   margin: 0;
@@ -448,10 +448,10 @@
 /* Direction Links */
 .direction-links {
   background: white;
-  border-radius: 20px;
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 2rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 95, 115, 0.06);
+  box-shadow: 0 4px 16px rgba(var(--md-sys-color-shadow), 0.08);
+  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.06);
 }
 
 .map-buttons {
@@ -466,7 +466,7 @@
   padding: 0.75rem 1.25rem;
   border-radius: 50px;
   text-decoration: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-weight: 500;
   font-size: 0.9rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -490,9 +490,9 @@
 }
 
 .map-btn.apple:hover {
-  background: #333;
+  background: var(--md-sys-color-on-surface);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(var(--md-sys-color-shadow), 0.3);
 }
 
 /* Location Panel */
@@ -505,20 +505,20 @@
 /* Map Container Compact */
 .map-container-compact {
   background: white;
-  border-radius: 20px;
+  border-radius: var(--md-sys-shape-corner-large);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 95, 115, 0.06);
+  box-shadow: 0 4px 20px rgba(var(--md-sys-color-shadow), 0.08);
+  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.06);
 }
 
 /* WhatsApp QR Compact */
 .whatsapp-qr-compact {
   background: white;
-  border-radius: 20px;
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 95, 115, 0.06);
+  box-shadow: 0 4px 16px rgba(var(--md-sys-color-shadow), 0.08);
+  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.06);
 }
 
 .qr-header {
@@ -530,11 +530,11 @@
 }
 
 .whatsapp-icon {
-  color: #25D366;
+  color: var(--md-sys-color-brand-whatsapp);
 }
 
 .qr-header span {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-weight: 600;
   color: #1F2937;
   font-size: 1.125rem;
@@ -548,12 +548,12 @@
 }
 
 .qr-code img {
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: var(--md-sys-shape-corner-medium);
+  box-shadow: 0 2px 8px rgba(var(--md-sys-color-shadow), 0.1);
 }
 
 .qr-text {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.85rem;
   color: #6B7280;
   margin: 0;
@@ -607,7 +607,7 @@
   }
   
   .transportation-location-section {
-    padding: 60px 0;
+    padding: var(--md-sys-spacing-15) 0;
   }
   
   .transport-content {
@@ -639,6 +639,6 @@
   }
   
   .bus-icon {
-    padding: 8px;
+    padding: var(--md-sys-spacing-2);
   }
 }

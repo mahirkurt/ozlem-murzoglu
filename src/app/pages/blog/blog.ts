@@ -8,15 +8,6 @@ import { takeUntil } from 'rxjs/operators';
 import { BlogService, BlogArticle } from '../../services/blog.service';
 import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
 
-// Material imports
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatChipsModule } from '@angular/material/chips';
-
 @Component({
   selector: 'app-blog',
   standalone: true,
@@ -26,13 +17,6 @@ import { MatChipsModule } from '@angular/material/chips';
     FormsModule,
     TranslateModule,
     HeroSectionComponent,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatChipsModule,
   ],
   templateUrl: './blog.html',
   styleUrl: './blog.css',

@@ -1,3 +1,9 @@
+/* Kaynaklar Page Container */
+.kaynaklar-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--md-sys-color-surface) 0%, #F8FAFB 100%);
+}
+
 /* Material Design 3 Token Sistemi */
 :host {
   display: block;
@@ -5,9 +11,9 @@
   --md-sys-color-primary: var(--mdc-theme-primary, #1976d2);
   --md-sys-color-tertiary: #7b61ff;
   --md-sys-color-tertiary95: #f3efff;
-  --md-sys-color-on-tertiary: #ffffff;
-  --md-sys-color-surface: #ffffff;
-  --md-sys-color-surface-variant: #f5f5f5;
+  --md-sys-color-on-tertiary: var(--md-sys-color-surface);
+  --md-sys-color-surface: var(--md-sys-color-surface);
+  --md-sys-color-surface-variant: var(--md-sys-color-surface-container);
   --md-sys-color-outline: #79747e;
   --md-sys-color-outline-variant: #cac4cf;
   
@@ -41,9 +47,7 @@
 .content-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-xl);
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+  padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-3xl);
 }
 
 @media (max-width: 768px) {
@@ -85,14 +89,14 @@
 /* BİLGİ KARTLARI */
 .info-card {
   margin-bottom: var(--spacing-xl);
-  border-radius: 16px !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  border-radius: var(--md-sys-shape-corner-large) !important;
+  box-shadow: 0 1px 3px rgba(var(--md-sys-color-shadow), 0.05) !important;
   transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
   overflow: hidden;
 }
 
 .info-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 12px rgba(var(--md-sys-color-shadow), 0.1) !important;
   transform: translateY(-2px);
 }
 
@@ -109,7 +113,7 @@
   align-items: center;
   justify-content: center;
   background: var(--md-sys-color-surface-variant);
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   color: var(--md-sys-color-primary);
 }
 
@@ -171,12 +175,12 @@
 }
 
 .search-card .results-title mat-icon {
-  color: #4caf50;
+  color: var(--md-sys-color-success);
 }
 
 .search-card .result-item {
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: var(--md-sys-shape-corner-small);
   transition: background var(--md-sys-motion-duration-short2);
 }
 
@@ -195,7 +199,7 @@
 .stat-card {
   text-align: center;
   padding: var(--spacing-lg);
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   background: var(--md-sys-color-surface);
   border: 1px solid var(--md-sys-color-outline-variant);
   transition: all var(--md-sys-motion-duration-short3);
@@ -203,7 +207,7 @@
 
 .stat-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(var(--md-sys-color-shadow), 0.1);
   border-color: var(--md-sys-color-primary);
 }
 
@@ -264,7 +268,7 @@
 
 .category-card .category-list mat-list-item {
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: var(--md-sys-shape-corner-small);
   margin-bottom: var(--spacing-sm);
   transition: all var(--md-sys-motion-duration-short2);
 }
@@ -284,7 +288,7 @@
 /* AÇILIR PANEL KARTI */
 .expansion-card mat-accordion mat-expansion-panel {
   margin-bottom: var(--spacing-sm);
-  border-radius: 12px !important;
+  border-radius: var(--md-sys-shape-corner-medium) !important;
   overflow: hidden;
   box-shadow: none !important;
   border: 1px solid var(--md-sys-color-outline-variant);
@@ -334,7 +338,7 @@
   font-family: 'Material Icons';
   position: absolute;
   left: 0;
-  color: #4caf50;
+  color: var(--md-sys-color-success);
 }
 
 /* POPÜLER DOKÜMANLAR */
@@ -351,7 +355,7 @@
 }
 
 .popular-section .section-title mat-icon {
-  color: #ffc107;
+  color: var(--md-sys-color-secondary);
   font-size: 32px;
   width: 32px;
   height: 32px;
@@ -370,7 +374,7 @@
 
 .popular-section .popular-card:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 12px 24px rgba(var(--md-sys-color-shadow), 0.15) !important;
 }
 
 .popular-section .popular-card mat-card-header mat-icon[mat-card-avatar] {
@@ -382,7 +386,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: var(--md-sys-shape-corner-small);
 }
 
 .popular-section .popular-card mat-card-actions {

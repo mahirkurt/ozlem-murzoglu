@@ -301,7 +301,7 @@ export class DynamicThemeService {
 
     // Primary color
     colors['--md-sys-color-primary'] = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-    colors['--md-sys-color-on-primary'] = lightness > 50 ? '#000000' : '#ffffff';
+    colors['--md-sys-color-on-primary'] = lightness > 50 ? '#000000' : 'var(--md-sys-color-surface)';
 
     switch (type) {
       case 'monochromatic':

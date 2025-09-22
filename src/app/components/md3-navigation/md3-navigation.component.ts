@@ -1,11 +1,6 @@
 import { Component, Input, Output, EventEmitter, HostListener, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatRippleModule } from '@angular/material/core';
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatTooltipModule } from '@angular/material/tooltip';
 
 export interface NavigationItem {
   id: string;
@@ -31,12 +26,7 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule,
-    MatIconModule,
-    MatButtonModule,
-    MatRippleModule,
-    MatBadgeModule,
-    MatTooltipModule
+    RouterModule
   ],
   template: `
     <!-- Navigation Rail (Tablets) -->
@@ -49,12 +39,12 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
       
       <!-- Menu Toggle -->
       <button 
-        mat-icon-button
+        class="md3-icon-button"
         class="menu-toggle"
         (click)="toggleCollapse()"
         attr.aria-label="Toggle navigation"
         attr.aria-expanded="{{ !isCollapsed() }}">
-        <mat-icon>menu</mat-icon>
+        <span class="material-icons">menu</span>
       </button>
       
       <!-- Logo/Brand -->
@@ -75,17 +65,14 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
           [class.active]="isActive(item)"
           [routerLink]="item.route"
           (click)="handleItemClick(item)"
-          matRipple
-          [matTooltip]="isCollapsed() ? item.label : ''"
-          matTooltipPosition="right">
+                    [title]="isCollapsed() ? item.label : ''"
+          >
           
-          <mat-icon 
-            [matBadge]="item.badge"
-            [matBadgeHidden]="!item.badge"
-            matBadgeColor="accent"
-            matBadgeSize="small">
+          <span class="material-icons" 
+            [attr.data-badge]="item.badge"
+                                    >
             {{ item.icon }}
-          </mat-icon>
+          </span>
           
           <span class="rail-label" *ngIf="!isCollapsed()">
             {{ item.label }}
@@ -100,7 +87,7 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
         *ngIf="fabIcon"
         (click)="onFabClick.emit()"
         [attr.aria-label]="fabLabel">
-        <mat-icon>{{ fabIcon }}</mat-icon>
+        <span class="material-icons">{{ fabIcon }}</span>
       </button>
     </nav>
     
@@ -143,19 +130,18 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
             (click)="handleItemClick(item)"
             matRipple>
             
-            <mat-icon 
+            <span class="material-icons" 
               class="drawer-icon"
-              [matBadge]="item.badge"
-              [matBadgeHidden]="!item.badge"
-              matBadgeColor="accent">
+              [attr.data-badge]="item.badge"
+                            matBadgeColor="accent">
               {{ item.icon }}
-            </mat-icon>
+            </span>
             
             <span class="drawer-label">{{ item.label }}</span>
             
-            <mat-icon class="drawer-trailing" *ngIf="item.children">
+            <span class="material-icons" class="drawer-trailing" *ngIf="item.children">
               keyboard_arrow_right
-            </mat-icon>
+            </span>
           </button>
           
           <!-- Nested Items -->
@@ -178,17 +164,17 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
       <!-- Drawer Footer -->
       <div class="drawer-footer" *ngIf="showSettings">
         <button 
-          mat-icon-button
+          class="md3-icon-button"
           (click)="onSettingsClick.emit()"
-          matTooltip="Settings">
-          <mat-icon>settings</mat-icon>
+          title="Settings">
+          <span class="material-icons">settings</span>
         </button>
         
         <button 
-          mat-icon-button
+          class="md3-icon-button"
           (click)="onProfileClick.emit()"
-          matTooltip="Profile">
-          <mat-icon>account_circle</mat-icon>
+          title="Profile">
+          <span class="material-icons">account_circle</span>
         </button>
       </div>
     </nav>
@@ -208,14 +194,12 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
         (click)="handleItemClick(item)"
         matRipple>
         
-        <mat-icon 
+        <span class="material-icons" 
           class="bottom-icon"
-          [matBadge]="item.badge"
-          [matBadgeHidden]="!item.badge"
-          matBadgeColor="accent"
-          matBadgeSize="small">
+          [attr.data-badge]="item.badge"
+                              >
           {{ item.icon }}
-        </mat-icon>
+        </span>
         
         <span class="bottom-label">{{ item.label }}</span>
       </button>

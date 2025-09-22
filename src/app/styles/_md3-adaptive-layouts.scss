@@ -101,21 +101,21 @@ $breakpoint-extra-large: 1600px; // 1600px+ (ultra-wide)
 // Grid system
 .adaptive-grid {
   display: grid;
-  gap: 16px;
+  gap: var(--md-sys-spacing-4);
   
   @include compact {
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    gap: var(--md-sys-spacing-2);
   }
   
   @include medium {
     grid-template-columns: repeat(8, 1fr);
-    gap: 16px;
+    gap: var(--md-sys-spacing-4);
   }
   
   @include expanded {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    gap: var(--md-sys-spacing-6);
   }
 }
 
@@ -315,17 +315,17 @@ $breakpoint-extra-large: 1600px; // 1600px+ (ultra-wide)
   .list-item {
     @include compact {
       min-height: 48px; // Larger touch targets on mobile
-      padding: 12px 16px;
+      padding: var(--md-sys-spacing-3) var(--md-sys-spacing-4);
     }
     
     @include medium {
       min-height: 56px;
-      padding: 16px 24px;
+      padding: var(--md-sys-spacing-4) var(--md-sys-spacing-6);
     }
     
     @include expanded {
       min-height: 48px;
-      padding: 12px 24px;
+      padding: var(--md-sys-spacing-3) var(--md-sys-spacing-6);
     }
   }
 }
@@ -335,19 +335,19 @@ $breakpoint-extra-large: 1600px; // 1600px+ (ultra-wide)
   @include compact {
     width: calc(100vw - 32px);
     max-width: 360px;
-    margin: 16px;
+    margin: var(--md-sys-spacing-4);
   }
   
   @include medium {
     width: 560px;
     max-width: calc(100vw - 64px);
-    margin: 32px auto;
+    margin: var(--md-sys-spacing-8) auto;
   }
   
   @include expanded {
     width: 600px;
     max-width: calc(100vw - 128px);
-    margin: 48px auto;
+    margin: var(--md-sys-spacing-12) auto;
   }
 }
 
@@ -417,7 +417,7 @@ $breakpoint-extra-large: 1600px; // 1600px+ (ultra-wide)
     top: 0;
     bottom: 0;
     width: 280px;
-    padding: 24px 0;
+    padding: var(--md-sys-spacing-6) 0;
   }
 }
 

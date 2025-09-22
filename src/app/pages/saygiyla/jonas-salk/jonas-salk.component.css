@@ -6,7 +6,7 @@
 
 /* Biography Section */
 .biography-section {
-  padding: 80px 0;
+  padding: var(--md-sys-spacing-20) 0;
   background: white;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .section-header h2 {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 2.5rem;
   font-weight: 700;
   color: #1565c0;
@@ -26,7 +26,7 @@
 .section-divider {
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #ffb74d 0%, #ffa726 100%);
+  background: linear-gradient(90deg, var(--md-sys-color-secondary) 0%, #ffa726 100%);
   border-radius: 2px;
   margin: 0 auto;
 }
@@ -40,9 +40,9 @@
 }
 
 .biography-text {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   line-height: 1.8;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
 }
 
 .biography-text .lead {
@@ -52,7 +52,7 @@
 }
 
 .biography-text h3 {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.5rem;
   font-weight: 600;
   color: #1565c0;
@@ -68,9 +68,9 @@
   float: right;
   width: 300px;
   margin: 0 0 2rem 2rem;
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(var(--md-sys-color-shadow), 0.15);
 }
 
 .biography-photo img {
@@ -85,22 +85,22 @@
   color: white;
   padding: 0.75rem;
   text-align: center;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.9rem;
   margin: 0;
 }
 
 /* Highlight Quote */
 .highlight-quote {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.5rem;
   font-weight: 600;
   color: #1565c0;
   padding: 1.5rem;
   margin: 2rem 0;
   background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-  border-left: 4px solid #ffb74d;
-  border-radius: 12px;
+  border-left: 4px solid var(--md-sys-color-secondary);
+  border-radius: var(--md-sys-shape-corner-medium);
   text-align: center;
   font-style: italic;
 }
@@ -108,13 +108,13 @@
 /* Timeline */
 .timeline-container {
   background: #f8fafb;
-  border-radius: 24px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   padding: 2rem;
   border: 1px solid #e0e0e0;
 }
 
 .timeline-container h3 {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.5rem;
   font-weight: 600;
   color: #1565c0;
@@ -146,7 +146,7 @@
 }
 
 .timeline-year {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-weight: 700;
   color: #1976d2;
   margin-bottom: 0.5rem;
@@ -164,19 +164,19 @@
   height: 12px;
   background: #1976d2;
   border: 3px solid white;
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   box-shadow: 0 2px 8px rgba(25, 118, 210, 0.3);
 }
 
 .timeline-content p {
   margin: 0;
-  font-family: 'DM Sans', sans-serif;
-  color: #666;
+  font-family: var(--md-sys-typescale-font-plain);
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 /* Books Section */
 .books-section {
-  padding: 80px 0;
+  padding: var(--md-sys-spacing-20) 0;
   background: #f8fafb;
 }
 
@@ -190,7 +190,7 @@
 
 .book-card {
   background: white;
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 1.5rem;
   border: 2px solid #e0e0e0;
   transition: all 0.3s ease;
@@ -203,7 +203,7 @@
 }
 
 .book-year {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.875rem;
   font-weight: 600;
   color: #1976d2;
@@ -211,10 +211,10 @@
 }
 
 .book-card h3 {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.125rem;
   font-weight: 600;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
   margin: 0 0 0.5rem 0;
 }
 
@@ -222,15 +222,15 @@
   display: inline-block;
   padding: 0.25rem 0.75rem;
   background: #f8fafb;
-  border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
+  border-radius: var(--md-sys-shape-corner-small);
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.875rem;
   color: #1565c0;
 }
 
 /* Contributions Section */
 .contributions-section {
-  padding: 80px 0;
+  padding: var(--md-sys-spacing-20) 0;
   background: white;
 }
 
@@ -244,10 +244,10 @@
 
 .contribution-card {
   background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-  border-radius: 20px;
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(var(--md-sys-color-shadow), 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -260,7 +260,7 @@
   width: 80px;
   height: 80px;
   background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-  border-radius: 20px;
+  border-radius: var(--md-sys-shape-corner-large);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -273,7 +273,7 @@
 }
 
 .contribution-card h3 {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.25rem;
   font-weight: 600;
   color: #1565c0;
@@ -281,15 +281,15 @@
 }
 
 .contribution-card p {
-  font-family: 'DM Sans', sans-serif;
-  color: #666;
+  font-family: var(--md-sys-typescale-font-plain);
+  color: var(--md-sys-color-on-surface-variant);
   line-height: 1.6;
   margin: 0;
 }
 
 /* Quotes Section */
 .quotes-section {
-  padding: 80px 0;
+  padding: var(--md-sys-spacing-20) 0;
   background: #f8fafb;
 }
 
@@ -304,7 +304,7 @@
 .quote-card {
   background: white;
   border-left: 4px solid #1976d2;
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 2rem;
   transition: all 0.3s ease;
 }
@@ -325,23 +325,23 @@
 }
 
 .quote-card p {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.25rem;
   font-weight: 500;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
   margin: 0 0 1rem 0;
 }
 
 .quote-card cite {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-style: normal;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 /* CTA Section */
 .cta-section {
-  padding: 80px 0;
+  padding: var(--md-sys-spacing-20) 0;
   background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
 }
 
@@ -352,7 +352,7 @@
 }
 
 .cta-content h2 {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 2.5rem;
   font-weight: 700;
   color: white;
@@ -360,7 +360,7 @@
 }
 
 .cta-content p {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.9);
   margin: 0 0 2rem 0;
@@ -371,11 +371,11 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #ffb74d 0%, #ffa726 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-secondary) 0%, #ffa726 100%);
   color: white;
   text-decoration: none;
-  border-radius: 12px;
-  font-family: 'DM Sans', sans-serif;
+  border-radius: var(--md-sys-shape-corner-medium);
+  font-family: var(--md-sys-typescale-font-plain);
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;

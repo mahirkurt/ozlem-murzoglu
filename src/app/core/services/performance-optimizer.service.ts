@@ -774,7 +774,7 @@ export class PerformanceOptimizerService {
   private inlineCriticalCSS(): void {
     const criticalCSS = `
       /* Critical CSS */
-      body { margin: 0; font-family: 'DM Sans', sans-serif; }
+      body { margin: 0; font-family: var(--md-sys-typescale-font-plain); }
       .header { height: 60px; background: var(--primary); }
       .main { min-height: calc(100vh - 120px); }
       .footer { height: 60px; background: var(--surface); }

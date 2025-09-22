@@ -1,23 +1,11 @@
 <section class="faq-page">
-  <!-- Hero Section -->
-  <div class="faq-hero">
-    <div class="hero-decoration">
-      <div class="decoration-circle circle-1"></div>
-      <div class="decoration-circle circle-2"></div>
-      <div class="decoration-circle circle-3"></div>
-    </div>
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="page-title">{{ 'FAQ.TITLE' | translate }}</h1>
-        <p class="page-subtitle">{{ 'FAQ.SUBTITLE' | translate }}</p>
-        
-        <div class="search-box">
-          <span class="material-icons">search</span>
-          <input type="text" [placeholder]="'FAQ.SEARCH_PLACEHOLDER' | translate" />
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Global Hero Section -->
+  <app-hero-section
+    [title]="'FAQ.TITLE' | translate"
+    [subtitle]="'FAQ.SUBTITLE' | translate"
+    [breadcrumbs]="breadcrumbs"
+    backgroundImage="assets/images/page-headers/faq-bg.jpg">
+  </app-hero-section>
 
   <!-- FAQ Content -->
   <div class="faq-content">

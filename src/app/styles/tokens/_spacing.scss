@@ -1,10 +1,9 @@
 // ====================================
 // Design Tokens: Spacing
-// Single Source of Truth for Spacing System
-// Based on 4px Grid & Golden Ratio (1.618)
+// MD3 Pure CSS - 8px Grid System
 // ====================================
 
-// SCSS Variables for import in _index.scss
+// SCSS Variables for import in _index.scss (legacy support)
 $spacing-xs: 8px;
 $spacing-sm: 12px;
 $spacing-md: 16px;
@@ -12,47 +11,67 @@ $spacing-lg: 24px;
 $spacing-xl: 32px;
 $spacing-xxl: 48px;
 
-// Golden Ratio for harmonic spacing
-$golden-ratio: 1.618;
+// MD3 Spacing Base Unit & Golden Ratio
+$md-sys-spacing-base: 4px;
+$golden-ratio: 1.618; // Golden ratio reference for harmonic spacing
 
 :root {
-  // Base unit for spacing calculations
-  --spacing-base: 4px;
-  --golden-ratio: 1.618;
+  // MD3 Spacing Base
+  --md-sys-spacing-base: 4px;
+  --golden-ratio: 1.618; // Golden ratio for harmonic proportions
 
-  // Spacing scale (based on 4px grid with harmonic progression)
-  --spacing-0: 0;
-  --spacing-1: calc(var(--spacing-base) * 1); // 4px
-  --spacing-2: calc(var(--spacing-base) * 2); // 8px
-  --spacing-3: calc(var(--spacing-base) * 3); // 12px
-  --spacing-4: calc(var(--spacing-base) * 4); // 16px
-  --spacing-5: calc(var(--spacing-base) * 5); // 20px
-  --spacing-6: calc(var(--spacing-base) * 6); // 24px
-  --spacing-7: calc(var(--spacing-base) * 7); // 28px
-  --spacing-8: calc(var(--spacing-base) * 8); // 32px
-  --spacing-10: calc(var(--spacing-base) * 10); // 40px
-  --spacing-12: calc(var(--spacing-base) * 12); // 48px
-  --spacing-14: calc(var(--spacing-base) * 14); // 56px
-  --spacing-16: calc(var(--spacing-base) * 16); // 64px
-  --spacing-20: calc(var(--spacing-base) * 20); // 80px
-  --spacing-24: calc(var(--spacing-base) * 24); // 96px
-  --spacing-32: calc(var(--spacing-base) * 32); // 128px
-  --spacing-40: calc(var(--spacing-base) * 40); // 160px
-  --spacing-48: calc(var(--spacing-base) * 48); // 192px
-  --spacing-56: calc(var(--spacing-base) * 56); // 224px
-  --spacing-64: calc(var(--spacing-base) * 64); // 256px
+  // MD3 Spacing Scale (8px grid aligned with golden ratio harmonics)
+  --md-sys-spacing-0: 0;
+  --md-sys-spacing-1: 4px;   // 0.25rem - Extra small elements
+  --md-sys-spacing-2: 8px;   // 0.5rem - Small gaps
+  --md-sys-spacing-3: 12px;  // 0.75rem - Medium gaps
+  --md-sys-spacing-4: 16px;  // 1rem - Default spacing
+  --md-sys-spacing-5: 20px;  // 1.25rem - Large gaps
+  --md-sys-spacing-6: 24px;  // 1.5rem - Extra large gaps
+  --md-sys-spacing-7: 28px;  // 1.75rem - Special cases
+  --md-sys-spacing-8: 32px;  // 2rem - Section spacing
+  --md-sys-spacing-10: 40px; // 2.5rem - Large section spacing
+  --md-sys-spacing-12: 48px; // 3rem - Hero spacing
+  --md-sys-spacing-14: 56px; // 3.5rem - Large components
+  --md-sys-spacing-15: 60px; // 3.75rem - Page sections
+  --md-sys-spacing-16: 64px; // 4rem - Large sections
+  --md-sys-spacing-20: 80px; // 5rem - Page padding
+  --md-sys-spacing-24: 96px; // 6rem - Extra large padding
+  --md-sys-spacing-32: 128px; // 8rem - Hero sections
 
-  // Semantic spacing aliases
-  --spacing-xxs: var(--spacing-1); // 4px
-  --spacing-xs: var(--spacing-2); // 8px
-  --spacing-sm: var(--spacing-3); // 12px
-  --spacing-md: var(--spacing-4); // 16px
-  --spacing-lg: var(--spacing-6); // 24px
-  --spacing-xl: var(--spacing-8); // 32px
-  --spacing-2xl: var(--spacing-12); // 48px
-  --spacing-3xl: var(--spacing-16); // 64px
-  --spacing-4xl: var(--spacing-20); // 80px
-  --spacing-5xl: var(--spacing-24); // 96px
+  // Legacy mapping for backward compatibility
+  --spacing-0: var(--md-sys-spacing-0);
+  --spacing-1: var(--md-sys-spacing-1);
+  --spacing-2: var(--md-sys-spacing-2);
+  --spacing-3: var(--md-sys-spacing-3);
+  --spacing-4: var(--md-sys-spacing-4);
+  --spacing-5: var(--md-sys-spacing-5);
+  --spacing-6: var(--md-sys-spacing-6);
+  --spacing-7: var(--md-sys-spacing-7);
+  --spacing-8: var(--md-sys-spacing-8);
+  --spacing-10: var(--md-sys-spacing-10);
+  --spacing-12: var(--md-sys-spacing-12);
+  --spacing-14: var(--md-sys-spacing-14);
+  --spacing-16: var(--md-sys-spacing-16);
+  --spacing-20: var(--md-sys-spacing-20);
+  --spacing-24: var(--md-sys-spacing-24);
+  --spacing-32: var(--md-sys-spacing-32);
+  --spacing-40: 160px; // Legacy only
+  --spacing-48: 192px; // Legacy only
+  --spacing-56: 224px; // Legacy only
+  --spacing-64: 256px; // Legacy only
+
+  // Semantic MD3 aliases
+  --spacing-xxs: var(--md-sys-spacing-1); // 4px
+  --spacing-xs: var(--md-sys-spacing-2);  // 8px
+  --spacing-sm: var(--md-sys-spacing-3);  // 12px
+  --spacing-md: var(--md-sys-spacing-4);  // 16px
+  --spacing-lg: var(--md-sys-spacing-6);  // 24px
+  --spacing-xl: var(--md-sys-spacing-8);  // 32px
+  --spacing-2xl: var(--md-sys-spacing-12); // 48px
+  --spacing-3xl: var(--md-sys-spacing-16); // 64px
+  --spacing-4xl: var(--md-sys-spacing-20); // 80px
+  --spacing-5xl: var(--md-sys-spacing-24); // 96px
 
   // Component-specific spacing
   --spacing-inline-xxs: var(--spacing-1);

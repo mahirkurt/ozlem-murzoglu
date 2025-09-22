@@ -5,15 +5,15 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  testDir: './',
-  testMatch: ['**/check-*.spec.js', '**/test-*.spec.js'],
+  testDir: '../e2e',
+  testMatch: ['**/*.spec.js'],
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:4201',
+    baseURL: 'http://localhost:4200',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',

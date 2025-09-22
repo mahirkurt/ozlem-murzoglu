@@ -4,24 +4,28 @@
     "DESCRIPTION": "Dr. Özlem Murzoğlu - İstanbul Ataşehir'de Çocuk Sağlığı ve Hastalıkları Uzmanı. Bebek ve çocuk sağlığı, aşılama, gelişim takibi ve tedavi hizmetleri. Randevu için: 0216 688 44 83"
   },
   "COMMON": {
-    "PAGE_TITLE": "Dr. Özlem Murzoğlu - Çocuk Sağlığı ve Hastalıkları Uzmanı | İstanbul Ataşehir",
-    "DOCTOR_NAME": "Dr. Özlem Murzoğlu",
-    "ALL": "Tümü",
+    "READ_MORE": "Devamını Oku",
+    "DOWNLOAD": "İndir",
+    "PRINT": "Yazdır",
+    "SHARE": "Paylaş",
+    "BACK": "Geri",
+    "NEXT": "İleri",
+    "PREVIOUS": "Önceki",
+    "CLOSE": "Kapat",
+    "LOADING": "Yükleniyor...",
+    "ERROR": "Hata",
+    "SUCCESS": "Başarılı",
+    "WARNING": "Uyarı",
+    "INFO": "Bilgi",
     "COMING_SOON": "Yakında Geliyor",
-    "COMING_SOON_DESC": "Bu sayfa üzerinde çalışıyoruz",
-    "COMING_SOON_MESSAGE": "Daha iyi bir deneyim sunmak için bu sayfayı hazırlıyoruz. Çok yakında sizlerle olacak!",
-    "GO_HOME": "Ana Sayfaya Dön",
-    "LEARN_MORE": "Detaylı Bilgi",
-    "GET_INFO": "Bilgi Al",
-    "YEARS_AGO": "yıl önce",
-    "MONTHS_AGO": "ay önce",
-    "WEEKS_AGO": "hafta önce",
-    "DAYS_AGO": "gün önce",
-    "HOURS_AGO": "saat önce",
-    "TODAY": "Bugün",
-    "YESTERDAY": "Dün",
-    "CONFIRM_DELETE": "Bu kaynağı favorilerden kaldırmak istediğinizden emin misiniz?",
-    "CONFIRM_CLEAR_ALL": "Tüm favorileri temizlemek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+    "SEARCH": "Hızlı Arama",
+    "SHARE_WHATSAPP": "WhatsApp'ta Paylaş",
+    "SHARE_TWITTER": "Twitter'da Paylaş",
+    "SHARE_FACEBOOK": "Facebook'ta Paylaş",
+    "SHARE_LINKEDIN": "LinkedIn'de Paylaş",
+    "COPY_LINK": "Bağlantıyı Kopyala",
+    "BOOK_APPOINTMENT": "[TR] Book Appointment",
+    "DOCTOR_NAME": "[TR] Doctor Name"
   },
   "HEADER": {
     "BRAND_NAME": "Dr. Özlem Murzoğlu",
@@ -29,6 +33,7 @@
     "NAV_ABOUT": "Hakkımızda",
     "NAV_ABOUT_US": "Hakkımızda",
     "NAV_DR_OZLEM": "Dr. Özlem Murzoğlu",
+    "NAV_CLINIC": "Kliniğimiz",
     "NAV_CLINIC_DESIGN": "Klinik Tasarımı",
     "NAV_SERVICES": "Hizmetlerimiz",
     "NAV_INFO_CENTER": "Bilgi Merkezi",
@@ -100,6 +105,7 @@
       "HERO_SUBTITLE": "Çocuk Sağlığı ve Hastalıkları Uzmanı",
       "BADGE_PEDIATRICIAN": "Pediatri Uzmanı",
       "BADGE_SOCIAL_PEDIATRICS": "Sosyal Pediatri Doktorası",
+      "BADGE_UNIVERSITY": "İstanbul Tıp Fakültesi",
       "INTRO_TEXT": "Ben Özlem Murzoğlu.",
       "PEDIATRICS_JOURNEY_TITLE": "Pediatri Serüvenim",
       "MARMARA_UNIVERSITY": "Marmara Üniversitesi",
@@ -110,7 +116,18 @@
       "CHILD_HEALTH_MONITORING": "Çocuk Sağlığı İzlemi",
       "ISTANBUL_UNIVERSITY_INSTITUTE": "İstanbul Üniversitesi Çocuk Sağlığı Enstitüsü",
       "SOCIAL_PEDIATRICS": "Sosyal Pediatri",
-      "EXPERT_TEAM_DESIGN": "Uzman Ekip İle Tasarım"
+      "EXPERT_TEAM_DESIGN": "Uzman Ekip İle Tasarım",
+      "MY_STORY": "[TR] My Story",
+      "ROOTS_TITLE": "[TR] Roots Title",
+      "ROOTS_TEXT": "[TR] Roots Text",
+      "EDUCATION_JOURNEY": "[TR] Education Journey",
+      "EDUCATION_TEXT": "[TR] Education Text",
+      "FAMILY_TITLE": "[TR] Family Title",
+      "FAMILY_TEXT": "[TR] Family Text",
+      "HEALTHY_CHILD": "[TR] Healthy Child",
+      "HEALTHY_CHILD_TEXT": "[TR] Healthy Child Text",
+      "NEW_BEGINNING": "[TR] New Beginning",
+      "NEW_BEGINNING_TEXT": "[TR] New Beginning Text"
     }
   },
   "SERVICES": {
@@ -205,7 +222,45 @@
       "LIMITED_QUOTA": "Sınırlı kontenjan",
       "CERTIFIED_PRACTITIONER": "Sertifikalı uygulayıcı",
       "PRE_REGISTER": "Ön Kayıt Yaptırın",
-      "GET_INFO": "Bilgi Alın"
+      "GET_INFO": "Bilgi Alın",
+      "FIVE_PRINCIPLES": "[TR] Five Principles",
+      "PROGRAM_LEVELS": "[TR] Program Levels",
+      "LEVEL_SEMINARS": "[TR] Level Seminars",
+      "LEVEL_SEMINARS_DESC": "[TR] Level Seminars Desc",
+      "LEVEL_GROUP": "[TR] Level Group",
+      "LEVEL_GROUP_DESC": "[TR] Level Group Desc",
+      "LEVEL_INDIVIDUAL": "[TR] Level Individual",
+      "LEVEL_INDIVIDUAL_DESC": "[TR] Level Individual Desc",
+      "SPECIAL_PROGRAMS": "[TR] Special Programs",
+      "STEPPING_STONES": "[TR] Stepping Stones",
+      "STEPPING_STONES_DESC": "[TR] Stepping Stones Desc",
+      "FAMILY_TRANSITIONS": "[TR] Family Transitions",
+      "FAMILY_TRANSITIONS_DESC": "[TR] Family Transitions Desc",
+      "FEAR_LESS": "[TR] Fear Less",
+      "FEAR_LESS_DESC": "[TR] Fear Less Desc",
+      "SCIENTIFIC_SUBTITLE": "[TR] Scientific Subtitle",
+      "TOTAL_PUBLICATIONS": "[TR] Total Publications",
+      "TOTAL_PUBLICATIONS_DESC": "[TR] Total Publications Desc",
+      "EFFECTIVENESS_STUDIES": "[TR] Effectiveness Studies",
+      "EFFECTIVENESS_STUDIES_DESC": "[TR] Effectiveness Studies Desc",
+      "RCT_STUDIES": "[TR] Rct Studies",
+      "RCT_STUDIES_DESC": "[TR] Rct Studies Desc",
+      "CLINICAL_OUTCOMES": "[TR] Clinical Outcomes",
+      "CLINICAL_IMPROVEMENT": "[TR] Clinical Improvement",
+      "BEHAVIOR_REDUCTION": "[TR] Behavior Reduction",
+      "CLINICAL_DETAIL": "[TR] Clinical Detail",
+      "RESEARCH_HISTORY": "[TR] Research History",
+      "FOUNDED": "[TR] Founded",
+      "YEARS_DEVELOPMENT": "[TR] Years Development",
+      "QUEENSLAND_INFO": "[TR] Queensland Info",
+      "GLOBAL_RECOGNITION": "[TR] Global Recognition",
+      "WHO": "[TR] Who",
+      "UNICEF": "[TR] Unicef",
+      "WORLD_BANK": "[TR] World Bank",
+      "INSPIRE_INFO": "[TR] Inspire Info",
+      "META_ANALYSIS": "[TR] Meta Analysis",
+      "META_ANALYSIS_DESC": "[TR] Meta Analysis Desc",
+      "JOURNAL_INFO": "[TR] Journal Info"
     },
     "SERVICE_SLEEP": {
       "TITLE": "Sağlıklı Uykular™",
@@ -290,7 +345,58 @@
       "CTA_TITLE": "Huzurlu Uykular İçin İlk Adımı Atın",
       "CTA_DESC": "Sağlıklı Uykular™ programı hakkında detaylı bilgi almak ve randevu oluşturmak için bizimle iletişime geçin.",
       "CTA_BUTTON": "Hemen Başvur",
-      "INFO_BUTTON": "Detaylı Bilgi Al"
+      "INFO_BUTTON": "Detaylı Bilgi Al",
+      "PROGRAM_SCOPE": "[TR] Program Scope",
+      "AGE_RANGE": "[TR] Age Range",
+      "AGE_RANGE_DESC": "[TR] Age Range Desc",
+      "SCIENTIFIC_APPROACH": "[TR] Scientific Approach",
+      "SCIENTIFIC_APPROACH_DESC": "[TR] Scientific Approach Desc",
+      "GENTLE_TECHNIQUES": "[TR] Gentle Techniques",
+      "GENTLE_TECHNIQUES_DESC": "[TR] Gentle Techniques Desc",
+      "PROBLEMS_TITLE": "[TR] Problems Title",
+      "APPLICATION_DETAILS": "[TR] Application Details",
+      "SLEEP_DIARY": "[TR] Sleep Diary",
+      "SLEEP_DIARY_DESC": "[TR] Sleep Diary Desc",
+      "ONLINE_MEETING": "[TR] Online Meeting",
+      "ONLINE_MEETING_DESC": "[TR] Online Meeting Desc",
+      "WRITTEN_PLAN": "[TR] Written Plan",
+      "WRITTEN_PLAN_DESC": "[TR] Written Plan Desc",
+      "WHATSAPP_SUPPORT": "[TR] Whatsapp Support",
+      "WHATSAPP_SUPPORT_DESC": "[TR] Whatsapp Support Desc",
+      "PLAN_UPDATES": "[TR] Plan Updates",
+      "PLAN_UPDATES_DESC": "[TR] Plan Updates Desc",
+      "METHODS_TITLE": "[TR] Methods Title",
+      "METHOD_CHAIR": "[TR] Method Chair",
+      "METHOD_CHAIR_DESC": "[TR] Method Chair Desc",
+      "METHOD_GRADUAL": "[TR] Method Gradual",
+      "METHOD_GRADUAL_DESC": "[TR] Method Gradual Desc",
+      "METHOD_CHECK": "[TR] Method Check",
+      "METHOD_CHECK_DESC": "[TR] Method Check Desc",
+      "METHOD_FADING": "[TR] Method Fading",
+      "METHOD_FADING_DESC": "[TR] Method Fading Desc",
+      "HAPPY_FAMILIES": "[TR] Happy Families",
+      "HAPPY_FAMILIES_DESC": "[TR] Happy Families Desc",
+      "SUCCESS_RATE_TITLE": "[TR] Success Rate Title",
+      "SUCCESS_RATE_DESC": "[TR] Success Rate Desc",
+      "AVG_DURATION_NUM": "[TR] Avg Duration Num",
+      "AVG_DURATION": "[TR] Avg Duration",
+      "AVG_DURATION_DESC": "[TR] Avg Duration Desc",
+      "SATISFACTION": "[TR] Satisfaction",
+      "SATISFACTION_DESC": "[TR] Satisfaction Desc",
+      "PACKAGE_CONTENT": "[TR] Package Content",
+      "SPECIAL_CASES": "[TR] Special Cases",
+      "SPECIAL_CASES_DESC": "[TR] Special Cases Desc",
+      "PREMATURE": "[TR] Premature",
+      "PREMATURE_DESC": "[TR] Premature Desc",
+      "TWINS": "[TR] Twins",
+      "TWINS_DESC": "[TR] Twins Desc",
+      "SPECIAL_HEALTH": "[TR] Special Health",
+      "SPECIAL_HEALTH_DESC": "[TR] Special Health Desc",
+      "TRAVEL": "[TR] Travel",
+      "TRAVEL_DESC": "[TR] Travel Desc",
+      "SUCCESS_GUARANTEE": "[TR] Success Guarantee",
+      "SUCCESS_GUARANTEE_DESC": "[TR] Success Guarantee Desc",
+      "CTA_CALL": "[TR] Cta Call"
     },
     "SERVICE_BRIGHT_FUTURES": {
       "TITLE": "Bright Futures®",
@@ -346,7 +452,113 @@
     "CTA_APPOINTMENT": "Randevu Al",
     "CTA_CALL_US": "Bizi Arayın",
     "STAT_EXPERIENCE": "Yıllık Deneyim",
-    "STAT_FAMILIES": "Mutlu Aile"
+    "STAT_FAMILIES": "Mutlu Aile",
+    "MY_SERVICES": "Hizmet Alanlarım",
+    "NEWBORN_CARE": {
+      "TITLE": "Yenidoğan Takibi",
+      "DESCRIPTION": "0-28 günlük bebek kontrolleri"
+    },
+    "VACCINATION": {
+      "TITLE": "Aşılama",
+      "DESCRIPTION": "Sağlık Bakanlığı ve özel aşılar"
+    },
+    "CHILDHOOD_DISEASES": {
+      "TITLE": "Çocukluk Çağı Hastalıkları",
+      "DESCRIPTION": "Tanı, tedavi ve takip"
+    },
+    "BREASTFEEDING": {
+      "TITLE": "Emzirme Danışmanlığı",
+      "DESCRIPTION": "Anne sütü ve emzirme desteği"
+    },
+    "SLEEP_CONSULTATION": {
+      "TITLE": "Uyku Danışmanlığı",
+      "DESCRIPTION": "Sağlıklı uyku düzeni oluşturma"
+    },
+    "NUTRITION": {
+      "TITLE": "Beslenme Danışmanlığı",
+      "DESCRIPTION": "Yaşa uygun sağlıklı beslenme"
+    },
+    "TOILET_TRAINING": {
+      "TITLE": "Tuvalet Eğitimi",
+      "DESCRIPTION": "Doğru zamanda ve yöntemle"
+    },
+    "POSITIVE_PARENTING": {
+      "TITLE": "Olumlu Ebeveynlik",
+      "DESCRIPTION": "Ebeveynlik becerileri geliştirme"
+    },
+    "SCHOOL_CONSULTATION": {
+      "TITLE": "Kreş ve Okul Danışmanlığı",
+      "DESCRIPTION": "Sağlıklı eğitim ortamı seçimi"
+    },
+    "ADOLESCENCE": {
+      "TITLE": "Ergenlik Danışmanlığı",
+      "DESCRIPTION": "Ergenliğe sağlıklı geçiş"
+    },
+    "MEDIA_USE": {
+      "TITLE": "Medya Kullanımı",
+      "DESCRIPTION": "Akılcı dijital cihaz kullanımı"
+    },
+    "FAMILY_COUNSELING": {
+      "TITLE": "Aile Danışmanlığı",
+      "DESCRIPTION": "Ebeveynliğe hazırlık ve destek"
+    },
+    "SERVICE_BRIGHT": {
+      "WHAT_IS": "[TR] What Is",
+      "WHAT_IS_DESC": "[TR] What Is Desc",
+      "CLINIC_INFO": "[TR] Clinic Info",
+      "PROGRAM_SCOPE": "[TR] Program Scope",
+      "AGE_RANGE": "[TR] Age Range",
+      "AGE_RANGE_DESC": "[TR] Age Range Desc",
+      "VISITS_COUNT": "[TR] Visits Count",
+      "VISITS_DESC": "[TR] Visits Desc",
+      "AAP_STANDARDS": "[TR] Aap Standards",
+      "AAP_STANDARDS_DESC": "[TR] Aap Standards Desc",
+      "GLOBAL_STANDARD": "[TR] Global Standard",
+      "GLOBAL_STANDARD_DESC": "[TR] Global Standard Desc",
+      "FIVE_FOUNDATIONS": "[TR] Five Foundations",
+      "THREE_PILLARS": "[TR] Three Pillars",
+      "VISIT_SCHEDULE": "[TR] Visit Schedule",
+      "BABY_PERIOD": "[TR] Baby Period",
+      "EARLY_CHILDHOOD": "[TR] Early Childhood",
+      "SCHOOL_AGE": "[TR] School Age",
+      "BREADCRUMB": "[TR] Breadcrumb"
+    },
+    "SERVICE_LAB_IMAGING": {
+      "LAB_SERVICES": "[TR] Lab Services",
+      "CORPORATE_PARTNER": "[TR] Corporate Partner",
+      "BIOCHEMISTRY": "[TR] Biochemistry",
+      "BIOCHEMISTRY_DESC": "[TR] Biochemistry Desc",
+      "MICROBIOLOGY": "[TR] Microbiology",
+      "MICROBIOLOGY_DESC": "[TR] Microbiology Desc",
+      "ANTIBODY_ANTIGEN": "[TR] Antibody Antigen",
+      "ANTIBODY_DESC": "[TR] Antibody Desc",
+      "HEMATOLOGY": "[TR] Hematology",
+      "HEMATOLOGY_DESC": "[TR] Hematology Desc",
+      "HORMONE": "[TR] Hormone",
+      "HORMONE_DESC": "[TR] Hormone Desc",
+      "ALLERGY": "[TR] Allergy",
+      "ALLERGY_DESC": "[TR] Allergy Desc",
+      "RESULTS": "[TR] Results",
+      "RESULT_NOTIFICATION": "[TR] Result Notification",
+      "RESULT_EMAIL": "[TR] Result Email",
+      "INSURANCE_SERVICES": "[TR] Insurance Services",
+      "INSURANCE_PROCESS": "[TR] Insurance Process",
+      "IMAGING_SERVICES": "[TR] Imaging Services",
+      "NEAR_LOCATION": "[TR] Near Location",
+      "GET_DIRECTIONS": "[TR] Get Directions",
+      "MR_IMAGING": "[TR] Mr Imaging",
+      "MR_DESC": "[TR] Mr Desc",
+      "CT_SCAN": "[TR] Ct Scan",
+      "CT_DESC": "[TR] Ct Desc",
+      "ULTRASOUND": "[TR] Ultrasound",
+      "ULTRASOUND_DESC": "[TR] Ultrasound Desc",
+      "XRAY": "[TR] Xray",
+      "XRAY_DESC": "[TR] Xray Desc",
+      "ECHO": "[TR] Echo",
+      "ECHO_DESC": "[TR] Echo Desc",
+      "REPORTING": "[TR] Reporting",
+      "REPORTING_DESC": "[TR] Reporting Desc"
+    }
   },
   "RESOURCES": {
     "TITLE": "Kaynaklar",
@@ -467,7 +679,12 @@
       "EMAIL": "Lütfen geçerli bir e-posta adresi giriniz.",
       "PHONE": "Lütfen geçerli bir telefon numarası giriniz.",
       "MESSAGE": "Lütfen mesajınızı giriniz (en az 10 karakter)."
-    }
+    },
+    "CTA_TITLE": "Çocuğunuzun sağlığı için yanınızdayım",
+    "CTA_SUBTITLE": "Kanıta dayalı, bilimsel veriler ışığında pediatri hekimliği",
+    "TITLE": "[TR] Title",
+    "PHONE": "[TR] Phone",
+    "EMAIL": "[TR] Email"
   },
   "FOOTER": {
     "ABOUT_TITLE": "Hakkımızda",
@@ -503,28 +720,6 @@
   "LANGUAGE_SWITCHER": {
     "TR": "Türkçe",
     "EN": "English"
-  },
-  "COMMON": {
-    "READ_MORE": "Devamını Oku",
-    "DOWNLOAD": "İndir",
-    "PRINT": "Yazdır",
-    "SHARE": "Paylaş",
-    "BACK": "Geri",
-    "NEXT": "İleri",
-    "PREVIOUS": "Önceki",
-    "CLOSE": "Kapat",
-    "LOADING": "Yükleniyor...",
-    "ERROR": "Hata",
-    "SUCCESS": "Başarılı",
-    "WARNING": "Uyarı",
-    "INFO": "Bilgi",
-    "COMING_SOON": "Yakında Geliyor",
-    "SEARCH": "Hızlı Arama",
-    "SHARE_WHATSAPP": "WhatsApp'ta Paylaş",
-    "SHARE_TWITTER": "Twitter'da Paylaş",
-    "SHARE_FACEBOOK": "Facebook'ta Paylaş",
-    "SHARE_LINKEDIN": "LinkedIn'de Paylaş",
-    "COPY_LINK": "Bağlantıyı Kopyala"
   },
   "PAGES": {
     "THANKS_DESC": "Teşekkür sayfası şu anda hazırlanmaktadır. Değerli mesajlarınızı paylaşmak için sabırsızlanıyoruz.",
@@ -578,37 +773,57 @@
     "READ_MORE": "Devamını Oku",
     "CATEGORIES": "Kategoriler",
     "RECENT_POSTS": "Son Yazılar",
-    "SEARCH": "Ara..."
+    "SEARCH": "Ara...",
+    "SEARCH_PLACEHOLDER": "[TR] Search Placeholder",
+    "CATEGORY_FILTER": "[TR] Category Filter",
+    "CLEAR_FILTERS": "[TR] Clear Filters",
+    "FEATURED_ARTICLES": "[TR] Featured Articles",
+    "MIN_READ": "[TR] Min Read",
+    "ALL_ARTICLES": "[TR] All Articles"
   },
   "APPOINTMENT": {
-    "TITLE": "Online Randevu",
-    "SUBTITLE": "Hızlı ve kolay randevu alın",
+    "TITLE": "Randevu Al",
+    "SUBTITLE": "Online randevu sistemi ile kolayca randevu alabilirsiniz",
+    "FORM_TITLE": "Randevu Formu",
+    "TYPE_ROUTINE": "Rutin Kontrol",
+    "TYPE_SICK": "Hasta Muayenesi",
+    "TYPE_VACCINATION": "Aşı",
+    "TYPE_CONSULTATION": "Danışmanlık",
+    "TYPE_ONLINE": "Online Konsültasyon",
+    "SELECT_TYPE": "Randevu Türü",
     "SELECT_DATE": "Tarih Seçin",
     "SELECT_TIME": "Saat Seçin",
-    "PATIENT_NAME": "Hasta Adı",
+    "PATIENT_NAME": "Hasta Adı Soyadı",
     "PATIENT_AGE": "Hasta Yaşı",
-    "REASON": "Randevu Nedeni",
-    "CONFIRM": "Randevu Al",
-    "SUCCESS_MESSAGE": "Randevunuz başarıyla alındı.",
-    "MODAL_TITLE": "Randevu Talebi",
+    "PARENT_NAME": "Veli Adı Soyadı",
+    "PHONE": "Telefon Numarası",
+    "EMAIL": "E-posta Adresi",
+    "NOTES": "Notlar (İsteğe bağlı)",
+    "SUBMIT": "Randevu Al",
+    "SUCCESS_TITLE": "Randevunuz Alındı",
+    "SUCCESS_MESSAGE": "Randevunuz başarıyla oluşturuldu. Size en kısa sürede onay mesajı göndereceğiz.",
+    "ERROR_TITLE": "Hata",
+    "ERROR_MESSAGE": "Randevu oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.",
+    "MODAL_TITLE": "Online Randevu",
     "MODAL_DESC": "Randevu talebinizi oluşturmak için formu doldurun",
-    "FORM_PARENT_NAME": "Veli Adı Soyadı",
+    "FORM_PARENT_NAME": "Veli Adı",
     "FORM_PARENT_PHONE": "Telefon Numarası",
     "FORM_PARENT_EMAIL": "E-posta Adresi",
     "FORM_CHILD_NAME": "Çocuğun Adı",
     "FORM_CHILD_AGE": "Çocuğun Yaşı",
-    "FORM_APPOINTMENT_TYPE": "Randevu Tipi",
-    "TYPE_ROUTINE": "Rutin Kontrol",
-    "TYPE_SICK": "Hasta Muayenesi",
-    "TYPE_VACCINATION": "Aşılama",
-    "TYPE_CONSULTATION": "Danışmanlık",
-    "FORM_MESSAGE": "Ek Notlar (İsteğe Bağlı)",
+    "FORM_APPOINTMENT_TYPE": "Randevu Türü",
+    "FORM_MESSAGE": "Ek Notlar (İsteğe bağlı)",
     "FORM_SUBMIT": "Randevu Talebini Gönder",
     "FORM_CANCEL": "İptal",
-    "SUCCESS_TITLE": "Randevunuz Onaylandı!",
-    "SUCCESS_DESC": "En kısa sürede size dönüş yapacağız.",
-    "ERROR_TITLE": "Hata",
-    "ERROR_DESC": "Bir hata oluştu. Lütfen tekrar deneyin."
+    "SUCCESS_DESC": "En kısa sürede sizinle iletişime geçeceğiz.",
+    "ERROR_DESC": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "REASON": "Randevu Sebebi",
+    "CONFIRM": "Randevu Al",
+    "LOADING": "Randevu sistemi yükleniyor...",
+    "CLOSE": "Randevu penceresini kapat",
+    "ALTERNATIVE_CONTACT": "Alternatif iletişim yöntemleri:",
+    "WHATSAPP": "WhatsApp",
+    "CALL": "0216 688 44 83"
   },
   "HERO": {
     "TITLE": "Bilimin Rehberliğinde Şefkatli Bir Dokunuş",
@@ -716,10 +931,10 @@
     "CATEGORY": "Kategori"
   },
   "ERROR": {
-    "404_TITLE": "Sayfa Bulunamadı",
-    "404_MESSAGE": "Aradığınız sayfa bulunamadı veya taşınmış olabilir. Ana sayfaya dönerek devam edebilirsiniz.",
+    "404_TITLE": "404 - Sayfa Bulunamadı",
+    "404_MESSAGE": "Aradığınız sayfa bulunamadı veya taşınmış olabilir.",
     "GO_HOME": "Ana Sayfaya Dön",
-    "CONTACT_US": "Bize Ulaşın"
+    "CONTACT_US": "İletişime Geç"
   },
   "BRIGHT_FUTURES": {
     "JOURNEY_TITLE": "Bright Futures Yolculuğu",
@@ -771,52 +986,6 @@
     "KVKK_TITLE": "KVKK Aydınlatma Metni",
     "LAST_UPDATED": "Son Güncelleme",
     "PRIVACY_INTRO_TITLE": "Giriş",
-    "PRIVACY_INTRO_TEXT": "Dr. Özlem Murzoğlu Çocuk Sağlığı ve Hastalıkları Kliniği olarak, hastalarımızın ve web sitemizi ziyaret edenlerin gizliliğine önem veriyoruz. Bu Gizlilik Politikası, kişisel verilerinizin nasıl toplandığını, kullanıldığını, saklandığını ve korunduğunu açıklamaktadır.",
-    "DATA_COLLECTED_TITLE": "Toplanan Veriler",
-    "PERSONAL_INFO_TITLE": "Kişisel Bilgiler",
-    "PERSONAL_INFO_1": "Ad, soyad, doğum tarihi ve kimlik bilgileri",
-    "PERSONAL_INFO_2": "Telefon numarası, e-posta adresi ve iletişim bilgileri",
-    "PERSONAL_INFO_3": "Adres ve konum bilgileri",
-    "PERSONAL_INFO_4": "Sigorta ve ödeme bilgileri",
-    "HEALTH_INFO_TITLE": "Sağlık Bilgileri",
-    "HEALTH_INFO_1": "Tıbbi geçmiş ve mevcut sağlık durumu",
-    "HEALTH_INFO_2": "Muayene kayıtları ve test sonuçları",
-    "HEALTH_INFO_3": "Tedavi planları ve reçete bilgileri",
-    "HEALTH_INFO_4": "Aşılama kayıtları ve büyüme-gelişim takibi",
-    "DATA_USE_TITLE": "Verilerin Kullanım Amaçları",
-    "DATA_USE_1": "Tıbbi tanı ve tedavi hizmetlerinin sunulması",
-    "DATA_USE_2": "Randevu oluşturma ve hatırlatma hizmetleri",
-    "DATA_USE_3": "Yasal yükümlülüklerin yerine getirilmesi",
-    "DATA_USE_4": "Sağlık hizmetlerinin iyileştirilmesi ve kalite kontrol",
-    "DATA_USE_5": "Acil durumlarda iletişim",
-    "DATA_PROTECTION_TITLE": "Veri Güvenliği",
-    "DATA_PROTECTION_TEXT": "Kişisel verilerinizin güvenliğini sağlamak için aşağıdaki önlemler alınmaktadır:",
-    "PROTECTION_MEASURE_1": "SSL şifrelemesi ile güvenli veri iletimi",
-    "PROTECTION_MEASURE_2": "Şifreli veri saklama ve yedekleme sistemleri",
-    "PROTECTION_MEASURE_3": "Yetkisiz erişime karşı güvenlik duvarları",
-    "PROTECTION_MEASURE_4": "Düzenli güvenlik güncellemeleri ve denetimler",
-    "DATA_SHARING_TITLE": "Veri Paylaşımı",
-    "DATA_SHARING_TEXT": "Kişisel verileriniz aşağıdaki durumlar dışında üçüncü taraflarla paylaşılmaz:",
-    "SHARING_CASE_1": "Yasal zorunluluklar ve resmi makam talepleri",
-    "SHARING_CASE_2": "Tıbbi konsültasyon gerektiğinde, rızanızla",
-    "SHARING_CASE_3": "Sağlık sigortaları ile ödeme işlemleri için",
-    "SHARING_CASE_4": "Laboratuvar ve görüntüleme merkezleri ile gerekli durumlarda",
-    "YOUR_RIGHTS_TITLE": "Haklarınız",
-    "YOUR_RIGHTS_TEXT": "KVKK kapsamında aşağıdaki haklara sahipsiniz:",
-    "RIGHT_1": "Kişisel verilerinizin işlenip işlenmediğini öğrenme",
-    "RIGHT_2": "Kişisel verileriniz hakkında bilgi talep etme",
-    "RIGHT_3": "Kişisel verilerinizin düzeltilmesini isteme",
-    "RIGHT_4": "Kişisel verilerinizin silinmesini veya yok edilmesini isteme",
-    "RIGHT_5": "Kişisel verilerinizin işlenmesine itiraz etme",
-    "RIGHT_6": "Zarara uğramanız halinde tazminat talep etme",
-    "COOKIES_TITLE": "Çerezler",
-    "COOKIES_TEXT": "Web sitemiz, kullanıcı deneyimini iyileştirmek için çerezler kullanmaktadır. Çerezler, tarayıcınız tarafından saklanan küçük metin dosyalarıdır. Tarayıcı ayarlarınızdan çerezleri devre dışı bırakabilirsiniz.",
-    "CHILDREN_PRIVACY_TITLE": "Çocukların Gizliliği",
-    "CHILDREN_PRIVACY_TEXT": "18 yaşından küçük hastalarımızın kişisel verileri, yasal temsilcilerinin onayı ile işlenmektedir. Çocuk hastalarımızın gizliliği ve güvenliği en üst düzeyde korunmaktadır.",
-    "CHANGES_TITLE": "Değişiklikler",
-    "CHANGES_TEXT": "Bu Gizlilik Politikası zaman zaman güncellenebilir. Değişiklikler web sitemizde yayınlandığı tarihte yürürlüğe girer. Lütfen bu sayfayı düzenli olarak kontrol ediniz.",
-    "CONTACT_TITLE": "İletişim",
-    "CONTACT_TEXT": "Gizlilik politikamız hakkında sorularınız veya kişisel verilerinizle ilgili talepleriniz için bizimle iletişime geçebilirsiniz:",
     "PRIVACY_INTRO_TEXT": "Dr. Özlem Murzoğlu Pediatri Kliniği olarak, hastalarımızın ve web sitemizi ziyaret edenlerin kişisel verilerinin gizliliği bizim için son derece önemlidir. Bu gizlilik politikası, kişisel verilerinizin nasıl toplandığı, kullanıldığı ve korunduğu hakkında sizi bilgilendirmek amacıyla hazırlanmıştır.",
     "DATA_COLLECTED_TITLE": "Toplanan Veriler",
     "PERSONAL_INFO_TITLE": "Kişisel Bilgiler",
@@ -954,56 +1123,6 @@
     "KVKK_APPLICATION_INFO": "Başvurunuz en geç 30 gün içinde değerlendirilerek sonuçlandırılacaktır. Başvuru ücretsizdir, ancak işlemin ayrıca bir maliyet gerektirmesi halinde ücret talep edilebilir.",
     "KVKK_CONTACT_TEXT": "KVKK kapsamındaki haklarınız ve başvuru süreçleri hakkında detaylı bilgi için bizimle iletişime geçebilirsiniz:"
   },
-  "ERROR": {
-    "404_TITLE": "404 - Sayfa Bulunamadı",
-    "404_MESSAGE": "Aradığınız sayfa bulunamadı veya taşınmış olabilir.",
-    "GO_HOME": "Ana Sayfaya Dön",
-    "CONTACT_US": "İletişime Geç"
-  },
-  "APPOINTMENT": {
-    "TITLE": "Randevu Al",
-    "SUBTITLE": "Online randevu sistemi ile kolayca randevu alabilirsiniz",
-    "FORM_TITLE": "Randevu Formu",
-    "TYPE_ROUTINE": "Rutin Kontrol",
-    "TYPE_SICK": "Hasta Muayenesi",
-    "TYPE_VACCINATION": "Aşı",
-    "TYPE_CONSULTATION": "Danışmanlık",
-    "TYPE_ONLINE": "Online Konsültasyon",
-    "SELECT_TYPE": "Randevu Türü",
-    "SELECT_DATE": "Tarih Seçin",
-    "SELECT_TIME": "Saat Seçin",
-    "PATIENT_NAME": "Hasta Adı Soyadı",
-    "PATIENT_AGE": "Hasta Yaşı",
-    "PARENT_NAME": "Veli Adı Soyadı",
-    "PHONE": "Telefon Numarası",
-    "EMAIL": "E-posta Adresi",
-    "NOTES": "Notlar (İsteğe bağlı)",
-    "SUBMIT": "Randevu Al",
-    "SUCCESS_TITLE": "Randevunuz Alındı",
-    "SUCCESS_MESSAGE": "Randevunuz başarıyla oluşturuldu. Size en kısa sürede onay mesajı göndereceğiz.",
-    "ERROR_TITLE": "Hata",
-    "ERROR_MESSAGE": "Randevu oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.",
-    "MODAL_TITLE": "Online Randevu",
-    "MODAL_DESC": "Randevu talebinizi oluşturmak için formu doldurun",
-    "FORM_PARENT_NAME": "Veli Adı",
-    "FORM_PARENT_PHONE": "Telefon Numarası",
-    "FORM_PARENT_EMAIL": "E-posta Adresi",
-    "FORM_CHILD_NAME": "Çocuğun Adı",
-    "FORM_CHILD_AGE": "Çocuğun Yaşı",
-    "FORM_APPOINTMENT_TYPE": "Randevu Türü",
-    "FORM_MESSAGE": "Ek Notlar (İsteğe bağlı)",
-    "FORM_SUBMIT": "Randevu Talebini Gönder",
-    "FORM_CANCEL": "İptal",
-    "SUCCESS_DESC": "En kısa sürede sizinle iletişime geçeceğiz.",
-    "ERROR_DESC": "Bir hata oluştu. Lütfen tekrar deneyin.",
-    "REASON": "Randevu Sebebi",
-    "CONFIRM": "Randevu Al",
-    "LOADING": "Randevu sistemi yükleniyor...",
-    "CLOSE": "Randevu penceresini kapat",
-    "ALTERNATIVE_CONTACT": "Alternatif iletişim yöntemleri:",
-    "WHATSAPP": "WhatsApp",
-    "CALL": "0216 688 44 83"
-  },
   "FAVORITES": {
     "PAGE_TITLE": "Favorilerim",
     "PAGE_SUBTITLE": "Kaydettiğiniz kaynakları buradan görüntüleyebilirsiniz",
@@ -1071,13 +1190,39 @@
       "VISIT_SCHEDULE": "Muayene Takvimi",
       "VISIT_SCHEDULE_DESC": "Bright Futures® programı, yaşa özel <strong>31 adet düzenli sağlık kontrolü</strong> önerir.",
       "BABY_PERIOD": "Bebek Dönemi (0-12 ay)",
-      "BABY_VISITS": ["Yenidoğan", "3-5 gün", "1 ay", "2 ay", "4 ay", "6 ay", "9 ay", "12 ay"],
+      "BABY_VISITS": [
+        "Yenidoğan",
+        "3-5 gün",
+        "1 ay",
+        "2 ay",
+        "4 ay",
+        "6 ay",
+        "9 ay",
+        "12 ay"
+      ],
       "EARLY_CHILDHOOD": "Erken Çocukluk (1-4 yaş)",
-      "EARLY_CHILDHOOD_VISITS": ["15 ay", "18 ay", "2 yaş", "2.5 yaş", "3 yaş", "4 yaş"],
+      "EARLY_CHILDHOOD_VISITS": [
+        "15 ay",
+        "18 ay",
+        "2 yaş",
+        "2.5 yaş",
+        "3 yaş",
+        "4 yaş"
+      ],
       "SCHOOL_AGE": "Okul Çağı (5-10 yaş)",
-      "SCHOOL_AGE_VISITS": ["5 yaş", "6 yaş", "7 yaş", "8 yaş", "9 yaş", "10 yaş"],
+      "SCHOOL_AGE_VISITS": [
+        "5 yaş",
+        "6 yaş",
+        "7 yaş",
+        "8 yaş",
+        "9 yaş",
+        "10 yaş"
+      ],
       "ADOLESCENCE": "Ergenlik (11-21 yaş)",
-      "ADOLESCENCE_VISITS": ["Yıllık kontroller", "11-21 yaş arası"],
+      "ADOLESCENCE_VISITS": [
+        "Yıllık kontroller",
+        "11-21 yaş arası"
+      ],
       "EXAM_NOTE": "Önemli Not",
       "EXAM_NOTE_DESC": "Her muayenede çocuğun yaşına uygun fizik muayene, büyüme-gelişim değerlendirmesi, aşılama ve tarama testleri yapılır. Aileye özel rehberlik materyalleri verilir.",
       "EACH_EXAM": "Her Muayenede",
@@ -1283,28 +1428,43 @@
     },
     "DOCUMENTS": {
       "CATEGORIES": {
-        "FAMILY_MEDIA_PLAN": "Aile Medya Planı",
-        "FAMILY_MEDIA_DESC": "Dijital medya kullanımı için aile rehberleri ve planları",
-        "VACCINES": "Aşılar",
-        "VACCINES_DESC": "Çocukluk çağı aşıları hakkında bilgi föyleri",
-        "BRIGHT_FUTURES_FAMILY": "Bright Futures - Aile Rehberi",
-        "BRIGHT_FUTURES_FAMILY_DESC": "Yaş gruplarına göre aile rehberleri (1 ay - 15 yaş)",
-        "BRIGHT_FUTURES_CHILD": "Bright Futures - Çocuk Rehberi",
-        "BRIGHT_FUTURES_CHILD_DESC": "Yaş gruplarına göre çocuk rehberleri (7-17 yaş)",
-        "CDC_GROWTH": "CDC Büyüme Eğrileri",
-        "CDC_GROWTH_DESC": "CDC standartlarına göre büyüme grafikleri",
-        "PREGNANCY": "Gebelik Dönemi",
-        "PREGNANCY_DESC": "Hamilelik ve doğum öncesi hazırlık rehberleri",
-        "DEVELOPMENT": "Gelişim Rehberleri",
-        "DEVELOPMENT_DESC": "Çocuk gelişimi takibi ve destekleme kılavuzları",
-        "GENERAL_INFO": "Genel Bilgiler",
-        "GENERAL_INFO_DESC": "Çocuk bakımı, güvenlik ve sağlık konularında genel rehberler",
-        "DISEASES": "Hastalıklar",
-        "DISEASES_DESC": "Çocukluk çağı hastalıkları ve tedavi rehberleri",
-        "TOYS": "Oyuncaklar",
-        "TOYS_DESC": "Yaş gruplarına göre oyuncak seçimi rehberleri",
-        "WHO_GROWTH": "WHO Büyüme Eğrileri",
-        "WHO_GROWTH_DESC": "Dünya Sağlık Örgütü büyüme standartları"
+        "AILE_MEDYA_PLANI": {
+          "TITLE": "Aile Medya Planı",
+          "DESCRIPTION": "Dijital medya kullanımı için aile rehberleri ve planları"
+        },
+        "ASILAR": {
+          "TITLE": "Aşılar",
+          "DESCRIPTION": "Aşı bilgi föyleri ve rehberleri"
+        },
+        "BRIGHT_FUTURES_AILE": {
+          "TITLE": "Bright Futures - Aile Rehberi",
+          "DESCRIPTION": "Yaşa özel aile bilgilendirme föyleri"
+        },
+        "BRIGHT_FUTURES_COCUK": {
+          "TITLE": "Bright Futures - Çocuk Rehberi",
+          "DESCRIPTION": "Çocuklar için yaşa özel bilgilendirme föyleri"
+        },
+        "GELISIM_REHBERLERI": {
+          "TITLE": "Gelişim Rehberleri",
+          "DESCRIPTION": "Çocuk gelişimi ile ilgili rehber dökümanlar"
+        },
+        "GENEL_BILGILER": {
+          "TITLE": "Genel Bilgiler",
+          "DESCRIPTION": "Çocuk sağlığı ve bakımı hakkında genel bilgiler"
+        },
+        "HASTALIKLAR": {
+          "TITLE": "Hastalıklar",
+          "DESCRIPTION": "Çocukluk çağı hastalıkları hakkında bilgilendirme dökümanları"
+        }
+      },
+      "VACCINES": {
+        "HPV_VACCINE": {
+          "title": "HPV Aşısı Bilgi Föyü",
+          "category": "Aşılar",
+          "description": "HPV aşısı hakkında detaylı bilgi",
+          "contentType": "html",
+          "content": "<h2>HPV Aşısı</h2><h3>Neden Aşı Olalım?</h3><p><strong>HPV (insan papilloma virüsü) aşısı</strong>, bazı insan papilloma virüsü türleri ile enfeksiyonu önleyebilir.</p><p>HPV enfeksiyonları aşağıdakiler de dâhil olmak üzere belirli kanser türlerine neden olabilir:</p><ul><li>Kadınlarda rahim ağzı, vajina ve vulva kanserleri</li><li>Erkeklerde penis kanseri</li><li>Erkeklerde ve kadınlarda anal kanser</li><li>Erkeklerde ve kadınlarda bademcik, dil kökü ve boğaz arkası (orofaringeal kanser) kanserleri</li></ul><p>HPV enfeksiyonları anogenital siğillere de neden olabilir.</p><p>HPV aşısı, HPV'nin neden olduğu kanserlerin %90'ından fazlasını önleyebilir.</p><p>HPV yakın cilt teması veya cinsel ilişki yoluyla bulaşır. HPV enfeksiyonları o kadar sık görülür ki, neredeyse tüm insanlar hayatlarının bir döneminde en az bir tür HPV ile enfekte olurlar.</p><p>Çoğu HPV enfeksiyonu 2 yıl içinde kendiliğinden geçer. Ancak bazen HPV enfeksiyonları daha uzun sürer ve yaşamın ilerleyen dönemlerinde kansere neden olabilir.</p><h3>HPV Aşıları</h3><p>HPV aşısı virüse maruz kalmadan önce korunmalarını sağlamak amacıyla 11 ya da 12 yaşındaki ergenlere rutin olarak önerilir. HPV aşısı 9 yaşından itibaren yapılabilir ve 26 yaşına kadar olan herkese önerilir.</p><p>HPV aşısı hasta ile sağlık uzmanı arasındaki görüşmelere bağlı olarak 27 ilâ 45 yaşlarındaki yetişkinlere uygulanabilir.</p><p>İlk dozu 15 yaşından önce yapılmış olan çocukların çoğu 2 doz HPV aşısına ihtiyaç duyar. İlk dozu 15 yaşında veya daha sonra olan kişiler ile bağışıklık sistemini baskılayıcı belirli durumları olan daha küçük kişilerin 3 doza ihtiyaçları vardır. Sağlık uzmanınız size daha fazla bilgi verebilir.</p><p>HPV aşısı diğer aşılarla aynı anda yapılabilir.</p><h3>Sağlık Uzmanınız ile Konuşunuz</h3><p>Aşıyı yaptıran kişide aşağıdaki durumlar mevcutsa bunları aşı uygulayıcınıza söyleyiniz:</p><ul><li>Önceki bir HPV aşısından sonra alerjik bir reaksiyon gösterdiyse veya ciddi, yaşamı tehdit eden herhangi bir alerjisi varsa</li><li>Gebe ise. HPV aşısı gebelik bitene kadar önerilmez</li></ul><p>Bazı durumlarda, sağlık uzmanınız HPV aşısını gelecekteki bir ziyarete ertelemeye karar verebilir.</p><p>Soğuk algınlığı gibi hafif rahatsızlıkları olan kişiler aşılanabilir. Orta veya ağır derecede hasta olan kişiler HPV aşısı yaptırmadan önce genellikle iyileşene kadar beklemelidir.</p><h3>Aşı Reaksiyonu Riskleri</h3><ul><li>HPV aşılamasından sonra aşı yapılan yerde ağrı, kızarıklık ve şişlik olabilir.</li><li>HPV aşılamasından sonra ateş veya baş ağrısı olabilir.</li></ul><p>İnsanlar bazen aşılanma dâhil olmak üzere tıbbi bir işlemden sonra bayılırlar. Başınız dönerse, görme değişikliğiniz veya kulaklarınızda çınlama olursa aşı uygulayıcınıza bildiriniz.</p><p>Herhangi bir ilaçta olduğu gibi aşının da ağır bir alerjik reaksiyona, diğer ciddi bir tıbbi hasara neden olma ihtimali çok düşük olsa da vardır.</p><h3>Ciddi Bir Reaksiyon Olursa?</h3><p>Alerjik bir reaksiyon aşılanan kişi klinikten ayrıldıktan sonra meydana gelebilir. Eğer ağır alerjik reaksiyon belirtileri (kurdeşen, yüzün ve boğazın şişmesi, nefes darlığı, hızlı kalp atışı, sersemlik veya güçsüzlük) görürseniz 112'yi arayınız ve kişiyi en yakın hastaneye götürünüz.</p><p>Sizi endişelendiren diğer belirtiler için sağlık uzmanınızı arayınız.</p>"
+        }
       }
     },
     "SAYGIYLA": {
@@ -1390,435 +1550,6 @@
       }
     },
     "BLOG": {
-      "LOADING_ARTICLE": "Makale yükleniyor...",
-      "BACK_TO_BLOG": "Blog'a Dön",
-      "MIN_READ": "dk okuma",
-      "MIN": "dk",
-      "TAGS": "Etiketler",
-      "RELATED_ARTICLES": "İlgili Makaleler",
-      "ALL_ARTICLES": "Tüm Makalelere Dön",
-      "BACK_TO_TOP": "Başa Dön",
-      "SHARE_WHATSAPP": "WhatsApp'ta Paylaş",
-      "SHARE_TWITTER": "Twitter'da Paylaş",
-      "SHARE_FACEBOOK": "Facebook'ta Paylaş",
-      "SHARE_LINKEDIN": "LinkedIn'de Paylaş",
-      "COPY_LINK": "Bağlantıyı Kopyala"
-    },
-    "ERRORS": {
-      "DOCUMENT_NOT_FOUND": "Doküman Bulunamadı",
-      "GENERIC_ERROR": "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
-      "CATEGORY_NOT_FOUND": "Kategori bulunamadı",
-      "LOADING_ERROR": "Yükleme hatası",
-      "CONNECTION_ERROR": "Bağlantı hatası"
-    },
-    "ACTIONS": {
-      "SHARE": "Paylaş",
-      "PRINT": "Yazdır",
-      "DOWNLOAD": "İndir",
-      "DOWNLOAD_PDF": "PDF'yi İndir",
-      "SEARCH": "Ara",
-      "VIEW": "Görüntüle",
-      "BACK": "Geri",
-      "NEXT": "İleri",
-      "SAVE": "Kaydet",
-      "CANCEL": "İptal",
-      "DELETE": "Sil",
-      "EDIT": "Düzenle",
-      "CLEAR": "Temizle"
-    },
-    "LOADING": {
-      "CATEGORY": "Kategori yükleniyor...",
-      "DOCUMENT": "Doküman yükleniyor...",
-      "RESOURCES": "Kaynaklar yükleniyor...",
-      "PLEASE_WAIT": "Lütfen bekleyin..."
-    },
-    "SEARCH": {
-      "CATEGORY_PLACEHOLDER": "Bu kategoride ara...",
-      "NO_RESULTS": "Arama kriterlerinize uygun doküman bulunamadı.",
-      "PLACEHOLDER": "Ara...",
-      "SEARCHING": "Aranıyor..."
-    },
-    "ALT_TEXTS": {
-      "DR_OZLEM": "Dr. Özlem Murzoğlu",
-      "CLINIC_ENVIRONMENT": "Klinik ortamı",
-      "CLINIC_ENTRANCE": "Klinik Girişi",
-      "WAITING_AREA": "Klinik Bekleme Alanı",
-      "CLINIC_INTERIOR": "Klinik İç Mekan",
-      "PLAY_AREA": "Çocuk Oyun Alanı",
-      "LOGO": "Dr. Özlem Murzoğlu Logosu",
-      "EXAMINATION_ROOM": "Muayene Odası",
-      "PLAY_CORNER": "Oyun Köşesi",
-      "NURSING_ROOM": "Emzirme Odası",
-      "CORRIDOR": "Koridor",
-      "GENERAL_VIEW": "Genel Görünüm",
-      "MONTESSORI_PLAY_AREA": "Montessori Oyun Alanı"
-    },
-    "DOCUMENTS": {
-      "CATEGORY": "Kategori",
-      "FORMAT": "Format",
-      "FILE_SIZE": "Dosya Boyutu",
-      "CATEGORIES": {
-        "AILE_MEDYA_PLANI": {
-          "TITLE": "Aile Medya Planı",
-          "DESCRIPTION": "Dijital medya kullanımı için aile rehberleri ve planları"
-        },
-        "ASILAR": {
-          "TITLE": "Aşılar",
-          "DESCRIPTION": "Aşı bilgi föyleri ve takvimi"
-        },
-        "BRIGHT_FUTURES_AILE": {
-          "TITLE": "Bright Futures - Aile",
-          "DESCRIPTION": "Aile için gelişim rehberleri"
-        },
-        "BRIGHT_FUTURES_COCUK": {
-          "TITLE": "Bright Futures - Çocuk",
-          "DESCRIPTION": "Çocuklar için gelişim rehberleri"
-        },
-        "CDC_BUYUME_EGRILERI": {
-          "TITLE": "CDC Büyüme Eğrileri",
-          "DESCRIPTION": "Amerikan CDC büyüme çizelgeleri"
-        },
-        "GEBELIK_DONEMI": {
-          "TITLE": "Gebelik Dönemi",
-          "DESCRIPTION": "Gebelik dönemi rehberleri ve bilgileri"
-        },
-        "GELISIM_REHBERLERI": {
-          "TITLE": "Gelişim Rehberleri",
-          "DESCRIPTION": "Yaşa göre gelişim basamakları ve rehberleri"
-        },
-        "GENEL_BILGILER": {
-          "TITLE": "Genel Bilgiler",
-          "DESCRIPTION": "Çocuk sağlığı ve bakımı hakkında genel bilgiler"
-        },
-        "HASTALIKLAR": {
-          "TITLE": "Hastalıklar",
-          "DESCRIPTION": "Yaygın çocuk hastalıkları hakkında bilgiler"
-        },
-        "OYUNCAKLAR": {
-          "TITLE": "Oyuncaklar",
-          "DESCRIPTION": "Oyuncak güvenliği ve seçimi rehberleri"
-        },
-        "WHO_BUYUME_EGRILERI": {
-          "TITLE": "WHO Büyüme Eğrileri",
-          "DESCRIPTION": "Dünya Sağlık Örgütü büyüme çizelgeleri"
-        }
-      },
-      "AILE_MEDYA_PLANI": {
-        "MEDYA_DENGESI": {
-          "TITLE": "Medya Dengesi",
-          "DESCRIPTION": "Medya kullanımında denge kurma rehberi"
-        },
-        "MEDYA_HAKKINDA_KONUSMAK": {
-          "TITLE": "Medya Hakkında Konuşmak",
-          "DESCRIPTION": "Çocuklarla medya kullanımı hakkında konuşma rehberi"
-        },
-        "NEZAKET_EMPATI": {
-          "TITLE": "Nezaket ve Empati",
-          "DESCRIPTION": "Dijital ortamda nezaket ve empati geliştirme"
-        },
-        "DIJITAL_GIZLILIK_GUVENLIK": {
-          "TITLE": "Dijital Gizlilik ve Güvenlik",
-          "DESCRIPTION": "Online güvenlik ve gizlilik korunma yöntemleri"
-        },
-        "EKRANSIZ_BOLGELER": {
-          "TITLE": "Ekransız Bölgeler",
-          "DESCRIPTION": "Evde ekransız alanlar oluşturma rehberi"
-        },
-        "EKRANSIZ_ZAMANLAR": {
-          "TITLE": "Ekransız Zamanlar",
-          "DESCRIPTION": "Ekransız zaman dilimi planlama kılavuzu"
-        },
-        "IYI_ICERIK_SECME": {
-          "TITLE": "İyi İçerik Seçme",
-          "DESCRIPTION": "Kaliteli medya içeriği seçme kriterleri"
-        },
-        "MEDYAYI_BIRLIKTE_KULLANMA": {
-          "TITLE": "Medyayı Birlikte Kullanma",
-          "DESCRIPTION": "Aile ile birlikte medya kullanım rehberi"
-        },
-        "MEDYA_PLANI_SABLON": {
-          "TITLE": "Medya Planı Şablonu",
-          "DESCRIPTION": "Kişiselleştirilmiş aile medya planı şablonu"
-        },
-        "AILE_REHBERI": {
-          "TITLE": "Aile Rehberi",
-          "DESCRIPTION": "Kapsamlı aile medya kullanım kılavuzu"
-        }
-      },
-      "ASILAR": {
-        "HPV_ASISI": {
-          "TITLE": "HPV Aşısı Bilgi Föyü",
-          "DESCRIPTION": "Human Papilloma Virüs aşısı hakkında detaylı bilgiler"
-        },
-        "KKK_ASISI": {
-          "TITLE": "KKK Aşısı Bilgi Föyü",
-          "DESCRIPTION": "Kızamık, Kızamıkçık, Kabakulak aşısı bilgileri"
-        },
-        "KKKS_ASISI": {
-          "TITLE": "KKKS Aşısı Bilgi Föyü",
-          "DESCRIPTION": "KKKS aşısı hakkında detaylı bilgiler"
-        },
-        "MENINGOKOK_ACWY": {
-          "TITLE": "Meningokok ACWY Aşısı",
-          "DESCRIPTION": "Meningokok ACWY aşısı bilgi föyü"
-        },
-        "MENINGOKOK_B": {
-          "TITLE": "Meningokok B Aşısı",
-          "DESCRIPTION": "Meningokok B aşısı bilgi föyü"
-        },
-        "ROTAVIRUS_ASISI": {
-          "TITLE": "Rotavirüs Aşısı",
-          "DESCRIPTION": "Rotavirüs aşısı hakkında bilgiler"
-        },
-        "INFLUENZA_ASISI": {
-          "TITLE": "İnfluenza (Grip) Aşısı",
-          "DESCRIPTION": "Mevsimsel grip aşısı bilgi föyü"
-        }
-      },
-      "GENEL_BILGILER": {
-        "ALKOL_EMZIRME": {
-          "TITLE": "Alkol ve Emzirme",
-          "DESCRIPTION": "Emzirme döneminde alkol kullanımı"
-        },
-        "ARABA_GUVENLIK_KOLTUGU": {
-          "TITLE": "Araba Güvenlik Koltuğu",
-          "DESCRIPTION": "Çocuk oto koltuğu seçimi ve kullanımı"
-        },
-        "AGLAYAN_BEBEK_KOLIK": {
-          "TITLE": "Ağlayan Bebek ve Kolik",
-          "DESCRIPTION": "Bebek ağlaması ve kolik yönetimi"
-        },
-        "SAGLIKLI_BESLENME": {
-          "TITLE": "Sağlıklı Beslenme",
-          "DESCRIPTION": "Çocuklarda sağlıklı beslenme rehberi"
-        },
-        "DUSMELERI_ONLEME": {
-          "TITLE": "Düşmeleri Önleme",
-          "DESCRIPTION": "Çocuklarda düşme ve yaralanmaları önleme"
-        },
-        "BOGULMA_ONLEME": {
-          "TITLE": "Boğulma Önleme",
-          "DESCRIPTION": "Boğulma risklerini azaltma yöntemleri"
-        },
-        "BEBEGINIZI_EMZIRMEK": {
-          "TITLE": "Bebeğinizi Emzirmek",
-          "DESCRIPTION": "Emzirme teknikleri ve önerileri"
-        },
-        "BESLENME_GUVENLIGI": {
-          "TITLE": "Beslenme Güvenliği",
-          "DESCRIPTION": "Gıda güvenliği ve hijyen kuralları"
-        },
-        "ERGEN_ILETISIM": {
-          "TITLE": "Ergenlerle İletişim",
-          "DESCRIPTION": "Ergenlik döneminde etkili iletişim"
-        },
-        "BOCEK_KOVUCULAR": {
-          "TITLE": "Böcek Kovucular",
-          "DESCRIPTION": "Böcek kovucu kullanımı ve güvenliği"
-        },
-        "DIS_CIKARMA": {
-          "TITLE": "Diş Çıkarma",
-          "DESCRIPTION": "Bebeklerde diş çıkarma süreci"
-        },
-        "EMZIK_BIRAKMA_IPUCLARI": {
-          "TITLE": "Emzik Bırakma İpuçları",
-          "DESCRIPTION": "Emzik bırakma stratejileri"
-        },
-        "EMZIK_BIRAKMA": {
-          "TITLE": "Emzik Bırakma",
-          "DESCRIPTION": "Emzik bırakma süreci rehberi"
-        },
-        "EMZIRME_SUT_SAKLAMA": {
-          "TITLE": "Emzirme - Süt Saklama",
-          "DESCRIPTION": "Anne sütü saklama yöntemleri"
-        },
-        "EMZIRME_YERLESME_KAVRAMA": {
-          "TITLE": "Emzirme - Yerleşme ve Kavrama",
-          "DESCRIPTION": "Doğru emzirme pozisyonları"
-        },
-        "ERGENLIK_AILE_TAVSIYELERI": {
-          "TITLE": "Ergenlik - Aile Tavsiyeleri",
-          "DESCRIPTION": "Ergenlik döneminde aileye öneriler"
-        },
-        "GUVENLI_UYKU": {
-          "TITLE": "Güvenli Uyku",
-          "DESCRIPTION": "Bebeklerde güvenli uyku ortamı"
-        },
-        "SIBER_ZORBALIK": {
-          "TITLE": "Siber Zorbalık",
-          "DESCRIPTION": "Dijital zorbalıkla mücadele"
-        },
-        "TUVALET_EGITIMI": {
-          "TITLE": "Tuvalet Eğitimi",
-          "DESCRIPTION": "Tuvalet eğitimi süreci ve ipuçları"
-        },
-        "YANGIN_GUVENLIGI": {
-          "TITLE": "Yangın Güvenliği",
-          "DESCRIPTION": "Evde yangın güvenliği önlemleri"
-        },
-        "YENIDOGAN_SUNNETI": {
-          "TITLE": "Yenidoğan Sünneti",
-          "DESCRIPTION": "Sünnet işlemi hakkında bilgiler"
-        },
-        "COCUKLAR_ARASI_ZORBALIK": {
-          "TITLE": "Çocuklar Arası Zorbalık",
-          "DESCRIPTION": "Akran zorbalığı ile başa çıkma"
-        },
-        "EV_GUVENLIGI": {
-          "TITLE": "Ev Güvenliği",
-          "DESCRIPTION": "Evde çocuk güvenliği önlemleri"
-        },
-        "GIYSI_GUVENLIGI": {
-          "TITLE": "Giysi Güvenliği",
-          "DESCRIPTION": "Çocuk giysi güvenliği kuralları"
-        },
-        "AGIZ_DIS_SAGLIGI": {
-          "TITLE": "Ağız ve Diş Sağlığı",
-          "DESCRIPTION": "Çocuklarda ağız ve diş bakımı"
-        }
-      },
-      "HASTALIKLAR": {
-        "ANTIBIYOTIKLER": {
-          "TITLE": "Antibiyotikler",
-          "DESCRIPTION": "Antibiyotik kullanımı ve dikkat edilecekler"
-        },
-        "ASTIM_ATAKLARI": {
-          "TITLE": "Astım Ataklarından Korunma",
-          "DESCRIPTION": "Astım tetikleyicileri ve korunma yöntemleri"
-        },
-        "BADEMCIK_ILTIHABU": {
-          "TITLE": "Bademcik İltihabı",
-          "DESCRIPTION": "Tonsillit belirtileri ve tedavisi"
-        },
-        "ORTA_KULAK_ILTIHABU": {
-          "TITLE": "Orta Kulak İltihabı",
-          "DESCRIPTION": "Otit belirtileri ve tedavi yaklaşımları"
-        },
-        "PISIKLER": {
-          "TITLE": "Pişikler",
-          "DESCRIPTION": "Bebeklerde pişik önleme ve tedavisi"
-        },
-        "SINUZIT": {
-          "TITLE": "Sinüzit",
-          "DESCRIPTION": "Çocuklarda sinüzit belirtileri ve tedavisi"
-        },
-        "YENIDOGAN_SARILIGI": {
-          "TITLE": "Yenidoğan Sarılığı",
-          "DESCRIPTION": "Sarılık nedenleri ve tedavi yaklaşımları"
-        },
-        "COCUKLARDA_ATES": {
-          "TITLE": "Çocuklarda Ateş",
-          "DESCRIPTION": "Ateş yönetimi ve ne zaman doktora başvurulmalı"
-        },
-        "COCUKLARDA_EGZAMA": {
-          "TITLE": "Çocuklarda Egzama",
-          "DESCRIPTION": "Atopik dermatit belirtileri ve bakımı"
-        }
-      },
-      "GEBELIK_DONEMI": {
-        "BESIK_GUVENLIGI": {
-          "TITLE": "Beşik Güvenliği",
-          "DESCRIPTION": "Güvenli beşik seçimi ve kullanımı"
-        },
-        "BEBEK_ODASI_GUVENLIGI": {
-          "TITLE": "Bebek Odası Güvenliği",
-          "DESCRIPTION": "Bebek odası hazırlama ve güvenlik önlemleri"
-        },
-        "EMZIRME_HAZIRLIK": {
-          "TITLE": "Emzirmeye Hazırlık",
-          "DESCRIPTION": "Doğum öncesi emzirme hazırlıkları"
-        },
-        "GEBELIKTE_BESLENME": {
-          "TITLE": "Gebelikte Beslenme",
-          "DESCRIPTION": "Hamilelik döneminde beslenme önerileri"
-        },
-        "MAMA_TABURESI": {
-          "TITLE": "Mama Taburesi",
-          "DESCRIPTION": "Mama sandalyesi seçimi ve güvenliği"
-        }
-      },
-      "OYUNCAKLAR": {
-        "OYUNCAK_GUVENLIGI": {
-          "TITLE": "Oyuncak Güvenliği",
-          "DESCRIPTION": "Yaşa uygun ve güvenli oyuncak seçimi"
-        }
-      }
-    },
-    "VIEWER": {
-      "FULLSCREEN": "Tam Ekran",
-      "EXIT_FULLSCREEN": "Tam Ekrandan Çık",
-      "PDF_CANNOT_DISPLAY": "PDF Görüntülenemiyor",
-      "PDF_FALLBACK_DESC": "Tarayıcınız PDF görüntülemeyi desteklemiyor. Aşağıdaki bağlantıdan dosyayı indirebilirsiniz.",
-      "DOWNLOAD_PDF": "PDF'yi İndir",
-      "WORD_PREVIEW": "Word Dokuman Önizlemesi",
-      "WORD_CANNOT_DISPLAY": "Word dokümanları doğrudan görüntülenemiyor.",
-      "DOWNLOAD_NOW": "Hemen İndir",
-      "MICROSOFT_WORD_DOC": "Microsoft Word Dokümanı",
-      "DOCUMENT_INFO": "Doküman Bilgileri",
-      "FILE_NAME": "Dosya Adı",
-      "CATEGORY": "Kategori",
-      "FORMAT": "Format",
-      "FILE_SIZE": "Dosya Boyutu",
-      "RELATED_DOCUMENTS": "İlgili Dokümanlar",
-      "QUICK_ACTIONS": "Hızlı İşlemler",
-      "BACK_TO_CATEGORY": "Kategoriye Dön",
-      "BACK_TO_RESOURCES": "Kaynaklara Dön"
-    },
-    "CATEGORY": {
-      "DOCUMENTS": "Doküman",
-      "FORMATS": "Farklı Format",
-      "RELATED": "İlgili Kategoriler"
-    },
-    "FILTER": {
-      "FILE_TYPE": "Dosya Türü",
-      "ALL": "Tümü",
-      "RESET": "Filtreleri Sıfırla"
-    },
-    "SORT": {
-      "LABEL": "Sıralama",
-      "TITLE_ASC": "Başlığa Göre (A-Z)",
-      "TITLE_DESC": "Başlığa Göre (Z-A)",
-      "BY_TYPE": "Dosya Türüne Göre"
-    },
-    "SEARCH": {
-      "IN_CATEGORY": "Bu kategoride ara...",
-      "NO_DOCUMENTS": "Doküman Bulunamadı",
-      "NO_RESULTS_DESC": "Arama kriterlerinize uygun doküman bulunamadı. Farklı anahtar kelimeler deneyebilir veya filtreleri sıfırlayabilirsiniz."
-    },
-    "LOADING": {
-      "DOCUMENT": "Doküman yükleniyor...",
-      "CATEGORY": "Kategori yükleniyor..."
-    },
-    "DATE": {
-      "TODAY": "Bugün",
-      "YESTERDAY": "Dün",
-      "DAYS_AGO": "{{count}} gün önce",
-      "WEEKS_AGO": "{{count}} hafta önce",
-      "MONTHS_AGO": "{{count}} ay önce",
-      "YEARS_AGO": "{{count}} yıl önce"
-    },
-    "ARTICLES": {
-      "TITLE": "Makaleler",
-      "SUBTITLE": "Çocuk sağlığı hakkında güncel bilgiler",
-      "COMING_SOON_DESC": "Makaleler bölümü yakında sizlerle olacak."
-    },
-    "CLINIC_DESIGN": {
-      "TITLE": "Klinik Tasarımı",
-      "SUBTITLE": "Çocuklarınızın çok seveceği bir ortam yarattık.",
-      "INTRO_TITLE": "Samimi ve Güvenli Bir Ortam",
-      "INTRO_TEXT": "Minik misafirlerimiz için doktor ziyaretini olumlu bir deneyime dönüştürecek samimi bir ortam yaratmak için yola çıktık.",
-      "INTRO_DESC": "Kliniği tasarlarken asıl amacımız, çocuklarda olumsuz anılar bırakmayan ve doktora gitme korkusuna sebep olmayacak bir atmosfer yaratmaktı.",
-      "ALT_ENTRANCE": "Klinik Girişi"
-    },
-    "CLINIC": {
-      "ALT_ENVIRONMENT": "Klinik ortamı",
-      "ALT_WAITING_AREA": "Klinik Bekleme Alanı",
-      "ALT_INTERIOR": "Klinik İç Mekan"
-    },
-    "ERRORS": {
-      "DOCUMENT_NOT_FOUND_DESC": "Aradığınız dokuman bulunamadı veya kaldırılmış olabilir."
-    },
-    "BLOG": {
       "CATEGORIES": {
         "BABY_CARE": "Bebek Bakımı",
         "CHILD_PSYCHOLOGY": "Çocuk Psikolojisi",
@@ -1881,46 +1612,329 @@
       "BY_AUTHOR": "Yazan: {{author}}",
       "PUBLISHED_DATE": "Yayınlanma: {{date}}"
     },
-    "DOCUMENTS": {
-      "CATEGORIES": {
-        "AILE_MEDYA_PLANI": {
-          "TITLE": "Aile Medya Planı",
-          "DESCRIPTION": "Dijital medya kullanımı için aile rehberleri ve planları"
-        },
-        "ASILAR": {
-          "TITLE": "Aşılar",
-          "DESCRIPTION": "Aşı bilgi föyleri ve rehberleri"
-        },
-        "BRIGHT_FUTURES_AILE": {
-          "TITLE": "Bright Futures - Aile Rehberi",
-          "DESCRIPTION": "Yaşa özel aile bilgilendirme föyleri"
-        },
-        "BRIGHT_FUTURES_COCUK": {
-          "TITLE": "Bright Futures - Çocuk Rehberi",
-          "DESCRIPTION": "Çocuklar için yaşa özel bilgilendirme föyleri"
-        },
-        "GELISIM_REHBERLERI": {
-          "TITLE": "Gelişim Rehberleri",
-          "DESCRIPTION": "Çocuk gelişimi ile ilgili rehber dökümanlar"
-        },
-        "GENEL_BILGILER": {
-          "TITLE": "Genel Bilgiler",
-          "DESCRIPTION": "Çocuk sağlığı ve bakımı hakkında genel bilgiler"
-        },
-        "HASTALIKLAR": {
-          "TITLE": "Hastalıklar",
-          "DESCRIPTION": "Çocukluk çağı hastalıkları hakkında bilgilendirme dökümanları"
-        }
+    "ERRORS": {
+      "DOCUMENT_NOT_FOUND_DESC": "Aradığınız dokuman bulunamadı veya kaldırılmış olabilir."
+    },
+    "ACTIONS": {
+      "SHARE": "Paylaş",
+      "PRINT": "Yazdır",
+      "DOWNLOAD": "İndir",
+      "DOWNLOAD_PDF": "PDF'yi İndir",
+      "SEARCH": "Ara",
+      "VIEW": "Görüntüle",
+      "BACK": "Geri",
+      "NEXT": "İleri",
+      "SAVE": "Kaydet",
+      "CANCEL": "İptal",
+      "DELETE": "Sil",
+      "EDIT": "Düzenle",
+      "CLEAR": "Temizle"
+    },
+    "LOADING": {
+      "DOCUMENT": "Doküman yükleniyor...",
+      "CATEGORY": "Kategori yükleniyor..."
+    },
+    "SEARCH": {
+      "IN_CATEGORY": "Bu kategoride ara...",
+      "NO_DOCUMENTS": "Doküman Bulunamadı",
+      "NO_RESULTS_DESC": "Arama kriterlerinize uygun doküman bulunamadı. Farklı anahtar kelimeler deneyebilir veya filtreleri sıfırlayabilirsiniz."
+    },
+    "ALT_TEXTS": {
+      "DR_OZLEM": "Dr. Özlem Murzoğlu",
+      "CLINIC_ENVIRONMENT": "Klinik ortamı",
+      "CLINIC_ENTRANCE": "Klinik Girişi",
+      "WAITING_AREA": "Klinik Bekleme Alanı",
+      "CLINIC_INTERIOR": "Klinik İç Mekan",
+      "PLAY_AREA": "Çocuk Oyun Alanı",
+      "LOGO": "Dr. Özlem Murzoğlu Logosu",
+      "EXAMINATION_ROOM": "Muayene Odası",
+      "PLAY_CORNER": "Oyun Köşesi",
+      "NURSING_ROOM": "Emzirme Odası",
+      "CORRIDOR": "Koridor",
+      "GENERAL_VIEW": "Genel Görünüm",
+      "MONTESSORI_PLAY_AREA": "Montessori Oyun Alanı"
+    },
+    "VIEWER": {
+      "FULLSCREEN": "Tam Ekran",
+      "EXIT_FULLSCREEN": "Tam Ekrandan Çık",
+      "PDF_CANNOT_DISPLAY": "PDF Görüntülenemiyor",
+      "PDF_FALLBACK_DESC": "Tarayıcınız PDF görüntülemeyi desteklemiyor. Aşağıdaki bağlantıdan dosyayı indirebilirsiniz.",
+      "DOWNLOAD_PDF": "PDF'yi İndir",
+      "WORD_PREVIEW": "Word Dokuman Önizlemesi",
+      "WORD_CANNOT_DISPLAY": "Word dokümanları doğrudan görüntülenemiyor.",
+      "DOWNLOAD_NOW": "Hemen İndir",
+      "MICROSOFT_WORD_DOC": "Microsoft Word Dokümanı",
+      "DOCUMENT_INFO": "Doküman Bilgileri",
+      "FILE_NAME": "Dosya Adı",
+      "CATEGORY": "Kategori",
+      "FORMAT": "Format",
+      "FILE_SIZE": "Dosya Boyutu",
+      "RELATED_DOCUMENTS": "İlgili Dokümanlar",
+      "QUICK_ACTIONS": "Hızlı İşlemler",
+      "BACK_TO_CATEGORY": "Kategoriye Dön",
+      "BACK_TO_RESOURCES": "Kaynaklara Dön"
+    },
+    "CATEGORY": {
+      "DOCUMENTS": "Doküman",
+      "FORMATS": "Farklı Format",
+      "RELATED": "İlgili Kategoriler"
+    },
+    "FILTER": {
+      "FILE_TYPE": "Dosya Türü",
+      "ALL": "Tümü",
+      "RESET": "Filtreleri Sıfırla"
+    },
+    "SORT": {
+      "LABEL": "Sıralama",
+      "TITLE_ASC": "Başlığa Göre (A-Z)",
+      "TITLE_DESC": "Başlığa Göre (Z-A)",
+      "BY_TYPE": "Dosya Türüne Göre"
+    },
+    "DATE": {
+      "TODAY": "Bugün",
+      "YESTERDAY": "Dün",
+      "DAYS_AGO": "{{count}} gün önce",
+      "WEEKS_AGO": "{{count}} hafta önce",
+      "MONTHS_AGO": "{{count}} ay önce",
+      "YEARS_AGO": "{{count}} yıl önce"
+    },
+    "ARTICLES": {
+      "TITLE": "Makaleler",
+      "SUBTITLE": "Çocuk sağlığı hakkında güncel bilgiler",
+      "COMING_SOON_DESC": "Makaleler bölümü yakında sizlerle olacak."
+    },
+    "CLINIC_DESIGN": {
+      "TITLE": "Kliniğimiz",
+      "SUBTITLE": "Modern, hijyenik ve çocuk dostu bir ortam",
+      "INTRO_TITLE": "Samimi ve Güvenli Bir Ortam",
+      "INTRO_TEXT": "Minik misafirlerimiz için doktor ziyaretini olumlu bir deneyime dönüştürecek samimi bir ortam yaratmak için yola çıktık.",
+      "INTRO_DESC": "Kliniği tasarlarken asıl amacımız, çocuklarda olumsuz anılar bırakmayan ve doktora gitme korkusuna sebep olmayacak bir atmosfer yaratmaktı.",
+      "TEAM_TITLE": "Tasarım Ekibimiz",
+      "TEAM_CARD1_TITLE": "Modern Mimari Tasarım",
+      "TEAM_DESC1": "Kliniğimiz, çocuk psikolojisi ve modern mimari ilkeler göz önünde bulundurularak tasarlandı. Her köşe, çocukların kendilerini güvende ve mutlu hissetmeleri için özenle planlandı.",
+      "TEAM_CARD2_TITLE": "Renk ve Doku Uyumu",
+      "TEAM_DESC2": "Pastel tonlar ve doğal dokular kullanarak sakinleştirici bir atmosfer yarattık. Çocukların hayal gücünü destekleyen duvar resimleri ve dekoratif unsurlar ekledik.",
+      "DESIGN_FEATURE_1": "Doğal Aydınlatma",
+      "DESIGN_FEATURE_1_DESC": "Geniş pencereler ve doğal ışık kaynakları",
+      "DESIGN_FEATURE_2": "Ergonomik Tasarım",
+      "DESIGN_FEATURE_2_DESC": "Çocuk boyutlarına uygun mobilya ve ekipmanlar",
+      "DESIGN_FEATURE_3": "Güvenli Materyaller",
+      "DESIGN_FEATURE_3_DESC": "Antibakteriyel ve çevre dostu malzemeler",
+      "IMAGE_CLINIC_INTERIOR": "Klinik İç Görünüm",
+      "IMAGE_PLAY_AREA": "Oyun Alanı",
+      "IMAGE_WAITING_AREA": "Bekleme Salonu",
+      "GALLERY_TITLE": "Klinik Galerisi",
+      "GALLERY_EXAM_ROOM": "Muayene Odası",
+      "GALLERY_PLAY_CORNER": "Oyun Köşesi",
+      "GALLERY_WAITING_AREA": "Bekleme Alanı",
+      "GALLERY_NURSING_ROOM": "Emzirme Odası",
+      "GALLERY_CORRIDOR": "Koridor",
+      "GALLERY_GENERAL_VIEW": "Genel Görünüm",
+      "MONTESSORI_TITLE": "Montessori İlkeleri",
+      "MONTESSORI_DESC": "Kliniğimizde Montessori eğitim felsefesinden ilham alarak çocukların keşfetme ve öğrenme isteklerini destekliyoruz.",
+      "MONTESSORI_BOOKS": "Eğitici Kitaplar",
+      "MONTESSORI_BOOKS_DESC": "Yaşa uygun hikaye ve eğitici kitaplar",
+      "MONTESSORI_GAMES": "Zeka Oyunları",
+      "MONTESSORI_GAMES_DESC": "Gelişimi destekleyen ahşap oyuncaklar",
+      "MONTESSORI_TOYS": "Eğitici Oyuncaklar",
+      "MONTESSORI_TOYS_DESC": "Motor becerilerini geliştiren materyaller",
+      "MONTESSORI_TEXT": "Çocukların doğal merak ve keşfetme güdülerini destekleyerek, klinik ziyaretlerini <span class='color-yellow'>eğlenceli</span> ve <span class='color-orange'>öğretici</span> bir deneyime dönüştürüyoruz.",
+      "IMAGE_MONTESSORI_AREA": "Montessori Köşesi",
+      "IMAGE_EDUCATIONAL_TOYS": "Eğitici Oyuncaklar",
+      "IMAGE_BOOK_CORNER": "Kitap Köşesi",
+      "SAFETY_TITLE": "Güvenlik Önlemleri",
+      "SAFETY_PHYSICAL": "Fiziksel Güvenlik",
+      "SAFETY_PHYSICAL_DESC": "Köşe koruyucuları, kaymaz zeminler ve güvenli mobilyalar",
+      "SAFETY_ELECTRICAL": "Elektrik Güvenliği",
+      "SAFETY_ELECTRICAL_DESC": "Çocuk kilitleri ve korumalı prizler",
+      "SAFETY_MONITORING": "24/7 İzleme",
+      "SAFETY_MONITORING_DESC": "Güvenlik kameraları ve acil durum sistemleri",
+      "HYGIENE_TITLE": "Hijyen Standartları",
+      "HYGIENE_DESC": "Kliniğimizde en yüksek hijyen standartlarını uyguluyoruz.",
+      "HYGIENE_TEXT": "Düzenli dezenfeksiyon, hava temizleme sistemleri ve sterilizasyon protokolleri ile güvenli bir ortam sağlıyoruz.",
+      "HYGIENE_1": "Günlük Temizlik",
+      "HYGIENE_1_DESC": "Her hasta sonrası dezenfeksiyon",
+      "HYGIENE_2": "Hava Kalitesi",
+      "HYGIENE_2_DESC": "HEPA filtreli havalandırma sistemleri",
+      "HYGIENE_3": "Sterilizasyon",
+      "HYGIENE_3_DESC": "Tıbbi cihazların sterilizasyonu",
+      "HYGIENE_NOTE": "COVID-19 önlemleri kapsamında özel hijyen protokollerimiz uygulanmaktadır.",
+      "CTA_TITLE": "Çocuğunuz İçin Randevu Alın",
+      "CTA_SUBTITLE": "Modern ve güvenli kliniğimizde sizleri bekliyoruz",
+      "CTA_BUTTON": "Randevu Al",
+      "ALT_ENTRANCE": "Klinik Girişi"
+    },
+    "CLINIC": {
+      "ALT_ENVIRONMENT": "Klinik ortamı",
+      "ALT_WAITING_AREA": "Klinik Bekleme Alanı",
+      "ALT_INTERIOR": "Klinik İç Mekan"
+    }
+  },
+  "DR_OZLEM": {
+    "NAME": "[TR] Name",
+    "SUBTITLE": "[TR] Subtitle",
+    "YEARS_EXPERIENCE": "[TR] Years Experience",
+    "BRIGHT_FUTURES_CERTIFIED": "[TR] Bright Futures Certified",
+    "TRIPLE_P_TRAINER": "[TR] Triple P Trainer",
+    "GREETING": "[TR] Greeting",
+    "QUOTE": "[TR] Quote",
+    "EDUCATION_TITLE": "[TR] Education Title",
+    "EXPERIENCE_TITLE": "[TR] Experience Title",
+    "SPECIALTIES_TITLE": "[TR] Specialties Title",
+    "MEMBERSHIPS_TITLE": "[TR] Memberships Title"
+  },
+  "CLINIC_DESIGN": {
+    "INTRO_TITLE": "[TR] Intro Title",
+    "INTRO_TEXT": "[TR] Intro Text",
+    "INTRO_DESC": "[TR] Intro Desc",
+    "TEAM_TITLE": "[TR] Team Title",
+    "IMAGE_CLINIC_INTERIOR": "[TR] Image Clinic Interior",
+    "IMAGE_PLAY_AREA": "[TR] Image Play Area",
+    "IMAGE_WAITING_AREA": "[TR] Image Waiting Area",
+    "GALLERY_TITLE": "[TR] Gallery Title",
+    "GALLERY_EXAM_ROOM": "[TR] Gallery Exam Room",
+    "GALLERY_PLAY_CORNER": "[TR] Gallery Play Corner",
+    "GALLERY_WAITING_AREA": "[TR] Gallery Waiting Area",
+    "GALLERY_NURSING_ROOM": "[TR] Gallery Nursing Room",
+    "GALLERY_CORRIDOR": "[TR] Gallery Corridor",
+    "GALLERY_GENERAL_VIEW": "[TR] Gallery General View",
+    "MONTESSORI_TITLE": "[TR] Montessori Title",
+    "MONTESSORI_DESC": "[TR] Montessori Desc",
+    "MONTESSORI_BOOKS": "[TR] Montessori Books",
+    "MONTESSORI_BOOKS_DESC": "[TR] Montessori Books Desc",
+    "MONTESSORI_GAMES": "[TR] Montessori Games",
+    "MONTESSORI_GAMES_DESC": "[TR] Montessori Games Desc",
+    "MONTESSORI_TOYS": "[TR] Montessori Toys",
+    "MONTESSORI_TOYS_DESC": "[TR] Montessori Toys Desc",
+    "IMAGE_MONTESSORI_AREA": "[TR] Image Montessori Area",
+    "IMAGE_EDUCATIONAL_TOYS": "[TR] Image Educational Toys",
+    "IMAGE_BOOK_CORNER": "[TR] Image Book Corner",
+    "SAFETY_TITLE": "[TR] Safety Title",
+    "SAFETY_PHYSICAL": "[TR] Safety Physical",
+    "SAFETY_PHYSICAL_DESC": "[TR] Safety Physical Desc",
+    "SAFETY_ELECTRICAL": "[TR] Safety Electrical",
+    "SAFETY_ELECTRICAL_DESC": "[TR] Safety Electrical Desc",
+    "SAFETY_MONITORING": "[TR] Safety Monitoring",
+    "SAFETY_MONITORING_DESC": "[TR] Safety Monitoring Desc",
+    "HYGIENE_TITLE": "[TR] Hygiene Title",
+    "HYGIENE_DESC": "[TR] Hygiene Desc",
+    "HYGIENE_TEXT": "[TR] Hygiene Text",
+    "HYGIENE_NOTE": "[TR] Hygiene Note",
+    "CTA_TITLE": "[TR] Cta Title",
+    "CTA_SUBTITLE": "[TR] Cta Subtitle",
+    "CTA_BUTTON": "[TR] Cta Button",
+    "TITLE": "[TR] Title",
+    "SUBTITLE": "[TR] Subtitle"
+  },
+  "KLINIK_TASARIMI": {
+    "TITLE": "[TR] Title",
+    "SUBTITLE": "[TR] Subtitle",
+    "INTRO_TITLE": "[TR] Intro Title",
+    "INTRO_LEAD": "[TR] Intro Lead",
+    "INTRO_TEXT": "[TR] Intro Text",
+    "TEAM_TITLE": "[TR] Team Title",
+    "FEATURE_FURNITURE": "[TR] Feature Furniture",
+    "FEATURE_ENVIRONMENT": "[TR] Feature Environment",
+    "FEATURE_CHILD_FRIENDLY": "[TR] Feature Child Friendly",
+    "GALLERY_TITLE": "[TR] Gallery Title",
+    "GALLERY_EXAM_ROOM": "[TR] Gallery Exam Room",
+    "GALLERY_PLAY_CORNER": "[TR] Gallery Play Corner",
+    "GALLERY_WAITING_AREA": "[TR] Gallery Waiting Area",
+    "GALLERY_NURSING_ROOM": "[TR] Gallery Nursing Room"
+  },
+  "SAYGIYLA": {
+    "PIONEERS": {
+      "ATATURK": {
+        "SECTION_BIOGRAPHY": "[TR] Section Biography",
+        "NAME": "[TR] Name",
+        "INTRO_TEXT": "[TR] Intro Text",
+        "SECTION_COMMANDER": "[TR] Section Commander",
+        "QUOTE_REPUBLIC": "[TR] Quote Republic",
+        "SECTION_EDUCATION": "[TR] Section Education",
+        "SECTION_CHILDREN": "[TR] Section Children",
+        "QUOTE_SOVEREIGNTY": "[TR] Quote Sovereignty",
+        "SECTION_LEGACY": "[TR] Section Legacy",
+        "LEGACY_CONCLUSION": "[TR] Legacy Conclusion"
       },
-      "VACCINES": {
-        "HPV_VACCINE": {
-          "title": "HPV Aşısı Bilgi Föyü",
-          "category": "Aşılar",
-          "description": "HPV aşısı hakkında detaylı bilgi",
-          "contentType": "html",
-          "content": "<h2>HPV Aşısı</h2><h3>Neden Aşı Olalım?</h3><p><strong>HPV (insan papilloma virüsü) aşısı</strong>, bazı insan papilloma virüsü türleri ile enfeksiyonu önleyebilir.</p><p>HPV enfeksiyonları aşağıdakiler de dâhil olmak üzere belirli kanser türlerine neden olabilir:</p><ul><li>Kadınlarda rahim ağzı, vajina ve vulva kanserleri</li><li>Erkeklerde penis kanseri</li><li>Erkeklerde ve kadınlarda anal kanser</li><li>Erkeklerde ve kadınlarda bademcik, dil kökü ve boğaz arkası (orofaringeal kanser) kanserleri</li></ul><p>HPV enfeksiyonları anogenital siğillere de neden olabilir.</p><p>HPV aşısı, HPV'nin neden olduğu kanserlerin %90'ından fazlasını önleyebilir.</p><p>HPV yakın cilt teması veya cinsel ilişki yoluyla bulaşır. HPV enfeksiyonları o kadar sık görülür ki, neredeyse tüm insanlar hayatlarının bir döneminde en az bir tür HPV ile enfekte olurlar.</p><p>Çoğu HPV enfeksiyonu 2 yıl içinde kendiliğinden geçer. Ancak bazen HPV enfeksiyonları daha uzun sürer ve yaşamın ilerleyen dönemlerinde kansere neden olabilir.</p><h3>HPV Aşıları</h3><p>HPV aşısı virüse maruz kalmadan önce korunmalarını sağlamak amacıyla 11 ya da 12 yaşındaki ergenlere rutin olarak önerilir. HPV aşısı 9 yaşından itibaren yapılabilir ve 26 yaşına kadar olan herkese önerilir.</p><p>HPV aşısı hasta ile sağlık uzmanı arasındaki görüşmelere bağlı olarak 27 ilâ 45 yaşlarındaki yetişkinlere uygulanabilir.</p><p>İlk dozu 15 yaşından önce yapılmış olan çocukların çoğu 2 doz HPV aşısına ihtiyaç duyar. İlk dozu 15 yaşında veya daha sonra olan kişiler ile bağışıklık sistemini baskılayıcı belirli durumları olan daha küçük kişilerin 3 doza ihtiyaçları vardır. Sağlık uzmanınız size daha fazla bilgi verebilir.</p><p>HPV aşısı diğer aşılarla aynı anda yapılabilir.</p><h3>Sağlık Uzmanınız ile Konuşunuz</h3><p>Aşıyı yaptıran kişide aşağıdaki durumlar mevcutsa bunları aşı uygulayıcınıza söyleyiniz:</p><ul><li>Önceki bir HPV aşısından sonra alerjik bir reaksiyon gösterdiyse veya ciddi, yaşamı tehdit eden herhangi bir alerjisi varsa</li><li>Gebe ise. HPV aşısı gebelik bitene kadar önerilmez</li></ul><p>Bazı durumlarda, sağlık uzmanınız HPV aşısını gelecekteki bir ziyarete ertelemeye karar verebilir.</p><p>Soğuk algınlığı gibi hafif rahatsızlıkları olan kişiler aşılanabilir. Orta veya ağır derecede hasta olan kişiler HPV aşısı yaptırmadan önce genellikle iyileşene kadar beklemelidir.</p><h3>Aşı Reaksiyonu Riskleri</h3><ul><li>HPV aşılamasından sonra aşı yapılan yerde ağrı, kızarıklık ve şişlik olabilir.</li><li>HPV aşılamasından sonra ateş veya baş ağrısı olabilir.</li></ul><p>İnsanlar bazen aşılanma dâhil olmak üzere tıbbi bir işlemden sonra bayılırlar. Başınız dönerse, görme değişikliğiniz veya kulaklarınızda çınlama olursa aşı uygulayıcınıza bildiriniz.</p><p>Herhangi bir ilaçta olduğu gibi aşının da ağır bir alerjik reaksiyona, diğer ciddi bir tıbbi hasara neden olma ihtimali çok düşük olsa da vardır.</p><h3>Ciddi Bir Reaksiyon Olursa?</h3><p>Alerjik bir reaksiyon aşılanan kişi klinikten ayrıldıktan sonra meydana gelebilir. Eğer ağır alerjik reaksiyon belirtileri (kurdeşen, yüzün ve boğazın şişmesi, nefes darlığı, hızlı kalp atışı, sersemlik veya güçsüzlük) görürseniz 112'yi arayınız ve kişiyi en yakın hastaneye götürünüz.</p><p>Sizi endişelendiren diğer belirtiler için sağlık uzmanınızı arayınız.</p>"
-        }
+      "IHSAN_DOGRAMACI": {
+        "SECTION_BIOGRAPHY": "[TR] Section Biography",
+        "NAME": "[TR] Name"
+      },
+      "JONAS_SALK": {
+        "SECTION_BIOGRAPHY": "[TR] Section Biography",
+        "NAME": "[TR] Name",
+        "TITLE": "[TR] Title",
+        "LIFESPAN": "[TR] Lifespan",
+        "QUOTE": "[TR] Quote"
+      },
+      "LOUIS_PASTEUR": {
+        "SECTION_BIOGRAPHY": "[TR] Section Biography",
+        "NAME": "[TR] Name",
+        "TITLE": "[TR] Title",
+        "LIFESPAN": "[TR] Lifespan",
+        "QUOTE": "[TR] Quote"
+      },
+      "MALALA_YOUSAFZAI": {
+        "SECTION_BIOGRAPHY": "[TR] Section Biography",
+        "NAME": "[TR] Name"
+      },
+      "NILS_ROSEN": {
+        "SECTION_BIOGRAPHY": "[TR] Section Biography",
+        "NAME": "[TR] Name",
+        "TITLE": "[TR] Title",
+        "LIFESPAN": "[TR] Lifespan",
+        "QUOTE": "[TR] Quote"
+      },
+      "TURKAN_SAYLAN": {
+        "SECTION_BIOGRAPHY": "[TR] Section Biography",
+        "NAME": "[TR] Name"
+      },
+      "URSULA_LEGUIN": {
+        "SECTION_BIOGRAPHY": "[TR] Section Biography",
+        "NAME": "[TR] Name",
+        "TITLE": "[TR] Title",
+        "LIFESPAN": "[TR] Lifespan",
+        "QUOTE": "[TR] Quote"
+      },
+      "VIRGINIA_APGAR": {
+        "SECTION_BIOGRAPHY": "[TR] Section Biography",
+        "NAME": "[TR] Name"
+      },
+      "WALDO_NELSON": {
+        "SECTION_BIOGRAPHY": "[TR] Section Biography",
+        "NAME": "[TR] Name",
+        "TITLE": "[TR] Title",
+        "LIFESPAN": "[TR] Lifespan"
       }
+    },
+    "BADGE": "[TR] Badge",
+    "PAGE_TITLE": "[TR] Page Title",
+    "PAGE_SUBTITLE": "[TR] Page Subtitle",
+    "READ_MORE": "[TR] Read More",
+    "CTA_TITLE": "[TR] Cta Title",
+    "CTA_DESCRIPTION": "[TR] Cta Description",
+    "CTA_BUTTON": "[TR] Cta Button"
+  },
+  "SERVICE_SOS_FEEDING": {
+    "WHAT_IS_TITLE": "[TR] What Is Title",
+    "WHAT_IS_DESC": "[TR] What Is Desc",
+    "WHAT_IS_DETAIL": "[TR] What Is Detail",
+    "EATER_TYPES_TITLE": "[TR] Eater Types Title",
+    "EATER_TYPES_DESC": "[TR] Eater Types Desc",
+    "PICKY_EATER_TITLE": "[TR] Picky Eater Title",
+    "PROBLEM_EATER_TITLE": "[TR] Problem Eater Title",
+    "WHO_NEEDS_TITLE": "[TR] Who Needs Title",
+    "WHO_NEEDS_DESC": "[TR] Who Needs Desc",
+    "HOW_IT_WORKS_TITLE": "[TR] How It Works Title",
+    "HOW_IT_WORKS_DESC": "[TR] How It Works Desc",
+    "EXPERTISE_TITLE": "[TR] Expertise Title",
+    "EXPERTISE_DESC": "[TR] Expertise Desc",
+    "CERTIFICATIONS": "[TR] Certifications",
+    "BENEFITS_TITLE": "[TR] Benefits Title"
+  },
+  "REVIEWS": {
+    "TIME_AGO": {
+      "JUST_NOW": "[TR] Just Now"
     }
   }
 }

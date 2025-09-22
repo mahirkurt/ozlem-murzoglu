@@ -165,7 +165,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
       .float-element {
         position: absolute;
-        border-radius: 50%;
+        border-radius: var(--md-sys-shape-corner-full);
         animation: float-random 20s infinite ease-in-out;
         will-change: transform;
         transform: translateZ(0);
@@ -305,10 +305,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
       .hero-title {
         animation: fade-in-up 0.9s var(--md-sys-motion-easing-emphasized) 0.15s both;
-        color: #ffffff;
+        color: var(--md-sys-color-surface);
         text-shadow:
-          0 6px 30px rgba(0, 0, 0, 0.25),
-          0 2px 6px rgba(0, 0, 0, 0.2);
+          0 6px 30px rgba(var(--md-sys-color-shadow), 0.25),
+          0 2px 6px rgba(var(--md-sys-color-shadow), 0.2);
         text-align: center;
         width: 100%;
         max-width: 100%;
@@ -329,8 +329,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         animation: fade-in-up 0.95s var(--md-sys-motion-easing-emphasized) 0.2s both;
         color: rgba(255, 255, 255, 0.9);
         text-shadow:
-          0 4px 20px rgba(0, 0, 0, 0.2),
-          0 2px 4px rgba(0, 0, 0, 0.15);
+          0 4px 20px rgba(var(--md-sys-color-shadow), 0.2),
+          0 2px 4px rgba(var(--md-sys-color-shadow), 0.15);
         text-align: center;
         width: 100%;
         max-width: 800px;
@@ -349,20 +349,20 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
       .hero-button {
         background: rgba(255, 255, 255, 0.98);
         color: var(--md-sys-color-primary);
-        padding: 16px 32px;
+        padding: var(--md-sys-spacing-4) var(--md-sys-spacing-8);
         font-size: 1rem;
         font-weight: 500;
         letter-spacing: 0.1px;
         border-radius: var(--radius-xxl);
         box-shadow:
-          0 3px 5px rgba(0, 0, 0, 0.1),
-          0 1px 18px rgba(0, 0, 0, 0.08),
-          0 6px 10px rgba(0, 0, 0, 0.08);
+          0 3px 5px rgba(var(--md-sys-color-shadow), 0.1),
+          0 1px 18px rgba(var(--md-sys-color-shadow), 0.08),
+          0 6px 10px rgba(var(--md-sys-color-shadow), 0.08);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         text-decoration: none;
         display: inline-flex;
         align-items: center;
-        gap: 12px;
+        gap: var(--md-sys-spacing-3);
         border: none;
         cursor: pointer;
         position: relative;
@@ -375,7 +375,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
           left: 50%;
           width: 0;
           height: 0;
-          border-radius: 50%;
+          border-radius: var(--md-sys-shape-corner-full);
           background: var(--md-sys-color-primary);
           opacity: 0.1;
           transform: translate(-50%, -50%);
@@ -386,9 +386,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
           transform: translateY(-2px);
           background: white;
           box-shadow:
-            0 5px 10px rgba(0, 0, 0, 0.12),
-            0 3px 28px rgba(0, 0, 0, 0.1),
-            0 8px 16px rgba(0, 0, 0, 0.1);
+            0 5px 10px rgba(var(--md-sys-color-shadow), 0.12),
+            0 3px 28px rgba(var(--md-sys-color-shadow), 0.1),
+            0 8px 16px rgba(var(--md-sys-color-shadow), 0.1);
         }
 
         &:hover::before {
@@ -399,8 +399,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         &:active {
           transform: translateY(0);
           box-shadow:
-            0 1px 3px rgba(0, 0, 0, 0.12),
-            0 1px 2px rgba(0, 0, 0, 0.24);
+            0 1px 3px rgba(var(--md-sys-color-shadow), 0.12),
+            0 1px 2px rgba(var(--md-sys-color-shadow), 0.24);
         }
       }
 
@@ -478,7 +478,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
       @media (max-width: 480px) {
         .hero-content {
-          padding: 75px 16px;
+          padding: 75pxpx /* TODO: Consider MD3 spacing token */px /* TODO: Consider MD3 spacing token */ var(--md-sys-spacing-4);
         }
 
         .hero-title {
@@ -492,7 +492,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         }
 
         .cta-button {
-          padding: 12px 20px;
+          padding: var(--md-sys-spacing-3) var(--md-sys-spacing-5);
           font-size: 0.9rem;
           max-width: 260px;
         }

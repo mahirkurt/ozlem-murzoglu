@@ -28,7 +28,7 @@ import { RouterLink } from '@angular/router';
         radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
         radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
-      padding: 80px 0;
+      padding: var(--md-sys-spacing-20) 0;
       margin-top: 0;
       margin-bottom: 0;
       position: relative;
@@ -70,7 +70,7 @@ import { RouterLink } from '@angular/router';
     }
 
     .cta-title {
-      font-family: 'Figtree', sans-serif;
+      font-family: var(--md-sys-typescale-font-brand);
       font-size: 2.5rem;
       font-weight: 600;
       color: var(--md-sys-color-on-primary-container);
@@ -79,7 +79,7 @@ import { RouterLink } from '@angular/router';
     }
 
     .cta-description {
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--md-sys-typescale-font-plain);
       font-size: 1.125rem;
       color: var(--md-sys-color-on-primary-container);
       opacity: 0.9;
@@ -89,7 +89,7 @@ import { RouterLink } from '@angular/router';
 
     .cta-actions {
       display: flex;
-      gap: 16px;
+      gap: var(--md-sys-spacing-4);
       justify-content: center;
       align-items: center;
     }
@@ -98,27 +98,27 @@ import { RouterLink } from '@angular/router';
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 16px 32px;
+      padding: var(--md-sys-spacing-4) var(--md-sys-spacing-8);
       background: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
       border-radius: 100px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--md-sys-typescale-font-plain);
       font-size: 1rem;
       font-weight: 500;
       text-decoration: none;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgba(var(--md-sys-color-shadow), 0.1);
     }
 
     .cta-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 16px rgba(var(--md-sys-color-shadow), 0.15);
       background: var(--md-sys-color-primary-hover, var(--md-sys-color-primary));
     }
 
     @media (max-width: 768px) {
       .cta-section {
-        padding: 60px 0;
+        padding: var(--md-sys-spacing-15) 0;
       }
 
       .cta-title {
@@ -130,14 +130,14 @@ import { RouterLink } from '@angular/router';
       }
 
       .cta-button {
-        padding: 14px 28px;
+        padding: var(--md-sys-spacing-3) var(--md-sys-spacing-7);
         font-size: 0.95rem;
       }
     }
 
     @media (max-width: 480px) {
       .cta-section {
-        padding: 48px 0;
+        padding: var(--md-sys-spacing-12) 0;
       }
 
       .cta-title {

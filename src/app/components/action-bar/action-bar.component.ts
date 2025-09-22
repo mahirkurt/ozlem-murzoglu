@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-action-bar',
@@ -91,7 +90,7 @@ export class ActionBarComponent implements OnInit {
 
   feedbackGiven: boolean | null = null;
 
-  constructor(private snackBar: MatSnackBar) {}
+  constructor() {}
 
   handlePrint() {
     this.print.emit();
@@ -124,12 +123,44 @@ export class ActionBarComponent implements OnInit {
 
   private copyToClipboard() {
     navigator.clipboard.writeText(window.location.href).then(() => {
-      this.snackBar.open('Link kopyalandı!', 'Tamam', {
-        duration: 3000,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-      });
+      this.showSnackbar('Link kopyalandı!', 'Tamam', 3000);
     });
+  }
+
+  private showSnackbar(message: string, action?: string, duration: number = 3000) {
+    // Remove existing snackbar if any
+    const existingSnackbar = document.querySelector('.md3-snackbar');
+    if (existingSnackbar) {
+      existingSnackbar.remove();
+    }
+
+    // Create MD3 snackbar element
+    const snackbar = document.createElement('div');
+    snackbar.className = 'md3-snackbar';
+    snackbar.innerHTML = `
+      <span>${message}</span>
+      ${action ? `<button class="md3-snackbar-action">${action}</button>` : ''}
+    `;
+
+    document.body.appendChild(snackbar);
+
+    // Add visible class after a brief delay for animation
+    setTimeout(() => snackbar.classList.add('md3-snackbar-visible'), 10);
+
+    // Handle action button click if present
+    if (action) {
+      const actionBtn = snackbar.querySelector('.md3-snackbar-action');
+      actionBtn?.addEventListener('click', () => {
+        snackbar.classList.remove('md3-snackbar-visible');
+        setTimeout(() => snackbar.remove(), 300);
+      });
+    }
+
+    // Auto-hide after duration
+    setTimeout(() => {
+      snackbar.classList.remove('md3-snackbar-visible');
+      setTimeout(() => snackbar.remove(), 300);
+    }, duration);
   }
 
   handleBookmark() {
@@ -144,17 +175,13 @@ export class ActionBarComponent implements OnInit {
       if (!bookmarks.includes(currentUrl)) {
         bookmarks.push(currentUrl);
       }
-      this.snackBar.open('Kaydedildi!', 'Tamam', {
-        duration: 2000,
-      });
+      this.showSnackbar('Kaydedildi!', 'Tamam', 2000);
     } else {
       const index = bookmarks.indexOf(currentUrl);
       if (index > -1) {
         bookmarks.splice(index, 1);
       }
-      this.snackBar.open('Kayıt kaldırıldı', 'Tamam', {
-        duration: 2000,
-      });
+      this.showSnackbar('Kayıt kaldırıldı', 'Tamam', 2000);
     }
 
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
@@ -164,10 +191,10 @@ export class ActionBarComponent implements OnInit {
     this.feedbackGiven = isHelpful;
     this.feedback.emit(isHelpful);
 
-    this.snackBar.open(
+    this.showSnackbar(
       isHelpful ? 'Teşekkürler! Geri bildiriminiz alındı.' : 'Geri bildiriminiz için teşekkürler.',
       'Tamam',
-      { duration: 3000 }
+      3000
     );
   }
 

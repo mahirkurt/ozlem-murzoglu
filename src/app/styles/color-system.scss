@@ -20,7 +20,7 @@ $teal-palette: (
   30: #00504b,
   35: #005d57,
   40: #006a63,
-  50: #00897b,
+  50: var(--md-sys-color-primary),
   // Main Primary
   60: #00a693,
   70: #21c0ac,
@@ -29,7 +29,7 @@ $teal-palette: (
   95: #b4fff0,
   98: #e0fff9,
   99: #f0fffc,
-  100: #ffffff,
+  100: var(--md-sys-color-surface),
 );
 
 // Secondary - Amber/Sarı (Enerji, Pozitiflik, Çocuk Neşesi)
@@ -42,7 +42,7 @@ $amber-palette: (
   30: #703600,
   35: #803f00,
   40: #914900,
-  50: #ffb300,
+  50: var(--md-sys-color-secondary),
   // Main Secondary (Logo Yellow)
   60: #ffbf00,
   70: #ffca28,
@@ -51,7 +51,7 @@ $amber-palette: (
   95: #ffecb3,
   98: #fff8e1,
   99: #fffbf0,
-  100: #ffffff,
+  100: var(--md-sys-color-surface),
 );
 
 // Tertiary - Coral/Mercan (Sıcaklık, Şefkat, Bakım)
@@ -64,7 +64,7 @@ $coral-palette: (
   30: #7b2b1d,
   35: #8e3322,
   40: #a23b27,
-  50: #ff7043,
+  50: var(--md-sys-color-tertiary),
   // Main Tertiary
   60: #ff8a65,
   70: #ffab91,
@@ -73,14 +73,14 @@ $coral-palette: (
   95: #fff3f0,
   98: #fff9f8,
   99: #fffbfa,
-  100: #ffffff,
+  100: var(--md-sys-color-surface),
 );
 
 // Neutral - Grey (UI Elements)
 $neutral-palette: (
   0: #000000,
   5: #0f0f0f,
-  10: #1a1a1a,
+  10: var(--md-sys-color-on-surface),
   20: #2e2e2e,
   25: #3a3a3a,
   30: #474747,
@@ -94,8 +94,8 @@ $neutral-palette: (
   95: #f1f1f1,
   98: #faf8f5,
   // Brand warm white
-  99: #fcfcfc,
-  100: #ffffff,
+  99: var(--md-sys-color-surface),
+  100: var(--md-sys-color-surface),
 );
 
 // Error - Red
@@ -104,8 +104,8 @@ $error-palette: (
   10: #410002,
   20: #690005,
   30: #93000a,
-  40: #ba1a1a,
-  50: #d32f2f,
+  40: var(--md-sys-color-error),
+  50: var(--md-sys-color-error),
   // Main Error
   60: #e85449,
   70: #f87c70,
@@ -113,7 +113,7 @@ $error-palette: (
   90: #ffdad6,
   95: #ffedea,
   99: #fffbff,
-  100: #ffffff,
+  100: var(--md-sys-color-surface),
 );
 
 // ==========================================
@@ -124,7 +124,7 @@ $error-palette: (
   :root {
     // Primary colors
     --md-sys-color-primary: #{map.get($teal-palette, 50)};
-    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-on-primary: var(--md-sys-color-surface);
     --md-sys-color-primary-container: #{map.get($teal-palette, 90)};
     --md-sys-color-on-primary-container: #{map.get($teal-palette, 10)};
 
@@ -136,13 +136,13 @@ $error-palette: (
 
     // Tertiary colors
     --md-sys-color-tertiary: #{map.get($coral-palette, 50)};
-    --md-sys-color-on-tertiary: #ffffff;
+    --md-sys-color-on-tertiary: var(--md-sys-color-surface);
     --md-sys-color-tertiary-container: #{map.get($coral-palette, 90)};
     --md-sys-color-on-tertiary-container: #{map.get($coral-palette, 10)};
 
     // Error colors
     --md-sys-color-error: #{map.get($error-palette, 50)};
-    --md-sys-color-on-error: #ffffff;
+    --md-sys-color-on-error: var(--md-sys-color-surface);
     --md-sys-color-error-container: #{map.get($error-palette, 90)};
     --md-sys-color-on-error-container: #{map.get($error-palette, 10)};
 
@@ -154,11 +154,11 @@ $error-palette: (
     --md-sys-color-surface-container: #{map.get($neutral-palette, 98)};
     --md-sys-color-surface-container-high: #{map.get($neutral-palette, 95)};
     --md-sys-color-surface-container-highest: #{map.get($neutral-palette, 90)};
-    --md-sys-color-surface-container-low: #ffffff;
-    --md-sys-color-surface-container-lowest: #ffffff;
+    --md-sys-color-surface-container-low: var(--md-sys-color-surface);
+    --md-sys-color-surface-container-lowest: var(--md-sys-color-surface);
 
     // Background colors
-    --md-sys-color-background: #ffffff;
+    --md-sys-color-background: var(--md-sys-color-surface);
     --md-sys-color-on-background: #{map.get($neutral-palette, 10)};
 
     // Outline colors
@@ -172,7 +172,7 @@ $error-palette: (
 
     // Shadow color
     --md-sys-color-shadow: #000000;
-    --md-sys-color-scrim: rgba(0, 0, 0, 0.32);
+    --md-sys-color-scrim: rgba(var(--md-sys-color-shadow), 0.32);
   }
 }
 

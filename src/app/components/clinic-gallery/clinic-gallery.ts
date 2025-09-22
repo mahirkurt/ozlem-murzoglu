@@ -86,9 +86,9 @@ interface GalleryImage {
   `,
   styles: [`
     .clinic-gallery {
-      padding: 60px 0;
+      padding: var(--md-sys-spacing-15) 0;
       position: relative;
-      background: #ffffff;
+      background: var(--md-sys-color-surface);
     }
     
     .gallery-header {
@@ -117,14 +117,14 @@ interface GalleryImage {
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 12px;
+      gap: var(--md-sys-spacing-3);
       margin-bottom: var(--space-7);
     }
     
     @media (min-width: 768px) {
       .gallery-grid {
         grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
+        gap: var(--md-sys-spacing-4);
       }
       
       .gallery-item.featured {
@@ -136,17 +136,17 @@ interface GalleryImage {
     @media (min-width: 1200px) {
       .gallery-grid {
         grid-template-columns: repeat(6, 1fr);
-        gap: 20px;
+        gap: var(--md-sys-spacing-5);
       }
     }
     
     .gallery-item {
       position: relative;
       overflow: hidden;
-      border-radius: 12px;
+      border-radius: var(--md-sys-shape-corner-medium);
       transition: all 0.3s var(--ease-in-out);
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgba(var(--md-sys-color-shadow), 0.1);
     }
     
     .gallery-item:hover {
@@ -183,7 +183,7 @@ interface GalleryImage {
     .image-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0, 95, 115, 0.7) 0%, rgba(0, 95, 115, 0.3) 100%);
+      background: linear-gradient(to top, rgba(var(--md-sys-color-primary-rgb), 0.7) 0%, rgba(var(--md-sys-color-primary-rgb), 0.3) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -198,7 +198,7 @@ interface GalleryImage {
     .zoom-icon {
       color: white;
       font-size: 48px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      text-shadow: 0 2px 8px rgba(var(--md-sys-color-shadow), 0.3);
       animation: pulse 2s infinite;
     }
     
@@ -230,7 +230,7 @@ interface GalleryImage {
       height: 48px;
       margin: 0 auto var(--space-2);
       background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-      border-radius: 12px;
+      border-radius: var(--md-sys-shape-corner-medium);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -258,7 +258,7 @@ interface GalleryImage {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(var(--md-sys-color-shadow), 0.9);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -281,8 +281,8 @@ interface GalleryImage {
       max-width: 100%;
       max-height: 80vh;
       object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      border-radius: var(--md-sys-shape-corner-small);
+      box-shadow: 0 20px 60px rgba(var(--md-sys-color-shadow), 0.5);
     }
     
     .modal-caption {
@@ -290,7 +290,7 @@ interface GalleryImage {
       color: white;
       font-size: var(--font-size-lg);
       margin-top: var(--space-3);
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 2px 4px rgba(var(--md-sys-color-shadow), 0.5);
     }
     
     .modal-close {
@@ -302,7 +302,7 @@ interface GalleryImage {
       color: white;
       width: 40px;
       height: 40px;
-      border-radius: 50%;
+      border-radius: var(--md-sys-shape-corner-full);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -344,7 +344,7 @@ interface GalleryImage {
       
       .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+        gap: var(--md-sys-spacing-2);
       }
       
       .gallery-item.featured {
@@ -361,22 +361,22 @@ interface GalleryImage {
     .view-all-btn {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 14px 28px;
+      gap: var(--md-sys-spacing-3);
+      padding: var(--md-sys-spacing-3) var(--md-sys-spacing-7);
       background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
       color: white;
       border: none;
-      border-radius: 30px;
+      border-radius: var(--md-sys-shape-corner-extra-large);
       font-size: var(--font-size-lg);
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 95, 115, 0.2);
+      box-shadow: 0 4px 12px rgba(var(--md-sys-color-primary-rgb), 0.2);
     }
     
     .view-all-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 95, 115, 0.3);
+      box-shadow: 0 6px 20px rgba(var(--md-sys-color-primary-rgb), 0.3);
     }
     
     .view-all-btn .material-icons {

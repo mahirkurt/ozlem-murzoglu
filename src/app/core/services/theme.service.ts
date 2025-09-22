@@ -165,7 +165,7 @@ export class ThemeService {
     // Update meta theme-color
     const metaThemeColor = this.document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', isDark ? '#1c1b1f' : '#ffffff');
+      metaThemeColor.setAttribute('content', isDark ? '#1c1b1f' : 'var(--md-sys-color-surface)');
     }
   }
 
@@ -208,22 +208,22 @@ export class ThemeService {
     } else {
       // Light mode colors (default)
       root.setProperty('--md-sys-color-primary', '#2E6E6A');
-      root.setProperty('--md-sys-color-on-primary', '#ffffff');
+      root.setProperty('--md-sys-color-on-primary', 'var(--md-sys-color-surface)');
       root.setProperty('--md-sys-color-primary-container', '#c0e8e4');
       root.setProperty('--md-sys-color-on-primary-container', '#002019');
 
       root.setProperty('--md-sys-color-secondary', '#4a8783');
-      root.setProperty('--md-sys-color-on-secondary', '#ffffff');
+      root.setProperty('--md-sys-color-on-secondary', 'var(--md-sys-color-surface)');
       root.setProperty('--md-sys-color-secondary-container', '#cde8e3');
       root.setProperty('--md-sys-color-on-secondary-container', '#051f1d');
 
-      root.setProperty('--md-sys-color-surface', '#ffffff');
-      root.setProperty('--md-sys-color-on-surface', '#333333');
+      root.setProperty('--md-sys-color-surface', 'var(--md-sys-color-surface)');
+      root.setProperty('--md-sys-color-on-surface', 'var(--md-sys-color-on-surface)');
       root.setProperty('--md-sys-color-surface-variant', '#FAF8F5');
       root.setProperty('--md-sys-color-on-surface-variant', '#49454f');
 
-      root.setProperty('--md-sys-color-background', '#ffffff');
-      root.setProperty('--md-sys-color-on-background', '#333333');
+      root.setProperty('--md-sys-color-background', 'var(--md-sys-color-surface)');
+      root.setProperty('--md-sys-color-on-background', 'var(--md-sys-color-on-surface)');
 
       root.setProperty('--md-sys-color-outline', '#79747e');
       root.setProperty('--md-sys-color-outline-variant', '#cac4d0');
@@ -290,8 +290,8 @@ export class ThemeService {
         root.setProperty('--md-sys-state-opacity-pressed', '0.20');
         // Increase text contrast
         if (this.isDarkMode()) {
-          root.setProperty('--md-sys-color-on-surface', '#ffffff');
-          root.setProperty('--md-sys-color-on-background', '#ffffff');
+          root.setProperty('--md-sys-color-on-surface', 'var(--md-sys-color-surface)');
+          root.setProperty('--md-sys-color-on-background', 'var(--md-sys-color-surface)');
         } else {
           root.setProperty('--md-sys-color-on-surface', '#000000');
           root.setProperty('--md-sys-color-on-background', '#000000');

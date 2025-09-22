@@ -7,6 +7,60 @@
 @import 'app/styles/cta-section.css';
 @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* MD3 Header Band Global Utilities */
+.md3-header-band {
+  background: linear-gradient(
+    135deg,
+    var(--md-sys-color-primary),
+    color-mix(in srgb, var(--md-sys-color-primary) 85%, var(--md-sys-color-secondary) 15%)
+  );
+  color: var(--md-sys-color-on-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.md3-header-band-elevated {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.md3-header-band-animated {
+  animation: headerBandGradient 10s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes headerBandGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Global Page Section Styles */
+section[class*="-page"] {
+  padding-top: 48px; /* Consistent top padding for all page sections */
+}
+
+/* Global Hero Section Positioning */
+app-hero-section {
+  display: block;
+  width: 100%;
+}
+
+/* Ensure consistent hero section positioning across all pages */
+.hero-section {
+  margin-top: 100px !important; /* Space for fixed header */
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 80px !important; /* Smaller space on mobile */
+  }
+
+  section[class*="-page"] {
+    padding-top: 32px; /* Less padding on mobile */
+  }
+}
+
 /* Global Styles */
 * {
   margin: 0;
@@ -88,8 +142,8 @@ html {
   --radius-xxl: 24px;
   --radius-full: 9999px;
 
-  /* Container Configuration - Standardized across all components */
-  --container-max-width: 1240px;
+  /* Container Configuration - MD3 Responsive Standard */
+  --container-max-width: min(1440px, 90vw);
   --container-padding-x: 24px;
 }
 
@@ -278,7 +332,7 @@ img {
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   height: 1px;
   background: linear-gradient(
     90deg,

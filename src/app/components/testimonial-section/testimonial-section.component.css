@@ -1,6 +1,6 @@
 .testimonial-section {
-  padding: 50px 0 30px 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  padding: var(--md-sys-spacing-12) 0 30px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, var(--md-sys-color-surface) 100%);
   position: relative;
   overflow: hidden;
   margin-top: 40px;
@@ -13,8 +13,8 @@
   right: -15%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(0, 95, 115, 0.02) 0%, transparent 70%);
-  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--md-sys-color-primary-rgb), 0.02) 0%, transparent 70%);
+  border-radius: var(--md-sys-shape-corner-full);
 }
 
 .testimonial-section::after {
@@ -24,8 +24,8 @@
   left: -15%;
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(255, 183, 77, 0.03) 0%, transparent 70%);
-  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--md-sys-color-secondary-rgb), 0.03) 0%, transparent 70%);
+  border-radius: var(--md-sys-shape-corner-full);
 }
 
 .container {
@@ -42,7 +42,7 @@
 }
 
 .section-title {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 2rem;
   font-weight: 700;
   color: var(--color-primary);
@@ -50,9 +50,9 @@
 }
 
 .section-subtitle {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 1rem;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
   max-width: 500px;
   margin: 0 auto 24px auto;
   line-height: 1.5;
@@ -68,12 +68,12 @@
 .rating-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--md-sys-spacing-2);
   background: white;
   border-radius: 50px;
-  padding: 8px 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
+  box-shadow: 0 2px 12px rgba(var(--md-sys-color-shadow), 0.08);
+  border: 1px solid rgba(var(--md-sys-color-shadow), 0.04);
 }
 
 .google-icon-small {
@@ -85,36 +85,36 @@
 .rating-info {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--md-sys-spacing-1);
 }
 
 .rating-score-compact {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1rem;
   font-weight: 600;
-  color: #005F73;
+  color: var(--md-sys-color-primary);
 }
 
 .rating-stars-compact {
   display: flex;
-  gap: 1px;
+  gap: var(--md-sys-spacing-1);
 }
 
 .star-small {
-  color: #FFC107;
+  color: var(--md-sys-color-secondary);
   font-size: 14px;
 }
 
 .rating-count {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.8125rem;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 .testimonials-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  gap: var(--md-sys-spacing-5);
   margin-bottom: 32px;
   position: relative;
 }
@@ -139,12 +139,12 @@
 
 .testimonial-card {
   background: white;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+  border-radius: var(--md-sys-shape-corner-large);
+  padding: var(--md-sys-spacing-5);
+  box-shadow: 0 2px 16px rgba(var(--md-sys-color-shadow), 0.04);
   position: relative;
   transition: all 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(var(--md-sys-color-shadow), 0.06);
   opacity: 1;
   transform: translateX(0);
   animation: fadeInUp 0.5s ease-out;
@@ -164,7 +164,7 @@
 
 .testimonial-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 24px rgba(var(--md-sys-color-shadow), 0.08);
 }
 
 .testimonial-header {
@@ -177,22 +177,22 @@
 .author-info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--md-sys-spacing-3);
   flex: 1;
 }
 
 .author-avatar {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, rgba(0, 95, 115, 0.1) 0%, rgba(0, 95, 115, 0.05) 100%);
-  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(var(--md-sys-color-primary-rgb), 0.1) 0%, rgba(var(--md-sys-color-primary-rgb), 0.05) 100%);
+  border-radius: var(--md-sys-shape-corner-medium);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #005F73;
+  color: var(--md-sys-color-primary);
   font-weight: 600;
   font-size: 0.9rem;
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   flex-shrink: 0;
 }
 
@@ -204,9 +204,9 @@
 }
 
 .author-name {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-weight: 600;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
   margin: 0 0 4px 0;
   font-size: 0.95rem;
 }
@@ -214,16 +214,16 @@
 .rating-inline {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--md-sys-spacing-1);
 }
 
 .star-tiny {
-  color: #FFC107;
+  color: var(--md-sys-color-secondary);
   font-size: 12px;
 }
 
 .testimonial-date {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.75rem;
   color: #999;
 }
@@ -240,10 +240,10 @@
 }
 
 .testimonial-text {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.875rem;
   line-height: 1.6;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
   margin: 0;
   position: relative;
   padding-left: 18px;
@@ -255,7 +255,7 @@
   left: 0;
   top: -6px;
   font-size: 2rem;
-  color: #FFB74D;
+  color: var(--md-sys-color-secondary);
   opacity: 0.25;
   font-family: 'Georgia', serif;
   line-height: 1;
@@ -267,7 +267,7 @@
 .section-cta {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: var(--md-sys-spacing-3);
   margin-top: 32px;
   flex-wrap: wrap;
 }
@@ -275,11 +275,11 @@
 .cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
+  gap: var(--md-sys-spacing-2);
+  padding: var(--md-sys-spacing-3) var(--md-sys-spacing-6);
   border-radius: 50px;
   text-decoration: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-weight: 600;
   font-size: 0.875rem;
   transition: all 0.3s ease;
@@ -288,16 +288,16 @@
 
 .primary-cta {
   background: white;
-  color: #005F73;
-  border: 1px solid #005F73;
-  box-shadow: 0 2px 12px rgba(0, 95, 115, 0.08);
+  color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-primary);
+  box-shadow: 0 2px 12px rgba(var(--md-sys-color-primary-rgb), 0.08);
 }
 
 .primary-cta:hover {
-  background: #005F73;
+  background: var(--md-sys-color-primary);
   color: white;
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(0, 95, 115, 0.15);
+  box-shadow: 0 4px 20px rgba(var(--md-sys-color-primary-rgb), 0.15);
 }
 
 .primary-cta:hover svg path {
@@ -305,14 +305,14 @@
 }
 
 .secondary-cta {
-  background: linear-gradient(135deg, #005F73 0%, #0A8FA3 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, #0A8FA3 100%);
   color: white;
-  box-shadow: 0 2px 12px rgba(0, 95, 115, 0.15);
+  box-shadow: 0 2px 12px rgba(var(--md-sys-color-primary-rgb), 0.15);
 }
 
 .secondary-cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(0, 95, 115, 0.25);
+  box-shadow: 0 4px 20px rgba(var(--md-sys-color-primary-rgb), 0.25);
 }
 
 .google-icon {
@@ -329,7 +329,7 @@
 
 @media (max-width: 768px) {
   .testimonial-section {
-    padding: 40px 0 20px 0;
+    padding: var(--md-sys-spacing-10) 0 20px 0;
   }
 
   .container {
@@ -349,8 +349,8 @@
   }
 
   .rating-badge {
-    padding: 6px 12px;
-    gap: 8px;
+    padding: var(--md-sys-spacing-1) var(--md-sys-spacing-3);
+    gap: var(--md-sys-spacing-2);
   }
 
   .rating-score-compact {
@@ -366,12 +366,12 @@
   }
 
   .testimonials-wrapper {
-    gap: 16px;
+    gap: var(--md-sys-spacing-4);
     margin-bottom: 24px;
   }
 
   .testimonial-card {
-    padding: 16px;
+    padding: var(--md-sys-spacing-4);
   }
 
   .author-avatar {
@@ -396,13 +396,13 @@
 
   .section-cta {
     margin-top: 24px;
-    gap: 8px;
+    gap: var(--md-sys-spacing-2);
   }
 
   .cta-button {
-    padding: 10px 20px;
+    padding: var(--md-sys-spacing-2) var(--md-sys-spacing-5);
     font-size: 0.8125rem;
-    gap: 6px;
+    gap: var(--md-sys-spacing-1);
   }
 
   .cta-button .material-icons {

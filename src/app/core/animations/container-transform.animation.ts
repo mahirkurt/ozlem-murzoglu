@@ -468,7 +468,7 @@ export const elevationChange = trigger('elevationChange', [
       `${DURATION.short} ${EASING.emphasizedDecelerate}`,
       style({
         transform: 'translateZ(8px)',
-        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.24)',
+        boxShadow: '0 8px 16px rgba(var(--md-sys-color-shadow), 0.24)',
       })
     ),
   ]),
@@ -478,7 +478,7 @@ export const elevationChange = trigger('elevationChange', [
       `${DURATION.short} ${EASING.emphasizedAccelerate}`,
       style({
         transform: 'translateZ(0)',
-        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.12)',
+        boxShadow: '0 2px 4px rgba(var(--md-sys-color-shadow), 0.12)',
       })
     ),
   ]),

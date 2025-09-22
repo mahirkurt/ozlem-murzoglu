@@ -27,8 +27,8 @@ import { CommonModule } from '@angular/common';
       right: 30px;
       width: 60px;
       height: 60px;
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      border-radius: 50%;
+      background: linear-gradient(135deg, var(--md-sys-color-brand-whatsapp) 0%, var(--md-sys-color-brand-whatsapp-dark) 100%);
+      border-radius: var(--md-sys-shape-corner-full);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -45,7 +45,7 @@ import { CommonModule } from '@angular/common';
       box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
       width: auto;
       padding: 0 20px;
-      border-radius: 30px;
+      border-radius: var(--md-sys-shape-corner-extra-large);
     }
     
     .whatsapp-floating svg {
@@ -70,8 +70,8 @@ import { CommonModule } from '@angular/common';
     .whatsapp-pulse {
       position: absolute;
       inset: 0;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-radius: var(--md-sys-shape-corner-full);
+      background: linear-gradient(135deg, var(--md-sys-color-brand-whatsapp) 0%, var(--md-sys-color-brand-whatsapp-dark) 100%);
       animation: pulse 2s infinite;
       z-index: -1;
     }

@@ -29,9 +29,9 @@ import { TranslateModule } from '@ngx-translate/core';
     
     .search-input {
       width: 100%;
-      padding: 12px 40px 12px 16px;
+      padding: var(--md-sys-spacing-3) var(--md-sys-spacing-10) var(--md-sys-spacing-3) var(--md-sys-spacing-4);
       border: 1px solid var(--color-neutral-300);
-      border-radius: 8px;
+      border-radius: var(--md-sys-shape-corner-small);
       font-size: 16px;
       transition: all 0.3s ease;
     }
@@ -39,7 +39,7 @@ import { TranslateModule } from '@ngx-translate/core';
     .search-input:focus {
       outline: none;
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(0, 95, 115, 0.1);
+      box-shadow: 0 0 0 3px rgba(var(--md-sys-color-primary-rgb), 0.1);
     }
     
     .search-icon {

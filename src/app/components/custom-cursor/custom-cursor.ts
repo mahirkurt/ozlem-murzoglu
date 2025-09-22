@@ -14,8 +14,8 @@ import { CommonModule } from '@angular/common';
       position: fixed;
       width: 8px;
       height: 8px;
-      background: #005F73;
-      border-radius: 50%;
+      background: var(--md-sys-color-primary);
+      border-radius: var(--md-sys-shape-corner-full);
       pointer-events: none;
       z-index: 10000;
       mix-blend-mode: difference;
@@ -26,8 +26,8 @@ import { CommonModule } from '@angular/common';
       position: fixed;
       width: 40px;
       height: 40px;
-      border: 2px solid rgba(0, 95, 115, 0.5);
-      border-radius: 50%;
+      border: 2px solid rgba(var(--md-sys-color-primary-rgb), 0.5);
+      border-radius: var(--md-sys-shape-corner-full);
       pointer-events: none;
       z-index: 9999;
       transition: all 0.15s ease;
@@ -37,15 +37,15 @@ import { CommonModule } from '@angular/common';
     :host-context(body.link-hover) .cursor-outline {
       width: 60px;
       height: 60px;
-      border-color: #FFB74D;
-      background: rgba(255, 183, 77, 0.1);
+      border-color: var(--md-sys-color-secondary);
+      background: rgba(var(--md-sys-color-secondary-rgb), 0.1);
     }
     
     :host-context(body.button-hover) .cursor-outline {
       width: 80px;
       height: 80px;
-      border-color: #005F73;
-      background: rgba(0, 95, 115, 0.1);
+      border-color: var(--md-sys-color-primary);
+      background: rgba(var(--md-sys-color-primary-rgb), 0.1);
       mix-blend-mode: difference;
     }
     

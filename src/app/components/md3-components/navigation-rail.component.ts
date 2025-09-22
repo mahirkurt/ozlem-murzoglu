@@ -1,9 +1,5 @@
 import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 export interface NavigationRailItem {
@@ -21,20 +17,20 @@ export interface NavigationRailItem {
 @Component({
   selector: 'app-navigation-rail',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatButtonModule, MatBadgeModule, MatTooltipModule],
+  imports: [CommonModule],
   template: `
     <nav class="navigation-rail" [class.expanded]="isExpanded()">
       <!-- FAB (Optional) -->
       <div class="rail-fab" *ngIf="showFab">
-        <button mat-fab [color]="fabColor" (click)="fabClick.emit()">
-          <mat-icon>{{ fabIcon }}</mat-icon>
+        <button class="md3-fab md3-fab-primary" (click)="fabClick.emit()">
+          <span class="material-icons">{{ fabIcon }}</span>
         </button>
       </div>
 
       <!-- Menu Button (Optional) -->
       <div class="rail-menu" *ngIf="showMenu">
-        <button mat-icon-button (click)="toggleExpanded()">
-          <mat-icon>menu</mat-icon>
+        <button class="md3-icon-button" (click)="toggleExpanded()">
+          <span class="material-icons">menu</span>
         </button>
       </div>
 
@@ -45,22 +41,15 @@ export interface NavigationRailItem {
           class="rail-item"
           [class.active]="item.id === activeItemId()"
           [disabled]="item.disabled"
-          [matTooltip]="!isExpanded() ? item.label : ''"
-          matTooltipPosition="right"
+          [title]="!isExpanded() ? item.label : ''"
           (click)="selectItem(item)"
           [@itemAnimation]
         >
           <div class="item-indicator" [@indicatorAnimation]></div>
 
-          <mat-icon
-            [matBadge]="item.badge"
-            [matBadgeHidden]="!item.badge"
-            matBadgeSize="small"
-            matBadgeColor="error"
-            class="item-icon"
-          >
+          <span class="item-icon material-icons" [attr.data-badge]="item.badge">
             {{ item.icon }}
-          </mat-icon>
+          </span>
 
           <span class="item-label" [@labelAnimation]>
             {{ item.label }}
@@ -74,11 +63,10 @@ export interface NavigationRailItem {
           *ngFor="let item of bottomItems"
           class="rail-item bottom-item"
           [disabled]="item.disabled"
-          [matTooltip]="!isExpanded() ? item.label : ''"
-          matTooltipPosition="right"
+          [title]="!isExpanded() ? item.label : ''"
           (click)="bottomItemClick.emit(item)"
         >
-          <mat-icon class="item-icon">{{ item.icon }}</mat-icon>
+          <span class="item-icon material-icons">{{ item.icon }}</span>
 
           <span class="item-label" *ngIf="isExpanded()">
             {{ item.label }}
@@ -101,7 +89,7 @@ export interface NavigationRailItem {
         border-right: 1px solid var(--md-sys-color-outline-variant);
         display: flex;
         flex-direction: column;
-        padding: 12px;
+        padding: var(--md-sys-spacing-3);
         transition: width 300ms cubic-bezier(0.2, 0, 0, 1);
 
         &.expanded {
@@ -146,7 +134,7 @@ export interface NavigationRailItem {
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: var(--md-sys-spacing-1);
         overflow-y: auto;
         overflow-x: hidden;
         scrollbar-width: thin;
@@ -179,7 +167,7 @@ export interface NavigationRailItem {
         border-radius: var(--md-sys-shape-corner-full);
         cursor: pointer;
         transition: all 200ms cubic-bezier(0.2, 0, 0, 1);
-        font-family: 'DM Sans', sans-serif;
+        font-family: var(--md-sys-typescale-font-plain);
         font-size: 14px;
         font-weight: 500;
         overflow: hidden;
@@ -253,7 +241,7 @@ export interface NavigationRailItem {
         border-top: 1px solid var(--md-sys-color-outline-variant);
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: var(--md-sys-spacing-1);
       }
 
       .bottom-item {
@@ -268,7 +256,7 @@ export interface NavigationRailItem {
       @media (max-width: 768px) {
         .navigation-rail {
           width: 56px;
-          padding: 8px;
+          padding: var(--md-sys-spacing-2);
 
           &.expanded {
             width: 200px;

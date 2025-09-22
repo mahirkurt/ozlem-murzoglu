@@ -3,18 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DocumentService, DocumentCategory, Document } from '../../services/document.service';
+import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
+import { TranslateModule } from '@ngx-translate/core';
 import { trigger, transition, style, animate, stagger, query, state } from '@angular/animations';
-
-// Material imports
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatListModule } from '@angular/material/list';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatBadgeModule } from '@angular/material/badge';
 
 // Animasyon tanımlamaları
 const listAnimation = trigger('listAnimation', [
@@ -70,17 +61,10 @@ interface Panel {
   selector: 'app-kaynaklar',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     FormsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatListModule,
-    MatExpansionModule,
-    MatBadgeModule
+    HeroSectionComponent,
+    TranslateModule
   ],
   templateUrl: './kaynaklar.component.html',
   styleUrls: ['./kaynaklar.component.css'],
@@ -93,6 +77,11 @@ export class KaynaklarComponent implements OnInit {
   popularDocuments: Document[] = [];
   showSearch: boolean = true;
   sections: Section[] = [];
+
+  breadcrumbs = [
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_INFO_CENTER' }
+  ];
 
   constructor(
     private documentService: DocumentService,

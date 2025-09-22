@@ -13,8 +13,8 @@
   margin: 0 auto;
   background: white;
   padding: 3rem;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border-radius: var(--md-sys-shape-corner-large);
+  box-shadow: 0 20px 60px rgba(var(--md-sys-color-shadow), 0.2);
 }
 
 .error-code {
@@ -30,13 +30,13 @@
 
 .error-title {
   font-size: 2rem;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
   margin-bottom: 1rem;
 }
 
 .error-message {
   font-size: 1.125rem;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -54,7 +54,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  border-radius: var(--md-sys-shape-corner-small);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -73,7 +73,7 @@
 
 .btn-secondary {
   background: #f0f2f5;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
 }
 
 .btn-secondary:hover {

@@ -89,7 +89,7 @@ export class ThemeService {
     // Update meta theme-color
     const metaThemeColor = document.querySelector('meta[name=theme-color]');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', actualTheme === 'dark' ? '#0F1419' : '#005F73');
+      metaThemeColor.setAttribute('content', actualTheme === 'dark' ? '#0F1419' : 'var(--md-sys-color-primary)');
     }
   }
   
@@ -99,7 +99,7 @@ export class ThemeService {
     // Override color variables for dark theme
     root.style.setProperty('--color-primary', '#0A8FA3');
     root.style.setProperty('--color-primary-light', '#14B8C7');
-    root.style.setProperty('--color-primary-dark', '#005F73');
+    root.style.setProperty('--color-primary-dark', 'var(--md-sys-color-primary)');
     
     root.style.setProperty('--color-secondary', '#6FAF99');
     root.style.setProperty('--color-secondary-light', '#94D2BD');
@@ -107,7 +107,7 @@ export class ThemeService {
     
     root.style.setProperty('--color-accent', '#FF8B70');
     root.style.setProperty('--color-accent-light', '#FFB099');
-    root.style.setProperty('--color-accent-dark', '#EE6C4D');
+    root.style.setProperty('--color-accent-dark', 'var(--md-sys-color-tertiary)');
     
     root.style.setProperty('--color-neutral-50', '#0F1419');
     root.style.setProperty('--color-neutral-100', '#1A1F26');
@@ -125,18 +125,18 @@ export class ThemeService {
     root.style.setProperty('--glass-border', 'rgba(255, 255, 255, 0.08)');
     
     // Update shadows for dark theme
-    root.style.setProperty('--shadow-xs', '0 1px 2px rgba(0, 0, 0, 0.2)');
-    root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 0, 0, 0.3)');
-    root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 0, 0, 0.4)');
-    root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 0, 0, 0.5)');
-    root.style.setProperty('--shadow-xl', '0 20px 25px rgba(0, 0, 0, 0.6)');
+    root.style.setProperty('--shadow-xs', '0 1px 2px rgba(var(--md-sys-color-shadow), 0.2)');
+    root.style.setProperty('--shadow-sm', '0 2px 4px rgba(var(--md-sys-color-shadow), 0.3)');
+    root.style.setProperty('--shadow-md', '0 4px 6px rgba(var(--md-sys-color-shadow), 0.4)');
+    root.style.setProperty('--shadow-lg', '0 10px 15px rgba(var(--md-sys-color-shadow), 0.5)');
+    root.style.setProperty('--shadow-xl', '0 20px 25px rgba(var(--md-sys-color-shadow), 0.6)');
   }
   
   private applyLightThemeVariables() {
     const root = document.documentElement;
     
     // Reset to light theme variables
-    root.style.setProperty('--color-primary', '#005F73');
+    root.style.setProperty('--color-primary', 'var(--md-sys-color-primary)');
     root.style.setProperty('--color-primary-light', '#0A8FA3');
     root.style.setProperty('--color-primary-dark', '#003D4F');
     
@@ -144,11 +144,11 @@ export class ThemeService {
     root.style.setProperty('--color-secondary-light', '#B8E6D3');
     root.style.setProperty('--color-secondary-dark', '#6FAF99');
     
-    root.style.setProperty('--color-accent', '#EE6C4D');
+    root.style.setProperty('--color-accent', 'var(--md-sys-color-tertiary)');
     root.style.setProperty('--color-accent-light', '#FF8B70');
     root.style.setProperty('--color-accent-dark', '#D74A2B');
     
-    root.style.setProperty('--color-neutral-50', '#F8F9FA');
+    root.style.setProperty('--color-neutral-50', 'var(--md-sys-color-surface-container-low)');
     root.style.setProperty('--color-neutral-100', '#E9ECEF');
     root.style.setProperty('--color-neutral-200', '#DEE2E6');
     root.style.setProperty('--color-neutral-300', '#CED4DA');
@@ -164,10 +164,10 @@ export class ThemeService {
     root.style.setProperty('--glass-border', 'rgba(255, 255, 255, 0.18)');
     
     // Reset shadows
-    root.style.setProperty('--shadow-xs', '0 1px 2px rgba(0, 95, 115, 0.05)');
-    root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 95, 115, 0.06), 0 1px 2px rgba(0, 95, 115, 0.04)');
-    root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 95, 115, 0.07), 0 2px 4px rgba(0, 95, 115, 0.04)');
-    root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 95, 115, 0.08), 0 4px 6px rgba(0, 95, 115, 0.05)');
-    root.style.setProperty('--shadow-xl', '0 20px 25px rgba(0, 95, 115, 0.1), 0 10px 10px rgba(0, 95, 115, 0.04)');
+    root.style.setProperty('--shadow-xs', '0 1px 2px rgba(var(--md-sys-color-primary-rgb), 0.05)');
+    root.style.setProperty('--shadow-sm', '0 2px 4px rgba(var(--md-sys-color-primary-rgb), 0.06), 0 1px 2px rgba(var(--md-sys-color-primary-rgb), 0.04)');
+    root.style.setProperty('--shadow-md', '0 4px 6px rgba(var(--md-sys-color-primary-rgb), 0.07), 0 2px 4px rgba(var(--md-sys-color-primary-rgb), 0.04)');
+    root.style.setProperty('--shadow-lg', '0 10px 15px rgba(var(--md-sys-color-primary-rgb), 0.08), 0 4px 6px rgba(var(--md-sys-color-primary-rgb), 0.05)');
+    root.style.setProperty('--shadow-xl', '0 20px 25px rgba(var(--md-sys-color-primary-rgb), 0.1), 0 10px 10px rgba(var(--md-sys-color-primary-rgb), 0.04)');
   }
 }

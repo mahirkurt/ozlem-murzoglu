@@ -119,7 +119,7 @@ export class MaterialYouColorService {
       this.generateSchemeFromHex(systemAccent);
     } else {
       // Varsayılan tema rengi
-      this.generateSchemeFromHex('#00897B'); // Teal
+      this.generateSchemeFromHex('var(--md-sys-color-primary)'); // Teal
     }
 
     // Sistem tercih değişimlerini dinle
@@ -413,7 +413,7 @@ export class MaterialYouColorService {
     }
 
     // Varsayılan tema rengine dön
-    return this.generateSchemeFromHex('#00897B');
+    return this.generateSchemeFromHex('var(--md-sys-color-primary)');
   }
 
   /**

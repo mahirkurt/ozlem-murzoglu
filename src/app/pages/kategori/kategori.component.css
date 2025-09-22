@@ -73,7 +73,7 @@
 .category-icon-large {
   width: 80px;
   height: 80px;
-  border-radius: 20px;
+  border-radius: var(--md-sys-shape-corner-large);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,7 +180,7 @@
   width: 100%;
   padding: 0.875rem 1rem 0.875rem 3rem;
   border: 2px solid var(--outline-variant);
-  border-radius: 24px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   background: var(--surface);
   font-size: 1rem;
   color: var(--on-surface);
@@ -201,7 +201,7 @@
   background: none;
   border: none;
   padding: 0.5rem;
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   cursor: pointer;
   color: var(--on-surface-variant);
   transition: background-color 0.2s ease;
@@ -239,7 +239,7 @@
 .filter-btn {
   padding: 0.5rem 1rem;
   border: 2px solid var(--outline-variant);
-  border-radius: 20px;
+  border-radius: var(--md-sys-shape-corner-large);
   background: var(--surface);
   color: var(--on-surface);
   font-size: 0.875rem;
@@ -275,7 +275,7 @@
 .sort-select {
   padding: 0.5rem 1rem;
   border: 2px solid var(--outline-variant);
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   background: var(--surface);
   color: var(--on-surface);
   font-size: 0.875rem;
@@ -307,7 +307,7 @@
 .document-card {
   background: var(--surface);
   border: 1px solid var(--outline-variant);
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 1.5rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -332,7 +332,7 @@
 .document-icon {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -368,7 +368,7 @@
   background: none;
   border: none;
   padding: 0.5rem;
-  border-radius: 8px;
+  border-radius: var(--md-sys-shape-corner-small);
   cursor: pointer;
   color: var(--on-surface-variant);
   transition: all 0.2s ease;
@@ -424,7 +424,7 @@
 
 .file-type-badge {
   padding: 0.25rem 0.75rem;
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -457,7 +457,7 @@
   height: 80px;
   margin: 0 auto 2rem;
   background: var(--surface-variant);
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -490,7 +490,7 @@
   color: var(--on-primary);
   border: none;
   padding: 0.75rem 2rem;
-  border-radius: 24px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -530,7 +530,7 @@
   align-items: center;
   padding: 1.5rem;
   background: var(--surface);
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   border: 1px solid var(--outline-variant);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -547,7 +547,7 @@
 .related-icon {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -592,7 +592,7 @@
   height: 40px;
   border: 3px solid var(--outline-variant);
   border-top: 3px solid var(--primary);
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   animation: spin 1s linear infinite;
   margin: 0 auto 1rem;
 }

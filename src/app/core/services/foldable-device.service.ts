@@ -1,7 +1,6 @@
 import { Injectable, signal, computed, effect } from '@angular/core';
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, fromEvent, of } from 'rxjs';
+import { map, startWith, distinctUntilChanged } from 'rxjs/operators';
 
 /**
  * Foldable Device Service
@@ -72,7 +71,7 @@ export class FoldableDeviceService {
     maxFoldAngle: '(max-screen-fold-angle: 180deg)',
   };
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor() {
     this.initializeFoldableDetection();
     this.setupPostureObserver();
     this.setupViewportSegments();
@@ -422,26 +421,45 @@ export class FoldableDeviceService {
    * Get spanning state observable
    */
   public getSpanningState(): Observable<string> {
-    const queries = [
-      this.foldableQueries.singleVertical,
-      this.foldableQueries.singleHorizontal,
-      this.foldableQueries.dualScreen,
-    ];
+    // Create observables for each media query
+    const checkQuery = (query: string) => {
+      try {
+        const mq = window.matchMedia(query);
+        return fromEvent<MediaQueryListEvent>(mq, 'change').pipe(
+          startWith({ matches: mq.matches } as MediaQueryListEvent),
+          map(() => mq.matches)
+        );
+      } catch {
+        return of(false);
+      }
+    };
 
-    return this.breakpointObserver.observe(queries).pipe(
-      map((state: BreakpointState) => {
-        if (state.breakpoints[this.foldableQueries.singleVertical]) {
-          return 'single-fold-vertical';
-        }
-        if (state.breakpoints[this.foldableQueries.singleHorizontal]) {
-          return 'single-fold-horizontal';
-        }
-        if (state.breakpoints[this.foldableQueries.dualScreen]) {
-          return 'dual-screen';
-        }
-        return 'none';
-      })
-    );
+    // Combine all query results
+    const verticalObs = checkQuery(this.foldableQueries.singleVertical);
+    const horizontalObs = checkQuery(this.foldableQueries.singleHorizontal);
+    const dualObs = checkQuery(this.foldableQueries.dualScreen);
+
+    // Return combined result
+    return new Observable<string>(observer => {
+      const subscriptions = [
+        verticalObs.subscribe(matches => {
+          if (matches) observer.next('single-fold-vertical');
+        }),
+        horizontalObs.subscribe(matches => {
+          if (matches) observer.next('single-fold-horizontal');
+        }),
+        dualObs.subscribe(matches => {
+          if (matches) observer.next('dual-screen');
+        })
+      ];
+
+      // Default state
+      observer.next('none');
+
+      return () => {
+        subscriptions.forEach(sub => sub.unsubscribe());
+      };
+    }).pipe(distinctUntilChanged());
   }
 
   /**
@@ -611,7 +629,7 @@ export class FoldableDeviceService {
       .posture-tablet .app-content {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 24px;
+        padding: var(--md-sys-spacing-6);
       }
       
       .posture-book .reading-content {

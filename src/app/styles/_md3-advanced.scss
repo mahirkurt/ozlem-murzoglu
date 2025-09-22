@@ -375,7 +375,7 @@ $duration-scale: (
 
 // Colored elevation
 @mixin colored-elevation($level: 1, $color: null) {
-  $shadow-color: if($color, $color, rgba(0, 0, 0, 1));
+  $shadow-color: if($color, $color, rgba(var(--md-sys-color-shadow), 1));
 
   @if $level == 0 {
     box-shadow: none;
@@ -469,17 +469,17 @@ $breakpoints: (
 
     @include window-class('medium') {
       grid-template-columns: 360px 1fr;
-      gap: 24px;
+      gap: var(--md-sys-spacing-6);
     }
 
     @include window-class('expanded') {
       grid-template-columns: 360px 1fr;
-      gap: 24px;
+      gap: var(--md-sys-spacing-6);
     }
 
     @include window-class('large') {
       grid-template-columns: 360px 1fr 360px;
-      gap: 24px;
+      gap: var(--md-sys-spacing-6);
     }
   }
 
@@ -496,12 +496,12 @@ $breakpoints: (
 
     @include window-class('expanded') {
       grid-template-columns: 1fr 360px;
-      gap: 24px;
+      gap: var(--md-sys-spacing-6);
     }
 
     @include window-class('large') {
       grid-template-columns: 360px 1fr 360px;
-      gap: 24px;
+      gap: var(--md-sys-spacing-6);
     }
   }
 }
@@ -517,9 +517,9 @@ $breakpoints: (
   right: 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 16px;
-  border-radius: 16px;
+  gap: var(--md-sys-spacing-2);
+  padding: var(--md-sys-spacing-4);
+  border-radius: var(--md-sys-shape-corner-large);
   @include colored-elevation(3);
   @include advanced-state-layer(white, true);
   transition: all 300ms map.get($easing-functions, emphasized);
@@ -536,7 +536,7 @@ $breakpoints: (
       overflow: hidden;
     }
   } @else {
-    padding: 16px 24px;
+    padding: var(--md-sys-spacing-4) var(--md-sys-spacing-6);
 
     .fab-label {
       width: auto;
@@ -555,8 +555,8 @@ $breakpoints: (
   display: flex;
   flex-direction: column;
   width: 80px;
-  padding: 12px 0;
-  gap: 12px;
+  padding: var(--md-sys-spacing-3) 0;
+  gap: var(--md-sys-spacing-3);
   @include colored-elevation(0);
   background: var(--md-sys-color-surface);
   transition: width 300ms map.get($easing-functions, emphasized);
@@ -581,7 +581,7 @@ $breakpoints: (
     align-items: center;
     justify-content: center;
     height: 56px;
-    border-radius: 28px;
+    border-radius: var(--md-sys-shape-corner-extra-large);
     @include advanced-state-layer(var(--md-sys-color-primary));
     transition: all 200ms map.get($easing-functions, standard);
     cursor: pointer;
@@ -612,7 +612,7 @@ $breakpoints: (
     display: flex;
     align-items: center;
     background: var(--md-sys-color-surface-container-highest);
-    border-radius: 28px;
+    border-radius: var(--md-sys-shape-corner-extra-large);
     padding: 0 16px;
     height: 48px;
     @include colored-elevation(0);
@@ -714,7 +714,7 @@ $breakpoints: (
   &:focus-visible {
     outline: 2px solid var(--md-sys-color-primary);
     outline-offset: 4px;
-    border-radius: 4px;
+    border-radius: var(--md-sys-shape-corner-extra-small);
   }
 }
 
