@@ -99,7 +99,18 @@
       "Bash(for file in src/app/pages/services/*/**.component.ts)",
       "Bash(do if ! grep -q \"HeroSectionComponent\" \"$file\")",
       "Bash(then echo \"$file needs update\")",
-      "Read(//d/**)"
+      "Read(//d/**)",
+      "Bash(tasklist)",
+      "Bash(findstr:*)",
+      "Bash(git submodule add:*)",
+      "Bash(git config:*)",
+      "Bash(git submodule:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git branch:*)",
+      "Bash(firebase hosting:enable:*)"
     ],
     "deny": []
   }
