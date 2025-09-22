@@ -4,24 +4,28 @@
     "DESCRIPTION": "Dr. Özlem Murzoğlu - Pediatrics and Child Health Specialist in Istanbul Ataşehir. Baby and child health, vaccination, development monitoring and treatment services. For appointments: 0216 688 44 83"
   },
   "COMMON": {
-    "PAGE_TITLE": "Dr. Özlem Murzoğlu - Pediatrics and Child Health Specialist | Istanbul Ataşehir",
-    "DOCTOR_NAME": "Dr. Özlem Murzoğlu",
-    "ALL": "All",
+    "READ_MORE": "Read More",
+    "DOWNLOAD": "Download",
+    "PRINT": "Print",
+    "SHARE": "Share",
+    "BACK": "Back",
+    "NEXT": "Next",
+    "PREVIOUS": "Previous",
+    "CLOSE": "Close",
+    "LOADING": "Loading...",
+    "ERROR": "Error",
+    "SUCCESS": "Success",
+    "WARNING": "Warning",
+    "INFO": "Info",
     "COMING_SOON": "Coming Soon",
-    "COMING_SOON_DESC": "We're working on this page",
-    "COMING_SOON_MESSAGE": "We're preparing this page to provide you with a better experience. It will be available very soon!",
-    "GO_HOME": "Return to Homepage",
-    "LEARN_MORE": "Learn More",
-    "GET_INFO": "Get Information",
-    "YEARS_AGO": "years ago",
-    "MONTHS_AGO": "months ago", 
-    "WEEKS_AGO": "weeks ago",
-    "DAYS_AGO": "days ago",
-    "HOURS_AGO": "hours ago",
-    "TODAY": "Today",
-    "YESTERDAY": "Yesterday",
-    "CONFIRM_DELETE": "Are you sure you want to remove this resource from favorites?",
-    "CONFIRM_CLEAR_ALL": "Are you sure you want to clear all favorites? This action cannot be undone."
+    "SEARCH": "Quick Search",
+    "SHARE_WHATSAPP": "Share on WhatsApp",
+    "SHARE_TWITTER": "Share on Twitter",
+    "SHARE_FACEBOOK": "Share on Facebook",
+    "SHARE_LINKEDIN": "Share on LinkedIn",
+    "COPY_LINK": "Copy Link",
+    "BOOK_APPOINTMENT": "[EN] Book Appointment",
+    "DOCTOR_NAME": "[EN] Doctor Name"
   },
   "HEADER": {
     "BRAND_NAME": "Dr. Özlem Murzoğlu",
@@ -29,6 +33,7 @@
     "NAV_ABOUT": "About",
     "NAV_ABOUT_US": "About Us",
     "NAV_DR_OZLEM": "Dr. Özlem Murzoğlu",
+    "NAV_CLINIC": "Our Clinic",
     "NAV_CLINIC_DESIGN": "Clinic Design",
     "NAV_SERVICES": "Our Services",
     "NAV_INFO_CENTER": "Info Center",
@@ -47,15 +52,11 @@
     "CLOSE_MENU": "Close menu"
   },
   "HOME": {
-    "HERO_TITLE": "A Compassionate Touch Guided by Science",
-    "HERO_SUBTITLE": "A Holistic Approach Integrating Social Pediatrics and Child Development Disciplines",
+    "HERO_TITLE": "A holistic medical practice bringing together social pediatrics and child development disciplines with compassion and love",
+    "HERO_SUBTITLE": "SPEC.DR. ÖZLEM MURZOĞLU PEDIATRICS AND CHILD HEALTH CLINIC",
     "HERO_DESCRIPTION": "",
     "CTA_APPOINTMENT": "Book Appointment",
     "CTA_LEARN_MORE": "Learn More"
-  },
-  "HERO": {
-    "TITLE": "A Compassionate Touch Guided by Science",
-    "SUBTITLE": "A Holistic Approach Integrating Social Pediatrics and Child Development Disciplines"
   },
   "ABOUT": {
     "PAGE_TITLE": "About Us",
@@ -78,7 +79,11 @@
     "CHILD_DEVELOPMENT": "Child Development Specialist",
     "DOCTORATE": "Doctorate - Social Pediatrics",
     "BACHELOR": "Bachelor - Child Development",
+    "PRESENTP": "Present",
     "SPECIALIZATION": "Specialization - Pediatrics and Child Health",
+    "NOV": "Nov",
+    "OCT": "Oct",
+    "FEB": "Feb",
     "MEDICAL_DOCTOR": "Medical Doctor",
     "HIGH_SCHOOL": "High School",
     "CLINIC_FOUNDER": "Pediatrician - Clinic Founder",
@@ -114,8 +119,70 @@
       "CHILD_HEALTH_MONITORING": "Child Health Monitoring",
       "ISTANBUL_UNIVERSITY_INSTITUTE": "Istanbul University Child Health Institute",
       "SOCIAL_PEDIATRICS": "Social Pediatrics",
-      "EXPERT_TEAM_DESIGN": "Design with Expert Team"
-    }
+      "EXPERT_TEAM_DESIGN": "Design with Expert Team",
+      "BADGE_UNIVERSITY": "[EN] Badge University",
+      "MY_STORY": "[EN] My Story",
+      "ROOTS_TITLE": "[EN] Roots Title",
+      "ROOTS_TEXT": "[EN] Roots Text",
+      "EDUCATION_JOURNEY": "[EN] Education Journey",
+      "EDUCATION_TEXT": "[EN] Education Text",
+      "FAMILY_TITLE": "[EN] Family Title",
+      "FAMILY_TEXT": "[EN] Family Text",
+      "HEALTHY_CHILD": "[EN] Healthy Child",
+      "HEALTHY_CHILD_TEXT": "[EN] Healthy Child Text",
+      "NEW_BEGINNING": "[EN] New Beginning",
+      "NEW_BEGINNING_TEXT": "[EN] New Beginning Text"
+    },
+    "AUG": "Aug",
+    "PRESENT": "Present",
+    "JUL": "Jul",
+    "JUN": "Jun",
+    "DEC": "Dec",
+    "JAN": "Jan",
+    "APR": "Apr",
+    "INSTITUTION": {
+      "MARMARA_UNIVERSITY": "Marmara University",
+      "ISTANBUL_UNIVERSITY": "Istanbul University",
+      "ISTANBUL_MEDICAL": "Istanbul University Istanbul Faculty of Medicine",
+      "RIZE_ANADOLU": "Rize Anadolu High School"
+    },
+    "COMPANY": {
+      "OWN_CLINIC": "Dr. Özlem Murzoğlu Clinic",
+      "MARMARA_HOSPITAL": "Marmara University Pendik Training and Research Hospital",
+      "IGDIR_HOSPITAL": "Iğdır Tuzluca State Hospital",
+      "MARMARA_UNIVERSITY": "Marmara University",
+      "ACTAVIS": "Actavis",
+      "ARTVIN_HEALTH_CENTER": "Artvin Borçka Community Health Center"
+    },
+    "LOCATION": {
+      "ATASEHIR_ISTANBUL": "Ataşehir, Istanbul",
+      "ISTANBUL": "Istanbul",
+      "IGDIR": "Iğdır",
+      "ARTVIN": "Artvin"
+    },
+    "JOB_DESC": {
+      "MEDICAL_CONSULTANT": "Medical affairs manager for anti-infectives, dermatology and neurology"
+    },
+    "CERT": {
+      "SOS_FEEDING_TITLE": "SOS Approach to Feeding",
+      "SOS_FEEDING_PROVIDER": "SOS Approach to Feeding",
+      "DENVER_TITLE": "Denver II Developmental Screening Test",
+      "DENVER_PROVIDER": "Kim Psychology",
+      "TEEN_TRIPLE_P_TITLE": "Level 4 Group Teen Triple P",
+      "QUEENSLAND_UNIVERSITY": "The University of Queensland",
+      "GROUP_TRIPLE_P_TITLE": "Level 4 Group Triple P",
+      "EARLY_INTERVENTION_TITLE": "Interaction-Based Early Childhood Intervention Program",
+      "PILUMUNUS_PROVIDER": "Pilumunus Consulting",
+      "BREASTFEEDING_TITLE": "Advanced Breastfeeding Consultation",
+      "ISTANBUL_CHILD_HEALTH": "Istanbul University Institute of Child Health",
+      "BAYLEY_TITLE": "Bayley III Developmental Assessment Scale",
+      "CHILD_NEUROLOGY_ASSOC": "Developmental Child Neurology Association",
+      "GIDR_TITLE": "International Guide for Monitoring Child Development (GMCD)",
+      "ANKARA_MEDICAL": "Ankara University Faculty of Medicine"
+    },
+    "NOV": "Nov",
+    "OCT": "Oct",
+    "FEB": "Feb"
   },
   "SERVICES": {
     "PAGE_TITLE": "Our Services",
@@ -209,7 +276,45 @@
       "LIMITED_QUOTA": "Limited capacity",
       "CERTIFIED_PRACTITIONER": "Certified practitioner",
       "PRE_REGISTER": "Pre-Register",
-      "GET_INFO": "Get Information"
+      "GET_INFO": "Get Information",
+      "FIVE_PRINCIPLES": "[EN] Five Principles",
+      "PROGRAM_LEVELS": "[EN] Program Levels",
+      "LEVEL_SEMINARS": "[EN] Level Seminars",
+      "LEVEL_SEMINARS_DESC": "[EN] Level Seminars Desc",
+      "LEVEL_GROUP": "[EN] Level Group",
+      "LEVEL_GROUP_DESC": "[EN] Level Group Desc",
+      "LEVEL_INDIVIDUAL": "[EN] Level Individual",
+      "LEVEL_INDIVIDUAL_DESC": "[EN] Level Individual Desc",
+      "SPECIAL_PROGRAMS": "[EN] Special Programs",
+      "STEPPING_STONES": "[EN] Stepping Stones",
+      "STEPPING_STONES_DESC": "[EN] Stepping Stones Desc",
+      "FAMILY_TRANSITIONS": "[EN] Family Transitions",
+      "FAMILY_TRANSITIONS_DESC": "[EN] Family Transitions Desc",
+      "FEAR_LESS": "[EN] Fear Less",
+      "FEAR_LESS_DESC": "[EN] Fear Less Desc",
+      "SCIENTIFIC_SUBTITLE": "[EN] Scientific Subtitle",
+      "TOTAL_PUBLICATIONS": "[EN] Total Publications",
+      "TOTAL_PUBLICATIONS_DESC": "[EN] Total Publications Desc",
+      "EFFECTIVENESS_STUDIES": "[EN] Effectiveness Studies",
+      "EFFECTIVENESS_STUDIES_DESC": "[EN] Effectiveness Studies Desc",
+      "RCT_STUDIES": "[EN] Rct Studies",
+      "RCT_STUDIES_DESC": "[EN] Rct Studies Desc",
+      "CLINICAL_OUTCOMES": "[EN] Clinical Outcomes",
+      "CLINICAL_IMPROVEMENT": "[EN] Clinical Improvement",
+      "BEHAVIOR_REDUCTION": "[EN] Behavior Reduction",
+      "CLINICAL_DETAIL": "[EN] Clinical Detail",
+      "RESEARCH_HISTORY": "[EN] Research History",
+      "FOUNDED": "[EN] Founded",
+      "YEARS_DEVELOPMENT": "[EN] Years Development",
+      "QUEENSLAND_INFO": "[EN] Queensland Info",
+      "GLOBAL_RECOGNITION": "[EN] Global Recognition",
+      "WHO": "[EN] Who",
+      "UNICEF": "[EN] Unicef",
+      "WORLD_BANK": "[EN] World Bank",
+      "INSPIRE_INFO": "[EN] Inspire Info",
+      "META_ANALYSIS": "[EN] Meta Analysis",
+      "META_ANALYSIS_DESC": "[EN] Meta Analysis Desc",
+      "JOURNAL_INFO": "[EN] Journal Info"
     },
     "SERVICE_SLEEP": {
       "TITLE": "Healthy Sleep™",
@@ -294,7 +399,58 @@
       "CTA_TITLE": "Take the First Step to Peaceful Sleep",
       "CTA_DESC": "Contact us for detailed information about the Healthy Sleep™ program and to schedule an appointment.",
       "CTA_BUTTON": "Apply Now",
-      "INFO_BUTTON": "Get Detailed Information"
+      "INFO_BUTTON": "Get Detailed Information",
+      "PROGRAM_SCOPE": "[EN] Program Scope",
+      "AGE_RANGE": "[EN] Age Range",
+      "AGE_RANGE_DESC": "[EN] Age Range Desc",
+      "SCIENTIFIC_APPROACH": "[EN] Scientific Approach",
+      "SCIENTIFIC_APPROACH_DESC": "[EN] Scientific Approach Desc",
+      "GENTLE_TECHNIQUES": "[EN] Gentle Techniques",
+      "GENTLE_TECHNIQUES_DESC": "[EN] Gentle Techniques Desc",
+      "PROBLEMS_TITLE": "[EN] Problems Title",
+      "APPLICATION_DETAILS": "[EN] Application Details",
+      "SLEEP_DIARY": "[EN] Sleep Diary",
+      "SLEEP_DIARY_DESC": "[EN] Sleep Diary Desc",
+      "ONLINE_MEETING": "[EN] Online Meeting",
+      "ONLINE_MEETING_DESC": "[EN] Online Meeting Desc",
+      "WRITTEN_PLAN": "[EN] Written Plan",
+      "WRITTEN_PLAN_DESC": "[EN] Written Plan Desc",
+      "WHATSAPP_SUPPORT": "[EN] Whatsapp Support",
+      "WHATSAPP_SUPPORT_DESC": "[EN] Whatsapp Support Desc",
+      "PLAN_UPDATES": "[EN] Plan Updates",
+      "PLAN_UPDATES_DESC": "[EN] Plan Updates Desc",
+      "METHODS_TITLE": "[EN] Methods Title",
+      "METHOD_CHAIR": "[EN] Method Chair",
+      "METHOD_CHAIR_DESC": "[EN] Method Chair Desc",
+      "METHOD_GRADUAL": "[EN] Method Gradual",
+      "METHOD_GRADUAL_DESC": "[EN] Method Gradual Desc",
+      "METHOD_CHECK": "[EN] Method Check",
+      "METHOD_CHECK_DESC": "[EN] Method Check Desc",
+      "METHOD_FADING": "[EN] Method Fading",
+      "METHOD_FADING_DESC": "[EN] Method Fading Desc",
+      "HAPPY_FAMILIES": "[EN] Happy Families",
+      "HAPPY_FAMILIES_DESC": "[EN] Happy Families Desc",
+      "SUCCESS_RATE_TITLE": "[EN] Success Rate Title",
+      "SUCCESS_RATE_DESC": "[EN] Success Rate Desc",
+      "AVG_DURATION_NUM": "[EN] Avg Duration Num",
+      "AVG_DURATION": "[EN] Avg Duration",
+      "AVG_DURATION_DESC": "[EN] Avg Duration Desc",
+      "SATISFACTION": "[EN] Satisfaction",
+      "SATISFACTION_DESC": "[EN] Satisfaction Desc",
+      "PACKAGE_CONTENT": "[EN] Package Content",
+      "SPECIAL_CASES": "[EN] Special Cases",
+      "SPECIAL_CASES_DESC": "[EN] Special Cases Desc",
+      "PREMATURE": "[EN] Premature",
+      "PREMATURE_DESC": "[EN] Premature Desc",
+      "TWINS": "[EN] Twins",
+      "TWINS_DESC": "[EN] Twins Desc",
+      "SPECIAL_HEALTH": "[EN] Special Health",
+      "SPECIAL_HEALTH_DESC": "[EN] Special Health Desc",
+      "TRAVEL": "[EN] Travel",
+      "TRAVEL_DESC": "[EN] Travel Desc",
+      "SUCCESS_GUARANTEE": "[EN] Success Guarantee",
+      "SUCCESS_GUARANTEE_DESC": "[EN] Success Guarantee Desc",
+      "CTA_CALL": "[EN] Cta Call"
     },
     "SERVICE_BRIGHT_FUTURES": {
       "TITLE": "Bright Futures®",
@@ -350,7 +506,113 @@
     "CTA_APPOINTMENT": "Book Appointment",
     "CTA_CALL_US": "Call Us",
     "STAT_EXPERIENCE": "Years of Experience",
-    "STAT_FAMILIES": "Happy Families"
+    "STAT_FAMILIES": "Happy Families",
+    "MY_SERVICES": "[EN] My Services",
+    "NEWBORN_CARE": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "VACCINATION": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "CHILDHOOD_DISEASES": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "BREASTFEEDING": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "SLEEP_CONSULTATION": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "NUTRITION": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "TOILET_TRAINING": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "POSITIVE_PARENTING": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "SCHOOL_CONSULTATION": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "ADOLESCENCE": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "MEDIA_USE": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "FAMILY_COUNSELING": {
+      "TITLE": "[EN] Title",
+      "DESCRIPTION": "[EN] Description"
+    },
+    "SERVICE_BRIGHT": {
+      "WHAT_IS": "[EN] What Is",
+      "WHAT_IS_DESC": "[EN] What Is Desc",
+      "CLINIC_INFO": "[EN] Clinic Info",
+      "PROGRAM_SCOPE": "[EN] Program Scope",
+      "AGE_RANGE": "[EN] Age Range",
+      "AGE_RANGE_DESC": "[EN] Age Range Desc",
+      "VISITS_COUNT": "[EN] Visits Count",
+      "VISITS_DESC": "[EN] Visits Desc",
+      "AAP_STANDARDS": "[EN] Aap Standards",
+      "AAP_STANDARDS_DESC": "[EN] Aap Standards Desc",
+      "GLOBAL_STANDARD": "[EN] Global Standard",
+      "GLOBAL_STANDARD_DESC": "[EN] Global Standard Desc",
+      "FIVE_FOUNDATIONS": "[EN] Five Foundations",
+      "THREE_PILLARS": "[EN] Three Pillars",
+      "VISIT_SCHEDULE": "[EN] Visit Schedule",
+      "BABY_PERIOD": "[EN] Baby Period",
+      "EARLY_CHILDHOOD": "[EN] Early Childhood",
+      "SCHOOL_AGE": "[EN] School Age",
+      "BREADCRUMB": "[EN] Breadcrumb"
+    },
+    "SERVICE_LAB_IMAGING": {
+      "LAB_SERVICES": "[EN] Lab Services",
+      "CORPORATE_PARTNER": "[EN] Corporate Partner",
+      "BIOCHEMISTRY": "[EN] Biochemistry",
+      "BIOCHEMISTRY_DESC": "[EN] Biochemistry Desc",
+      "MICROBIOLOGY": "[EN] Microbiology",
+      "MICROBIOLOGY_DESC": "[EN] Microbiology Desc",
+      "ANTIBODY_ANTIGEN": "[EN] Antibody Antigen",
+      "ANTIBODY_DESC": "[EN] Antibody Desc",
+      "HEMATOLOGY": "[EN] Hematology",
+      "HEMATOLOGY_DESC": "[EN] Hematology Desc",
+      "HORMONE": "[EN] Hormone",
+      "HORMONE_DESC": "[EN] Hormone Desc",
+      "ALLERGY": "[EN] Allergy",
+      "ALLERGY_DESC": "[EN] Allergy Desc",
+      "RESULTS": "[EN] Results",
+      "RESULT_NOTIFICATION": "[EN] Result Notification",
+      "RESULT_EMAIL": "[EN] Result Email",
+      "INSURANCE_SERVICES": "[EN] Insurance Services",
+      "INSURANCE_PROCESS": "[EN] Insurance Process",
+      "IMAGING_SERVICES": "[EN] Imaging Services",
+      "NEAR_LOCATION": "[EN] Near Location",
+      "GET_DIRECTIONS": "[EN] Get Directions",
+      "MR_IMAGING": "[EN] Mr Imaging",
+      "MR_DESC": "[EN] Mr Desc",
+      "CT_SCAN": "[EN] Ct Scan",
+      "CT_DESC": "[EN] Ct Desc",
+      "ULTRASOUND": "[EN] Ultrasound",
+      "ULTRASOUND_DESC": "[EN] Ultrasound Desc",
+      "XRAY": "[EN] Xray",
+      "XRAY_DESC": "[EN] Xray Desc",
+      "ECHO": "[EN] Echo",
+      "ECHO_DESC": "[EN] Echo Desc",
+      "REPORTING": "[EN] Reporting",
+      "REPORTING_DESC": "[EN] Reporting Desc"
+    }
   },
   "RESOURCES": {
     "TITLE": "Resources",
@@ -520,7 +782,12 @@
       "EMAIL": "Please enter a valid email address.",
       "PHONE": "Please enter a valid phone number.",
       "MESSAGE": "Please enter your message (at least 10 characters)."
-    }
+    },
+    "CTA_TITLE": "[EN] Cta Title",
+    "CTA_SUBTITLE": "[EN] Cta Subtitle",
+    "TITLE": "[EN] Title",
+    "PHONE": "[EN] Phone",
+    "EMAIL": "[EN] Email"
   },
   "FOOTER": {
     "ABOUT_TITLE": "About Us",
@@ -556,28 +823,6 @@
   "LANGUAGE_SWITCHER": {
     "TR": "Türkçe",
     "EN": "English"
-  },
-  "COMMON": {
-    "READ_MORE": "Read More",
-    "DOWNLOAD": "Download",
-    "PRINT": "Print",
-    "SHARE": "Share",
-    "BACK": "Back",
-    "NEXT": "Next",
-    "PREVIOUS": "Previous",
-    "CLOSE": "Close",
-    "LOADING": "Loading...",
-    "ERROR": "Error",
-    "SUCCESS": "Success",
-    "WARNING": "Warning",
-    "INFO": "Info",
-    "COMING_SOON": "Coming Soon",
-    "SEARCH": "Quick Search",
-    "SHARE_WHATSAPP": "Share on WhatsApp",
-    "SHARE_TWITTER": "Share on Twitter",
-    "SHARE_FACEBOOK": "Share on Facebook",
-    "SHARE_LINKEDIN": "Share on LinkedIn",
-    "COPY_LINK": "Copy Link"
   },
   "PAGES": {
     "THANKS_DESC": "The thank you page is currently being prepared. We look forward to sharing your valuable messages.",
@@ -631,7 +876,13 @@
     "READ_MORE": "Read More",
     "CATEGORIES": "Categories",
     "RECENT_POSTS": "Recent Posts",
-    "SEARCH": "Search..."
+    "SEARCH": "Search...",
+    "SEARCH_PLACEHOLDER": "[EN] Search Placeholder",
+    "CATEGORY_FILTER": "[EN] Category Filter",
+    "CLEAR_FILTERS": "[EN] Clear Filters",
+    "FEATURED_ARTICLES": "[EN] Featured Articles",
+    "MIN_READ": "[EN] Min Read",
+    "ALL_ARTICLES": "[EN] All Articles"
   },
   "APPOINTMENT": {
     "TITLE": "Book Appointment",
@@ -703,7 +954,15 @@
     "FAMILY_EDUCATION_TITLE": "Family Education",
     "FAMILY_EDUCATION_DESC": "We teach parents positive parenting techniques through the Triple P program",
     "SLEEP_NUTRITION_TITLE": "Sleep & Nutrition",
-    "SLEEP_NUTRITION_DESC": "Healthy sleep habits and nutrition counseling services"
+    "SLEEP_NUTRITION_DESC": "Healthy sleep habits and nutrition counseling services",
+    "LOVE_COMPASSION_TITLE": "Love and Compassion",
+    "LOVE_COMPASSION_DESC": "We approach every child and family with love, compassion and empathy",
+    "SOCIAL_PEDIATRICS_TITLE": "Social Pediatrics",
+    "SOCIAL_PEDIATRICS_DESC": "We support not only physical but also social and emotional development",
+    "FAMILY_CENTERED_TITLE": "Family-Centered Care",
+    "FAMILY_CENTERED_DESC": "We make families an active part of the treatment process",
+    "EVIDENCE_BASED_TITLE": "Evidence-Based Approach",
+    "EVIDENCE_BASED_DESC": "We apply treatment protocols based on the latest scientific research"
   },
   "TESTIMONIALS": {
     "TITLE": "Reviews from Our Families",
@@ -783,8 +1042,8 @@
     "CATEGORY": "Category"
   },
   "ERROR": {
-    "404_TITLE": "Page Not Found",
-    "404_MESSAGE": "The page you are looking for could not be found or may have been moved. You can continue by returning to the homepage.",
+    "404_TITLE": "404 - Page Not Found",
+    "404_MESSAGE": "The page you are looking for could not be found or may have been moved.",
     "GO_HOME": "Go to Homepage",
     "CONTACT_US": "Contact Us"
   },
@@ -975,12 +1234,6 @@
     "KVKK_APPLICATION_INFO": "Your application will be evaluated and concluded within 30 days at the latest. The application is free of charge, but a fee may be charged if the transaction requires additional costs.",
     "KVKK_CONTACT_TEXT": "You can contact us for detailed information about your rights under KVKK and application processes:"
   },
-  "ERROR": {
-    "404_TITLE": "404 - Page Not Found",
-    "404_MESSAGE": "The page you are looking for could not be found or may have been moved.",
-    "GO_HOME": "Go to Homepage",
-    "CONTACT_US": "Contact Us"
-  },
   "FAVORITES": {
     "PAGE_TITLE": "My Favorites",
     "PAGE_SUBTITLE": "You can view your saved resources here",
@@ -1048,13 +1301,39 @@
       "VISIT_SCHEDULE": "Examination Schedule",
       "VISIT_SCHEDULE_DESC": "The Bright Futures® program recommends <strong>31 age-specific regular health check-ups</strong>.",
       "BABY_PERIOD": "Infancy (0-12 months)",
-      "BABY_VISITS": ["Newborn", "3-5 days", "1 month", "2 months", "4 months", "6 months", "9 months", "12 months"],
+      "BABY_VISITS": [
+        "Newborn",
+        "3-5 days",
+        "1 month",
+        "2 months",
+        "4 months",
+        "6 months",
+        "9 months",
+        "12 months"
+      ],
       "EARLY_CHILDHOOD": "Early Childhood (1-4 years)",
-      "EARLY_CHILDHOOD_VISITS": ["15 months", "18 months", "2 years", "2.5 years", "3 years", "4 years"],
+      "EARLY_CHILDHOOD_VISITS": [
+        "15 months",
+        "18 months",
+        "2 years",
+        "2.5 years",
+        "3 years",
+        "4 years"
+      ],
       "SCHOOL_AGE": "School Age (5-10 years)",
-      "SCHOOL_AGE_VISITS": ["5 years", "6 years", "7 years", "8 years", "9 years", "10 years"],
+      "SCHOOL_AGE_VISITS": [
+        "5 years",
+        "6 years",
+        "7 years",
+        "8 years",
+        "9 years",
+        "10 years"
+      ],
       "ADOLESCENCE": "Adolescence (11-21 years)",
-      "ADOLESCENCE_VISITS": ["Annual check-ups", "11-21 years"],
+      "ADOLESCENCE_VISITS": [
+        "Annual check-ups",
+        "11-21 years"
+      ],
       "EXAM_NOTE": "Important Note",
       "EXAM_NOTE_DESC": "Each examination includes age-appropriate physical examination, growth and development assessment, immunizations, and screening tests. Families receive specialized guidance materials.",
       "EACH_EXAM": "At Each Examination",
@@ -1260,28 +1539,34 @@
     },
     "DOCUMENTS": {
       "CATEGORIES": {
-        "FAMILY_MEDIA_PLAN": "Family Media Plan",
-        "FAMILY_MEDIA_DESC": "Family guides and plans for digital media use",
-        "VACCINES": "Vaccines",
-        "VACCINES_DESC": "Information sheets about childhood vaccines",
-        "BRIGHT_FUTURES_FAMILY": "Bright Futures - Family Guide",
-        "BRIGHT_FUTURES_FAMILY_DESC": "Age-specific family guides (1 month - 15 years)",
-        "BRIGHT_FUTURES_CHILD": "Bright Futures - Child Guide",
-        "BRIGHT_FUTURES_CHILD_DESC": "Age-specific child guides (7-17 years)",
-        "CDC_GROWTH": "CDC Growth Charts",
-        "CDC_GROWTH_DESC": "Growth charts according to CDC standards",
-        "PREGNANCY": "Pregnancy Period",
-        "PREGNANCY_DESC": "Pregnancy and prenatal preparation guides",
-        "DEVELOPMENT": "Development Guides",
-        "DEVELOPMENT_DESC": "Child development monitoring and support guides",
-        "GENERAL_INFO": "General Information",
-        "GENERAL_INFO_DESC": "General guides on childcare, safety and health",
-        "DISEASES": "Diseases",
-        "DISEASES_DESC": "Childhood diseases and treatment guides",
-        "TOYS": "Toys",
-        "TOYS_DESC": "Age-appropriate toy selection guides",
-        "WHO_GROWTH": "WHO Growth Charts",
-        "WHO_GROWTH_DESC": "World Health Organization growth standards"
+        "AILE_MEDYA_PLANI": {
+          "TITLE": "Family Media Plan",
+          "DESCRIPTION": "Family guides and plans for digital media use"
+        },
+        "ASILAR": {
+          "TITLE": "Vaccines",
+          "DESCRIPTION": "Vaccine information sheets and guides"
+        },
+        "BRIGHT_FUTURES_AILE": {
+          "TITLE": "Bright Futures - Family Guide",
+          "DESCRIPTION": "Age-specific family information sheets"
+        },
+        "BRIGHT_FUTURES_COCUK": {
+          "TITLE": "Bright Futures - Child Guide",
+          "DESCRIPTION": "Age-specific information sheets for children"
+        },
+        "GELISIM_REHBERLERI": {
+          "TITLE": "Development Guides",
+          "DESCRIPTION": "Guide documents about child development"
+        },
+        "GENEL_BILGILER": {
+          "TITLE": "General Information",
+          "DESCRIPTION": "General information about child health and care"
+        },
+        "HASTALIKLAR": {
+          "TITLE": "Diseases",
+          "DESCRIPTION": "Information documents about childhood diseases"
+        }
       }
     },
     "SAYGIYLA": {
@@ -1367,438 +1652,9 @@
       }
     },
     "BLOG": {
-      "LOADING_ARTICLE": "Loading article...",
-      "BACK_TO_BLOG": "Back to Blog",
-      "MIN_READ": "min read",
-      "MIN": "min",
-      "TAGS": "Tags",
-      "RELATED_ARTICLES": "Related Articles",
-      "ALL_ARTICLES": "Back to All Articles",
-      "BACK_TO_TOP": "Back to Top",
-      "SHARE_WHATSAPP": "Share on WhatsApp",
-      "SHARE_TWITTER": "Share on Twitter",
-      "SHARE_FACEBOOK": "Share on Facebook",
-      "SHARE_LINKEDIN": "Share on LinkedIn",
-      "COPY_LINK": "Copy Link"
-    },
-    "ERRORS": {
-      "DOCUMENT_NOT_FOUND": "Document Not Found",
-      "GENERIC_ERROR": "An error occurred. Please try again later.",
-      "CATEGORY_NOT_FOUND": "Category not found",
-      "LOADING_ERROR": "Loading error",
-      "CONNECTION_ERROR": "Connection error"
-    },
-    "ACTIONS": {
-      "SHARE": "Share",
-      "PRINT": "Print",
-      "DOWNLOAD": "Download",
-      "DOWNLOAD_PDF": "Download PDF",
-      "SEARCH": "Search",
-      "VIEW": "View",
-      "BACK": "Back",
-      "NEXT": "Next",
-      "SAVE": "Save",
-      "CANCEL": "Cancel",
-      "DELETE": "Delete",
-      "EDIT": "Edit",
-      "CLEAR": "Clear"
-    },
-    "LOADING": {
-      "CATEGORY": "Loading category...",
-      "DOCUMENT": "Loading document...",
-      "RESOURCES": "Loading resources...",
-      "PLEASE_WAIT": "Please wait..."
-    },
-    "SEARCH": {
-      "CATEGORY_PLACEHOLDER": "Search in this category...",
-      "NO_RESULTS": "No documents found matching your search criteria.",
-      "PLACEHOLDER": "Search...",
-      "SEARCHING": "Searching..."
-    },
-    "ALT_TEXTS": {
-      "DR_OZLEM": "Dr. Özlem Murzoğlu",
-      "CLINIC_ENVIRONMENT": "Clinic environment",
-      "CLINIC_ENTRANCE": "Clinic Entrance",
-      "WAITING_AREA": "Clinic Waiting Area",
-      "CLINIC_INTERIOR": "Clinic Interior",
-      "PLAY_AREA": "Children's Play Area",
-      "LOGO": "Dr. Özlem Murzoğlu Logo",
-      "EXAMINATION_ROOM": "Examination Room",
-      "PLAY_CORNER": "Play Corner",
-      "NURSING_ROOM": "Nursing Room",
-      "CORRIDOR": "Corridor",
-      "GENERAL_VIEW": "General View",
-      "MONTESSORI_PLAY_AREA": "Montessori Play Area"
-    },
-    "DOCUMENTS": {
-      "CATEGORY": "Category",
-      "FORMAT": "Format",
-      "FILE_SIZE": "File Size",
-      "CATEGORIES": {
-        "AILE_MEDYA_PLANI": {
-          "TITLE": "Family Media Plan",
-          "DESCRIPTION": "Family guides and plans for digital media usage"
-        },
-        "ASILAR": {
-          "TITLE": "Vaccines",
-          "DESCRIPTION": "Vaccine information sheets and schedule"
-        },
-        "BRIGHT_FUTURES_AILE": {
-          "TITLE": "Bright Futures - Family",
-          "DESCRIPTION": "Development guides for families"
-        },
-        "BRIGHT_FUTURES_COCUK": {
-          "TITLE": "Bright Futures - Child",
-          "DESCRIPTION": "Development guides for children"
-        },
-        "CDC_BUYUME_EGRILERI": {
-          "TITLE": "CDC Growth Charts",
-          "DESCRIPTION": "American CDC growth charts"
-        },
-        "GEBELIK_DONEMI": {
-          "TITLE": "Pregnancy Period",
-          "DESCRIPTION": "Pregnancy period guides and information"
-        },
-        "GELISIM_REHBERLERI": {
-          "TITLE": "Development Guides",
-          "DESCRIPTION": "Age-appropriate developmental milestones and guides"
-        },
-        "GENEL_BILGILER": {
-          "TITLE": "General Information",
-          "DESCRIPTION": "General information about child health and care"
-        },
-        "HASTALIKLAR": {
-          "TITLE": "Diseases",
-          "DESCRIPTION": "Information about common childhood diseases"
-        },
-        "OYUNCAKLAR": {
-          "TITLE": "Toys",
-          "DESCRIPTION": "Toy safety and selection guides"
-        },
-        "WHO_BUYUME_EGRILERI": {
-          "TITLE": "WHO Growth Charts",
-          "DESCRIPTION": "World Health Organization growth charts"
-        }
-      },
-      "AILE_MEDYA_PLANI": {
-        "MEDYA_DENGESI": {
-          "TITLE": "Media Balance",
-          "DESCRIPTION": "Guide to balancing media usage"
-        },
-        "MEDYA_HAKKINDA_KONUSMAK": {
-          "TITLE": "Talking About Media",
-          "DESCRIPTION": "Guide to discussing media usage with children"
-        },
-        "NEZAKET_EMPATI": {
-          "TITLE": "Kindness and Empathy",
-          "DESCRIPTION": "Developing kindness and empathy in digital environments"
-        },
-        "DIJITAL_GIZLILIK_GUVENLIK": {
-          "TITLE": "Digital Privacy and Security",
-          "DESCRIPTION": "Methods for online security and privacy protection"
-        },
-        "EKRANSIZ_BOLGELER": {
-          "TITLE": "Screen-Free Zones",
-          "DESCRIPTION": "Guide to creating screen-free areas at home"
-        },
-        "EKRANSIZ_ZAMANLAR": {
-          "TITLE": "Screen-Free Times",
-          "DESCRIPTION": "Guide to planning screen-free time periods"
-        },
-        "IYI_ICERIK_SECME": {
-          "TITLE": "Choosing Good Content",
-          "DESCRIPTION": "Criteria for selecting quality media content"
-        },
-        "MEDYAYI_BIRLIKTE_KULLANMA": {
-          "TITLE": "Using Media Together",
-          "DESCRIPTION": "Guide to family media usage"
-        },
-        "MEDYA_PLANI_SABLON": {
-          "TITLE": "Media Plan Template",
-          "DESCRIPTION": "Personalized family media plan template"
-        },
-        "AILE_REHBERI": {
-          "TITLE": "Family Guide",
-          "DESCRIPTION": "Comprehensive family media usage guide"
-        }
-      },
-      "ASILAR": {
-        "HPV_ASISI": {
-          "TITLE": "HPV Vaccine Information Sheet",
-          "DESCRIPTION": "Detailed information about Human Papillomavirus vaccine"
-        },
-        "KKK_ASISI": {
-          "TITLE": "MMR Vaccine Information Sheet",
-          "DESCRIPTION": "Information about Measles, Mumps, and Rubella vaccine"
-        },
-        "KKKS_ASISI": {
-          "TITLE": "MMRV Vaccine Information Sheet",
-          "DESCRIPTION": "Detailed information about MMRV vaccine"
-        },
-        "MENINGOKOK_ACWY": {
-          "TITLE": "Meningococcal ACWY Vaccine",
-          "DESCRIPTION": "Meningococcal ACWY vaccine information sheet"
-        },
-        "MENINGOKOK_B": {
-          "TITLE": "Meningococcal B Vaccine",
-          "DESCRIPTION": "Meningococcal B vaccine information sheet"
-        },
-        "ROTAVIRUS_ASISI": {
-          "TITLE": "Rotavirus Vaccine",
-          "DESCRIPTION": "Information about rotavirus vaccine"
-        },
-        "INFLUENZA_ASISI": {
-          "TITLE": "Influenza (Flu) Vaccine",
-          "DESCRIPTION": "Seasonal flu vaccine information sheet"
-        }
-      },
-      "GENEL_BILGILER": {
-        "ALKOL_EMZIRME": {
-          "TITLE": "Alcohol and Breastfeeding",
-          "DESCRIPTION": "Alcohol use during breastfeeding"
-        },
-        "ARABA_GUVENLIK_KOLTUGU": {
-          "TITLE": "Car Safety Seat",
-          "DESCRIPTION": "Child car seat selection and usage"
-        },
-        "AGLAYAN_BEBEK_KOLIK": {
-          "TITLE": "Crying Baby and Colic",
-          "DESCRIPTION": "Managing baby crying and colic"
-        },
-        "SAGLIKLI_BESLENME": {
-          "TITLE": "Healthy Nutrition",
-          "DESCRIPTION": "Guide to healthy nutrition in children"
-        },
-        "DUSMELERI_ONLEME": {
-          "TITLE": "Preventing Falls",
-          "DESCRIPTION": "Preventing falls and injuries in children"
-        },
-        "BOGULMA_ONLEME": {
-          "TITLE": "Choking Prevention",
-          "DESCRIPTION": "Methods to reduce choking risks"
-        },
-        "BEBEGINIZI_EMZIRMEK": {
-          "TITLE": "Breastfeeding Your Baby",
-          "DESCRIPTION": "Breastfeeding techniques and recommendations"
-        },
-        "BESLENME_GUVENLIGI": {
-          "TITLE": "Food Safety",
-          "DESCRIPTION": "Food safety and hygiene rules"
-        },
-        "ERGEN_ILETISIM": {
-          "TITLE": "Communicating with Teens",
-          "DESCRIPTION": "Effective communication during adolescence"
-        },
-        "BOCEK_KOVUCULAR": {
-          "TITLE": "Insect Repellents",
-          "DESCRIPTION": "Insect repellent use and safety"
-        },
-        "DIS_CIKARMA": {
-          "TITLE": "Teething",
-          "DESCRIPTION": "Teething process in babies"
-        },
-        "EMZIK_BIRAKMA_IPUCLARI": {
-          "TITLE": "Pacifier Weaning Tips",
-          "DESCRIPTION": "Strategies for pacifier weaning"
-        },
-        "EMZIK_BIRAKMA": {
-          "TITLE": "Pacifier Weaning",
-          "DESCRIPTION": "Pacifier weaning process guide"
-        },
-        "EMZIRME_SUT_SAKLAMA": {
-          "TITLE": "Breastfeeding - Milk Storage",
-          "DESCRIPTION": "Breast milk storage methods"
-        },
-        "EMZIRME_YERLESME_KAVRAMA": {
-          "TITLE": "Breastfeeding - Positioning and Latch",
-          "DESCRIPTION": "Proper breastfeeding positions"
-        },
-        "ERGENLIK_AILE_TAVSIYELERI": {
-          "TITLE": "Adolescence - Family Advice",
-          "DESCRIPTION": "Recommendations for families during adolescence"
-        },
-        "GUVENLI_UYKU": {
-          "TITLE": "Safe Sleep",
-          "DESCRIPTION": "Safe sleep environment for babies"
-        },
-        "SIBER_ZORBALIK": {
-          "TITLE": "Cyberbullying",
-          "DESCRIPTION": "Dealing with digital bullying"
-        },
-        "TUVALET_EGITIMI": {
-          "TITLE": "Toilet Training",
-          "DESCRIPTION": "Toilet training process and tips"
-        },
-        "YANGIN_GUVENLIGI": {
-          "TITLE": "Fire Safety",
-          "DESCRIPTION": "Home fire safety measures"
-        },
-        "YENIDOGAN_SUNNETI": {
-          "TITLE": "Newborn Circumcision",
-          "DESCRIPTION": "Information about circumcision procedure"
-        },
-        "COCUKLAR_ARASI_ZORBALIK": {
-          "TITLE": "Bullying Among Children",
-          "DESCRIPTION": "Dealing with peer bullying"
-        },
-        "EV_GUVENLIGI": {
-          "TITLE": "Home Safety",
-          "DESCRIPTION": "Child safety measures at home"
-        },
-        "GIYSI_GUVENLIGI": {
-          "TITLE": "Clothing Safety",
-          "DESCRIPTION": "Child clothing safety rules"
-        },
-        "AGIZ_DIS_SAGLIGI": {
-          "TITLE": "Oral and Dental Health",
-          "DESCRIPTION": "Oral and dental care in children"
-        }
-      },
-      "HASTALIKLAR": {
-        "ANTIBIYOTIKLER": {
-          "TITLE": "Antibiotics",
-          "DESCRIPTION": "Antibiotic use and precautions"
-        },
-        "ASTIM_ATAKLARI": {
-          "TITLE": "Preventing Asthma Attacks",
-          "DESCRIPTION": "Asthma triggers and prevention methods"
-        },
-        "BADEMCIK_ILTIHABU": {
-          "TITLE": "Tonsillitis",
-          "DESCRIPTION": "Tonsillitis symptoms and treatment"
-        },
-        "ORTA_KULAK_ILTIHABU": {
-          "TITLE": "Middle Ear Infection",
-          "DESCRIPTION": "Otitis symptoms and treatment approaches"
-        },
-        "PISIKLER": {
-          "TITLE": "Diaper Rash",
-          "DESCRIPTION": "Preventing and treating diaper rash in babies"
-        },
-        "SINUZIT": {
-          "TITLE": "Sinusitis",
-          "DESCRIPTION": "Sinusitis symptoms and treatment in children"
-        },
-        "YENIDOGAN_SARILIGI": {
-          "TITLE": "Newborn Jaundice",
-          "DESCRIPTION": "Jaundice causes and treatment approaches"
-        },
-        "COCUKLARDA_ATES": {
-          "TITLE": "Fever in Children",
-          "DESCRIPTION": "Fever management and when to see a doctor"
-        },
-        "COCUKLARDA_EGZAMA": {
-          "TITLE": "Eczema in Children",
-          "DESCRIPTION": "Atopic dermatitis symptoms and care"
-        }
-      },
-      "GEBELIK_DONEMI": {
-        "BESIK_GUVENLIGI": {
-          "TITLE": "Crib Safety",
-          "DESCRIPTION": "Safe crib selection and usage"
-        },
-        "BEBEK_ODASI_GUVENLIGI": {
-          "TITLE": "Nursery Safety",
-          "DESCRIPTION": "Nursery preparation and safety measures"
-        },
-        "EMZIRME_HAZIRLIK": {
-          "TITLE": "Breastfeeding Preparation",
-          "DESCRIPTION": "Pre-birth breastfeeding preparations"
-        },
-        "GEBELIKTE_BESLENME": {
-          "TITLE": "Nutrition During Pregnancy",
-          "DESCRIPTION": "Nutrition recommendations during pregnancy"
-        },
-        "MAMA_TABURESI": {
-          "TITLE": "High Chair",
-          "DESCRIPTION": "High chair selection and safety"
-        }
-      },
-      "OYUNCAKLAR": {
-        "OYUNCAK_GUVENLIGI": {
-          "TITLE": "Toy Safety",
-          "DESCRIPTION": "Age-appropriate and safe toy selection"
-        }
-      }
-    },
-    "VIEWER": {
-      "FULLSCREEN": "Fullscreen",
-      "EXIT_FULLSCREEN": "Exit Fullscreen",
-      "PDF_CANNOT_DISPLAY": "PDF Cannot Be Displayed",
-      "PDF_FALLBACK_DESC": "Your browser does not support PDF viewing. You can download the file from the link below.",
-      "DOWNLOAD_PDF": "Download PDF",
-      "WORD_PREVIEW": "Word Document Preview",
-      "WORD_CANNOT_DISPLAY": "Word documents cannot be displayed directly.",
-      "DOWNLOAD_NOW": "Download Now",
-      "MICROSOFT_WORD_DOC": "Microsoft Word Document",
-      "DOCUMENT_INFO": "Document Information",
-      "FILE_NAME": "File Name",
-      "CATEGORY": "Category",
-      "FORMAT": "Format",
-      "FILE_SIZE": "File Size",
-      "RELATED_DOCUMENTS": "Related Documents",
-      "QUICK_ACTIONS": "Quick Actions",
-      "BACK_TO_CATEGORY": "Back to Category",
-      "BACK_TO_RESOURCES": "Back to Resources"
-    },
-    "CATEGORY": {
-      "DOCUMENTS": "Document",
-      "FORMATS": "Different Formats",
-      "RELATED": "Related Categories"
-    },
-    "FILTER": {
-      "FILE_TYPE": "File Type",
-      "ALL": "All",
-      "RESET": "Reset Filters"
-    },
-    "SORT": {
-      "LABEL": "Sort",
-      "TITLE_ASC": "By Title (A-Z)",
-      "TITLE_DESC": "By Title (Z-A)",
-      "BY_TYPE": "By File Type"
-    },
-    "SEARCH": {
-      "IN_CATEGORY": "Search in this category...",
-      "NO_DOCUMENTS": "No Documents Found",
-      "NO_RESULTS_DESC": "No documents found matching your search criteria. Try different keywords or reset the filters."
-    },
-    "LOADING": {
-      "DOCUMENT": "Loading document...",
-      "CATEGORY": "Loading category..."
-    },
-    "DATE": {
-      "TODAY": "Today",
-      "YESTERDAY": "Yesterday",
-      "DAYS_AGO": "{{count}} days ago",
-      "WEEKS_AGO": "{{count}} weeks ago",
-      "MONTHS_AGO": "{{count}} months ago",
-      "YEARS_AGO": "{{count}} years ago"
-    },
-    "ARTICLES": {
-      "TITLE": "Articles",
-      "SUBTITLE": "Current information about child health",
-      "COMING_SOON_DESC": "Articles section will be available soon."
-    },
-    "CLINIC_DESIGN": {
-      "TITLE": "Clinic Design",
-      "SUBTITLE": "We created an environment your children will love.",
-      "INTRO_TITLE": "A Warm and Safe Environment",
-      "INTRO_TEXT": "We set out to create a warm environment that turns doctor visits into a positive experience for our little guests.",
-      "INTRO_DESC": "When designing the clinic, our main goal was to create an atmosphere that doesn't leave negative memories in children and won't cause fear of going to the doctor.",
-      "ALT_ENTRANCE": "Clinic Entrance"
-    },
-    "CLINIC": {
-      "ALT_ENVIRONMENT": "Clinic environment",
-      "ALT_WAITING_AREA": "Clinic Waiting Area",
-      "ALT_INTERIOR": "Clinic Interior"
-    },
-    "ERRORS": {
-      "DOCUMENT_NOT_FOUND_DESC": "The document you are looking for could not be found or may have been removed."
-    },
-    "BLOG": {
       "CATEGORIES": {
         "BABY_CARE": "Baby Care",
-        "CHILD_PSYCHOLOGY": "Child Psychology", 
+        "CHILD_PSYCHOLOGY": "Child Psychology",
         "CHILD_DEVELOPMENT": "Child Development",
         "ADOLESCENCE": "Adolescence",
         "SAFETY": "Safety",
@@ -1858,37 +1714,329 @@
       "BY_AUTHOR": "By: {{author}}",
       "PUBLISHED_DATE": "Published: {{date}}"
     },
-    "DOCUMENTS": {
-      "CATEGORIES": {
-        "AILE_MEDYA_PLANI": {
-          "TITLE": "Family Media Plan",
-          "DESCRIPTION": "Family guides and plans for digital media use"
-        },
-        "ASILAR": {
-          "TITLE": "Vaccines",
-          "DESCRIPTION": "Vaccine information sheets and guides"
-        },
-        "BRIGHT_FUTURES_AILE": {
-          "TITLE": "Bright Futures - Family Guide",
-          "DESCRIPTION": "Age-specific family information sheets"
-        },
-        "BRIGHT_FUTURES_COCUK": {
-          "TITLE": "Bright Futures - Child Guide",
-          "DESCRIPTION": "Age-specific information sheets for children"
-        },
-        "GELISIM_REHBERLERI": {
-          "TITLE": "Development Guides",
-          "DESCRIPTION": "Guide documents about child development"
-        },
-        "GENEL_BILGILER": {
-          "TITLE": "General Information",
-          "DESCRIPTION": "General information about child health and care"
-        },
-        "HASTALIKLAR": {
-          "TITLE": "Diseases",
-          "DESCRIPTION": "Information documents about childhood diseases"
-        }
+    "ERRORS": {
+      "DOCUMENT_NOT_FOUND_DESC": "The document you are looking for could not be found or may have been removed."
+    },
+    "ACTIONS": {
+      "SHARE": "Share",
+      "PRINT": "Print",
+      "DOWNLOAD": "Download",
+      "DOWNLOAD_PDF": "Download PDF",
+      "SEARCH": "Search",
+      "VIEW": "View",
+      "BACK": "Back",
+      "NEXT": "Next",
+      "SAVE": "Save",
+      "CANCEL": "Cancel",
+      "DELETE": "Delete",
+      "EDIT": "Edit",
+      "CLEAR": "Clear"
+    },
+    "LOADING": {
+      "DOCUMENT": "Loading document...",
+      "CATEGORY": "Loading category..."
+    },
+    "SEARCH": {
+      "IN_CATEGORY": "Search in this category...",
+      "NO_DOCUMENTS": "No Documents Found",
+      "NO_RESULTS_DESC": "No documents found matching your search criteria. Try different keywords or reset the filters."
+    },
+    "ALT_TEXTS": {
+      "DR_OZLEM": "Dr. Özlem Murzoğlu",
+      "CLINIC_ENVIRONMENT": "Clinic environment",
+      "CLINIC_ENTRANCE": "Clinic Entrance",
+      "WAITING_AREA": "Clinic Waiting Area",
+      "CLINIC_INTERIOR": "Clinic Interior",
+      "PLAY_AREA": "Children's Play Area",
+      "LOGO": "Dr. Özlem Murzoğlu Logo",
+      "EXAMINATION_ROOM": "Examination Room",
+      "PLAY_CORNER": "Play Corner",
+      "NURSING_ROOM": "Nursing Room",
+      "CORRIDOR": "Corridor",
+      "GENERAL_VIEW": "General View",
+      "MONTESSORI_PLAY_AREA": "Montessori Play Area"
+    },
+    "VIEWER": {
+      "FULLSCREEN": "Fullscreen",
+      "EXIT_FULLSCREEN": "Exit Fullscreen",
+      "PDF_CANNOT_DISPLAY": "PDF Cannot Be Displayed",
+      "PDF_FALLBACK_DESC": "Your browser does not support PDF viewing. You can download the file from the link below.",
+      "DOWNLOAD_PDF": "Download PDF",
+      "WORD_PREVIEW": "Word Document Preview",
+      "WORD_CANNOT_DISPLAY": "Word documents cannot be displayed directly.",
+      "DOWNLOAD_NOW": "Download Now",
+      "MICROSOFT_WORD_DOC": "Microsoft Word Document",
+      "DOCUMENT_INFO": "Document Information",
+      "FILE_NAME": "File Name",
+      "CATEGORY": "Category",
+      "FORMAT": "Format",
+      "FILE_SIZE": "File Size",
+      "RELATED_DOCUMENTS": "Related Documents",
+      "QUICK_ACTIONS": "Quick Actions",
+      "BACK_TO_CATEGORY": "Back to Category",
+      "BACK_TO_RESOURCES": "Back to Resources"
+    },
+    "CATEGORY": {
+      "DOCUMENTS": "Document",
+      "FORMATS": "Different Formats",
+      "RELATED": "Related Categories"
+    },
+    "FILTER": {
+      "FILE_TYPE": "File Type",
+      "ALL": "All",
+      "RESET": "Reset Filters"
+    },
+    "SORT": {
+      "LABEL": "Sort",
+      "TITLE_ASC": "By Title (A-Z)",
+      "TITLE_DESC": "By Title (Z-A)",
+      "BY_TYPE": "By File Type"
+    },
+    "DATE": {
+      "TODAY": "Today",
+      "YESTERDAY": "Yesterday",
+      "DAYS_AGO": "{{count}} days ago",
+      "WEEKS_AGO": "{{count}} weeks ago",
+      "MONTHS_AGO": "{{count}} months ago",
+      "YEARS_AGO": "{{count}} years ago"
+    },
+    "ARTICLES": {
+      "TITLE": "Articles",
+      "SUBTITLE": "Current information about child health",
+      "COMING_SOON_DESC": "Articles section will be available soon."
+    },
+    "CLINIC_DESIGN": {
+      "TITLE": "Our Clinic",
+      "SUBTITLE": "Modern, hygienic and child-friendly environment",
+      "INTRO_TITLE": "A Warm and Safe Environment",
+      "INTRO_TEXT": "We set out to create a warm environment that turns doctor visits into a positive experience for our little guests.",
+      "INTRO_DESC": "When designing the clinic, our main goal was to create an atmosphere that doesn't leave negative memories in children and won't cause fear of going to the doctor.",
+      "TEAM_TITLE": "Our Design Team",
+      "TEAM_CARD1_TITLE": "Modern Architectural Design",
+      "TEAM_DESC1": "Our clinic was designed with child psychology and modern architectural principles in mind. Every corner was carefully planned to make children feel safe and happy.",
+      "TEAM_CARD2_TITLE": "Color and Texture Harmony",
+      "TEAM_DESC2": "We created a calming atmosphere using pastel tones and natural textures. We added wall paintings and decorative elements that support children's imagination.",
+      "DESIGN_FEATURE_1": "Natural Lighting",
+      "DESIGN_FEATURE_1_DESC": "Large windows and natural light sources",
+      "DESIGN_FEATURE_2": "Ergonomic Design",
+      "DESIGN_FEATURE_2_DESC": "Child-sized furniture and equipment",
+      "DESIGN_FEATURE_3": "Safe Materials",
+      "DESIGN_FEATURE_3_DESC": "Antibacterial and eco-friendly materials",
+      "IMAGE_CLINIC_INTERIOR": "Clinic Interior View",
+      "IMAGE_PLAY_AREA": "Play Area",
+      "IMAGE_WAITING_AREA": "Waiting Room",
+      "GALLERY_TITLE": "Clinic Gallery",
+      "GALLERY_EXAM_ROOM": "Examination Room",
+      "GALLERY_PLAY_CORNER": "Play Corner",
+      "GALLERY_WAITING_AREA": "Waiting Area",
+      "GALLERY_NURSING_ROOM": "Nursing Room",
+      "GALLERY_CORRIDOR": "Corridor",
+      "GALLERY_GENERAL_VIEW": "General View",
+      "MONTESSORI_TITLE": "Montessori Principles",
+      "MONTESSORI_DESC": "In our clinic, we support children's desire to explore and learn, inspired by the Montessori educational philosophy.",
+      "MONTESSORI_BOOKS": "Educational Books",
+      "MONTESSORI_BOOKS_DESC": "Age-appropriate story and educational books",
+      "MONTESSORI_GAMES": "Brain Games",
+      "MONTESSORI_GAMES_DESC": "Wooden toys that support development",
+      "MONTESSORI_TOYS": "Educational Toys",
+      "MONTESSORI_TOYS_DESC": "Materials that develop motor skills",
+      "MONTESSORI_TEXT": "By supporting children's natural curiosity and exploration instincts, we transform clinic visits into <span class='color-yellow'>fun</span> and <span class='color-orange'>educational</span> experiences.",
+      "IMAGE_MONTESSORI_AREA": "Montessori Corner",
+      "IMAGE_EDUCATIONAL_TOYS": "Educational Toys",
+      "IMAGE_BOOK_CORNER": "Book Corner",
+      "SAFETY_TITLE": "Safety Measures",
+      "SAFETY_PHYSICAL": "Physical Safety",
+      "SAFETY_PHYSICAL_DESC": "Corner protectors, non-slip floors and safe furniture",
+      "SAFETY_ELECTRICAL": "Electrical Safety",
+      "SAFETY_ELECTRICAL_DESC": "Child locks and protected outlets",
+      "SAFETY_MONITORING": "24/7 Monitoring",
+      "SAFETY_MONITORING_DESC": "Security cameras and emergency systems",
+      "HYGIENE_TITLE": "Hygiene Standards",
+      "HYGIENE_DESC": "We apply the highest hygiene standards in our clinic.",
+      "HYGIENE_TEXT": "We provide a safe environment with regular disinfection, air purification systems and sterilization protocols.",
+      "HYGIENE_1": "Daily Cleaning",
+      "HYGIENE_1_DESC": "Disinfection after each patient",
+      "HYGIENE_2": "Air Quality",
+      "HYGIENE_2_DESC": "HEPA filtered ventilation systems",
+      "HYGIENE_3": "Sterilization",
+      "HYGIENE_3_DESC": "Sterilization of medical devices",
+      "HYGIENE_NOTE": "Special hygiene protocols are implemented as part of COVID-19 measures.",
+      "CTA_TITLE": "Schedule an Appointment for Your Child",
+      "CTA_SUBTITLE": "We are waiting for you in our modern and safe clinic",
+      "CTA_BUTTON": "Book Appointment",
+      "ALT_ENTRANCE": "Clinic Entrance"
+    },
+    "CLINIC": {
+      "ALT_ENVIRONMENT": "Clinic environment",
+      "ALT_WAITING_AREA": "Clinic Waiting Area",
+      "ALT_INTERIOR": "Clinic Interior"
+    }
+  },
+  "DR_OZLEM": {
+    "NAME": "[EN] Name",
+    "SUBTITLE": "[EN] Subtitle",
+    "YEARS_EXPERIENCE": "[EN] Years Experience",
+    "BRIGHT_FUTURES_CERTIFIED": "[EN] Bright Futures Certified",
+    "TRIPLE_P_TRAINER": "[EN] Triple P Trainer",
+    "GREETING": "[EN] Greeting",
+    "QUOTE": "[EN] Quote",
+    "EDUCATION_TITLE": "[EN] Education Title",
+    "EXPERIENCE_TITLE": "[EN] Experience Title",
+    "SPECIALTIES_TITLE": "[EN] Specialties Title",
+    "MEMBERSHIPS_TITLE": "[EN] Memberships Title"
+  },
+  "CLINIC_DESIGN": {
+    "INTRO_TITLE": "[EN] Intro Title",
+    "INTRO_TEXT": "[EN] Intro Text",
+    "INTRO_DESC": "[EN] Intro Desc",
+    "TEAM_TITLE": "[EN] Team Title",
+    "IMAGE_CLINIC_INTERIOR": "[EN] Image Clinic Interior",
+    "IMAGE_PLAY_AREA": "[EN] Image Play Area",
+    "IMAGE_WAITING_AREA": "[EN] Image Waiting Area",
+    "GALLERY_TITLE": "[EN] Gallery Title",
+    "GALLERY_EXAM_ROOM": "[EN] Gallery Exam Room",
+    "GALLERY_PLAY_CORNER": "[EN] Gallery Play Corner",
+    "GALLERY_WAITING_AREA": "[EN] Gallery Waiting Area",
+    "GALLERY_NURSING_ROOM": "[EN] Gallery Nursing Room",
+    "GALLERY_CORRIDOR": "[EN] Gallery Corridor",
+    "GALLERY_GENERAL_VIEW": "[EN] Gallery General View",
+    "MONTESSORI_TITLE": "[EN] Montessori Title",
+    "MONTESSORI_DESC": "[EN] Montessori Desc",
+    "MONTESSORI_BOOKS": "[EN] Montessori Books",
+    "MONTESSORI_BOOKS_DESC": "[EN] Montessori Books Desc",
+    "MONTESSORI_GAMES": "[EN] Montessori Games",
+    "MONTESSORI_GAMES_DESC": "[EN] Montessori Games Desc",
+    "MONTESSORI_TOYS": "[EN] Montessori Toys",
+    "MONTESSORI_TOYS_DESC": "[EN] Montessori Toys Desc",
+    "IMAGE_MONTESSORI_AREA": "[EN] Image Montessori Area",
+    "IMAGE_EDUCATIONAL_TOYS": "[EN] Image Educational Toys",
+    "IMAGE_BOOK_CORNER": "[EN] Image Book Corner",
+    "SAFETY_TITLE": "[EN] Safety Title",
+    "SAFETY_PHYSICAL": "[EN] Safety Physical",
+    "SAFETY_PHYSICAL_DESC": "[EN] Safety Physical Desc",
+    "SAFETY_ELECTRICAL": "[EN] Safety Electrical",
+    "SAFETY_ELECTRICAL_DESC": "[EN] Safety Electrical Desc",
+    "SAFETY_MONITORING": "[EN] Safety Monitoring",
+    "SAFETY_MONITORING_DESC": "[EN] Safety Monitoring Desc",
+    "HYGIENE_TITLE": "[EN] Hygiene Title",
+    "HYGIENE_DESC": "[EN] Hygiene Desc",
+    "HYGIENE_TEXT": "[EN] Hygiene Text",
+    "HYGIENE_NOTE": "[EN] Hygiene Note",
+    "CTA_TITLE": "[EN] Cta Title",
+    "CTA_SUBTITLE": "[EN] Cta Subtitle",
+    "CTA_BUTTON": "[EN] Cta Button",
+    "TITLE": "[EN] Title",
+    "SUBTITLE": "[EN] Subtitle"
+  },
+  "KLINIK_TASARIMI": {
+    "TITLE": "[EN] Title",
+    "SUBTITLE": "[EN] Subtitle",
+    "INTRO_TITLE": "[EN] Intro Title",
+    "INTRO_LEAD": "[EN] Intro Lead",
+    "INTRO_TEXT": "[EN] Intro Text",
+    "TEAM_TITLE": "[EN] Team Title",
+    "FEATURE_FURNITURE": "[EN] Feature Furniture",
+    "FEATURE_ENVIRONMENT": "[EN] Feature Environment",
+    "FEATURE_CHILD_FRIENDLY": "[EN] Feature Child Friendly",
+    "GALLERY_TITLE": "[EN] Gallery Title",
+    "GALLERY_EXAM_ROOM": "[EN] Gallery Exam Room",
+    "GALLERY_PLAY_CORNER": "[EN] Gallery Play Corner",
+    "GALLERY_WAITING_AREA": "[EN] Gallery Waiting Area",
+    "GALLERY_NURSING_ROOM": "[EN] Gallery Nursing Room"
+  },
+  "SAYGIYLA": {
+    "PIONEERS": {
+      "ATATURK": {
+        "SECTION_BIOGRAPHY": "[EN] Section Biography",
+        "NAME": "[EN] Name",
+        "INTRO_TEXT": "[EN] Intro Text",
+        "SECTION_COMMANDER": "[EN] Section Commander",
+        "QUOTE_REPUBLIC": "[EN] Quote Republic",
+        "SECTION_EDUCATION": "[EN] Section Education",
+        "SECTION_CHILDREN": "[EN] Section Children",
+        "QUOTE_SOVEREIGNTY": "[EN] Quote Sovereignty",
+        "SECTION_LEGACY": "[EN] Section Legacy",
+        "LEGACY_CONCLUSION": "[EN] Legacy Conclusion"
+      },
+      "IHSAN_DOGRAMACI": {
+        "SECTION_BIOGRAPHY": "[EN] Section Biography",
+        "NAME": "[EN] Name"
+      },
+      "JONAS_SALK": {
+        "SECTION_BIOGRAPHY": "[EN] Section Biography",
+        "NAME": "[EN] Name",
+        "TITLE": "[EN] Title",
+        "LIFESPAN": "[EN] Lifespan",
+        "QUOTE": "[EN] Quote"
+      },
+      "LOUIS_PASTEUR": {
+        "SECTION_BIOGRAPHY": "[EN] Section Biography",
+        "NAME": "[EN] Name",
+        "TITLE": "[EN] Title",
+        "LIFESPAN": "[EN] Lifespan",
+        "QUOTE": "[EN] Quote"
+      },
+      "MALALA_YOUSAFZAI": {
+        "SECTION_BIOGRAPHY": "[EN] Section Biography",
+        "NAME": "[EN] Name"
+      },
+      "NILS_ROSEN": {
+        "SECTION_BIOGRAPHY": "[EN] Section Biography",
+        "NAME": "[EN] Name",
+        "TITLE": "[EN] Title",
+        "LIFESPAN": "[EN] Lifespan",
+        "QUOTE": "[EN] Quote"
+      },
+      "TURKAN_SAYLAN": {
+        "SECTION_BIOGRAPHY": "[EN] Section Biography",
+        "NAME": "[EN] Name"
+      },
+      "URSULA_LEGUIN": {
+        "SECTION_BIOGRAPHY": "[EN] Section Biography",
+        "NAME": "[EN] Name",
+        "TITLE": "[EN] Title",
+        "LIFESPAN": "[EN] Lifespan",
+        "QUOTE": "[EN] Quote"
+      },
+      "VIRGINIA_APGAR": {
+        "SECTION_BIOGRAPHY": "[EN] Section Biography",
+        "NAME": "[EN] Name"
+      },
+      "WALDO_NELSON": {
+        "SECTION_BIOGRAPHY": "[EN] Section Biography",
+        "NAME": "[EN] Name",
+        "TITLE": "[EN] Title",
+        "LIFESPAN": "[EN] Lifespan"
       }
+    },
+    "BADGE": "[EN] Badge",
+    "PAGE_TITLE": "[EN] Page Title",
+    "PAGE_SUBTITLE": "[EN] Page Subtitle",
+    "READ_MORE": "[EN] Read More",
+    "CTA_TITLE": "[EN] Cta Title",
+    "CTA_DESCRIPTION": "[EN] Cta Description",
+    "CTA_BUTTON": "[EN] Cta Button"
+  },
+  "SERVICE_SOS_FEEDING": {
+    "WHAT_IS_TITLE": "[EN] What Is Title",
+    "WHAT_IS_DESC": "[EN] What Is Desc",
+    "WHAT_IS_DETAIL": "[EN] What Is Detail",
+    "EATER_TYPES_TITLE": "[EN] Eater Types Title",
+    "EATER_TYPES_DESC": "[EN] Eater Types Desc",
+    "PICKY_EATER_TITLE": "[EN] Picky Eater Title",
+    "PROBLEM_EATER_TITLE": "[EN] Problem Eater Title",
+    "WHO_NEEDS_TITLE": "[EN] Who Needs Title",
+    "WHO_NEEDS_DESC": "[EN] Who Needs Desc",
+    "HOW_IT_WORKS_TITLE": "[EN] How It Works Title",
+    "HOW_IT_WORKS_DESC": "[EN] How It Works Desc",
+    "EXPERTISE_TITLE": "[EN] Expertise Title",
+    "EXPERTISE_DESC": "[EN] Expertise Desc",
+    "CERTIFICATIONS": "[EN] Certifications",
+    "BENEFITS_TITLE": "[EN] Benefits Title"
+  },
+  "REVIEWS": {
+    "TIME_AGO": {
+      "JUST_NOW": "[EN] Just Now"
     }
   }
 }
