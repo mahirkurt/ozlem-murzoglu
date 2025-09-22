@@ -28,21 +28,13 @@ export class GoogleReviewsService {
   // Google Places API configuration
   private readonly API_KEY = 'AIzaSyDZNlErCHqvQYj0gh_zTwyyzj_Lwoo7V94';
   private readonly PLACE_ID = 'ChIJ83R9VUTJyhQRM2o-M-eoZyQ'; // Dr. Özlem Murzoğlu - Verified Place ID
-  private readonly MIN_REVIEW_LENGTH = 50; // Reduced minimum character count for more reviews
+  private readonly MIN_REVIEW_LENGTH = 300; // Minimum character count for quality reviews (örnek: "Kızımız Elif'in doktoru...")
   private readonly PLACES_API_V1_URL = 'https://places.googleapis.com/v1';
   
   // Minimal fallback reviews only for development
   private getFallbackReviews(): GoogleReview[] {
-    console.log('Using fallback reviews - API not available');
-    return [
-      {
-        author_name: 'Ayşe Yılmaz',
-        rating: 5,
-        relative_time_description: this.translate.instant('REVIEWS.TIME_AGO.MONTHS', { count: 3 }),
-        text: 'Dr. Özlem Hanım gerçekten çocuklara nasıl yaklaşılacağını bilen çok özel bir doktor. Oğlumun her kontrolünde gösterdiği özen ve sabır sayesinde kendimi çok daha güvende hissediyorum.',
-        time: Date.now() - 7776000000
-      }
-    ];
+    console.log('No reviews available from Google API');
+    return []; // Return empty array - no mock data
   }
 
   constructor(
@@ -84,27 +76,30 @@ export class GoogleReviewsService {
         observer.error('Not in browser environment');
         return;
       }
-      
+
       if (window.google && window.google.maps) {
         observer.next();
         observer.complete();
         return;
       }
-      
+
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${this.API_KEY}&libraries=places&language=tr`;
+      // Use async loading parameter and v=weekly for latest stable version
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${this.API_KEY}&libraries=places&language=tr&v=weekly&loading=async`;
       script.async = true;
       script.defer = true;
-      
+
       script.onload = () => {
+        console.log('Google Maps API loaded successfully');
         observer.next();
         observer.complete();
       };
-      
+
       script.onerror = (error) => {
+        console.error('Failed to load Google Maps API:', error);
         observer.error(error);
       };
-      
+
       document.head.appendChild(script);
     });
   }
@@ -117,30 +112,69 @@ export class GoogleReviewsService {
         observer.complete();
         return;
       }
-      
-      console.log(`Fetching reviews for Place ID: ${this.PLACE_ID}`);
-      
-      const service = new window.google.maps.places.PlacesService(
-        document.createElement('div')
-      );
-      
-      const request = {
-        placeId: this.PLACE_ID,
-        fields: ['reviews', 'rating', 'user_ratings_total', 'name']
-      };
-      
-      service.getDetails(request, (place: any, status: any) => {
-        console.log('Google Places API response status:', status);
-        
-        if (status === window.google.maps.places.PlacesServiceStatus.OK && place) {
-          console.log('Place found:', place.name);
-          console.log('Total user ratings:', place.user_ratings_total);
+
+      console.log(`Fetching reviews using new Places API for Place ID: ${this.PLACE_ID}`);
+
+      // Use the new google.maps.places.Place API
+      if (window.google.maps.places && window.google.maps.places.Place) {
+        const place = new window.google.maps.places.Place({
+          id: this.PLACE_ID,
+          requestedLanguage: 'tr'
+        });
+
+        // Fetch place details
+        place.fetchFields({
+          fields: ['displayName', 'rating', 'userRatingCount', 'reviews']
+        }).then(() => {
+          console.log('Place found:', place.displayName);
+          console.log('Total user ratings:', place.userRatingCount);
           console.log('Average rating:', place.rating);
-          
+
           if (place.reviews && place.reviews.length > 0) {
             console.log(`Raw reviews count: ${place.reviews.length}`);
-            const processedReviews = this.processReviews(place.reviews);
-            
+            console.log('Sample raw review:', place.reviews[0]);
+
+            // Convert new API format to our format
+            const convertedReviews = place.reviews.map((review: any) => {
+              // Debug: Log raw review structure
+              console.log('Raw review structure:', JSON.stringify(review, null, 2));
+
+              // Try multiple possible field names for review text
+              // New API uses nested text.text structure
+              const reviewText = review.text?.text ||
+                                review.text ||
+                                review.originalText?.text ||
+                                review.originalText ||
+                                review.comment ||
+                                '';
+
+              const converted = {
+                author_name: review.authorAttribution?.displayName ||
+                            review.author_name ||
+                            'Anonymous',
+                author_url: review.authorAttribution?.uri || '',
+                profile_photo_url: review.authorAttribution?.photoUri || '',
+                rating: review.rating || 5,
+                relative_time_description: review.relativePublishTimeDescription ||
+                                          review.relative_time_description ||
+                                          '',
+                text: reviewText,
+                time: review.publishTime ? new Date(review.publishTime).getTime() : Date.now()
+              };
+
+              console.log('Converted review:', {
+                author: converted.author_name,
+                text: converted.text?.substring(0, 50),
+                rating: converted.rating,
+                hasText: !!converted.text,
+                textLength: converted.text?.length || 0
+              });
+
+              return converted;
+            });
+
+            const processedReviews = this.processReviews(convertedReviews);
+
             if (processedReviews.length > 0) {
               console.log(`Returning ${processedReviews.length} filtered reviews`);
               observer.next(processedReviews);
@@ -152,57 +186,127 @@ export class GoogleReviewsService {
             console.log('No reviews found in place data, using fallback');
             observer.next(this.getFallbackReviews());
           }
-        } else {
-          console.log('Place not found or API error, using fallback');
+          observer.complete();
+        }).catch((error: any) => {
+          console.error('Error fetching place details:', error);
+          console.log('Using fallback reviews due to API error');
           observer.next(this.getFallbackReviews());
-        }
-        observer.complete();
-      });
+          observer.complete();
+        });
+      } else {
+        // Fallback to legacy API if new API is not available
+        console.log('New Places API not available, trying legacy API');
+        const service = new window.google.maps.places.PlacesService(
+          document.createElement('div')
+        );
+
+        const request = {
+          placeId: this.PLACE_ID,
+          fields: ['reviews', 'rating', 'user_ratings_total', 'name']
+        };
+
+        service.getDetails(request, (place: any, status: any) => {
+          console.log('Legacy API response status:', status);
+
+          if (status === window.google.maps.places.PlacesServiceStatus.OK && place) {
+            console.log('Place found:', place.name);
+            console.log('Total user ratings:', place.user_ratings_total);
+            console.log('Average rating:', place.rating);
+
+            if (place.reviews && place.reviews.length > 0) {
+              console.log(`Raw reviews count: ${place.reviews.length}`);
+              console.log('Sample review from legacy API:', JSON.stringify(place.reviews[0], null, 2));
+
+              // Legacy API should have direct format
+              const processedReviews = this.processReviews(place.reviews);
+
+              if (processedReviews.length > 0) {
+                console.log(`Returning ${processedReviews.length} filtered reviews`);
+                observer.next(processedReviews);
+              } else {
+                console.log('No reviews met criteria after filtering');
+                // Return all reviews without filtering if none pass
+                if (place.reviews.length > 0) {
+                  console.log('Returning all reviews without filtering');
+                  const allReviews = place.reviews.map((review: any) => ({
+                    author_name: review.author_name || 'Google Kullanıcısı',
+                    author_url: review.author_url || '',
+                    profile_photo_url: review.profile_photo_url || '',
+                    rating: review.rating || 5,
+                    relative_time_description: review.relative_time_description || '',
+                    text: review.text || '',
+                    time: review.time || Date.now()
+                  }));
+                  observer.next(allReviews);
+                } else {
+                  observer.next(this.getFallbackReviews());
+                }
+              }
+            } else {
+              console.log('No reviews found in place data, using fallback');
+              observer.next(this.getFallbackReviews());
+            }
+          } else {
+            console.log('Place not found or API error, using fallback');
+            observer.next(this.getFallbackReviews());
+          }
+          observer.complete();
+        });
+      }
     });
   }
 
   /**
-   * Process and filter reviews - only 5-star reviews with full names
+   * Process and filter reviews - only show high-quality reviews with substantial content
    */
   private processReviews(reviews: GoogleReview[]): GoogleReview[] {
     console.log(`Processing ${reviews.length} raw reviews`);
-    
+
+    // Log all reviews to debug
+    reviews.forEach((review, index) => {
+      console.log(`Review ${index + 1}:`, {
+        author: review.author_name,
+        rating: review.rating,
+        text: review.text?.substring(0, 100),
+        textLength: review.text?.length || 0,
+        hasText: !!review.text
+      });
+    });
+
     const filtered = reviews
       .filter(review => {
-        // Only 5-star reviews
-        if (review.rating !== 5) {
+        // Must have high rating (4 or 5 stars)
+        if (!review.rating || review.rating < 4) {
+          console.log(`Skipping review with rating ${review.rating} from`, review.author_name);
           return false;
         }
-        
-        // Must have review text
-        if (!review.text || review.text.length < this.MIN_REVIEW_LENGTH) {
+
+        // Must have substantial text content
+        if (!review.text || review.text.trim().length < this.MIN_REVIEW_LENGTH) {
+          console.log(`Skipping review with short text (${review.text?.length || 0} chars) from`, review.author_name);
           return false;
         }
-        
-        // Must have full name (at least 2 parts)
-        const nameParts = review.author_name.trim().split(' ');
-        if (nameParts.length < 2) {
-          return false;
-        }
-        
-        // Filter out obviously fake names
-        const fullName = review.author_name.toLowerCase();
-        if (fullName.includes('anonymous') || 
-            fullName.includes('user') || 
-            nameParts.some(part => part.length < 2)) {
-          return false;
-        }
-        
+
         return true;
       })
       .map(review => ({
         ...review,
         text: this.correctSpelling(review.text),
-        author_name: this.formatName(review.author_name)
+        author_name: this.formatName(review.author_name || 'Google Kullanıcısı')
       }))
-      .sort(() => Math.random() - 0.5); // Randomize order
-    
-    console.log(`Filtered to ${filtered.length} high-quality 5-star reviews`);
+      .sort((a, b) => {
+        // Sort by rating first (5 stars first), then by text length
+        if (b.rating !== a.rating) return b.rating - a.rating;
+        return (b.text?.length || 0) - (a.text?.length || 0);
+      });
+
+    console.log(`Filtered to ${filtered.length} high-quality reviews with ${this.MIN_REVIEW_LENGTH}+ characters`);
+
+    // If no reviews pass filter, log why
+    if (filtered.length === 0) {
+      console.log(`No reviews passed filter. Reviews need ${this.MIN_REVIEW_LENGTH}+ chars and 4+ rating`);
+    }
+
     return filtered;
   }
 
@@ -210,7 +314,19 @@ export class GoogleReviewsService {
    * Format author name properly
    */
   private formatName(name: string): string {
-    return name.split(' ')
+    if (!name || name.trim().length === 0) {
+      return 'Google Kullanıcısı';
+    }
+
+    // Handle single-name users by adding initial
+    const parts = name.trim().split(' ');
+    if (parts.length === 1 && parts[0].length > 1) {
+      // Add a surname initial
+      return parts[0].charAt(0).toUpperCase() + parts[0].slice(1).toLowerCase() + ' ' +
+             parts[0].charAt(0).toUpperCase() + '.';
+    }
+
+    return parts
       .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
       .join(' ');
   }
@@ -286,7 +402,7 @@ export class GoogleReviewsService {
    */
   getRotatingReviews(count: number = 3): Observable<GoogleReview[]> {
     console.log('🔄 getRotatingReviews called, requesting', count, 'reviews');
-    return timer(0, 10000).pipe( // Rotate every 10 seconds
+    return timer(0, 25000).pipe( // Rotate every 25 seconds
       switchMap(() => this.fetchGoogleReviews()),
       map(reviews => {
         console.log('📊 Processing reviews for rotation, total:', reviews.length);
