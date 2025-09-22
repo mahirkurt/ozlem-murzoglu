@@ -940,8 +940,76 @@
     "DATE_1_WEEK": "1 hafta önce"
   },
   "CLINIC": {
-    "GALLERY_TITLE": "Kliniğimiz",
-    "GALLERY_SUBTITLE": "Modern, hijyenik ve çocuk dostu ortamımızda, küçük hastalarımızın kendilerini güvende ve mutlu hissetmeleri için tasarlanmış alanlarımız",
+    "HERO": {
+      "TITLE": "Kliniğimiz",
+      "SUBTITLE": "Çocuk dostu tasarımı ve modern altyapısı ile hizmetinizdeyiz"
+    },
+    "MISSION": {
+      "TITLE": "Minik Misafirlerimiz İçin Özel Bir Ortam",
+      "TEXT": "Minik misafirlerimiz için doktor ziyaretini olumlu bir deneyime dönüştürecek samimi bir ortam yaratmak için yola çıktık.",
+      "GOAL": "Kliniği tasarlarken asıl amacımız, çocuklarda olumsuz anılar bırakmayan ve doktora gitme korkusuna sebep olmayacak bir atmosfer yaratmaktı."
+    },
+    "TEAM": {
+      "TITLE": "Tasarım Ekibimiz",
+      "SUBTITLE": "Kliniğimizin mimarisinde emeği geçen değerli profesyoneller",
+      "CH_TITLE": "CH Mimarlık",
+      "CH_NAMES": "Yüksek Mimar Ebru Hacıoğlu ve Mimar Coşkun Hacıoğlu",
+      "CH_DESC": "Kliniğimizin mimari projesini hazırlayan deneyimli ekip",
+      "INTERIOR_TITLE": "Mobilya Tasarım ve Üretim",
+      "INTERIOR_NAME": "İç Mimar Özkan Coşkun ve ekibi",
+      "INTERIOR_DESC": "Özel olarak tasarlanan ve üretilen mobilyalar",
+      "PHILOSOPHY_TITLE": "Tasarım Felsefemiz",
+      "PHILOSOPHY_DESC": "Beyaz lake ve ceviz kaplama mobilyalar ile sade ve sıcak bir ortam yarattık. İç mekan tasarımında kliniğe çocuk dostu hava katacak unsurları öne çıkardık."
+    },
+    "MONTESSORI": {
+      "BADGE": "Montessori Ekolü",
+      "TITLE": "Montessori Yaklaşımı ile Tasarlandı",
+      "TEXT": "Montessori ekolüne uyarak kliniğimizde çocuklara hareket ve faaliyet özgürlüğü tanımayı amaçladık. Mekanın tüm alanlarında çocukların serbestçe dolaşabilmesi ve oyun oynayabilmesini sağladık.",
+      "COLORS": "Malzeme seçimlerinde kliniğimizin kurumsal kimliğinin parçası olan sarı ve kiremit renklerini tercih ettik.",
+      "FEATURE1": "Her yaştan çocuğun ilgisini çekebilecek kitaplar",
+      "FEATURE2": "Eğitici oyunlar ve oyuncaklar",
+      "FEATURE3": "Güvenli oyun alanları"
+    },
+    "SAFETY": {
+      "TITLE": "Güvenlik Önlemlerimiz",
+      "CORNERS": "Yuvarlak mobilya köşeleri",
+      "ELECTRICAL": "Kapalı elektrik ekipmanı",
+      "WINDOWS": "Pencere önleri için bariyerler",
+      "LOCKS": "Dolap kilitleri"
+    },
+    "BABY_ROOM": "Ayrıca bir bebek bakım ve emzirme odası oluşturduk. Bu odada rahat ve huzurlu bir atmosfer yaratmaya çalıştık.",
+    "HYGIENE": {
+      "TITLE": "Tavizsiz Hijyen Anlayışımız",
+      "SUBTITLE": "Titiz temizlik uygulamalarımız ile sağlığınızı önceliklendiriyoruz",
+      "TEXT": "Çocuklarınız kliniğimizde serbestçe dolaşıp oyun oynarken, onların sağlığından endişe etmemeniz için gerekli dezenfeksiyon işlemlerini tüm yüzeylerde kaliteli ürünlerle yapıyoruz.",
+      "UVC_TITLE": "UV-C Dezenfeksiyon",
+      "UVC_TEXT": "Özellikle küçük çocuklara yönelik malzemelerimizi rutin olarak UV-C ile dezenfekte ediyoruz.",
+      "SURFACE_TITLE": "Yüzey Dezenfeksiyonu",
+      "SURFACE_TEXT": "Tüm yüzeylerde kaliteli ürünlerle dezenfeksiyon işlemleri yapıyoruz.",
+      "PARENTS_TITLE": "Ailelerimizin Kullanımı İçin",
+      "PARENTS_TEXT": "Kliniğimizdeki UV-C dezenfeksiyon cihazı ve yüzey dezenfektanlarından sizler de dilediğiniz gibi faydalanabilirsiniz."
+    },
+    "GALLERY": {
+      "TITLE": "Klinik Görsellerimiz",
+      "WAITING": "Bekleme Alanı",
+      "EXAMINATION": "Muayene Odası",
+      "PLAY": "Oyun Köşesi",
+      "NURSING": "Emzirme Odası",
+      "ENTRANCE": "Klinik Girişi"
+    },
+    "CTA": {
+      "TITLE": "Çocuğunuzun Sağlığı İçin Yanınızdayız",
+      "SUBTITLE": "Modern kliniğimizde sizleri ağırlamaktan mutluluk duyarız",
+      "BUTTON": "Randevu Al"
+    },
+    "ALT": {
+      "WAITING_AREA": "Klinik bekleme alanı",
+      "PLAY_AREA": "Çocuk oyun alanı",
+      "EXAMINATION": "Muayene odası",
+      "PLAY_CORNER": "Oyun köşesi",
+      "NURSING": "Emzirme odası",
+      "ENTRANCE": "Klinik girişi"
+    },
     "FEATURE_MODERN": "Modern Ekipman",
     "FEATURE_COMFORT": "Konforlu Ortam",
     "FEATURE_CHILD_FRIENDLY": "Çocuk Dostu Tasarım",

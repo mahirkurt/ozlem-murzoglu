@@ -983,6 +983,76 @@
     "DATE_1_WEEK": "1 week ago"
   },
   "CLINIC": {
+    "HERO": {
+      "TITLE": "Our Clinic",
+      "SUBTITLE": "At your service with child-friendly design and modern infrastructure"
+    },
+    "MISSION": {
+      "TITLE": "A Special Environment for Our Little Guests",
+      "TEXT": "We set out to create a warm environment that will turn the doctor's visit into a positive experience for our little guests.",
+      "GOAL": "Our main goal in designing the clinic was to create an atmosphere that would not leave negative memories in children and would not cause fear of going to the doctor."
+    },
+    "TEAM": {
+      "TITLE": "Our Design Team",
+      "SUBTITLE": "The valuable professionals who contributed to the architecture of our clinic",
+      "CH_TITLE": "CH Architecture",
+      "CH_NAMES": "Senior Architect Ebru Hacıoğlu and Architect Coşkun Hacıoğlu",
+      "CH_DESC": "The experienced team that prepared the architectural project of our clinic",
+      "INTERIOR_TITLE": "Furniture Design and Production",
+      "INTERIOR_NAME": "Interior Architect Özkan Coşkun and team",
+      "INTERIOR_DESC": "Specially designed and manufactured furniture",
+      "PHILOSOPHY_TITLE": "Our Design Philosophy",
+      "PHILOSOPHY_DESC": "We created a simple and warm environment with white lacquer and walnut veneer furniture. We emphasized elements that would add a child-friendly atmosphere to the interior design."
+    },
+    "MONTESSORI": {
+      "BADGE": "Montessori School",
+      "TITLE": "Designed with the Montessori Approach",
+      "TEXT": "Following the Montessori school, we aimed to give children freedom of movement and activity in our clinic. We enabled children to move freely and play in all areas of the space.",
+      "COLORS": "In material selection, we preferred yellow and tile colors, which are part of our clinic's corporate identity.",
+      "FEATURE1": "Books that can appeal to children of all ages",
+      "FEATURE2": "Educational games and toys",
+      "FEATURE3": "Safe play areas"
+    },
+    "SAFETY": {
+      "TITLE": "Our Safety Measures",
+      "CORNERS": "Rounded furniture corners",
+      "ELECTRICAL": "Enclosed electrical equipment",
+      "WINDOWS": "Barriers for window fronts",
+      "LOCKS": "Cabinet locks"
+    },
+    "BABY_ROOM": "We also created a baby care and breastfeeding room. We tried to create a comfortable and peaceful atmosphere in this room.",
+    "HYGIENE": {
+      "TITLE": "Our Uncompromising Hygiene Standards",
+      "SUBTITLE": "We prioritize your health with our meticulous cleaning practices",
+      "TEXT": "While your children move freely and play in our clinic, we perform the necessary disinfection procedures on all surfaces with quality products so that you don't have to worry about their health.",
+      "UVC_TITLE": "UV-C Disinfection",
+      "UVC_TEXT": "We routinely disinfect our materials especially for young children with UV-C.",
+      "SURFACE_TITLE": "Surface Disinfection",
+      "SURFACE_TEXT": "We perform disinfection procedures on all surfaces with quality products.",
+      "PARENTS_TITLE": "For Our Families' Use",
+      "PARENTS_TEXT": "You can also benefit from the UV-C disinfection device and surface disinfectants in our clinic as you wish."
+    },
+    "GALLERY": {
+      "TITLE": "Our Clinic Gallery",
+      "WAITING": "Waiting Area",
+      "EXAMINATION": "Examination Room",
+      "PLAY": "Play Corner",
+      "NURSING": "Nursing Room",
+      "ENTRANCE": "Clinic Entrance"
+    },
+    "CTA": {
+      "TITLE": "We Are Here for Your Child's Health",
+      "SUBTITLE": "We would be happy to welcome you to our modern clinic",
+      "BUTTON": "Book Appointment"
+    },
+    "ALT": {
+      "WAITING_AREA": "Clinic waiting area",
+      "PLAY_AREA": "Children's play area",
+      "EXAMINATION": "Examination room",
+      "PLAY_CORNER": "Play corner",
+      "NURSING": "Nursing room",
+      "ENTRANCE": "Clinic entrance"
+    },
     "GALLERY_TITLE": "Our Clinic",
     "GALLERY_SUBTITLE": "Spaces designed for our little patients to feel safe and happy in our modern, hygienic, and child-friendly environment",
     "FEATURE_MODERN": "Modern Equipment",
