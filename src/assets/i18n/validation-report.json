@@ -1,9 +1,9 @@
 {
-  "timestamp": "2025-09-22T09:22:41.223Z",
+  "timestamp": "2025-09-22T09:35:29.458Z",
   "statistics": {
     "totalKeys": 605,
     "missingKeys": 0,
-    "unusedKeys": 1159,
+    "unusedKeys": 1161,
     "filesScanned": 45
   },
   "missingKeys": [],
@@ -1128,10 +1128,12 @@
     "FAVORITES.CLINIC.ALT_ENVIRONMENT",
     "FAVORITES.CLINIC.ALT_WAITING_AREA",
     "FAVORITES.CLINIC.ALT_INTERIOR",
+    "REVIEWS.TIME_AGO.YEARS",
     "REVIEWS.TIME_AGO.MONTHS",
     "REVIEWS.TIME_AGO.WEEKS",
     "REVIEWS.TIME_AGO.DAYS",
     "REVIEWS.TIME_AGO.HOURS",
+    "REVIEWS.TIME_AGO.MINUTES",
     "RESOURCES.VACCINES.HPV_VACCINE.title",
     "RESOURCES.VACCINES.HPV_VACCINE.category",
     "RESOURCES.VACCINES.HPV_VACCINE.description",
