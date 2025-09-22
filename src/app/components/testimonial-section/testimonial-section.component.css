@@ -1,9 +1,11 @@
 .testimonial-section {
-  padding: var(--md-sys-spacing-12) 0 30px 0;
-  background: linear-gradient(135deg, #f8fafc 0%, var(--md-sys-color-surface) 100%);
+  padding: var(--md-sys-spacing-12) 0 var(--md-sys-spacing-12) 0;
+  background: linear-gradient(180deg,
+    var(--md-sys-color-primary-container) 0%,
+    rgba(var(--md-sys-color-primary-rgb), 0.05) 100%);
   position: relative;
   overflow: hidden;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 .testimonial-section::before {

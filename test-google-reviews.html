@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Reviews Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .review {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        .rating {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        .author {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .text {
+            margin-top: 10px;
+            color: #34495e;
+        }
+        .time {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        #status {
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dr. Özlem Murzoğlu - Google Reviews Test</h1>
+
+    <div id="status">Loading Google Maps API...</div>
+
+    <div id="reviews-container"></div>
+
+    <script>
+        const API_KEY = 'AIzaSyDZNlErCHqvQYj0gh_zTwyyzj_Lwoo7V94';
+        const PLACE_ID = 'ChIJ83R9VUTJyhQRM2o-M-eoZyQ';
+
+        function loadGoogleMapsAPI() {
+            return new Promise((resolve, reject) => {
+                if (window.google && window.google.maps) {
+                    resolve();
+                    return;
+                }
+
+                window.initMap = function() {
+                    resolve();
+                    delete window.initMap;
+                };
+
+                const script = document.createElement('script');
+                script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap&language=tr`;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        function updateStatus(message, isError = false) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = message;
+            statusDiv.className = isError ? 'error' : 'success';
+        }
+
+        function displayReview(review) {
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+
+            const stars = '⭐'.repeat(review.rating);
+
+            reviewDiv.innerHTML = `
+                <div class="rating">${stars} ${review.rating}/5</div>
+                <div class="author">${review.author_name}</div>
+                <div class="text">${review.text || 'Yazılı yorum yok'}</div>
+                <div class="time">${review.relative_time_description}</div>
+            `;
+
+            document.getElementById('reviews-container').appendChild(reviewDiv);
+        }
+
+        async function fetchReviews() {
+            try {
+                await loadGoogleMapsAPI();
+                updateStatus('Google Maps API loaded. Fetching reviews...');
+
+                // Method 1: Try the new Places API
+                if (window.google.maps.places && window.google.maps.places.Place) {
+                    updateStatus('Using new Places API...');
+
+                    try {
+                        const place = new window.google.maps.places.Place({
+                            id: PLACE_ID,
+                            requestedLanguage: 'tr'
+                        });
+
+                        await place.fetchFields({
+                            fields: ['displayName', 'rating', 'userRatingCount', 'reviews']
+                        });
+
+                        updateStatus(`Found: ${place.displayName} - ${place.userRatingCount} reviews, ${place.rating} average rating`);
+
+                        if (place.reviews && place.reviews.length > 0) {
+                            console.log('Reviews from new API:', place.reviews);
+                            place.reviews.forEach(review => {
+                                console.log('Review object:', review);
+                                displayReview({
+                                    author_name: review.authorAttribution?.displayName || 'Anonymous',
+                                    rating: review.rating || 5,
+                                    text: review.text?.text || review.text || review.originalText?.text || review.originalText || '',
+                                    relative_time_description: review.relativePublishTimeDescription || ''
+                                });
+                            });
+                        } else {
+                            updateStatus('No reviews found with new API', true);
+                        }
+                    } catch (error) {
+                        console.error('New API error:', error);
+                        updateStatus('New API failed, trying legacy API...', true);
+                    }
+                }
+
+                // Method 2: Try legacy PlacesService
+                const service = new google.maps.places.PlacesService(document.createElement('div'));
+
+                const request = {
+                    placeId: PLACE_ID,
+                    fields: ['name', 'rating', 'user_ratings_total', 'reviews']
+                };
+
+                service.getDetails(request, (place, status) => {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        updateStatus(`Legacy API - Found: ${place.name} - ${place.user_ratings_total} reviews, ${place.rating} average rating`);
+
+                        if (place.reviews && place.reviews.length > 0) {
+                            console.log('Reviews from legacy API:', place.reviews);
+                            document.getElementById('reviews-container').innerHTML = '<h2>Reviews from Legacy API:</h2>';
+                            place.reviews.forEach(review => {
+                                console.log('Review:', review);
+                                displayReview(review);
+                            });
+                        } else {
+                            updateStatus('No reviews found with legacy API either', true);
+                        }
+                    } else {
+                        updateStatus(`Legacy API error: ${status}`, true);
+                    }
+                });
+
+            } catch (error) {
+                console.error('Error:', error);
+                updateStatus(`Error: ${error.message}`, true);
+            }
+        }
+
+        // Start fetching reviews when page loads
+        fetchReviews();
+    </script>
+</body>
+</html>

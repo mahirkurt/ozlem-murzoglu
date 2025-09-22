@@ -110,7 +110,8 @@
       "Bash(git fetch:*)",
       "Bash(git pull:*)",
       "Bash(git branch:*)",
-      "Bash(firebase hosting:enable:*)"
+      "Bash(firebase hosting:enable:*)",
+      "Bash(start chrome https://dr-murzoglu.web.app)"
     ],
     "deny": []
   }

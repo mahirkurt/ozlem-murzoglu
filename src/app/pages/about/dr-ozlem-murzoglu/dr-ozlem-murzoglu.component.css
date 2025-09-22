@@ -1,3 +1,6 @@
+/* Import Global CTA Styles */
+@import url('../../../styles/cta-section.css');
+
 /* Doctor Profile Page - Using Global Premium Styles */
 .doctor-profile-page {
   min-height: 100vh;
