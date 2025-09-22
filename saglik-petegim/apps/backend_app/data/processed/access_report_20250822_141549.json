@@ -1,0 +1,11 @@
+{
+  "generated_at": "2025-08-22T14:15:49.527788",
+  "statistics": {
+    "total_parent_accounts": 65,
+    "total_patients": 303,
+    "patients_with_caregivers": 251,
+    "patients_without_caregivers": 52,
+    "total_caregiver_relationships": 490,
+    "average_caregivers_per_patient": 1.952191235059761
+  }
+}
