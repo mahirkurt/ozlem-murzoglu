@@ -24,7 +24,7 @@
 /* Hero Section - MD3 Style */
 .journey-hero {
   position: relative;
-  padding: 100px 0 60px;
+  padding: var(--md-sys-spacing-24) 0 60px;
   background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
   overflow: hidden;
   margin-top: 80px;
@@ -132,11 +132,11 @@
   padding: 0.875rem 1.25rem;
   background: white;
   border: 2px solid #fed7aa;
-  border-radius: 20px;
+  border-radius: var(--md-sys-shape-corner-large);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 110px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(var(--md-sys-color-shadow), 0.05);
 }
 
 .phase-btn:hover {
@@ -275,7 +275,7 @@
   height: 60px;
   background: white;
   border: 4px solid #fed7aa;
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -325,9 +325,9 @@
 /* Content Box - MD3 Card */
 .timeline-content-box {
   background: white;
-  border-radius: 24px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   padding: 1.75rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(var(--md-sys-color-shadow), 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(251, 191, 36, 0.1);
   position: relative;
@@ -384,7 +384,7 @@
   gap: 0.5rem;
   padding: 0.625rem 1.125rem;
   background: #fef3c7;
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   text-decoration: none;
   color: #78350f;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -409,7 +409,7 @@
   margin-top: 4rem;
   padding: 3rem;
   background: linear-gradient(135deg, #fef3c7 0%, white 100%);
-  border-radius: 32px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   box-shadow: 0 8px 32px rgba(251, 191, 36, 0.1);
   border: 1px solid rgba(251, 191, 36, 0.15);
 }
@@ -435,7 +435,7 @@
   align-items: center;
   padding: 2rem;
   background: white;
-  border-radius: 24px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   text-decoration: none;
   color: #1f2937;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -523,8 +523,8 @@
   gap: 2.5rem;
   padding: 2.5rem;
   background: white;
-  border-radius: 32px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  box-shadow: 0 12px 40px rgba(var(--md-sys-color-shadow), 0.1);
   position: relative;
   z-index: 1;
 }
@@ -534,7 +534,7 @@
   width: 80px;
   height: 80px;
   background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   display: flex;
   align-items: center;
   justify-content: center;

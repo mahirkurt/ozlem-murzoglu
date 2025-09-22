@@ -10,31 +10,39 @@
     <!-- Search and Filter Section -->
     <div class="filter-section">
       <div class="search-container">
-        <mat-form-field appearance="outline" class="search-field">
-          <mat-label>{{ 'BLOG.SEARCH_PLACEHOLDER' | translate }}</mat-label>
+        <div class="md3-text-field md3-text-field-outlined search-field">
           <input
-            matInput
+            type="text"
+            class="md3-text-field__input"
             [(ngModel)]="searchQuery"
             (input)="onSearchChange()"
             [placeholder]="'BLOG.SEARCH_PLACEHOLDER' | translate"
+            id="search-input"
           />
-          <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
+          <label class="md3-text-field__label" for="search-input">{{ 'BLOG.SEARCH_PLACEHOLDER' | translate }}</label>
+          <span class="material-icons md3-text-field__icon md3-text-field__icon--trailing">search</span>
+        </div>
       </div>
 
       <div class="category-filter">
-        <mat-form-field appearance="outline">
-          <mat-label>{{ 'BLOG.CATEGORY_FILTER' | translate }}</mat-label>
-          <mat-select [(value)]="selectedCategory" (selectionChange)="onCategoryChange()">
-            <mat-option *ngFor="let category of categories" [value]="category">
+        <div class="md3-select">
+          <select
+            class="md3-select__input"
+            [(ngModel)]="selectedCategory"
+            (change)="onCategoryChange()"
+            id="category-select"
+          >
+            <option value="">{{ 'BLOG.CATEGORY_FILTER' | translate }}</option>
+            <option *ngFor="let category of categories" [value]="category">
               {{ category }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+            </option>
+          </select>
+          <label class="md3-select__label" for="category-select">{{ 'BLOG.CATEGORY_FILTER' | translate }}</label>
+        </div>
       </div>
 
-      <button mat-stroked-button (click)="clearFilters()" class="clear-filters-btn">
-        <mat-icon>clear</mat-icon>
+      <button class="md3-button md3-button-outlined clear-filters-btn" (click)="clearFilters()">
+        <span class="material-icons">clear</span>
         {{ 'BLOG.CLEAR_FILTERS' | translate }}
       </button>
     </div>
@@ -43,37 +51,37 @@
     <section class="featured-section" *ngIf="!searchQuery && !selectedCategory">
       <h2>{{ 'BLOG.FEATURED_ARTICLES' | translate }}</h2>
       <div class="featured-grid">
-        <mat-card
+        <div
           *ngFor="let article of featuredArticles$ | async; trackBy: trackByArticleId"
-          class="featured-card"
+          class="md3-card featured-card"
           [routerLink]="['/blog', article.slug]"
         >
           <div class="article-image">
             <img [src]="article.image" [alt]="article.title" loading="lazy" />
           </div>
-          <mat-card-header>
-            <mat-card-title>{{ article.title }}</mat-card-title>
-            <mat-card-subtitle>
+          <div class="md3-card__header">
+            <h3 class="md3-card__title">{{ article.title }}</h3>
+            <p class="md3-card__subtitle">
               {{ article.date }} • {{ article.readTime }} {{ 'BLOG.MIN_READ' | translate }}
-            </mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
+            </p>
+          </div>
+          <div class="md3-card__content">
             <p>{{ article.excerpt }}</p>
             <div class="article-meta">
-              <mat-chip-listbox>
-                <mat-chip-option *ngFor="let tag of article.tags.slice(0, 3)">
+              <div class="md3-chip-group">
+                <span class="md3-chip md3-chip-filter" *ngFor="let tag of article.tags.slice(0, 3)">
                   {{ tag }}
-                </mat-chip-option>
-              </mat-chip-listbox>
+                </span>
+              </div>
             </div>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button color="primary">
+          </div>
+          <div class="md3-card__actions">
+            <button class="md3-button md3-button-text">
               {{ 'BLOG.READ_MORE' | translate }}
-              <mat-icon>arrow_forward</mat-icon>
+              <span class="material-icons">arrow_forward</span>
             </button>
-          </mat-card-actions>
-        </mat-card>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -87,7 +95,7 @@
       <h2 *ngIf="!searchQuery && !selectedCategory">{{ 'BLOG.ALL_ARTICLES' | translate }}</h2>
 
       <div class="articles-grid">
-        <mat-card
+        <div
           *ngFor="let article of articles$ | async; trackBy: trackByArticleId"
           class="article-card"
           [routerLink]="['/blog', article.slug]"
@@ -95,30 +103,30 @@
           <div class="article-image">
             <img [src]="article.image" [alt]="article.title" loading="lazy" />
           </div>
-          <mat-card-header>
-            <mat-card-title>{{ article.title }}</mat-card-title>
-            <mat-card-subtitle>
+          <div class="md3-card__header">
+            <h3 class="md3-card__title">{{ article.title }}</h3>
+            <p class="md3-card__subtitle">
               {{ article.date }} • {{ article.readTime }} {{ 'BLOG.MIN_READ' | translate }}
-            </mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
+            </p>
+          </div>
+          <div class="md3-card__content">
             <p>{{ article.excerpt }}</p>
             <div class="article-meta">
               <span class="category">{{ article.category }}</span>
-              <mat-chip-listbox>
-                <mat-chip-option *ngFor="let tag of article.tags.slice(0, 2)">
+              <div class="md3-chip-group">
+                <span class="md3-chip md3-chip-filter" *ngFor="let tag of article.tags.slice(0, 2)">
                   {{ tag }}
-                </mat-chip-option>
-              </mat-chip-listbox>
+                </span>
+              </div>
             </div>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button color="primary">
+          </div>
+          <div class="md3-card__actions">
+            <button class="md3-button md3-button-text">
               {{ 'BLOG.READ_MORE' | translate }}
-              <mat-icon>arrow_forward</mat-icon>
+              <span class="material-icons">arrow_forward</span>
             </button>
-          </mat-card-actions>
-        </mat-card>
+          </div>
+        </div>
       </div>
     </section>
   </div>

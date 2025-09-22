@@ -4,12 +4,12 @@
 
 /* CSS Variables */
 :root {
-  --hero-gradient-1: #005f73;
-  --hero-gradient-2: #0a9396;
+  --hero-gradient-1: var(--md-sys-color-primary);
+  --hero-gradient-2: var(--md-sys-color-primary);
   --hero-gradient-3: #94d3ac;
   --hero-padding-y: 6rem;
   --hero-min-height: 360px;
-  --hero-text-primary: #ffffff;
+  --hero-text-primary: var(--md-sys-color-surface);
   --hero-text-secondary: rgba(255, 255, 255, 0.85);
   --hero-text-muted: rgba(255, 255, 255, 0.6);
 }
@@ -148,7 +148,7 @@ section[class*='hero']:not(.hero-content):not(.homepage-hero) {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.03) 100%);
+  background: linear-gradient(180deg, rgba(var(--md-sys-color-shadow), 0.15) 0%, rgba(var(--md-sys-color-shadow), 0.03) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -194,7 +194,7 @@ nav.breadcrumb {
   justify-content: center;
   gap: 0.75rem;
   margin-bottom: 2rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.9375rem;
   font-weight: 400;
   flex-wrap: wrap;
@@ -235,14 +235,14 @@ nav.breadcrumb {
 .page-title,
 h1.hero-title,
 .hero-section h1 {
-  font-family: 'Figtree', sans-serif !important;
+  font-family: var(--md-sys-typescale-font-brand) !important;
   font-size: clamp(2.25rem, 5vw, 3rem) !important;
   font-weight: 700 !important;
   color: var(--hero-text-primary) !important;
   margin: 0 0 1rem 0 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.02em !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 4px rgba(var(--md-sys-color-shadow), 0.1);
 }
 
 /* ============================================== */
@@ -251,7 +251,7 @@ h1.hero-title,
 .hero-subtitle,
 .page-subtitle,
 .hero-section p.hero-subtitle {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--md-sys-typescale-font-plain) !important;
   font-size: clamp(1.125rem, 2.5vw, 1.375rem) !important;
   font-weight: 400 !important;
   color: var(--hero-text-secondary) !important;
@@ -328,7 +328,7 @@ h1.hero-title,
 }
 
 .hero-ctas .btn-primary {
-  background: #ffb74d;
+  background: var(--md-sys-color-secondary);
   color: white;
   border: 2px solid transparent;
 }

@@ -15,7 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
   `,
   styles: [`
     .favorites-container {
-      padding: 40px;
+      padding: var(--md-sys-spacing-10);
       min-height: 60vh;
       display: flex;
       flex-direction: column;

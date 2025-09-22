@@ -12,8 +12,8 @@
   text-align: center;
   padding: 4rem 2rem;
   background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: var(--md-sys-shape-corner-large);
+  box-shadow: 0 4px 6px rgba(var(--md-sys-color-shadow), 0.1);
 }
 
 .coming-soon .material-icons {
@@ -24,11 +24,11 @@
 
 .coming-soon h2 {
   font-size: 2rem;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
   margin-bottom: 1rem;
 }
 
 .coming-soon p {
   font-size: 1.125rem;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
 }

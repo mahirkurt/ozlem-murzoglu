@@ -77,7 +77,7 @@ export const buttonSuccess = trigger('buttonSuccess', [
     animate(
       MICRO_TIMINGS.quick,
       keyframes([
-        style({ backgroundColor: '#4CAF50', transform: 'scale(1)' }),
+        style({ backgroundColor: 'var(--md-sys-color-success)', transform: 'scale(1)' }),
         style({ transform: 'scale(1.05)' }),
         style({ transform: 'scale(1)' }),
       ])

@@ -62,7 +62,7 @@ export class MagneticButtonDirective implements OnInit {
     ripple.classList.add('magnetic-ripple');
     ripple.style.cssText = `
       position: absolute;
-      border-radius: 50%;
+      border-radius: var(--md-sys-shape-corner-full);
       background: rgba(255, 255, 255, 0.5);
       width: 100px;
       height: 100px;

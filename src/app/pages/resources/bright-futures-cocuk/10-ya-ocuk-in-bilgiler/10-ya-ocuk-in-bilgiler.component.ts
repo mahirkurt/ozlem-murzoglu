@@ -125,43 +125,43 @@ export class Doc10YaOcukInBilgilerComponent implements OnInit, AfterViewInit, On
           body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.5;
-            color: #333;
+            color: var(--md-sys-color-on-surface);
             max-width: 100%;
             font-size: 12px;
           }
           .pdf-header {
             text-align: center;
             padding-bottom: 15px;
-            border-bottom: 2px solid #005F73;
+            border-bottom: 2px solid var(--md-sys-color-primary);
             margin-bottom: 20px;
             column-span: all;
           }
           .pdf-logo {
             font-size: 18px;
             font-weight: bold;
-            color: #005F73;
+            color: var(--md-sys-color-primary);
             margin-bottom: 8px;
           }
           h1 {
-            color: #1a1a1a;
+            color: var(--md-sys-color-on-surface);
             font-size: 22px;
-            margin: 8px 0;
+            margin: var(--md-sys-spacing-2) 0;
           }
           h2 {
-            color: #005F73;
+            color: var(--md-sys-color-primary);
             font-size: 16px;
             margin-top: 18px;
             margin-bottom: 12px;
             page-break-after: avoid;
           }
           h3, h4 {
-            color: #333;
+            color: var(--md-sys-color-on-surface);
             margin-top: 15px;
             margin-bottom: 8px;
             page-break-after: avoid;
           }
           p {
-            margin: 8px 0;
+            margin: var(--md-sys-spacing-2) 0;
             text-align: justify;
           }
           .content-section {
@@ -169,10 +169,10 @@ export class Doc10YaOcukInBilgilerComponent implements OnInit, AfterViewInit, On
             page-break-inside: avoid;
           }
           .flow-item, .content-card-item {
-            margin: 8px 0;
-            padding: 8px;
-            border-left: 3px solid #0A9396;
-            background: #f8f9fa;
+            margin: var(--md-sys-spacing-2) 0;
+            padding: var(--md-sys-spacing-2);
+            border-left: 3px solid var(--md-sys-color-primary);
+            background: var(--md-sys-color-surface-container-low);
             break-inside: avoid;
           }
           .sub-items {
@@ -180,10 +180,10 @@ export class Doc10YaOcukInBilgilerComponent implements OnInit, AfterViewInit, On
             margin-top: 8px;
           }
           .sub-item-card {
-            margin: 4px 0;
-            padding: 4px 8px;
-            border-left: 2px solid #0A9396;
-            background: #f5f5f5;
+            margin: var(--md-sys-spacing-1) 0;
+            padding: var(--md-sys-spacing-1) var(--md-sys-spacing-2);
+            border-left: 2px solid var(--md-sys-color-primary);
+            background: var(--md-sys-color-surface-container);
             break-inside: avoid;
           }
           .disclaimer-section {
@@ -191,7 +191,7 @@ export class Doc10YaOcukInBilgilerComponent implements OnInit, AfterViewInit, On
             padding-top: 20px;
             border-top: 1px solid #dee2e6;
             font-size: 12px;
-            color: #666;
+            color: var(--md-sys-color-on-surface-variant);
           }
           @media print {
             body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }

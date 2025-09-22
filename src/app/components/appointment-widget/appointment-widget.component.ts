@@ -83,13 +83,13 @@ import { CommonModule } from '@angular/common';
     .widget-button {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 16px 24px;
+      gap: var(--md-sys-spacing-2);
+      padding: var(--md-sys-spacing-4) var(--md-sys-spacing-6);
       background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
       color: white;
       border: none;
       border-radius: 50px;
-      box-shadow: 0 8px 30px rgba(0, 95, 115, 0.3);
+      box-shadow: 0 8px 30px rgba(var(--md-sys-color-primary-rgb), 0.3);
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
@@ -105,7 +105,7 @@ import { CommonModule } from '@angular/common';
       left: 50%;
       width: 0;
       height: 0;
-      border-radius: 50%;
+      border-radius: var(--md-sys-shape-corner-full);
       background: rgba(255, 255, 255, 0.3);
       transform: translate(-50%, -50%);
       transition: width 0.6s, height 0.6s;
@@ -118,7 +118,7 @@ import { CommonModule } from '@angular/common';
 
     .widget-button:hover {
       transform: scale(1.05);
-      box-shadow: 0 12px 40px rgba(0, 95, 115, 0.4);
+      box-shadow: 0 12px 40px rgba(var(--md-sys-color-primary-rgb), 0.4);
     }
 
     .widget-button .material-icons {
@@ -134,8 +134,8 @@ import { CommonModule } from '@angular/common';
 
     .appointment-widget.expanded .widget-button {
       background: linear-gradient(135deg, #ef4444, #dc2626);
-      border-radius: 50%;
-      padding: 16px;
+      border-radius: var(--md-sys-shape-corner-full);
+      padding: var(--md-sys-spacing-4);
       min-width: auto;
     }
 
@@ -144,9 +144,9 @@ import { CommonModule } from '@angular/common';
       bottom: 80px;
       right: 0;
       background: white;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-      padding: 24px;
+      border-radius: var(--md-sys-shape-corner-large);
+      box-shadow: 0 20px 60px rgba(var(--md-sys-color-shadow), 0.15);
+      padding: var(--md-sys-spacing-6);
       min-width: 320px;
       animation: slideUp 0.3s ease;
     }
@@ -183,15 +183,15 @@ import { CommonModule } from '@angular/common';
     .widget-actions {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: var(--md-sys-spacing-3);
     }
 
     .widget-action {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 16px;
-      border-radius: 12px;
+      gap: var(--md-sys-spacing-4);
+      padding: var(--md-sys-spacing-4);
+      border-radius: var(--md-sys-shape-corner-medium);
       text-decoration: none;
       transition: all 0.3s ease;
       border: 1px solid #e5e7eb;
@@ -199,7 +199,7 @@ import { CommonModule } from '@angular/common';
 
     .widget-action:hover {
       transform: translateX(8px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 20px rgba(var(--md-sys-color-shadow), 0.1);
     }
 
     .widget-action.primary {
@@ -213,7 +213,7 @@ import { CommonModule } from '@angular/common';
 
     .widget-action.whatsapp {
       background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-      border-color: #25D366;
+      border-color: var(--md-sys-color-brand-whatsapp);
     }
 
     .widget-action.whatsapp:hover {
@@ -237,7 +237,7 @@ import { CommonModule } from '@angular/common';
     .widget-action svg {
       width: 24px;
       height: 24px;
-      color: #25D366;
+      color: var(--md-sys-color-brand-whatsapp);
     }
 
     .widget-action.phone .material-icons {
@@ -296,7 +296,7 @@ import { CommonModule } from '@angular/common';
       }
 
       .widget-button {
-        padding: 14px 20px;
+        padding: var(--md-sys-spacing-3) var(--md-sys-spacing-5);
         font-size: 14px;
       }
 

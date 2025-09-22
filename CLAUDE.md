@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Angular 18 application for Dr. Özlem Murzoğlu's pediatric clinic website with Material Design 3 principles, i18n support (Turkish/English), and Firebase/Vercel hosting.
+Angular 18 application for Dr. Özlem Murzoğlu's pediatric clinic website with Material Design 3 principles (pure CSS implementation), i18n support (Turkish/English), and Firebase/Vercel hosting.
 
 ## Development Commands
 
@@ -20,6 +20,15 @@ npm run build
 
 # Run unit tests (Karma)
 npm test
+
+# Build and watch for changes (development mode)
+npm run watch
+
+# i18n Translation Management
+npm run i18n:sync      # Scan codebase and sync missing translation keys
+npm run i18n:validate  # Validate translation consistency between languages
+npm run i18n:clean     # Remove unused translation keys
+npm run i18n:check     # Run sync and validate together
 
 # Run E2E tests (Playwright)
 npx playwright test --config=tests/config/playwright.config.js
@@ -45,21 +54,40 @@ node scripts/clean-unused-translations.js
 # WebP image conversion
 node scripts/convert-to-webp.js
 
+# MD3 migration tool
+node scripts/migrate-to-md3.js
+
+# Lighthouse performance testing
+node scripts/lighthouse-test.js
+
 # Process resource documents (multiple tools available)
 node tools/process-documents.mjs
 node tools/process-all-documents.mjs
 node tools/process-clean-documents.mjs
-```
+node tools/test-documents.mjs
+node tools/process-sample-documents.mjs
+
+# i18n auto-synchronization tool
+node tools/i18n-auto-sync.js
+
+# Resource regeneration
+node tools/resource-regenerate.js
+
+# SEO link checking
+node tools/seo-check-links.js
+
+# MCP integration tool
+node tools/mcp.js
 
 ## Architecture
 
 ### Core Technologies
 - **Framework**: Angular 18.2 with standalone components (no NgModules)
 - **TypeScript**: 5.5.2 with strict mode and all strict flags enabled
-- **Styling**: CSS with Material Design 3 principles, SCSS tokens
-- **UI Library**: @angular/material 18.2.14 with CDK
+- **Styling**: Pure CSS with Material Design 3 principles, SCSS tokens (no @angular/material)
 - **Fonts**: Figtree (headings), DM Sans (body)
 - **i18n**: @ngx-translate/core v17 for Turkish/English support
+- **i18n Auto-Sync**: Automatic translation key detection and synchronization system
 - **Deployment**: Firebase Hosting / Vercel
 - **Testing**: Karma 6.4 with Jasmine 5.2 (unit), Playwright (E2E)
 - **Build**: Angular CLI 18.2.20 with application builder
@@ -81,6 +109,12 @@ node tools/process-clean-documents.mjs
 - **Routing**: Lazy-loaded routes in `app.routes.ts` with auto-generated resource routes in `resource-routes.ts`
 - **SEO**: SeoService with meta tags and structured data
 - **i18n**: Default language 'tr', HTTP loader for translations, nested key structure
+- **i18n Auto-Sync System**:
+  - Automatically scans HTML/TypeScript files for translation keys
+  - Detects missing and unused translation keys
+  - Updates translation files with placeholder values
+  - Generates validation reports for CI/CD
+  - GitHub Actions workflow for PR validation
 - **Resources System**: Dynamic resource/document pages at `/bilgi-merkezi/{category}/{document}`
 - **Animations**: Liquid hero animations, scroll-triggered reveals, async animations provider
 - **Custom Components**: MD3 expandable app bar, navigation rail, floating action buttons
@@ -92,23 +126,30 @@ node tools/process-clean-documents.mjs
 - **Budgets**: Initial 700KB warning/2MB error; Component styles 12KB warning/24KB error
 - **Angular Config**: Application builder with zone.js polyfill, event coalescing
 - **Compiler Options**: Strict templates, strict injection parameters, strict input access modifiers, noImplicitOverride
+- **Assets**: Files from `public/` folder copied to build output
+- **Styles**: SCSS tokens from `src/app/styles/tokens/_index.scss`, global styles from `src/styles.css`
 
 ### Testing Setup
 - **Unit Tests**: Karma with Jasmine, Chrome launcher, runs with `npm test`
 - **E2E Tests**: Playwright with config at `tests/config/playwright.config.js`
   - Browsers: Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari
-  - Test Server: Port 4201
-  - Test Patterns: `check-*.spec.js` and `test-*.spec.js`
-  - Features: Screenshots on failure, video on failure, HTML reporter
+  - Test Server: Port 4201 (webServer command auto-starts server with `npm run start -- --port 4201`)
+  - Base URL: http://localhost:4200 (default), http://localhost:4201 (E2E server)
+  - Test Directory: `tests/e2e/`
+  - Test Patterns: `**/*.spec.js`
+  - Features: Screenshots on failure, video on failure, HTML reporter, trace on first retry
   - Timeout: 120 seconds
+  - Parallel execution: Fully parallel, CI retries: 2
 
 ### Deployment Configuration
 - **Vercel**:
-  - Root directory: Empty (leave blank)
+  - Root directory: Empty (leave blank) or `.`
   - Build command: `npm ci && npm run build`
+  - Install command: `npm ci`
   - Output directory: `dist/angular-app/browser`
 - **Firebase**:
   - Public directory: `dist/angular-app/browser`
+  - Config file: `firebase.json`
   - SPA rewrites: All routes to index.html
 
 ## Important Notes
@@ -121,3 +162,44 @@ node tools/process-clean-documents.mjs
 - Application uses zone.js with event coalescing for change detection
 - SVGO configuration in `tools/svgo.config.mjs` for SVG optimization
 - Custom cursor implementation with interactive hover effects
+- MD3 components are implemented in pure CSS without @angular/material dependency
+- Python scripts available for bulk resource updates (`scripts/update_*.py`)
+
+## i18n Translation Workflow
+
+### Automatic Translation Synchronization
+The project includes an automated i18n sync system that ensures all translation keys are properly maintained:
+
+1. **Auto-Detection**: The `i18n-auto-sync.js` tool scans all HTML and TypeScript files for translation keys
+2. **Pattern Recognition**: Recognizes various translation patterns including:
+   - `{{ 'KEY' | translate }}`
+   - `[title]="'KEY'"`
+   - `translate.instant('KEY')`
+   - And other common patterns
+
+3. **Automatic Updates**: Missing keys are automatically added with placeholder values:
+   - Turkish: `[TR] Key Name`
+   - English: `[EN] Key Name`
+
+4. **CI/CD Integration**: GitHub Actions workflow validates translations on every PR
+
+### Usage
+```bash
+# Check and sync translations
+npm run i18n:sync
+
+# Validate translation consistency
+npm run i18n:validate
+
+# Clean unused translations
+npm run i18n:clean
+
+# Full check (sync + validate)
+npm run i18n:check
+```
+
+### Best Practices
+- Always run `npm run i18n:check` before committing
+- Review automatically generated placeholder translations
+- Keep translation keys in UPPERCASE with underscores (e.g., `HEADER.NAV_HOME`)
+- Use nested structure for organization (e.g., `SERVICES.VACCINATION.TITLE`)

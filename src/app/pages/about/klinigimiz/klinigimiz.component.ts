@@ -18,7 +18,7 @@ export class KlinigimizComponent implements OnInit {
   breadcrumbs = [
     { label: 'HEADER.NAV_HOME', link: '/' },
     { label: 'HEADER.NAV_ABOUT', link: '/hakkimizda' },
-    { label: 'HEADER.NAV_CLINIC_DESIGN' }
+    { label: 'HEADER.NAV_CLINIC' }
   ];
 
   constructor() {

@@ -35,7 +35,7 @@
   font-weight: 600;
   color: var(--color-primary);
   margin: 2rem 0 1rem;
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
 }
 
 /* Fix nested list spacing */

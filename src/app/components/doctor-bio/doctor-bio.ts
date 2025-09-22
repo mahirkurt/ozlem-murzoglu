@@ -70,15 +70,15 @@ import { TranslateModule } from '@ngx-translate/core';
   `,
   styles: [`
     .doctor-bio-section {
-      padding: 60px 0;
-      background: #f8f9fa;
+      padding: var(--md-sys-spacing-15) 0;
+      background: var(--md-sys-color-surface-container-low);
       position: relative;
     }
     
     .bio-content {
       display: grid;
       grid-template-columns: 380px 1fr;
-      gap: 60px;
+      gap: var(--md-sys-spacing-15);
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
@@ -97,8 +97,8 @@ import { TranslateModule } from '@ngx-translate/core';
       height: 450px;
       object-fit: cover;
       object-position: center top;
-      border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0, 95, 115, 0.2);
+      border-radius: var(--md-sys-shape-corner-large);
+      box-shadow: 0 20px 60px rgba(var(--md-sys-color-primary-rgb), 0.2);
       position: relative;
       z-index: 2;
     }
@@ -110,7 +110,7 @@ import { TranslateModule } from '@ngx-translate/core';
       width: calc(100% + 30px);
       height: calc(100% + 30px);
       background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-      border-radius: 20px;
+      border-radius: var(--md-sys-shape-corner-large);
       opacity: 0.08;
       z-index: 1;
     }
@@ -123,7 +123,7 @@ import { TranslateModule } from '@ngx-translate/core';
       right: -30px;
       bottom: -30px;
       background: linear-gradient(135deg, var(--color-secondary-light) 0%, var(--color-accent-light) 100%);
-      border-radius: 20px;
+      border-radius: var(--md-sys-shape-corner-large);
       opacity: 0.1;
       z-index: 0;
     }
@@ -156,23 +156,23 @@ import { TranslateModule } from '@ngx-translate/core';
     .qualifications {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: var(--md-sys-spacing-6);
     }
     
     .qualification-item {
       display: flex;
       align-items: flex-start;
-      gap: 16px;
-      padding: 20px;
+      gap: var(--md-sys-spacing-4);
+      padding: var(--md-sys-spacing-5);
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 95, 115, 0.08);
+      border-radius: var(--md-sys-shape-corner-medium);
+      box-shadow: 0 2px 8px rgba(var(--md-sys-color-primary-rgb), 0.08);
       transition: all 0.3s ease;
     }
     
     .qualification-item:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 95, 115, 0.12);
+      box-shadow: 0 8px 20px rgba(var(--md-sys-color-primary-rgb), 0.12);
     }
     
     .qualification-item .material-icons {
@@ -186,7 +186,7 @@ import { TranslateModule } from '@ngx-translate/core';
     .qualification-item div {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: var(--md-sys-spacing-1);
     }
     
     .qualification-item strong {
@@ -204,7 +204,7 @@ import { TranslateModule } from '@ngx-translate/core';
     @media (max-width: 768px) {
       .bio-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: var(--md-sys-spacing-10);
       }
       
       .doctor-image-wrapper {

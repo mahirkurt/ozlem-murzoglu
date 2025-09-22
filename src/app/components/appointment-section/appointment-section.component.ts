@@ -85,8 +85,8 @@ import { TranslateModule } from '@ngx-translate/core';
   `,
   styles: [`
     .appointment-section {
-      padding: 60px 0;
-      background: #f8f9fa;
+      padding: var(--md-sys-spacing-15) 0;
+      background: var(--md-sys-color-surface-container-low);
     }
 
     .appointment-header {
@@ -111,16 +111,16 @@ import { TranslateModule } from '@ngx-translate/core';
     .appointment-options {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      gap: var(--md-sys-spacing-7);
       margin-bottom: 60px;
     }
 
     .appointment-card {
       background: white;
-      border-radius: 16px;
-      padding: 40px 30px;
+      border-radius: var(--md-sys-shape-corner-large);
+      padding: var(--md-sys-spacing-10) var(--md-sys-spacing-7);
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 95, 115, 0.08);
+      box-shadow: 0 4px 20px rgba(var(--md-sys-color-primary-rgb), 0.08);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -140,7 +140,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
     .appointment-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 12px 40px rgba(0, 95, 115, 0.15);
+      box-shadow: 0 12px 40px rgba(var(--md-sys-color-primary-rgb), 0.15);
     }
 
     .appointment-card:hover::before {
@@ -155,7 +155,7 @@ import { TranslateModule } from '@ngx-translate/core';
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
-      border-radius: 50%;
+      border-radius: var(--md-sys-shape-corner-full);
       position: relative;
     }
 
@@ -165,7 +165,7 @@ import { TranslateModule } from '@ngx-translate/core';
     }
 
     .card-icon.whatsapp {
-      background: linear-gradient(135deg, #25D366, #128C7E);
+      background: linear-gradient(135deg, var(--md-sys-color-brand-whatsapp), var(--md-sys-color-brand-whatsapp-dark));
     }
 
     .card-icon svg {
@@ -190,8 +190,8 @@ import { TranslateModule } from '@ngx-translate/core';
     .appointment-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 14px 32px;
+      gap: var(--md-sys-spacing-2);
+      padding: var(--md-sys-spacing-3) var(--md-sys-spacing-8);
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
@@ -206,11 +206,11 @@ import { TranslateModule } from '@ngx-translate/core';
 
     .appointment-btn.primary:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0, 95, 115, 0.3);
+      box-shadow: 0 8px 25px rgba(var(--md-sys-color-primary-rgb), 0.3);
     }
 
     .appointment-btn.whatsapp {
-      background: linear-gradient(135deg, #25D366, #128C7E);
+      background: linear-gradient(135deg, var(--md-sys-color-brand-whatsapp), var(--md-sys-color-brand-whatsapp-dark));
       color: white;
     }
 
@@ -220,13 +220,13 @@ import { TranslateModule } from '@ngx-translate/core';
     }
 
     .appointment-btn.secondary {
-      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      background: linear-gradient(135deg, var(--md-sys-color-surface-container), #d9e2ec);
       color: var(--color-primary);
     }
 
     .appointment-btn.secondary:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 25px rgba(var(--md-sys-color-shadow), 0.1);
     }
 
     .appointment-btn .material-icons {
@@ -240,10 +240,10 @@ import { TranslateModule } from '@ngx-translate/core';
 
     .embedded-appointment {
       margin-top: 60px;
-      padding: 40px;
+      padding: var(--md-sys-spacing-10);
       background: white;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 95, 115, 0.1);
+      border-radius: var(--md-sys-shape-corner-large);
+      box-shadow: 0 10px 40px rgba(var(--md-sys-color-primary-rgb), 0.1);
     }
 
     .iframe-container {
@@ -252,7 +252,7 @@ import { TranslateModule } from '@ngx-translate/core';
       padding-bottom: 100%;
       height: 0;
       overflow: hidden;
-      border-radius: 16px;
+      border-radius: var(--md-sys-shape-corner-large);
       min-height: 800px;
     }
 
@@ -263,13 +263,13 @@ import { TranslateModule } from '@ngx-translate/core';
       width: 100%;
       height: 100%;
       border: none;
-      border-radius: 16px;
+      border-radius: var(--md-sys-shape-corner-large);
     }
 
     @media (max-width: 768px) {
       .appointment-options {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: var(--md-sys-spacing-5);
       }
 
       .section-title {
@@ -277,7 +277,7 @@ import { TranslateModule } from '@ngx-translate/core';
       }
 
       .appointment-card {
-        padding: 30px 20px;
+        padding: var(--md-sys-spacing-7) var(--md-sys-spacing-5);
       }
 
       .iframe-container {

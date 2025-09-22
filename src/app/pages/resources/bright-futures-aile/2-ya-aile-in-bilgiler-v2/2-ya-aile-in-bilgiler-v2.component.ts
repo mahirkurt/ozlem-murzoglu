@@ -79,7 +79,7 @@ export class Doc2YaAileInBilgilerV2Component implements OnInit, AfterViewInit {
           body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--md-sys-color-on-surface);
             max-width: 100%;
           }
           .pdf-header {
@@ -95,9 +95,9 @@ export class Doc2YaAileInBilgilerV2Component implements OnInit, AfterViewInit {
             margin-bottom: 10px;
           }
           h1 {
-            color: #1a1a1a;
+            color: var(--md-sys-color-on-surface);
             font-size: 28px;
-            margin: 10px 0;
+            margin: var(--md-sys-spacing-2) 0;
           }
           h2 {
             color: #7b61ff;
@@ -106,12 +106,12 @@ export class Doc2YaAileInBilgilerV2Component implements OnInit, AfterViewInit {
             margin-bottom: 15px;
           }
           h3, h4 {
-            color: #333;
+            color: var(--md-sys-color-on-surface);
             margin-top: 20px;
             margin-bottom: 10px;
           }
           p {
-            margin: 10px 0;
+            margin: var(--md-sys-spacing-2) 0;
           }
           .content-section {
             margin-bottom: 30px;

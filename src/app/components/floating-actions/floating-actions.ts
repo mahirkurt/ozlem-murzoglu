@@ -58,12 +58,12 @@ import { CommonModule } from '@angular/common';
     .fab-main {
       width: 64px;
       height: 64px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+      border-radius: var(--md-sys-shape-corner-full);
+      background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary) 100%);
       border: none;
       color: white;
       cursor: pointer;
-      box-shadow: 0 6px 20px rgba(0, 95, 115, 0.3);
+      box-shadow: 0 6px 20px rgba(var(--md-sys-color-primary-rgb), 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -74,11 +74,11 @@ import { CommonModule } from '@angular/common';
     
     .fab-main:hover {
       transform: scale(1.1);
-      box-shadow: 0 8px 30px rgba(0, 95, 115, 0.4);
+      box-shadow: 0 8px 30px rgba(var(--md-sys-color-primary-rgb), 0.4);
     }
     
     .fab-main.rotate {
-      background: linear-gradient(135deg, #F44336 0%, #E91E63 100%);
+      background: linear-gradient(135deg, var(--md-sys-color-error) 0%, #E91E63 100%);
     }
     
     .fab-main .material-icons {
@@ -96,16 +96,16 @@ import { CommonModule } from '@angular/common';
       right: 0;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: var(--md-sys-spacing-4);
       align-items: flex-end;
     }
     
     .fab-action {
       width: 48px;
       height: 48px;
-      border-radius: 50%;
+      border-radius: var(--md-sys-shape-corner-full);
       background: white;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 12px rgba(var(--md-sys-color-shadow), 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -116,21 +116,21 @@ import { CommonModule } from '@angular/common';
     
     .fab-action:hover {
       transform: scale(1.1) translateY(0) !important;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 20px rgba(var(--md-sys-color-shadow), 0.2);
     }
     
     .fab-action.whatsapp {
-      background: #25D366;
+      background: var(--md-sys-color-brand-whatsapp);
       color: white;
     }
     
     .fab-action.phone {
-      background: linear-gradient(135deg, #FFB74D 0%, #FFA726 100%);
+      background: linear-gradient(135deg, var(--md-sys-color-secondary) 0%, #FFA726 100%);
       color: white;
     }
     
     .fab-action.appointment {
-      background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+      background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary) 100%);
       color: white;
     }
     
@@ -146,9 +146,9 @@ import { CommonModule } from '@angular/common';
     .tooltip {
       position: absolute;
       right: 60px;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(var(--md-sys-color-shadow), 0.8);
       color: white;
-      padding: 6px 12px;
+      padding: var(--md-sys-spacing-1) var(--md-sys-spacing-3);
       border-radius: 6px;
       font-size: 12px;
       white-space: nowrap;
@@ -168,8 +168,8 @@ import { CommonModule } from '@angular/common';
       transform: translate(-50%, -50%);
       width: 64px;
       height: 64px;
-      border: 2px solid rgba(0, 95, 115, 0.3);
-      border-radius: 50%;
+      border: 2px solid rgba(var(--md-sys-color-primary-rgb), 0.3);
+      border-radius: var(--md-sys-shape-corner-full);
       animation: pulse-animation 2s infinite;
       z-index: 0;
     }

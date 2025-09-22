@@ -30,7 +30,7 @@
 /* Section Titles */
 .section-title {
   font-size: 2.5rem;
-  color: var(--hero-gradient-start, #005f73);
+  color: var(--hero-gradient-start, var(--md-sys-color-primary));
   margin-bottom: 30px;
   font-weight: 700;
   position: relative;
@@ -54,14 +54,14 @@
 .features-section,
 .benefits-section,
 .process-section {
-  padding: 80px 0;
+  padding: var(--md-sys-spacing-20) 0;
   background: white;
 }
 
 .overview-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: var(--md-sys-spacing-15);
   align-items: start;
 }
 
@@ -83,7 +83,7 @@
 .service-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: var(--md-sys-spacing-7);
   margin-top: 40px;
 }
 
@@ -91,9 +91,9 @@
 .benefit-card,
 .service-card {
   background: white;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: var(--md-sys-shape-corner-large);
+  padding: var(--md-sys-spacing-7);
+  box-shadow: 0 4px 20px rgba(var(--md-sys-color-shadow), 0.08);
   transition: all 0.3s ease;
   border: 1px solid #f0f0f0;
 }
@@ -102,8 +102,8 @@
 .benefit-card:hover,
 .service-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  border-color: var(--hero-gradient-start, #005f73);
+  box-shadow: 0 12px 40px rgba(var(--md-sys-color-shadow), 0.15);
+  border-color: var(--hero-gradient-start, var(--md-sys-color-primary));
 }
 
 .card-icon {
@@ -111,10 +111,10 @@
   height: 70px;
   background: linear-gradient(
     135deg,
-    var(--hero-gradient-start, #005f73),
-    var(--hero-gradient-end, #0a9396)
+    var(--hero-gradient-start, var(--md-sys-color-primary)),
+    var(--hero-gradient-end, var(--md-sys-color-primary))
   );
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,22 +126,22 @@
 .card-title {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
   margin-bottom: 15px;
 }
 
 .card-description {
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
   line-height: 1.6;
 }
 
 /* CTA Section */
 .cta-section {
-  padding: 100px 0;
+  padding: var(--md-sys-spacing-24) 0;
   background: linear-gradient(
     135deg,
-    var(--hero-gradient-start, #005f73),
-    var(--hero-gradient-end, #0a9396)
+    var(--hero-gradient-start, var(--md-sys-color-primary)),
+    var(--hero-gradient-end, var(--md-sys-color-primary))
   );
   text-align: center;
   color: white;
@@ -162,10 +162,10 @@
 .cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 18px 40px;
+  gap: var(--md-sys-spacing-3);
+  padding: var(--md-sys-spacing-4) var(--md-sys-spacing-10);
   background: white;
-  color: var(--hero-gradient-start, #005f73);
+  color: var(--hero-gradient-start, var(--md-sys-color-primary));
   border-radius: 100px;
   font-size: 1.1rem;
   font-weight: 600;
@@ -175,14 +175,14 @@
 
 .cta-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 30px rgba(var(--md-sys-color-shadow), 0.3);
 }
 
 /* Responsive */
 @media (max-width: 992px) {
   .overview-content {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: var(--md-sys-spacing-10);
   }
 
   .overview-text {
@@ -205,6 +205,6 @@
   .features-section,
   .benefits-section,
   .process-section {
-    padding: 60px 0;
+    padding: var(--md-sys-spacing-15) 0;
   }
 }

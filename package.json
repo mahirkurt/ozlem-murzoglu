@@ -4,20 +4,25 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "prebuild": "npm run i18n:sync",
     "build": "ng build",
+    "predeploy": "npm run i18n:check && npm run build",
+    "deploy": "firebase deploy",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "svgo": "svgo -f src/assets/illustrations/static -o src/assets/illustrations/static --config=tools/svgo.config.mjs"
+    "svgo": "svgo -f src/assets/illustrations/static -o src/assets/illustrations/static --config=tools/svgo.config.mjs",
+    "i18n:sync": "node tools/i18n-auto-sync.js",
+    "i18n:validate": "node scripts/validate-translations.js",
+    "i18n:clean": "node scripts/clean-unused-translations.js",
+    "i18n:check": "npm run i18n:sync && npm run i18n:validate"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.0",
-    "@angular/cdk": "^18.2.14",
     "@angular/common": "^18.2.13",
     "@angular/compiler": "^18.2.0",
     "@angular/core": "^18.2.0",
     "@angular/forms": "^18.2.0",
-    "@angular/material": "^18.2.14",
     "@angular/platform-browser": "^18.2.13",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
@@ -35,6 +40,7 @@
     "@angular-devkit/build-angular": "^18.2.20",
     "@angular/cli": "^18.2.20",
     "@angular/compiler-cli": "^18.2.0",
+    "@playwright/test": "^1.55.0",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
@@ -42,6 +48,11 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "lighthouse": "12.8.2",
+    "playwright": "^1.55.0",
+    "stylelint": "16.24.0",
+    "stylelint-config-standard-scss": "16.0.0",
+    "stylelint-order": "7.0.0",
     "svgo": "^4.0.0",
     "typescript": "~5.5.2"
   }

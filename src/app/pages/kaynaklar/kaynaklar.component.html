@@ -1,204 +1,206 @@
-<div class="content-container" [@listAnimation]="sections.length">
-  <!-- SAYFA BAŞLIĞI VE GİRİŞ METNİ -->
-  <header class="page-header">
-    <h1 class="page-title">Çocuğunuzun Sağlığı İçin Güvenilir Kaynaklar</h1>
-    <p class="page-lead">
-      Amerikan Pediatri Akademisi'nin hazırladığı güvenilir bilgilerle, çocuğunuzun her yaş döneminde yanınızdayız. 
-      Bu dijital sığınakta, ihtiyacınız olan tüm bilgileri bulabilir ve çocuğunuzun gelişimine güvenle eşlik edebilirsiniz.
-    </p>
-  </header>
+<section class="kaynaklar-page">
+  <!-- Global Hero Section -->
+  <app-hero-section
+    title="RESOURCES.PAGE_TITLE"
+    subtitle="RESOURCES.SUBTITLE"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="green">
+  </app-hero-section>
+
+  <div class="content-container" [@listAnimation]="sections.length">
 
   <!-- ARAMA BÖLÜMÜ (VURGU KARTI) -->
-  <mat-card class="info-card accent-card search-card" *ngIf="showSearch">
-    <mat-card-header>
-      <mat-icon mat-card-avatar>search</mat-icon>
-      <mat-card-title class="section-headline">Hızlı Arama</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-form-field appearance="outline" class="search-field">
-        <mat-label>Dokümanlarda ara...</mat-label>
-        <input matInput 
+  <div class="info-card accent-card search-card" *ngIf="showSearch">
+    <div class="md3-card__header">
+      <span class="material-icons md3-card__avatar">search</span>
+      <h3 class="section-headline">Hızlı Arama</h3>
+    </div>
+    <div class="md3-card__content">
+      <div class="md3-text-field" appearance="outline" class="search-field">
+        <label class="md3-text-field__label">Dokümanlarda ara...</label>
+        <input class="md3-text-field__input" 
                [(ngModel)]="searchQuery"
                (input)="onSearchChange($event)"
                placeholder="Örn: aşı takvimi, uyku düzeni, emzirme">
-        <mat-icon matSuffix>search</mat-icon>
-        <button mat-icon-button matSuffix 
+        <span class="material-icons md3-text-field__icon md3-text-field__icon--trailing">search</span>
+        <button class="md3-icon-button" matSuffix 
                 *ngIf="searchQuery" 
                 (click)="clearSearch()"
                 aria-label="Temizle">
-          <mat-icon>clear</mat-icon>
+          <span class="material-icons">clear</span>
         </button>
-      </mat-form-field>
+      </div>
 
       <!-- Arama Sonuçları -->
       <div class="search-results" *ngIf="searchResults.length > 0">
-        <mat-divider></mat-divider>
+        <hr class="md3-divider"></hr>
         <h3 class="results-title">
-          <mat-icon>check_circle</mat-icon>
+          <span class="material-icons">check_circle</span>
           {{ searchResults.length }} sonuç bulundu
         </h3>
-        <mat-list>
-          <mat-list-item *ngFor="let doc of searchResults" 
+        <div class="md3-list">
+          <div class="md3-list-item" *ngFor="let doc of searchResults" 
                          (click)="viewDocument(doc)"
                          class="result-item">
-            <mat-icon matListItemIcon>description</mat-icon>
+            <span class="material-icons">description</span>
             <div matListItemTitle>{{ doc.title }}</div>
             <div matListItemLine>{{ getCategoryTitle(doc.categoryId) }}</div>
-          </mat-list-item>
-        </mat-list>
+          </div>
+        </div>
       </div>
-    </mat-card-content>
-  </mat-card>
+    </div>
+  </div>
 
   <!-- İSTATİSTİKLER -->
   <section class="stats-section" [@fadeIn]>
-    <mat-card class="stat-card">
-      <mat-icon>folder_open</mat-icon>
+    <div class="stat-card">
+      <span class="material-icons">folder_open</span>
       <div class="stat-number">{{ categories.length }}</div>
       <div class="stat-label">Kategori</div>
-    </mat-card>
-    <mat-card class="stat-card">
-      <mat-icon>description</mat-icon>
+    </div>
+    <div class="stat-card">
+      <span class="material-icons">description</span>
       <div class="stat-number">{{ getTotalDocumentCount() }}</div>
       <div class="stat-label">Doküman</div>
-    </mat-card>
-    <mat-card class="stat-card">
-      <mat-icon>verified</mat-icon>
+    </div>
+    <div class="stat-card">
+      <span class="material-icons">verified</span>
       <div class="stat-number">AAP</div>
       <div class="stat-label">Onaylı</div>
-    </mat-card>
+    </div>
   </section>
 
-  <mat-divider class="section-divider"></mat-divider>
+  <hr class="md3-divider" class="section-divider"></hr>
 
   <!-- KATEGORİLER -->
   <ng-container *ngFor="let section of sections; let i = index">
     <!-- VURGU KARTI (Önemli kategoriler) -->
-    <mat-card *ngIf="section.isAccent" 
+    <div *ngIf="section.isAccent" 
               class="info-card accent-card category-card"
               [@cardAnimation]="i">
-      <mat-card-header>
-        <mat-icon mat-card-avatar>{{ section.icon }}</mat-icon>
-        <mat-card-title class="section-headline">{{ section.title }}</mat-card-title>
-        <mat-card-subtitle>{{ section.subtitle }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content class="body-text">
+      <div class="md3-card__header">
+        <span class="material-icons md3-card__avatar">{{ section.icon }}</span>
+        <h3 class="section-headline">{{ section.title }}</h3>
+        <p class="md3-card__subtitle">{{ section.subtitle }}</p>
+      </div>
+      <div-content class="body-text">
         <p [innerHTML]="section.description"></p>
         <div class="category-grid">
-          <button mat-raised-button 
+          <button class="md3-button md3-button-filled" 
                   *ngFor="let cat of section.categories"
                   (click)="navigateToCategory(cat.id)"
                   color="primary"
                   class="category-button">
-            <mat-icon>{{ getQuickAccessIcon(cat.id) }}</mat-icon>
+            <span class="material-icons">{{ getQuickAccessIcon(cat.id) }}</span>
             <span>{{ cat.title }}</span>
             <span class="doc-count">({{ cat.documentCount }})</span>
           </button>
         </div>
-      </mat-card-content>
-    </mat-card>
+      </div>
+    </div>
 
     <!-- STANDART KATEGORİ KARTI -->
-    <mat-card *ngIf="!section.isAccent && !section.panels" 
+    <div *ngIf="!section.isAccent && !section.panels" 
               class="info-card category-card"
               [@cardAnimation]="i">
-      <mat-card-header>
-        <mat-icon mat-card-avatar>{{ section.icon }}</mat-icon>
-        <mat-card-title class="section-headline">{{ section.title }}</mat-card-title>
-        <mat-card-subtitle>{{ section.subtitle }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content class="body-text">
+      <div class="md3-card__header">
+        <span class="material-icons md3-card__avatar">{{ section.icon }}</span>
+        <h3 class="section-headline">{{ section.title }}</h3>
+        <p class="md3-card__subtitle">{{ section.subtitle }}</p>
+      </div>
+      <div-content class="body-text">
         <p [innerHTML]="section.description"></p>
         <div class="category-list">
-          <mat-list>
-            <mat-list-item *ngFor="let cat of section.categories"
+          <div class="md3-list">
+            <div class="md3-list-item" *ngFor="let cat of section.categories"
                            (click)="navigateToCategory(cat.id)"
                            class="category-item">
-              <mat-icon matListItemIcon>{{ getQuickAccessIcon(cat.id) }}</mat-icon>
+              <span class="material-icons">{{ getQuickAccessIcon(cat.id) }}</span>
               <div matListItemTitle>{{ cat.title }}</div>
               <div matListItemLine>{{ cat.documentCount }} doküman</div>
-              <mat-icon matListItemMeta>arrow_forward</mat-icon>
-            </mat-list-item>
-          </mat-list>
+              <span class="material-icons">arrow_forward</span>
+            </div>
+          </div>
         </div>
-      </mat-card-content>
-    </mat-card>
+      </div>
+    </div>
 
     <!-- AÇILIR PANEL KARTI (Detaylı bilgiler) -->
-    <mat-card *ngIf="section.panels" 
+    <div *ngIf="section.panels" 
               class="info-card expansion-card"
               [@cardAnimation]="i">
-      <mat-card-header>
-        <mat-icon mat-card-avatar>{{ section.icon }}</mat-icon>
-        <mat-card-title class="section-headline">{{ section.title }}</mat-card-title>
-        <mat-card-subtitle>{{ section.subtitle }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-accordion multi>
-          <mat-expansion-panel *ngFor="let panel of section.panels"
+      <div class="md3-card__header">
+        <span class="material-icons md3-card__avatar">{{ section.icon }}</span>
+        <h3 class="section-headline">{{ section.title }}</h3>
+        <p class="md3-card__subtitle">{{ section.subtitle }}</p>
+      </div>
+      <div class="md3-card__content">
+        <div class="md3-accordion">
+          <details class="md3-expansion-panel" *ngFor="let panel of section.panels"
                                 [expanded]="panel.expanded"
                                 hideToggle>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <mat-icon>{{ panel.icon }}</mat-icon>
+            <summary class="md3-expansion-panel__header">
+              <span class="md3-expansion-panel__title">
+                <span class="material-icons">{{ panel.icon }}</span>
                 {{ panel.title }}
-              </mat-panel-title>
-              <mat-panel-description>
+              </span>
+              <span class="md3-expansion-panel__description">
                 {{ panel.description }}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
+              </span>
+            </summary>
             <div class="panel-content" [innerHTML]="panel.content"></div>
-            <mat-action-row *ngIf="panel.categoryId">
-              <button mat-button color="primary" 
+            <div class="md3-expansion-panel__actions" *ngIf="panel.categoryId">
+              <button class="md3-button" color="primary" 
                       (click)="navigateToCategory(panel.categoryId)">
-                <mat-icon>folder_open</mat-icon>
+                <span class="material-icons">folder_open</span>
                 Kategoriye Git
               </button>
-            </mat-action-row>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </mat-card-content>
-    </mat-card>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
 
-    <mat-divider class="section-divider" *ngIf="i < sections.length - 1"></mat-divider>
+    <hr class="md3-divider" class="section-divider" *ngIf="i < sections.length - 1"></hr>
   </ng-container>
 
   <!-- POPÜLER DOKÜMANLAR -->
   <section class="popular-section" *ngIf="popularDocuments.length > 0">
     <h2 class="section-title">
-      <mat-icon>star</mat-icon>
+      <span class="material-icons">star</span>
       En Çok İndirilen Dokümanlar
     </h2>
     <div class="popular-grid">
-      <mat-card *ngFor="let doc of popularDocuments" 
+      <div *ngFor="let doc of popularDocuments" 
                 class="popular-card"
                 (click)="viewDocument(doc)"
                 [@fadeIn]>
-        <mat-card-header>
-          <mat-icon mat-card-avatar>{{ getDocumentIcon(doc) }}</mat-icon>
-          <mat-card-title>{{ doc.title }}</mat-card-title>
-          <mat-card-subtitle>{{ getCategoryTitle(doc.categoryId) }}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-          <button mat-icon-button (click)="downloadDocument(doc); $event.stopPropagation()">
-            <mat-icon>download</mat-icon>
+        <div class="md3-card__header">
+          <span class="material-icons md3-card__avatar">{{ getDocumentIcon(doc) }}</span>
+          <h3>{{ doc.title }}</h3>
+          <p class="md3-card__subtitle">{{ getCategoryTitle(doc.categoryId) }}</p>
+        </div>
+        <div class="md3-card__actions">
+          <button class="md3-icon-button" (click)="downloadDocument(doc); $event.stopPropagation()">
+            <span class="material-icons">download</span>
           </button>
-          <button mat-icon-button>
-            <mat-icon>visibility</mat-icon>
+          <button class="md3-icon-button">
+            <span class="material-icons">visibility</span>
           </button>
-        </mat-card-actions>
-      </mat-card>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ALT BİLGİ -->
   <footer class="page-footer">
-    <mat-card class="footer-card">
-      <mat-icon>info</mat-icon>
+    <div class="footer-card">
+      <span class="material-icons">info</span>
       <p>
         Tüm dokümanlar Amerikan Pediatri Akademisi (AAP) ve güvenilir sağlık kuruluşları tarafından hazırlanmıştır.
         Bilgiler güncel tutulmaya çalışılmaktadır ancak her zaman doktorunuza danışmanız önerilir.
       </p>
-    </mat-card>
+    </div>
   </footer>
-</div>
+  </div>
+</section>

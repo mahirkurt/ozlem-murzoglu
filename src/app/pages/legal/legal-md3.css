@@ -16,28 +16,28 @@
 
 /* MD3 Surface Cards */
 .md3-surface {
-  background: var(--md-sys-color-surface, #ffffff);
-  border-radius: 24px;
+  background: var(--md-sys-color-surface, var(--md-sys-color-surface));
+  border-radius: var(--md-sys-shape-corner-extra-large);
   padding: 2rem;
   box-shadow:
-    0 1px 3px 0 rgba(0, 0, 0, 0.1),
-    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    0 1px 3px 0 rgba(var(--md-sys-color-shadow), 0.1),
+    0 1px 2px -1px rgba(var(--md-sys-color-shadow), 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .md3-surface:hover {
   box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    0 4px 6px -1px rgba(var(--md-sys-color-shadow), 0.1),
+    0 2px 4px -2px rgba(var(--md-sys-color-shadow), 0.1);
 }
 
 .md3-surface-elevated {
   background:
     linear-gradient(0deg, rgba(103, 80, 164, 0.05), rgba(103, 80, 164, 0.05)),
-    var(--md-sys-color-surface, #ffffff);
+    var(--md-sys-color-surface, var(--md-sys-color-surface));
   box-shadow:
-    0 2px 6px 2px rgba(0, 0, 0, 0.15),
-    0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    0 2px 6px 2px rgba(var(--md-sys-color-shadow), 0.15),
+    0 1px 2px 0 rgba(var(--md-sys-color-shadow), 0.3);
 }
 
 /* Typography - MD3 Scale */
@@ -120,8 +120,8 @@
 .md3-info-banner {
   background:
     linear-gradient(0deg, rgba(103, 80, 164, 0.08), rgba(103, 80, 164, 0.08)),
-    var(--md-sys-color-surface, #ffffff);
-  border-radius: 16px;
+    var(--md-sys-color-surface, var(--md-sys-color-surface));
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 1.5rem;
   margin-bottom: 2rem;
   border-left: 4px solid var(--md-sys-color-primary, #6750a4);
@@ -168,7 +168,7 @@
   padding: 1rem 1rem 1rem 3rem;
   margin-bottom: 0.75rem;
   background: var(--md-sys-color-surface-variant, #f4f4f4);
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -186,7 +186,7 @@
   width: 8px;
   height: 8px;
   background: var(--md-sys-color-primary, #6750a4);
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
 }
 
 /* Numbered List */
@@ -206,7 +206,7 @@
   align-items: center;
   justify-content: center;
   background: var(--md-sys-color-primary, #6750a4);
-  color: var(--md-sys-color-on-primary, #ffffff);
+  color: var(--md-sys-color-on-primary, var(--md-sys-color-surface));
   font-weight: 500;
   font-size: 0.875rem;
 }
@@ -214,7 +214,7 @@
 /* Contact Card */
 .md3-contact-card {
   background: linear-gradient(135deg, rgba(103, 80, 164, 0.05) 0%, rgba(103, 80, 164, 0.02) 100%);
-  border-radius: 24px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   padding: 2rem;
   border: 1px solid rgba(103, 80, 164, 0.1);
   margin-top: 2rem;
@@ -224,7 +224,7 @@
   display: flex;
   align-items: center;
   padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(var(--md-sys-color-shadow), 0.08);
   transition: all 0.3s ease;
 }
 
@@ -260,8 +260,8 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 0, 0, 0.12) 20%,
-    rgba(0, 0, 0, 0.12) 80%,
+    rgba(var(--md-sys-color-shadow), 0.12) 20%,
+    rgba(var(--md-sys-color-shadow), 0.12) 80%,
     transparent
   );
   margin: 3rem 0;
@@ -274,7 +274,7 @@
   padding: 0.5rem 1rem;
   background: var(--md-sys-color-secondary-container, #e8def8);
   color: var(--md-sys-color-on-secondary-container, #1d192b);
-  border-radius: 8px;
+  border-radius: var(--md-sys-shape-corner-small);
   font-size: 0.875rem;
   font-weight: 500;
   margin-right: 0.5rem;
@@ -284,7 +284,7 @@
 
 .md3-chip:hover {
   background: var(--md-sys-color-secondary, #625b71);
-  color: var(--md-sys-color-on-secondary, #ffffff);
+  color: var(--md-sys-color-on-secondary, var(--md-sys-color-surface));
 }
 
 /* Accordion for FAQ-style content */
@@ -293,16 +293,16 @@
 }
 
 .md3-accordion-item {
-  background: var(--md-sys-color-surface, #ffffff);
-  border-radius: 16px;
+  background: var(--md-sys-color-surface, var(--md-sys-color-surface));
+  border-radius: var(--md-sys-shape-corner-large);
   margin-bottom: 0.75rem;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px rgba(var(--md-sys-color-shadow), 0.12);
   transition: all 0.3s ease;
 }
 
 .md3-accordion-item:hover {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 2px 6px rgba(var(--md-sys-color-shadow), 0.16);
 }
 
 .md3-accordion-header {
@@ -375,7 +375,7 @@
 @media (max-width: 768px) {
   .md3-surface {
     padding: 1.5rem;
-    border-radius: 16px;
+    border-radius: var(--md-sys-shape-corner-large);
   }
 
   .md3-headline-large {

@@ -3,7 +3,7 @@
 
 /* Dynamic Hero Gradient */
 .resource-hero.dynamic-gradient {
-  background: linear-gradient(135deg, #005F73 0%, #0A9396 25%, #94D3AC 50%, #0A9396 75%, #005F73 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary) 25%, #94D3AC 50%, var(--md-sys-color-primary) 75%, var(--md-sys-color-primary) 100%);
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
   position: relative;
@@ -33,7 +33,7 @@
 
 /* Action Bar Wrapper */
 .action-bar-wrapper {
-  background: #f5f5f5;
+  background: var(--md-sys-color-surface-container);
   padding: 0;
   margin: 0;
 }
@@ -57,17 +57,17 @@
 
 /* MD3 Theme Colors */
 :host {
-  --brand-teal: #005F73;
-  --brand-teal-light: #0A9396;
+  --brand-teal: var(--md-sys-color-primary);
+  --brand-teal-light: var(--md-sys-color-primary);
   --brand-teal-bg: #E0F4F3;
-  --brand-green: #0A9396;
+  --brand-green: var(--md-sys-color-primary);
   --brand-green-light: #94D3AC;
   --brand-green-bg: #E6F3F0;
-  --brand-blue: #005F73;
-  --brand-blue-light: #0A9396;
+  --brand-blue: var(--md-sys-color-primary);
+  --brand-blue-light: var(--md-sys-color-primary);
   --brand-blue-bg: #E0F4F3;
-  --brand-orange: #005F73;
-  --brand-orange-light: #0A9396;
+  --brand-orange: var(--md-sys-color-primary);
+  --brand-orange-light: var(--md-sys-color-primary);
   --brand-orange-bg: #E0F4F3;
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
@@ -94,7 +94,7 @@
 
 /* Gradient Arka Planlar */
 .gradient-section {
-  background: linear-gradient(135deg, #ffffff 0%, #ffffff 60%);
+  background: linear-gradient(135deg, var(--md-sys-color-surface) 0%, var(--md-sys-color-surface) 60%);
   border: 2px solid transparent;
   position: relative;
 }
@@ -110,7 +110,7 @@
 }
 
 .purple-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, var(--brand-teal-bg) 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-surface) 0%, var(--brand-teal-bg) 100%);
   border-color: var(--brand-teal);
 }
 
@@ -119,7 +119,7 @@
 }
 
 .green-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, var(--brand-green-bg) 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-surface) 0%, var(--brand-green-bg) 100%);
   border-color: var(--brand-green);
 }
 
@@ -128,7 +128,7 @@
 }
 
 .blue-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, var(--brand-blue-bg) 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-surface) 0%, var(--brand-blue-bg) 100%);
   border-color: var(--brand-blue);
 }
 
@@ -137,7 +137,7 @@
 }
 
 .orange-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, var(--brand-orange-bg) 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-surface) 0%, var(--brand-orange-bg) 100%);
   border-color: var(--brand-orange);
 }
 
@@ -180,7 +180,7 @@
 .section-title {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--md-sys-color-on-surface);
   margin: 0;
   letter-spacing: -0.5px;
 }
@@ -227,7 +227,7 @@
 }
 
 .highlight-card {
-  background: linear-gradient(135deg, #fff5f5, #ffffff);
+  background: linear-gradient(135deg, #fff5f5, var(--md-sys-color-surface));
   border-color: #ff6b6b;
 }
 
@@ -248,7 +248,7 @@
 .content-card-item p {
   margin: 0;
   line-height: 1.6;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
   font-size: 0.95rem;
 }
 
@@ -287,7 +287,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f5f5f5, #ffffff);
+  background: linear-gradient(135deg, var(--md-sys-color-surface-container), var(--md-sys-color-surface));
   border-radius: var(--radius-md);
   flex-shrink: 0;
 }
@@ -310,7 +310,7 @@
 .flow-content p {
   margin: 0 0 0.5rem 0;
   line-height: 1.6;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
 }
 
 .flow-content p:last-child {
@@ -319,7 +319,7 @@
 
 .sub-text {
   font-size: 0.875rem;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
   padding-left: 1rem;
   border-left: 2px solid #e0e0e0;
   margin-top: 0.5rem !important;
@@ -338,7 +338,7 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem;
-  background: linear-gradient(135deg, #f8f8f8, #ffffff);
+  background: linear-gradient(135deg, #f8f8f8, var(--md-sys-color-surface));
   border-radius: var(--radius-sm);
   border-left: 3px solid var(--brand-green);
   font-size: 0.9rem;
@@ -347,7 +347,7 @@
 }
 
 .sub-item-card:hover {
-  background: linear-gradient(135deg, var(--brand-green-bg), #ffffff);
+  background: linear-gradient(135deg, var(--brand-green-bg), var(--md-sys-color-surface));
   transform: translateX(4px);
 }
 
@@ -358,23 +358,23 @@
 
 /* Özel Durumlar */
 .highlight-flow {
-  background: linear-gradient(135deg, var(--brand-teal-bg), #ffffff);
+  background: linear-gradient(135deg, var(--brand-teal-bg), var(--md-sys-color-surface));
   border-color: var(--brand-teal);
 }
 
 .expanded {
-  background: linear-gradient(135deg, #ffffff, var(--brand-green-bg));
+  background: linear-gradient(135deg, var(--md-sys-color-surface), var(--brand-green-bg));
   border-color: var(--brand-green);
   border-width: 2px;
 }
 
 .warning {
-  background: linear-gradient(135deg, #fff5f5, #ffffff);
+  background: linear-gradient(135deg, #fff5f5, var(--md-sys-color-surface));
   border-color: #ff6b6b;
 }
 
 .warning .flow-icon {
-  background: linear-gradient(135deg, #ffe0e0, #ffffff);
+  background: linear-gradient(135deg, #ffe0e0, var(--md-sys-color-surface));
 }
 
 .warning .flow-content h4 {
@@ -382,7 +382,7 @@
 }
 
 .action {
-  background: linear-gradient(135deg, var(--brand-blue-bg), #ffffff);
+  background: linear-gradient(135deg, var(--brand-blue-bg), var(--md-sys-color-surface));
   border-color: var(--brand-blue);
   border-width: 2px;
 }
@@ -400,7 +400,7 @@
 .disclaimer-section {
   margin-top: 3rem;
   padding: 2rem;
-  background: linear-gradient(135deg, #f5f5f5, #fafafa);
+  background: linear-gradient(135deg, var(--md-sys-color-surface-container), #fafafa);
   border-radius: var(--radius-lg);
   border: 1px solid #e0e0e0;
 }
@@ -414,7 +414,7 @@
 .disclaimer-content p {
   margin: 0.75rem 0;
   line-height: 1.6;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
   font-size: 0.875rem;
 }
 
@@ -434,7 +434,7 @@
 
 .copyright {
   font-weight: 500;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
   margin-top: 1rem !important;
   padding-top: 1rem;
   border-top: 1px solid #e0e0e0;
@@ -572,7 +572,7 @@
 
   /* Simplify colors */
   .section-icon {
-    background: #005F73 !important;
+    background: var(--md-sys-color-primary) !important;
     color: white !important;
   }
 

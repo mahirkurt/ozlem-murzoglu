@@ -6,7 +6,7 @@
 
 .resource-page {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, var(--md-sys-color-surface-container-low) 0%, var(--md-sys-color-surface) 100%);
 }
 
 /* Hero Section - Fixed z-index issue */
@@ -67,11 +67,11 @@
 /* Content Card - Improved width */
 .content-card {
   background: white;
-  border-radius: 24px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.04),
-    0 10px 15px rgba(0, 0, 0, 0.08),
-    0 20px 25px rgba(0, 0, 0, 0.04);
+    0 4px 6px rgba(var(--md-sys-color-shadow), 0.04),
+    0 10px 15px rgba(var(--md-sys-color-shadow), 0.08),
+    0 20px 25px rgba(var(--md-sys-color-shadow), 0.04);
   overflow: hidden;
   transform: translateY(-3rem);
   width: 100%; /* Ensure full width */
@@ -96,7 +96,7 @@
 
 .category-page {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, var(--md-sys-color-surface-container-low) 0%, var(--md-sys-color-surface) 100%);
 }
 
 .category-header {
@@ -125,7 +125,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 8px rgba(var(--md-sys-color-shadow), 0.1);
 }
 
 .category-header p {
@@ -193,15 +193,15 @@
 /* MD3 Document Card */
 .doc-card {
   background: white;
-  border-radius: 24px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.04),
-    0 2px 4px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 95, 115, 0.08);
+    0 1px 2px rgba(var(--md-sys-color-shadow), 0.04),
+    0 2px 4px rgba(var(--md-sys-color-shadow), 0.08);
+  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.08);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -210,8 +210,8 @@
 .doc-card:hover {
   transform: translateY(-4px);
   box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.08),
-    0 8px 16px rgba(0, 0, 0, 0.12);
+    0 4px 8px rgba(var(--md-sys-color-shadow), 0.08),
+    0 8px 16px rgba(var(--md-sys-color-shadow), 0.12);
   border-color: var(--color-primary);
 }
 
@@ -243,7 +243,7 @@
 .doc-icon-wrapper {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
   display: flex;
   align-items: center;
@@ -342,10 +342,10 @@
 /* Search and Filter Bar */
 .filter-bar {
   background: white;
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 1.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(var(--md-sys-color-shadow), 0.08);
 }
 
 .filter-controls {
@@ -362,7 +362,7 @@
   align-items: center;
   gap: 0.75rem;
   background: var(--color-neutral-50);
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   padding: 0.75rem 1rem;
   border: 2px solid transparent;
   transition: all 0.2s;
@@ -417,7 +417,7 @@
   margin-bottom: 1.5rem;
   padding: 1rem;
   background: white;
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
 }
 
 .results-count {
@@ -441,7 +441,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: var(--md-sys-shape-corner-small);
   background: var(--color-neutral-50);
   border: 2px solid transparent;
   cursor: pointer;
@@ -462,7 +462,7 @@
   text-align: center;
   padding: 4rem 2rem;
   background: white;
-  border-radius: 24px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
 }
 
 .empty-icon {
@@ -470,7 +470,7 @@
   height: 120px;
   margin: 0 auto 1.5rem;
   background: var(--color-neutral-100);
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   display: flex;
   align-items: center;
   justify-content: center;

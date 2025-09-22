@@ -1,0 +1,393 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - generic:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - link "phone +90 216 688 44 83" [ref=e6] [cursor=pointer]:
+          - /url: tel:+90 216 688 44 83
+          - generic [ref=e7] [cursor=pointer]: phone
+          - generic [ref=e8] [cursor=pointer]: +90 216 688 44 83
+        - generic [ref=e9]: •
+        - link "WhatsApp" [ref=e10] [cursor=pointer]:
+          - /url: https://api.whatsapp.com/send?phone=905466884483&text=Merhaba%2C%20WhatsApp%20bilgilerinizi%20web%20sitenizden%20ald%C4%B1m.
+          - img [ref=e12] [cursor=pointer]
+          - generic [ref=e14] [cursor=pointer]: WhatsApp
+        - generic [ref=e15]: •
+        - generic [ref=e16]:
+          - generic [ref=e17]: location_on
+          - generic [ref=e18]: Ataşehir, İstanbul
+        - generic [ref=e19]: •
+        - link "login Health Portal" [ref=e20] [cursor=pointer]:
+          - /url: https://saglikpetegim.com
+          - generic [ref=e21] [cursor=pointer]: login
+          - generic [ref=e22] [cursor=pointer]: Health Portal
+      - navigation [ref=e23]:
+        - generic [ref=e25]:
+          - link "Dr. Özlem Murzoğlu" [ref=e26] [cursor=pointer]:
+            - /url: /
+            - img "Dr. Özlem Murzoğlu" [ref=e27] [cursor=pointer]
+          - generic [ref=e28]:
+            - link "About" [ref=e30] [cursor=pointer]:
+              - /url: /hakkimizda
+              - text: About
+              - img [ref=e31] [cursor=pointer]
+            - link "Our Services" [ref=e34] [cursor=pointer]:
+              - /url: /hizmetlerimiz
+              - text: Our Services
+              - img [ref=e35] [cursor=pointer]
+            - link "Info Center" [ref=e38] [cursor=pointer]:
+              - /url: /kaynaklar
+              - text: Info Center
+              - img [ref=e39] [cursor=pointer]
+            - link "With Respect" [ref=e42] [cursor=pointer]:
+              - /url: /saygiyla
+              - text: With Respect
+              - img [ref=e43] [cursor=pointer]
+            - link "Contact" [ref=e46] [cursor=pointer]:
+              - /url: /iletisim
+          - generic [ref=e47]:
+            - button "Change language" [ref=e49] [cursor=pointer]:
+              - generic:
+                - generic: TR
+                - generic: EN
+            - button "Book Appointment" [ref=e52] [cursor=pointer]:
+              - generic [ref=e53] [cursor=pointer]: Book Appointment
+              - img [ref=e54] [cursor=pointer]
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - img "Dr. Özlem Murzoğlu" [ref=e58]
+        - button "Close menu" [ref=e59] [cursor=pointer]:
+          - img [ref=e60] [cursor=pointer]
+      - navigation [ref=e62]:
+        - generic [ref=e63]:
+          - link "About" [ref=e64] [cursor=pointer]:
+            - /url: /hakkimizda
+          - generic [ref=e65]:
+            - link "About Us" [ref=e66] [cursor=pointer]:
+              - /url: /hakkimizda
+            - link "Dr. Özlem Murzoğlu" [ref=e67] [cursor=pointer]:
+              - /url: /hakkimizda/dr-ozlem-murzoglu
+            - link "HEADER.NAV_CLINIC" [ref=e68] [cursor=pointer]:
+              - /url: /hakkimizda/klinigimiz
+            - link "FAQ" [ref=e69] [cursor=pointer]:
+              - /url: /sss
+        - generic [ref=e70]:
+          - link "Our Services" [ref=e71] [cursor=pointer]:
+            - /url: /hizmetlerimiz
+          - generic [ref=e72]:
+            - link "Laboratory and Imaging" [ref=e73] [cursor=pointer]:
+              - /url: /hizmetlerimiz/laboratuvar-goruntuleme
+            - link "Triple P® Program" [ref=e74] [cursor=pointer]:
+              - /url: /hizmetlerimiz/triple-p
+            - link "Healthy Sleep™" [ref=e75] [cursor=pointer]:
+              - /url: /hizmetlerimiz/saglikli-uykular
+            - link "Bright Futures®" [ref=e76] [cursor=pointer]:
+              - /url: /hizmetlerimiz/bright-futures-program
+        - generic [ref=e77]:
+          - link "Info Center" [ref=e78] [cursor=pointer]:
+            - /url: /kaynaklar
+          - generic [ref=e79]:
+            - link "All Resources" [ref=e80] [cursor=pointer]:
+              - /url: /kaynaklar
+            - link "Vaccines" [ref=e81] [cursor=pointer]:
+              - /url: /bilgi-merkezi/asilar
+            - link "Development Guides" [ref=e82] [cursor=pointer]:
+              - /url: /bilgi-merkezi/gelisim-rehberleri
+            - link "General Information" [ref=e83] [cursor=pointer]:
+              - /url: /bilgi-merkezi/genel-bilgiler
+            - link "CDC Growth Charts" [ref=e84] [cursor=pointer]:
+              - /url: /bilgi-merkezi/cdc-buyume-egrileri
+            - link "Family Media Plan" [ref=e85] [cursor=pointer]:
+              - /url: /bilgi-merkezi/aile-medya-plani
+        - generic [ref=e86]:
+          - link "With Respect" [ref=e87] [cursor=pointer]:
+            - /url: /saygiyla
+          - generic [ref=e88]:
+            - link "Mustafa Kemal Atatürk" [ref=e89] [cursor=pointer]:
+              - /url: /saygiyla
+            - link "Prof. Dr. Albert Sabin" [ref=e90] [cursor=pointer]:
+              - /url: /saygiyla
+            - link "Prof. Dr. İhsan Doğramacı" [ref=e91] [cursor=pointer]:
+              - /url: /saygiyla
+            - link "Prof. Dr. Türkan Saylan" [ref=e92] [cursor=pointer]:
+              - /url: /saygiyla
+        - link "Contact" [ref=e94] [cursor=pointer]:
+          - /url: /iletisim
+      - generic [ref=e95]:
+        - button "Change language" [ref=e97] [cursor=pointer]:
+          - generic:
+            - generic: TR
+            - generic: EN
+        - button "Book Appointment" [ref=e100] [cursor=pointer]
+  - main [ref=e101]:
+    - generic [ref=e103]:
+      - generic [ref=e121]:
+        - generic [ref=e122]:
+          - link "Home" [ref=e123] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e124]: chevron_right
+          - link "About" [ref=e125] [cursor=pointer]:
+            - /url: /hakkimizda
+          - generic [ref=e126]: chevron_right
+          - generic [ref=e127]: HEADER.NAV_CLINIC
+        - heading "CLINIC_DESIGN.TITLE" [level=1] [ref=e128]
+        - paragraph [ref=e129]: CLINIC_DESIGN.SUBTITLE
+      - generic [ref=e130]:
+        - generic [ref=e133]:
+          - generic [ref=e134]:
+            - heading "CLINIC_DESIGN.INTRO_TITLE" [level=2] [ref=e135]
+            - paragraph [ref=e136]: CLINIC_DESIGN.INTRO_TEXT
+            - paragraph [ref=e137]: CLINIC_DESIGN.INTRO_DESC
+          - img "CLINIC.ALT_WAITING_AREA" [ref=e139]
+        - generic [ref=e141]:
+          - heading "CLINIC_DESIGN.TEAM_TITLE" [level=2] [ref=e142]
+          - generic [ref=e143]:
+            - generic [ref=e144]:
+              - generic [ref=e145]:
+                - generic [ref=e146]: 
+                - heading "CLINIC_DESIGN.TEAM_CARD1_TITLE" [level=3] [ref=e147]
+              - paragraph [ref=e149]: CLINIC_DESIGN.TEAM_DESC1
+            - generic [ref=e150]:
+              - generic [ref=e151]:
+                - generic [ref=e152]: 
+                - heading "CLINIC_DESIGN.TEAM_CARD2_TITLE" [level=3] [ref=e153]
+              - paragraph [ref=e155]: CLINIC_DESIGN.TEAM_DESC2
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - generic [ref=e160]: 
+              - heading "CLINIC_DESIGN.DESIGN_FEATURE_1" [level=4] [ref=e161]
+              - paragraph [ref=e162]: CLINIC_DESIGN.DESIGN_FEATURE_1_DESC
+            - generic [ref=e163]:
+              - generic [ref=e165]: 
+              - heading "CLINIC_DESIGN.DESIGN_FEATURE_2" [level=4] [ref=e166]
+              - paragraph [ref=e167]: CLINIC_DESIGN.DESIGN_FEATURE_2_DESC
+            - generic [ref=e168]:
+              - generic [ref=e170]: 
+              - heading "CLINIC_DESIGN.DESIGN_FEATURE_3" [level=4] [ref=e171]
+              - paragraph [ref=e172]: CLINIC_DESIGN.DESIGN_FEATURE_3_DESC
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - img "CLINIC.ALT_INTERIOR" [ref=e175]
+              - generic [ref=e177]: CLINIC_DESIGN.IMAGE_CLINIC_INTERIOR
+            - generic [ref=e178]:
+              - img "ALT_TEXTS.PLAY_AREA" [ref=e179]
+              - generic [ref=e181]: CLINIC_DESIGN.IMAGE_PLAY_AREA
+            - generic [ref=e182]:
+              - img "ALT_TEXTS.WAITING_AREA" [ref=e183]
+              - generic [ref=e185]: CLINIC_DESIGN.IMAGE_WAITING_AREA
+        - generic [ref=e187]:
+          - heading "CLINIC_DESIGN.GALLERY_TITLE" [level=2] [ref=e188]
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - img "ALT_TEXTS.EXAMINATION_ROOM" [ref=e191]
+              - generic [ref=e193]: CLINIC_DESIGN.GALLERY_EXAM_ROOM
+            - generic [ref=e194]:
+              - img "ALT_TEXTS.PLAY_CORNER" [ref=e195]
+              - generic [ref=e197]: CLINIC_DESIGN.GALLERY_PLAY_CORNER
+            - generic [ref=e198]:
+              - img "ALT_TEXTS.WAITING_AREA" [ref=e199]
+              - generic [ref=e201]: CLINIC_DESIGN.GALLERY_WAITING_AREA
+            - generic [ref=e202]:
+              - img "ALT_TEXTS.NURSING_ROOM" [ref=e203]
+              - generic [ref=e205]: CLINIC_DESIGN.GALLERY_NURSING_ROOM
+            - generic [ref=e206]:
+              - img "ALT_TEXTS.CORRIDOR" [ref=e207]
+              - generic [ref=e209]: CLINIC_DESIGN.GALLERY_CORRIDOR
+            - generic [ref=e210]:
+              - img "ALT_TEXTS.GENERAL_VIEW" [ref=e211]
+              - generic [ref=e213]: CLINIC_DESIGN.GALLERY_GENERAL_VIEW
+        - generic [ref=e215]:
+          - generic [ref=e216]:
+            - heading "CLINIC_DESIGN.MONTESSORI_TITLE" [level=2] [ref=e217]
+            - paragraph [ref=e218]: CLINIC_DESIGN.MONTESSORI_DESC
+          - generic [ref=e219]:
+            - generic [ref=e220]:
+              - generic [ref=e221]:
+                - generic [ref=e223]: 
+                - heading "CLINIC_DESIGN.MONTESSORI_BOOKS" [level=4] [ref=e224]
+                - paragraph [ref=e225]: CLINIC_DESIGN.MONTESSORI_BOOKS_DESC
+              - generic [ref=e226]:
+                - generic [ref=e228]: 
+                - heading "CLINIC_DESIGN.MONTESSORI_GAMES" [level=4] [ref=e229]
+                - paragraph [ref=e230]: CLINIC_DESIGN.MONTESSORI_GAMES_DESC
+              - generic [ref=e231]:
+                - generic [ref=e233]: 
+                - heading "CLINIC_DESIGN.MONTESSORI_TOYS" [level=4] [ref=e234]
+                - paragraph [ref=e235]: CLINIC_DESIGN.MONTESSORI_TOYS_DESC
+            - generic [ref=e236]:
+              - generic [ref=e237]:
+                - img "ALT_TEXTS.MONTESSORI_PLAY_AREA" [ref=e238]
+                - generic [ref=e239]: CLINIC_DESIGN.IMAGE_MONTESSORI_AREA
+              - generic [ref=e240]:
+                - img "ALT_TEXTS.PLAY_CORNER" [ref=e241]
+                - generic [ref=e242]: CLINIC_DESIGN.IMAGE_EDUCATIONAL_TOYS
+              - generic [ref=e243]:
+                - img "ALT_TEXTS.WAITING_AREA" [ref=e244]
+                - generic [ref=e245]: CLINIC_DESIGN.IMAGE_BOOK_CORNER
+          - paragraph [ref=e247]: CLINIC_DESIGN.MONTESSORI_TEXT
+        - generic [ref=e249]:
+          - heading "CLINIC_DESIGN.SAFETY_TITLE" [level=2] [ref=e250]
+          - generic [ref=e251]:
+            - generic [ref=e252]:
+              - generic [ref=e254]: 
+              - heading "CLINIC_DESIGN.SAFETY_PHYSICAL" [level=4] [ref=e255]
+              - paragraph [ref=e256]: CLINIC_DESIGN.SAFETY_PHYSICAL_DESC
+            - generic [ref=e257]:
+              - generic [ref=e259]: 
+              - heading "CLINIC_DESIGN.SAFETY_ELECTRICAL" [level=4] [ref=e260]
+              - paragraph [ref=e261]: CLINIC_DESIGN.SAFETY_ELECTRICAL_DESC
+            - generic [ref=e262]:
+              - generic [ref=e264]: 
+              - heading "CLINIC_DESIGN.SAFETY_MONITORING" [level=4] [ref=e265]
+              - paragraph [ref=e266]: CLINIC_DESIGN.SAFETY_MONITORING_DESC
+        - generic [ref=e270]:
+          - heading "CLINIC_DESIGN.HYGIENE_TITLE" [level=2] [ref=e271]
+          - paragraph [ref=e272]: CLINIC_DESIGN.HYGIENE_DESC
+          - paragraph [ref=e273]: CLINIC_DESIGN.HYGIENE_TEXT
+          - generic [ref=e274]:
+            - generic [ref=e275]:
+              - generic [ref=e277]: 
+              - heading "CLINIC_DESIGN.HYGIENE_1" [level=4] [ref=e278]
+              - paragraph [ref=e279]: CLINIC_DESIGN.HYGIENE_1_DESC
+            - generic [ref=e280]:
+              - generic [ref=e282]: 
+              - heading "CLINIC_DESIGN.HYGIENE_2" [level=4] [ref=e283]
+              - paragraph [ref=e284]: CLINIC_DESIGN.HYGIENE_2_DESC
+            - generic [ref=e285]:
+              - generic [ref=e287]: 
+              - heading "CLINIC_DESIGN.HYGIENE_3" [level=4] [ref=e288]
+              - paragraph [ref=e289]: CLINIC_DESIGN.HYGIENE_3_DESC
+          - generic [ref=e290]:
+            - generic [ref=e291]: 
+            - paragraph [ref=e292]: CLINIC_DESIGN.HYGIENE_NOTE
+      - generic [ref=e294]:
+        - heading "CLINIC_DESIGN.CTA_TITLE" [level=3] [ref=e295]
+        - paragraph [ref=e296]: CLINIC_DESIGN.CTA_SUBTITLE
+        - link " CLINIC_DESIGN.CTA_BUTTON" [ref=e297] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e298] [cursor=pointer]: 
+          - text: CLINIC_DESIGN.CTA_BUTTON
+  - contentinfo [ref=e300]:
+    - generic [ref=e303]:
+      - generic [ref=e304]:
+        - img "Dr. Özlem Murzoğlu" [ref=e306]
+        - paragraph [ref=e307]: As Dr. Özlem Murzoğlu Pediatrics and Child Health Clinic, we provide the best service for your children's health.
+        - generic [ref=e308]:
+          - link "instagram" [ref=e309] [cursor=pointer]:
+            - /url: https://instagram.com/dr.ozlemmurzoglu
+            - img [ref=e310] [cursor=pointer]
+          - link "facebook" [ref=e313] [cursor=pointer]:
+            - /url: https://www.facebook.com/dr.murzoglu/
+            - img [ref=e314] [cursor=pointer]
+          - link "twitter" [ref=e317] [cursor=pointer]:
+            - /url: https://x.com/ozlemmurzoglu
+            - img [ref=e318] [cursor=pointer]
+          - link "linkedin" [ref=e321] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/ozlemmurzoglu/
+            - img [ref=e322] [cursor=pointer]
+          - link "youtube" [ref=e325] [cursor=pointer]:
+            - /url: https://www.youtube.com/@ozlemmurzoglu
+            - img [ref=e326] [cursor=pointer]
+          - link "google" [ref=e329] [cursor=pointer]:
+            - /url: https://g.co/kgs/jXU64C
+            - img [ref=e330] [cursor=pointer]
+          - link "whatsapp" [ref=e336] [cursor=pointer]:
+            - /url: https://api.whatsapp.com/send?phone=905466884483&text=Merhaba%2C%20WhatsApp%20bilgilerinizi%20web%20sitenizden%20ald%C4%B1m.
+            - img [ref=e337] [cursor=pointer]
+      - generic [ref=e340]:
+        - heading "Quick Links" [level=4] [ref=e341]
+        - list [ref=e342]:
+          - listitem [ref=e343]:
+            - link "Home" [ref=e344] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e345]:
+            - link "About" [ref=e346] [cursor=pointer]:
+              - /url: /hakkimizda
+          - listitem [ref=e347]:
+            - link "Services" [ref=e348] [cursor=pointer]:
+              - /url: /hizmetlerimiz
+          - listitem [ref=e349]:
+            - link "Info Center" [ref=e350] [cursor=pointer]:
+              - /url: /bilgi-merkezi
+          - listitem [ref=e351]:
+            - link "FAQ" [ref=e352] [cursor=pointer]:
+              - /url: /sss
+          - listitem [ref=e353]:
+            - link "Contact" [ref=e354] [cursor=pointer]:
+              - /url: /iletisim
+          - listitem [ref=e355]:
+            - link "Appointment" [ref=e356] [cursor=pointer]:
+              - /url: /randevu
+      - generic [ref=e357]:
+        - heading "Services" [level=4] [ref=e358]
+        - list [ref=e359]:
+          - listitem [ref=e360]:
+            - link "Bright Futures® Program" [ref=e361] [cursor=pointer]:
+              - /url: /hizmetlerimiz/bright-futures-program
+          - listitem [ref=e362]:
+            - link "Triple P® Program" [ref=e363] [cursor=pointer]:
+              - /url: /hizmetlerimiz/triple-p
+          - listitem [ref=e364]:
+            - link "Healthy Sleep™" [ref=e365] [cursor=pointer]:
+              - /url: /hizmetlerimiz/saglikli-uykular
+          - listitem [ref=e366]:
+            - link "Laboratory and Imaging" [ref=e367] [cursor=pointer]:
+              - /url: /hizmetlerimiz/laboratuvar-goruntuleme
+          - listitem [ref=e368]:
+            - link "Vaccination Tracking" [ref=e369] [cursor=pointer]:
+              - /url: /hizmetlerimiz/asi-takibi
+          - listitem [ref=e370]:
+            - link "Development Assessment" [ref=e371] [cursor=pointer]:
+              - /url: /hizmetlerimiz/gelisim-degerlendirmesi
+      - generic [ref=e372]:
+        - heading "Contact Information" [level=4] [ref=e373]
+        - generic [ref=e374]:
+          - generic [ref=e375]:
+            - generic [ref=e376]: phone
+            - generic [ref=e377]:
+              - link "+90 216 688 44 83" [ref=e378] [cursor=pointer]:
+                - /url: tel:+90 216 688 44 83
+              - link "+90 546 688 44 83 (Mobile)" [ref=e379] [cursor=pointer]:
+                - /url: tel:+90 546 688 44 83
+          - generic [ref=e380]:
+            - generic [ref=e381]: email
+            - link "klinik@drmurzoglu.com" [ref=e383] [cursor=pointer]:
+              - /url: mailto:klinik@drmurzoglu.com
+          - generic [ref=e384]:
+            - generic [ref=e385]: location_on
+            - paragraph [ref=e387]:
+              - text: Barbaros Mah. Ak Zambak Sok. No:3
+              - text: Uphill Towers, A Blok - Daire 30
+              - text: Ataşehir, İstanbul
+    - generic [ref=e390]:
+      - paragraph [ref=e391]: © 2025 Dr. Özlem Murzoğlu. All rights reserved.
+      - generic [ref=e392]:
+        - link "Privacy Policy |" [ref=e393] [cursor=pointer]:
+          - /url: /legal/privacy
+        - link "Terms of Use |" [ref=e394] [cursor=pointer]:
+          - /url: /legal/terms
+        - link "GDPR" [ref=e395] [cursor=pointer]:
+          - /url: /legal/kvkk
+  - generic [ref=e396]:
+    - button "support_agent" [ref=e397] [cursor=pointer]:
+      - generic [ref=e398] [cursor=pointer]: support_agent
+    - generic [ref=e399]:
+      - link "WhatsApp":
+        - /url: https://wa.me/905462378400
+        - img
+        - generic: WhatsApp
+      - link "phone Ara":
+        - /url: tel:+902222378400
+        - generic: phone
+        - generic: Ara
+      - link "calendar_month Randevu":
+        - /url: /randevu
+        - generic: calendar_month
+        - generic: Randevu
+  - link "WhatsApp ile iletişime geç" [ref=e402] [cursor=pointer]:
+    - /url: https://api.whatsapp.com/send?phone=905466884483&text=Merhaba%2C%20WhatsApp%20bilgilerinizi%20web%20sitenizden%20ald%C4%B1m.
+    - img [ref=e403] [cursor=pointer]
+    - generic: WhatsApp
+```

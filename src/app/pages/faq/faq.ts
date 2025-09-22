@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
 
 interface FAQ {
   question: string;
@@ -12,11 +13,16 @@ interface FAQ {
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, HeroSectionComponent],
   templateUrl: './faq.html',
   styleUrl: './faq.css'
 })
 export class FaqComponent {
+  breadcrumbs = [
+    { label: 'Ana Sayfa', link: '/' },
+    { label: 'S.S.S.' }
+  ];
+
   selectedCategory = 'all';
   categories = [
     { key: 'all', label: 'FAQ.CATEGORY_ALL' },

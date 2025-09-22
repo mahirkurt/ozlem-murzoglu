@@ -12,7 +12,7 @@
 
 .resource-content {
   padding: 3rem 0;
-  background: #ffffff;
+  background: var(--md-sys-color-surface);
 }
 
 .content-wrapper {
@@ -29,8 +29,8 @@
   position: sticky;
   top: 100px;
   height: fit-content;
-  background: #f8f9fa;
-  border-radius: 12px;
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-medium);
   padding: 1.5rem;
 }
 
@@ -47,7 +47,7 @@
   font-size: 1rem;
   font-weight: 600;
   margin: 0;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
 }
 
 .toc-nav {
@@ -61,9 +61,9 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: var(--md-sys-shape-corner-small);
   transition: all 0.2s ease;
   font-size: 0.875rem;
 }
@@ -82,7 +82,7 @@
   width: 6px;
   height: 6px;
   background: #ccc;
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   flex-shrink: 0;
 }
 
@@ -98,8 +98,8 @@
 
 .content-card {
   background: white;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: var(--md-sys-shape-corner-large);
+  box-shadow: 0 2px 8px rgba(var(--md-sys-color-shadow), 0.05);
   overflow: hidden;
 }
 
@@ -117,7 +117,7 @@
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
   background: white;
-  color: #666;
+  color: var(--md-sys-color-on-surface-variant);
   border: 1px solid #e0e0e0;
   border-radius: 100px;
   font-size: 0.875rem;
@@ -131,7 +131,7 @@
   color: white;
   border-color: var(--hero-gradient-start);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 95, 115, 0.2);
+  box-shadow: 0 4px 12px rgba(var(--md-sys-color-primary-rgb), 0.2);
 }
 
 .action-btn .material-icons {
@@ -141,21 +141,21 @@
 /* Content Body */
 .printable-content {
   padding: 2rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-font-plain);
   line-height: 1.8;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
 }
 
 .printable-content h1 {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 2rem;
   font-weight: 700;
   margin: 2rem 0 1rem;
-  color: #1a1a1a;
+  color: var(--md-sys-color-on-surface);
 }
 
 .printable-content h2 {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.5rem;
   font-weight: 600;
   margin: 2rem 0 1rem;
@@ -165,11 +165,11 @@
 }
 
 .printable-content h3 {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.25rem;
   font-weight: 600;
   margin: 1.5rem 0 0.75rem;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
 }
 
 .printable-content p {
@@ -194,9 +194,9 @@
 .printable-content blockquote {
   margin: 1.5rem 0;
   padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-surface-container-low) 0%, var(--md-sys-color-surface) 100%);
   border-left: 4px solid var(--hero-gradient-start);
-  border-radius: 8px;
+  border-radius: var(--md-sys-shape-corner-small);
   font-style: italic;
 }
 
@@ -220,7 +220,7 @@
 }
 
 .printable-content tr:hover {
-  background: #f8f9fa;
+  background: var(--md-sys-color-surface-container-low);
 }
 
 /* Responsive Design */

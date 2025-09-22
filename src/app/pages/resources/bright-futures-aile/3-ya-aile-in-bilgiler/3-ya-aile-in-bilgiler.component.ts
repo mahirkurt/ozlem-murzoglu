@@ -81,7 +81,7 @@ export class Doc3YaAileInBilgilerComponent implements OnInit, AfterViewInit {
           body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--md-sys-color-on-surface);
             max-width: 100%;
           }
           .pdf-header {
@@ -97,9 +97,9 @@ export class Doc3YaAileInBilgilerComponent implements OnInit, AfterViewInit {
             margin-bottom: 10px;
           }
           h1 {
-            color: #1a1a1a;
+            color: var(--md-sys-color-on-surface);
             font-size: 28px;
-            margin: 10px 0;
+            margin: var(--md-sys-spacing-2) 0;
           }
           h2 {
             color: #7b61ff;
@@ -108,39 +108,39 @@ export class Doc3YaAileInBilgilerComponent implements OnInit, AfterViewInit {
             margin-bottom: 15px;
           }
           h3, h4 {
-            color: #333;
+            color: var(--md-sys-color-on-surface);
             margin-top: 20px;
             margin-bottom: 10px;
           }
           p {
-            margin: 10px 0;
+            margin: var(--md-sys-spacing-2) 0;
           }
           .content-section {
             margin-bottom: 30px;
             page-break-inside: avoid;
           }
           .flow-item, .content-card-item {
-            margin: 10px 0;
-            padding: 10px;
+            margin: var(--md-sys-spacing-2) 0;
+            padding: var(--md-sys-spacing-2);
             border-left: 3px solid #7b61ff;
-            background: #f8f9fa;
+            background: var(--md-sys-color-surface-container-low);
           }
           .sub-items {
             margin-left: 20px;
             margin-top: 10px;
           }
           .sub-item-card {
-            margin: 5px 0;
-            padding: 5px 10px;
-            border-left: 2px solid #4caf50;
-            background: #f5f5f5;
+            margin: var(--md-sys-spacing-1) 0;
+            padding: var(--md-sys-spacing-1) var(--md-sys-spacing-2);
+            border-left: 2px solid var(--md-sys-color-success);
+            background: var(--md-sys-color-surface-container);
           }
           .disclaimer-section {
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid #dee2e6;
             font-size: 12px;
-            color: #666;
+            color: var(--md-sys-color-on-surface-variant);
           }
           @media print {
             body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }

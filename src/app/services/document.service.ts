@@ -1030,7 +1030,7 @@ export class DocumentService {
       title: 'Hastalıklar',
       description: 'Çocukluk çağı hastalıkları ve tedavi rehberleri',
       icon: 'local_hospital',
-      color: '#F44336',
+      color: 'var(--md-sys-color-error)',
       documentCount: 9,
       documents: [
         {
@@ -1121,7 +1121,7 @@ export class DocumentService {
       title: 'Oyuncaklar',
       description: 'Yaş gruplarına göre oyuncak seçimi rehberleri',
       icon: 'toys',
-      color: '#FFC107',
+      color: 'var(--md-sys-color-secondary)',
       documentCount: 4,
       documents: [
         {

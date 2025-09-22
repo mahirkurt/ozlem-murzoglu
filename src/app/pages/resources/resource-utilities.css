@@ -9,9 +9,9 @@
 .disclaimer-section {
   margin-top: 3rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-surface-container-low) 0%, #e9ecef 100%);
   border-left: 4px solid var(--color-primary);
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   position: relative;
 }
 
@@ -22,7 +22,7 @@
   left: 20px;
   background: var(--color-primary);
   color: white;
-  padding: 4px 12px;
+  padding: var(--md-sys-spacing-1) var(--md-sys-spacing-3);
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -49,8 +49,8 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1rem;
-  background: rgba(0, 95, 115, 0.05);
-  border-radius: 8px;
+  background: rgba(var(--md-sys-color-primary-rgb), 0.05);
+  border-radius: var(--md-sys-shape-corner-small);
   margin-top: 1rem;
 }
 
@@ -58,7 +58,7 @@
   width: 40px;
   height: 40px;
   background: var(--color-primary);
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +83,7 @@
   font-size: 0.75rem;
   color: #868e96;
   padding: 0.75rem;
-  background: #f8f9fa;
+  background: var(--md-sys-color-surface-container-low);
   border-radius: 6px;
   margin-top: 0.5rem;
   text-align: center;
@@ -123,7 +123,7 @@
 .document-source {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  background: rgba(0, 95, 115, 0.08);
+  background: rgba(var(--md-sys-color-primary-rgb), 0.08);
   border-radius: 6px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -135,7 +135,7 @@
 
 /* Real title from DOCX content */
 .real-document-title {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--md-sys-typescale-font-brand);
   font-size: 2rem;
   font-weight: 700;
   color: var(--color-primary);
@@ -178,7 +178,7 @@
 .meta-badge:hover {
   background: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(var(--md-sys-color-shadow), 0.1);
 }
 
 .meta-badge .icon {
@@ -285,7 +285,7 @@
 @media (max-width: 480px) {
   .disclaimer-section::before {
     font-size: 0.625rem;
-    padding: 3px 10px;
+    padding: var(--md-sys-spacing-1) var(--md-sys-spacing-2);
   }
   
   .meta-info {
@@ -307,14 +307,14 @@
 @media print {
   .disclaimer-section {
     page-break-inside: avoid;
-    background: #f8f9fa;
+    background: var(--md-sys-color-surface-container-low);
     border: 1px solid #dee2e6;
   }
   
   .meta-badge {
     background: white;
     border: 1px solid #dee2e6;
-    color: #333;
+    color: var(--md-sys-color-on-surface);
   }
 }
 

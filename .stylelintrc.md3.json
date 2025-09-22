@@ -1,0 +1,195 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "comment-empty-line-before": null,
+    "selector-class-pattern": "^md3-[a-z]+(?:-[a-z]+)*$|^[a-z]+(?:-[a-z]+)*$",
+    "custom-property-pattern": "^(md-sys|md-ref|brand|color|spacing)-.*$",
+
+    "declaration-property-value-disallowed-list": {
+      "font-family": [
+        "/^(?!var\\(--md-sys-typescale-)(?!inherit)(?!initial)(?!unset).*$/",
+        {
+          "message": "Use MD3 typography tokens instead of hardcoded font-family (e.g., var(--md-sys-typescale-body-large-font))"
+        }
+      ],
+      "/^(color|background-color|border-color|outline-color|fill|stroke)$/": [
+        "/#[0-9a-fA-F]{3,8}/",
+        {
+          "message": "Use MD3 color tokens instead of hex colors (e.g., var(--md-sys-color-primary))"
+        }
+      ],
+      "/^(padding|margin|gap|top|right|bottom|left|width|height|min-width|min-height|max-width|max-height)$/": [
+        "/^[0-9]+(px|em|rem)$/",
+        {
+          "message": "Use MD3 spacing tokens instead of hardcoded values (e.g., var(--md-sys-spacing-4))",
+          "severity": "warning"
+        }
+      ],
+      "border-radius": [
+        "/^(?!var\\(--md-sys-shape-corner-)(?!inherit)(?!initial)(?!0).*$/",
+        {
+          "message": "Use MD3 shape tokens for border-radius (e.g., var(--md-sys-shape-corner-medium))"
+        }
+      ],
+      "box-shadow": [
+        "/^(?!var\\(--md-sys-elevation-)(?!none)(?!inherit)(?!initial).*$/",
+        {
+          "message": "Use MD3 elevation tokens for box-shadow (e.g., var(--md-sys-elevation-level1))"
+        }
+      ],
+      "transition-duration": [
+        "/^(?!var\\(--md-sys-motion-duration-).*$/",
+        {
+          "message": "Use MD3 motion duration tokens (e.g., var(--md-sys-motion-duration-short4))"
+        }
+      ],
+      "transition-timing-function": [
+        "/^(?!var\\(--md-sys-motion-easing-)(?!linear)(?!ease).*$/",
+        {
+          "message": "Use MD3 motion easing tokens (e.g., var(--md-sys-motion-easing-standard))"
+        }
+      ]
+    },
+
+    "color-function-notation": "legacy",
+    "alpha-value-notation": "number",
+    "color-no-invalid-hex": true,
+    "color-hex-case": "upper",
+    "color-hex-length": "short",
+
+    "order/order": [
+      "custom-properties",
+      "dollar-variables",
+      "at-rules",
+      "declarations",
+      "rules"
+    ],
+
+    "order/properties-order": [
+      {
+        "groupName": "Position",
+        "properties": ["position", "top", "right", "bottom", "left", "z-index"]
+      },
+      {
+        "groupName": "Display & Box Model",
+        "properties": [
+          "display",
+          "flex",
+          "flex-direction",
+          "flex-wrap",
+          "flex-flow",
+          "justify-content",
+          "align-items",
+          "align-content",
+          "align-self",
+          "order",
+          "grid",
+          "grid-template",
+          "grid-template-columns",
+          "grid-template-rows",
+          "gap",
+          "width",
+          "min-width",
+          "max-width",
+          "height",
+          "min-height",
+          "max-height",
+          "padding",
+          "padding-top",
+          "padding-right",
+          "padding-bottom",
+          "padding-left",
+          "margin",
+          "margin-top",
+          "margin-right",
+          "margin-bottom",
+          "margin-left"
+        ]
+      },
+      {
+        "groupName": "Typography",
+        "properties": [
+          "font-family",
+          "font-size",
+          "font-weight",
+          "line-height",
+          "letter-spacing",
+          "text-align",
+          "text-transform",
+          "text-decoration",
+          "white-space"
+        ]
+      },
+      {
+        "groupName": "Visual",
+        "properties": [
+          "color",
+          "background",
+          "background-color",
+          "background-image",
+          "background-repeat",
+          "background-position",
+          "background-size",
+          "border",
+          "border-radius",
+          "box-shadow",
+          "opacity",
+          "overflow"
+        ]
+      },
+      {
+        "groupName": "Animation",
+        "properties": [
+          "transition",
+          "animation",
+          "transform"
+        ]
+      },
+      {
+        "groupName": "Misc",
+        "properties": ["cursor", "user-select", "pointer-events"]
+      }
+    ],
+
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "extend",
+          "include",
+          "mixin",
+          "function",
+          "if",
+          "else",
+          "for",
+          "each",
+          "while",
+          "return",
+          "content",
+          "use",
+          "forward"
+        ]
+      }
+    ],
+
+    "scss/at-import-partial-extension": null,
+    "scss/at-import-no-partial-leading-underscore": null,
+    "no-descending-specificity": null,
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["ng-deep"]
+      }
+    ]
+  },
+
+  "ignoreFiles": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.html",
+    "dist/**/*",
+    "node_modules/**/*",
+    ".angular/**/*"
+  ]
+}

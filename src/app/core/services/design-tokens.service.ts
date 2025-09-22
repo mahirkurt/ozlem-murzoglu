@@ -104,14 +104,14 @@ export class DesignTokensService {
   private getDefaultTokens(): DesignTokens {
     return {
       colors: {
-        primary: this.generateColorScale('#00897B', 'teal'),
-        secondary: this.generateColorScale('#FFB300', 'amber'),
-        tertiary: this.generateColorScale('#FF7043', 'coral'),
+        primary: this.generateColorScale('var(--md-sys-color-primary)', 'teal'),
+        secondary: this.generateColorScale('var(--md-sys-color-secondary)', 'amber'),
+        tertiary: this.generateColorScale('var(--md-sys-color-tertiary)', 'coral'),
         neutral: this.generateColorScale('#7B7B7B', 'grey'),
         semantic: [
-          { name: 'success', value: '#4CAF50', description: 'Success state' },
+          { name: 'success', value: 'var(--md-sys-color-success)', description: 'Success state' },
           { name: 'warning', value: '#FF9800', description: 'Warning state' },
-          { name: 'error', value: '#D32F2F', description: 'Error state' },
+          { name: 'error', value: 'var(--md-sys-color-error)', description: 'Error state' },
           { name: 'info', value: '#2196F3', description: 'Info state' },
         ],
       },
@@ -279,7 +279,7 @@ export class DesignTokensService {
       },
       {
         name: 'elevation-1',
-        value: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        value: '0 1px 2px 0 rgba(var(--md-sys-color-shadow), 0.05)',
         x: 0,
         y: 1,
         blur: 2,
@@ -289,7 +289,7 @@ export class DesignTokensService {
       },
       {
         name: 'elevation-2',
-        value: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+        value: '0 1px 3px 0 rgba(var(--md-sys-color-shadow), 0.1), 0 1px 2px 0 rgba(var(--md-sys-color-shadow), 0.06)',
         x: 0,
         y: 1,
         blur: 3,
@@ -299,7 +299,7 @@ export class DesignTokensService {
       },
       {
         name: 'elevation-3',
-        value: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        value: '0 4px 6px -1px rgba(var(--md-sys-color-shadow), 0.1), 0 2px 4px -1px rgba(var(--md-sys-color-shadow), 0.06)',
         x: 0,
         y: 4,
         blur: 6,
@@ -309,7 +309,7 @@ export class DesignTokensService {
       },
       {
         name: 'elevation-4',
-        value: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        value: '0 10px 15px -3px rgba(var(--md-sys-color-shadow), 0.1), 0 4px 6px -2px rgba(var(--md-sys-color-shadow), 0.05)',
         x: 0,
         y: 10,
         blur: 15,
@@ -319,7 +319,7 @@ export class DesignTokensService {
       },
       {
         name: 'elevation-5',
-        value: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+        value: '0 20px 25px -5px rgba(var(--md-sys-color-shadow), 0.1), 0 10px 10px -5px rgba(var(--md-sys-color-shadow), 0.04)',
         x: 0,
         y: 20,
         blur: 25,

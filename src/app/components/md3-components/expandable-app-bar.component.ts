@@ -1,8 +1,5 @@
 import { Component, Input, Output, EventEmitter, HostListener, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 /**
@@ -12,16 +9,16 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 @Component({
   selector: 'app-expandable-app-bar',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],
+  imports: [CommonModule],
   template: `
-    <mat-toolbar
+    <div
       [class]="'expandable-app-bar ' + variant() + ' ' + (isCollapsed() ? 'collapsed' : 'expanded')"
       [@toolbarAnimation]="isCollapsed() ? 'collapsed' : 'expanded'"
     >
       <!-- Leading Section -->
       <div class="leading-section">
-        <button mat-icon-button (click)="navigationClick.emit()" *ngIf="showNavigation">
-          <mat-icon>{{ navigationIcon }}</mat-icon>
+        <button class="md3-icon-button" (click)="navigationClick.emit()" *ngIf="showNavigation">
+          <span class="material-icons">{{ navigationIcon }}</span>
         </button>
       </div>
 
@@ -43,14 +40,14 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       <div class="trailing-section">
         <ng-content select="[trailing]"></ng-content>
         <button
-          mat-icon-button
+          class="md3-icon-button"
           *ngFor="let action of trailingActions"
           (click)="actionClick.emit(action)"
         >
-          <mat-icon>{{ action.icon }}</mat-icon>
+          <span class="material-icons">{{ action.icon }}</span>
         </button>
       </div>
-    </mat-toolbar>
+    </div>
 
     <!-- Extended Content (for large variant) -->
     <div
@@ -76,7 +73,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
         padding: 0 16px;
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: var(--md-sys-spacing-4);
         transition: all 300ms cubic-bezier(0.2, 0, 0, 1);
 
         &.small {
@@ -133,7 +130,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 
       .app-bar-title {
         margin: 0;
-        font-family: 'Figtree', sans-serif;
+        font-family: var(--md-sys-typescale-font-brand);
         transition: all 300ms cubic-bezier(0.2, 0, 0, 1);
 
         .small & {
@@ -163,8 +160,8 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       }
 
       .app-bar-subtitle {
-        margin: 4px 0 0 0;
-        font-family: 'DM Sans', sans-serif;
+        margin: var(--md-sys-spacing-1) 0 0 0;
+        font-family: var(--md-sys-typescale-font-plain);
         font-size: 14px;
         color: var(--md-sys-color-on-surface-variant);
         opacity: 1;
@@ -179,21 +176,21 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       .trailing-section {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: var(--md-sys-spacing-2);
       }
 
       .extended-content {
-        padding: 16px 24px;
+        padding: var(--md-sys-spacing-4) var(--md-sys-spacing-6);
         background: var(--md-sys-color-surface);
         border-top: 1px solid var(--md-sys-color-outline-variant);
       }
 
       // Elevation
       :host {
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+        box-shadow: 0 1px 2px 0 rgba(var(--md-sys-color-shadow), 0.15);
 
         &.scrolled {
-          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 4px 0 rgba(var(--md-sys-color-shadow), 0.2);
         }
       }
 

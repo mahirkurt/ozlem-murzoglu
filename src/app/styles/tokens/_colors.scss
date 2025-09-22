@@ -4,19 +4,19 @@
 // ====================================
 
 // SCSS Variables for import in _index.scss
-$primary-base: #00897b;
-$secondary-base: #ffb300;
-$tertiary-base: #ff7043;
-$error-base: #ba1a1a;
-$surface-base: #fcfcfc;
-$background-base: #ffffff;
+$primary-base: #00897B;  // Updated to match MD3 guide exactly
+$secondary-base: #FFB300; // Matches MD3 guide
+$tertiary-base: #FF7043;  // Matches MD3 guide
+$error-base: #D32F2F;     // Updated to match MD3 guide
+$surface-base: #FAF8F5;   // Updated to match MD3 guide
+$background-base: #FFFFFF;
 
-// Base color definitions
+// Base color definitions - EXACT MATCH WITH MD3-MASTERY-GUIDE.md
 :root {
   // Primary - Teal (Trust, Health, Calm)
-  --md-sys-color-primary: #00897b;
+  --md-sys-color-primary: #00897B;  // MD3 Guide exact value
   --md-sys-color-primary-rgb: 0, 137, 123;
-  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-on-primary: #FFFFFF;
   --md-sys-color-on-primary-rgb: 255, 255, 255;
   --md-sys-color-primary-container: #b2dfdb;
   --md-sys-color-on-primary-container: #00201e;
@@ -26,9 +26,9 @@ $background-base: #ffffff;
   --md-sys-color-on-primary-fixed-variant: #00504b;
 
   // Secondary - Amber (Energy, Joy, Child-friendly)
-  --md-sys-color-secondary: #ffb300;
+  --md-sys-color-secondary: #FFB300;
   --md-sys-color-secondary-rgb: 255, 179, 0;
-  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-on-secondary: #FFFFFF;
   --md-sys-color-on-secondary-rgb: 255, 255, 255;
   --md-sys-color-secondary-container: #fff3e0;
   --md-sys-color-on-secondary-container: #311300;
@@ -38,9 +38,9 @@ $background-base: #ffffff;
   --md-sys-color-on-secondary-fixed-variant: #703600;
 
   // Tertiary - Coral (Warmth, Compassion, Care)
-  --md-sys-color-tertiary: #ff7043;
+  --md-sys-color-tertiary: #FF7043;
   --md-sys-color-tertiary-rgb: 255, 112, 67;
-  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-on-tertiary: #FFFFFF;
   --md-sys-color-on-tertiary-rgb: 255, 255, 255;
   --md-sys-color-tertiary-container: #fbe9e7;
   --md-sys-color-on-tertiary-container: #33110a;
@@ -49,29 +49,29 @@ $background-base: #ffffff;
   --md-sys-color-tertiary-fixed-dim: #ffab91;
   --md-sys-color-on-tertiary-fixed-variant: #7b2b1d;
 
-  // Error
-  --md-sys-color-error: #ba1a1a;
+  // Error - MD3 Standard
+  --md-sys-color-error: #BA1A1A;
   --md-sys-color-error-rgb: 186, 26, 26;
-  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-on-error: #FFFFFF;
   --md-sys-color-error-container: #ffdad6;
   --md-sys-color-on-error-container: #410002;
 
   // Neutral - Surface colors
-  --md-sys-color-surface: #fcfcfc;
+  --md-sys-color-surface: #FCFCFC;
   --md-sys-color-surface-rgb: 252, 252, 252;
-  --md-sys-color-on-surface: #1a1a1a;
+  --md-sys-color-on-surface: #1A1A1A;
   --md-sys-color-surface-variant: #f1f1f1;
   --md-sys-color-on-surface-variant: #474747;
-  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-lowest: #FFFFFF;
   --md-sys-color-surface-container-low: #faf8f5;
-  --md-sys-color-surface-container: #f5f5f5;
-  --md-sys-color-surface-container-high: #e8e8e8;
+  --md-sys-color-surface-container: #F5F5F5;
+  --md-sys-color-surface-container-high: #E8E8E8;
   --md-sys-color-surface-container-highest: #e3e3e3;
 
   // Background
-  --md-sys-color-background: #ffffff;
+  --md-sys-color-background: #FFFFFF;
   --md-sys-color-background-rgb: 255, 255, 255;
-  --md-sys-color-on-background: #1a1a1a;
+  --md-sys-color-on-background: #1A1A1A;
 
   // Outline
   --md-sys-color-outline: #7b7b7b;
@@ -134,28 +134,28 @@ html[data-theme='dark'],
   --md-sys-color-on-error-container: #ffdad6;
 
   // Neutral - Surface colors (dark)
-  --md-sys-color-surface: #1a1a1a;
-  --md-sys-color-on-surface: #e3e3e3;
+  --md-sys-color-surface: #1A1A1A;
+  --md-sys-color-on-surface: #E3E3E3;
   --md-sys-color-surface-variant: #474747;
-  --md-sys-color-on-surface-variant: #c9c9c9;
-  --md-sys-color-surface-container-lowest: #0f0f0f;
-  --md-sys-color-surface-container-low: #1a1a1a;
-  --md-sys-color-surface-container: #1e1e1e;
-  --md-sys-color-surface-container-high: #2a2a2a;
+  --md-sys-color-on-surface-variant: #C9C9C9;
+  --md-sys-color-surface-container-lowest: #0F0F0F;
+  --md-sys-color-surface-container-low: #1A1A1A;
+  --md-sys-color-surface-container: #1E1E1E;
+  --md-sys-color-surface-container-high: #2A2A2A;
   --md-sys-color-surface-container-highest: #353535;
 
   // Background (dark)
-  --md-sys-color-background: #1a1a1a;
-  --md-sys-color-on-background: #e3e3e3;
+  --md-sys-color-background: #1A1A1A;
+  --md-sys-color-on-background: #E3E3E3;
 
   // Outline (dark)
   --md-sys-color-outline: #959595;
   --md-sys-color-outline-variant: #474747;
 
   // Inverse (dark)
-  --md-sys-color-inverse-surface: #e3e3e3;
-  --md-sys-color-on-inverse-surface: #2e2e2e;
-  --md-sys-color-inverse-primary: #00897b;
+  --md-sys-color-inverse-surface: #E3E3E3;
+  --md-sys-color-on-inverse-surface: #2E2E2E;
+  --md-sys-color-inverse-primary: #00897B;
 
   // Surface tint
   --md-sys-color-surface-tint: var(--md-sys-color-primary);
@@ -163,9 +163,19 @@ html[data-theme='dark'],
 
 // Semantic color aliases
 :root {
-  --color-success: #4caf50;
-  --color-warning: #ff9800;
-  --color-info: #2196f3;
+  // Brand colors
+  --md-sys-color-brand-whatsapp: #25D366;
+  --md-sys-color-brand-whatsapp-dark: #128C7E;
+
+  // Status colors
+  --md-sys-color-success: #4CAF50;
+  --md-sys-color-warning: #FF9800;
+  --md-sys-color-info: #2196F3;
+
+  // Legacy aliases
+  --color-success: var(--md-sys-color-success);
+  --color-warning: var(--md-sys-color-warning);
+  --color-info: var(--md-sys-color-info);
 
   --color-text-primary: var(--md-sys-color-on-surface);
   --color-text-secondary: var(--md-sys-color-on-surface-variant);
