@@ -1,0 +1,712 @@
+<html lang="tr" >
+
+<head>
+    <!--
+
+    BBBBB     U        U   L           U        U   TTTTTTTTTTT       K     K   L           I   N         N   I   K     K
+    B    B    U        U   L           U        U        T            K    K    L           I   N N       N   I   K    K
+    B     B   U        U   L           U        U        T            K   K     L           I   N  N      N   I   K   K
+    B    B    U        U   L           U        U        T            K KK      L           I   N   N     N   I   K KK 
+    BBBBB     U        U   L           U        U        T            KK        L           I   N    N    N   I   KK
+    B    B    U        U   L           U        U        T            K KK      L           I   N     N   N   I   K KK
+    B     B   U        U   L           U        U        T            K   K     L           I   N      N  N   I   K   K
+    B    B     U      U    L            U      U         T            K    K    L           I   N       N N   I   K    K
+    BBBBB       UUUUUU     LLLLLLLLL     UUUUUU          T            K     K   LLLLLLLLL   I   N         N   I   K     K
+
+    -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+    <meta content="Online Hastane Bilgi Yönetim Sistemi - Bulut Klinik Bilgi Yönetim Sistemi" name="description" />
+
+    <meta content="Bulut Klinik Teknoloji A.Ş." name="author" />
+
+    <title>Bulut Klinik -  - </title>
+    <meta name="robots" content="noindex">
+
+
+    <script>
+        dataLayer = [{
+            'ga_companyId':'',
+            'ga_isDoctor':''
+        }];
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P4GMM23');</script>
+    <!-- End Google Tag Manager -->
+
+
+
+            <script src="/views/theme/components/jquery/jquery.min.js?v=250819_1209" type="text/javascript"></script>
+    
+           <link rel="shortcut icon" href="/views/theme/images/logo/favicon.ico" />    <link href="/views/theme/css/print.css" rel="stylesheet" type="text/css" media="print" />
+    <link href="/views/theme/components/jquery/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="/views/theme/components/jquery/jquery-ui/jquery-ui.min.js?v=250819_1209" type="text/javascript"></script>
+            <script src="/views/theme/components/pace/pace.min.js?v=250819_1209" type="text/javascript"></script>
+    
+    <script src="/views/theme/components/jquery.image-marker/jquery.image-marker.js?v=250819_1209" type="text/javascript"></script>
+    <link href="/views/theme/components/jquery.image-marker/jquery.image-marker.css?v=250819_1209" rel="stylesheet" />
+
+    <link type="text/css" href="/views/theme/components/datepicker/datepicker.css" rel="stylesheet" />
+    <link type="text/css" href="/views/theme/components/jquery-simple-datetimepicker/jquery.simple-dtpicker.css" rel="stylesheet" />
+    <script type="text/javascript" src="/views/theme/components/jquery-simple-datetimepicker/jquery.simple-dtpicker.js?v=250819_1209"></script>
+
+    <link href="/views/theme/components/pace/themes/pace-theme-flash.css" rel="stylesheet" type="text/css" />
+    <link href="/views/theme/components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/views/theme/components/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/views/theme/components/uniform/css/uniform.default.min.css" rel="stylesheet" type="text/css" />
+    <link href="/views/theme/components/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/views/theme/components/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+        <link href="/views/theme/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/views/theme/components/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+    <link href="/views/theme/components/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
+    <link href="/views/theme/components/select2_/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/views/theme/components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />    <link href="/views/theme/css/components.min.css?v=15" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="/views/theme/css/plugins.css?v=15" rel="stylesheet" type="text/css" />
+    <link href="/views/theme/css/gg.min.css?v=15" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+        <link href="/views/theme/css/loader.css" rel="stylesheet" type="text/css" />
+    <script>
+        var site_lang = "tr";
+        var lng_processing = "İşlem Yapılıyor";
+        var lng_unexpected_error = "Beklenmeyen bir hata oluştu. İşlemlerinizi kontrol edinz.";
+        var lng_close = "Kapat";
+    </script>
+    <script type="text/javascript" src="/views/theme/js/ajax_data.js?v=250819_1209"></script>
+    <script src="/views/theme/js/general_helper.js?v=250819_1209" type="text/javascript"></script>
+
+</head>    <body class="login">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4GMM23"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="user-login-5">
+
+    <div class="col-md-6 login-header hidden-xs">
+    </div>
+    <div class="col-md-6 padding-left-right-50">
+
+        <div class="input-group col-sm-12">
+
+            <img class="margin-bottom-40 margin-top-20" src="/views/theme/images/logo/BulutKlinikLogoKoyu.svg" style="height: 75px;">
+        </div>
+        <h1>Kullanıcı Girişi</h1>
+        <p>Lütfen Kullanıcı Adınızı ve Şifrenizi Giriniz</p>
+
+        <form name="login-form" id="login-form" method="post">
+            <input type="hidden" id="process_m" value="" />
+            <input type="hidden" name="GG_Secure_Name" value="ci_csrf_token" />
+            <input type="hidden" name="GG_Secure_Token" value="" />
+            <input type="hidden" id="redirect_slug" name="redirect_slug" value="App/My/favorites">
+
+            <div class="input-group col-xs-12">
+                <span class="input-group-addon">
+                    <i class="fa fa-language"></i>
+                </span>
+
+                <select name="select_switch_language" onchange="to_page('https://app.bulutklinik.com/Sys/System/select_language/')" class="form-control" id="select_switch_language">
+                    <option value="tr" selected>Türkçe</option>
+                    <option value="en" >English</option>
+                    <option value="ru" >русский</option>
+                    <option value="az" >Azərbaycan</option>
+                    <option value="ar" >العربية</option>
+                    <option value="uz" >Oʻzbekcha</option>
+                </select>
+            </div>
+
+            <br />
+
+            <div class="input-group col-xs-12">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input autocomplete="off" type="email"  name="email" id="email" class="form-control input-sm" placeholder="Mail Adresi" />
+            </div>
+            <br />
+            <div class="input-group col-xs-12">
+                <span class="input-group-addon">
+                    <i class="fa fa-key"></i>
+                </span>
+                <input autocomplete="off" type="password" name="password" id="password" maxlength="20" class="form-control input-sm" placeholder="Şifre" />
+            </div>
+            <input type="hidden" name="firebase_token" id="firebase_token" value="" />
+            <br />
+            <div id="g-recaptcha" style=" display:none;  "></div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="forgot-password">
+                        <a class="forgot-password" id="open_loader" data-url="Sec/Login/lost_pass" data-toggle="modal">Şifremi Unuttum</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 text-right">
+                                        <button class="btn blue" id="btn_login_portal" type="submit">Sisteme Giriş</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade modal-mail-gg" id="modal_grn_new_company" role="dialog">
+    <form id="form_grn_new_company">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="header-modal">Hesap Oluşturun</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="form-group col-sm-6 margin-bottom-10">
+                    <label class="modal-text">ÇKYS Kodu</label>
+                    <input type="number" style="text-transform: uppercase" id="grn_new_company_ckys_code" data-required="1" name="grn_new_company_ckys_code" value="" class="form-control input-modal">
+                </div>
+                <div class="form-group col-sm-6 margin-bottom-10">
+                    <label class="modal-text">İsim Soyisim</label>
+                    <input type="text" style="text-transform: uppercase" id="grn_new_company_name_surname" data-required="1" name="grn_new_company_name_surname" value="" class="form-control input-modal">
+                </div>
+                <div class="form-group col-sm-6 margin-bottom-10">
+                    <label class="modal-text">E-posta Adresi</label>
+                    <input type="text" id="grn_new_company_email" data-required="1" name="grn_new_company_email" class="form-control input-modal">
+                </div>
+                <div class="form-group col-sm-6 margin-bottom-10">
+                    <label class="modal-text">Cep Telefonu (Şifre gönderilecek)</label>
+                    <input type="tel" id="grn_new_company_phone" data-required="1" name="grn_new_company_phone" value="" class="form-control input-modal">
+                </div>
+                <div class="form-group col-sm-6 modal-text font-14 margin-bottom-20">
+                    <input class="uniform" type="checkbox" name="grn_new_company_user_agreement" data-required="1" id="grn_new_company_user_agreement" value="1" checked /> <a href="https://www.doktorjet.net/uyelik-ve-hizmet-sozlesmesi/" target="_new">Satış sözleşmesini </a> kabul ediyorum                </div>
+                <div class="form-group col-sm-6 modal-text font-14 margin-bottom-20">
+                    <input class="uniform" type="checkbox" name="grn_new_company_kvkk_agreement" data-required="1" id="grn_new_company_user_agreement" value="1" checked /> <a href="https://www.doktorjet.net/uyelik-ve-hizmet-sozlesmesi/" target="_new">KVKK sözleşmesini </a> kabul ediyorum                </div>
+                <div class="form-group col-sm-1 margin-0">
+                    <div id="g-recaptcha" style=" display:none;  "></div>
+                </div>
+                <input type="hidden" id="process_m" value="" />
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+        <div class="modal-footer" id='cln_message_add_event'>
+            <button type="submit" id="grn_new_company_add_button" class="btn green"><i class="fa fa-plus"> </i>Firma Kaydını Tamamla</button>
+            <button type="button" class="btn default" data-dismiss="modal">Kapat</button>
+        </div>
+        <div class="form-group col-sm-1 margin-0">
+            <div id="g-recaptcha" style=" display:none;  "></div>
+        </div>
+        <input type="hidden" id="process_m" value="" />
+        <div class="clearfix"></div>
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="sms_2fa_model" role="dialog" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-header">
+        <h5 class="modal-title">Çok faktörlü kimlik doğrulaması (2FA)</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group col-sm-12 margin-bottom-10">
+                <label class="modal-text" id="sms_2fa_code_msg">Lütfen {phone} numaralı cep telefonunuza gönderilen şifreyi giriniz</label>
+                <input type="number" style="text-transform: uppercase"  name="sms_code" id="sms_code" class="form-control input-modal" data-required="1" placeholder="123***">
+            </div>
+            <div class="form-group col-sm-12 margin-bottom-0 text-center">
+                <h4>
+                    <div class="countdown">
+                        <b class="text-success">Kalan Süre :</b> <span id="clock"></span>
+                    </div>
+                </h4>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        <button type="button" class="btn green" id="sms-2fa-confirm-btn">Gönder</button>
+        <button type="button" class="btn green display-none" id="sms_2fa_btn_again">Yeniden Gönder</button>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var validate = "/views/sec/login.js?v=250819_1209";
+        var modal_new = "/views/theme/js/modal_new.js?v=250819_1209";
+        $.getScript(modal_new);
+        $.getScript(validate);
+
+        
+        $("#sms-2fa-confirm-btn").click(function (e) {
+            e.preventDefault();
+
+            if($("#sms_code").val() == ""){
+                return;
+            }
+
+            var data = {
+                email : $("#email").val(),
+                password : $("#password").val(),
+                sms_code : $("#sms_code").val(),
+            }
+
+            $("#sms-2fa-confirm-btn").attr("disabled", "true");
+
+            $.ajax({
+                type: "post",
+                url: "/Sec/Login/sms_2fa_check_verify",
+                data: data,
+                success: function (response) {
+                    if(response.status == false){
+                        toast_ajax_message("toast-top-full-width","4000","error",response.message,response.title);
+                        setTimeout(() => {
+                            $("#sms-2fa-confirm-btn").removeAttr("disabled");
+                        }, 3000);
+                    }else{
+                        toast_ajax_message("toast-top-full-width","4000","success",response.message,response.title);
+                        setTimeout(() => {
+                            window.location = response.url;
+                        }, 1500);
+                    }
+                }
+            });
+        });
+
+        $("#sms_2fa_btn_again").click(function (e) { 
+            e.preventDefault();
+            $("#sms_2fa_model").modal("hide");
+            setTimeout(() => {
+                $("#btn_login_portal").trigger("click");
+            }, 1000);
+        });
+    });
+
+
+
+    var onloadCallback = function() {
+                var htmlEl = document.querySelector('#g-recaptcha');
+        var recaptha_use = 0;
+        var form_id = "login-form";
+
+        var captchaOptions = {
+            sitekey: '6LcBWiIUAAAAALjg3zSgzgTrwiXneSGeLeCla3Lr',
+            size: 'invisible',
+            callback: function(token) {
+                $('#' + form_id).submit();
+            }
+        };
+        recaptchaId = window.grecaptcha.render(htmlEl, captchaOptions, false);
+
+        $('#btn_login_portal').click(function(e) {
+            e.preventDefault();
+
+            form_id = "login-form";
+            if (recaptha_use == 1) {
+                grecaptcha.reset(recaptchaId);
+            }
+            recaptha_use = 1;
+            grecaptcha.execute(recaptchaId);
+        });
+
+
+        $('#grn_new_company_add_button').click(function(e) {
+            e.preventDefault();
+            form_id = "form_grn_new_company";
+            if (recaptha_use == 1) {
+                grecaptcha.reset(recaptchaId);
+            }
+            recaptha_use = 1;
+            grecaptcha.execute(recaptchaId);
+        });
+            };
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-messaging.js"></script>
+
+<script>
+function get_firebase_token()
+{
+    firebase.initializeApp({"apiKey":"AIzaSyAM1ZXamamszwimaa_SK1vrRV6pTNV6MBQ","authDomain":"bulutklinikweb.firebaseapp.com","databaseURL":"https:\/\/bulutklinikweb.firebaseio.com","projectId":"bulutklinikweb","storageBucket":"bulutklinikweb.appspot.com","messagingSenderId":"822293481381","appId":"1:822293481381:web:9196ca9366fa0c75770a4c","measurementId":"G-VDEDXCHX8S"});
+    const messaging = firebase.messaging();
+    messaging.getToken().then((currentToken) => {
+        if (currentToken) {
+            $('input[name="firebase_token"]').val(currentToken);
+        }
+    }).catch((err) => {
+        sendNotificationPermission();
+    });
+}
+get_firebase_token();
+
+</script>
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js?v=250819_1209'></script>        <script>
+            const IS_MEDULA_ACTIVE = false;
+            const PRT_SGK_CONTRIBUTION_FEE = 192872;
+        </script>
+        <div id="loader" class="modal fade modal-scroll" tabindex="-1" data-backdrop="static"> </div>
+        <div id="loader_medium" class="modal fade modal-scroll" tabindex="-1" data-backdrop="static"> </div>
+        <div id="loader_in_loader" class="modal container fade modal-scroll" tabindex="-1" data-backdrop="static"> </div>
+        <div id="loader_large" class="modal container fade modal-scroll" tabindex="-1" data-backdrop="static"> </div>
+        <script src="/views/theme/components/bootstrap/js/bootstrap.min.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/js/jqueryDateFormat.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/jquery-slimscroll/jquery.slimscroll.min.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/jquery.blockui.min.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/bootstrap-toastr/toastr.min.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/bootstrap-modal/js/bootstrap-modalmanager.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/bootstrap-modal/js/bootstrap-modal.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/jquery-inputmask-3.1.27/jquery.inputmask.bundle.min.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/jquery-validation/js/jquery.validate.min.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/select2_/js/select2.full.min.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/select2_/js/i18n/tr.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/select2_/js/i18n/en.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/datepicker/datepicker.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/uniform/jquery.uniform.min.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/js/toast.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/js/toast_ajax.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/js/select_lang.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/js/done_typing.js?v=250819_1209" type="text/javascript"></script>
+
+        <script>
+            var lng_DateRangePicker_Today = "Bugün";
+            var lng_DateRangePicker_Yesterday = "Dün";
+            var lng_DateRangePicker_Tomorrow = "Yarın";
+            var lng_DateRangePicker_Last_7_Days = "Geçmiş 7 Gün";
+            var lng_DateRangePicker_Last_30_Days = "Geçmiş 30 Gün";
+            var lng_DateRangePicker_ThisYear = "Bu Yıl";
+            var lng_DateRangePicker_LastYear = "Geçen Yıl";
+            var lng_DateRangePicker_ThisMonth = "Bu Ay";
+            var lng_DateRangePicker_LastMonth = "Geçen Ay";
+            var lng_DateRangePicker_DaysOfWeek = "'Pz','Pt', 'Sl', 'Çr', 'Pr', 'Cm', 'Ct'";
+            var lng_DateRangePicker_MonthNames = "'Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'";
+            var lng_colvis = "Sütun Seç";
+            var lng_mis_giro = "Ciro";
+            var lng_prt_Item_Price = "Hasta Tutarı";
+            var lng_mis_patient_debit = "Hasta Borcu";
+            var lng_mis_payment = "Tahsilat";
+            var lng_prt_Item_Price_Agency = "Anlaşmalı Kurum Tutarı";
+            var lng_general_Discount = "İndirim";
+            var lng_service_cost = "Maliyet";
+            var lng_total_excluding_cost = "Maliyet Harici Toplam";
+            var lng_profit = "Kâr";
+            var lng_prt_info_payment = "Ödenen";
+            var lng_prt_info_debt = "Borç";
+            var lng_payment_cash = "Nakit";
+            var lng_payment_credit_card = "Kredi Kartı";
+            var lng_payment_virtual_pos = "Sanal Pos";
+            var lng_payment_document = "Çek - Senet";
+            var lng_payment_transfer = "Havale - Eft";
+            var lng_prt_info_total = "Toplam";
+            var lng_prt_info_pos_total = "Sanal Pos";
+            var lng_prt_info_agency_debt = "Kurum Borcu";
+            var lng_Yes = "Evet";
+            var lng_No = "Hayır";
+        </script>
+        <script src="/views/theme/components/datepicker/trTr.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/components/bootbox.js?v=250819_1209" type="text/javascript"></script>
+
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script><script src="/views/theme/components/moment.min.js?v=250819_1209" type="text/javascript"></script><script src="/views/theme/components/bootstrap-daterangepicker/daterangepicker.min.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/js/app.js?v=250819_1209" type="text/javascript"></script> <!-- clear -->
+        <script src="/views/theme/js/layout.min.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/js/quick-sidebar.js?v=250819_1209" type="text/javascript"></script> <!-- clear -->
+        <script src="/views/theme/js/input_mask.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/js/ajax_modal.js?v=250819_1209" type="text/javascript"></script>
+        <script src="/views/theme/js/date_time_pickers.js?v=250819_1209" type="text/javascript"></script>
+
+                    <script src="/views/tic/set_ticket.js?v=250819_1209" type="text/javascript"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js?v=250819_1209"></script>
+
+        <script>
+            var tour_state = "1";
+        </script>
+                    <script>
+                var tour_state = "0";
+                var lng_Tour_End = "Turu sonlandır";
+                var lng_Tour_Next = "İleri";
+                var lng_Tour_Previous = "Geri";
+            </script>
+            <script src="/views/theme/components/bootstrap-tour/js/bootstrap-tour.min.js?v=250819_1209" type="text/javascript"></script>
+        
+
+        <script>
+            $(function() {
+                $("[id^=draggable_]").draggable();
+                $("[name=dragable_print_div]").resizable();
+            });
+        </script>
+
+                    <script src="/views/theme/components/uniform/jquery.uniform.min.js?v=250819_1209" type="text/javascript"></script>
+            <script>
+                var js_select = 'Seçim Yapınız';
+                var inputTooShort = 'En az 2 karakter giriniz';
+                var noResults = 'Sonuç bulunamadı';
+                var searching = 'Aranıyor...';
+
+                $('body').on('hidden.bs.modal', '.modal', function() {
+                    $(this).data('bs.modal', null);
+                });
+
+                function convert_select2_all(doctor_id) {
+                                            //general converting
+                        $("select").select2({
+                            language: {
+                                inputTooShort: function() {
+                                    return inputTooShort;
+                                },
+                                noResults: function() {
+                                    return noResults;
+                                },
+                                searching: function() {
+                                    return searching;
+                                }
+                            },
+                            placeholder: js_select,
+                            allowClear: true,
+                        });
+                    
+                    $("#resume_list").select2({
+                        language: {
+                            inputTooShort: function() {
+                                return inputTooShort;
+                            },
+                            noResults: function() {
+                                return noResults;
+                            },
+                            searching: function() {
+                                return searching;
+                            }
+                        },
+                        placeholder: js_select
+                    });
+
+                    //prescription converitng
+                    $("#select2_select_prescription").select2({
+                        ajax: {
+                            url: "/Med/Prescription/prescription_search",
+                            dataType: 'json',
+                            delay: 400,
+                            closeOnSelect: false,
+                            data: function(params) {
+                                return {
+                                    src_data: params.term
+                                };
+                            },
+                            cache: true
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        placeholder: js_select
+                    });
+
+                    //ICD Converting
+                    $("#select2_select_icd_10").select2({
+                        ajax: {
+                            url: "/Med/Medical/icd_search/" + doctor_id,
+                            dataType: 'json',
+                            delay: 400,
+                            closeOnSelect: false,
+                            data: function(params) {
+                                return {
+                                    src_data: params.term
+                                };
+                            },
+                            cache: true
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        placeholder: js_select
+                    });
+
+                    $("#pat_services").select2({
+                        ajax: {
+                            url: "/Mis/Management/getServices",
+                            dataType: 'json',
+                            delay: 400,
+                            closeOnSelect: false,
+                            data: function(params) {
+                                return {
+                                    src_data: params.term
+                                };
+                            },
+                            cache: true
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        placeholder: js_select
+                    });
+
+                    $("#select2_select_icd_prescription").select2({
+                        ajax: {
+                            url: "/Med/Medical/icd_search/" + doctor_id,
+                            dataType: 'json',
+                            delay: 400,
+                            closeOnSelect: false,
+                            data: function(params) {
+                                return {
+                                    src_data: params.term
+                                };
+                            },
+                            cache: true
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        placeholder: js_select
+                    });
+
+                    $("#patients").select2({
+                        allowClear: true,
+                        minimumInputLength: 2,
+                        ajax: {
+                            url: "/Cln/Calendar/patient_search",
+                            dataType: 'json',
+                            delay: 400,
+                            closeOnSelect: false,
+                            data: function(params) {
+                                return {
+                                    src_data: params.term
+                                };
+                            },
+                            processResults: function(data, params) {
+                                //Send the data back
+                                return {
+                                    results: $.map(data.results, function(obj) {
+                                        return {
+                                            id: obj.id,
+                                            text: obj.TEXT
+                                        };
+                                    })
+                                };
+                            },
+                            cache: true
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        placeholder: js_select
+                    });
+
+                    $("#patients_search_sms").select2({
+                        minimumInputLength: 2,
+                        ajax: {
+                            url: "/Pat/Patient/patient_search",
+                            dataType: 'json',
+                            delay: 400,
+                            closeOnSelect: false,
+                            data: function(params) {
+                                return {
+                                    src_data: params.term
+                                };
+                            },
+                            cache: true
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        placeholder: js_select
+                    });
+
+                    
+
+                }
+
+                function convert_date_picker() {
+                    $('.date_picker_new').datepicker({
+                        language: 'tr-TR',
+                        autoHide: true
+                    });
+                }
+
+                $(document).ready(function() {
+
+                    convert_date_picker();
+
+                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                        $('select').each(function(i, item) {
+                            if ($(item).hasClass("select2-hidden-accessible")) {
+                                $(item).select2("destroy");
+                            }
+
+                        });
+                    } else {
+                        convert_select2_all();
+                    }
+                });
+
+
+                $(document).ready(function() {
+                    $('#menu_toggler').click(function() {
+                        $.ajax({
+                            type: "POST",
+                            url: '/App/My/sidebar_session',
+                            data: {},
+                            success: function(data) {},
+                        });
+                    });
+                });
+
+                //Review notification JS
+                var notification = "Tarihli Hizmet Değerlendirmesi";
+                var casing = "/views/crm/crm_review_push_holder.js?v=250819_1209";
+                $.getScript(casing);    
+            </script>
+        
+        
+        <script src="/views/theme/components/google_calendar.js?v=250819_1209"></script>
+
+        <script src="/views/theme/js/jquery.bootstrap-touchspin.min.js?v=250819_1209" type="text/javascript"></script>
+        <script>
+            var app_url = 'https://app.bulutklinik.com/';
+        </script>
+        <script>
+            $(document).ready(function() {
+                if ($('.no-datatable').length) {
+                    $('.no-datatable').DataTable().destroy();
+                };
+            });
+        </script>
+
+        <script src="/views/theme/js/broadcasts.js?v=250819_1209" type="text/javascript"></script>
+
+        
+        <script>
+            $(window).load(function () {
+
+    $('.date_range_selector').daterangepicker({
+        format: 'DD.MM.YYYY',
+        separator: ' to ',
+        startDate: moment().startOf('year'),
+        endDate: moment().endOf('year'),
+        ranges: {
+            'Bu Gün': [moment(), moment()],
+            'Bu Ay': [moment().startOf('month'), moment().endOf('month')],
+            'Bu Yıl': [moment().startOf('year'), moment().endOf('year')],
+            'Geçen Ay': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')],
+            '2 Ay Önce': [moment().subtract('month', 2).startOf('month'), moment().subtract('month', 2).endOf('month')]            
+        },
+        locale: {
+            cancelLabel: 'Vazgeç',
+            applyLabel: 'Tamam',
+            customRangeLabel: 'Tarih Aralığı Seç',
+            format: 'DD.MM.YYYY',
+            daysOfWeek:lng_DateRangePicker_DaysOfWeek.replace(/'/g, "").split(","),
+            monthNames:lng_DateRangePicker_MonthNames.replace(/'/g, "").split(","),
+            firstDay:1
+        },
+        language: 'tr-TR',
+
+    });
+    });
+        </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'973c393c2b3e5481',t:'MTc1NTk2OTAyOA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-08-28T07:51:04.129880",
+  "status": "success",
+  "environment": "github_actions",
+  "files_synced": 5,
+  "files": {
+    "hastalar_latest.csv": {
+      "path": "apps\\backend_app\\data\\bulut_klinik\\hastalar_latest.csv",
+      "size_kb": 151.37,
+      "modified": "2025-08-23T20:17:06"
+    },
+    "medikal_bilgiler_latest.csv": {
+      "path": "apps\\backend_app\\data\\bulut_klinik\\medikal_bilgiler_latest.csv",
+      "size_kb": 1553.48,
+      "modified": "2025-08-23T20:18:14"
+    },
+    "protokoller_latest.csv": {
+      "path": "apps\\backend_app\\data\\bulut_klinik\\protokoller_latest.csv",
+      "size_kb": 193.9,
+      "modified": "2025-08-23T20:18:00"
+    },
+    "tahsilatlar_latest.csv": {
+      "path": "apps\\backend_app\\data\\bulut_klinik\\tahsilatlar_latest.csv",
+      "size_kb": 78.36,
+      "modified": "2025-08-23T20:18:08"
+    },
+    "hizmetler_latest.csv": {
+      "path": "apps\\backend_app\\data\\bulut_klinik\\hizmetler_latest.csv",
+      "size_kb": 207.36,
+      "modified": "2025-08-23T20:17:56"
+    }
+  },
+  "statistics": {
+    "patients": 1914,
+    "medical_records": 26512,
+    "appointments": 1185,
+    "financial_records": 1185,
+    "services": 1478
+  }
+}

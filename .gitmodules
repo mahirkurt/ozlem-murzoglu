@@ -1,0 +1,3 @@
+[submodule "saglik-petegim"]
+	path = saglik-petegim
+	url = https://github.com/mahirkurt/Saglik-Petegim.git

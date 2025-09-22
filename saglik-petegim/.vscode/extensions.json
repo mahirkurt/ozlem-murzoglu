@@ -1,0 +1,84 @@
+{
+  "recommendations": [
+    // Flutter & Dart
+    "dart-code.dart-code",
+    "dart-code.flutter",
+    
+    // Python
+    "ms-python.python",
+    "ms-python.flake8",
+    "ms-python.black-formatter",
+    "ms-python.mypy-type-checker",
+    "ms-python.isort",
+    
+    // JavaScript/TypeScript/React
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-next",
+    "ms-vscode.vscode-eslint",
+    "dbaeumer.vscode-eslint",
+    
+    // Git & Version Control
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    
+    // Docker & DevOps
+    "ms-azuretools.vscode-docker",
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
+    
+    // Database
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-pg",
+    
+    // Code Quality & Testing
+    "sonarsource.sonarlint-vscode",
+    "ms-vscode.test-adapter-converter",
+    "hbenl.vscode-test-explorer",
+    
+    // Productivity
+    "ms-vscode-remote.remote-containers",
+    "ms-vscode-remote.remote-ssh",
+    "ms-vscode.remote-explorer",
+    "johnpapa.vscode-peacock",
+    "alefragnani.project-manager",
+    "gruntfuggly.todo-tree",
+    
+    // UI/UX
+    "pkief.material-icon-theme",
+    "zhuangtongfa.material-theme",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+    
+    // Documentation
+    "yzhang.markdown-all-in-one",
+    "davidanson.vscode-markdownlint",
+    "shd101wyy.markdown-preview-enhanced",
+    
+    // Configuration Files
+    "redhat.vscode-yaml",
+    "ms-vscode.json",
+    "tamasfe.even-better-toml",
+    
+    // Collaboration
+    "ms-vsliveshare.vsliveshare",
+    
+    // API Development
+    "humao.rest-client",
+    "42crunch.vscode-openapi",
+    
+    // Utilities
+    "streetsidesoftware.code-spell-checker",
+    "editorconfig.editorconfig",
+    "ms-vscode.hexdump",
+    "bierner.color-info",
+    "formulahendry.code-runner",
+    
+    // Monorepo Support
+    "arcanis.vscode-zipfs",
+    "ms-vscode.mono-debug"
+  ],
+  "unwantedRecommendations": [
+    "ms-vscode.vscode-json",
+    "hookyqr.beautify"
+  ]
+}
