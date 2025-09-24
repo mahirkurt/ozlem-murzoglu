@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { GoogleReviewsService, GoogleReview } from '../../services/google-reviews.service';
 import { Subscription } from 'rxjs';
 
@@ -28,13 +28,18 @@ export class TestimonialSectionComponent implements OnInit, OnDestroy {
   currentTestimonialIndex = 0;
   private testimonialInterval: any;
   private reviewsSubscription?: Subscription;
+  private langChangeSubscription?: Subscription;
   googleReviews: GoogleReview[] = [];
   isLoadingReviews = true;
+  allReviews: GoogleReview[] = []; // Store all fetched reviews
 
   // No mock data - only real Google reviews
   testimonials: Testimonial[] = [];
 
-  constructor(private googleReviewsService: GoogleReviewsService) {}
+  constructor(
+    private googleReviewsService: GoogleReviewsService,
+    private translate: TranslateService
+  ) {}
 
   get currentTestimonials(): Testimonial[] {
     // Only use real Google reviews
@@ -67,12 +72,23 @@ export class TestimonialSectionComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loadGoogleReviews();
     this.startTestimonialRotation();
+
+    // Listen for language changes
+    this.langChangeSubscription = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      console.log('Language changed to:', event.lang);
+      // Clear cache and reload reviews in new language
+      this.googleReviewsService.clearCache();
+      this.loadGoogleReviews();
+    });
   }
 
   private loadGoogleReviews() {
-    this.reviewsSubscription = this.googleReviewsService.getRotatingReviews(10).subscribe({
+    this.isLoadingReviews = true;
+    // Get all reviews once, no timer
+    this.reviewsSubscription = this.googleReviewsService.getRotatingReviews(50).subscribe({
       next: (reviews) => {
-        this.googleReviews = reviews;
+        this.allReviews = reviews;
+        this.googleReviews = reviews.slice(0, 10); // Show first 10
         this.isLoadingReviews = false;
       },
       error: (error) => {
@@ -89,15 +105,21 @@ export class TestimonialSectionComponent implements OnInit, OnDestroy {
     if (this.reviewsSubscription) {
       this.reviewsSubscription.unsubscribe();
     }
+    if (this.langChangeSubscription) {
+      this.langChangeSubscription.unsubscribe();
+    }
   }
 
   private startTestimonialRotation() {
     this.testimonialInterval = setInterval(() => {
-      if (this.googleReviews.length > 3) {
-        // Rotate through Google reviews if we have more than 3
-        this.currentTestimonialIndex = (this.currentTestimonialIndex + 1) % Math.max(1, this.googleReviews.length);
+      if (this.allReviews.length > 3) {
+        // Rotate through all stored reviews
+        this.currentTestimonialIndex = (this.currentTestimonialIndex + 1) % Math.max(1, this.allReviews.length);
+        // Update displayed reviews
+        const startIdx = this.currentTestimonialIndex % this.allReviews.length;
+        this.googleReviews = [...this.allReviews.slice(startIdx), ...this.allReviews.slice(0, startIdx)].slice(0, 10);
       }
-    }, 25000); // Rotate every 25 seconds
+    }, 15000); // Rotate every 15 seconds (faster rotation)
   }
 
   trackByTestimonialId(index: number, testimonial: Testimonial): number {

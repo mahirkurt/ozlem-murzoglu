@@ -321,32 +321,13 @@ img {
 
 /* Utility Classes */
 .section {
-  padding: 80px 0;
+  padding: 0;
   position: relative;
 }
 
+/* Remove section divider lines */
 .section:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  max-width: var(--container-max-width);
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(0, 95, 115, 0.1) 20%,
-    rgba(0, 95, 115, 0.1) 80%,
-    transparent 100%
-  );
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 60px 0;
-  }
+  display: none;
 }
 
 /* Material Design Typography Classes */
@@ -583,17 +564,137 @@ img[loading='lazy'] {
 
 /* Container override'ları kaldırıldı - artık CSS değişkenlerle yönetiliyor */
 
-/* Section spacing fixes */
+/* Section spacing - Unified background with proper spacing */
 section,
 .section {
-  padding: 48px 0;
+  padding: 100px 0;
+  margin: 0;
+  background: transparent;
 }
 
+/* Homepage sections with alternating backgrounds */
+app-home {
+  background: #ffffff;
+}
+
+/* Homepage specific - Proper spacing between sections */
+app-home section,
+app-home .section,
+app-home > div[scrollReveal] {
+  margin: 0;
+  padding: 100px 0;
+  position: relative;
+}
+
+/* Alternating section backgrounds */
+app-home > div[scrollReveal]:nth-child(odd) {
+  background: #ffffff;
+}
+
+app-home > div[scrollReveal]:nth-child(even) {
+  background: linear-gradient(180deg,
+    #f8fffe 0%,
+    #f0faf8 50%,
+    #f8fffe 100%);
+}
+
+/* Special background for specific sections */
+app-liquid-hero {
+  /* Keep its own gradient */
+}
+
+app-approach-section {
+  background: #fafffe;
+}
+
+app-doctor-bio {
+  background: linear-gradient(135deg,
+    #ffffff 0%,
+    #e8f5f3 100%);
+}
+
+app-services-section {
+  background: #f8fffe;
+}
+
+app-appointment-section {
+  background: linear-gradient(135deg,
+    #e8f5f3 0%,
+    #ffffff 100%);
+}
+
+app-clinic-gallery {
+  background: #fafffe;
+}
+
+app-testimonial-section {
+  background: linear-gradient(180deg,
+    #f0faf8 0%,
+    #ffffff 100%);
+}
+
+/* Component spacing */
+app-liquid-hero,
+app-approach-section,
+app-doctor-bio,
+app-services-section,
+app-appointment-section,
+app-clinic-gallery,
+app-testimonial-section {
+  display: block;
+  margin: 0;
+}
+
+/* Override component internal padding to ensure consistent spacing */
+.approach-section,
+.services-section,
+.appointment-section,
+.testimonial-section,
+.clinic-gallery,
+.doctor-bio {
+  padding: 100px 0;
+  margin: 0;
+}
+
+/* Remove visual separators */
+.approach-section {
+  border-top: none !important;
+}
+
+/* Mobile responsive spacing */
 @media (max-width: 768px) {
   section,
-  .section {
-    padding: 32px 0;
+  .section,
+  app-home section,
+  app-home .section,
+  app-home > div[scrollReveal],
+  .approach-section,
+  .services-section,
+  .appointment-section,
+  .testimonial-section,
+  .clinic-gallery,
+  .doctor-bio {
+    padding: 60px 0;
   }
+}
+
+/* Smooth section transitions */
+.section-transition {
+  position: relative;
+}
+
+.section-transition::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(0, 137, 123, 0.1) 20%,
+    rgba(0, 137, 123, 0.1) 80%,
+    transparent);
 }
 
 /* Service grid mobile fixes */

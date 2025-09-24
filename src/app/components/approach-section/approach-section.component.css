@@ -1,9 +1,8 @@
 .approach-section {
-  padding: var(--md-sys-spacing-15) 0;
-  background: var(--md-sys-color-surface);
+  padding: 100px 0;
+  background: #fafffe;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.08);
 }
 
 .approach-section::before {

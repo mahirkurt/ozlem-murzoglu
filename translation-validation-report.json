@@ -1,18 +1,24 @@
 {
-  "timestamp": "2025-09-22T04:46:35.566Z",
+  "timestamp": "2025-09-24T15:58:34.773Z",
   "summary": {
     "tr": {
-      "totalKeys": 1790,
-      "fileSize": 117393
+      "totalKeys": 1963,
+      "fileSize": 132789
     },
     "en": {
-      "totalKeys": 1824,
-      "fileSize": 112537
+      "totalKeys": 1991,
+      "fileSize": 127163
     }
   },
   "missingKeys": {
     "en": {
       "missingFrom_tr": [
+        "ABOUT.DR_PAGE.EDUCATION_TEXT2",
+        "ABOUT.DR_PAGE.PEDIATRICS_JOURNEY",
+        "ABOUT.DR_PAGE.PEDIATRICS_TEXT",
+        "ABOUT.DR_PAGE.PEDIATRICS_TEXT2",
+        "ABOUT.DR_PAGE.NEW_BEGINNING_TEXT2",
+        "ABOUT.DR_PAGE.NEW_BEGINNING_TEXT3",
         "RESOURCES.DOWNLOAD_ORIGINAL",
         "RESOURCES.TABLE_OF_CONTENTS",
         "FAVORITES.DOCUMENTS.VACCINES",

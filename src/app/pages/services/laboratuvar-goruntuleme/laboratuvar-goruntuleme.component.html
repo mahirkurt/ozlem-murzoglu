@@ -1,8 +1,13 @@
 <div class="lab-imaging-container">
   <!-- Hero Section -->
   <app-hero-section
-    [title]="'SERVICES.SERVICE_LAB_IMAGING.HERO_TITLE' | translate"
-    [subtitle]="'SERVICES.SERVICE_LAB_IMAGING.HERO_SUBTITLE' | translate"
+    title="SERVICES.SERVICE_LAB_IMAGING.HERO_TITLE"
+    subtitle="SERVICES.SERVICE_LAB_IMAGING.HERO_SUBTITLE"
+    [breadcrumbs]="[
+      { label: 'HEADER.NAV_HOME', link: '/' },
+      { label: 'HEADER.NAV_SERVICES', link: '/hizmetlerimiz' },
+      { label: 'SERVICES.SERVICE_LAB_IMAGING.HERO_TITLE' }
+    ]"
     colorTheme="blue">
   </app-hero-section>
 
@@ -11,8 +16,8 @@
     <div class="container">
       <!-- Section Header -->
       <div class="section-header">
-        <h2 class="md3-display-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_SERVICES' | translate }}</h2>
-        <p class="md3-body-large section-description" [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC' | translate"></p>
+        <h2 >{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_SERVICES' | translate }}</h2>
+        <p class=" section-description" [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC' | translate"></p>
       </div>
 
       <!-- Biruni Partner Card -->
@@ -21,30 +26,30 @@
           <img src="/assets/program_logos/Biruni.png" alt="Biruni Laboratuvarları" />
         </div>
         <div class="partner-content">
-          <h3 class="md3-headline-medium">Biruni Laboratuvarları</h3>
-          <p class="md3-body-large">{{ 'SERVICES.SERVICE_LAB_IMAGING.CORPORATE_PARTNER' | translate }}</p>
+          <h3 >Biruni Laboratuvarları</h3>
+          <p class="">{{ 'SERVICES.SERVICE_LAB_IMAGING.CORPORATE_PARTNER' | translate }}</p>
           <div class="partner-features">
             <div class="feature-item">
-              <span class="material-symbols-rounded">verified</span>
-              <span>Uluslararası Akreditasyon</span>
+              <i class="fas fa-check-circle"></i>
+              <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.INTERNATIONAL_ACCREDITATION' | translate }}</span>
             </div>
             <div class="feature-item">
-              <span class="material-symbols-rounded">science</span>
-              <span>2000+ Test Çeşidi</span>
+              <i class="fas fa-flask"></i>
+              <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.TEST_VARIETY' | translate }}</span>
             </div>
             <div class="feature-item">
-              <span class="material-symbols-rounded">location_on</span>
-              <span>Kliniğimizde Numune Alma</span>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.SAMPLE_COLLECTION' | translate }}</span>
             </div>
           </div>
           <div class="partner-actions">
-            <a href="https://biruni.com.tr/" target="_blank" class="md3-filled-button">
-              <span class="material-symbols-rounded">open_in_new</span>
-              <span>Biruni Hakkında</span>
+            <a href="https://biruni.com.tr/" target="_blank" class="btn-primary">
+              <i class="fas fa-external-link-alt"></i>
+              <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ABOUT_BIRUNI' | translate }}</span>
             </a>
-            <a href="https://biruni.com.tr/sonuc" target="_blank" class="md3-filled-tonal-button">
-              <span class="material-symbols-rounded">lab_panel</span>
-              <span>Online Sonuç Sistemi</span>
+            <a href="https://biruni.com.tr/sonuc" target="_blank" class="btn-secondary">
+              <i class="fas fa-clipboard-list"></i>
+              <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ONLINE_RESULTS' | translate }}</span>
             </a>
           </div>
         </div>
@@ -52,76 +57,76 @@
 
       <!-- Laboratory Services Grid -->
       <div class="services-grid">
-        <div class="service-card md3-surface-variant">
+        <div class="service-card">
           <div class="service-icon primary-container">
-            <span class="material-symbols-rounded">biotech</span>
+            <i class="fas fa-vial"></i>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.BIOCHEMISTRY' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.BIOCHEMISTRY_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.BIOCHEMISTRY' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.BIOCHEMISTRY_DESC' | translate }}</p>
         </div>
 
-        <div class="service-card md3-surface-variant">
+        <div class="service-card">
           <div class="service-icon secondary-container">
-            <span class="material-symbols-rounded">coronavirus</span>
+            <i class="fas fa-virus"></i>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.MICROBIOLOGY' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.MICROBIOLOGY_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.MICROBIOLOGY' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.MICROBIOLOGY_DESC' | translate }}</p>
         </div>
 
-        <div class="service-card md3-surface-variant">
+        <div class="service-card">
           <div class="service-icon tertiary-container">
-            <span class="material-symbols-rounded">vaccines</span>
+            <i class="fas fa-syringe"></i>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.ANTIBODY_ANTIGEN' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.ANTIBODY_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.ANTIBODY_ANTIGEN' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.ANTIBODY_DESC' | translate }}</p>
         </div>
 
-        <div class="service-card md3-surface-variant">
+        <div class="service-card">
           <div class="service-icon primary-container">
-            <span class="material-symbols-rounded">bloodtype</span>
+            <i class="fas fa-tint"></i>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.HEMATOLOGY' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.HEMATOLOGY_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.HEMATOLOGY' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.HEMATOLOGY_DESC' | translate }}</p>
         </div>
 
-        <div class="service-card md3-surface-variant">
+        <div class="service-card">
           <div class="service-icon secondary-container">
-            <span class="material-symbols-rounded">monitor_weight</span>
+            <i class="fas fa-weight"></i>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.HORMONE' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.HORMONE_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.HORMONE' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.HORMONE_DESC' | translate }}</p>
         </div>
 
-        <div class="service-card md3-surface-variant">
+        <div class="service-card">
           <div class="service-icon tertiary-container">
-            <span class="material-symbols-rounded">grass</span>
+            <i class="fas fa-leaf"></i>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.ALLERGY' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.ALLERGY_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.ALLERGY' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.ALLERGY_DESC' | translate }}</p>
         </div>
       </div>
 
       <!-- Process Cards -->
       <div class="process-cards">
-        <div class="process-card md3-surface-container">
-          <span class="material-symbols-rounded">schedule</span>
+        <div class="process-card">
+          <i class="fas fa-clock"></i>
           <div>
-            <h5 class="md3-title-small">{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULTS' | translate }}</h5>
-            <p class="md3-body-small">{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC3' | translate }}</p>
+            <h5 >{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULTS' | translate }}</h5>
+            <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC3' | translate }}</p>
           </div>
         </div>
-        <div class="process-card md3-surface-container">
-          <span class="material-symbols-rounded">email</span>
+        <div class="process-card">
+          <i class="fas fa-envelope"></i>
           <div>
-            <h5 class="md3-title-small">{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULT_NOTIFICATION' | translate }}</h5>
-            <p class="md3-body-small">{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULT_EMAIL' | translate }}</p>
+            <h5 >{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULT_NOTIFICATION' | translate }}</h5>
+            <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULT_EMAIL' | translate }}</p>
           </div>
         </div>
-        <div class="process-card md3-surface-container">
-          <span class="material-symbols-rounded">verified_user</span>
+        <div class="process-card">
+          <i class="fas fa-shield-alt"></i>
           <div>
-            <h5 class="md3-title-small">{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_SERVICES' | translate }}</h5>
-            <p class="md3-body-small">{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_PROCESS' | translate }}</p>
+            <h5 >{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_SERVICES' | translate }}</h5>
+            <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_PROCESS' | translate }}</p>
           </div>
         </div>
       </div>
@@ -140,8 +145,8 @@
     <div class="container">
       <!-- Section Header -->
       <div class="section-header">
-        <h2 class="md3-display-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.IMAGING_SERVICES' | translate }}</h2>
-        <p class="md3-body-large section-description" [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.IMAGING_DESC' | translate"></p>
+        <h2 >{{ 'SERVICES.SERVICE_LAB_IMAGING.IMAGING_SERVICES' | translate }}</h2>
+        <p class=" section-description" [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.IMAGING_DESC' | translate"></p>
       </div>
 
       <!-- Sonomed Partner Card -->
@@ -150,42 +155,42 @@
           <img src="/assets/program_logos/Sonomed.png" alt="Sonomed Görüntüleme" />
         </div>
         <div class="partner-content">
-          <h3 class="md3-headline-medium">Sonomed Tıbbi Görüntüleme Merkezleri</h3>
-          <p class="md3-body-large">Ataşehir Şubesi - {{ 'SERVICES.SERVICE_LAB_IMAGING.NEAR_LOCATION' | translate }}</p>
+          <h3 >Sonomed Tıbbi Görüntüleme Merkezleri</h3>
+          <p class="">Ataşehir Şubesi - {{ 'SERVICES.SERVICE_LAB_IMAGING.NEAR_LOCATION' | translate }}</p>
           
           <!-- Contact Information -->
           <div class="contact-grid">
             <div class="contact-item">
-              <span class="material-symbols-rounded">location_on</span>
+              <i class="fas fa-map-marker-alt"></i>
               <div>
-                <strong class="md3-label-large">Adres:</strong>
-                <p class="md3-body-medium">Ataşehir, Ataşehir Bulvarı, Ata 2/3 Plaza Kat:3 No:30 Ataşehir/İstanbul</p>
+                <strong >{{ 'SERVICES.SERVICE_LAB_IMAGING.ADDRESS' | translate }}:</strong>
+                <p >Ataşehir, Ataşehir Bulvarı, Ata 2/3 Plaza Kat:3 No:30 Ataşehir/İstanbul</p>
               </div>
             </div>
             <div class="contact-item">
-              <span class="material-symbols-rounded">phone</span>
+              <i class="fas fa-phone"></i>
               <div>
-                <strong class="md3-label-large">Telefon:</strong>
-                <p class="md3-body-medium">0216 456 28 23</p>
+                <strong >{{ 'SERVICES.SERVICE_LAB_IMAGING.PHONE' | translate }}:</strong>
+                <p >0216 456 28 23</p>
               </div>
             </div>
             <div class="contact-item">
-              <span class="material-symbols-rounded">schedule</span>
+              <i class="fas fa-clock"></i>
               <div>
-                <strong class="md3-label-large">Çalışma Saatleri:</strong>
-                <p class="md3-body-medium">Pazartesi - Cumartesi: 08:00 - 20:00</p>
+                <strong >{{ 'SERVICES.SERVICE_LAB_IMAGING.WORKING_HOURS' | translate }}:</strong>
+                <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.WORKING_HOURS_DETAIL' | translate }}</p>
               </div>
             </div>
           </div>
 
           <div class="partner-actions">
-            <a href="https://maps.app.goo.gl/xyz" target="_blank" class="md3-filled-button">
-              <span class="material-symbols-rounded">directions</span>
+            <a href="https://maps.app.goo.gl/xyz" target="_blank" class="btn-primary">
+              <i class="fas fa-directions"></i>
               <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.GET_DIRECTIONS' | translate }}</span>
             </a>
-            <a href="https://sonomed.com.tr/tr/sonomed-atasehir-subesi/" target="_blank" class="md3-filled-tonal-button">
-              <span class="material-symbols-rounded">open_in_new</span>
-              <span>Sonomed Hakkında</span>
+            <a href="https://sonomed.com.tr/tr/sonomed-atasehir-subesi/" target="_blank" class="btn-secondary">
+              <i class="fas fa-external-link-alt"></i>
+              <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ABOUT_SONOMED' | translate }}</span>
             </a>
           </div>
         </div>
@@ -193,70 +198,70 @@
 
       <!-- Imaging Services Grid -->
       <div class="imaging-grid">
-        <div class="imaging-card md3-surface-variant">
+        <div class="imaging-card">
           <div class="imaging-header">
             <div class="imaging-icon primary-container">
-              <span class="material-symbols-rounded">radiology</span>
+              <i class="fas fa-x-ray"></i>
             </div>
             <div class="tech-badge">3 Tesla MR</div>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_IMAGING' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_IMAGING' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_DESC' | translate }}</p>
         </div>
 
-        <div class="imaging-card md3-surface-variant">
+        <div class="imaging-card">
           <div class="imaging-header">
             <div class="imaging-icon secondary-container">
-              <span class="material-symbols-rounded">computer</span>
+              <i class="fas fa-desktop"></i>
             </div>
             <div class="tech-badge">128 Kesit BT</div>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_SCAN' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_SCAN' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_DESC' | translate }}</p>
         </div>
 
-        <div class="imaging-card md3-surface-variant">
+        <div class="imaging-card">
           <div class="imaging-header">
             <div class="imaging-icon tertiary-container">
-              <span class="material-symbols-rounded">monitor_heart</span>
+              <i class="fas fa-heartbeat"></i>
             </div>
             <div class="tech-badge">4D USG</div>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND_DESC' | translate }}</p>
         </div>
 
-        <div class="imaging-card md3-surface-variant">
+        <div class="imaging-card">
           <div class="imaging-header">
             <div class="imaging-icon primary-container">
-              <span class="material-symbols-rounded">skeleton</span>
+              <i class="fas fa-bone"></i>
             </div>
             <div class="tech-badge">Dijital</div>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY_DESC' | translate }}</p>
         </div>
 
-        <div class="imaging-card md3-surface-variant">
+        <div class="imaging-card">
           <div class="imaging-header">
             <div class="imaging-icon secondary-container">
-              <span class="material-symbols-rounded">favorite</span>
+              <i class="fas fa-heart"></i>
             </div>
             <div class="tech-badge">Doppler EKO</div>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.ECHO' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.ECHO_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.ECHO' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.ECHO_DESC' | translate }}</p>
         </div>
 
-        <div class="imaging-card md3-surface-variant">
+        <div class="imaging-card">
           <div class="imaging-header">
             <div class="imaging-icon tertiary-container">
-              <span class="material-symbols-rounded">assessment</span>
+              <i class="fas fa-chart-line"></i>
             </div>
             <div class="tech-badge">Uzman Radyolog</div>
           </div>
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING_DESC' | translate }}</p>
+          <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING' | translate }}</h4>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING_DESC' | translate }}</p>
         </div>
       </div>
     </div>
@@ -268,31 +273,31 @@
       <div class="features-grid">
         <div class="feature-item">
           <div class="feature-icon primary-container">
-            <span class="material-symbols-rounded">speed</span>
+            <i class="fas fa-tachometer-alt"></i>
           </div>
-          <h5 class="md3-title-small">Hızlı Sonuç</h5>
-          <p class="md3-body-small">Acil durumlar için aynı gün sonuç</p>
+          <h5 >{{ 'SERVICES.SERVICE_LAB_IMAGING.FAST_RESULTS' | translate }}</h5>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.SAME_DAY_RESULTS' | translate }}</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon secondary-container">
-            <span class="material-symbols-rounded">security</span>
+            <i class="fas fa-shield-alt"></i>
           </div>
-          <h5 class="md3-title-small">Güvenilir Tanı</h5>
-          <p class="md3-body-small">Uluslararası kalite standartları</p>
+          <h5 >{{ 'SERVICES.SERVICE_LAB_IMAGING.RELIABLE_DIAGNOSIS' | translate }}</h5>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.QUALITY_STANDARDS' | translate }}</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon tertiary-container">
-            <span class="material-symbols-rounded">groups</span>
+            <i class="fas fa-users"></i>
           </div>
-          <h5 class="md3-title-small">Uzman Kadro</h5>
-          <p class="md3-body-small">Deneyimli teknisyen ve uzmanlar</p>
+          <h5 >{{ 'SERVICES.SERVICE_LAB_IMAGING.EXPERT_TEAM' | translate }}</h5>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.EXPERIENCED_STAFF' | translate }}</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon primary-container">
-            <span class="material-symbols-rounded">devices</span>
+            <i class="fas fa-laptop-medical"></i>
           </div>
-          <h5 class="md3-title-small">Modern Cihazlar</h5>
-          <p class="md3-body-small">Son teknoloji ekipmanlar</p>
+          <h5 >{{ 'SERVICES.SERVICE_LAB_IMAGING.MODERN_EQUIPMENT' | translate }}</h5>
+          <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.LATEST_TECHNOLOGY' | translate }}</p>
         </div>
       </div>
     </div>

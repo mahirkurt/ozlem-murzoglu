@@ -15,7 +15,7 @@ npm install
 # Development server (http://localhost:4200)
 npm start
 
-# Production build
+# Production build (includes i18n:sync prebuild step)
 npm run build
 
 # Run unit tests (Karma)
@@ -23,6 +23,9 @@ npm test
 
 # Build and watch for changes (development mode)
 npm run watch
+
+# Deploy to Firebase (includes i18n:check and build)
+npm run deploy
 
 # i18n Translation Management
 npm run i18n:sync      # Scan codebase and sync missing translation keys
@@ -86,10 +89,10 @@ node tools/mcp.js
 - **TypeScript**: 5.5.2 with strict mode and all strict flags enabled
 - **Styling**: Pure CSS with Material Design 3 principles, SCSS tokens (no @angular/material)
 - **Fonts**: Figtree (headings), DM Sans (body)
-- **i18n**: @ngx-translate/core v17 for Turkish/English support
+- **i18n**: @ngx-translate/core v17 for Turkish/English support (606 total translation keys)
 - **i18n Auto-Sync**: Automatic translation key detection and synchronization system
 - **Deployment**: Firebase Hosting / Vercel
-- **Testing**: Karma 6.4 with Jasmine 5.2 (unit), Playwright (E2E)
+- **Testing**: Karma 6.4 with Jasmine 5.2 (unit), Playwright (E2E with 37 test files)
 - **Build**: Angular CLI 18.2.20 with application builder
 - **Document Processing**: Mammoth 1.10 for Word docs, Marked 16.2 for markdown
 
@@ -123,7 +126,7 @@ node tools/mcp.js
 ### Build Configuration
 - **Output**: `dist/angular-app/browser` (for both Firebase and Vercel)
 - **TypeScript**: ES2022 target with strict mode enabled
-- **Budgets**: Initial 700KB warning/2MB error; Component styles 12KB warning/24KB error
+- **Budgets**: Initial 700KB warning/2MB error; Component styles 15KB warning/30KB error
 - **Angular Config**: Application builder with zone.js polyfill, event coalescing
 - **Compiler Options**: Strict templates, strict injection parameters, strict input access modifiers, noImplicitOverride
 - **Assets**: Files from `public/` folder copied to build output
@@ -135,7 +138,7 @@ node tools/mcp.js
   - Browsers: Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari
   - Test Server: Port 4201 (webServer command auto-starts server with `npm run start -- --port 4201`)
   - Base URL: http://localhost:4200 (default), http://localhost:4201 (E2E server)
-  - Test Directory: `tests/e2e/`
+  - Test Directory: `tests/e2e/` (37 test files covering MD3 compliance, i18n, performance, visual regression)
   - Test Patterns: `**/*.spec.js`
   - Features: Screenshots on failure, video on failure, HTML reporter, trace on first retry
   - Timeout: 120 seconds
@@ -155,8 +158,8 @@ node tools/mcp.js
 ## Important Notes
 
 - All components use standalone architecture with `bootstrapApplication()` in main.ts
-- Routes are lazy-loaded for optimal performance
-- Translation keys follow nested object structure with default language 'tr'
+- Routes are lazy-loaded for optimal performance with dynamic resource route generation in `resource-routes.ts`
+- Translation keys follow nested object structure with default language 'tr' (606 keys across tr.json and en.json)
 - Resource pages are auto-generated from documents using tools in `tools/` directory
 - Strict TypeScript compilation with all strict flags including noImplicitReturns
 - Application uses zone.js with event coalescing for change detection
@@ -164,6 +167,8 @@ node tools/mcp.js
 - Custom cursor implementation with interactive hover effects
 - MD3 components are implemented in pure CSS without @angular/material dependency
 - Python scripts available for bulk resource updates (`scripts/update_*.py`)
+- GitHub Actions CI/CD workflow for i18n validation on pull requests (`i18n-check.yml`)
+- Performance testing integrated via Lighthouse (`scripts/lighthouse-test.js`)
 
 ## i18n Translation Workflow
 
@@ -203,3 +208,4 @@ npm run i18n:check
 - Review automatically generated placeholder translations
 - Keep translation keys in UPPERCASE with underscores (e.g., `HEADER.NAV_HOME`)
 - Use nested structure for organization (e.g., `SERVICES.VACCINATION.TITLE`)
+- Validation reports are saved to `src/assets/i18n/validation-report.json`

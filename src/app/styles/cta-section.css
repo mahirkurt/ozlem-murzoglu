@@ -2,7 +2,7 @@
 
 /* CTA Section Container */
 .cta-section {
-  padding: var(--md-sys-spacing-20) var(--md-sys-spacing-6);
+  padding: var(--md-sys-spacing-20) var(--md-sys-spacing-6) var(--md-sys-spacing-24) var(--md-sys-spacing-6);
   background: linear-gradient(135deg, #fff9f0 0%, #fffbf5 50%, #f8fdfc 100%);
   position: relative;
   overflow: hidden;
@@ -397,7 +397,7 @@
 
 @media (max-width: 768px) {
   .cta-section {
-    padding: var(--md-sys-spacing-15) var(--md-sys-spacing-5);
+    padding: var(--md-sys-spacing-15) var(--md-sys-spacing-5) var(--md-sys-spacing-20) var(--md-sys-spacing-5);
   }
 
   .cta-content h3,
@@ -444,7 +444,7 @@
 
 @media (max-width: 480px) {
   .cta-section {
-    padding: var(--md-sys-spacing-12) var(--md-sys-spacing-4);
+    padding: var(--md-sys-spacing-12) var(--md-sys-spacing-4) var(--md-sys-spacing-16) var(--md-sys-spacing-4);
   }
 
   .cta-content h3,

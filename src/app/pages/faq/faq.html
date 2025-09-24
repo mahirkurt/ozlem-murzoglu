@@ -63,33 +63,32 @@
     </div>
   </div>
 
-  <!-- Contact Section -->
-  <div class="contact-section">
+  <!-- CTA Section with Global MD3 Styles -->
+  <section class="cta-section md3-surface-container">
     <div class="container">
-      <div class="contact-content">
-        <h2>{{ 'FAQ.CONTACT_TITLE' | translate }}</h2>
-        <p>{{ 'FAQ.CONTACT_DESC' | translate }}</p>
-        
-        <div class="contact-options">
-          <div class="contact-card">
-            <span class="material-icons">phone</span>
-            <h4>{{ 'FAQ.CALL_US' | translate }}</h4>
-            <p>{{ phoneNumber }}</p>
-          </div>
-          
-          <div class="contact-card">
-            <span class="material-icons">chat</span>
-            <h4>WhatsApp</h4>
-            <p>{{ whatsappNumber }}</p>
-          </div>
-          
-          <div class="contact-card">
-            <span class="material-icons">email</span>
-            <h4>{{ 'FAQ.EMAIL' | translate }}</h4>
-            <p>{{ 'FAQ.SEND_MESSAGE' | translate }}</p>
-          </div>
+      <div class="cta-content">
+        <!-- Icon -->
+        <div class="cta-icon">
+          <i class="fas fa-question-circle"></i>
+        </div>
+
+        <!-- Title and Description -->
+        <h3 class="cta-title md3-display-medium">{{ 'FAQ.CTA_TITLE' | translate }}</h3>
+        <p class="cta-description md3-body-large">{{ 'FAQ.CTA_DESCRIPTION' | translate }}</p>
+
+        <!-- Action Buttons -->
+        <div class="cta-actions">
+          <a href="tel:{{ phoneNumber }}" class="md3-button-filled cta-button-primary">
+            <i class="fas fa-phone"></i>
+            <span>{{ 'FAQ.CTA_CALL' | translate }}</span>
+          </a>
+
+          <a href="https://wa.me/{{ whatsappNumber }}" target="_blank" class="md3-button-tonal cta-button-secondary">
+            <i class="fab fa-whatsapp"></i>
+            <span>{{ 'FAQ.CTA_WHATSAPP' | translate }}</span>
+          </a>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </section>

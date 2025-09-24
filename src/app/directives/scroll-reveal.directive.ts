@@ -13,11 +13,18 @@ export class ScrollRevealDirective implements OnInit {
   
   ngOnInit() {
     const element = this.el.nativeElement;
-    
+
+    // Check if IntersectionObserver is supported
+    if (!('IntersectionObserver' in window)) {
+      // Fallback: just show the content immediately
+      element.style.opacity = '1';
+      return;
+    }
+
     // Set initial styles
     element.style.opacity = '0';
     element.style.transition = `all ${this.scrollDuration}ms cubic-bezier(0.4, 0, 0.2, 1) ${this.scrollDelay}ms`;
-    
+
     // Set initial transform based on animation type
     switch(this.scrollReveal) {
       case 'fade-up':
@@ -36,12 +43,19 @@ export class ScrollRevealDirective implements OnInit {
         element.style.transform = 'rotateY(90deg)';
         break;
     }
-    
+
+    // Fallback: Show content after a maximum wait time
+    const fallbackTimeout = setTimeout(() => {
+      element.style.opacity = '1';
+      element.style.transform = 'none';
+    }, 2000 + this.scrollDelay); // Show after 2 seconds + delay
+
     // Create Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
+            clearTimeout(fallbackTimeout); // Clear fallback if observer triggers
             element.style.opacity = '1';
             element.style.transform = 'none';
             observer.unobserve(element);
@@ -53,7 +67,7 @@ export class ScrollRevealDirective implements OnInit {
         rootMargin: '50px'
       }
     );
-    
+
     observer.observe(element);
   }
 }

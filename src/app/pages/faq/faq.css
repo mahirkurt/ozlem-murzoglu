@@ -292,134 +292,66 @@
   color: #999;
 }
 
-/* Contact Section */
-.contact-section {
-  padding: var(--md-sys-spacing-24) 0;
-  background: white;
+/* CTA Section - Uses Global MD3 Styles from cta-section.css */
+/* Additional FAQ-specific CTA customizations */
+.faq-page .cta-section {
+  margin-top: var(--md-sys-spacing-16);
+  background: linear-gradient(
+    135deg,
+    var(--md-sys-color-surface-variant) 0%,
+    var(--md-sys-color-surface-container-low) 100%
+  );
 }
 
-.contact-card {
-  background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary) 50%, #94BBE9 100%);
-  border-radius: var(--md-sys-shape-corner-extra-large);
-  padding: var(--md-sys-spacing-15);
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--md-sys-spacing-15);
-  align-items: center;
-  box-shadow: 0 20px 60px rgba(var(--md-sys-color-primary-rgb), 0.15);
-  position: relative;
-  overflow: hidden;
+/* FAQ CTA Icon Custom Style */
+.faq-page .cta-icon {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--md-sys-color-primary-rgb), 0.15) 0%,
+    rgba(var(--md-sys-color-tertiary-rgb), 0.1) 100%
+  );
 }
 
-.contact-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 60%;
-  height: 200%;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
-  transform: rotate(45deg);
-  pointer-events: none;
+.faq-page .cta-icon i {
+  font-size: 48px;
+  background: linear-gradient(
+    135deg,
+    var(--md-sys-color-primary) 0%,
+    var(--md-sys-color-tertiary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.contact-illustration {
-  position: relative;
-}
-
-.illustration-icon {
-  width: 120px;
-  height: 120px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: var(--md-sys-shape-corner-extra-large);
+/* CTA Actions - Uses global styles from cta-section.css */
+.faq-page .cta-actions {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 20px 40px rgba(var(--md-sys-color-shadow), 0.1);
-  animation: float-icon 6s ease-in-out infinite;
-}
-
-@keyframes float-icon {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.illustration-icon .material-icons {
-  font-size: 60px;
-  color: white;
-}
-
-.contact-content {
-  position: relative;
-  z-index: 1;
-}
-
-.contact-content h2 {
-  font-family: var(--md-sys-typescale-font-brand);
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: white;
-  margin-bottom: 12px;
-}
-
-.contact-content > p {
-  font-family: var(--md-sys-typescale-font-plain);
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 40px;
-  line-height: 1.6;
-}
-
-.contact-options {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--md-sys-spacing-5);
-}
-
-.contact-option {
-  display: flex;
-  align-items: center;
   gap: var(--md-sys-spacing-4);
-  padding: var(--md-sys-spacing-5);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--md-sys-shape-corner-large);
-  text-decoration: none;
-  transition: all 0.3s ease;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.contact-option:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(var(--md-sys-color-shadow), 0.1);
+/* CTA Button Customizations for FAQ */
+.faq-page .cta-button-primary,
+.faq-page .cta-button-secondary {
+  padding: var(--md-sys-spacing-4) var(--md-sys-spacing-8);
+  font-size: 1.125rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contact-option .material-icons {
-  font-size: 28px;
-  color: white;
+.faq-page .cta-button-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--md-sys-elevation-5);
 }
 
-.contact-option h4 {
-  font-family: var(--md-sys-typescale-font-plain);
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0 0 4px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.contact-option p {
-  font-family: var(--md-sys-typescale-font-plain);
-  font-size: 1rem;
-  color: white;
-  margin: 0;
+.faq-page .cta-button-secondary:hover {
+  transform: translateY(-3px);
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
 }
 
 /* Responsive Design */
