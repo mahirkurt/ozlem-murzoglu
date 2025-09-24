@@ -1,0 +1,19 @@
+/* Home Page Styles - Simplified for stability */
+
+:host {
+  display: block;
+}
+
+/* Remove all section spacing */
+:host ::ng-deep > div[scrollReveal] {
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :host ::ng-deep > div[scrollReveal] {
+    margin: 0;
+    padding: 0;
+  }
+}

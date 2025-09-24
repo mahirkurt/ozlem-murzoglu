@@ -70,12 +70,20 @@
       <div class="container">
         <div class="montessori-grid">
           <div class="montessori-image">
-            <img
-              src="images/20230416_174704~2.jpg"
-              [alt]="'CLINIC.ALT.PLAY_AREA' | translate"
-              class="md3-image-rounded"
-              loading="lazy"
-            />
+            <div class="image-grid">
+              <img
+                src="images/20230416_174704~2.jpg"
+                [alt]="'CLINIC.ALT.PLAY_AREA' | translate"
+                class="md3-image-rounded primary-image"
+                loading="lazy"
+              />
+              <img
+                src="images/20230416_174740~2.jpg"
+                [alt]="'CLINIC.ALT.MONTESSORI_TOYS' | translate"
+                class="md3-image-rounded secondary-image"
+                loading="lazy"
+              />
+            </div>
           </div>
           <div class="montessori-content">
             <div class="section-badge md3-primary-container">
@@ -191,6 +199,7 @@
               loading="lazy"
             />
             <div class="gallery-overlay">
+              <i class="fas fa-couch"></i>
               <span class="md3-label-large">{{ 'CLINIC.GALLERY.WAITING' | translate }}</span>
             </div>
           </div>
@@ -201,16 +210,18 @@
               loading="lazy"
             />
             <div class="gallery-overlay">
+              <i class="fas fa-stethoscope"></i>
               <span class="md3-label-large">{{ 'CLINIC.GALLERY.EXAMINATION' | translate }}</span>
             </div>
           </div>
           <div class="gallery-item">
             <img
-              src="images/20230416_174704~2.jpg"
+              src="images/20230416_174740~2.jpg"
               [alt]="'CLINIC.ALT.PLAY_CORNER' | translate"
               loading="lazy"
             />
             <div class="gallery-overlay">
+              <i class="fas fa-puzzle-piece"></i>
               <span class="md3-label-large">{{ 'CLINIC.GALLERY.PLAY' | translate }}</span>
             </div>
           </div>
@@ -221,6 +232,7 @@
               loading="lazy"
             />
             <div class="gallery-overlay">
+              <i class="fas fa-baby"></i>
               <span class="md3-label-large">{{ 'CLINIC.GALLERY.NURSING' | translate }}</span>
             </div>
           </div>
@@ -231,6 +243,7 @@
               loading="lazy"
             />
             <div class="gallery-overlay">
+              <i class="fas fa-door-open"></i>
               <span class="md3-label-large">{{ 'CLINIC.GALLERY.ENTRANCE' | translate }}</span>
             </div>
           </div>
@@ -240,16 +253,32 @@
 
   </div>
 
-  <!-- CTA Section -->
-  <section class="cta-section md3-primary-container">
+  <!-- CTA Section with Global Styles -->
+  <section class="cta-section">
     <div class="container">
-      <div class="cta-content text-center">
-        <h3 class="md3-headline-large md3-on-primary-container">{{ 'CLINIC.CTA.TITLE' | translate }}</h3>
-        <p class="md3-body-large md3-on-primary-container">{{ 'CLINIC.CTA.SUBTITLE' | translate }}</p>
-        <a routerLink="/iletisim" class="md3-button-filled">
-          <i class="fas fa-calendar-check"></i>
-          {{ 'CLINIC.CTA.BUTTON' | translate }}
-        </a>
+      <div class="cta-content">
+        <!-- Icon -->
+        <div class="cta-icon">
+          <i class="fas fa-clinic-medical"></i>
+        </div>
+
+        <!-- Title -->
+        <h3 class="cta-title">{{ 'CLINIC.CTA.TITLE' | translate }}</h3>
+
+        <!-- Description -->
+        <p class="cta-description">{{ 'CLINIC.CTA.SUBTITLE' | translate }}</p>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+          <a routerLink="/iletisim" class="btn-primary">
+            <i class="fas fa-calendar-check"></i>
+            <span>{{ 'CLINIC.CTA.BUTTON' | translate }}</span>
+          </a>
+          <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
