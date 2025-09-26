@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="testimonials-wrapper">
+    <div class="testimonials-wrapper" *ngIf="!isLoadingReviews && currentTestimonials.length > 0">
       <div class="testimonial-card" *ngFor="let testimonial of currentTestimonials; trackBy: trackByTestimonialId">
         <div class="testimonial-header">
           <div class="author-info">
