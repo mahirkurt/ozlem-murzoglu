@@ -156,7 +156,7 @@ section[class*='hero']:not(.hero-content):not(.homepage-hero) {
 /* ============================================== */
 /* HERO CONTENT CONTAINER                        */
 /* ============================================== */
-.hero-content,
+.hero-content:not(.liquid-hero .hero-content),
 .hero-main {
   position: relative;
   z-index: 2;
@@ -169,6 +169,17 @@ section[class*='hero']:not(.hero-content):not(.homepage-hero) {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+/* Liquid hero content needs absolute positioning */
+.liquid-hero .hero-content {
+  position: absolute !important;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Ensure container inside hero-content centers properly */

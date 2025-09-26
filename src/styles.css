@@ -77,8 +77,6 @@ header.modern-header {
   right: 0 !important;
   z-index: 2147483647 !important; /* Maximum z-index value */
   isolation: isolate !important;
-  transform: translateZ(999px) !important;
-  will-change: transform !important;
   pointer-events: auto !important;
   background: var(--md-sys-color-surface) !important;
 }
@@ -96,22 +94,43 @@ app-header,
   right: -100% !important; /* Keep off-screen by default */
   z-index: 2147483648 !important; /* Higher than header */
   transition: right 0.3s ease !important;
+  visibility: hidden !important; /* Hide completely when not active */
+  display: none !important; /* Force hide on desktop */
 }
 
 /* When mobile menu is active, slide it in from right */
 .mobile-menu.active {
   right: 0 !important;
+  visibility: visible !important;
+}
+
+/* Only show mobile menu on mobile screens */
+@media (max-width: 1199px) {
+  .mobile-menu {
+    display: flex !important; /* Allow display on mobile */
+  }
+
+  .mobile-menu.active {
+    display: flex !important;
+    visibility: visible !important;
+  }
 }
 
 /* Force ALL hero sections and their backgrounds way behind */
 app-hero-section,
 .hero-section,
-section[class*="hero"],
-div[class*="hero"] {
+section[class*="hero"]:not(.liquid-hero),
+div[class*="hero"]:not(.hero-content):not(.content-wrapper) {
   position: relative !important;
   z-index: 1 !important;
   transform: translateZ(-10px) !important;
   isolation: isolate !important;
+}
+
+/* Liquid hero specific - allow its internal positioning */
+.liquid-hero .hero-content {
+  /* Don't override position - let component styles handle it */
+  z-index: 10 !important;
 }
 
 /* Hero backgrounds must be at the bottom of stack */
@@ -125,7 +144,6 @@ app-hero-section .hexagon-grid,
   inset: 0 !important;
   z-index: -999999 !important;
   pointer-events: none !important;
-  transform: translateZ(-100px) !important;
   isolation: isolate !important;
 }
 
@@ -142,7 +160,6 @@ app-hero-section .hexagon-grid,
   position: absolute !important;
   z-index: -1 !important;
   pointer-events: none !important;
-  transform: translateZ(-1px) !important;
 }
 
 /* Individual hexagon elements */
@@ -159,11 +176,7 @@ app-hero-section .hexagon-grid,
   pointer-events: none !important;
 }
 
-/* Hero content above background but below header */
-.hero-content {
-  position: relative !important;
-  z-index: 10 !important;
-}
+/* Hero content above background but below header - removed position override to allow component styles */
 
 /* Main content area */
 main {
