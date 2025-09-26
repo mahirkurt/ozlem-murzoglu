@@ -8,9 +8,10 @@
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   box-shadow: var(--md-sys-elevation-level1);
-  z-index: 1000;
+  z-index: 10000;
   transition: all var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
   will-change: transform, box-shadow;
+  isolation: isolate;
 }
 
 /* MD3 Scrim effect */

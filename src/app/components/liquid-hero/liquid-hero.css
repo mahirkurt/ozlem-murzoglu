@@ -1,7 +1,8 @@
 /* Liquid Hero Component Styles */
-.hero-container {
+.hero-container,
+.liquid-hero {
   position: relative;
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background: linear-gradient(135deg,
@@ -9,6 +10,8 @@
     #e8f5f3 50%,
     #f0faf8 100%);
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-container::before {

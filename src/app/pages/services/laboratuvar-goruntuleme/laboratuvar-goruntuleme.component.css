@@ -4,6 +4,14 @@
 .lab-imaging-container {
   min-height: 100vh;
   background: var(--md-sys-color-surface);
+  position: relative;
+  z-index: 1;
+}
+
+/* Force hero section in this page to be behind header */
+.lab-imaging-container app-hero-section {
+  position: relative;
+  z-index: 1;
 }
 
 /* Laboratory Section */

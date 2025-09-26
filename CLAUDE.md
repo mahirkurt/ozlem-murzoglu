@@ -31,7 +31,7 @@ npm run deploy
 npm run i18n:sync      # Scan codebase and sync missing translation keys
 npm run i18n:validate  # Validate translation consistency between languages
 npm run i18n:clean     # Remove unused translation keys
-npm run i18n:check     # Run sync and validate together
+npm run i18n:check     # Run sync and validate together (prebuild step)
 
 # Run E2E tests (Playwright)
 npx playwright test --config=tests/config/playwright.config.js
@@ -89,10 +89,10 @@ node tools/mcp.js
 - **TypeScript**: 5.5.2 with strict mode and all strict flags enabled
 - **Styling**: Pure CSS with Material Design 3 principles, SCSS tokens (no @angular/material)
 - **Fonts**: Figtree (headings), DM Sans (body)
-- **i18n**: @ngx-translate/core v17 for Turkish/English support (606 total translation keys)
+- **i18n**: @ngx-translate/core v17 for Turkish/English support (1963+ translation keys)
 - **i18n Auto-Sync**: Automatic translation key detection and synchronization system
 - **Deployment**: Firebase Hosting / Vercel
-- **Testing**: Karma 6.4 with Jasmine 5.2 (unit), Playwright (E2E with 37 test files)
+- **Testing**: Karma 6.4 with Jasmine 5.2 (unit), Playwright (E2E with 22 test files)
 - **Build**: Angular CLI 18.2.20 with application builder
 - **Document Processing**: Mammoth 1.10 for Word docs, Marked 16.2 for markdown
 
@@ -138,7 +138,7 @@ node tools/mcp.js
   - Browsers: Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari
   - Test Server: Port 4201 (webServer command auto-starts server with `npm run start -- --port 4201`)
   - Base URL: http://localhost:4200 (default), http://localhost:4201 (E2E server)
-  - Test Directory: `tests/e2e/` (37 test files covering MD3 compliance, i18n, performance, visual regression)
+  - Test Directory: `tests/e2e/` (22 test files covering MD3 compliance, i18n, performance, visual regression)
   - Test Patterns: `**/*.spec.js`
   - Features: Screenshots on failure, video on failure, HTML reporter, trace on first retry
   - Timeout: 120 seconds
@@ -159,7 +159,7 @@ node tools/mcp.js
 
 - All components use standalone architecture with `bootstrapApplication()` in main.ts
 - Routes are lazy-loaded for optimal performance with dynamic resource route generation in `resource-routes.ts`
-- Translation keys follow nested object structure with default language 'tr' (606 keys across tr.json and en.json)
+- Translation keys follow nested object structure with default language 'tr' (1963+ keys across tr.json and en.json)
 - Resource pages are auto-generated from documents using tools in `tools/` directory
 - Strict TypeScript compilation with all strict flags including noImplicitReturns
 - Application uses zone.js with event coalescing for change detection

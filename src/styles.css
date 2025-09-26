@@ -40,15 +40,144 @@ section[class*="-page"] {
   padding-top: 48px; /* Consistent top padding for all page sections */
 }
 
-/* Global Hero Section Positioning */
+/* Global Hero Section Positioning - Force all hero sections behind header */
 app-hero-section {
   display: block;
   width: 100%;
+  position: relative;
+  z-index: 1 !important;
 }
 
-/* Ensure consistent hero section positioning across all pages */
-.hero-section {
-  margin-top: 100px !important; /* Space for fixed header */
+/* ULTIMATE Z-INDEX FIX - Force header on top of everything */
+
+/* Create stacking context for the entire app */
+body {
+  position: relative !important;
+  z-index: 0 !important;
+}
+
+/* Main content behind header */
+main {
+  position: relative !important;
+  z-index: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+}
+
+/* Force header to absolute highest layer */
+app-header,
+app-header > *,
+.modern-header,
+header.modern-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 2147483647 !important; /* Maximum z-index value */
+  isolation: isolate !important;
+  transform: translateZ(999px) !important;
+  will-change: transform !important;
+  pointer-events: auto !important;
+  background: var(--md-sys-color-surface) !important;
+}
+
+/* Ensure header has high z-index but don't override child positioning */
+app-header,
+.modern-header {
+  z-index: 2147483647 !important;
+}
+
+/* Mobile menu needs fixed positioning - don't override it */
+.mobile-menu {
+  position: fixed !important;
+  top: 0 !important;
+  right: -100% !important; /* Keep off-screen by default */
+  z-index: 2147483648 !important; /* Higher than header */
+  transition: right 0.3s ease !important;
+}
+
+/* When mobile menu is active, slide it in from right */
+.mobile-menu.active {
+  right: 0 !important;
+}
+
+/* Force ALL hero sections and their backgrounds way behind */
+app-hero-section,
+.hero-section,
+section[class*="hero"],
+div[class*="hero"] {
+  position: relative !important;
+  z-index: 1 !important;
+  transform: translateZ(-10px) !important;
+  isolation: isolate !important;
+}
+
+/* Hero backgrounds must be at the bottom of stack */
+.hero-background,
+.hexagon-grid,
+app-hero-section .hero-background,
+app-hero-section .hexagon-grid,
+.hero-section .hero-background,
+.hero-section .hexagon-grid {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -999999 !important;
+  pointer-events: none !important;
+  transform: translateZ(-100px) !important;
+  isolation: isolate !important;
+}
+
+/* Ensure hexagon elements stay behind */
+.hexagon-grid *,
+.hexagon {
+  z-index: -999999 !important;
+  position: relative !important;
+}
+.hexagon-grid,
+.hero-background .hexagon-grid,
+app-hero-section .hexagon-grid,
+[class*="hexagon"] {
+  position: absolute !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  transform: translateZ(-1px) !important;
+}
+
+/* Individual hexagon elements */
+.hexagon {
+  z-index: -1 !important;
+  position: relative !important;
+}
+
+/* Gradient overlays */
+.gradient-overlay,
+.hero-overlay {
+  position: absolute !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* Hero content above background but below header */
+.hero-content {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Main content area */
+main {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Page containers */
+.page-container,
+.content-container,
+.lab-imaging-container {
+  position: relative !important;
+  z-index: 2 !important;
+  background: var(--md-sys-color-background) !important;
 }
 
 @media (max-width: 768px) {
