@@ -443,9 +443,12 @@
   border-radius: var(--md-sys-shape-corner-extra-large);
   padding: var(--md-sys-spacing-8);
   text-align: center;
-  box-shadow: 0 4px 20px rgba(var(--md-sys-color-shadow), 0.06);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    0 8px 32px rgba(0, 137, 123, 0.04);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(var(--md-sys-color-shadow), 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   position: relative;
   overflow: hidden;
 }
@@ -468,7 +471,10 @@
 
 .services-overview .service-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(var(--md-sys-color-primary-rgb), 0.12);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.10),
+    0 16px 48px rgba(0, 137, 123, 0.08);
 }
 
 .services-overview .service-icon {
@@ -556,15 +562,21 @@
   border-radius: var(--md-sys-shape-corner-extra-large);
   padding: var(--md-sys-spacing-8);
   text-align: center;
-  box-shadow: 0 4px 20px rgba(var(--md-sys-color-shadow), 0.06);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    0 8px 32px rgba(0, 137, 123, 0.04);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(var(--md-sys-color-shadow), 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   position: relative;
 }
 
 .value-card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 16px 40px rgba(var(--md-sys-color-primary-rgb), 0.12);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.10),
+    0 16px 48px rgba(0, 137, 123, 0.08);
 }
 
 .value-icon {
