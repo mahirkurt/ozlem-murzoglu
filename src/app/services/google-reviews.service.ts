@@ -28,12 +28,12 @@ export class GoogleReviewsService {
   // Google Places API configuration
   private readonly API_KEY = 'AIzaSyDZNlErCHqvQYj0gh_zTwyyzj_Lwoo7V94';
   private readonly PLACE_ID = 'ChIJ83R9VUTJyhQRM2o-M-eoZyQ'; // Dr. Özlem Murzoğlu - Verified Place ID
-  private readonly MIN_REVIEW_LENGTH = 100; // Reduced minimum for faster loading
+  private readonly MIN_REVIEW_LENGTH = 50; // Further reduced for faster loading
   private readonly PLACES_API_V1_URL = 'https://places.googleapis.com/v1';
 
   // Cache configuration
   private reviewsCache: Map<string, { reviews: GoogleReview[], timestamp: number }> = new Map();
-  private readonly CACHE_DURATION = 1000 * 60 * 60; // Extended cache to 1 hour for better performance
+  private readonly CACHE_DURATION = 1000 * 60 * 60 * 24; // Extended cache to 24 hours for better performance
   private googleMapsLoaded = false;
   
   // Return empty array when API is not available - only use real reviews
@@ -67,13 +67,17 @@ export class GoogleReviewsService {
   }
 
   private prefetchReviews(): void {
-    // Prefetch reviews for both languages to cache them
-    setTimeout(() => {
-      this.fetchGoogleReviews().subscribe({
-        next: (reviews) => console.log(`📦 Prefetched ${reviews.length} reviews`),
-        error: () => console.log('⚠️ Prefetch failed')
-      });
-    }, 1000); // Small delay to not block initial page load
+    // Prefetch reviews immediately without delay
+    this.fetchGoogleReviews().subscribe({
+      next: (reviews) => {
+        console.log(`📦 Prefetched ${reviews.length} reviews`);
+        // Store in cache for immediate access
+        const currentLang = this.translate.currentLang || 'tr';
+        const cacheKey = `reviews_${currentLang}`;
+        this.reviewsCache.set(cacheKey, { reviews, timestamp: Date.now() });
+      },
+      error: () => console.log('⚠️ Prefetch failed')
+    });
   }
 
   /**
@@ -188,9 +192,9 @@ export class GoogleReviewsService {
           requestedLanguage: currentLang
         });
 
-        // Fetch place details
+        // Fetch place details with optimized fields
         place.fetchFields({
-          fields: ['displayName', 'rating', 'userRatingCount', 'reviews']
+          fields: ['reviews', 'rating', 'userRatingCount']
         }).then(() => {
           console.log('Place found:', place.displayName);
           console.log('Total user ratings:', place.userRatingCount);
@@ -348,7 +352,7 @@ export class GoogleReviewsService {
         if (b.rating !== a.rating) return b.rating - a.rating;
         return (b.time || 0) - (a.time || 0);
       })
-      .slice(0, 10); // Limit to 10 reviews for performance
+      .slice(0, 20); // Get more reviews for better rotation
 
     console.log(`Returning ${filtered.length} reviews (4-5 stars)`);
     return filtered;

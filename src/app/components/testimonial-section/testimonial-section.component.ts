@@ -84,16 +84,27 @@ export class TestimonialSectionComponent implements OnInit, OnDestroy {
 
   private loadGoogleReviews() {
     this.isLoadingReviews = true;
-    // Get all reviews once, no timer
-    this.reviewsSubscription = this.googleReviewsService.getRotatingReviews(50).subscribe({
+    // Get reviews with timeout for faster loading
+    this.reviewsSubscription = this.googleReviewsService.getRotatingReviews(20).subscribe({
       next: (reviews) => {
-        this.allReviews = reviews;
-        this.googleReviews = reviews.slice(0, 10); // Show first 10
-        this.isLoadingReviews = false;
+        if (reviews && reviews.length > 0) {
+          this.allReviews = reviews;
+          this.googleReviews = reviews.slice(0, 10);
+          this.isLoadingReviews = false;
+          console.log(`✅ Loaded ${reviews.length} reviews for display`);
+        } else {
+          // If no reviews, hide the section
+          this.isLoadingReviews = false;
+          this.googleReviews = [];
+          this.allReviews = [];
+        }
       },
       error: (error) => {
         console.error('Error loading Google reviews:', error);
         this.isLoadingReviews = false;
+        // Hide section on error
+        this.googleReviews = [];
+        this.allReviews = [];
       }
     });
   }
