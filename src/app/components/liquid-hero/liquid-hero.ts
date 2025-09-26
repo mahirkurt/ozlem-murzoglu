@@ -283,7 +283,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
         padding: 0;
+        transform: none !important; /* Transform'u devre dışı bırak */
       }
 
       .md3-container {
@@ -291,16 +293,21 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .content-wrapper {
         width: 100%;
+        max-width: 800px; /* İçerik genişliğini sınırla */
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
+        margin: 0 auto; /* Kesin ortalama için */
       }
 
       .hero-title {
@@ -449,11 +456,11 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         }
 
         .hero-content {
-          padding: var(--spacing-xxl) var(--spacing-md);
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          padding: 0;
+        }
+
+        .md3-container {
+          padding: 0 var(--spacing-md);
         }
 
         .hero-title {
@@ -477,8 +484,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
       }
 
       @media (max-width: 480px) {
-        .hero-content {
-          padding: 75pxpx /* TODO: Consider MD3 spacing token */px /* TODO: Consider MD3 spacing token */ var(--md-sys-spacing-4);
+        .md3-container {
+          padding: 0 var(--md-sys-spacing-4);
         }
 
         .hero-title {
