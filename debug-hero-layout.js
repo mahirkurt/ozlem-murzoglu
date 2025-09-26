@@ -6,7 +6,7 @@ const { chromium } = require('playwright');
 
   console.log('🔍 Debugging hero layout issues...\n');
 
-  await page.goto('http://localhost:4202');
+  await page.goto('https://dr-murzoglu.web.app');
   await page.waitForLoadState('networkidle');
 
   // Wait a bit for Angular to render

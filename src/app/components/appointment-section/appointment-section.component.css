@@ -2,10 +2,23 @@
 .appointment-section {
   padding: var(--spacing-xxl) 0;
   background: linear-gradient(135deg,
-    var(--md-sys-color-primary-container) 0%,
-    var(--md-sys-color-surface) 100%);
+    #e3f2fd 0%,
+    #f3e5f5 25%,
+    #fff3e0 50%,
+    #e8f5e9 75%,
+    #e3f2fd 100%);
+  background-size: 400% 400%;
+  animation: appointmentGradient 20s ease infinite;
   position: relative;
   overflow: hidden;
+}
+
+@keyframes appointmentGradient {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 100%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 0%; }
+  100% { background-position: 0% 50%; }
 }
 
 .container {
