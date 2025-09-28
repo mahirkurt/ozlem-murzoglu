@@ -1,8 +1,16 @@
-/* Hero Section Base */
-.hero-section {
+/* Hero Section Component Container */
+app-hero-section {
+  display: block;
+  width: 100%;
+  margin-top: var(--header-height-desktop, 108px);
   position: relative;
-  min-height: 280px;
-  margin-top: 100px !important; /* Ensure consistent spacing below header */
+}
+
+/* Hero Section Base */
+app-hero-section .hero-section {
+  position: relative;
+  min-height: 182px; /* %35 azaltıldı: 280px → 182px */
+  margin-top: 0; /* Parent handles margin */
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -166,9 +174,14 @@
   opacity: 0.8;
 }
 
-.breadcrumb .material-icons {
-  font-size: 18px;
+.breadcrumb-separator {
+  width: 18px;
+  height: 18px;
   opacity: 0.7;
+  color: white;
+  margin: 0 var(--md-sys-spacing-1);
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Typography */
@@ -205,9 +218,13 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero-section {
-    min-height: 240px;
-    margin-top: 80px !important;
+  app-hero-section {
+    margin-top: var(--header-height-mobile, 80px);
+  }
+
+  app-hero-section .hero-section {
+    min-height: 156px; /* %35 azaltıldı: 240px → 156px */
+    margin-top: 0; /* Parent handles margin */
   }
 
   .hero-content {

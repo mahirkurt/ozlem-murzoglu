@@ -7,8 +7,8 @@
   --hero-gradient-1: var(--md-sys-color-primary);
   --hero-gradient-2: var(--md-sys-color-primary);
   --hero-gradient-3: #94d3ac;
-  --hero-padding-y: 6rem;
-  --hero-min-height: 360px;
+  --hero-padding-y: 3.9rem; /* %35 azaltıldı: 6rem → 3.9rem */
+  --hero-min-height: 234px; /* %35 azaltıldı: 360px → 234px */
   --hero-text-primary: var(--md-sys-color-surface);
   --hero-text-secondary: rgba(255, 255, 255, 0.85);
   --hero-text-muted: rgba(255, 255, 255, 0.6);
@@ -17,11 +17,12 @@
 /* ============================================== */
 /* HERO SECTION BASE                             */
 /* ============================================== */
-/* Exclude homepage hero from global styles */
-.hero-section:not(.homepage-hero) {
+/* Apply to ALL hero sections including component-based ones */
+.hero-section:not(.homepage-hero),
+app-hero-section .hero-section {
   position: relative;
   padding: var(--hero-padding-y) 0;
-  margin-top: 60px;
+  margin-top: var(--header-height-desktop, 108px);
   min-height: var(--hero-min-height);
   display: flex;
   align-items: center;
@@ -46,7 +47,7 @@
 section[class*='hero']:not(.hero-content):not(.homepage-hero) {
   position: relative;
   padding: var(--hero-padding-y) 0;
-  margin-top: 60px;
+  margin-top: var(--header-height-desktop, 108px);
   min-height: var(--hero-min-height);
   display: flex;
   align-items: center;
@@ -405,17 +406,19 @@ h1.hero-title,
 /* ============================================== */
 @media (max-width: 768px) {
   :root {
-    --hero-padding-y: 5rem;
-    --hero-min-height: 320px;
+    --hero-padding-y: 3.25rem; /* %35 azaltıldı */
+    --hero-min-height: 208px; /* %35 azaltıldı */
   }
 
   .hero-section:not(.homepage-hero),
+  app-hero-section .hero-section,
   .resource-hero,
   .page-hero,
   .service-hero,
   section[class*='hero']:not(.hero-content):not(.homepage-hero) {
     padding: var(--hero-padding-y) 0;
     min-height: var(--hero-min-height);
+    margin-top: var(--header-height-mobile, 80px);
   }
 
   .breadcrumb {
@@ -453,8 +456,8 @@ h1.hero-title,
 
 @media (max-width: 480px) {
   :root {
-    --hero-padding-y: 4rem;
-    --hero-min-height: 280px;
+    --hero-padding-y: 2.6rem; /* %35 azaltıldı */
+    --hero-min-height: 182px; /* %35 azaltıldı */
   }
 
   .hero-content .container,

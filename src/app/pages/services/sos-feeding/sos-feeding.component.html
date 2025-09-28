@@ -1,4 +1,4 @@
-<div class="sos-feeding-container">
+<section class="sos-feeding-container">
   <!-- Hero Section -->
   <app-hero-section
     [title]="'SERVICE_SOS_FEEDING.TITLE' | translate"
@@ -17,15 +17,21 @@
           
           <div class="key-points">
             <div class="point-item">
-              <span class="material-icons">check_circle</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+              </svg>
               <span>{{ 'SERVICE_SOS_FEEDING.POINT_1' | translate }}</span>
             </div>
             <div class="point-item">
-              <span class="material-icons">check_circle</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+              </svg>
               <span>{{ 'SERVICE_SOS_FEEDING.POINT_2' | translate }}</span>
             </div>
             <div class="point-item">
-              <span class="material-icons">check_circle</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+              </svg>
               <span>{{ 'SERVICE_SOS_FEEDING.POINT_3' | translate }}</span>
             </div>
           </div>
@@ -34,7 +40,9 @@
           <img src="assets/program_logos/SOS_Feeding.svg" alt="SOS Feeding Logo" class="sos-logo" loading="lazy">
           <div class="certification-badges">
             <div class="badge" *ngFor="let cert of certifications">
-              <span class="material-icons">{{ cert.icon }}</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21V20H15V21A1,1 0 0,1 14,22H10A1,1 0 0,1 9,21Z"/>
+              </svg>
               <div class="badge-content">
                 <h4>{{ cert.level }}</h4>
                 <p>{{ cert.title }}</p>
@@ -104,7 +112,9 @@
       <div class="issues-grid">
         <div class="issue-card" *ngFor="let issue of feedingIssues">
           <div class="issue-icon">
-            <span class="material-icons">{{ issue.icon }}</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+            </svg>
           </div>
           <h3>{{ ('SERVICE_SOS_FEEDING.' + issue.key + '_TITLE') | translate }}</h3>
           <p>{{ ('SERVICE_SOS_FEEDING.' + issue.key + '_DESC') | translate }}</p>
@@ -127,7 +137,9 @@
           </div>
           <div class="level-steps">
             <div class="step-item" *ngFor="let step of level.steps">
-              <span class="material-icons">{{ step.icon }}</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+              </svg>
               <span>{{ ('SERVICE_SOS_FEEDING.' + step.key) | translate }}</span>
             </div>
           </div>
@@ -147,7 +159,9 @@
           <div class="step-number">{{ step.number }}</div>
           <div class="step-content">
             <div class="step-icon">
-              <span class="material-icons">{{ step.icon }}</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+              </svg>
             </div>
             <h3>{{ ('SERVICE_SOS_FEEDING.' + step.key + '_TITLE') | translate }}</h3>
             <p>{{ ('SERVICE_SOS_FEEDING.' + step.key + '_DESC') | translate }}</p>
@@ -172,7 +186,9 @@
           <div class="cert-card">
             <div class="cert-card-header">
               <div class="cert-icon">
-                <span class="material-icons">school</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                </svg>
               </div>
               <div class="cert-content">
                 <h4>{{ 'SERVICE_SOS_FEEDING.CERT_1_TITLE' | translate }}</h4>
@@ -182,15 +198,21 @@
             <div class="cert-card-body">
               <div class="cert-points">
                 <span class="point-item">
-                  <span class="material-icons">check_circle</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                  </svg>
                   {{ 'SERVICE_SOS_FEEDING.CERT_1_POINT_1' | translate }}
                 </span>
                 <span class="point-item">
-                  <span class="material-icons">check_circle</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                  </svg>
                   {{ 'SERVICE_SOS_FEEDING.CERT_1_POINT_2' | translate }}
                 </span>
                 <span class="point-item">
-                  <span class="material-icons">check_circle</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                  </svg>
                   {{ 'SERVICE_SOS_FEEDING.CERT_1_POINT_3' | translate }}
                 </span>
               </div>
@@ -200,7 +222,9 @@
           <div class="cert-card advanced">
             <div class="cert-card-header">
               <div class="cert-icon">
-                <span class="material-icons">workspace_premium</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M5,16L3,5H1V3H4L6,14H18L20,7H8V5H21A1,1 0 0,1 22,6A1,1 0 0,1 21.8,6.2L19.28,15.96C19.17,16.58 18.61,17 18,17H6.55L5.13,18.5A1,1 0 0,1 4.13,19H1V17H3.27L4.27,16H5M12,19A2,2 0 0,1 14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21A2,2 0 0,1 12,19M17,19A2,2 0 0,1 19,21A2,2 0 0,1 17,23A2,2 0 0,1 15,21A2,2 0 0,1 17,19Z"/>
+                </svg>
               </div>
               <div class="cert-content">
                 <h4>{{ 'SERVICE_SOS_FEEDING.CERT_2_TITLE' | translate }}</h4>
@@ -210,19 +234,27 @@
             <div class="cert-card-body">
               <div class="cert-points">
                 <span class="point-item">
-                  <span class="material-icons">check_circle</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                  </svg>
                   {{ 'SERVICE_SOS_FEEDING.CERT_2_POINT_1' | translate }}
                 </span>
                 <span class="point-item">
-                  <span class="material-icons">check_circle</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                  </svg>
                   {{ 'SERVICE_SOS_FEEDING.CERT_2_POINT_2' | translate }}
                 </span>
                 <span class="point-item">
-                  <span class="material-icons">check_circle</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                  </svg>
                   {{ 'SERVICE_SOS_FEEDING.CERT_2_POINT_3' | translate }}
                 </span>
                 <span class="point-item">
-                  <span class="material-icons">check_circle</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                  </svg>
                   {{ 'SERVICE_SOS_FEEDING.CERT_2_POINT_4' | translate }}
                 </span>
               </div>
@@ -265,7 +297,9 @@
       
       <div class="benefits-grid">
         <div class="benefit-card" *ngFor="let benefit of benefits">
-          <span class="material-icons">{{ benefit.icon }}</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+          </svg>
           <h3>{{ ('SERVICE_SOS_FEEDING.' + benefit.key + '_TITLE') | translate }}</h3>
           <p>{{ ('SERVICE_SOS_FEEDING.' + benefit.key + '_DESC') | translate }}</p>
         </div>
@@ -273,4 +307,4 @@
     </div>
   </section>
 
-</div>
+</section>

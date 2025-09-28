@@ -2,20 +2,23 @@
 
 A modern, responsive Angular application for Dr. Özlem Murzoğlu's pediatric clinic, featuring premium design components and animations.
 
-## 🚀 Deployment on Vercel
+## 🚀 Deployment on Firebase
 
 ### ⚠️ Important Configuration
-**Root Directory:** Leave empty or use `.` (project is in repository root)  
-**Build Command:** `npm ci && npm run build`  
-**Output Directory:** `dist/angular-app/browser`  
-**Install Command:** `npm ci`
 
-### Vercel Project Settings
-1. Go to your Vercel Dashboard
-2. Select the project
-3. Go to Settings → General
-4. Clear the "Root Directory" field (leave it empty)
-5. Save changes
+**Firebase Hosting Setup:**
+
+- **Public Directory:** `dist/angular-app/browser`
+- **Single-page app:** Yes (rewrite all URLs to /index.html)
+- **Build Command:** `npm ci && npm run build`
+
+### Firebase Deployment Steps
+
+1. Install Firebase CLI: `npm install -g firebase-tools`
+2. Login to Firebase: `firebase login`
+3. Initialize Firebase: `firebase init`
+4. Select "Hosting" and configure as above
+5. Deploy: `firebase deploy`
 
 ## 📦 Technology Stack
 
@@ -23,7 +26,7 @@ A modern, responsive Angular application for Dr. Özlem Murzoğlu's pediatric cl
 - **Styling:** CSS with Material Design 3 principles
 - **Fonts:** Figtree (headings), DM Sans (body text)
 - **Icons:** Material Icons
-- **Deployment:** Vercel
+- **Deployment:** Firebase Hosting
 
 ## ✨ Features
 
@@ -46,6 +49,9 @@ npm run start
 
 # Build for production
 npm run build
+
+# Deploy to Firebase
+firebase deploy
 ```
 
 ## 📁 Project Structure
@@ -60,7 +66,8 @@ npm run build
 │   ├── styles/             # Global styles
 │   └── index.html          # Main HTML file
 ├── public/                 # Static assets
-├── vercel.json            # Vercel configuration
+├── firebase.json          # Firebase configuration
+├── .firebaserc            # Firebase project configuration
 └── package.json           # Dependencies
 ```
 

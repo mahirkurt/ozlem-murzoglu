@@ -112,7 +112,10 @@
       "Bash(git branch:*)",
       "Bash(firebase hosting:enable:*)",
       "Bash(start chrome https://dr-murzoglu.web.app)",
-      "Bash(start chrome https://dr-murzoglu.web.app/hakkimizda/klinigimiz)"
+      "Bash(start chrome https://dr-murzoglu.web.app/hakkimizda/klinigimiz)",
+      "Bash(start chrome http://localhost:4200/hizmetlerimiz/laboratuvar)",
+      "Bash(start chrome http://localhost:4202/hizmetlerimiz/laboratuvar)",
+      "Bash(start chrome http://localhost:4200/hakkimizda/klinigimiz)"
     ],
     "deny": []
   }

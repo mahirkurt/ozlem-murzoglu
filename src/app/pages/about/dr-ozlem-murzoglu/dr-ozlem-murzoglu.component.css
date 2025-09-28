@@ -17,11 +17,17 @@
   background: transparent; /* Let parent container gradient show through */
 }
 
-/* Container */
+/* Container - Global padding style */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--md-sys-spacing-4);
+  padding: 0 var(--md-sys-spacing-8);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--md-sys-spacing-5);
+  }
 }
 
 /* Profile Layout */
@@ -176,9 +182,9 @@
 }
 
 .story-block {
-  background: var(--md-sys-color-surface);
+  background: white;
   border-radius: var(--md-sys-shape-corner-medium, 12px);
-  padding: var(--md-sys-spacing-4);
+  padding: var(--md-sys-spacing-6);
   margin-bottom: var(--md-sys-spacing-4);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -220,6 +226,11 @@
   border-top: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
 }
 
+.services-section h2 {
+  text-align: center;
+  margin-bottom: var(--md-sys-spacing-6);
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -231,15 +242,19 @@
   text-align: center;
   padding: var(--md-sys-spacing-4);
   background: var(--md-sys-color-surface);
-  border: 1px solid var(--md-sys-color-outline-variant);
+  border: none;
   border-radius: var(--md-sys-shape-corner-medium);
   transition: all 0.3s ease;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.05),
+    0px 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  border-color: var(--md-sys-color-primary);
+  transform: translateY(-6px);
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.08),
+    0px 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .service-card i {
