@@ -1,8 +1,9 @@
 /* Global CTA Section Styles - MD3 Design System */
 
-/* CTA Section Container */
+/* CTA Section Container - Edge to Edge */
 .cta-section {
-  padding: var(--md-sys-spacing-20) var(--md-sys-spacing-6) var(--md-sys-spacing-24) var(--md-sys-spacing-6);
+  padding: var(--md-sys-spacing-20) 0;
+  margin: 0;
   background: linear-gradient(135deg, #fff9f0 0%, #fffbf5 50%, #f8fdfc 100%);
   position: relative;
   overflow: hidden;
@@ -66,11 +67,11 @@
   background-clip: text;
 }
 
-/* CTA Title */
+/* CTA Title - 30% smaller */
 .cta-content h3,
 .cta-title {
   font-family: var(--md-sys-typescale-font-brand);
-  font-size: 3rem;
+  font-size: 2.1rem;
   font-weight: 700;
   color: var(--md-sys-color-primary, var(--md-sys-color-primary));
   margin-bottom: 24px;

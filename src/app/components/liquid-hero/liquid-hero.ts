@@ -26,11 +26,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
       <div class="hero-content md3-relative">
         <div class="md3-container">
           <div class="content-wrapper md3-flex md3-flex-col md3-items-center md3-justify-center">
-            <h1 class="hero-title md3-display-large md3-text-on-primary">
-              {{ 'HERO.TITLE' | translate }}
+            <h1 class="hero-title md3-display-large md3-text-on-primary" [innerHTML]="'HERO.TITLE' | translate">
             </h1>
-            <p class="hero-subtitle md3-headline-medium md3-text-on-primary">
-              {{ 'HERO.SUBTITLE' | translate }}
+            <p class="hero-subtitle md3-headline-medium md3-text-on-primary" [innerHTML]="'HERO.SUBTITLE' | translate">
             </p>
 
             <div class="hero-cta md3-flex md3-items-center md3-justify-center md3-gap-lg md3-mt-xl">
@@ -58,14 +56,14 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     `
       .liquid-hero {
         position: relative;
-        height: 100vh;
+        height: calc(100vh - var(--header-height-desktop, 108px));
         min-height: 600px;
+        margin-top: var(--header-height-desktop, 108px);
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         padding: 0;
-        margin: 0;
         padding-top: 0;
         background:
           radial-gradient(at 40% 20%, var(--md-sys-color-primary) 0px, transparent 50%),
@@ -266,8 +264,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         .liquid-hero {
           animation: heroWaveAnimation 25s ease infinite;
           animation-delay: 0s;
-          margin: 0;
-          height: 100vh;
+          margin-top: var(--header-height-mobile, 80px);
+          height: calc(100vh - var(--header-height-mobile, 80px));
           min-height: 500px;
         }
       }
@@ -451,8 +449,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
       /* Responsive */
       @media (max-width: 768px) {
         .liquid-hero {
-          min-height: 100vh;
-          height: 100vh;
+          min-height: calc(100vh - var(--header-height-mobile, 80px));
+          height: calc(100vh - var(--header-height-mobile, 80px));
         }
 
         .hero-content {

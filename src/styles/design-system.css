@@ -28,6 +28,24 @@
   --color-neutral-800: #212529;
   --color-neutral-900: #0F1419;
   
+  /* MD3 Spacing System - 4px base unit */
+  --md-sys-spacing-1: 4px;
+  --md-sys-spacing-2: 8px;
+  --md-sys-spacing-3: 12px;
+  --md-sys-spacing-4: 16px;
+  --md-sys-spacing-5: 20px;
+  --md-sys-spacing-6: 24px;
+  --md-sys-spacing-7: 28px;
+  --md-sys-spacing-8: 32px;
+  --md-sys-spacing-9: 36px;
+  --md-sys-spacing-10: 40px;
+  --md-sys-spacing-11: 44px;
+  --md-sys-spacing-12: 48px;
+  --md-sys-spacing-13: 52px;
+  --md-sys-spacing-14: 56px;
+  --md-sys-spacing-15: 60px;
+  --md-sys-spacing-16: 64px;
+
   /* Fluid Typography Scale */
   --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
   --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);

@@ -444,11 +444,11 @@
   padding: var(--md-sys-spacing-8);
   text-align: center;
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.08),
-    0 4px 16px rgba(0, 0, 0, 0.06),
-    0 8px 32px rgba(0, 137, 123, 0.04);
+    0 3px 10px rgba(0, 0, 0, 0.12),
+    0 6px 20px rgba(0, 0, 0, 0.08),
+    0 12px 40px rgba(0, 137, 123, 0.06) !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
 }
@@ -472,9 +472,9 @@
 .services-overview .service-card:hover {
   transform: translateY(-8px);
   box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.12),
-    0 8px 24px rgba(0, 0, 0, 0.10),
-    0 16px 48px rgba(0, 137, 123, 0.08);
+    0 6px 16px rgba(0, 0, 0, 0.16),
+    0 12px 32px rgba(0, 0, 0, 0.12),
+    0 20px 56px rgba(0, 137, 123, 0.10) !important;
 }
 
 .services-overview .service-icon {
@@ -563,20 +563,20 @@
   padding: var(--md-sys-spacing-8);
   text-align: center;
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.08),
-    0 4px 16px rgba(0, 0, 0, 0.06),
-    0 8px 32px rgba(0, 137, 123, 0.04);
+    0 3px 10px rgba(0, 0, 0, 0.12),
+    0 6px 20px rgba(0, 0, 0, 0.08),
+    0 12px 40px rgba(0, 137, 123, 0.06) !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   position: relative;
 }
 
 .value-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.12),
-    0 8px 24px rgba(0, 0, 0, 0.10),
-    0 16px 48px rgba(0, 137, 123, 0.08);
+    0 6px 16px rgba(0, 0, 0, 0.16),
+    0 12px 32px rgba(0, 0, 0, 0.12),
+    0 20px 56px rgba(0, 137, 123, 0.10) !important;
 }
 
 .value-icon {
@@ -660,15 +660,17 @@
   display: flex;
   gap: 2rem;
   padding: 1.25rem;
-  background: var(--md-sys-color-surface-container-low);
+  background: white;
   border-radius: var(--md-sys-shape-corner-medium);
   border-left: 3px solid var(--md-sys-color-primary);
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .education-item:hover {
-  background: var(--md-sys-color-surface-container-low);
+  background: white;
   transform: translateX(5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
 }
 
 .edu-year {

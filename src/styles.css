@@ -40,164 +40,106 @@ section[class*="-page"] {
   padding-top: 48px; /* Consistent top padding for all page sections */
 }
 
-/* Global Hero Section Positioning - Force all hero sections behind header */
+/* Global Hero Section Positioning - Force override Angular scoped styles */
 app-hero-section {
-  display: block;
-  width: 100%;
-  position: relative;
-  z-index: 1 !important;
-}
-
-/* ULTIMATE Z-INDEX FIX - Force header on top of everything */
-
-/* Create stacking context for the entire app */
-body {
-  position: relative !important;
-  z-index: 0 !important;
-}
-
-/* Main content behind header */
-main {
-  position: relative !important;
-  z-index: 1 !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  display: block !important;
   width: 100% !important;
-  min-height: 100vh !important;
+  position: relative !important;
+  margin-top: var(--header-height-desktop) !important;
+  padding-top: 0 !important;
 }
 
-/* Force header to absolute highest layer */
-app-header,
-app-header > *,
-.modern-header,
-header.modern-header {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 2147483647 !important; /* Maximum z-index value */
-  isolation: isolate !important;
-  pointer-events: auto !important;
-  background: var(--md-sys-color-surface) !important;
+/* Target the actual hero-section inside app-hero-section component */
+app-hero-section .hero-section,
+app-hero-section section.hero-section {
+  margin-top: 0 !important; /* Parent already has the margin */
+  position: relative !important;
 }
 
-/* Ensure header has high z-index but don't override child positioning */
+/* Standalone hero sections not in components */
+.hero-section:not(.homepage-hero):not(app-hero-section .hero-section) {
+  margin-top: var(--header-height-desktop) !important;
+}
+
+@media (max-width: 768px) {
+  app-hero-section {
+    margin-top: var(--header-height-mobile) !important;
+  }
+
+  .hero-section:not(.homepage-hero):not(app-hero-section .hero-section) {
+    margin-top: var(--header-height-mobile) !important;
+  }
+}
+
+/* Z-Index Layer System - Clean and organized */
+:root {
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  --z-index-header: 1030; /* Fixed header layer */
+  --z-index-mobile-menu: 1040; /* Above header when active */
+}
+
+/* Main content area - normal flow */
+main {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Fixed Header */
 app-header,
 .modern-header {
-  z-index: 2147483647 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-index-header);
+  background: var(--md-sys-color-surface);
 }
 
-/* Mobile menu needs fixed positioning - don't override it */
+/* Mobile menu */
 .mobile-menu {
-  position: fixed !important;
-  top: 0 !important;
-  right: -100% !important; /* Keep off-screen by default */
-  z-index: 2147483648 !important; /* Higher than header */
-  transition: right 0.3s ease !important;
-  visibility: hidden !important; /* Hide completely when not active */
-  display: none !important; /* Force hide on desktop */
+  position: fixed;
+  top: 0;
+  right: -100%; /* Off-screen by default */
+  z-index: var(--z-index-mobile-menu);
+  transition: right 0.3s ease;
+  visibility: hidden;
+  display: none;
 }
 
-/* When mobile menu is active, slide it in from right */
 .mobile-menu.active {
-  right: 0 !important;
-  visibility: visible !important;
+  right: 0;
+  visibility: visible;
 }
 
-/* Only show mobile menu on mobile screens */
 @media (max-width: 1199px) {
   .mobile-menu {
-    display: flex !important; /* Allow display on mobile */
+    display: flex;
   }
 
   .mobile-menu.active {
-    display: flex !important;
-    visibility: visible !important;
+    display: flex;
+    visibility: visible;
   }
-}
-
-/* Force ALL hero sections and their backgrounds way behind */
-app-hero-section,
-.hero-section,
-section[class*="hero"]:not(.liquid-hero),
-div[class*="hero"]:not(.hero-content):not(.content-wrapper) {
-  position: relative !important;
-  z-index: 1 !important;
-  transform: translateZ(-10px) !important;
-  isolation: isolate !important;
-}
-
-/* Liquid hero specific - allow its internal positioning */
-.liquid-hero .hero-content {
-  /* Don't override position - let component styles handle it */
-  z-index: 10 !important;
-}
-
-/* Hero backgrounds must be at the bottom of stack */
-.hero-background,
-.hexagon-grid,
-app-hero-section .hero-background,
-app-hero-section .hexagon-grid,
-.hero-section .hero-background,
-.hero-section .hexagon-grid {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: -999999 !important;
-  pointer-events: none !important;
-  isolation: isolate !important;
-}
-
-/* Ensure hexagon elements stay behind */
-.hexagon-grid *,
-.hexagon {
-  z-index: -999999 !important;
-  position: relative !important;
-}
-.hexagon-grid,
-.hero-background .hexagon-grid,
-app-hero-section .hexagon-grid,
-[class*="hexagon"] {
-  position: absolute !important;
-  z-index: -1 !important;
-  pointer-events: none !important;
-}
-
-/* Individual hexagon elements */
-.hexagon {
-  z-index: -1 !important;
-  position: relative !important;
-}
-
-/* Gradient overlays */
-.gradient-overlay,
-.hero-overlay {
-  position: absolute !important;
-  z-index: -1 !important;
-  pointer-events: none !important;
-}
-
-/* Hero content above background but below header - removed position override to allow component styles */
-
-/* Main content area */
-main {
-  position: relative !important;
-  z-index: 1 !important;
 }
 
 /* Page containers */
 .page-container,
 .content-container,
 .lab-imaging-container {
-  position: relative !important;
-  z-index: 2 !important;
-  background: var(--md-sys-color-background) !important;
+  position: relative;
+  background: var(--md-sys-color-background);
 }
 
 @media (max-width: 768px) {
-  .hero-section {
-    margin-top: 80px !important; /* Smaller space on mobile */
-  }
-
   section[class*="-page"] {
     padding-top: 32px; /* Less padding on mobile */
   }
@@ -264,8 +206,8 @@ html {
   --spacing-xxxl: 4rem;      /* 64px */
 
   /* Header Heights - For consistent margin-top calculations */
-  --header-height-desktop: 80px;
-  --header-height-mobile: 60px;
+  --header-height-desktop: 108px; /* Top bar (28px) + Main nav (80px) */
+  --header-height-mobile: 80px;
 
   /* Transitions */
   --transition-transform: transform 0.3s ease;
@@ -679,28 +621,27 @@ img[loading='lazy'] {
   }
 }
 
-/* Critical MD3 Layout Fixes - Using CSS Variables */
+/* Homepage Liquid Hero - Full viewport */
 .liquid-hero {
-  margin-top: var(--header-height-desktop) !important;
-  height: calc(100vh - var(--header-height-desktop)) !important;
-  width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  position: relative !important;
+  margin-top: var(--header-height-desktop);
+  height: calc(100vh - var(--header-height-desktop));
+  width: 100%;
+  position: relative;
 }
 
 .liquid-hero .hero-content {
-  width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-/* Liquid hero artık standart container yapısını kullanıyor */
 
 @media (max-width: 768px) {
   .liquid-hero {
-    margin-top: var(--header-height-mobile) !important;
-    height: calc(100vh - var(--header-height-mobile)) !important;
+    margin-top: var(--header-height-mobile);
+    height: calc(100vh - var(--header-height-mobile));
   }
 }
 
@@ -882,3 +823,11 @@ app-testimonial-section {
     right: 16px !important;
   }
 }
+
+/*
+==============================================
+  GLOBAL COMPONENT OVERRIDES
+==============================================
+*/
+
+/* Hero content padding is now managed by hero-section-global.css */

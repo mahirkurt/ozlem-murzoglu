@@ -12,7 +12,9 @@
         <ng-container *ngFor="let crumb of breadcrumbs; let last = last">
           <a *ngIf="crumb.link" [routerLink]="crumb.link">{{ crumb.label | translate }}</a>
           <span *ngIf="!crumb.link">{{ crumb.label | translate }}</span>
-          <span class="material-icons" *ngIf="!last">chevron_right</span>
+          <svg class="breadcrumb-separator" *ngIf="!last" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </ng-container>
       </div>
       

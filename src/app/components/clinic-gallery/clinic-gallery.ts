@@ -78,8 +78,25 @@ interface GalleryImage {
           <button class="modal-close" (click)="closeModal()">
             <span class="material-icons">close</span>
           </button>
-          <img [src]="selectedImage.src" [alt]="selectedImage.alt" class="modal-image" />
-          <div class="modal-caption">{{ selectedImage.titleKey | translate }}</div>
+
+          <!-- Navigation Arrows -->
+          <button class="modal-nav modal-prev" (click)="previousImage()" *ngIf="currentImageIndex > 0">
+            <span class="material-icons">chevron_left</span>
+          </button>
+          <button class="modal-nav modal-next" (click)="nextImage()" *ngIf="currentImageIndex < galleryImages.length - 1">
+            <span class="material-icons">chevron_right</span>
+          </button>
+
+          <!-- Image Container -->
+          <div class="modal-image-container">
+            <img [src]="selectedImage.src" [alt]="selectedImage.alt" class="modal-image" />
+          </div>
+
+          <!-- Caption and Counter -->
+          <div class="modal-info">
+            <div class="modal-caption">{{ selectedImage.titleKey | translate }}</div>
+            <div class="modal-counter">{{ currentImageIndex + 1 }} / {{ galleryImages.length }}</div>
+          </div>
         </div>
       </div>
     </section>
@@ -258,50 +275,76 @@ interface GalleryImage {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(var(--md-sys-color-shadow), 0.9);
+      background: rgba(0, 0, 0, 0.95);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 10000;
       animation: fadeIn 0.3s ease;
-      cursor: zoom-out;
+      padding: var(--md-sys-spacing-8);
+      backdrop-filter: blur(10px);
     }
-    
+
     .modal-content {
       position: relative;
-      max-width: 90vw;
-      max-height: 90vh;
+      max-width: min(1200px, calc(100vw - 64px));
+      max-height: calc(100vh - 64px);
       animation: zoomIn 0.3s ease;
       cursor: default;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    
+
+    .modal-image-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-height: calc(100vh - 120px);
+    }
+
     .modal-image {
-      width: 100%;
+      display: block;
+      width: auto;
       height: auto;
       max-width: 100%;
-      max-height: 80vh;
+      max-height: calc(100vh - 120px);
       object-fit: contain;
-      border-radius: var(--md-sys-shape-corner-small);
-      box-shadow: 0 20px 60px rgba(var(--md-sys-color-shadow), 0.5);
+      border-radius: var(--md-sys-shape-corner-medium);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     }
-    
+
+    .modal-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: var(--md-sys-spacing-4);
+      padding: 0 var(--md-sys-spacing-4);
+    }
+
     .modal-caption {
-      text-align: center;
       color: white;
       font-size: var(--font-size-lg);
-      margin-top: var(--space-3);
-      text-shadow: 0 2px 4px rgba(var(--md-sys-color-shadow), 0.5);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
-    
+
+    .modal-counter {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: var(--font-size-base);
+      font-weight: 500;
+    }
+
     .modal-close {
       position: absolute;
-      top: -40px;
-      right: 0;
+      top: var(--md-sys-spacing-4);
+      right: var(--md-sys-spacing-4);
       background: rgba(255, 255, 255, 0.1);
       border: 2px solid rgba(255, 255, 255, 0.3);
       color: white;
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       border-radius: var(--md-sys-shape-corner-full);
       display: flex;
       align-items: center;
@@ -309,11 +352,49 @@ interface GalleryImage {
       cursor: pointer;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
+      z-index: 10;
     }
-    
+
     .modal-close:hover {
       background: rgba(255, 255, 255, 0.2);
-      transform: rotate(90deg);
+      transform: rotate(90deg) scale(1.1);
+    }
+
+    /* Navigation Buttons */
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: var(--md-sys-shape-corner-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .modal-nav:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .modal-nav.modal-prev {
+      left: var(--md-sys-spacing-4);
+    }
+
+    .modal-nav.modal-next {
+      right: var(--md-sys-spacing-4);
+    }
+
+    .modal-nav .material-icons {
+      font-size: 32px;
     }
     
     @keyframes fadeIn {
@@ -333,13 +414,55 @@ interface GalleryImage {
     }
     
     @media (max-width: 768px) {
-      .modal-close {
-        top: 10px;
-        right: 10px;
+      .modal-backdrop {
+        padding: 0;
       }
-      
+
+      .modal-content {
+        max-width: 100vw;
+        max-height: 100vh;
+      }
+
+      .modal-image-container {
+        max-height: calc(100vh - 100px);
+      }
+
+      .modal-image {
+        max-height: calc(100vh - 100px);
+        border-radius: 0;
+      }
+
+      .modal-close {
+        width: 40px;
+        height: 40px;
+        top: var(--md-sys-spacing-3);
+        right: var(--md-sys-spacing-3);
+      }
+
+      .modal-nav {
+        width: 44px;
+        height: 44px;
+      }
+
+      .modal-nav .material-icons {
+        font-size: 24px;
+      }
+
+      .modal-info {
+        padding: var(--md-sys-spacing-3);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
       .modal-caption {
         font-size: var(--font-size-base);
+      }
+
+      .modal-counter {
+        font-size: var(--font-size-sm);
       }
       
       .gallery-grid {
@@ -390,6 +513,7 @@ interface GalleryImage {
 })
 export class ClinicGalleryComponent {
   selectedImage: GalleryImage | null = null;
+  currentImageIndex: number = 0;
   isMobile = false;
   displayLimit = 6;
   
@@ -501,11 +625,51 @@ export class ClinicGalleryComponent {
   
   openModal(image: GalleryImage) {
     this.selectedImage = image;
+    this.currentImageIndex = this.galleryImages.indexOf(image);
     document.body.style.overflow = 'hidden';
+
+    // Add keyboard navigation
+    if (typeof window !== 'undefined') {
+      this.handleKeyboard = this.handleKeyboard.bind(this);
+      window.addEventListener('keydown', this.handleKeyboard);
+    }
   }
-  
+
   closeModal() {
     this.selectedImage = null;
     document.body.style.overflow = '';
+
+    // Remove keyboard navigation
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('keydown', this.handleKeyboard);
+    }
+  }
+
+  nextImage() {
+    if (this.currentImageIndex < this.galleryImages.length - 1) {
+      this.currentImageIndex++;
+      this.selectedImage = this.galleryImages[this.currentImageIndex];
+    }
+  }
+
+  previousImage() {
+    if (this.currentImageIndex > 0) {
+      this.currentImageIndex--;
+      this.selectedImage = this.galleryImages[this.currentImageIndex];
+    }
+  }
+
+  private handleKeyboard(event: KeyboardEvent) {
+    switch(event.key) {
+      case 'ArrowRight':
+        this.nextImage();
+        break;
+      case 'ArrowLeft':
+        this.previousImage();
+        break;
+      case 'Escape':
+        this.closeModal();
+        break;
+    }
   }
 }
