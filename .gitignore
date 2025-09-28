@@ -53,3 +53,9 @@ firebase-debug.log
 dr-murzoglu-firebase-adminsdkjson.json
 n8n-docker/n8n_data/*.sqlite*
 n8n-docker/n8n_data/config
+
+# Google Cloud Service Account Credentials
+saglik-petegim/apps/flutter_app/assets/saglikpetegim-calendar.json
+saglik-petegim/apps/backend_app/saglikpetegim-firebase-adminsdk-fbsvc-*.json
+*-firebase-adminsdk-*.json
+*-service-account-*.json
