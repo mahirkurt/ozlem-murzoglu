@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
@@ -11,6 +11,84 @@ import { HeroSectionComponent } from '../../../components/shared/hero-section/he
   templateUrl: './saglikli-uykular.component.html',
   styleUrl: './saglikli-uykular.component.css'
 })
-export class SaglikliUykularComponent {
+export class SaglikliUykularComponent implements OnInit, AfterViewInit {
 
+  ngOnInit(): void {
+    this.animateStatNumbers();
+  }
+
+  ngAfterViewInit(): void {
+    this.observeStatNumbers();
+  }
+
+  toggleAccordion(event: Event): void {
+    const button = event.currentTarget as HTMLElement;
+    const accordionItem = button.closest('.accordion-item');
+    const content = accordionItem?.querySelector('.accordion-content') as HTMLElement;
+    const expandIcon = button.querySelector('.expand-icon');
+
+    if (accordionItem && content && expandIcon) {
+      accordionItem.classList.toggle('active');
+
+      if (accordionItem.classList.contains('active')) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        expandIcon.textContent = 'expand_less';
+      } else {
+        content.style.maxHeight = '0';
+        expandIcon.textContent = 'expand_more';
+      }
+    }
+  }
+
+  private animateStatNumbers(): void {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target as HTMLElement;
+          this.animateNumber(element);
+          observer.unobserve(element);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    setTimeout(() => {
+      const statNumbers = document.querySelectorAll('.stat-number');
+      statNumbers.forEach(num => observer.observe(num));
+    }, 100);
+  }
+
+  private animateNumber(element: HTMLElement): void {
+    const target = parseInt(element.getAttribute('data-count') || '0');
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      element.textContent = Math.floor(current).toString();
+    }, 16);
+  }
+
+  private observeStatNumbers(): void {
+    const options = {
+      threshold: 0.5,
+      rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, options);
+
+    document.querySelectorAll('.stat-card').forEach(card => {
+      observer.observe(card);
+    });
+  }
 }
