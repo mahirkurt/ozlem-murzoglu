@@ -116,7 +116,13 @@
       "Bash(start chrome http://localhost:4200/hizmetlerimiz/laboratuvar)",
       "Bash(start chrome http://localhost:4202/hizmetlerimiz/laboratuvar)",
       "Bash(start chrome http://localhost:4200/hakkimizda/klinigimiz)",
-      "Bash(git filter-branch:*)"
+      "Bash(git filter-branch:*)",
+      "Bash(java:*)",
+      "Bash(git reflog:*)",
+      "Bash(git gc:*)",
+      "Bash(lsof:*)",
+      "Bash(start chrome https://dr-murzoglu.web.app/hizmetlerimiz/triple-p)",
+      "Bash(start chrome http://localhost:4202/hizmetlerimiz/triple-p)"
     ],
     "deny": []
   }

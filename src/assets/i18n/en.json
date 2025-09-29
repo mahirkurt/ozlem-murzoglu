@@ -128,12 +128,18 @@
       "ROOTS_TEXT": "I grew up in a small, unique and authentic Black Sea city, living through the famous local jokes. I shared my passion for trees and soil with my best preschool friends - my mother and grandfather. As the youngest of four children, I was deeply loved and I loved deeply, testing my dear sister's patience for years.",
       "EDUCATION_JOURNEY": "My Educational Journey",
       "EDUCATION_TEXT": "My university student sister enrolled me in primary school, while my university student brother enrolled me in prep school. As the capable child my dear father described, I managed all my subsequent enrollments myself. I met many of my lifelong friends at Rize Anatolian High School, the greatest value my education gave me. Again, I loved deeply and was deeply loved.",
+      "EDUCATION_TEXT2": "In 2007, I graduated from <strong>Istanbul Medical Faculty</strong>, created by my distinguished professors who said 'If you don't have an idea about the diagnosis by the time the patient enters the room and sits down, quit this job.'",
       "FAMILY_TITLE": "Family",
       "FAMILY_TEXT": "I worked in the pharmaceutical industry for a while. During this time, following our generations-old family tradition, I had already fallen in love. Despite my feminist grandmother's attempts to instill anti-marriage sentiments throughout my childhood, in 2008 I married my dear love Mahir, whom I had known since I was twelve.",
+      "PEDIATRICS_JOURNEY": "My Pediatrics Journey",
+      "PEDIATRICS_TEXT": "Far from all professional reasoning, simply because I love children very much, I started my Pediatrics specialization at <strong>Marmara University</strong> in 2011. In this institution where patients were treated in the number/variety of a Training and Research Hospital with a university approach, I got very tired and learned a lot.",
+      "PEDIATRICS_TEXT2": "After completing my specialization, I returned to Marmara University Pendik Training and Research Hospital, which I had left due to a brief mandatory service adventure, and started working as a pediatrician. During the total of 11 years I worked in the emergency room, children's clinics, and all wards, I experienced great professional satisfaction with more cases and challenges than could be found anywhere else.",
       "HEALTHY_CHILD": "Healthy Child Medicine",
       "HEALTHY_CHILD_TEXT": "As a physician with extensive practice with sick children until then, the upcoming birth of my daughter in 2014 pushed me with great curiosity into 'Healthy Child Medicine'. To academically strengthen my insatiable field readings, I started the Social Pediatrics Doctoral Program at Marmara University in 2019. I passed my doctoral qualification in 2021 and continue my academic life with my thesis process. In 2023, I graduated from Istanbul University's Child Development undergraduate program.",
       "NEW_BEGINNING": "New Beginning",
-      "NEW_BEGINNING_TEXT": "As an admired professor of mine said, 'To be a good doctor, enough patients and the right books are sufficient.' In July 2022, I left my work-school Marmara University Pendik Training and Research Hospital, where I had the opportunity to verify this experience."
+      "NEW_BEGINNING_TEXT": "As an admired professor of mine said, 'To be a good doctor, enough patients and the right books are sufficient.' In July 2022, I left my work-school Marmara University Pendik Training and Research Hospital, where I had the opportunity to verify this experience.",
+      "NEW_BEGINNING_TEXT2": "It was time to practice pediatrics with evidence-based, scientific data, with the facilities, time, and proximity to do so.",
+      "NEW_BEGINNING_TEXT3": "I am starting a new journey with the support of my husband, daughter, mother, extended family, and my dear friends. From now on, I will welcome my children in my own clinic and enjoy being amazed by them every day despite my years of experience with children."
     },
     "AUG": "Aug",
     "PRESENT": "Present",
@@ -313,7 +319,39 @@
       "INSPIRE_INFO": "Part of INSPIRE strategy for ending violence against children",
       "META_ANALYSIS": "Meta-Analysis Results",
       "META_ANALYSIS_DESC": "Comprehensive meta-analysis of effectiveness",
-      "JOURNAL_INFO": "Published in leading scientific journals"
+      "JOURNAL_INFO": "Published in leading scientific journals",
+      "EVIDENCE_BASED_BADGE": "Evidence-Based Program",
+      "POSITIVE_PARENTING_TITLE": "Positive Parenting Program",
+      "INTRO_LEAD_TEXT": "Triple P has reached millions of families in over 30 countries worldwide, supported by 40 years of research and proven effectiveness as a parenting support system.",
+      "UNIVERSITY_DESCRIPTION": "The program developed at the University of Queensland by Prof. Matt Sanders and his team is based on scientific findings in social learning theory, cognitive behavioral therapy, and developmental psychology.",
+      "CERTIFIED_PRACTITIONER_TITLE": "Certified Practitioner",
+      "CERTIFIED_PRACTITIONER_DESC": "Dr. Özlem Murzoğlu is an accredited practitioner of the Triple P program and provides this valuable program to families.",
+      "STAT_COUNTRIES_LABEL": "Countries Implementing",
+      "STAT_FAMILIES_LABEL": "Families Reached",
+      "STAT_PUBLICATIONS_LABEL": "Scientific Publications",
+      "STAT_STUDIES_LABEL": "Controlled Studies",
+      "PHILOSOPHY_TITLE": "Positive Parenting Philosophy",
+      "PHILOSOPHY_QUOTE": "\"One Size Does Not Fit All\"",
+      "PHILOSOPHY_TEXT": "One of Triple P's most innovative features is its multi-layered and flexible support system that responds to each family's unique needs. The program is built on the principle of \"minimum sufficiency\": providing families with as much support as they need to achieve their goals, but not providing more than necessary that would make them dependent on external help.",
+      "SELF_EFFICACY_TITLE": "Self-Efficacy",
+      "SELF_EFFICACY_DESC": "Encourages parents to trust their own problem-solving skills",
+      "SELF_MANAGEMENT_TITLE": "Self-Management",
+      "SELF_MANAGEMENT_DESC": "Enables them to set their own goals and develop strategies",
+      "SELF_REGULATION_TITLE": "Self-Regulation",
+      "SELF_REGULATION_DESC": "Provides the ability to solve problems independently",
+      "FIVE_PRINCIPLES_BADGE": "5 Core Principles",
+      "SCIENCE_BASED_PARENTING": "Science-Based Parenting",
+      "PRINCIPLES_SUBTITLE": "Five universal positive parenting principles taught at all levels of Triple P and forming the foundation of the program",
+      "PRINCIPLE_1_TITLE": "Safe and Engaging Environment",
+      "PRINCIPLE_1_DESC": "Creating an encouraging environment that goes beyond protecting children from physical dangers, supporting their natural curiosity and allowing them to explore and learn.",
+      "PRINCIPLE_2_TITLE": "Positive Learning Environment",
+      "PRINCIPLE_2_DESC": "Parents are their children's first and most important teachers. Spending quality time, using descriptive praise, and giving positive responses to the child's interactions.",
+      "PRINCIPLE_3_TITLE": "Assertive Discipline",
+      "PRINCIPLE_3_DESC": "Viewing discipline as a teaching opportunity, not punishment. Ensuring children take responsibility for their own behavior and learn to control themselves.",
+      "PRINCIPLE_4_TITLE": "Realistic Expectations",
+      "PRINCIPLE_4_DESC": "Accepting that every child is unique and develops at their own pace. Eliminating the pressure created by perfectionist expectations.",
+      "PRINCIPLE_5_TITLE": "Taking Care of Yourself",
+      "PRINCIPLE_5_DESC": "Parenting is a marathon. Taking care of your own physical, mental and emotional needs is a fundamental requirement of effective parenting."
     },
     "SERVICE_SLEEP": {
       "TITLE": "Healthy Sleep™",
@@ -696,6 +734,8 @@
     },
     "INFO_CENTER": "Info Center",
     "INFO_DOCUMENT": "Information Document",
+    "DOWNLOAD_ORIGINAL": "Download Original",
+    "TABLE_OF_CONTENTS": "Table of Contents",
     "TOC": "Table of Contents",
     "PRINT": "Print",
     "DOWNLOAD_PDF": "Download PDF",
@@ -1662,6 +1702,15 @@
         "HASTALIKLAR": {
           "TITLE": "Diseases",
           "DESCRIPTION": "Information documents about childhood diseases"
+        }
+      },
+      "VACCINES": {
+        "HPV_VACCINE": {
+          "title": "HPV Vaccine Information Sheet",
+          "category": "Vaccines",
+          "description": "Detailed information about HPV (human papillomavirus) vaccine",
+          "contentType": "html",
+          "content": "<h2>HPV Vaccine</h2><p><strong>Why Get Vaccinated?</strong></p><p><strong>HPV (human papillomavirus) vaccine</strong> can prevent infection with some types of human papillomavirus.</p><p>HPV infections can cause certain types of cancers including:</p><ul><li>Cervical, vaginal, and vulvar cancers in women</li><li>Penile cancer in men</li><li>Anal cancer in men and women</li><li>Cancers of the tonsils, base of tongue, and back of throat (oropharyngeal cancer) in men and women</li></ul><p>HPV infections can also cause anogenital warts.</p><p>HPV vaccine can prevent over 90% of cancers caused by HPV.</p><p>HPV is spread through intimate skin-to-skin contact or sexual activity. HPV infections are so common that nearly all people get at least one type of HPV at some point in their lives.</p><p>Most HPV infections go away by themselves within 2 years. But sometimes HPV infections last longer and can cause cancers later in life.</p><h2>HPV Vaccines</h2><p>HPV vaccine is routinely recommended for adolescents at 11 or 12 years of age to ensure they are protected before they are exposed to the virus. HPV vaccine may be given beginning at age 9 years, and is recommended for everyone through 26 years of age.</p><p>HPV vaccine may be given to adults 27 through 45 years of age, based on discussion between the patient and healthcare provider.</p><p>Most children who get the first dose before 15 years of age need 2 doses of HPV vaccine. People who get the first dose at 15 years of age or older, and younger people with certain immunocompromising conditions need 3 doses. Your healthcare provider can give you more information.</p><p>HPV vaccine may be given at the same time as other vaccines.</p><h2>Talk with Your Healthcare Provider</h2><p>Tell your vaccine provider if the person getting the vaccine:</p><ul><li>Has had an allergic reaction after a previous dose of HPV vaccine, or has any severe, life-threatening allergies</li><li>Is pregnant. HPV vaccine is not recommended until after pregnancy</li></ul><p>In some cases, your healthcare provider may decide to postpone HPV vaccination to a future visit.</p><p>People with minor illnesses, such as a cold, may be vaccinated. People who are moderately or severely ill should usually wait until they recover before getting HPV vaccine.</p><p>Your healthcare provider can give you more information.</p><h2>Risks of a Vaccine Reaction</h2><ul><li>Pain, redness, or swelling at the injection site can happen after HPV vaccination.</li><li>Fever or headache can happen after HPV vaccination.</li></ul><p>People sometimes faint after medical procedures, including vaccination. Tell your provider if you feel dizzy or have vision changes or ringing in the ears.</p><p>As with any medicine, there is a very remote chance of a vaccine causing a severe allergic reaction, other serious injury, or death.</p><p>What If There Is a Serious Problem?</p><p>An allergic reaction could occur after the vaccinated person leaves the clinic. If you see signs of a severe allergic reaction (hives, swelling of the face and throat, difficulty breathing, a fast heartbeat, dizziness, or weakness), call 911 and get the person to the nearest hospital.</p><p>For other signs that concern you, call your healthcare provider.</p>"
         }
       }
     },

@@ -7,83 +7,134 @@
       {label: 'HEADER.NAV_SERVICES', link: '/hizmetlerimiz'},
       {label: 'SERVICES.SERVICE_TRIPLE_P.BREADCRUMB'}
     ]"
-    colorTheme="blue">
+    colorTheme="purple">
   </app-hero-section>
 
-  <!-- Overview Section -->
-  <section class="overview-section">
+  <!-- Program Introduction Section -->
+  <section class="program-intro-section">
     <div class="container">
-      <div class="section-grid">
-        <div class="section-content">
-          <div class="section-header">
-            <span class="section-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5L20 11.5c-.42-.8-1.27-1.35-2.24-1.5H16.5c-.95 0-1.81.45-2.35 1.15l-1.92 2.44c-.73.92-1.03 2.11-.84 3.26.13.8.44 1.55.91 2.15l2.7-2.7V22h4zm-7.5-10.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S11 9.17 11 10s.67 1.5 1.5 1.5zM5.5 6c1.11 0 2-.89 2-2s-.89-2-2-2-2 .89-2 2 .89 2 2 2zm2 16v-7H9V9c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v6h1.5v7h4z"/>
-              </svg>
-            </span>
-            <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS' | translate }}</h2>
+      <div class="intro-grid">
+        <div class="intro-content">
+          <div class="section-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 7C6.48 7 2 9.24 2 12c0 2.24 2.94 4.13 7 4.77V20l4-4-4-4v2.73c-3.15-.56-5-1.9-5-2.73 0-1.06 3.04-3 8-3s8 1.94 8 3c0 .73-1.46 1.89-4 2.53v1.05c2.94-.76 5-2.36 5-3.58 0-2.76-4.48-5-10-5z"/>
+            </svg>
+            <span>{{ 'SERVICES.SERVICE_TRIPLE_P.EVIDENCE_BASED_BADGE' | translate }}</span>
           </div>
-          
-          <div class="section-description">
-            <p class="lead">{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC' | translate }}</p>
-            
-            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC2' | translate }}</p>
-            
-            <div class="highlight-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13 8.57c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43S13.79 8.57 13 8.57z"/>
-                <path d="M13 3C9.25 3 6.2 5.94 6.02 9.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v3h7v-4.68c2.36-1.12 4-3.53 4-6.32 0-3.87-3.13-7-7-7zm3 7c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39z"/>
-              </svg>
-              <p [innerHTML]="'SERVICES.SERVICE_TRIPLE_P.DR_CERTIFIED' | translate"></p>
+
+          <h2 class="intro-title">{{ 'SERVICES.SERVICE_TRIPLE_P.POSITIVE_PARENTING_TITLE' | translate }}</h2>
+
+          <p class="intro-lead">{{ 'SERVICES.SERVICE_TRIPLE_P.INTRO_LEAD_TEXT' | translate }}</p>
+
+          <div class="intro-description">
+            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.UNIVERSITY_DESCRIPTION' | translate }}</p>
+
+            <div class="certification-badge">
+              <div class="badge-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <div class="badge-content">
+                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.CERTIFIED_PRACTITIONER_TITLE' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.CERTIFIED_PRACTITIONER_DESC' | translate }}</p>
+              </div>
             </div>
-            
-            <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WHAT_IS_DESC3' | translate }}</p>
           </div>
         </div>
-        
-        <div class="section-features">
-          <div class="triple-p-logo">
-            <img src="assets/program_logos/Triple_P_logo.svg" alt="Triple P Logo" loading="lazy">
+
+        <div class="intro-visual">
+          <div class="logo-container">
+            <img src="/images/Triple_P_Logo.svg" alt="Triple P Logo" class="triple-p-logo">
           </div>
-          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PROGRAM_FEATURES' | translate }}</h3>
-          <div class="features-list">
-            <div class="feature-item">
+
+          <div class="program-stats">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+              </div>
+              <div class="stat-value">30+</div>
+              <div class="stat-label">{{ 'SERVICES.SERVICE_TRIPLE_P.STAT_COUNTRIES_LABEL' | translate }}</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                </svg>
+              </div>
+              <div class="stat-value">4M+</div>
+              <div class="stat-label">{{ 'SERVICES.SERVICE_TRIPLE_P.STAT_FAMILIES_LABEL' | translate }}</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7 2v2h1v14c0 2.21 1.79 4 4 4s4-1.79 4-4V4h1V2H7zm4 14c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2-4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm1-5H10V4h4v3z"/>
+                </svg>
+              </div>
+              <div class="stat-value">740+</div>
+              <div class="stat-label">{{ 'SERVICES.SERVICE_TRIPLE_P.STAT_PUBLICATIONS_LABEL' | translate }}</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                </svg>
+              </div>
+              <div class="stat-value">180+</div>
+              <div class="stat-label">{{ 'SERVICES.SERVICE_TRIPLE_P.STAT_STUDIES_LABEL' | translate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="philosophy-section">
+    <div class="container">
+      <div class="philosophy-content">
+        <h2 class="section-title center">{{ 'SERVICES.SERVICE_TRIPLE_P.PHILOSOPHY_TITLE' | translate }}</h2>
+
+        <div class="philosophy-card">
+          <div class="philosophy-header">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+            </svg>
+            <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PHILOSOPHY_QUOTE' | translate }}</h3>
+          </div>
+          <p class="philosophy-text">{{ 'SERVICES.SERVICE_TRIPLE_P.PHILOSOPHY_TEXT' | translate }}</p>
+
+          <div class="philosophy-goals">
+            <div class="goal-item">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L3.5 7v6c0 5.55 3.84 10.74 8.5 12 4.66-1.26 8.5-6.45 8.5-12V7L12 2zm-2 16l-4-4 1.41-1.41L10 15.17l6.59-6.59L18 10l-8 8z"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
               </svg>
               <div>
-                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.EVIDENCE_BASED' | translate }}</h4>
-                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.EVIDENCE_BASED_DESC' | translate }}</p>
+                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.SELF_EFFICACY_TITLE' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.SELF_EFFICACY_DESC' | translate }}</p>
               </div>
             </div>
-            
-            <div class="feature-item">
+            <div class="goal-item">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
               </svg>
               <div>
-                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.WORLDWIDE' | translate }}</h4>
-                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.WORLDWIDE_DESC' | translate }}</p>
+                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.SELF_MANAGEMENT_TITLE' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.SELF_MANAGEMENT_DESC' | translate }}</p>
               </div>
             </div>
-            
-            <div class="feature-item">
+            <div class="goal-item">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 12.75c1.63 0 3.07.39 4.24.9 1.08.48 1.76 1.56 1.76 2.73V18H6v-1.61c0-1.18.68-2.26 1.76-2.73 1.17-.52 2.61-.91 4.24-.91zM4 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm1.13 1.1c-.37-.06-.74-.1-1.13-.1-.99 0-1.93.21-2.78.58C.48 14.9 0 15.62 0 16.43V18h4.5v-1.61c0-.83.23-1.61.63-2.29zM20 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 3.43c0-.81-.48-1.53-1.22-1.85-.85-.37-1.79-.58-2.78-.58-.39 0-.76.04-1.13.1.4.68.63 1.46.63 2.29V18H24v-1.57zM12 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
               </svg>
               <div>
-                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.FAMILIES' | translate }}</h4>
-                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.FAMILIES_DESC' | translate }}</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
-              </svg>
-              <div>
-                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.UNIVERSITY' | translate }}</h4>
-                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.UNIVERSITY_DESC' | translate }}</p>
+                <h4>{{ 'SERVICES.SERVICE_TRIPLE_P.SELF_REGULATION_TITLE' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_TRIPLE_P.SELF_REGULATION_DESC' | translate }}</p>
               </div>
             </div>
           </div>
@@ -92,73 +143,84 @@
     </div>
   </section>
 
-  <!-- Five Principles Section -->
-  <section class="principles-section">
+  <!-- Five Core Principles Section -->
+  <section class="five-principles-section">
     <div class="container">
       <div class="section-header center">
-        <span class="section-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18 11c0-.67-.34-1.26-.85-1.61L11.41 5.5 11 5.21V3h5c1.1 0 2-.9 2-2H6c0 1.1.9 2 2 2h2v2.21l-.41.29-5.74 3.88c-.51.35-.85.95-.85 1.61v7c0 1.1.9 2 2 2h1c0 1.1.9 2 2 2s2-.9 2-2h4c0 1.1.9 2 2 2s2-.9 2-2h1c1.1 0 2-.9 2-2v-7zm-1.39 9L14 14.82 11.39 20c-.36.58-1.12.77-1.7.41-.58-.36-.77-1.12-.41-1.7L10.59 16H7v-5h6.59l-1.3-2.29c-.36-.58-.17-1.34.41-1.7.58-.36 1.34-.17 1.7.41L17 12.58V19c0 .55-.45 1-1 1z"/>
+        <div class="section-badge purple">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
           </svg>
-        </span>
-        <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.FIVE_PRINCIPLES' | translate }}</h2>
+          <span>{{ 'SERVICES.SERVICE_TRIPLE_P.FIVE_PRINCIPLES_BADGE' | translate }}</span>
+        </div>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_TRIPLE_P.SCIENCE_BASED_PARENTING' | translate }}</h2>
+        <p class="section-subtitle">{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLES_SUBTITLE' | translate }}</p>
       </div>
-      
+
       <div class="principles-grid">
-        <div class="principle-card">
-          <div class="principle-number">1</div>
-          <div class="principle-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 8.5 12 4.66-1.26 8.5-6.45 8.5-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
-            </svg>
+        <div class="principle-card gradient-1">
+          <div class="principle-header">
+            <div class="principle-number">1</div>
+            <div class="principle-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 8.5 12 4.66-1.26 8.5-6.45 8.5-12V5l-8.5-4z"/>
+              </svg>
+            </div>
           </div>
-          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_1' | translate }}</h3>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_1_TITLE' | translate }}</h3>
           <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_1_DESC' | translate }}</p>
         </div>
-        
-        <div class="principle-card">
-          <div class="principle-number">2</div>
-          <div class="principle-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8 2 5 5 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-4-3-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
-            </svg>
+
+        <div class="principle-card gradient-2">
+          <div class="principle-header">
+            <div class="principle-number">2</div>
+            <div class="principle-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
+              </svg>
+            </div>
           </div>
-          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_2' | translate }}</h3>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_2_TITLE' | translate }}</h3>
           <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_2_DESC' | translate }}</p>
         </div>
-        
-        <div class="principle-card">
-          <div class="principle-number">3</div>
-          <div class="principle-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M13 7.83c.85-.3 1.53-.98 1.83-1.83H18l-3 7c0 1.66 1.57 3 3.5 3s3.5-1.34 3.5-3l-3-7h2V4h-6.17c-.41-1.17-1.52-2-2.83-2s-2.42.83-2.83 2H3v2h2l-3 7c0 1.66 1.57 3 3.5 3S9 14.66 9 13L6 6h3.17c.3.85.98 1.53 1.83 1.83V19H2v2h20v-2h-9V7.83zM20.37 13h-3.74l1.87-4.36L20.37 13zm-13 0H3.63L5.5 8.64 7.37 13zM12 6c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
-            </svg>
+
+        <div class="principle-card gradient-3">
+          <div class="principle-header">
+            <div class="principle-number">3</div>
+            <div class="principle-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3c-.46 0-.86.22-1.14.55L5 12h14l-5.86-8.45c-.28-.33-.68-.55-1.14-.55zm-7 9L10 4.07 15 12H5zm14 0l-5-7.93L19 12zM1 21h22v2H1v-2z"/>
+              </svg>
+            </div>
           </div>
-          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_3' | translate }}</h3>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_3_TITLE' | translate }}</h3>
           <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_3_DESC' | translate }}</p>
         </div>
-        
-        <div class="principle-card">
-          <div class="principle-number">4</div>
-          <div class="principle-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M13 8.57c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43S13.79 8.57 13 8.57z"/>
-              <path d="M13 3C9.25 3 6.2 5.94 6.02 9.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v3h7v-4.68c2.36-1.12 4-3.53 4-6.32 0-3.87-3.13-7-7-7zm3 7c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39z"/>
-            </svg>
+
+        <div class="principle-card gradient-4">
+          <div class="principle-header">
+            <div class="principle-number">4</div>
+            <div class="principle-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
           </div>
-          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_4' | translate }}</h3>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_4_TITLE' | translate }}</h3>
           <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_4_DESC' | translate }}</p>
         </div>
-        
-        <div class="principle-card highlight">
-          <div class="principle-number">5</div>
-          <div class="principle-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 4m-2 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/>
-              <path d="M21 16v-2c-2.24 0-4.16-.96-5.6-2.68l-1.34-1.6C13.68 9.26 13.12 9 12.53 9h-1.05c-.59 0-1.15.26-1.53.72l-1.34 1.6C7.16 13.04 5.24 14 3 14v2c2.77 0 5.19-1.17 7-3.25V15l-3.88 1.55c-.67.27-1.12.93-1.12 1.66C5 19.2 5.8 20 6.79 20H9v-.5c0-1.38 1.12-2.5 2.5-2.5h3c.28 0 .5.22.5.5s-.22.5-.5.5h-3c-.83 0-1.5.67-1.5 1.5v.5h7.21c.99 0 1.79-.8 1.79-1.79 0-.73-.45-1.39-1.12-1.66L14 15v-2.25c1.81 2.08 4.23 3.25 7 3.25z"/>
-            </svg>
+
+        <div class="principle-card gradient-5 highlight">
+          <div class="principle-header">
+            <div class="principle-number">5</div>
+            <div class="principle-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8.66 13.07c.15 0 .29-.01.43-.03C9.56 14.19 10.69 15 12 15s2.44-.81 2.91-1.96c.14.02.29.03.43.03 1.73 0 3.14-1.41 3.14-3.14 0-.71-.25-1.39-.67-1.93.43-.54.67-1.22.67-1.93 0-1.73-1.41-3.14-3.14-3.14-.15 0-.29.01-.43.03C14.44 1.81 13.31 1 12 1s-2.44.81-2.91 1.96c-.14-.02-.29-.03-.43-.03-1.73 0-3.14 1.41-3.14 3.14 0 .71.25 1.39.67 1.93-.43.54-.67 1.22-.67 1.93 0 1.73 1.41 3.14 3.14 3.14zM12 13c-.62 0-1.12-.49-1.14-1.1l.12-1.09c.32.12.66.19 1.02.19s.71-.07 1.03-.19l.11 1.09c-.02.61-.52 1.1-1.14 1.1zm3.34-1.93c-.24 0-.46-.07-.64-.2l-.81-.57c.55-.45.94-1.09 1.06-1.83l.88.42c.4.19.57.63.39 1.04-.13.31-.47.52-.82.52-.02.41-.12.79-.3 1.12.12-.34.18-.71.18-1.1 0-.42-.07-.83-.2-1.2.41.12.85.04 1.2-.23-.15.45-.45.83-.86 1.06.02-.42-.11-.83-.36-1.15l.04-.01c1.13 0 2.05.92 2.05 2.05s-.91 2.07-2.04 2.07zm-6.68 0c-1.13 0-2.05-.92-2.05-2.05s.92-2.05 2.05-2.05l.04.01c-.25.32-.38.73-.36 1.15-.41-.23-.71-.61-.86-1.06.35.27.79.35 1.2.23-.13.37-.2.78-.2 1.2 0 .39.06.76.18 1.1-.18-.33-.32-.71-.3-1.12-.35 0-.69-.21-.82-.52-.18-.41-.01-.85.39-1.04l.88-.42c.12.74.51 1.38 1.06 1.83l-.81.57c-.18.13-.4.2-.64.2z"/>
+              </svg>
+            </div>
           </div>
-          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_5' | translate }}</h3>
+          <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_5_TITLE' | translate }}</h3>
           <p>{{ 'SERVICES.SERVICE_TRIPLE_P.PRINCIPLE_5_DESC' | translate }}</p>
         </div>
       </div>
