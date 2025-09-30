@@ -1,11 +1,13 @@
-/* Import MD3 Theme Tokens */
+/* Import MD3 Expressive Design System - Latest 2025 Standards */
+@import 'styles/md3-expressive.css';
+@import 'styles/md3-components.css';
 @import 'styles/theme-tokens.css';
 @import 'styles/light.css';
 @import 'styles/design-system.css';
 @import 'app/shared/styles/illustrations.css';
 @import 'app/styles/hero-section-global.css';
 @import 'app/styles/cta-section.css';
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* MD3 Header Band Global Utilities */
 .md3-header-band {
