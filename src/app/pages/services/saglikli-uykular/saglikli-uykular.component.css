@@ -18,98 +18,106 @@
   width: 100%;
 }
 
-/* MD3 Hero Section */
-.md3-hero-section {
-  position: relative;
-  padding: 120px 0 80px;
-  background: linear-gradient(135deg,
-    var(--md-sys-color-primary) 0%,
-    color-mix(in srgb, var(--md-sys-color-primary) 80%, var(--md-sys-color-secondary) 20%) 100%
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* Hero Features Section */
+.hero-features {
+  padding: 48px 0;
+  background: linear-gradient(180deg,
+    var(--md-sys-color-surface) 0%,
+    var(--md-sys-color-background) 100%
   );
-  overflow: hidden;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
 }
 
-.md3-hero-background {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.md3-hero-gradient {
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 150%;
-  height: 150%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  animation: float 20s ease-in-out infinite;
-}
-
-.md3-hero-pattern {
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px);
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-30px, -30px) scale(1.05); }
-  66% { transform: translate(30px, -10px) scale(0.95); }
-}
-
-/* MD3 Breadcrumb */
-.md3-breadcrumb {
+.feature-chips {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: var(--md-sys-spacing-2);
-  margin-bottom: var(--md-sys-spacing-8);
-  color: rgba(255, 255, 255, 0.8);
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
 }
 
-.md3-breadcrumb-link {
+.feature-chip {
   display: inline-flex;
   align-items: center;
-  gap: var(--md-sys-spacing-1);
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--md-sys-color-surface-container);
+  border-radius: 100px;
+  color: var(--md-sys-color-on-surface-variant);
   font-size: 14px;
-  transition: color 0.2s;
-}
-
-.md3-breadcrumb-link:hover {
-  color: white;
-}
-
-.md3-breadcrumb-separator {
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.md3-breadcrumb-current {
-  color: white;
   font-weight: 500;
+  box-shadow: var(--md-sys-elevation-level1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-chip:hover {
+  background: var(--md-sys-color-surface-container-high);
+  box-shadow: var(--md-sys-elevation-level2);
+  transform: translateY(-2px);
+}
+
+.feature-chip .material-icons {
+  font-size: 20px;
+  color: var(--md-sys-color-primary);
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
   font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: none;
 }
 
-/* MD3 Hero Content */
-.md3-hero-content {
-  position: relative;
-  z-index: 1;
+.btn-primary {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
 }
 
-.md3-hero-text {
-  margin-bottom: var(--md-sys-spacing-8);
-  color: white;
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--md-sys-color-primary) 90%, black 10%);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
-.md3-hero-text h1 {
-  margin-bottom: var(--md-sys-spacing-4);
+.btn-secondary {
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
 }
 
-.md3-hero-text p {
-  opacity: 0.95;
+.btn-secondary:hover {
+  background: color-mix(in srgb, var(--md-sys-color-secondary-container) 90%, black 10%);
+  box-shadow: var(--md-sys-elevation-level2);
 }
+
+.btn-primary .material-icons,
+.btn-secondary .material-icons {
+  font-size: 20px;
+}
+
+/* Hero Section Removed - Using Global Hero Component */
 
 /* MD3 Typography Classes */
 .md3-display-large {

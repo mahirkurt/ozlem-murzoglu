@@ -1,59 +1,45 @@
 <div class="healthy-sleep-page">
   <!-- MD3 Hero Section -->
-  <section class="md3-hero-section">
-    <div class="md3-hero-background">
-      <div class="md3-hero-gradient"></div>
-      <div class="md3-hero-pattern"></div>
-    </div>
-    <div class="md3-container">
-      <!-- Breadcrumb Navigation -->
-      <nav class="md3-breadcrumb" aria-label="Breadcrumb">
-        <a routerLink="/" class="md3-breadcrumb-link">
-          <span class="material-icons">home</span>
-          {{ 'HEADER.NAV_HOME' | translate }}
+  <app-hero-section
+    title="SERVICES.SERVICE_SLEEP.HERO_TITLE"
+    subtitle="SERVICES.SERVICE_SLEEP.HERO_SUBTITLE"
+    colorTheme="teal"
+    [breadcrumbs]="[
+      { label: 'HEADER.NAV_HOME', link: '/' },
+      { label: 'HEADER.NAV_SERVICES', link: '/hizmetlerimiz' },
+      { label: 'SERVICES.SERVICE_SLEEP.TITLE' }
+    ]">
+  </app-hero-section>
+
+  <!-- Hero Feature Section -->
+  <section class="hero-features">
+    <div class="container">
+      <!-- Hero Feature Chips -->
+      <div class="feature-chips">
+        <div class="feature-chip">
+          <span class="material-icons">verified</span>
+          <span>{{ 'SERVICES.SERVICE_SLEEP.EVIDENCE_BASED' | translate }}</span>
+        </div>
+        <div class="feature-chip">
+          <span class="material-icons">favorite</span>
+          <span>{{ 'SERVICES.SERVICE_SLEEP.COMPASSIONATE' | translate }}</span>
+        </div>
+        <div class="feature-chip">
+          <span class="material-icons">family_restroom</span>
+          <span>{{ 'SERVICES.SERVICE_SLEEP.FAMILY_CENTERED' | translate }}</span>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="cta-buttons">
+        <button class="btn-primary" routerLink="/randevu">
+          <span class="material-icons">calendar_today</span>
+          {{ 'SERVICES.SERVICE_SLEEP.CTA_APPOINTMENT' | translate }}
+        </button>
+        <a href="https://wa.me/905322368889" target="__blank" rel="noopener noreferrer" class="btn-secondary">
+          <span class="material-icons">chat</span>
+          {{ 'SERVICES.SERVICE_SLEEP.CTA_WHATSAPP' | translate }}
         </a>
-        <span class="material-icons md3-breadcrumb-separator">chevron_right</span>
-        <a routerLink="/hizmetlerimiz" class="md3-breadcrumb-link">
-          {{ 'HEADER.NAV_SERVICES' | translate }}
-        </a>
-        <span class="material-icons md3-breadcrumb-separator">chevron_right</span>
-        <span class="md3-breadcrumb-current">{{ 'SERVICES.SERVICE_SLEEP.TITLE' | translate }}</span>
-      </nav>
-
-      <!-- Hero Content -->
-      <div class="md3-hero-content">
-        <div class="md3-hero-text">
-          <h1 class="md3-display-large">{{ 'SERVICES.SERVICE_SLEEP.HERO_TITLE' | translate }}</h1>
-          <p class="md3-headline-medium">{{ 'SERVICES.SERVICE_SLEEP.HERO_SUBTITLE' | translate }}</p>
-        </div>
-
-        <!-- Hero Feature Chips -->
-        <div class="md3-chip-group">
-          <div class="md3-chip md3-chip-elevated">
-            <span class="material-icons md3-chip-icon">verified</span>
-            <span class="md3-chip-label">{{ 'SERVICES.SERVICE_SLEEP.EVIDENCE_BASED' | translate }}</span>
-          </div>
-          <div class="md3-chip md3-chip-elevated">
-            <span class="material-icons md3-chip-icon">favorite</span>
-            <span class="md3-chip-label">{{ 'SERVICES.SERVICE_SLEEP.COMPASSIONATE' | translate }}</span>
-          </div>
-          <div class="md3-chip md3-chip-elevated">
-            <span class="material-icons md3-chip-icon">family_restroom</span>
-            <span class="md3-chip-label">{{ 'SERVICES.SERVICE_SLEEP.FAMILY_CENTERED' | translate }}</span>
-          </div>
-        </div>
-
-        <!-- CTA Buttons -->
-        <div class="md3-button-group">
-          <button class="md3-button md3-button-filled">
-            <span class="material-icons">calendar_today</span>
-            {{ 'SERVICES.SERVICE_SLEEP.CTA_APPOINTMENT' | translate }}
-          </button>
-          <button class="md3-button md3-button-outlined">
-            <span class="material-icons">chat</span>
-            {{ 'SERVICES.SERVICE_SLEEP.CTA_WHATSAPP' | translate }}
-          </button>
-        </div>
       </div>
     </div>
   </section>
