@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { HeroSectionComponent } from '../../../components/shared/hero-section/hero-section.component';
@@ -7,7 +7,7 @@ import { HeroSectionComponent } from '../../../components/shared/hero-section/he
 @Component({
   selector: 'app-saglikli-uykular',
   standalone: true,
-  imports: [RouterLink, TranslateModule, CommonModule, HeroSectionComponent],
+  imports: [RouterLink, RouterModule, TranslateModule, CommonModule, HeroSectionComponent],
   templateUrl: './saglikli-uykular.component.html',
   styleUrl: './saglikli-uykular.component.css'
 })
