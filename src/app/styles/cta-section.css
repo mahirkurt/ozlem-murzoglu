@@ -2,7 +2,7 @@
 
 /* CTA Section Container - Edge to Edge */
 .cta-section {
-  padding: var(--md-sys-spacing-20) 0;
+  padding: 60px 0;
   margin: 0;
   background: linear-gradient(135deg, #fff9f0 0%, #fffbf5 50%, #f8fdfc 100%);
   position: relative;
@@ -44,11 +44,11 @@
   padding: 0 24px;
 }
 
-/* CTA Icon */
+/* CTA Icon - Optional Element */
 .cta-icon {
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 24px;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
   background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 235, 59, 0.1) 100%);
   border-radius: var(--md-sys-shape-corner-full);
   display: flex;
@@ -57,6 +57,11 @@
   box-shadow: 0 6px 20px rgba(255, 193, 7, 0.15);
   animation: pulse 3s ease-in-out infinite;
   border: 2px solid rgba(255, 193, 7, 0.2);
+}
+
+/* When no icon is present, adjust title margin */
+.cta-content > .cta-title:first-child {
+  margin-top: 0;
 }
 
 .cta-icon .material-icons {

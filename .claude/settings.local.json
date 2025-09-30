@@ -122,7 +122,9 @@
       "Bash(git gc:*)",
       "Bash(lsof:*)",
       "Bash(start chrome https://dr-murzoglu.web.app/hizmetlerimiz/triple-p)",
-      "Bash(start chrome http://localhost:4202/hizmetlerimiz/triple-p)"
+      "Bash(start chrome http://localhost:4202/hizmetlerimiz/triple-p)",
+      "Bash(start chrome http://localhost:4201/hakkimizda/klinigimiz)",
+      "Bash(start chrome http://localhost:4201/hizmetlerimiz/triple-p)"
     ],
     "deny": []
   }
