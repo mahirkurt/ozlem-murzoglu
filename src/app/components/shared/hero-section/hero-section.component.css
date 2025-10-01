@@ -10,7 +10,7 @@ app-hero-section {
 app-hero-section .hero-section {
   position: relative;
   min-height: 182px; /* %35 azaltıldı: 280px → 182px */
-  margin-top: var(--header-height-desktop, 80px);
+  margin-top: var(--header-height-desktop, 80px) !important;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -220,7 +220,7 @@ app-hero-section .hero-section {
 @media (max-width: 768px) {
   app-hero-section .hero-section {
     min-height: 156px; /* %35 azaltıldı: 240px → 156px */
-    margin-top: var(--header-height-mobile, 80px);
+    margin-top: var(--header-height-mobile, 80px) !important;
   }
 
   .hero-content {
