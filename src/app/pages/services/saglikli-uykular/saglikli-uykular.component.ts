@@ -23,20 +23,20 @@ export class SaglikliUykularComponent implements OnInit, AfterViewInit {
 
   toggleAccordion(event: Event): void {
     const button = event.currentTarget as HTMLElement;
-    const accordionItem = button.closest('.accordion-item');
-    const content = accordionItem?.querySelector('.accordion-content') as HTMLElement;
-    const expandIcon = button.querySelector('.expand-icon');
+    const accordionItem = button.closest('.md3-accordion-item');
+    const content = accordionItem?.querySelector('.md3-accordion-content') as HTMLElement;
 
-    if (accordionItem && content && expandIcon) {
+    if (accordionItem && content) {
+      // Close all other accordion items
+      const allItems = document.querySelectorAll('.md3-accordion-item');
+      allItems.forEach(item => {
+        if (item !== accordionItem && item.classList.contains('active')) {
+          item.classList.remove('active');
+        }
+      });
+
+      // Toggle current item
       accordionItem.classList.toggle('active');
-
-      if (accordionItem.classList.contains('active')) {
-        content.style.maxHeight = content.scrollHeight + 'px';
-        expandIcon.textContent = 'expand_less';
-      } else {
-        content.style.maxHeight = '0';
-        expandIcon.textContent = 'expand_more';
-      }
     }
   }
 
@@ -52,7 +52,7 @@ export class SaglikliUykularComponent implements OnInit, AfterViewInit {
     }, { threshold: 0.5 });
 
     setTimeout(() => {
-      const statNumbers = document.querySelectorAll('.stat-number');
+      const statNumbers = document.querySelectorAll('.md3-stat-number');
       statNumbers.forEach(num => observer.observe(num));
     }, 100);
   }
@@ -87,7 +87,7 @@ export class SaglikliUykularComponent implements OnInit, AfterViewInit {
       });
     }, options);
 
-    document.querySelectorAll('.stat-card').forEach(card => {
+    document.querySelectorAll('.md3-stat-card').forEach(card => {
       observer.observe(card);
     });
   }

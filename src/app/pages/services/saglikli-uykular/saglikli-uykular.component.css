@@ -1,6 +1,6 @@
 /* ==================================================== */
 /* Sağlıklı Uykular Service Page                       */
-/* Minimal page-specific overrides only                */
+/* MD3 Expressive Design - Optimized & Clean           */
 /* All base styles come from global MD3 system         */
 /* ==================================================== */
 
@@ -9,14 +9,26 @@
   width: 100%;
 }
 
-/* Page-specific spacing adjustments only */
+/* Page Container */
 .healthy-sleep-page {
   width: 100%;
+  min-height: 100vh;
 }
 
-/* Adjust first section spacing to account for hero */
+/* Section Spacing - Consistent with MD3 */
 .healthy-sleep-page > section:first-of-type {
-  padding-top: 48px;
+  padding-top: var(--md3-sys-spacing-6);
+}
+
+/* CTA Section - Fixed spacing */
+.healthy-sleep-page .cta-section {
+  padding: var(--md3-sys-spacing-10) 0;
+  margin-top: var(--md3-sys-spacing-8);
+}
+
+/* Footer spacing after CTA */
+.healthy-sleep-page .cta-section + * {
+  margin-top: 0;
 }
 
 /* Stats enhancement for this page */
@@ -80,10 +92,27 @@
   font-weight: 600;
 }
 
+/* Stat card animation enhancement */
+.md3-stat-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.md3-stat-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
   .healthy-sleep-page > section:first-of-type {
-    padding-top: 32px;
+    padding-top: var(--md3-sys-spacing-4);
+  }
+
+  .healthy-sleep-page .cta-section {
+    padding: var(--md3-sys-spacing-8) 0;
+    margin-top: var(--md3-sys-spacing-6);
   }
 
   .md3-timeline-connector {
