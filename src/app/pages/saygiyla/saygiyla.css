@@ -359,3 +359,14 @@
     margin: 0 auto;
   }
 }
+
+/* Saygiyla Page CTA Spacing */
+.saygiyla-page .cta-section {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Footer spacing to create CTA background extension */
+.saygiyla-page app-footer {
+  margin-top: 40px;
+}

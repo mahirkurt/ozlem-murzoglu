@@ -2,8 +2,8 @@
 
 /* CTA Section Container - Edge to Edge */
 .cta-section {
-  padding: 60px 0;
-  margin: 0;
+  padding: 60px 0 0 0;
+  margin: 0 0 0 0;
   background: linear-gradient(135deg, #fff9f0 0%, #fffbf5 50%, #f8fdfc 100%);
   position: relative;
   overflow: hidden;
@@ -37,11 +37,11 @@
 /* CTA Content Container */
 .cta-content {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 auto 0 auto;
   text-align: center;
   position: relative;
   z-index: 1;
-  padding: 0 24px;
+  padding: 0 24px 0 24px;
 }
 
 /* CTA Icon - Optional Element */
@@ -97,7 +97,7 @@
   font-family: var(--md-sys-typescale-font-plain);
   font-size: 1.25rem;
   color: var(--md-sys-color-on-surface-variant, var(--md-sys-color-on-surface-variant));
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   line-height: 1.6;
   max-width: 700px;
   margin-left: auto;
@@ -154,8 +154,8 @@
   align-items: center;
   gap: var(--md-sys-spacing-3);
   padding: var(--md-sys-spacing-4) var(--md-sys-spacing-8);
-  background: linear-gradient(135deg, #ffa000 0%, var(--md-sys-color-secondary) 100%);
-  color: var(--md-sys-color-on-surface);
+  background: linear-gradient(135deg, #FFC107 0%, #FFB300 100%);
+  color: #212121;
   border: none;
   border-radius: var(--md-sys-shape-corner-extra-large);
   font-family: var(--md-sys-typescale-font-brand);
@@ -188,7 +188,7 @@
 .cta-btn-primary:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(255, 193, 7, 0.4);
-  background: linear-gradient(135deg, var(--md-sys-color-secondary) 0%, #ffd54f 100%);
+  background: linear-gradient(135deg, #FFD54F 0%, #FFC107 100%);
 }
 
 .cta-buttons .btn-primary:hover::before,

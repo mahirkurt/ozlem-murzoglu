@@ -65,18 +65,19 @@
   width: 40px;
   height: 40px;
   border-radius: var(--md-sys-shape-corner-full);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 193, 7, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #FFC107;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
 }
 
 .social-link:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 193, 7, 0.3);
   transform: translateY(-2px);
+  color: white;
 }
 
 /* Brand-specific hover colors */
@@ -143,7 +144,7 @@
   left: 0;
   width: 30px;
   height: 2px;
-  background: var(--md-sys-color-secondary);
+  background: #FFC107;
 }
 
 .footer-list {
@@ -177,7 +178,7 @@
   transform: translateY(-50%);
   width: 4px;
   height: 4px;
-  background: var(--md-sys-color-secondary);
+  background: #FFC107;
   border-radius: var(--md-sys-shape-corner-full);
   opacity: 0;
   transition: opacity 0.3s;
@@ -202,7 +203,7 @@
 
 .contact-icon {
   font-size: 20px;
-  color: var(--md-sys-color-secondary);
+  color: #FFC107;
   margin-top: 2px;
 }
 
