@@ -11,39 +11,6 @@
     ]">
   </app-hero-section>
 
-  <!-- Hero Feature Section -->
-  <section class="hero-features">
-    <div class="container">
-      <!-- Hero Feature Chips -->
-      <div class="feature-chips">
-        <div class="feature-chip">
-          <span class="material-icons">verified</span>
-          <span>{{ 'SERVICES.SERVICE_SLEEP.EVIDENCE_BASED' | translate }}</span>
-        </div>
-        <div class="feature-chip">
-          <span class="material-icons">favorite</span>
-          <span>{{ 'SERVICES.SERVICE_SLEEP.COMPASSIONATE' | translate }}</span>
-        </div>
-        <div class="feature-chip">
-          <span class="material-icons">family_restroom</span>
-          <span>{{ 'SERVICES.SERVICE_SLEEP.FAMILY_CENTERED' | translate }}</span>
-        </div>
-      </div>
-
-      <!-- CTA Buttons -->
-      <div class="cta-buttons">
-        <button class="btn-primary" routerLink="/randevu">
-          <span class="material-icons">calendar_today</span>
-          {{ 'SERVICES.SERVICE_SLEEP.CTA_APPOINTMENT' | translate }}
-        </button>
-        <a href="https://wa.me/905322368889" target="__blank" rel="noopener noreferrer" class="btn-secondary">
-          <span class="material-icons">chat</span>
-          {{ 'SERVICES.SERVICE_SLEEP.CTA_WHATSAPP' | translate }}
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- Introduction Section -->
   <section class="md3-section">
     <div class="md3-container">
@@ -761,22 +728,26 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="md3-section md3-cta-section">
-    <div class="md3-container">
-      <div class="md3-cta-content">
-        <h2 class="md3-display-medium">{{ 'SERVICES.SERVICE_SLEEP.CTA_TITLE' | translate }}</h2>
-        <p class="md3-headline-small">{{ 'SERVICES.SERVICE_SLEEP.CTA_DESC' | translate }}</p>
+  <!-- CTA Section with Global Styles -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <!-- Title -->
+        <h3 class="cta-title">{{ 'SERVICES.SERVICE_SLEEP.CTA.TITLE' | translate }}</h3>
 
-        <div class="md3-button-group md3-button-group-center">
-          <button class="md3-button md3-button-filled md3-button-large">
-            <span class="material-icons">calendar_today</span>
-            {{ 'SERVICES.SERVICE_SLEEP.CTA_APPOINTMENT' | translate }}
-          </button>
-          <button class="md3-button md3-button-tonal md3-button-large">
-            <span class="material-icons">chat</span>
-            {{ 'SERVICES.SERVICE_SLEEP.CTA_WHATSAPP' | translate }}
-          </button>
+        <!-- Description -->
+        <p class="cta-description">{{ 'SERVICES.SERVICE_SLEEP.CTA.SUBTITLE' | translate }}</p>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+          <a routerLink="/iletisim" class="btn-primary">
+            <i class="fas fa-calendar-check"></i>
+            <span>{{ 'SERVICES.SERVICE_SLEEP.CTA.APPOINTMENT_BUTTON' | translate }}</span>
+          </a>
+          <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          </a>
         </div>
       </div>
     </div>
