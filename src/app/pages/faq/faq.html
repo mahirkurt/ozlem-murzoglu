@@ -63,29 +63,25 @@
     </div>
   </div>
 
-  <!-- CTA Section with Global MD3 Styles -->
-  <section class="cta-section md3-surface-container">
+  <!-- CTA Section with Global Styles -->
+  <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <!-- Icon -->
-        <div class="cta-icon">
-          <i class="fas fa-question-circle"></i>
-        </div>
+        <!-- Title -->
+        <h3 class="cta-title">{{ 'FAQ.CTA.TITLE' | translate }}</h3>
 
-        <!-- Title and Description -->
-        <h3 class="cta-title md3-display-medium">{{ 'FAQ.CTA_TITLE' | translate }}</h3>
-        <p class="cta-description md3-body-large">{{ 'FAQ.CTA_DESCRIPTION' | translate }}</p>
+        <!-- Description -->
+        <p class="cta-description">{{ 'FAQ.CTA.SUBTITLE' | translate }}</p>
 
-        <!-- Action Buttons -->
-        <div class="cta-actions">
-          <a href="tel:{{ phoneNumber }}" class="md3-button-filled cta-button-primary">
-            <i class="fas fa-phone"></i>
-            <span>{{ 'FAQ.CTA_CALL' | translate }}</span>
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+          <a routerLink="/iletisim" class="btn-primary">
+            <i class="fas fa-calendar-check"></i>
+            <span>{{ 'FAQ.CTA.APPOINTMENT_BUTTON' | translate }}</span>
           </a>
-
-          <a href="https://wa.me/{{ whatsappNumber }}" target="_blank" class="md3-button-tonal cta-button-secondary">
+          <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
             <i class="fab fa-whatsapp"></i>
-            <span>{{ 'FAQ.CTA_WHATSAPP' | translate }}</span>
+            <span>WhatsApp</span>
           </a>
         </div>
       </div>

@@ -5,7 +5,7 @@
 .klinigimiz-page {
   min-height: 100vh;
   background: linear-gradient(180deg, var(--md-sys-color-surface) 0%, var(--md-sys-color-surface-variant) 100%);
-  padding-bottom: 80px;
+  padding-bottom: 0;
   margin-bottom: 0;
 }
 
@@ -559,6 +559,11 @@
 .klinigimiz-page .cta-section {
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+/* Footer spacing to create CTA background extension */
+.klinigimiz-page app-footer {
+  margin-top: 40px;
 }
 
 /* =====================================================

@@ -205,25 +205,28 @@
     </div>
   </div>
 
-  <!-- CTA Section -->
-  <div class="cta-section">
+  <!-- CTA Section with Global Styles -->
+  <section class="cta-section">
     <div class="container">
-      <div class="cta-card">
-        <div class="cta-content">
-          <h2>{{ 'SERVICES.CTA_TITLE' | translate }}</h2>
-          <p>{{ 'SERVICES.CTA_DESC' | translate }}</p>
-        </div>
-        <div class="cta-actions">
-          <a href="/randevu" class="btn-primary">
-            <span class="material-icons">calendar_month</span>
-            <span>{{ 'SERVICES.CTA_APPOINTMENT' | translate }}</span>
+      <div class="cta-content">
+        <!-- Title -->
+        <h3 class="cta-title">{{ 'SERVICES.CTA.TITLE' | translate }}</h3>
+
+        <!-- Description -->
+        <p class="cta-description">{{ 'SERVICES.CTA.SUBTITLE' | translate }}</p>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+          <a routerLink="/iletisim" class="btn-primary">
+            <i class="fas fa-calendar-check"></i>
+            <span>{{ 'SERVICES.CTA.APPOINTMENT_BUTTON' | translate }}</span>
           </a>
-          <a href="/iletisim" class="btn-secondary">
-            <span class="material-icons">phone</span>
-            <span>{{ 'SERVICES.CTA_CALL_US' | translate }}</span>
+          <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
           </a>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </section>

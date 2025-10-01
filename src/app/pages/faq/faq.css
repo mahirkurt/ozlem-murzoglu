@@ -296,11 +296,18 @@
 /* Additional FAQ-specific CTA customizations */
 .faq-page .cta-section {
   margin-top: var(--md-sys-spacing-16);
+  margin-bottom: 0;
+  padding-bottom: 0;
   background: linear-gradient(
     135deg,
     var(--md-sys-color-surface-variant) 0%,
     var(--md-sys-color-surface-container-low) 100%
   );
+}
+
+/* Footer spacing to create CTA background extension */
+.faq-page app-footer {
+  margin-top: 40px;
 }
 
 /* FAQ CTA Icon Custom Style */

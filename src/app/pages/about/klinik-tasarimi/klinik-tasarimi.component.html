@@ -246,16 +246,27 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA Section with Global Styles -->
     <section class="cta-section">
       <div class="container">
         <div class="cta-content">
-          <h2>Çocuğunuz İçin En İyi Ortam</h2>
-          <p>Güvenli, hijyenik ve çocuk dostu kliniğimizde sizi bekliyoruz</p>
-          <a routerLink="/iletisim" class="cta-button">
-            <i class="fas fa-calendar-check"></i>
-            Randevu Al
-          </a>
+          <!-- Title -->
+          <h3 class="cta-title">{{ 'CLINIC_DESIGN.CTA.TITLE' | translate }}</h3>
+
+          <!-- Description -->
+          <p class="cta-description">{{ 'CLINIC_DESIGN.CTA.SUBTITLE' | translate }}</p>
+
+          <!-- CTA Buttons -->
+          <div class="cta-buttons">
+            <a routerLink="/iletisim" class="btn-primary">
+              <i class="fas fa-calendar-check"></i>
+              <span>{{ 'CLINIC_DESIGN.CTA.APPOINTMENT_BUTTON' | translate }}</span>
+            </a>
+            <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
+              <i class="fab fa-whatsapp"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

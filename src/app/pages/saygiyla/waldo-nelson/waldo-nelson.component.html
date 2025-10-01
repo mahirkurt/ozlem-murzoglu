@@ -218,17 +218,28 @@
     </div>
   </div>
 
-  <!-- CTA Section -->
-  <div class="cta-section">
+  <!-- CTA Section with Global Styles -->
+  <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>İlham Veren Diğer İsimler</h2>
-        <p>Tıp ve bilim tarihinde iz bırakan diğer öncüleri keşfedin</p>
-        <a routerLink="/saygiyla" class="cta-button">
-          <span>Tümünü Görüntüle</span>
-          <span class="material-icons">arrow_forward</span>
-        </a>
+        <!-- Title -->
+        <h3 class="cta-title">{{ 'SAYGIYLA.CTA.TITLE' | translate }}</h3>
+
+        <!-- Description -->
+        <p class="cta-description">{{ 'SAYGIYLA.CTA.SUBTITLE' | translate }}</p>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+          <a routerLink="/iletisim" class="btn-primary">
+            <i class="fas fa-calendar-check"></i>
+            <span>{{ 'SAYGIYLA.CTA.APPOINTMENT_BUTTON' | translate }}</span>
+          </a>
+          <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </section>

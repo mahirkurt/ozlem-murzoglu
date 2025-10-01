@@ -353,3 +353,14 @@
     font-size: 1rem;
   }
 }
+
+/* Dr Ozlem Page CTA Spacing */
+.dr-ozlem-page .cta-section {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Footer spacing to create CTA background extension */
+.dr-ozlem-page app-footer {
+  margin-top: 40px;
+}

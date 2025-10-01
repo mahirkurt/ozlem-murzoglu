@@ -513,6 +513,17 @@
   overflow: hidden;
 }
 
+/* Services Page CTA Spacing */
+.services-page .cta-section {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Footer spacing to create CTA background extension */
+.services-page app-footer {
+  margin-top: 40px;
+}
+
 .cta-section::before {
   content: '';
   position: absolute;
