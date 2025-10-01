@@ -2,7 +2,7 @@
 app-hero-section {
   display: block;
   width: 100%;
-  margin-top: var(--header-height-desktop, 80px);
+  margin-top: 0;
   position: relative;
 }
 
@@ -10,7 +10,7 @@ app-hero-section {
 app-hero-section .hero-section {
   position: relative;
   min-height: 182px; /* %35 azaltıldı: 280px → 182px */
-  margin-top: 0; /* Parent handles margin */
+  margin-top: var(--header-height-desktop, 80px);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -218,13 +218,9 @@ app-hero-section .hero-section {
 
 /* Responsive */
 @media (max-width: 768px) {
-  app-hero-section {
-    margin-top: var(--header-height-mobile, 80px);
-  }
-
   app-hero-section .hero-section {
     min-height: 156px; /* %35 azaltıldı: 240px → 156px */
-    margin-top: 0; /* Parent handles margin */
+    margin-top: var(--header-height-mobile, 80px);
   }
 
   .hero-content {
