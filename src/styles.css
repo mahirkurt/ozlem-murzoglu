@@ -42,34 +42,25 @@ section[class*="-page"] {
   padding-top: 48px; /* Consistent top padding for all page sections */
 }
 
-/* Global Hero Section Positioning - Force override Angular scoped styles */
+/* Global Hero Section Positioning - Single source of truth */
 app-hero-section {
-  display: block !important;
-  width: 100% !important;
-  position: relative !important;
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* Target the actual hero-section inside app-hero-section component */
-app-hero-section .hero-section,
-app-hero-section section.hero-section {
+  display: block;
+  width: 100%;
+  position: relative;
   margin-top: var(--header-height-desktop) !important;
-  position: relative !important;
 }
 
-/* Standalone hero sections not in components */
-.hero-section:not(.homepage-hero):not(app-hero-section .hero-section) {
+/* Standalone hero sections */
+.hero-section:not(.homepage-hero) {
   margin-top: var(--header-height-desktop) !important;
 }
 
 @media (max-width: 768px) {
-  app-hero-section .hero-section,
-  app-hero-section section.hero-section {
+  app-hero-section {
     margin-top: var(--header-height-mobile) !important;
   }
 
-  .hero-section:not(.homepage-hero):not(app-hero-section .hero-section) {
+  .hero-section:not(.homepage-hero) {
     margin-top: var(--header-height-mobile) !important;
   }
 }

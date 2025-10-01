@@ -124,7 +124,18 @@
       "Bash(start chrome https://dr-murzoglu.web.app/hizmetlerimiz/triple-p)",
       "Bash(start chrome http://localhost:4202/hizmetlerimiz/triple-p)",
       "Bash(start chrome http://localhost:4201/hakkimizda/klinigimiz)",
-      "Bash(start chrome http://localhost:4201/hizmetlerimiz/triple-p)"
+      "Bash(start chrome http://localhost:4201/hizmetlerimiz/triple-p)",
+      "Bash(firebase hosting:versions:list:*)",
+      "Bash(firebase hosting:releases:list:*)",
+      "Bash(firebase:*)",
+      "Bash(gcloud firebase hosting versions list:*)",
+      "Bash(start chrome https://dr-murzoglu.web.app/hakkimizda/dr-ozlem-murzoglu)",
+      "Bash(start chrome https://dr-murzoglu.web.app/saygiyla)",
+      "Bash(start chrome https://dr-murzoglu.web.app/sss)",
+      "Bash(start chrome https://dr-murzoglu.web.app/en/sss)",
+      "Bash(start chrome https://dr-murzoglu.web.app/hizmetlerimiz/saglikli-uykular)",
+      "Bash(start chrome https://ozlemmurzoglu.com/hizmetlerimiz/saglikli-uykular)",
+      "Bash(start chrome http://localhost:4200/hizmetlerimiz/saglikli-uykular)"
     ],
     "deny": []
   }

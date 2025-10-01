@@ -274,24 +274,6 @@ Triple P'nin en iddialı ve belki de en etkileyici yönü, sadece programa katı
 
 Bu bulgular, kanıta dayalı bir ebeveynlik programının, toplumun en savunmasız üyelerini korumada ne kadar güçlü bir önleyici araç olabileceğini göstermesi açısından son derece önemlidir.
 
-### Eleştirel Bir Bakış: Bilimsel Tartışmalar ve Sınırlılıklar
-
-Bilimsel ilerleme, bulguların sürekli olarak sorgulanması ve eleştirel bir süzgeçten geçirilmesiyle mümkündür. Triple P'nin geniş kanıt tabanına rağmen, bazı bağımsız araştırmacılar tarafından literatüre yönelik metodolojik eleştiriler de dile getirilmiştir. Objektif bir değerlendirme için bu eleştirileri de anlamak önemlidir:
-
-**Metodolojik Eleştiriler**:
-
-- **Küçük Örneklem Grupları (Underpowered Trials)**: Bazı eleştiriler, Triple P'nin etkinliğini gösteren ilk çalışmalardan birçoğunun, istatistiksel olarak güvenilir sonuçlar elde etmek için yeterli sayıda katılımcıya sahip olmadığı yönündedir. Küçük örneklemli çalışmaların, tesadüfi olumlu sonuçlar bulma veya yanlılığa daha açık olma riski taşıdığı iddia edilmektedir.
-
-- **Potansiyel Çıkar Çatışması ve Araştırmacı Bağlılığı**: Triple P üzerine yapılan değerlendirme çalışmalarının önemli bir kısmının, programın geliştiricisi olan Profesör Sanders veya onunla bağlantılı araştırmacılar tarafından yürütülmüş olması, bir eleştiri noktasıdır. Bu durum, araştırmacıların kendi programlarının etkinliğini kanıtlama yönünde bilinçli veya bilinçdışı bir eğilime (confirmatory bias) sahip olabileceği endişesini doğurmaktadır.
-
-- **Yayın Yanlılığı (Publication Bias)**: Bilimsel literatürde genel bir sorun olan yayın yanlılığı, olumlu ve istatistiksel olarak anlamlı sonuçlar bulan çalışmaların, hiçbir etki bulamayan veya olumsuz sonuçlar bulan çalışmalara göre yayınlanma olasılığının daha yüksek olmasıdır. Eleştirmenler, Triple P literatüründe de bu tür bir yanlılığın olabileceğini ve bu durumun programın genel etkinliğini olduğundan daha yüksek gösterebileceğini öne sürmektedir.
-
-**Pratik Uygulamadaki Zorluklar**:
-
-- **Program Sadakati ve Esneklik**: Bazı uygulayıcılar, Triple P'nin programın orijinaline sıkı sıkıya bağlı kalınarak (fidelity) uygulanması yönündeki beklentisinin, bazen ailelerin bireysel ve kültürel ihtiyaçlarına yönelik esneklik göstermeyi zorlaştırabildiğini ifade etmiştir. Program materyallerinin yerel dillere çevrilmesi veya kültürel olarak uyarlanması konusundaki katı kurallar, bazı durumlarda uygulayıcılar için bir engel teşkil edebilmektedir.
-
-Bu bilimsel tartışma, aslında "kanıta dayalı uygulama" alanındaki daha geniş bir gerilimi yansıtmaktadır. Bir yanda, standartlaştırılmış, tekrarlanabilir ve geniş ölçekte uygulanabilir programlara duyulan ihtiyaç vardır. Hükümetler ve fon sağlayıcı kurumlar, yatırımlarının işe yaradığını gösteren somut kanıtlar talep ederler ve Triple P, bu talebi karşılamak için devasa bir araştırma portföyü sunar. Diğer yanda ise, bu standardizasyonun getirdiği potansiyel yanlılık, esneklik kaybı ve her ailenin kendine özgü bağlamından kopma riski bulunur.
-
 Sonuç olarak, mevcut kanıtlar bütüncül olarak değerlendirildiğinde, Triple P'nin birçok aile için çocuk davranışlarını iyileştirmede ve ebeveynlik becerilerini güçlendirmede faydalı olan, güçlü bir kanıt tabanına sahip etkili bir program olduğu görülmektedir. Ancak, her derde deva sihirli bir çözüm olarak görülmemelidir. Programın bir aile için ne kadar etkili olacağı; ailenin programa olan katılımına, uygulayıcının yetkinliğine ve programın ailenin spesifik ihtiyaçlarına ve kültürel bağlamına ne kadar iyi uyduğuna bağlı olarak değişebilir. Bu nedenle, programın faydalarını ve güçlü kanıtlarını kabul ederken, bilimsel eleştirileri de göz önünde bulundurmak, bilinçli bir karar vermek için en sağlıklı yaklaşımdır.
 
 ## Bölüm 6: Triple P Türkiye'de: Yerel Uygulamalar ve Erişilebilirlik
