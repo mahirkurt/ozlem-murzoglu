@@ -12,44 +12,34 @@
   </app-hero-section>
 
   <!-- Introduction Section -->
-  <section class="md3-section">
+  <section class="intro-section">
     <div class="md3-container">
-      <div class="md3-card md3-card-elevated">
-        <div class="md3-card-content">
-          <div class="md3-section-header">
-            <div class="md3-icon-container md3-icon-primary">
-              <span class="material-icons">nights_stay</span>
-            </div>
-            <h2 class="md3-headline-large">{{ 'SERVICES.SERVICE_SLEEP.INTRO_TITLE' | translate }}</h2>
+      <div class="md3-section-header md3-text-center">
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.INTRO_TITLE' | translate }}</h2>
+        <p class="section-lead">{{ 'SERVICES.SERVICE_SLEEP.INTRO_LEAD' | translate }}</p>
+      </div>
+
+      <div class="md3-grid md3-grid-2">
+        <div class="md3-card md3-card-elevated">
+          <div class="md3-card-content">
+            <h3 class="md3-title-large">{{ 'SERVICES.SERVICE_SLEEP.PHILOSOPHY_TITLE' | translate }}</h3>
+            <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.PHILOSOPHY_TEXT' | translate }}</p>
           </div>
-
-          <p class="md3-body-large md3-on-surface-text">
-            {{ 'SERVICES.SERVICE_SLEEP.INTRO_LEAD' | translate }}
-          </p>
-
-          <div class="md3-grid md3-grid-2">
-            <div class="md3-card md3-card-outlined">
-              <div class="md3-card-content">
-                <h3 class="md3-title-large">{{ 'SERVICES.SERVICE_SLEEP.PHILOSOPHY_TITLE' | translate }}</h3>
-                <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.PHILOSOPHY_TEXT' | translate }}</p>
+        </div>
+        <div class="md3-card md3-card-elevated">
+          <div class="md3-card-content">
+            <div class="md3-list">
+              <div class="md3-list-item">
+                <span class="material-icons md3-list-icon">check_circle</span>
+                <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.PERSONALIZED_APPROACH' | translate }}</span>
               </div>
-            </div>
-            <div class="md3-card md3-card-filled">
-              <div class="md3-card-content">
-                <div class="md3-list">
-                  <div class="md3-list-item">
-                    <span class="material-icons md3-list-icon">check_circle</span>
-                    <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.PERSONALIZED_APPROACH' | translate }}</span>
-                  </div>
-                  <div class="md3-list-item">
-                    <span class="material-icons md3-list-icon">check_circle</span>
-                    <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.SCIENTIFIC_METHODS' | translate }}</span>
-                  </div>
-                  <div class="md3-list-item">
-                    <span class="material-icons md3-list-icon">check_circle</span>
-                    <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.CONTINUOUS_SUPPORT' | translate }}</span>
-                  </div>
-                </div>
+              <div class="md3-list-item">
+                <span class="material-icons md3-list-icon">check_circle</span>
+                <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.SCIENTIFIC_METHODS' | translate }}</span>
+              </div>
+              <div class="md3-list-item">
+                <span class="material-icons md3-list-icon">check_circle</span>
+                <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.CONTINUOUS_SUPPORT' | translate }}</span>
               </div>
             </div>
           </div>
@@ -59,14 +49,11 @@
   </section>
 
   <!-- Sleep Science Section -->
-  <section class="md3-section md3-section-tonal">
+  <section class="science-section">
     <div class="md3-container">
       <div class="md3-section-header md3-text-center">
-        <div class="md3-icon-container md3-icon-secondary">
-          <span class="material-icons">science</span>
-        </div>
-        <h2 class="md3-display-small">{{ 'SERVICES.SERVICE_SLEEP.SCIENCE_TITLE' | translate }}</h2>
-        <p class="md3-headline-small md3-on-surface-variant">{{ 'SERVICES.SERVICE_SLEEP.SCIENCE_SUBTITLE' | translate }}</p>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.SCIENCE_TITLE' | translate }}</h2>
+        <p class="section-subtitle">{{ 'SERVICES.SERVICE_SLEEP.SCIENCE_SUBTITLE' | translate }}</p>
       </div>
 
       <div class="md3-grid md3-grid-3">
@@ -140,42 +127,43 @@
       </div>
 
       <!-- Comparison Table -->
-      <div class="md3-card md3-card-outlined">
-        <div class="md3-card-content">
-          <h3 class="md3-headline-medium">{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_TITLE' | translate }}</h3>
-
-          <div class="md3-data-table">
-            <table class="md3-table">
-              <thead>
-                <tr>
-                  <th>{{ 'SERVICES.SERVICE_SLEEP.FEATURE' | translate }}</th>
-                  <th>{{ 'SERVICES.SERVICE_SLEEP.BABY_SLEEP' | translate }}</th>
-                  <th>{{ 'SERVICES.SERVICE_SLEEP.ADULT_SLEEP' | translate }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{{ 'SERVICES.SERVICE_SLEEP.CYCLE_DURATION' | translate }}</td>
-                  <td>45-60 {{ 'SERVICES.SERVICE_SLEEP.MINUTES' | translate }}</td>
-                  <td>90-120 {{ 'SERVICES.SERVICE_SLEEP.MINUTES' | translate }}</td>
-                </tr>
-                <tr>
-                  <td>{{ 'SERVICES.SERVICE_SLEEP.REM_RATIO' | translate }}</td>
-                  <td>50%</td>
-                  <td>20-25%</td>
-                </tr>
-                <tr>
-                  <td>{{ 'SERVICES.SERVICE_SLEEP.NIGHT_WAKINGS' | translate }}</td>
-                  <td>{{ 'SERVICES.SERVICE_SLEEP.NORMAL_FREQUENT' | translate }}</td>
-                  <td>{{ 'SERVICES.SERVICE_SLEEP.RARE' | translate }}</td>
-                </tr>
-                <tr>
-                  <td>{{ 'SERVICES.SERVICE_SLEEP.SLEEP_ONSET' | translate }}</td>
-                  <td>{{ 'SERVICES.SERVICE_SLEEP.REM_FIRST' | translate }}</td>
-                  <td>{{ 'SERVICES.SERVICE_SLEEP.NREM_FIRST' | translate }}</td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="comparison-table-wrapper">
+        <h3 class="subsection-title">{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_TITLE' | translate }}</h3>
+        <div class="md3-card md3-card-outlined">
+          <div class="md3-card-content">
+            <div class="md3-data-table">
+              <table class="md3-table">
+                <thead>
+                  <tr>
+                    <th>{{ 'SERVICES.SERVICE_SLEEP.FEATURE' | translate }}</th>
+                    <th>{{ 'SERVICES.SERVICE_SLEEP.BABY_SLEEP' | translate }}</th>
+                    <th>{{ 'SERVICES.SERVICE_SLEEP.ADULT_SLEEP' | translate }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ 'SERVICES.SERVICE_SLEEP.CYCLE_DURATION' | translate }}</td>
+                    <td>45-60 {{ 'SERVICES.SERVICE_SLEEP.MINUTES' | translate }}</td>
+                    <td>90-120 {{ 'SERVICES.SERVICE_SLEEP.MINUTES' | translate }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ 'SERVICES.SERVICE_SLEEP.REM_RATIO' | translate }}</td>
+                    <td>50%</td>
+                    <td>20-25%</td>
+                  </tr>
+                  <tr>
+                    <td>{{ 'SERVICES.SERVICE_SLEEP.NIGHT_WAKINGS' | translate }}</td>
+                    <td>{{ 'SERVICES.SERVICE_SLEEP.NORMAL_FREQUENT' | translate }}</td>
+                    <td>{{ 'SERVICES.SERVICE_SLEEP.RARE' | translate }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ 'SERVICES.SERVICE_SLEEP.SLEEP_ONSET' | translate }}</td>
+                    <td>{{ 'SERVICES.SERVICE_SLEEP.REM_FIRST' | translate }}</td>
+                    <td>{{ 'SERVICES.SERVICE_SLEEP.NREM_FIRST' | translate }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -183,10 +171,10 @@
   </section>
 
   <!-- Approaches Section -->
-  <section class="md3-section">
+  <section class="approaches-section">
     <div class="md3-container">
       <div class="md3-section-header md3-text-center">
-        <h2 class="md3-display-small">{{ 'SERVICES.SERVICE_SLEEP.APPROACHES_TITLE' | translate }}</h2>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.APPROACHES_TITLE' | translate }}</h2>
       </div>
 
       <div class="md3-grid md3-grid-2">
@@ -258,27 +246,26 @@
       </div>
 
       <!-- Combined Approach -->
-      <div class="md3-card md3-card-filled md3-card-primary">
-        <div class="md3-card-content">
-          <div class="md3-card-icon">
-            <span class="material-icons">hub</span>
+      <div class="combined-approach-card">
+        <div class="md3-card md3-card-elevated md3-card-primary">
+          <div class="md3-card-content">
+            <div class="md3-icon-container md3-icon-primary-container">
+              <span class="material-icons">hub</span>
+            </div>
+            <h3 class="md3-headline-medium">{{ 'SERVICES.SERVICE_SLEEP.COMBINED_TITLE' | translate }}</h3>
+            <p class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.COMBINED_DESC' | translate }}</p>
           </div>
-          <h3 class="md3-headline-medium">{{ 'SERVICES.SERVICE_SLEEP.COMBINED_TITLE' | translate }}</h3>
-          <p class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.COMBINED_DESC' | translate }}</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 13-Day Program Section -->
-  <section class="md3-section md3-section-surface">
+  <section class="program-section">
     <div class="md3-container">
       <div class="md3-section-header md3-text-center">
-        <div class="md3-icon-container md3-icon-primary-container">
-          <span class="material-icons">event_available</span>
-        </div>
-        <h2 class="md3-display-small">{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_TITLE' | translate }}</h2>
-        <p class="md3-headline-small">{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_SUBTITLE' | translate }}</p>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_TITLE' | translate }}</h2>
+        <p class="section-subtitle">{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_SUBTITLE' | translate }}</p>
       </div>
 
       <!-- Program Timeline -->
@@ -366,10 +353,10 @@
   </section>
 
   <!-- Challenges Section with MD3 Accordion -->
-  <section class="md3-section">
+  <section class="challenges-section">
     <div class="md3-container">
       <div class="md3-section-header md3-text-center">
-        <h2 class="md3-display-small">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGES_TITLE' | translate }}</h2>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGES_TITLE' | translate }}</h2>
       </div>
 
       <div class="md3-accordion">
@@ -503,10 +490,10 @@
   </section>
 
   <!-- Package Options Section -->
-  <section class="md3-section md3-section-tonal">
+  <section class="package-section">
     <div class="md3-container">
       <div class="md3-section-header md3-text-center">
-        <h2 class="md3-display-small">{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_TITLE' | translate }}</h2>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_TITLE' | translate }}</h2>
       </div>
 
       <div class="md3-grid md3-grid-3">
@@ -606,10 +593,10 @@
   </section>
 
   <!-- Statistics Section -->
-  <section class="md3-section">
+  <section class="statistics-section">
     <div class="md3-container">
       <div class="md3-section-header md3-text-center">
-        <h2 class="md3-display-small">{{ 'SERVICES.SERVICE_SLEEP.STATISTICS_TITLE' | translate }}</h2>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.STATISTICS_TITLE' | translate }}</h2>
       </div>
 
       <div class="md3-stats-grid">
@@ -652,10 +639,10 @@
   </section>
 
   <!-- FAQ Section -->
-  <section class="md3-section">
+  <section class="faq-section">
     <div class="md3-container">
       <div class="md3-section-header md3-text-center">
-        <h2 class="md3-display-small">{{ 'SERVICES.SERVICE_SLEEP.FAQ_TITLE' | translate }}</h2>
+        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.FAQ_TITLE' | translate }}</h2>
       </div>
 
       <div class="md3-faq-grid">
