@@ -68,22 +68,29 @@
 /* Introduction Section */
 .intro-section {
   padding: var(--md3-sys-spacing-8) 0;
-  background-color: var(--md3-sys-color-surface);
+  background: linear-gradient(135deg,
+    rgba(10, 147, 150, 0.02) 0%,
+    rgba(255, 193, 7, 0.02) 100%);
 }
 
-/* Science Section */
+/* Science Section - Enhanced with teal gradient */
 .science-section {
   padding: var(--md3-sys-spacing-10) 0;
-  background: linear-gradient(135deg, var(--md3-sys-color-surface-variant) 0%, var(--md3-sys-color-surface-container) 100%);
+  background: linear-gradient(135deg,
+    rgba(10, 147, 150, 0.08) 0%,
+    rgba(10, 147, 150, 0.03) 50%,
+    rgba(255, 193, 7, 0.03) 100%);
 }
 
-/* Approaches Section */
+/* Approaches Section - Subtle amber tint */
 .approaches-section {
   padding: var(--md3-sys-spacing-10) 0;
-  background-color: var(--md3-sys-color-surface);
+  background: linear-gradient(135deg,
+    rgba(255, 193, 7, 0.02) 0%,
+    rgba(255, 235, 59, 0.02) 100%);
 }
 
-/* Combined Approach Card - Enhanced */
+/* Combined Approach Card - Enhanced with vibrant gradient */
 .combined-approach-card {
   margin-top: var(--md3-sys-spacing-6);
 }
@@ -91,37 +98,50 @@
 .combined-approach-card .md3-card {
   text-align: center;
   padding: var(--md3-sys-spacing-6);
-  background: linear-gradient(135deg, var(--md3-sys-color-primary-container) 0%, var(--md3-sys-color-secondary-container) 100%);
+  background: linear-gradient(135deg,
+    rgba(10, 147, 150, 0.08) 0%,
+    rgba(255, 193, 7, 0.08) 100%);
   border: 2px solid var(--md3-sys-color-primary);
+  box-shadow: 0 4px 20px rgba(10, 147, 150, 0.15);
 }
 
 .combined-approach-card .md3-icon-container {
   margin: 0 auto var(--md3-sys-spacing-3);
+  background: linear-gradient(135deg, #FFC107 0%, #FFB300 100%);
+  color: #212121;
 }
 
-/* Program Section */
+/* Program Section - Teal accent */
 .program-section {
   padding: var(--md3-sys-spacing-10) 0;
-  background-color: var(--md3-sys-color-surface-container-low);
+  background: linear-gradient(135deg,
+    rgba(10, 147, 150, 0.05) 0%,
+    rgba(10, 147, 150, 0.02) 100%);
 }
 
-/* Challenges Section */
+/* Challenges Section - Warm amber */
 .challenges-section {
   padding: var(--md3-sys-spacing-10) 0;
-  background-color: var(--md3-sys-color-surface);
+  background: linear-gradient(135deg,
+    rgba(255, 235, 59, 0.03) 0%,
+    rgba(255, 193, 7, 0.02) 100%);
 }
 
-/* Package Section */
+/* Package Section - Rich gradient */
 .package-section {
   padding: var(--md3-sys-spacing-10) 0;
-  background: linear-gradient(135deg, var(--md3-sys-color-surface-variant) 0%, var(--md3-sys-color-surface-container) 100%);
+  background: linear-gradient(135deg,
+    rgba(10, 147, 150, 0.06) 0%,
+    rgba(10, 147, 150, 0.03) 50%,
+    rgba(255, 193, 7, 0.04) 100%);
 }
 
-
-/* FAQ Section */
+/* FAQ Section - Subtle teal */
 .faq-section {
   padding: var(--md3-sys-spacing-10) 0;
-  background-color: var(--md3-sys-color-surface-container-low);
+  background: linear-gradient(135deg,
+    rgba(10, 147, 150, 0.03) 0%,
+    rgba(10, 147, 150, 0.01) 100%);
 }
 
 /* CTA Section - No margin top, seamless transition */
@@ -322,16 +342,16 @@
 }
 
 .md3-timeline-content {
-  background-color: var(--md3-sys-color-surface-container-low);
-  padding: var(--md3-sys-spacing-3);
-  border-radius: var(--md3-sys-shape-corner-large);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background-color: transparent;
+  padding: var(--md3-sys-spacing-2) 0;
+  border-radius: 0;
+  box-shadow: none;
   transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-standard);
 }
 
 .md3-timeline-item:hover .md3-timeline-content {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  background-color: white;
+  box-shadow: none;
+  background-color: transparent;
 }
 
 .md3-timeline-connector {
@@ -383,45 +403,65 @@
 .md3-accordion-item {
   transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-standard);
   border-left: 4px solid transparent;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(10, 147, 150, 0.02) 100%);
 }
 
 .md3-accordion-item:hover {
   border-left-color: var(--md3-sys-color-primary);
-  box-shadow: var(--md3-sys-elevation-level2);
+  box-shadow: 0 4px 12px rgba(10, 147, 150, 0.15);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(10, 147, 150, 0.04) 100%);
 }
 
 .md3-accordion-item.active {
   border-left-color: var(--md3-sys-color-primary);
-  box-shadow: var(--md3-sys-elevation-level3);
+  box-shadow: 0 6px 20px rgba(10, 147, 150, 0.2);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 193, 7, 0.05) 100%);
 }
 
 /* Enhanced FAQ Cards */
 .md3-faq-item {
   border-left: 3px solid transparent;
   transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-standard);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 193, 7, 0.02) 100%);
 }
 
 .md3-faq-item:hover {
-  border-left-color: var(--md3-sys-color-tertiary);
+  border-left-color: #FFC107;
   transform: translateY(-4px);
-  box-shadow: var(--md3-sys-elevation-level3);
+  box-shadow: 0 6px 16px rgba(255, 193, 7, 0.2);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 193, 7, 0.06) 100%);
 }
 
 /* Package Cards Enhanced */
 .md3-package-card {
   transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-emphasized);
   border-top: 3px solid transparent;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(10, 147, 150, 0.02) 100%);
 }
 
 .md3-package-card:hover {
   border-top-color: var(--md3-sys-color-primary);
+  box-shadow: 0 8px 24px rgba(10, 147, 150, 0.15);
 }
 
 .md3-package-featured {
   border-top-color: var(--md3-sys-color-primary);
   background: linear-gradient(135deg,
-    rgba(10, 147, 150, 0.03) 0%,
-    rgba(255, 193, 7, 0.02) 100%);
+    rgba(10, 147, 150, 0.06) 0%,
+    rgba(255, 193, 7, 0.04) 100%);
+  box-shadow: 0 4px 16px rgba(10, 147, 150, 0.12);
 }
 
 /* Card Content Fade-in */

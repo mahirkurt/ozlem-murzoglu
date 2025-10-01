@@ -2,7 +2,7 @@
 app-hero-section {
   display: block;
   width: 100%;
-  margin-top: var(--header-height-desktop, 108px);
+  margin-top: var(--header-height-desktop, 80px);
   position: relative;
 }
 
