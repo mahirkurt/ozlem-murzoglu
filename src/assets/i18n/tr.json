@@ -330,10 +330,10 @@
       "FEAR_LESS": "Korku-suz",
       "FEAR_LESS_DESC": "Çocukluk çağı kaygısını yönetme",
       "SCIENTIFIC_SUBTITLE": "40 yılı aşkın araştırma ve geliştirme ile dünya çapında kabul görmüş kanıta dayalı program",
-      "TOTAL_PUBLICATIONS": "Toplam Yayın",
-      "TOTAL_PUBLICATIONS_DESC": "Bilimsel dergilerde yayınlanmış araştırma",
-      "EFFECTIVENESS_STUDIES": "Etkinlik Çalışmaları",
-      "EFFECTIVENESS_STUDIES_DESC": "Gerçek dünya koşullarında test edildi",
+      "TOTAL_PUBLICATIONS": "1100+ Yayın",
+      "TOTAL_PUBLICATIONS_DESC": "Hakemli makaleler, kitaplar ve bölümler dahil olmak üzere bilimsel araştırmalar ve çalışmalar",
+      "EFFECTIVENESS_STUDIES": "390+ Etkinlik Çalışması",
+      "EFFECTIVENESS_STUDIES_DESC": "Farklı popülasyonlar ve ortamlarda kapsamlı etkinlik araştırmaları",
       "RCT_STUDIES": "RCT Çalışmaları",
       "RCT_STUDIES_DESC": "Randomize kontrollü çalışmalar",
       "CLINICAL_OUTCOMES": "Klinik Sonuçlar",
@@ -351,7 +351,31 @@
       "INSPIRE_INFO": "INSPIRE Seven Strategies kapsamında çocuğa yönelik şiddeti önlemede etkili yedi stratejiden biri olarak tanınmıştır.",
       "META_ANALYSIS": "Meta-Analiz Çalışmaları",
       "META_ANALYSIS_DESC": "Bağımsız araştırmacılar tarafından yapılan 100'den fazla meta-analiz, Triple P'nin çocuk davranış problemleri, ebeveynlik becerileri ve aile işlevselliği üzerindeki olumlu etkilerini tutarlı bir şekilde göstermektedir.",
-      "JOURNAL_INFO": "Sonuçlar Clinical Psychology Review, Journal of Family Psychology gibi saygın dergilerde yayınlanmıştır."
+      "JOURNAL_INFO": "Sonuçlar Clinical Psychology Review, Journal of Family Psychology gibi saygın dergilerde yayınlanmıştır.",
+      "SPECIAL_NEEDS": "Özel Gereksinimler",
+      "DIVORCE_SEPARATION": "Boşanma ve Ayrılık",
+      "FIVE_SESSIONS": "5 Seans",
+      "ANXIETY_FOCUS": "Kaygı Odaklı",
+      "TRIPLE_P_ONLINE": "Triple P Online",
+      "TRIPLE_P_ONLINE_DESC": "Online platform üzerinden esnek zamanlama ile",
+      "EIGHT_MODULES": "8 Modül",
+      "FLEXIBLE_TIMING": "Esnek Zamanlama",
+      "SESSION_CONTENT_TITLE": "Seans İçerikleri",
+      "POPULATION_IMPACT": "Toplumsal Etki",
+      "CHILD_ABUSE_REDUCTION": "Çocuk istismarı ve ihmal vakalarında azalma",
+      "HOSPITAL_ADMISSIONS_REDUCTION": "Yaralanmalara bağlı hastane yatışlarında azalma",
+      "FAMILY_PLACEMENT_REDUCTION": "Aile dışı yerleştirmelerde azalma",
+      "POPULATION_IMPACT_DESC": "Geniş çaplı uygulama çalışmaları, Triple P'nin toplum düzeyinde olumlu değişiklikler yaratabileceğini göstermektedir.",
+      "SESSION_1_TITLE": "Olumlu Ebeveynlik İlkeleri",
+      "SESSION_1_CONTENT": "Pozitif ebeveynliğin temel ilkeleri, çocuk gelişiminin önemi ve güvenli bir öğrenme ortamı oluşturma stratejileri",
+      "SESSION_2_TITLE": "Yeni Davranışları Öğretme",
+      "SESSION_2_CONTENT": "İstenilen davranışları güçlendirme, tanımlayıcı övgü ve model olma yoluyla beceri öğretimi",
+      "SESSION_3_TITLE": "Zor Davranışlarla Başa Çıkma",
+      "SESSION_3_CONTENT": "Etkili disiplin stratejileri, tutarlı sonuçlar ve sakinliği koruma teknikleri",
+      "SESSION_4_TITLE": "Rutinleri Planlama",
+      "SESSION_4_CONTENT": "Risk durumlarını önceden planlamak, sorun çözme becerileri ve kendi başına ebeveynlik yolculuğunu sürdürme",
+      "TARGET_AGE_0_12": "0-12 yaş",
+      "TARGET_AGE_6_14": "6-14 yaş"
     },
     "SERVICE_SLEEP": {
       "TITLE": "Sağlıklı Uykular™",
@@ -487,7 +511,7 @@
       "TRAVEL_DESC": "[TR] Travel Desc",
       "SUCCESS_GUARANTEE": "[TR] Success Guarantee",
       "SUCCESS_GUARANTEE_DESC": "[TR] Success Guarantee Desc",
-      "CTA_CALL": "[TR] Cta Call",
+      "CTA_CALL": "Hemen İletişime Geçin",
       "EVIDENCE_BASED": "Kanıta Dayalı",
       "COMPASSIONATE": "Şefkatli Yaklaşım",
       "FAMILY_CENTERED": "Aile Odaklı",
@@ -556,16 +580,16 @@
       "PERSONALIZED_APPROACH": "Kişiselleştirilmiş Yaklaşım",
       "SCIENTIFIC_METHODS": "Bilimsel Yöntemler",
       "CONTINUOUS_SUPPORT": "Sürekli Destek",
-      "NORMAL_FREQUENT": "Normal/Sık",
+      "NORMAL_FREQUENT": "Sık (Normal)",
       "RARE": "Nadir",
-      "REM_FIRST": "Önce REM",
-      "NREM_FIRST": "Önce NREM",
-      "INDEPENDENCE_DESC": "Bebeğiniz artık kendi kendine uyuyabilir",
+      "REM_FIRST": "REM ile Başlar",
+      "NREM_FIRST": "NREM ile Başlar",
+      "INDEPENDENCE_DESC": "Çocuk minimal ebeveyn desteğiyle kendi başına uyumayı öğrenir",
       "SOLUTION": "Çözüm",
-      "SINGLE_SESSION": "Tek Seans",
-      "PROGRAM_PACKAGE": "Program Paketi",
-      "THIRTEEN_DAYS": "13 Gün",
-      "MONTHLY": "Aylık",
+      "SINGLE_SESSION": "Tek Seans Danışmanlık",
+      "PROGRAM_PACKAGE": "Kapsamlı Program",
+      "THIRTEEN_DAYS": "13 Günlük Destek",
+      "MONTHLY": "Aylık Takip",
       "AWAKE_BED": "Uyanık yatağa",
       "CHALLENGE_ILLNESS": "Hastalık Dönemleri",
       "CHALLENGE_ILLNESS_DESC": "Hastalık sonrası uyku düzeninin yeniden kurulması",
@@ -588,19 +612,11 @@
       "FAQ_TITLE": "Sıkça Sorulan Sorular",
       "CTA_APPOINTMENT": "Randevu Al",
       "CTA_WHATSAPP": "WhatsApp'tan Ulaşın",
-      "PERSONALIZED_APPROACH": "[TR] Personalized Approach",
-      "SCIENTIFIC_METHODS": "[TR] Scientific Methods",
-      "CONTINUOUS_SUPPORT": "[TR] Continuous Support",
-      "NORMAL_FREQUENT": "[TR] Normal Frequent",
-      "RARE": "[TR] Rare",
-      "REM_FIRST": "[TR] Rem First",
-      "NREM_FIRST": "[TR] Nrem First",
-      "INDEPENDENCE_DESC": "[TR] Independence Desc",
-      "SOLUTION": "[TR] Solution",
-      "SINGLE_SESSION": "[TR] Single Session",
-      "PROGRAM_PACKAGE": "[TR] Program Package",
-      "THIRTEEN_DAYS": "[TR] Thirteen Days",
-      "MONTHLY": "[TR] Monthly"
+      "CTA": {
+        "TITLE": "Huzurlu Uykular İçin İlk Adımı Atın",
+        "SUBTITLE": "Sağlıklı Uykular™ programı hakkında detaylı bilgi almak ve randevu oluşturmak için bizimle iletişime geçin",
+        "APPOINTMENT_BUTTON": "Hemen Başvur"
+      }
     },
     "SERVICE_BRIGHT_FUTURES": {
       "TITLE": "Bright Futures®",
@@ -785,6 +801,11 @@
       "EXPERIENCED_STAFF": "Deneyimli teknisyen ve uzmanlar",
       "MODERN_EQUIPMENT": "Modern Cihazlar",
       "LATEST_TECHNOLOGY": "Son teknoloji ekipmanlar"
+    },
+    "CTA": {
+      "TITLE": "Çocuğunuzun Sağlığı İçin İlk Adımı Atın",
+      "SUBTITLE": "Hemen randevu alın ve çocuğunuzun sağlıklı geleceği için birlikte çalışalım",
+      "APPOINTMENT_BUTTON": "Randevu Al"
     }
   },
   "RESOURCES": {
@@ -1028,26 +1049,29 @@
     "A1": "Kliniğimizde 0-18 yaş arası tüm çocuklara hizmet vermekteyiz. Yenidoğan döneminden ergenlik döneminin sonuna kadar her yaş grubuna özel yaklaşımlarımız bulunmaktadır.",
     "Q2": "Randevu almak için ne yapmam gerekiyor?",
     "A2": "Web sitemizden online randevu alabilir, 0222 237 84 00 numaralı telefondan bizi arayabilir veya WhatsApp hattımızdan mesaj gönderebilirsiniz. Online randevu sistemimiz 7/24 hizmet vermektedir.",
-    "Q3": "Muayene ücreti ne kadar?",
-    "A3": "Muayene ücretlerimiz hizmetin kapsamına göre değişmektedir. Bright Futures kapsamlı muayene, standart muayene ve kontrol muayenesi için farklı ücretlendirmelerimiz bulunmaktadır. Detaylı bilgi için bizi arayabilirsiniz.",
-    "Q4": "Özel sağlık sigortam geçerli mi?",
-    "A4": "Anlaşmalı olduğumuz özel sağlık sigortaları bulunmaktadır. Sigortanızın geçerli olup olmadığını öğrenmek için muayene öncesinde bizi arayarak bilgi alabilirsiniz.",
-    "Q5": "Bright Futures programı nedir?",
-    "A5": "Bright Futures, Amerikan Pediatri Akademisi tarafından geliştirilen, çocuğunuzun doğumdan ergenliğe kadar olan süreçte fiziksel, zihinsel ve sosyal gelişimini takip eden kapsamlı bir sağlık izlem programıdır. Her yaş grubuna özel değerlendirme formları ve en az 1 saatlik detaylı muayene içerir.",
-    "Q6": "Acil durumlarda kliniğinize gelebilir miyim?",
-    "A6": "Kliniğimiz randevu sistemi ile çalışmaktadır. Acil durumlar için en yakın hastane acil servisine başvurmanızı öneririz. Ancak randevulu hastalarımız için acil danışmanlık hizmeti vermekteyiz.",
-    "Q7": "Aşı takvimine uygun aşılarımızı yaptırabilir miyiz?",
-    "A7": "Evet, kliniğimizde Sağlık Bakanlığı'nın güncel aşı takvimine uygun tüm rutin aşılar ve özel aşılar uygulanmaktadır. Aşı takibi dijital olarak yapılmakta ve hatırlatma servisi sunulmaktadır.",
-    "Q8": "Online danışmanlık hizmeti veriyor musunuz?",
-    "A8": "Evet, özellikle takip hastalarımız için online danışmanlık hizmeti vermekteyiz. Video konferans yöntemiyle uzaktan muayene ve danışmanlık hizmetlerimiz bulunmaktadır.",
-    "Q9": "Laboratuvar tetkikleri klinikte mi yapılıyor?",
-    "A9": "Kliniğimizde kan sayımı, idrar tahlili, hızlı testler gibi temel laboratuvar tetkikleri yapılabilmektedir. Daha kapsamlı tetkikler için anlaşmalı laboratuvarlarımıza yönlendirme yapmaktayız.",
-    "Q10": "Randevumu iptal etmek veya değiştirmek istiyorum, ne yapmalıyım?",
-    "A10": "Randevunuzu en az 24 saat öncesinden iptal edebilir veya değiştirebilirsiniz. Online sistem üzerinden, telefonla veya WhatsApp'tan bize ulaşarak randevu değişikliği yapabilirsiniz.",
-    "Q11": "İlk muayeneye gelirken neleri getirmeliyim?",
-    "A11": "İlk muayeneye gelirken çocuğunuzun kimlik bilgileri, varsa önceki tıbbi raporları, aşı kartı, kullandığı ilaçların listesi ve sigortanız varsa sigorta evraklarınızı getirmenizi rica ederiz.",
-    "Q12": "Muayene ne kadar sürer?",
-    "A12": "Standart muayenelerimiz ortalama 30-45 dakika, Bright Futures kapsamlı muayenelerimiz ise minimum 1 saat sürmektedir. İlk muayeneler genellikle daha uzun sürmektedir."
+    "Q3": "Özel sağlık sigortam geçerli mi?",
+    "A3": "Özel sağlık sigortalarıyla provizyon anlaşmamız bulunmamaktadır. Hastalarımız, muayene sonrasında sunduğumuz özel sağlık sigortası bilgi formu ve serbest meslek makbuzu ile poliçeleri koşullarına uygun biçimde geri ödemeden faydalanmaktadırlar.",
+    "Q4": "Bright Futures programı nedir?",
+    "A4": "Bright Futures, Amerikan Pediatri Akademisi tarafından geliştirilen, çocuğunuzun doğumdan ergenliğe kadar olan süreçte fiziksel, zihinsel ve sosyal gelişimini takip eden kapsamlı bir sağlık izlem programıdır. Her yaş grubuna özel değerlendirme formları ve en az 1 saatlik detaylı muayene içerir.",
+    "Q5": "Acil durumlarda kliniğinize gelebilir miyim?",
+    "A5": "Kliniğimiz randevu sistemi ile çalışmaktadır. Acil durumlar için en yakın hastane acil servisine başvurmanızı öneririz. Ancak randevulu hastalarımız için acil danışmanlık hizmeti vermekteyiz.",
+    "Q6": "Aşı takvimine uygun aşılarımızı yaptırabilir miyiz?",
+    "A6": "Evet, kliniğimizde Sağlık Bakanlığı'nın güncel aşı takvimine uygun tüm rutin aşılar ve özel aşılar uygulanmaktadır. Aşı takibi dijital olarak yapılmakta ve hatırlatma servisi sunulmaktadır.",
+    "Q7": "Online danışmanlık hizmeti veriyor musunuz?",
+    "A7": "Evet, özellikle takip hastalarımız için online danışmanlık hizmeti vermekteyiz. Video konferans yöntemiyle uzaktan muayene ve danışmanlık hizmetlerimiz bulunmaktadır.",
+    "Q8": "Laboratuvar tetkikleri klinikte mi yapılıyor?",
+    "A8": "Kliniğimizde kan sayımı, idrar tahlili, hızlı testler gibi temel laboratuvar tetkikleri yapılabilmektedir. Daha kapsamlı tetkikler için anlaşmalı laboratuvarlarımıza yönlendirme yapmaktayız.",
+    "Q9": "Randevumu iptal etmek veya değiştirmek istiyorum, ne yapmalıyım?",
+    "A9": "Randevunuzu en az 24 saat öncesinden iptal edebilir veya değiştirebilirsiniz. Online sistem üzerinden, telefonla veya WhatsApp'tan bize ulaşarak randevu değişikliği yapabilirsiniz.",
+    "Q10": "İlk muayeneye gelirken neleri getirmeliyim?",
+    "A10": "İlk muayeneye gelirken çocuğunuzun kimlik bilgileri, varsa önceki tıbbi raporları, aşı kartı, kullandığı ilaçların listesi ve sigortanız varsa sigorta evraklarınızı getirmenizi rica ederiz.",
+    "Q11": "Muayene ne kadar sürer?",
+    "A11": "Standart muayenelerimiz ortalama 30-45 dakika, Bright Futures kapsamlı muayenelerimiz ise minimum 1 saat sürmektedir. İlk muayeneler genellikle daha uzun sürmektedir.",
+    "CTA": {
+      "TITLE": "Daha Fazla Sorunuz mu Var?",
+      "SUBTITLE": "Size yardımcı olmak için buradayız. Hemen bize ulaşın ve sorularınızı yanıtlayalım",
+      "APPOINTMENT_BUTTON": "Hemen Arayın"
+    }
   },
   "BLOG": {
     "TITLE": "Blog",
@@ -1281,7 +1305,12 @@
     "PUBLICATIONS_TITLE": "Yayınlar ve Araştırmalar",
     "MEMBERSHIPS_TITLE": "Profesyonel Üyelikler",
     "MEMBERSHIP_AAP": "Amerikan Pediatri Akademisi",
-    "MEMBERSHIP_TURKISH": "Türk Pediatri Kurumu"
+    "MEMBERSHIP_TURKISH": "Türk Pediatri Kurumu",
+    "CTA": {
+      "TITLE": "Çocuğunuzun Sağlığı İçin İlk Adımı Atın",
+      "SUBTITLE": "Hemen randevu alın ve çocuğunuzun sağlıklı geleceği için birlikte çalışalım",
+      "APPOINTMENT_BUTTON": "Randevu Al"
+    }
   },
   "DOCUMENT": {
     "DOWNLOAD_PDF": "PDF İndir",
@@ -2201,7 +2230,12 @@
     "HYGIENE_NOTE": "* Kliniğimiz Sağlık Bakanlığı hijyen sertifikasına sahiptir.",
     "CTA_TITLE": "Kliniğimizi Ziyaret Edin",
     "CTA_SUBTITLE": "Çocuğunuzun sağlığı için tasarlanmış özel mekanımızı keşfedin",
-    "CTA_BUTTON": "Randevu Al"
+    "CTA_BUTTON": "Randevu Al",
+    "CTA": {
+      "TITLE": "Çocuğunuzun Sağlığı İçin İlk Adımı Atın",
+      "SUBTITLE": "Hemen randevu alın ve çocuğunuzun sağlıklı geleceği için birlikte çalışalım",
+      "APPOINTMENT_BUTTON": "Randevu Al"
+    }
   },
   "KLINIK_TASARIMI": {
     "TITLE": "[TR] Title",
@@ -2288,9 +2322,14 @@
     "PAGE_TITLE": "[TR] Page Title",
     "PAGE_SUBTITLE": "[TR] Page Subtitle",
     "READ_MORE": "[TR] Read More",
-    "CTA_TITLE": "[TR] Cta Title",
-    "CTA_DESCRIPTION": "[TR] Cta Description",
-    "CTA_BUTTON": "[TR] Cta Button"
+    "CTA_TITLE": "Çocuğunuzun Sağlığı İçin İlk Adımı Atın",
+    "CTA_DESCRIPTION": "Hemen randevu alın ve çocuğunuzun sağlıklı geleceği için birlikte çalışalım",
+    "CTA_BUTTON": "Randevu Al",
+    "CTA": {
+      "TITLE": "Çocuğunuzun Sağlığı İçin İlk Adımı Atın",
+      "SUBTITLE": "Hemen randevu alın ve çocuğunuzun sağlıklı geleceği için birlikte çalışalım",
+      "APPOINTMENT_BUTTON": "Randevu Al"
+    }
   },
   "SERVICE_SOS_FEEDING": {
     "WHAT_IS_TITLE": "[TR] What Is Title",

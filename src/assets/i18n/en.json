@@ -298,10 +298,10 @@
       "FEAR_LESS": "Fear-Less",
       "FEAR_LESS_DESC": "Managing childhood anxiety",
       "SCIENTIFIC_SUBTITLE": "Evidence-Based Approach",
-      "TOTAL_PUBLICATIONS": "800+ Publications",
-      "TOTAL_PUBLICATIONS_DESC": "Scientific research and studies",
-      "EFFECTIVENESS_STUDIES": "350+ Effectiveness Studies",
-      "EFFECTIVENESS_STUDIES_DESC": "Proven effectiveness research",
+      "TOTAL_PUBLICATIONS": "1100+ Publications",
+      "TOTAL_PUBLICATIONS_DESC": "Scientific research and studies including peer-reviewed articles, books, and chapters",
+      "EFFECTIVENESS_STUDIES": "390+ Effectiveness Studies",
+      "EFFECTIVENESS_STUDIES_DESC": "Comprehensive effectiveness research across diverse populations and settings",
       "RCT_STUDIES": "150+ RCT Studies",
       "RCT_STUDIES_DESC": "Randomized controlled trials",
       "CLINICAL_OUTCOMES": "Clinical Outcomes",
@@ -351,7 +351,31 @@
       "PRINCIPLE_4_TITLE": "Realistic Expectations",
       "PRINCIPLE_4_DESC": "Accepting that every child is unique and develops at their own pace. Eliminating the pressure created by perfectionist expectations.",
       "PRINCIPLE_5_TITLE": "Taking Care of Yourself",
-      "PRINCIPLE_5_DESC": "Parenting is a marathon. Taking care of your own physical, mental and emotional needs is a fundamental requirement of effective parenting."
+      "PRINCIPLE_5_DESC": "Parenting is a marathon. Taking care of your own physical, mental and emotional needs is a fundamental requirement of effective parenting.",
+      "SPECIAL_NEEDS": "Special Needs",
+      "DIVORCE_SEPARATION": "Divorce & Separation",
+      "FIVE_SESSIONS": "5 Sessions",
+      "ANXIETY_FOCUS": "Anxiety Focus",
+      "TRIPLE_P_ONLINE": "Triple P Online",
+      "TRIPLE_P_ONLINE_DESC": "Flexible scheduling through online platform",
+      "EIGHT_MODULES": "8 Modules",
+      "FLEXIBLE_TIMING": "Flexible Timing",
+      "SESSION_CONTENT_TITLE": "Session Content",
+      "POPULATION_IMPACT": "Population Impact",
+      "CHILD_ABUSE_REDUCTION": "Reduced child abuse and neglect cases",
+      "HOSPITAL_ADMISSIONS_REDUCTION": "Decreased hospital admissions for injuries",
+      "FAMILY_PLACEMENT_REDUCTION": "Lower out-of-home placements",
+      "POPULATION_IMPACT_DESC": "Large-scale implementation studies show that Triple P can create positive changes at the community level.",
+      "SESSION_1_TITLE": "Positive Parenting Principles",
+      "SESSION_1_CONTENT": "Core principles of positive parenting, importance of child development, and strategies for creating a safe learning environment",
+      "SESSION_2_TITLE": "Teaching New Behaviors",
+      "SESSION_2_CONTENT": "Reinforcing desired behaviors, descriptive praise, and skill teaching through modeling",
+      "SESSION_3_TITLE": "Managing Difficult Behaviors",
+      "SESSION_3_CONTENT": "Effective discipline strategies, consistent consequences, and techniques for staying calm",
+      "SESSION_4_TITLE": "Planning Routines",
+      "SESSION_4_CONTENT": "Proactive planning for high-risk situations, problem-solving skills, and continuing the parenting journey independently",
+      "TARGET_AGE_0_12": "Ages 0-12",
+      "TARGET_AGE_6_14": "Ages 6-14"
     },
     "SERVICE_SLEEP": {
       "TITLE": "Healthy Sleep™",
@@ -554,18 +578,18 @@
       "OTHER_ACTIVITIES": "Other activities",
       "SLEEP_TIME": "Sleep time",
       "PERSONALIZED_APPROACH": "Personalized Approach",
-      "SCIENTIFIC_METHODS": "Scientific Methods",
-      "CONTINUOUS_SUPPORT": "Continuous Support",
-      "NORMAL_FREQUENT": "Normal/Frequent",
+      "SCIENTIFIC_METHODS": "Evidence-Based Methods",
+      "CONTINUOUS_SUPPORT": "Ongoing Support",
+      "NORMAL_FREQUENT": "Frequent (Normal)",
       "RARE": "Rare",
-      "REM_FIRST": "REM First",
-      "NREM_FIRST": "NREM First",
-      "INDEPENDENCE_DESC": "Your baby can now sleep independently",
+      "REM_FIRST": "Starts with REM",
+      "NREM_FIRST": "Starts with NREM",
+      "INDEPENDENCE_DESC": "Child learns to fall asleep independently with minimal parental support",
       "SOLUTION": "Solution",
-      "SINGLE_SESSION": "Single Session",
-      "PROGRAM_PACKAGE": "Program Package",
-      "THIRTEEN_DAYS": "13 Days",
-      "MONTHLY": "Monthly",
+      "SINGLE_SESSION": "Single Consultation",
+      "PROGRAM_PACKAGE": "Complete Program",
+      "THIRTEEN_DAYS": "13-Day Support",
+      "MONTHLY": "Monthly Follow-Up",
       "AWAKE_BED": "Awake to bed",
       "CHALLENGE_ILLNESS": "Illness Periods",
       "CHALLENGE_ILLNESS_DESC": "Re-establishing sleep routine after illness",
@@ -588,19 +612,11 @@
       "FAQ_TITLE": "Frequently Asked Questions",
       "CTA_APPOINTMENT": "Book Appointment",
       "CTA_WHATSAPP": "Contact via WhatsApp",
-      "PERSONALIZED_APPROACH": "[EN] Personalized Approach",
-      "SCIENTIFIC_METHODS": "[EN] Scientific Methods",
-      "CONTINUOUS_SUPPORT": "[EN] Continuous Support",
-      "NORMAL_FREQUENT": "[EN] Normal Frequent",
-      "RARE": "[EN] Rare",
-      "REM_FIRST": "[EN] Rem First",
-      "NREM_FIRST": "[EN] Nrem First",
-      "INDEPENDENCE_DESC": "[EN] Independence Desc",
-      "SOLUTION": "[EN] Solution",
-      "SINGLE_SESSION": "[EN] Single Session",
-      "PROGRAM_PACKAGE": "[EN] Program Package",
-      "THIRTEEN_DAYS": "[EN] Thirteen Days",
-      "MONTHLY": "[EN] Monthly"
+      "CTA": {
+        "TITLE": "Ready for Peaceful Nights?",
+        "SUBTITLE": "Get personalized sleep coaching for your little one. Book your free consultation today.",
+        "APPOINTMENT_BUTTON": "Book Free Consultation"
+      }
     },
     "SERVICE_BRIGHT_FUTURES": {
       "TITLE": "Bright Futures®",
@@ -785,6 +801,11 @@
       "EXPERIENCED_STAFF": "Experienced technicians and specialists",
       "MODERN_EQUIPMENT": "Modern Equipment",
       "LATEST_TECHNOLOGY": "Latest technology equipment"
+    },
+    "CTA": {
+      "TITLE": "[EN] Title",
+      "SUBTITLE": "[EN] Subtitle",
+      "APPOINTMENT_BUTTON": "[EN] Appointment Button"
     }
   },
   "RESOURCES": {
@@ -1028,26 +1049,29 @@
     "A1": "We provide services for all children aged 0-18 years at our clinic. We have specialized approaches for every age group from newborn period to the end of adolescence.",
     "Q2": "What do I need to do to make an appointment?",
     "A2": "You can book an appointment online through our website, call us at 0222 237 84 00, or send a message via our WhatsApp line. Our online appointment system is available 24/7.",
-    "Q3": "How much is the examination fee?",
-    "A3": "Our examination fees vary depending on the scope of the service. We have different pricing for Bright Futures comprehensive examination, standard examination, and follow-up examination. Please call us for detailed information.",
-    "Q4": "Is my private health insurance valid?",
-    "A4": "We have agreements with various private health insurance companies. To find out if your insurance is valid, please call us before your appointment for information.",
-    "Q5": "What is the Bright Futures program?",
-    "A5": "Bright Futures is a comprehensive health monitoring program developed by the American Academy of Pediatrics that tracks your child's physical, mental, and social development from birth to adolescence. It includes age-specific assessment forms and detailed examinations lasting at least 1 hour.",
-    "Q6": "Can I come to your clinic in emergencies?",
-    "A6": "Our clinic operates by appointment system. For emergencies, we recommend visiting the nearest hospital emergency department. However, we provide emergency consultation services for our scheduled patients.",
-    "Q7": "Can we get vaccinations according to the vaccination schedule?",
-    "A7": "Yes, all routine vaccines according to the Ministry of Health's current vaccination schedule and special vaccines are administered at our clinic. Vaccination tracking is done digitally and reminder service is provided.",
-    "Q8": "Do you provide online consultation services?",
-    "A8": "Yes, we provide online consultation services especially for our follow-up patients. We offer remote examination and consultation services via video conference.",
-    "Q9": "Are laboratory tests performed at the clinic?",
-    "A9": "Basic laboratory tests such as blood count, urinalysis, and rapid tests can be performed at our clinic. For more comprehensive tests, we refer to our partner laboratories.",
-    "Q10": "I want to cancel or change my appointment, what should I do?",
-    "A10": "You can cancel or change your appointment at least 24 hours in advance. You can make appointment changes through the online system, by phone, or by contacting us via WhatsApp.",
-    "Q11": "What should I bring for the first examination?",
-    "A11": "For the first examination, please bring your child's identification information, previous medical reports if any, vaccination card, list of medications used, and insurance documents if you have insurance.",
-    "Q12": "How long does the examination take?",
-    "A12": "Our standard examinations take an average of 30-45 minutes, while our Bright Futures comprehensive examinations take a minimum of 1 hour. First examinations usually take longer."
+    "Q3": "Is my private health insurance valid?",
+    "A3": "We do not have direct provision agreements with private health insurance companies. Our patients can benefit from reimbursement according to their policy terms using the private health insurance information form and freelance invoice we provide after the examination.",
+    "Q4": "What is the Bright Futures program?",
+    "A4": "Bright Futures is a comprehensive health monitoring program developed by the American Academy of Pediatrics that tracks your child's physical, mental, and social development from birth to adolescence. It includes age-specific assessment forms and detailed examinations lasting at least 1 hour.",
+    "Q5": "Can I come to your clinic in emergencies?",
+    "A5": "Our clinic operates by appointment system. For emergencies, we recommend visiting the nearest hospital emergency department. However, we provide emergency consultation services for our scheduled patients.",
+    "Q6": "Can we get vaccinations according to the vaccination schedule?",
+    "A6": "Yes, all routine vaccines according to the Ministry of Health's current vaccination schedule and special vaccines are administered at our clinic. Vaccination tracking is done digitally and reminder service is provided.",
+    "Q7": "Do you provide online consultation services?",
+    "A7": "Yes, we provide online consultation services especially for our follow-up patients. We offer remote examination and consultation services via video conference.",
+    "Q8": "Are laboratory tests performed at the clinic?",
+    "A8": "Basic laboratory tests such as blood count, urinalysis, and rapid tests can be performed at our clinic. For more comprehensive tests, we refer to our partner laboratories.",
+    "Q9": "I want to cancel or change my appointment, what should I do?",
+    "A9": "You can cancel or change your appointment at least 24 hours in advance. You can make appointment changes through the online system, by phone, or by contacting us via WhatsApp.",
+    "Q10": "What should I bring for the first examination?",
+    "A10": "For the first examination, please bring your child's identification information, previous medical reports if any, vaccination card, list of medications used, and insurance documents if you have insurance.",
+    "Q11": "How long does the examination take?",
+    "A11": "Our standard examinations take an average of 30-45 minutes, while our Bright Futures comprehensive examinations take a minimum of 1 hour. First examinations usually take longer.",
+    "CTA": {
+      "TITLE": "[EN] Title",
+      "SUBTITLE": "[EN] Subtitle",
+      "APPOINTMENT_BUTTON": "[EN] Appointment Button"
+    }
   },
   "BLOG": {
     "TITLE": "Blog",
@@ -1281,7 +1305,12 @@
     "PUBLICATIONS_TITLE": "Publications and Research",
     "MEMBERSHIPS_TITLE": "Professional Memberships",
     "MEMBERSHIP_AAP": "American Academy of Pediatrics",
-    "MEMBERSHIP_TURKISH": "Turkish Pediatrics Association"
+    "MEMBERSHIP_TURKISH": "Turkish Pediatrics Association",
+    "CTA": {
+      "TITLE": "[EN] Title",
+      "SUBTITLE": "[EN] Subtitle",
+      "APPOINTMENT_BUTTON": "[EN] Appointment Button"
+    }
   },
   "DOCUMENT": {
     "DOWNLOAD_PDF": "Download PDF",
@@ -2201,7 +2230,12 @@
     "HYGIENE_NOTE": "* Our clinic holds a Ministry of Health hygiene certificate.",
     "CTA_TITLE": "Visit Our Clinic",
     "CTA_SUBTITLE": "Experience our child-friendly environment",
-    "CTA_BUTTON": "Schedule a Visit"
+    "CTA_BUTTON": "Schedule a Visit",
+    "CTA": {
+      "TITLE": "[EN] Title",
+      "SUBTITLE": "[EN] Subtitle",
+      "APPOINTMENT_BUTTON": "[EN] Appointment Button"
+    }
   },
   "KLINIK_TASARIMI": {
     "TITLE": "Clinic Design",
@@ -2290,7 +2324,12 @@
     "READ_MORE": "Read More",
     "CTA_TITLE": "Learn More",
     "CTA_DESCRIPTION": "Discover the stories of these inspiring figures",
-    "CTA_BUTTON": "Explore Stories"
+    "CTA_BUTTON": "Explore Stories",
+    "CTA": {
+      "TITLE": "[EN] Title",
+      "SUBTITLE": "[EN] Subtitle",
+      "APPOINTMENT_BUTTON": "[EN] Appointment Button"
+    }
   },
   "SERVICE_SOS_FEEDING": {
     "WHAT_IS_TITLE": "What is SOS Feeding?",

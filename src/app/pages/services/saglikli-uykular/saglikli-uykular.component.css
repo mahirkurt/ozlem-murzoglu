@@ -10,114 +10,23 @@
   width: 100%;
 }
 
-/* MD3 Container */
+/* MD3 Container - Using Global Standards */
 .md3-container {
-  max-width: 1200px;
+  max-width: min(1440px, 90vw);
   margin: 0 auto;
   padding: 0 var(--md-sys-spacing-6);
   width: 100%;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: min(1440px, 90vw);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--md-sys-spacing-6);
   width: 100%;
 }
 
-/* Hero Features Section */
-.hero-features {
-  padding: 48px 0;
-  background: linear-gradient(180deg,
-    var(--md-sys-color-surface) 0%,
-    var(--md-sys-color-background) 100%
-  );
-  border-bottom: 1px solid var(--md-sys-color-outline-variant);
-}
-
-.feature-chips {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
-}
-
-.feature-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  background: var(--md-sys-color-surface-container);
-  border-radius: 100px;
-  color: var(--md-sys-color-on-surface-variant);
-  font-size: 14px;
-  font-weight: 500;
-  box-shadow: var(--md-sys-elevation-level1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.feature-chip:hover {
-  background: var(--md-sys-color-surface-container-high);
-  box-shadow: var(--md-sys-elevation-level2);
-  transform: translateY(-2px);
-}
-
-.feature-chip .material-icons {
-  font-size: 20px;
-  color: var(--md-sys-color-primary);
-}
-
-.cta-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.btn-primary,
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  border-radius: 100px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  border: none;
-}
-
-.btn-primary {
-  background: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
-}
-
-.btn-primary:hover {
-  background: color-mix(in srgb, var(--md-sys-color-primary) 90%, black 10%);
-  box-shadow: var(--md-sys-elevation-level2);
-}
-
-.btn-secondary {
-  background: var(--md-sys-color-secondary-container);
-  color: var(--md-sys-color-on-secondary-container);
-}
-
-.btn-secondary:hover {
-  background: color-mix(in srgb, var(--md-sys-color-secondary-container) 90%, black 10%);
-  box-shadow: var(--md-sys-elevation-level2);
-}
-
-.btn-primary .material-icons,
-.btn-secondary .material-icons {
-  font-size: 20px;
-}
-
-/* Hero Section Removed - Using Global Hero Component */
+/* Using Global Hero Component - Ensure no overlap with global header */
+/* Global header is fixed at top with height ~80px */
 
 /* MD3 Typography Classes */
 .md3-display-large {
@@ -280,6 +189,24 @@
 .md3-button-tonal {
   background: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
+  position: relative;
+  overflow: hidden;
+}
+
+/* MD3 Expressive: Ripple effect on click */
+.md3-button-tonal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.md3-button-tonal:active::before {
+  transform: scale(2);
+  transition: transform 0s;
 }
 
 .md3-button-large {
@@ -292,14 +219,56 @@
   justify-content: center;
 }
 
+/* MD3 Expressive: Smooth transitions for all buttons */
+.md3-button-filled,
+.md3-button-outlined,
+.md3-button-tonal {
+  transition:
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.md3-button-filled:active,
+.md3-button-outlined:active,
+.md3-button-tonal:active {
+  transform: scale(0.98);
+}
+
 /* MD3 Sections */
 .md3-section {
   padding: var(--md-sys-spacing-16) 0;
   position: relative;
+  transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.md3-section:first-of-type {
+  padding-top: var(--md-sys-spacing-10);
 }
 
 .md3-section-tonal {
   background: var(--md-sys-color-surface-variant);
+  position: relative;
+  overflow: hidden;
+}
+
+/* MD3 Expressive: Subtle gradient overlay for depth */
+.md3-section-tonal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(10, 147, 150, 0.02) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.md3-section-tonal > * {
+  position: relative;
+  z-index: 1;
 }
 
 .md3-section-surface {
@@ -308,10 +277,23 @@
 
 .md3-section-header {
   margin-bottom: var(--md-sys-spacing-12);
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .md3-text-center {
   text-align: center;
+}
+
+/* MD3 Expressive: Smooth fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* MD3 Icon Containers */
@@ -346,25 +328,58 @@
   color: white;
 }
 
-/* MD3 Cards */
+/* MD3 Cards - Expressive Design */
 .md3-card {
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  transition: all 0.3s var(--ease-in-out);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
 .md3-card-elevated {
   background: white;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.12),
+    0 1px 2px rgba(0,0,0,0.24);
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .md3-card-elevated:hover {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,0.12),
+    0 3px 6px rgba(0,0,0,0.08);
+  transform: translateY(-2px) translateZ(0);
+}
+
+/* MD3 Expressive: Subtle shimmer effect on hover */
+.md3-card-elevated::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.md3-card-elevated:hover::after {
+  transform: translateX(100%);
 }
 
 .md3-card-outlined {
   background: white;
   border: 1px solid var(--md-sys-color-outline-variant);
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.md3-card-outlined:hover {
+  border-color: var(--md-sys-color-primary);
 }
 
 .md3-card-filled {
@@ -375,6 +390,26 @@
 .md3-card-primary {
   background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary-dark, #003D4F) 100%);
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* MD3 Expressive: Animated gradient overlay */
+.md3-card-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.md3-card-primary:hover::before {
+  opacity: 1;
 }
 
 .md3-card-success {
@@ -387,7 +422,13 @@
 }
 
 .md3-card-interactive:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* MD3 Expressive: Focus states for accessibility */
+.md3-card:focus-visible {
+  outline: 3px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
 }
 
 .md3-card-header {
