@@ -117,11 +117,6 @@
   background: linear-gradient(135deg, var(--md3-sys-color-surface-variant) 0%, var(--md3-sys-color-surface-container) 100%);
 }
 
-/* Statistics Section */
-.statistics-section {
-  padding: var(--md3-sys-spacing-10) 0;
-  background-color: var(--md3-sys-color-surface);
-}
 
 /* FAQ Section */
 .faq-section {
@@ -129,10 +124,10 @@
   background-color: var(--md3-sys-color-surface-container-low);
 }
 
-/* CTA Section - Fixed spacing */
+/* CTA Section - No margin top, seamless transition */
 .healthy-sleep-page .cta-section {
   padding: var(--md3-sys-spacing-10) 0;
-  margin-top: var(--md3-sys-spacing-8);
+  margin-top: 0;
 }
 
 /* ==================================================== */
@@ -149,7 +144,7 @@
 }
 
 /* ==================================================== */
-/* SCIENCE GRID - REDESIGNED                           */
+/* SCIENCE GRID - REDESIGNED WITH ELEGANT ICONS        */
 /* ==================================================== */
 
 .science-section .md3-grid-3 {
@@ -157,18 +152,63 @@
 }
 
 .science-section .md3-card {
-  min-height: 320px;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.science-section .md3-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--md3-sys-color-primary), var(--md3-sys-color-tertiary));
 }
 
 .science-section .md3-card-media {
-  background: linear-gradient(135deg, var(--md3-sys-color-primary-container) 0%, var(--md3-sys-color-tertiary-container) 100%);
-  padding: var(--md3-sys-spacing-4);
+  background: linear-gradient(135deg,
+    rgba(10, 147, 150, 0.05) 0%,
+    rgba(10, 147, 150, 0.02) 100%);
+  padding: var(--md3-sys-spacing-5);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100px;
+  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.science-section .md3-card-media::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(10, 147, 150, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.science-section .md3-icon-container {
+  width: 72px;
+  height: 72px;
+  background: white;
+  box-shadow: 0 8px 24px rgba(10, 147, 150, 0.15);
+  position: relative;
+  z-index: 1;
+  transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-emphasized);
+}
+
+.science-section .md3-card:hover .md3-icon-container {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 12px 32px rgba(10, 147, 150, 0.25);
+}
+
+.science-section .md3-icon-container .material-icons {
+  font-size: 36px;
 }
 
 .science-section .md3-card-content {
@@ -176,6 +216,17 @@
   display: flex;
   flex-direction: column;
   gap: var(--md3-sys-spacing-2);
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
 }
 
 /* Stats within science cards */
@@ -208,24 +259,80 @@
 }
 
 /* ==================================================== */
-/* PACKAGE BUTTONS - ROUNDED RECTANGLE                 */
+/* PACKAGE BUTTONS - WHATSAPP STYLE                    */
 /* ==================================================== */
 
 .md3-package-card .md3-button {
   border-radius: var(--md3-sys-shape-corner-medium);
-  padding: var(--md3-sys-spacing-3) var(--md3-sys-spacing-6);
+  padding: var(--md3-sys-spacing-3) var(--md3-sys-spacing-4);
   font-weight: 600;
+  transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-emphasized);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--md3-sys-spacing-2);
+  text-decoration: none;
+}
+
+.md3-package-card .md3-button .material-icons {
+  font-size: 20px;
+}
+
+.md3-package-card .md3-button-outlined {
+  border-color: #25D366;
+  color: #25D366;
+}
+
+.md3-package-card .md3-button-outlined:hover {
+  background-color: rgba(37, 211, 102, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.md3-package-card .md3-button-filled {
+  background-color: #25D366;
+  color: white;
+}
+
+.md3-package-card .md3-button-filled:hover {
+  background-color: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
+/* ==================================================== */
+/* TIMELINE - ENHANCED WITH SHADOWS & HOVER            */
+/* ==================================================== */
+
+.md3-timeline-item {
+  transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-standard);
+}
+
+.md3-timeline-item:hover {
+  transform: translateX(8px);
+}
+
+.md3-timeline-marker {
+  box-shadow: 0 4px 12px rgba(10, 147, 150, 0.3);
   transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-emphasized);
 }
 
-.md3-package-card .md3-button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--md3-sys-elevation-level3);
+.md3-timeline-item:hover .md3-timeline-marker {
+  box-shadow: 0 8px 20px rgba(10, 147, 150, 0.4);
+  transform: scale(1.1);
 }
 
-/* ==================================================== */
-/* TIMELINE CONNECTOR                                   */
-/* ==================================================== */
+.md3-timeline-content {
+  background-color: var(--md3-sys-color-surface-container-low);
+  padding: var(--md3-sys-spacing-3);
+  border-radius: var(--md3-sys-shape-corner-large);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-standard);
+}
+
+.md3-timeline-item:hover .md3-timeline-content {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  background-color: white;
+}
 
 .md3-timeline-connector {
   flex: 1;
@@ -269,34 +376,102 @@
 }
 
 /* ==================================================== */
-/* STAT CARD ANIMATIONS                                 */
+/* ADDITIONAL AESTHETIC IMPROVEMENTS                    */
 /* ==================================================== */
 
-.md3-stat-card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+/* Enhanced Accordion */
+.md3-accordion-item {
+  transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-standard);
+  border-left: 4px solid transparent;
 }
 
-.md3-stat-card.visible {
-  opacity: 1;
-  transform: translateY(0);
+.md3-accordion-item:hover {
+  border-left-color: var(--md3-sys-color-primary);
+  box-shadow: var(--md3-sys-elevation-level2);
 }
 
-.md3-stat-card:nth-child(1) {
-  transition-delay: 0.1s;
+.md3-accordion-item.active {
+  border-left-color: var(--md3-sys-color-primary);
+  box-shadow: var(--md3-sys-elevation-level3);
 }
 
-.md3-stat-card:nth-child(2) {
-  transition-delay: 0.2s;
+/* Enhanced FAQ Cards */
+.md3-faq-item {
+  border-left: 3px solid transparent;
+  transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-standard);
 }
 
-.md3-stat-card:nth-child(3) {
-  transition-delay: 0.3s;
+.md3-faq-item:hover {
+  border-left-color: var(--md3-sys-color-tertiary);
+  transform: translateY(-4px);
+  box-shadow: var(--md3-sys-elevation-level3);
 }
 
-.md3-stat-card:nth-child(4) {
-  transition-delay: 0.4s;
+/* Package Cards Enhanced */
+.md3-package-card {
+  transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-emphasized);
+  border-top: 3px solid transparent;
+}
+
+.md3-package-card:hover {
+  border-top-color: var(--md3-sys-color-primary);
+}
+
+.md3-package-featured {
+  border-top-color: var(--md3-sys-color-primary);
+  background: linear-gradient(135deg,
+    rgba(10, 147, 150, 0.03) 0%,
+    rgba(255, 193, 7, 0.02) 100%);
+}
+
+/* Card Content Fade-in */
+.intro-section .md3-card,
+.science-section .md3-card,
+.approaches-section .md3-card {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger card animations */
+.md3-grid .md3-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.md3-grid .md3-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.md3-grid .md3-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Section Headers Fade-in */
+.md3-section-header {
+  animation: fade-in 0.8s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
 }
 
 /* ==================================================== */
@@ -318,7 +493,7 @@
 
   .healthy-sleep-page .cta-section {
     padding: var(--md3-sys-spacing-8) 0;
-    margin-top: var(--md3-sys-spacing-6);
+    margin-top: 0;
   }
 
   /* Timeline connector mobile adjustment */
