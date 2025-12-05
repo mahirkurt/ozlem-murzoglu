@@ -17,7 +17,7 @@ interface Service {
   standalone: true,
   imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './services-section.component.html',
-  styleUrl: './services-section.component.css'
+  styleUrl: './services-section.component.scss'
 })
 export class ServicesSectionComponent {
   @Input() locale: string = 'tr';

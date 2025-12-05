@@ -20,7 +20,7 @@ interface Testimonial {
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './testimonial-section.component.html',
-  styleUrl: './testimonial-section.component.css'
+  styleUrl: './testimonial-section.component.scss'
 })
 export class TestimonialSectionComponent implements OnInit, OnDestroy {
   rating = 5.0;

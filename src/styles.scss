@@ -1,43 +1,151 @@
-// Angular Material MD3 Expressive Theme için Ana Stil Dosyası
-// ==========================================================
+/* Import MD3 Expressive Design System - Revised 2025 */
+@import 'styles/md3/index';
 
-// 1. Angular Material çekirdek stilleri
-@use '@angular/material' as mat;
+/* Keep Design System for extra utilities not covered by MD3 guide (Glassmorphism, etc) */
+@import 'styles/design-system.css'; 
 
-// 2. Özel tema dosyalarımız
-@use 'app/styles/theme' as theme;
-@use 'app/styles/color-system' as colors;
-@use 'sass:map';
-
-// 3. Angular Material çekirdek sistemini başlat
-@include mat.core();
-
-// 4. Tüm Angular Material bileşenlerine temayı uygula
-html {
-  @include mat.all-component-themes(theme.$theme);
-}
-
-// 5. Tipografi hiyerarşisini uygula
-@include theme.typography-hierarchy();
-
-// 6. Bileşen özelleştirmelerini uygula
-@include theme.component-overrides();
-
-// 7. Expressive animasyonları uygula
-@include theme.expressive-animations();
-
-// 8. Utility sınıflarını uygula
-@include theme.utility-classes();
-
-// 9. Mevcut CSS dosyalarını import et (SCSS'e dönüştürülecek)
-@import 'styles/theme-tokens.css';
-@import 'styles/light.css';
-@import 'styles/design-system.css';
 @import 'app/shared/styles/illustrations.css';
 @import 'app/styles/hero-section-global.css';
 @import 'app/styles/cta-section.css';
 
-// 10. Global stiller
+/* Font Import (Already in typography.scss but keeping for safety if removed there) */
+/* _typography.scss imports its own fonts, so we might duplicate. 
+   Typography.scss imports: DM Sans and Figtree. 
+   This file imported: Figtree, DM Sans, Inter.
+   I will keep Inter just in case.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* MD3 Header Band Global Utilities */
+.md3-header-band {
+  background: linear-gradient(
+    135deg,
+    var(--md-sys-color-primary),
+    color-mix(in srgb, var(--md-sys-color-primary) 85%, var(--md-sys-color-secondary) 15%)
+  );
+  color: var(--md-sys-color-on-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.md3-header-band-elevated {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.md3-header-band-animated {
+  animation: headerBandGradient 10s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes headerBandGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Global Page Section Styles */
+section[class*="-page"] {
+  padding-top: 48px; /* Consistent top padding for all page sections */
+}
+
+/* Global Hero Section Positioning - Single source of truth */
+app-hero-section {
+  display: block;
+  width: 100%;
+  position: relative;
+  margin-top: var(--header-height-desktop) !important;
+}
+
+/* Standalone hero sections */
+.hero-section:not(.homepage-hero) {
+  margin-top: var(--header-height-desktop) !important;
+}
+
+@media (max-width: 768px) {
+  app-hero-section {
+    margin-top: var(--header-height-mobile) !important;
+  }
+
+  .hero-section:not(.homepage-hero) {
+    margin-top: var(--header-height-mobile) !important;
+  }
+}
+
+/* Z-Index Layer System - Clean and organized */
+:root {
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  --z-index-header: 1030; /* Fixed header layer */
+  --z-index-mobile-menu: 1040; /* Above header when active */
+}
+
+/* Main content area - normal flow */
+main {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Fixed Header */
+app-header,
+.modern-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-index-header);
+  background: var(--md-sys-color-surface);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Off-screen by default */
+  z-index: var(--z-index-mobile-menu);
+  transition: right 0.3s ease;
+  visibility: hidden;
+  display: none;
+}
+
+.mobile-menu.active {
+  right: 0;
+  visibility: visible;
+}
+
+@media (max-width: 1199px) {
+  .mobile-menu {
+    display: flex;
+  }
+
+  .mobile-menu.active {
+    display: flex;
+    visibility: visible;
+  }
+}
+
+/* Page containers */
+.page-container,
+.content-container,
+.lab-imaging-container {
+  position: relative;
+  background: var(--md-sys-color-background, var(--md-sys-color-surface)); 
+  /* Fallback to surface if background token not defined in new system (it isn't explicitly in guide, surface is used) */
+}
+
+@media (max-width: 768px) {
+  section[class*="-page"] {
+    padding-top: 32px; /* Less padding on mobile */
+  }
+}
+
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -47,331 +155,403 @@ html {
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 
-  // MD3 sistem renkleri - Yeni renk paleti
-  --md-sys-color-primary: #00897b; // Teal
-  --md-sys-color-on-primary: #ffffff;
-  --md-sys-color-primary-container: #{map.get(theme.$primary-palette, 90)};
-  --md-sys-color-on-primary-container: #{map.get(theme.$primary-palette, 10)};
+  /* Legacy color variables for backward compatibility mapping to new MD3 tokens */
+  --color-primary: var(--md-sys-color-primary);
+  --color-secondary: var(--md-sys-color-secondary);
+  --color-tertiary: var(--md-sys-color-tertiary);
 
-  --md-sys-color-secondary: #{map.get(theme.$secondary-palette, 50)};
-  --md-sys-color-on-secondary: #ffffff;
-  --md-sys-color-secondary-container: #{map.get(theme.$secondary-palette, 90)};
-  --md-sys-color-on-secondary-container: #{map.get(theme.$secondary-palette, 10)};
+  /* Spacing System - Consistent spacing across the app */
+  /* Keeping these as they are not in MD3 guide explicit list */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;      /* 8px */
+  --spacing-md: 1rem;        /* 16px */
+  --spacing-lg: 1.5rem;      /* 24px */
+  --spacing-xl: 2rem;        /* 32px */
+  --spacing-xxl: 3rem;       /* 48px */
+  --spacing-xxxl: 4rem;      /* 64px */
 
-  --md-sys-color-tertiary: #{map.get(theme.$tertiary-palette, 50)};
-  --md-sys-color-on-tertiary: #ffffff;
-  --md-sys-color-tertiary-container: #{map.get(theme.$tertiary-palette, 90)};
-  --md-sys-color-on-tertiary-container: #{map.get(theme.$tertiary-palette, 10)};
+  /* Header Heights - For consistent margin-top calculations */
+  --header-height-desktop: 108px; /* Top bar (28px) + Main nav (80px) */
+  --header-height-mobile: 80px;
 
-  --md-sys-color-surface: #{map.get(theme.$neutral-palette, 98)};
-  --md-sys-color-on-surface: #{map.get(theme.$neutral-palette, 20)};
-  --md-sys-color-surface-variant: #{map.get(theme.$neutral-palette, 95)};
-  --md-sys-color-on-surface-variant: #{map.get(theme.$neutral-palette, 30)};
+  /* Transitions - GLOBAL EXPRESSIVE MOTION UPDATE */
+  --transition-transform: transform var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-standard);
+  --transition-all: all var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-standard);
 
-  --md-sys-color-background: #{map.get(theme.$neutral-palette, 99)};
-  --md-sys-color-on-background: #{map.get(theme.$neutral-palette, 10)};
+  /* Elevation Levels - Mapping old vars to new MD3 vars where possible */
+  --elevation-level-1: var(--md-sys-elevation-level1);
+  --elevation-level-2: var(--md-sys-elevation-level2);
+  --elevation-level-3: var(--md-sys-elevation-level3);
 
-  --md-sys-color-error: #{map.get(theme.$error-palette, 40)};
-  --md-sys-color-on-error: #ffffff;
-  --md-sys-color-error-container: #{map.get(theme.$error-palette, 90)};
-  --md-sys-color-on-error-container: #{map.get(theme.$error-palette, 10)};
+  /* Border Radius */
+  --radius-sm: var(--md-sys-shape-corner-extra-small);
+  --radius-md: var(--md-sys-shape-corner-small);
+  --radius-lg: var(--md-sys-shape-corner-medium);
+  --radius-xl: var(--md-sys-shape-corner-large);
+  --radius-xxl: var(--md-sys-shape-corner-extra-large);
+  --radius-full: var(--md-sys-shape-corner-full);
 
-  --md-sys-color-outline: #{map.get(theme.$neutral-palette, 50)};
-  --md-sys-color-outline-variant: #{map.get(theme.$neutral-palette, 80)};
-
-  // Shape tokenleri
-  --md-sys-shape-corner-extra-small: #{map.get(theme.$shape-config, extra-small)};
-  --md-sys-shape-corner-small: #{map.get(theme.$shape-config, small)};
-  --md-sys-shape-corner-medium: #{map.get(theme.$shape-config, medium)};
-  --md-sys-shape-corner-large: #{map.get(theme.$shape-config, large)};
-  --md-sys-shape-corner-extra-large: #{map.get(theme.$shape-config, extra-large)};
-  --md-sys-shape-corner-full: #{map.get(theme.$shape-config, full)};
+  /* Container Configuration - MD3 Responsive Standard */
+  --container-max-width: min(1440px, 90vw);
+  --container-padding-x: 24px;
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--md-sys-typescale-body-large-font);
   font-size: 16px;
   line-height: 1.6;
   font-weight: 400;
-  color: var(--md-sys-color-on-background);
-  background-color: var(--md-sys-color-background);
-  margin: 0;
-  padding: 0;
+  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-color-surface);
+  margin: 0 !important;
+  padding: 0 !important;
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-// Typography - MD3 sistemine uyumlu
+/* Typography - Headings use new tokens */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Figtree', sans-serif;
-  font-weight: 600;
-  line-height: var(--line-height-tight, 1.2);
-  color: var(--md-sys-color-on-surface);
-  letter-spacing: var(--letter-spacing-tight, -0.02em);
-  margin: 0;
+  font-family: var(--md-sys-typescale-headline-large-font);
+  color: var(--md-sys-color-primary);
 }
 
 h1 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 700;
+  font-family: var(--md-sys-typescale-display-large-font);
+  font-size: var(--md-sys-typescale-display-large-size);
+  line-height: var(--md-sys-typescale-display-large-line-height);
+  font-weight: var(--md-sys-typescale-display-large-weight);
+  letter-spacing: var(--md-sys-typescale-display-large-tracking);
 }
 
 h2 {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 600;
+  font-family: var(--md-sys-typescale-display-medium-font);
+  font-size: var(--md-sys-typescale-display-medium-size);
+  line-height: var(--md-sys-typescale-display-medium-line-height);
+  font-weight: var(--md-sys-typescale-display-medium-weight);
+  letter-spacing: var(--md-sys-typescale-display-medium-tracking);
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2.5vw, 2rem);
-  font-weight: 600;
+  font-family: var(--md-sys-typescale-display-small-font);
+  font-size: var(--md-sys-typescale-display-small-size);
+  line-height: var(--md-sys-typescale-display-small-line-height);
+  font-weight: var(--md-sys-typescale-display-small-weight);
+  letter-spacing: var(--md-sys-typescale-display-small-tracking);
 }
 
 h4 {
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
-  font-weight: 500;
+  font-family: var(--md-sys-typescale-headline-large-font);
+  font-size: var(--md-sys-typescale-headline-large-size);
+  line-height: var(--md-sys-typescale-headline-large-line-height);
+  font-weight: var(--md-sys-typescale-headline-large-weight);
+  letter-spacing: var(--md-sys-typescale-headline-large-tracking);
 }
 
 h5 {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  font-weight: 500;
+  font-family: var(--md-sys-typescale-headline-medium-font);
+  font-size: var(--md-sys-typescale-headline-medium-size);
+  line-height: var(--md-sys-typescale-headline-medium-line-height);
+  font-weight: var(--md-sys-typescale-headline-medium-weight);
+  letter-spacing: var(--md-sys-typescale-headline-medium-tracking);
 }
 
 h6 {
-  font-size: clamp(0.875rem, 1.25vw, 1.125rem);
-  font-weight: 500;
+  font-family: var(--md-sys-typescale-headline-small-font);
+  font-size: var(--md-sys-typescale-headline-small-size);
+  line-height: var(--md-sys-typescale-headline-small-line-height);
+  font-weight: var(--md-sys-typescale-headline-small-weight);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+}
+
+/* Body text */
+p,
+span,
+div,
+li,
+a,
+button,
+input,
+textarea,
+label {
+  font-family: var(--md-sys-typescale-body-large-font);
+}
+
+/* ==========================================================================
+   #GRID - Proje Geneli Container Yapısı
+   ========================================================================== */
+
+.container,
+.md3-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+  box-sizing: border-box;
+}
+
+/* Specific container sizes */
+.container-xl { max-width: 1440px; }
+.container-lg { max-width: 1240px; }
+.container-md { max-width: 1024px; }
+.container-sm { max-width: 960px; }
+
+/* ==========================================================================
+   #RESPONSIVE - Duyarlılık Ayarları
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding-x: 16px;
+  }
+}
+
+/* Typography Reset */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
 }
 
 p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--md-sys-color-on-surface-variant);
-  margin: 0 0 1rem 0;
+  margin: 0;
 }
 
 a {
-  color: var(--md-sys-color-primary);
+  color: inherit;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    opacity: 0.8;
-    text-decoration: underline;
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--md-sys-color-primary);
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
 }
 
-// Lists
-ul,
-ol {
-  font-family: 'DM Sans', sans-serif;
-  color: var(--md-sys-color-on-surface);
-  line-height: 1.6;
-  padding-left: 1.5rem;
-  margin: 0 0 1rem 0;
-
-  li {
-    margin-bottom: 0.5rem;
-  }
-}
-
-// Forms - MD3 stilinde
-input,
-textarea,
-select {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1rem;
-  color: var(--md-sys-color-on-surface);
-  background: var(--md-sys-color-surface);
-  border: 1px solid var(--md-sys-color-outline);
-  border-radius: var(--md-sys-shape-corner-small);
-  padding: 0.75rem 1rem;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:focus {
-    outline: none;
-    border-color: var(--md-sys-color-primary);
-    box-shadow: 0 0 0 4px rgba(46, 110, 106, 0.1);
-  }
-
-  &::placeholder {
-    color: var(--md-sys-color-on-surface-variant);
-    opacity: 0.6;
-  }
-}
-
-button {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.5px;
+/* Base button reset (MD3 buttons have their own class .md3-button, this resets generic buttons) */
+button:not([class*="md3-"]) {
+  font-family: inherit;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:disabled {
-    opacity: 0.38;
-    cursor: not-allowed;
-  }
+  border: none;
+  background: none;
+  padding: 0;
 }
 
-// Selection color
-::selection {
-  background-color: rgba(46, 110, 106, 0.2);
-  color: var(--md-sys-color-on-primary-container);
-}
-
-// Scrollbar styling
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--md-sys-color-surface);
-  border-radius: var(--md-sys-shape-corner-full);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--md-sys-color-outline-variant);
-  border-radius: var(--md-sys-shape-corner-full);
-  border: 3px solid var(--md-sys-color-surface);
-
-  &:hover {
-    background: var(--md-sys-color-outline);
-  }
-}
-
-// Focus visible için global stil
-*:focus-visible {
-  outline: 2px solid var(--md-sys-color-primary);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-// Responsive containers
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-
-  @media (min-width: 768px) {
-    padding: 0 2rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 0 3rem;
-  }
-}
-
-// Section spacing
-section {
-  padding: 3rem 0;
-
-  @media (min-width: 768px) {
-    padding: 4rem 0;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 5rem 0;
-  }
-}
-
-// Image optimization
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-// Table styles
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: 'DM Sans', sans-serif;
-
-  th {
-    font-weight: 600;
-    text-align: left;
-    padding: 0.75rem;
-    background: var(--md-sys-color-surface-variant);
-    color: var(--md-sys-color-on-surface);
-    border-bottom: 2px solid var(--md-sys-color-outline-variant);
-  }
-
-  td {
-    padding: 0.75rem;
-    border-bottom: 1px solid var(--md-sys-color-outline-variant);
-    color: var(--md-sys-color-on-surface-variant);
-  }
-
-  tr:hover {
-    background: rgba(46, 110, 106, 0.02);
-  }
+/* Utility Classes */
+.section {
+  padding: 0;
+  position: relative;
 }
 
-// Code blocks
-code {
-  font-family: 'Courier New', monospace;
-  background: var(--md-sys-color-surface-variant);
-  color: var(--md-sys-color-primary);
-  padding: 0.125rem 0.375rem;
-  border-radius: var(--md-sys-shape-corner-extra-small);
-  font-size: 0.875em;
+/* Remove section divider lines */
+.section:not(:last-child)::after {
+  display: none;
 }
 
-pre {
-  background: var(--md-sys-color-surface-variant);
-  color: var(--md-sys-color-on-surface);
-  padding: 1rem;
-  border-radius: var(--md-sys-shape-corner-small);
-  overflow-x: auto;
+/* Lazy Loading & Optimizations */
+.lazy-loading {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  background-color: var(--md-sys-color-surface-container);
+  min-height: 200px;
+}
 
-  code {
-    background: none;
-    padding: 0;
-    color: inherit;
+.lazy-loaded {
+  opacity: 1;
+}
+
+.lazy-loaded.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-// Blockquote
-blockquote {
-  border-left: 4px solid var(--md-sys-color-primary);
-  padding-left: 1rem;
-  margin: 1rem 0;
-  font-style: italic;
-  color: var(--md-sys-color-on-surface-variant);
+.lazy-error {
+  background-color: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
 }
 
-// Horizontal rule
-hr {
-  border: none;
+img[loading='lazy'] {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.preload-hidden {
+  position: absolute;
+  width: 1px;
   height: 1px;
-  background: var(--md-sys-color-outline-variant);
-  margin: 2rem 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
 }
 
-// Print styles
-@media print {
-  body {
-    font-size: 12pt;
-    line-height: 1.5;
-    color: #000;
-    background: #fff;
-  }
+.will-change-transform { will-change: transform; }
+.will-change-opacity { will-change: opacity; }
 
-  .no-print {
-    display: none !important;
+.hardware-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Homepage Liquid Hero */
+.liquid-hero {
+  margin-top: var(--header-height-desktop);
+  height: calc(100vh - var(--header-height-desktop));
+  width: 100%;
+  position: relative;
+}
+
+.liquid-hero .hero-content {
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .liquid-hero {
+    margin-top: var(--header-height-mobile);
+    height: calc(100vh - var(--header-height-mobile));
+  }
+}
+
+/* Section spacing */
+section,
+.section {
+  padding: 100px 0;
+  margin: 0;
+  background: transparent;
+}
+
+app-home {
+  background: var(--md-sys-color-surface);
+}
+
+app-home section,
+app-home .section,
+app-home > div[scrollReveal] {
+  margin: 0;
+  padding: 100px 0;
+  position: relative;
+}
+
+/* Alternating backgrounds */
+app-home > div[scrollReveal]:nth-child(even) {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+app-approach-section { background: var(--md-sys-color-surface); }
+app-doctor-bio { background: linear-gradient(135deg, var(--md-sys-color-surface) 0%, var(--md-sys-color-surface-container) 100%); }
+app-services-section { background: var(--md-sys-color-surface-container-low); }
+app-appointment-section { background: linear-gradient(135deg, var(--md-sys-color-surface-container) 0%, var(--md-sys-color-surface) 100%); }
+app-clinic-gallery { background: var(--md-sys-color-surface); }
+app-testimonial-section { background: linear-gradient(180deg, var(--md-sys-color-surface-container) 0%, var(--md-sys-color-surface) 100%); }
+
+/* Component spacing overrides */
+app-liquid-hero,
+app-approach-section,
+app-doctor-bio,
+app-services-section,
+app-appointment-section,
+app-clinic-gallery,
+app-testimonial-section {
+  display: block;
+  margin: 0;
+}
+
+.approach-section,
+.services-section,
+.appointment-section,
+.testimonial-section,
+.clinic-gallery,
+.doctor-bio {
+  padding: 100px 0;
+  margin: 0;
+}
+
+.approach-section {
+  border-top: none !important;
+}
+
+@media (max-width: 768px) {
+  section,
+  .section,
+  app-home section,
+  app-home .section,
+  app-home > div[scrollReveal],
+  .approach-section,
+  .services-section,
+  .appointment-section,
+  .testimonial-section,
+  .clinic-gallery,
+  .doctor-bio {
+    padding: 60px 0;
+  }
+}
+
+/* Smooth section transitions */
+.section-transition {
+  position: relative;
+}
+
+.section-transition::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    color-mix(in srgb, var(--md-sys-color-primary) 10%, transparent) 20%,
+    color-mix(in srgb, var(--md-sys-color-primary) 10%, transparent) 80%,
+    transparent);
+}
+
+/* Service grid mobile fixes */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  
+  .service-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .gallery-features {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .feature-card {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }

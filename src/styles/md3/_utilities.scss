@@ -1,0 +1,166 @@
+// _md3-utilities.scss
+
+/* ============================================
+   MD3 Utility Classes (Opt-in)
+   ============================================ */
+
+/* Elevation utilities */
+.md3-elevation-0 {
+  box-shadow: var(--md-sys-elevation-level0);
+}
+
+.md3-elevation-1 {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.md3-elevation-2 {
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.md3-elevation-3 {
+  box-shadow: var(--md-sys-elevation-level3);
+}
+
+.md3-elevation-4 {
+  box-shadow: var(--md-sys-elevation-level4);
+}
+
+.md3-elevation-5 {
+  box-shadow: var(--md-sys-elevation-level5);
+}
+
+/* Motion utilities */
+.md3-motion-fade-in {
+  animation: fadeIn var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.md3-motion-scale-up {
+  animation: scaleUp var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.md3-motion-slide-up {
+  animation: slideUp var(--md-sys-motion-duration-medium3) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Expressive Motion Helpers */
+.md3-expressive-transition {
+  transition-timing-function: var(--md-sys-motion-easing-expressive-standard);
+  transition-duration: var(--md-sys-motion-duration-medium4);
+}
+
+.md3-expressive-decelerate {
+  transition-timing-function: var(--md-sys-motion-easing-expressive-decelerate);
+}
+
+.md3-expressive-accelerate {
+  transition-timing-function: var(--md-sys-motion-easing-expressive-accelerate);
+}
+
+/* Stagger animations for lists */
+.md3-stagger-children > * {
+  opacity: 0;
+  animation: staggerFadeIn var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.md3-stagger-children > *:nth-child(1) { animation-delay: 50ms; }
+.md3-stagger-children > *:nth-child(2) { animation-delay: 100ms; }
+.md3-stagger-children > *:nth-child(3) { animation-delay: 150ms; }
+.md3-stagger-children > *:nth-child(4) { animation-delay: 200ms; }
+.md3-stagger-children > *:nth-child(5) { animation-delay: 250ms; }
+.md3-stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+.md3-stagger-children > *:nth-child(7) { animation-delay: 350ms; }
+.md3-stagger-children > *:nth-child(8) { animation-delay: 400ms; }
+
+@keyframes staggerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   Accessibility Enhancements
+   ============================================ */
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --md-sys-color-outline: rgba(0, 0, 0, 0.87);
+    --md-sys-state-hover-opacity: 0.12;
+    --md-sys-state-focus-opacity: 0.16;
+  }
+  
+  button, .md3-button {
+    border: 2px solid currentColor;
+  }
+  
+  *:focus-visible {
+    outline: 3px solid var(--md-sys-color-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   Responsive Utilities
+   ============================================ */
+
+/* Hide/show based on MD3 breakpoints */
+@media (max-width: 599px) {
+  .md3-hide-compact { display: none !important; }
+  .md3-show-compact { display: block !important; }
+}
+
+@media (min-width: 600px) and (max-width: 839px) {
+  .md3-hide-medium { display: none !important; }
+  .md3-show-medium { display: block !important; }
+}
+
+@media (min-width: 840px) {
+  .md3-hide-expanded { display: none !important; }
+  .md3-show-expanded { display: block !important; }
+}
