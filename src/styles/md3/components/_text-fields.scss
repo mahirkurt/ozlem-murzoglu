@@ -1,0 +1,148 @@
+// _md3-text-fields.scss
+.md3-text-field {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 280px;
+  
+  // Filled variant
+  &.md3-text-field-filled {
+    .md3-text-field-container {
+      background-color: var(--md-sys-color-surface-container-highest);
+      border-radius: var(--md-sys-shape-corner-extra-small-top);
+      padding: 8px 16px 8px 16px;
+      min-height: 56px;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: var(--md-sys-color-on-surface-variant);
+        transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+      }
+      
+      &:hover::after {
+        height: 1px;
+        background-color: var(--md-sys-color-on-surface);
+      }
+      
+      &:focus-within::after {
+        height: 2px;
+        background-color: var(--md-sys-color-primary);
+      }
+    }
+  }
+  
+  // Outlined variant
+  &.md3-text-field-outlined {
+    .md3-text-field-container {
+      background-color: transparent;
+      border: 1px solid var(--md-sys-color-outline);
+      border-radius: var(--md-sys-shape-corner-extra-small);
+      padding: 16px;
+      min-height: 56px;
+      transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+      
+      &:hover {
+        border-color: var(--md-sys-color-on-surface);
+      }
+      
+      &:focus-within {
+        border-width: 2px;
+        border-color: var(--md-sys-color-primary);
+        padding: 15px;
+      }
+    }
+  }
+  
+  .md3-text-field-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: text;
+  }
+  
+  .md3-text-field-input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-family: var(--md-sys-typescale-body-large-font);
+    font-size: var(--md-sys-typescale-body-large-size);
+    font-weight: var(--md-sys-typescale-body-large-weight);
+    line-height: var(--md-sys-typescale-body-large-line-height);
+    color: var(--md-sys-color-on-surface);
+    
+    &::placeholder {
+      color: transparent;
+    }
+  }
+  
+  .md3-text-field-label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--md-sys-typescale-body-large-font);
+    font-size: var(--md-sys-typescale-body-large-size);
+    font-weight: var(--md-sys-typescale-body-large-weight);
+    color: var(--md-sys-color-on-surface-variant);
+    pointer-events: none;
+    transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+    background-color: transparent;
+    padding: 0 4px;
+  }
+  
+  // Floating label
+  .md3-text-field-input:focus + .md3-text-field-label,
+  .md3-text-field-input:not(:placeholder-shown) + .md3-text-field-label {
+    top: -8px;
+    left: 12px;
+    font-size: var(--md-sys-typescale-body-small-size);
+    color: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-surface);
+  }
+  
+  // Supporting text
+  .md3-text-field-supporting-text {
+    margin-top: 4px;
+    padding: 0 16px;
+    font-family: var(--md-sys-typescale-body-small-font);
+    font-size: var(--md-sys-typescale-body-small-size);
+    font-weight: var(--md-sys-typescale-body-small-weight);
+    line-height: var(--md-sys-typescale-body-small-line-height);
+    color: var(--md-sys-color-on-surface-variant);
+  }
+  
+  // Error state
+  &.md3-text-field-error {
+    .md3-text-field-container {
+      &::after,
+      &:hover::after,
+      &:focus-within::after {
+        background-color: var(--md-sys-color-error);
+      }
+    }
+    
+    &.md3-text-field-outlined .md3-text-field-container {
+      border-color: var(--md-sys-color-error);
+      
+      &:hover,
+      &:focus-within {
+        border-color: var(--md-sys-color-error);
+      }
+    }
+    
+    .md3-text-field-label {
+      color: var(--md-sys-color-error);
+    }
+    
+    .md3-text-field-supporting-text {
+      color: var(--md-sys-color-error);
+    }
+  }
+}

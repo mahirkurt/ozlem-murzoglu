@@ -16,7 +16,7 @@ interface ApproachItem {
   standalone: true,
   imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './approach-section.component.html',
-  styleUrl: './approach-section.component.css'
+  styleUrl: './approach-section.component.scss'
 })
 export class ApproachSectionComponent implements OnInit {
   private translate = inject(TranslateService);
