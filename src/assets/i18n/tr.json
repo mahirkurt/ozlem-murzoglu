@@ -192,7 +192,8 @@
   "SERVICES": {
     "PAGE_TITLE": "Hizmetlerimiz",
     "SECTION_TITLE": "Hizmetlerimiz",
-    "SUBTITLE": "Çocuğunuzun sağlığı için kapsamlı pediatri hizmetleri",
+    "SUBTITLE": "Çocuğunuzun Sağlığı İçin Kapsamlı ve Bütüncül Yaklaşım",
+    "SECTION_DESC": "Amerikan Pediatri Akademisi standartlarında, doğumdan ergenliğe kadar uzanan geniş bir yelpazede, bilimsel ve sevgi dolu sağlık hizmetleri sunuyoruz.",
     "VIEW_ALL": "Tüm Hizmetlerimizi Görüntüle",
     "SERVICE_LAB": {
       "TITLE": "Laboratuvar ve Görüntüleme",
@@ -1173,8 +1174,8 @@
     "CALL": "0216 688 44 83"
   },
   "HERO": {
-    "TITLE": "Bilimin Rehberliğinde<br>Şefkatli Bir Dokunuş",
-    "SUBTITLE": "Sosyal Pediatri ve Çocuk Gelişimi Disiplinlerini<br>Entegre Eden Bütüncül Yaklaşım",
+    "TITLE": "Bilimin Rehberliğinde Şefkatli Bir Dokunuş",
+    "SUBTITLE": "Sosyal Pediatri ve Çocuk Gelişimi Disiplinlerini Entegre Eden Bütüncül Yaklaşım",
     "DESC": "Modern tıp anlayışı ile geleneksel değerleri harmanlayan kapsamlı pediatri hizmeti",
     "CTA_PRIMARY": "Randevu Al",
     "CTA_SECONDARY": "Hizmetlerimiz",
@@ -1185,6 +1186,7 @@
   "APPROACH": {
     "TITLE": "Yaklaşımımız",
     "SUBTITLE": "Çocuğunuzun Sağlığı İçin Bütüncül Bakım",
+    "SECTION_DESC": "Her çocuğun fiziksel, zihinsel ve duygusal gelişimini bir bütün olarak ele alıyor; bilimsel takibi şefkatli bir yaklaşımla harmanlıyoruz.",
     "COMPREHENSIVE_TITLE": "Kapsamlı Yaklaşım",
     "COMPREHENSIVE_DESC": "Fiziksel, zihinsel ve sosyal gelişimin tüm yönlerini ele alıyoruz",
     "PREVENTIVE_TITLE": "Koruyucu Tıp",
@@ -1320,8 +1322,10 @@
     "INTERIOR_VIEW": "Klinik İç Mekan"
   },
   "DOCTOR_BIO": {
+    "LABEL": "Hakkımda",
+    "SECTION_TITLE": "Uzm.Dr. Özlem Murzoğlu",
     "TITLE": "Uzm. Dr. Özlem Murzoğlu",
-    "SUBTITLE": "Çocuk Sağlığı ve Hastalıkları Uzmanı",
+    "SUBTITLE": "Çocuk Sağlığı ve Hastalıkları",
     "BIO_PARAGRAPH_1": "İstanbul Üniversitesi İstanbul Tıp Fakültesi'nden mezun olan Dr. Özlem Murzoğlu, pediatri uzmanlık eğitimini Marmara Üniversitesi Tıp Fakültesi Çocuk Sağlığı ve Hastalıkları Anabilim Dalı'nda tamamlamıştır.",
     "BIO_PARAGRAPH_2": "Aynı kurumda Sosyal Pediatri alanında doktora derecesini alan Dr. Murzoğlu, eş zamanlı olarak Çocuk Gelişimi lisans eğitimini de tamamlayarak, çocuk sağlığına bütüncül bir yaklaşım geliştirmiştir.",
     "BIO_PARAGRAPH_3": "Bright Futures® Sağlıklı Çocuk İzlemi, uyku danışmanlığı ve Triple P® Pozitif Ebeveynlik Programı konularında uzmanlaşan Dr. Murzoğlu, Ataşehir'deki kliniğinde ailelere kapsamlı pediatri hizmetleri sunmaktadır.",
@@ -1352,6 +1356,13 @@
       "SUBTITLE": "Hemen randevu alın ve çocuğunuzun sağlıklı geleceği için birlikte çalışalım",
       "APPOINTMENT_BUTTON": "Randevu Al"
     }
+  },
+  "CONTACT_CTA": {
+    "LABEL": "Bize Ulaşın",
+    "TITLE": "Çocuğunuzun Sağlığı İçin Buradayız",
+    "DESCRIPTION": "Modern kliniğimizde, kanıta dayalı tıp ve şefkatli bir yaklaşımla, çocuğunuzun sağlıklı gelişimi için yanınızdayız.",
+    "APPOINTMENT": "Randevu Al",
+    "WHATSAPP": "WhatsApp"
   },
   "DOCUMENT": {
     "DOWNLOAD_PDF": "PDF İndir",
@@ -2399,5 +2410,22 @@
       "MINUTES": "{{count}} dakika önce",
       "JUST_NOW": "Az önce"
     }
+  },
+  "APPOINTMENT": {
+    "FAST_ACCESS": "7/24 Online",
+    "HERO_TITLE": "Kolayca online randevu alın,\nbekleme sürelerini azaltın",
+    "HERO_DESC": "Hızlı ve güvenilir randevu sistemi ile sağlığınız için zaman kaybetmeyin.",
+    "NO_WAITING": "Hızlı Randevu",
+    "SECURE_SYSTEM": "Güvenilir Sistem",
+    "EASY_BOOKING": "Kolay İşlem"
+  },
+  "TESTIMONIALS": {
+    "LABEL": "AİLELERİMİZDEN",
+    "TITLE": "Google Yorumları",
+    "SUBTITLE": "Bize güvenen ailelerimizin deneyimleri",
+    "REVIEW_COUNT": "42 Yorum",
+    "VIEW_ALL_REVIEWS": "Tüm Yorumları Oku",
+    "VIEW_ON_MAPS": "Haritada Göster",
+    "WRITE_REVIEW": "Yorum Yap"
   }
 }

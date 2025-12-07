@@ -1,186 +1,306 @@
-/* Doctor Bio Component Styles - MD3 Refactored */
+/* Doctor Bio Section - Aurora Redesign (Phase 10) */
 @import 'styles/md3/index';
 
 .doctor-bio {
-  padding: 80px 0; // Use fixed or responsive spacing
-  background: var(--md-sys-color-surface);
   position: relative;
+  
+  /* Reduced spacing as requested */
+  padding: 80px 0; 
+  margin-top: 0;
+  
+  /* Combined with Approach Section */
+  border-top: none;
+  box-shadow: none;
+
+  /* Darker/Tinted Background for Contrast - Increased transparency for more visibility */
+  background: var(--md-sys-color-surface-container); 
   overflow: hidden;
+
+  /* AURORA BACKGROUND - Adjusted for colored base */
+  background-image: 
+    radial-gradient(at 0% 50%, rgba(var(--md-sys-color-primary-rgb), 0.08) 0px, transparent 60%),
+    radial-gradient(at 90% 10%, rgba(var(--md-sys-color-secondary-rgb), 0.08) 0px, transparent 60%),
+    radial-gradient(at 50% 90%, rgba(var(--md-sys-color-tertiary-rgb), 0.05) 0px, transparent 60%);
 }
 
 .container {
-  max-width: var(--container-max-width, 1440px);
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+  position: relative;
+  z-index: 2;
 }
 
+/* SECTION HEADER */
+.section-header {
+  text-align: center;
+  margin-bottom: 48px; /* Reduced from 64px */
+}
+
+.section-label {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(var(--md-sys-color-primary-rgb), 0.1);
+  color: var(--md-sys-color-primary);
+  border-radius: 100px;
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(4px);
+}
+
+.section-title {
+  font-family: var(--md-sys-typescale-display-small-font);
+  font-size: var(--md-sys-typescale-display-small-size);
+  font-weight: 700;
+  color: var(--md-sys-color-primary); /* Brand Color */
+  margin: 0;
+  text-transform: capitalize; /* Ensure Title Case */
+}
+
+/* GRID LAYOUT */
 .bio-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 64px;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
   align-items: center;
 }
 
-.doctor-image {
+/* PHOTO COLUMN (The Organic Glass Frame) */
+.photo-column {
   position: relative;
-  animation: fadeInRight var(--md-sys-motion-duration-long2) var(--md-sys-motion-easing-expressive-decelerate);
-  
-  img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: var(--md-sys-shape-corner-extra-large);
-    box-shadow: var(--md-sys-elevation-level3);
-    border: 4px solid var(--md-sys-color-surface-container);
-  }
+  display: flex;
+  justify-content: center;
 }
 
-.image-decoration {
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  right: 20px;
-  bottom: 20px;
-  // Use color mix instead of opacity for cleaner OKLCH handling if needed, but opacity is fine for graphic elements
-  background: linear-gradient(135deg, 
-    var(--md-sys-color-primary) 0%, 
-    var(--md-sys-color-tertiary-container) 100%);
-  border-radius: var(--md-sys-shape-corner-extra-large);
-  z-index: -1;
-  opacity: 0.15;
+.photo-card {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
 }
 
-.bio-content {
-  padding: 24px;
+.photo-frame {
+  position: relative;
+  border-radius: 40px; /* Soft Organic Shape */
+  overflow: hidden;
+  background: white;
+  box-shadow: 
+    0 24px 48px rgba(0,0,0,0.1),
+    0 0 0 8px rgba(255, 255, 255, 0.5); /* Outer Translucent Ring */
+    
+  transition: transform 0.5s ease;
 }
 
-.bio-title {
-  font-family: var(--md-sys-typescale-headline-large-font);
-  font-size: var(--md-sys-typescale-headline-large-size);
-  color: var(--md-sys-color-primary);
-  margin-bottom: 16px;
+.doctor-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scale(1.02); /* Slight zoom */
+  transition: transform 5s ease;
+}
+
+.photo-frame:hover {
+  transform: translateY(-5px);
+}
+
+.photo-frame:hover .doctor-photo {
+  transform: scale(1.08);
+}
+
+/* Floating Stats Removed */
+
+
+/* CONTENT COLUMN */
+.bio-header {
+  margin-bottom: 32px;
+}
+
+.doctor-name {
+  font-family: var(--md-sys-typescale-headline-medium-font);
+  font-size: 40px;
   font-weight: 700;
-  line-height: 1.2;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 8px;
 }
 
-.bio-subtitle {
-  font-family: var(--md-sys-typescale-title-large-font);
-  font-size: var(--md-sys-typescale-title-large-size);
-  color: var(--md-sys-color-secondary);
-  margin-bottom: 24px;
-  font-weight: 500;
+.doctor-specialty {
+  font-family: var(--md-sys-typescale-title-medium-font);
+  font-size: 20px;
+  color: var(--md-sys-color-secondary); /* Amber/Orange */
+  font-weight: 600;
+  margin: 0;
 }
 
 .bio-description {
-  font-family: var(--md-sys-typescale-body-large-font);
-  font-size: var(--md-sys-typescale-body-large-size);
-  color: var(--md-sys-color-on-surface-variant);
-  line-height: 1.6;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
-.bio-features {
+.bio-description p {
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 24px;
+}
+
+/* QUALIFICATIONS GRID */
+.qualifications-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin-bottom: 48px;
 }
 
-.feature-item {
+.qualification-card {
   display: flex;
   align-items: center;
   gap: 16px;
   padding: 16px;
-  border-radius: var(--md-sys-shape-corner-large);
-  background: var(--md-sys-color-surface-container-low);
-  transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+  border-radius: 24px;
   
-  &:hover {
-    background: var(--md-sys-color-surface-container);
-    transform: translateY(-2px);
-  }
+  /* Subtle Surface */
+  background: rgba(var(--md-sys-color-primary-rgb), 0.03);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.feature-icon {
-  color: var(--md-sys-color-primary);
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
+.qualification-card:hover {
+  background: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  border-color: rgba(var(--md-sys-color-primary-rgb), 0.2);
+  transform: translateY(-2px);
+}
+
+.qual-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: color-mix(in srgb, var(--md-sys-color-primary) 10%, transparent);
-  border-radius: var(--md-sys-shape-corner-full);
+  color: white;
+  font-size: 24px;
+  background: var(--md-sys-color-primary); /* Default */
+  flex-shrink: 0;
 }
 
-.feature-text {
-  font-family: var(--md-sys-typescale-label-large-font);
-  font-size: var(--md-sys-typescale-label-large-size);
+/* Icon Variants */
+.qualification-card:nth-child(2) .qual-icon { background: var(--md-sys-color-secondary); }
+.qualification-card:nth-child(3) .qual-icon { background: var(--md-sys-color-tertiary); }
+
+.qual-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.qual-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--md-sys-color-on-surface-variant);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.qual-detail {
+  font-size: 14px;
   color: var(--md-sys-color-on-surface);
-  font-weight: 500;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
-.bio-cta {
+/* ACTIONS */
+.bio-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-primary, .btn-secondary {
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 0 32px;
-  height: 56px; // Standard touch target
-  background: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
-  border-radius: var(--md-sys-shape-corner-full);
+  gap: 8px;
   text-decoration: none;
-  font-weight: 500;
-  transition: all var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-standard);
-  box-shadow: var(--md-sys-elevation-level2);
-  
-  &:hover {
-    background: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    transform: translateY(-2px);
-    box-shadow: var(--md-sys-elevation-level4);
-  }
-  
-  &:active {
-    transform: translateY(0);
-  }
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-@keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
+.btn-primary {
+  background: var(--md-sys-color-primary);
+  color: white;
+  box-shadow: 0 8px 20px rgba(var(--md-sys-color-primary-rgb), 0.3);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(var(--md-sys-color-primary-rgb), 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--md-sys-color-primary);
+  border: 2px solid rgba(var(--md-sys-color-primary-rgb), 0.2);
+}
+
+.btn-secondary:hover {
+  border-color: var(--md-sys-color-primary);
+  background: rgba(var(--md-sys-color-primary-rgb), 0.05);
+}
+
+/* DECORATION BLOBS (AURORA) */
+.bg-decoration {
+  display: none; /* Replaced by main background radial gradients for better performance */
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
   .bio-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 32px;
+    gap: 48px;
   }
   
-  .doctor-image {
-    display: flex;
+  .photo-column {
     justify-content: center;
-    order: -1;
-    
-    img {
-      max-width: 300px;
-    }
   }
   
-  .bio-features {
-    grid-template-columns: 1fr;
-    text-align: left;
-  }
-  
-  .bio-content {
-    padding: 0;
-  }
-  
-  .bio-cta {
+  .floating-stats {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 32px;
     width: 100%;
-    max-width: 320px;
+  }
+  
+  .bio-actions {
+    justify-content: center;
+  }
+  
+  .qualification-card {
+    text-align: left; /* Keep card content left-aligned for readability */
+  }
+}
+
+@media (max-width: 600px) {
+  .qualifications-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .photo-frame {
+    border-radius: 24px;
+  }
+  
+  .btn-primary, .btn-secondary {
+    width: 100%;
   }
 }

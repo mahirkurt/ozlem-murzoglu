@@ -1,1 +1,0 @@
-"""API layer for the healthcare management system."""

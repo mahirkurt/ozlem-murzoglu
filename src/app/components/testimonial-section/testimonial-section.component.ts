@@ -13,6 +13,7 @@ interface Testimonial {
   rating: number;
   date: string;
   dateKey: string;
+  profile_photo_url?: string;
 }
 
 @Component({
@@ -59,7 +60,8 @@ export class TestimonialSectionComponent implements OnInit, OnDestroy {
           textKey: '',
           rating: review.rating,
           date: review.relative_time_description,
-          dateKey: ''
+          dateKey: '',
+          profile_photo_url: review.profile_photo_url
         });
       }
       return reviewsToShow;

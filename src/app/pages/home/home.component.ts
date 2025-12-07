@@ -1,13 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LiquidHeroComponent } from '../../components/liquid-hero/liquid-hero';
-import { ApproachSectionComponent } from '../../components/approach-section/approach-section.component';
-import { TestimonialSectionComponent } from '../../components/testimonial-section/testimonial-section.component';
 import { ServicesSectionComponent } from '../../components/services-section/services-section.component';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
-import { ClinicGalleryComponent } from '../../components/clinic-gallery/clinic-gallery';
 import { DoctorBioComponent } from '../../components/doctor-bio/doctor-bio';
-import { AppointmentSectionComponent } from '../../components/appointment-section/appointment-section.component';
+import { ContactCtaComponent } from '../../components/contact-cta/contact-cta.component';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +12,10 @@ import { AppointmentSectionComponent } from '../../components/appointment-sectio
   imports: [
     TranslateModule,
     LiquidHeroComponent, 
-    ApproachSectionComponent, 
-    TestimonialSectionComponent,
     ServicesSectionComponent,
     ScrollRevealDirective,
-    ClinicGalleryComponent,
     DoctorBioComponent,
-    AppointmentSectionComponent
+    ContactCtaComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

@@ -13,7 +13,7 @@ interface SocialLink {
   standalone: true,
   imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './footer.html',
-  styleUrl: './footer.css'
+  styleUrls: ['./footer.scss']
 })
 export class Footer {
   private translate = inject(TranslateService);

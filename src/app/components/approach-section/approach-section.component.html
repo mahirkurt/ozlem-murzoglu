@@ -1,7 +1,9 @@
 <section class="approach-section">
   <div class="container">
     <div class="section-header">
+      <span class="section-label">{{ 'APPROACH.TITLE' | translate }}</span>
       <h2 class="section-title">{{ 'APPROACH.SUBTITLE' | translate }}</h2>
+      <p class="section-description">{{ 'APPROACH.SECTION_DESC' | translate }}</p>
     </div>
 
     <div class="approach-grid">
@@ -10,7 +12,7 @@
         [routerLink]="item.href" 
         class="approach-card approach-card--{{item.color}}"
       >
-        <div class="card-glow"></div>
+        <!-- No more .card-glow needed, handled by CSS box-shadow/bg -->
         
         <div class="card-header">
           <div class="card-icon">
@@ -18,14 +20,13 @@
           </div>
         </div>
         
-        <div class="card-content">
-          <h3 class="card-title md-sys-typescale-title-large">{{ item.titleKey | translate }}</h3>
-          <p class="card-description md-sys-typescale-body-medium">{{ item.descriptionKey | translate }}</p>
-        </div>
+        <!-- Direct content, no wrapper needed if CSS handles flex -->
+        <h3 class="card-title">{{ item.titleKey | translate }}</h3>
+        <p class="card-description">{{ item.descriptionKey | translate }}</p>
         
         <div class="card-action">
           <span class="action-text">{{ 'COMMON.READ_MORE' | translate }}</span>
-          <span class="material-icons action-icon">chevron_right</span>
+          <span class="material-icons action-icon">arrow_forward</span>
         </div>
       </a>
     </div>

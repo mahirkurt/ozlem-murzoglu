@@ -15,7 +15,7 @@ interface FAQ {
   standalone: true,
   imports: [CommonModule, TranslateModule, HeroSectionComponent],
   templateUrl: './faq.html',
-  styleUrl: './faq.css'
+  styleUrl: './faq.scss'
 })
 export class FaqComponent {
   breadcrumbs = [

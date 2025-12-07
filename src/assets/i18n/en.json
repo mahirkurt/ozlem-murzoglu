@@ -2399,5 +2399,13 @@
       "MINUTES": "{{count}} minutes ago",
       "JUST_NOW": "Just now"
     }
+  },
+  "APPOINTMENT": {
+    "FAST_ACCESS": "24/7 Online",
+    "HERO_TITLE": "Book appointment easily online,\nreduce waiting times",
+    "HERO_DESC": "Don't waste time for your health with our fast and reliable appointment system.",
+    "NO_WAITING": "Fast Appointment",
+    "SECURE_SYSTEM": "Secure System",
+    "EASY_BOOKING": "Easy Booking"
   }
 }
