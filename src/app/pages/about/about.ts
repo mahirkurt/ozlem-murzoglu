@@ -10,7 +10,7 @@ import { HeroSectionComponent } from '../../components/shared/hero-section/hero-
   standalone: true,
   imports: [CommonModule, RouterModule, TranslateModule, ScrollRevealDirective, HeroSectionComponent],
   templateUrl: './about.html',
-  styleUrl: './about.css'
+  styleUrl: './about.scss'
 })
 export class AboutComponent {
   private translate = inject(TranslateService);

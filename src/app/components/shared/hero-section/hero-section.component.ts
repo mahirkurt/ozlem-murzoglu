@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './hero-section.component.html',
-  styleUrl: './hero-section.component.css',
+  styleUrl: './hero-section.component.scss',
   encapsulation: ViewEncapsulation.None
 })
 export class HeroSectionComponent {

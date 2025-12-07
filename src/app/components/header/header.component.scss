@@ -1,0 +1,356 @@
+/* =========================================
+   FRESH HEADER CONTAINER (FLOATING LOGIC)
+   ========================================= */
+.fresh-header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none; /* Let clicks pass through empty areas */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================
+   UTILITY ROW (Floating Text Above Island)
+   ========================================= */
+.utility-row {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top center;
+  opacity: 1;
+}
+
+/* Hide utility row on scroll */
+.fresh-header-container.scrolled .utility-row {
+  height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  overflow: hidden;
+}
+
+.utility-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px;
+  font-family: var(--md-sys-typescale-label-medium-font);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.95); /* White for Teal Hero Overlay */
+}
+
+.contact-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.utility-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.utility-link:hover {
+  color: white;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.utility-link .material-icons {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.location-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.8;
+}
+
+.location-display .material-icons {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dot {
+  opacity: 0.3;
+}
+
+.portal-link-text {
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s;
+}
+
+.portal-link-text:hover {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   GLASS ISLAND (The Main Nav)
+   ========================================= */
+.glass-island {
+  pointer-events: auto; /* Re-enable clicks */
+  width: calc(100% - 48px); /* Floating with margins */
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.85); /* Glass */
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px; /* Fully rounded island */
+  padding: 8px 24px;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03),
+    0 12px 24px -8px rgba(0, 0, 0, 0.1); /* Deep soft shadow */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Morph to "Stuck" Bar on Scroll */
+.fresh-header-container.scrolled .glass-island {
+  width: 100%; /* Expand to full width */
+  max-width: 100%;
+  border-radius: 0 0 24px 24px; /* Rounded bottom corners only */
+  margin-top: 0;
+  padding: 8px 32px;
+  background: rgba(255, 255, 255, 0.95); /* More opaque */
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.island-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.island-logo img {
+  height: 48px;
+  width: auto;
+  transition: height 0.3s;
+}
+
+.fresh-header-container.scrolled .island-logo img {
+  height: 42px; /* Shrink slightly */
+}
+
+/* ISLAND MENU */
+.island-menu {
+  display: none;
+  gap: 4px;
+}
+
+@media (min-width: 992px) {
+  .island-menu {
+    display: flex;
+  }
+}
+
+.island-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 18px;
+  color: var(--md-sys-color-on-surface);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 50px; /* Pill links */
+  transition: all 0.2s ease;
+  min-height: 48px; /* Touch target */
+}
+
+.island-link:hover,
+.island-link.active {
+  background: rgba(var(--md-sys-color-primary-rgb), 0.08); /* Primary tint */
+  color: var(--md-sys-color-primary);
+}
+
+.dropdown-arrow {
+  font-size: 18px;
+  transition: transform 0.2s;
+  opacity: 0.6;
+}
+
+.island-nav-item:hover .dropdown-arrow {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* ISLAND DROPDOWN */
+.island-nav-item {
+  position: relative;
+}
+
+.island-dropdown {
+  position: absolute;
+  top: calc(100% + 6px); /* Reduced gap slightly */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: white;
+  min-width: 200px;
+  padding: 8px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0,0,0,0.05);
+
+  /* SAFE HOVER BRIDGE */
+  /* This invisible pseudo-element fills the gap between the nav item and the dropdown
+     so the hover state isn't lost when moving the cursor. */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20px; 
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
+  }
+}
+
+.island-nav-item:hover .island-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 16px;
+  color: var(--md-sys-color-on-surface);
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-primary);
+}
+
+/* ISLAND ACTIONS */
+.island-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Minimal Language Toggle */
+.lang-toggle {
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--md-sys-color-outline);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 8px; /* Touch target padding */
+}
+
+.lang-toggle span.active {
+  color: var(--md-sys-color-primary);
+}
+
+.lang-toggle .divider {
+  opacity: 0.3;
+}
+
+/* CTA "Jewel" Button */
+.island-cta {
+  background: var(--md-sys-color-primary);
+  color: white; /* On-primary */
+  border: none;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(var(--md-sys-color-primary-rgb), 0.3); /* Glow */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.island-cta:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(var(--md-sys-color-primary-rgb), 0.4);
+}
+
+.island-cta .icon-right {
+  font-size: 20px;
+}
+
+/* Mobile Toggle */
+.island-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--md-sys-color-on-surface);
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.island-mobile-toggle:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+@media (max-width: 991px) {
+  .utility-row {
+    display: none; /* Hide top bar on mobile */
+  }
+
+  .glass-island {
+    width:calc(100% - 24px); /* Tighter margins on mobile */
+    padding: 8px 16px;
+  }
+  
+  .island-menu, .lang-toggle, .island-cta {
+    display: none; /* Collapsed into mobile menu */
+  }
+
+  .island-mobile-toggle {
+    display: flex;
+  }
+  
+  .fresh-header-container.scrolled .glass-island {
+    padding: 8px 16px;
+  }
+}
