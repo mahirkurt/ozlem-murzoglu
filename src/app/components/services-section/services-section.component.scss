@@ -48,21 +48,7 @@
 }
 
 .section-header {
-  text-align: center;
-  margin-bottom: 48px; // Further reduced margin
-  // ... nested styles stay mostly same, relying on existing structure ...
-  
-  .section-label {
-    // ... basic styles ...
-    padding: 8px 16px;
-    margin-bottom: 12px; // Reduced
-    // ...
-  }
-
-  h2 {
-    // ...
-    margin-bottom: 16px; // Reduced
-  }
+  @include section-header-unified;
 }
 
 .services-grid {

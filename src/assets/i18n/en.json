@@ -1410,6 +1410,13 @@
     "PHONE_APPOINTMENT": "Appointment by Phone",
     "PHONE_DESC": "You can book an appointment by calling us"
   },
+  "CONTACT_CTA": {
+    "LABEL": "Contact Us",
+    "TITLE": "We Are Here for Your Child's Health",
+    "DESCRIPTION": "We are by your side for your child's healthy development with our modern clinic, evidence-based medicine, and compassionate approach.",
+    "APPOINTMENT": "Book Appointment",
+    "WHATSAPP": "WhatsApp"
+  },
   "LEGAL": {
     "PRIVACY_TITLE": "Privacy Policy",
     "TERMS_TITLE": "Terms of Use",

@@ -1,0 +1,96 @@
+Application bundle generation failed. [22.580 seconds]
+
+X [ERROR] Can't find stylesheet to import.
+  ÔòÀ
+2 Ôöé @import 'tokens';
+  Ôöé         ^^^^^^^^
+  ÔòÁ
+  src\styles\md3\_unified-layout.scss 2:9  @import
+  src\styles\md3\_index.scss 9:9           @import
+  src\app\pages\about\about.scss 2:9       root stylesheet [plugin angular-sass]
+
+
+X [ERROR] Can't find stylesheet to import.
+  ÔòÀ
+2 Ôöé @import 'tokens';
+  Ôöé         ^^^^^^^^
+  ÔòÁ
+  src\styles\md3\_unified-layout.scss 2:9              @import
+  src\styles\md3\_index.scss 9:9                       @import
+  src\app\components\liquid-hero\liquid-hero.scss 2:9  root stylesheet [plugin angular-sass]
+
+
+X [ERROR] Can't find stylesheet to import.
+  ÔòÀ
+2 Ôöé @import 'tokens';
+  Ôöé         ^^^^^^^^
+  ÔòÁ
+  src\styles\md3\_unified-layout.scss 2:9                                  @import
+  src\styles\md3\_index.scss 9:9                                           @import
+  src\app\components\services-section\services-section.component.scss 2:9  root stylesheet [plugin angular-sass]
+
+
+X [ERROR] Can't find stylesheet to import.
+  ÔòÀ
+2 Ôöé @import 'tokens';
+  Ôöé         ^^^^^^^^
+  ÔòÁ
+  src\styles\md3\_unified-layout.scss 2:9    @import
+  src\styles\md3\_index.scss 9:9             @import
+  src\app\components\footer\footer.scss 1:9  root stylesheet [plugin angular-sass]
+
+
+X [ERROR] Can't find stylesheet to import.
+  ÔòÀ
+2 Ôöé @import 'tokens';
+  Ôöé         ^^^^^^^^
+  ÔòÁ
+  src\styles\md3\_unified-layout.scss 2:9  @import
+  src\styles\md3\_index.scss 9:9           @import
+  src\app\pages\faq\faq.scss 2:9           root stylesheet [plugin angular-sass]
+
+
+X [ERROR] Can't find stylesheet to import.
+  ÔòÀ
+2 Ôöé @import 'tokens';
+  Ôöé         ^^^^^^^^
+  ÔòÁ
+  src\styles\md3\_unified-layout.scss 2:9                                 @import
+  src\styles\md3\_index.scss 9:9                                          @import
+  src\app\components\shared\hero-section\hero-section.component.scss 2:9  root stylesheet [plugin angular-sass]
+
+
+X [ERROR] Can't find stylesheet to import.
+  ÔòÀ
+2 Ôöé @import 'tokens';
+  Ôöé         ^^^^^^^^
+  ÔòÁ
+  src\styles\md3\_unified-layout.scss 2:9            @import
+  src\styles\md3\_index.scss 9:9                     @import
+  src\app\components\doctor-bio\doctor-bio.scss 2:9  root stylesheet [plugin angular-sass]
+
+
+X [ERROR] Can't find stylesheet to import.
+  ÔòÀ
+2 Ôöé @import 'tokens';
+  Ôöé         ^^^^^^^^
+  ÔòÁ
+  src\styles\md3\_unified-layout.scss 2:9              @import
+  src\styles\md3\_index.scss 9:9                       @import
+  src\app\components\contact-cta\contact-cta.scss 1:9  root stylesheet [plugin angular-sass]
+
+
+X [ERROR] Can't find stylesheet to import.
+  ÔòÀ
+2 Ôöé @import 'tokens';
+  Ôöé         ^^^^^^^^
+  ÔòÁ
+  src\styles\md3\_unified-layout.scss 2:9  @import
+  src\styles\md3\_index.scss 9:9           @import
+  src\styles.scss 2:9                      root stylesheet [plugin angular-sass]
+
+    angular:styles/global:styles:2:8:
+      2 Ôöé @import 'src/styles.scss';
+        ÔòÁ         ~~~~~~~~~~~~~~~~~
+
+

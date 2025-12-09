@@ -33,33 +33,9 @@
 
 /* SECTION HEADER */
 .section-header {
-  text-align: center;
-  margin-bottom: 48px; /* Reduced from 64px */
+  @include section-header-unified;
 }
-
-.section-label {
-  display: inline-block;
-  padding: 8px 16px;
-  background: rgba(var(--md-sys-color-primary-rgb), 0.1);
-  color: var(--md-sys-color-primary);
-  border-radius: 100px;
-  font-family: var(--md-sys-typescale-label-large-font);
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-  backdrop-filter: blur(4px);
-}
-
-.section-title {
-  font-family: var(--md-sys-typescale-display-small-font);
-  font-size: var(--md-sys-typescale-display-small-size);
-  font-weight: 700;
-  color: var(--md-sys-color-primary); /* Brand Color */
-  margin: 0;
-  text-transform: capitalize; /* Ensure Title Case */
-}
+/* Removed old individual classes as they are handled by the mixin */
 
 /* GRID LAYOUT */
 .bio-grid {
