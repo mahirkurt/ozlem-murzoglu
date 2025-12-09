@@ -39,7 +39,7 @@ export class Footer {
     { platform: 'twitter', url: 'https://x.com/ozlemmurzoglu' },
     { platform: 'linkedin', url: 'https://www.linkedin.com/in/ozlemmurzoglu/' },
     { platform: 'youtube', url: 'https://www.youtube.com/@ozlemmurzoglu' },
-    { platform: 'google', url: 'https://g.co/kgs/jXU64C' },
+    { platform: 'google', url: 'https://maps.app.goo.gl/T6NqV7g4LzakSesKA' },
     { platform: 'whatsapp', url: 'https://api.whatsapp.com/send?phone=905466884483&text=Merhaba%2C%20WhatsApp%20bilgilerinizi%20web%20sitenizden%20ald%C4%B1m.' }
   ];
 

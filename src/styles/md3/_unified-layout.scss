@@ -34,7 +34,7 @@ $section-padding-mobile: 64px 0;
     /* Gradient Text Style from CTA */
     background: linear-gradient(135deg, 
       var(--md-sys-color-primary) 0%, 
-      var(--md-sys-color-tertiary) 100%
+      var(--md-sys-color-inverse-primary) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -16,8 +16,7 @@ import { ContactCtaComponent } from '../../components/contact-cta/contact-cta.co
     ServicesSectionComponent,
     ScrollRevealDirective,
     DoctorBioComponent,
-    ContactCtaComponent,
-
+    ContactCtaComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
