@@ -1,15 +1,15 @@
 @import 'styles/md3/index';
 
 .contact-cta {
-  padding: 100px 0 160px; // Extra bottom padding for footer overlap
+  padding: 100px 0 160px;
   position: relative;
   overflow: hidden;
 
   /* Gradient Background - Stronger Transition */
   background: linear-gradient(
-    to bottom,
-    var(--md-sys-color-surface) 0%,
-    color-mix(in srgb, var(--md-sys-color-primary) 15%, var(--md-sys-color-surface)) 100%
+    135deg,
+    var(--md-sys-color-surface-container-low) 0%,
+    color-mix(in srgb, var(--md-sys-color-primary-container) 60%, var(--md-sys-color-surface-container-low)) 100%
   );
 
   /* Aurora Blobs */
@@ -21,8 +21,9 @@
     width: 60%;
     height: 100%;
     /* Stronger Opacity for visibility */
+    /* Stronger Opacity for visibility */
     background: radial-gradient(circle at center, 
-      rgba(var(--md-sys-color-secondary-rgb), 0.25) 0%, 
+      rgba(var(--md-sys-color-primary-rgb), 0.15) 0%, 
       transparent 70%);
     filter: blur(60px);
     z-index: 0;
@@ -37,8 +38,9 @@
     width: 70%;
     height: 90%;
     /* Stronger Opacity for visibility */
+    /* Stronger Opacity for visibility */
     background: radial-gradient(circle at center, 
-      rgba(var(--md-sys-color-primary-rgb), 0.3) 0%, 
+      rgba(var(--md-sys-color-tertiary-rgb), 0.15) 0%, 
       transparent 70%);
     filter: blur(50px);
     z-index: 0;
@@ -111,8 +113,8 @@
 }
 
 .btn-primary {
-  background: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+  background: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
   box-shadow: 0 8px 24px rgba(var(--md-sys-color-primary-rgb), 0.25);
 
   &:hover {

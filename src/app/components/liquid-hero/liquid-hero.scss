@@ -128,9 +128,9 @@
 
 /* BUTTON - DYNAMIC AMBER (Refined) */
 .hero-button {
-  /* High Contrast Amber Background */
-  background: var(--md-sys-color-secondary); 
-  color: var(--md-sys-color-on-secondary); /* Dark text for contrast */
+  /* White Tone Background */
+  background: var(--md-sys-color-surface-bright); 
+  color: var(--md-sys-color-primary); /* Primary text for contrast */
   
   padding: 16px 48px; /* Balanced padding */
   font-size: 1.125rem;
@@ -142,8 +142,8 @@
   justify-content: center; /* Force Center */
   transition: all 0.3s cubic-bezier(0.2, 0.0, 0, 1.0);
   
-  /* Glowing Amber Shadow */
-  box-shadow: 0 8px 30px -5px rgba(255, 193, 7, 0.4), 
+  /* White Glow Shadow */
+  box-shadow: 0 8px 30px -5px rgba(255, 255, 255, 0.5), 
               0 4px 10px rgba(0,0,0,0.1);
   
   /* Subtle Inner Gloss */
@@ -152,10 +152,10 @@
 
   &:hover {
     transform: translateY(-3px) scale(1.03);
-    /* Intensify Glow */
-    box-shadow: 0 15px 40px -5px rgba(255, 193, 7, 0.6),
+    /* Intensify White Glow */
+    box-shadow: 0 15px 40px -5px rgba(255, 255, 255, 0.7),
                 0 8px 15px rgba(0,0,0,0.15);
-    background-color: #FFD54F; /* Lighten slightly on hover */
+    background-color: white; /* Pure White on hover */
   }
   
   &:active {

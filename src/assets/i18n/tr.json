@@ -2468,5 +2468,12 @@
       "MINUTES": "{{count}} dakika önce",
       "JUST_NOW": "Az önce"
     }
+  },
+  "CONTACT_CTA": {
+    "LABEL": "İletişim",
+    "TITLE": "Size Nasıl Yardımcı Olabiliriz?",
+    "DESCRIPTION": "Randevu oluşturmak veya merak ettikleriniz için bize ulaşın.",
+    "APPOINTMENT": "Randevu Al",
+    "WHATSAPP": "WhatsApp"
   }
 }
