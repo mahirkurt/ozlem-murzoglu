@@ -6,6 +6,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 import { DoctorBioComponent } from '../../components/doctor-bio/doctor-bio';
 import { ContactCtaComponent } from '../../components/contact-cta/contact-cta.component';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -15,7 +16,8 @@ import { ContactCtaComponent } from '../../components/contact-cta/contact-cta.co
     ServicesSectionComponent,
     ScrollRevealDirective,
     DoctorBioComponent,
-    ContactCtaComponent
+    ContactCtaComponent,
+
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

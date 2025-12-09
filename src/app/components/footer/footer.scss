@@ -1,12 +1,15 @@
 @import 'styles/md3/index';
 
 .footer {
-  margin-top: 0;
+  margin-top: -60px; // Lift to overlap Contact CTA
   position: relative;
-  background: var(--md-sys-color-surface); // Base background to avoid transparency issues
+  z-index: 10;
+  background: transparent; // Allow CTA background to show behind corners
+  pointer-events: none; // Allow clicks on corners to pass through (optional, but good for transparency)
 }
 
 .footer-curve {
+  pointer-events: auto; // Re-enable pointer events for the footer content
   position: relative;
   background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, color-mix(in srgb, var(--md-sys-color-primary) 50%, #000) 100%);
   border-radius: 60px 60px 0 0;

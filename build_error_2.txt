@@ -1,0 +1,26 @@
+Application bundle generation failed. [12.254 seconds]
+
+X [ERROR] Undefined mixin.
+   ÔòÀ
+51 Ôöé   @include section-header-unified;
+   Ôöé   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ÔòÁ
+  src\app\components\services-section\services-section.component.scss 51:3  root stylesheet [plugin angular-sass]
+
+
+X [ERROR] Undefined mixin.
+   ÔòÀ
+36 Ôöé   @include section-header-unified;
+   Ôöé   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ÔòÁ
+  src\app\components\doctor-bio\doctor-bio.scss 36:3  root stylesheet [plugin angular-sass]
+
+
+X [ERROR] Undefined mixin.
+   ÔòÀ
+69 Ôöé   @include section-header-unified;
+   Ôöé   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ÔòÁ
+  src\app\components\contact-cta\contact-cta.scss 69:3  root stylesheet [plugin angular-sass]
+
+
