@@ -1,323 +1,327 @@
-<section class="about-page">
-  <!-- Hero Section -->
-  <app-hero-section
+<app-page-header 
     [title]="'ABOUT.PAGE_TITLE' | translate"
     [subtitle]="'ABOUT.PAGE_SUBTITLE' | translate"
-    [breadcrumbs]="breadcrumbs"
-    colorTheme="blue">
-  </app-hero-section>
+    [breadcrumbs]="breadcrumbs">
+  </app-page-header>
 
-  <!-- Doctor Profile Section -->
-  <div class="doctor-profile" scrollReveal="fade-up" [scrollDelay]="300">
-    <div class="container">
-      <div class="profile-grid">
-        <div class="profile-image-wrapper" scrollReveal="fade-right" [scrollDelay]="400">
-          <div class="profile-image">
+  <!-- 1. Doctor Bio Section (New Layout: Photo Left | Resume Right) -->
+  <section class="doctor-bio-section-v2">
+    <div class="container-lg">
+      <div class="bio-layout-grid">
+        
+        <!-- Left Column: Photo -->
+        <div class="bio-photo-column" scrollReveal="fade-right">
+          <div class="image-frame-glass">
             <img src="images/drmurzoglu_fish.png" [alt]="'COMMON.DOCTOR_NAME' | translate" class="doctor-photo">
+            <div class="aurora-blobs"></div>
           </div>
-          <div class="profile-badges">
-            <div class="badge">
-              <span class="material-icons">verified</span>
+          
+          <!-- Badges under photo -->
+          <div class="bio-badges">
+            <div class="glass-chip">
+              <span class="material-icons-rounded">verified</span>
               <span>{{ 'ABOUT.VERIFIED_DOCTOR' | translate }}</span>
             </div>
-            <div class="badge">
-              <span class="material-icons">school</span>
+            <div class="glass-chip">
+              <span class="material-icons-rounded">school</span>
               <span>{{ 'ABOUT.SOCIAL_PEDIATRICS' | translate }}</span>
             </div>
-            <div class="badge">
-              <span class="material-icons">child_care</span>
+            <div class="glass-chip">
+              <span class="material-icons-rounded">child_care</span>
               <span>{{ 'ABOUT.CHILD_DEVELOPMENT' | translate }}</span>
             </div>
           </div>
         </div>
         
-        <div class="profile-content" scrollReveal="fade-left" [scrollDelay]="500">
-          <h2 class="doctor-name">{{ 'ABOUT.TITLE' | translate }}</h2>
-          <p class="doctor-title">{{ 'ABOUT.SUBTITLE' | translate }}</p>
+        <!-- Right Column: Resume (Education + Experience) -->
+        <div class="bio-resume-column" scrollReveal="fade-left">
           
-          <!-- Academic CV Section -->
-          <div class="academic-cv">
-            <!-- Education Section -->
-            <div class="cv-section">
-              <h3><span class="material-icons">school</span> {{ 'ABOUT.EDUCATION' | translate }}</h3>
-              <div class="education-timeline">
-                <div class="education-item">
-                  <div class="edu-year">2019 - 2024</div>
-                  <div class="edu-content">
-                    <h4>{{ 'ABOUT.DOCTORATE' | translate }}</h4>
-                    <p class="institution">{{ 'ABOUT.INSTITUTION.MARMARA_UNIVERSITY' | translate }}</p>
-                  </div>
-                </div>
-                <div class="education-item">
-                  <div class="edu-year">2019 - 2023</div>
-                  <div class="edu-content">
-                    <h4>{{ 'ABOUT.BACHELOR' | translate }}</h4>
-                    <p class="institution">{{ 'ABOUT.INSTITUTION.ISTANBUL_UNIVERSITY' | translate }}</p>
-                  </div>
-                </div>
-                <div class="education-item">
-                  <div class="edu-year">2012 - 2017</div>
-                  <div class="edu-content">
-                    <h4>{{ 'ABOUT.SPECIALIZATION' | translate }}</h4>
-                    <p class="institution">{{ 'ABOUT.INSTITUTION.MARMARA_UNIVERSITY' | translate }}</p>
-                  </div>
-                </div>
-                <div class="education-item">
-                  <div class="edu-year">2001 - 2007</div>
-                  <div class="edu-content">
-                    <h4>{{ 'ABOUT.MEDICAL_DOCTOR' | translate }}</h4>
-                    <p class="institution">{{ 'ABOUT.INSTITUTION.ISTANBUL_MEDICAL' | translate }}</p>
-                  </div>
-                </div>
-                <div class="education-item">
-                  <div class="edu-year">1994 - 2001</div>
-                  <div class="edu-content">
-                    <h4>{{ 'ABOUT.HIGH_SCHOOL' | translate }}</h4>
-                    <p class="institution">{{ 'ABOUT.INSTITUTION.RIZE_ANADOLU' | translate }}</p>
-                  </div>
+          <!-- Doctor Header -->
+          <div class="resume-header">
+            <h2 class="doctor-name text-gradient-teal">{{ 'ABOUT.TITLE' | translate }}</h2>
+            <p class="doctor-specialty">{{ 'ABOUT.SUBTITLE' | translate }}</p>
+          </div>
+          
+          <!-- Education -->
+          <div class="resume-section">
+            <h3 class="resume-section-title text-gradient-teal">{{ 'ABOUT.EDUCATION' | translate }}</h3>
+            <div class="timeline-compact">
+              <div class="timeline-item">
+                <div class="timeline-dot education"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2019 - 2024</span>
+                  <h4>{{ 'ABOUT.DOCTORATE' | translate }}</h4>
+                  <span class="timeline-org">{{ 'ABOUT.INSTITUTION.MARMARA_UNIVERSITY' | translate }}</span>
                 </div>
               </div>
-            </div>
-
-            <!-- Experience Section -->
-            <div class="cv-section">
-              <h3><span class="material-icons">work</span> {{ 'ABOUT.EXPERIENCE' | translate }}</h3>
-              <div class="experience-timeline">
-                <div class="exp-item">
-                  <div class="exp-period">{{ 'ABOUT.AUG' | translate }} 2022 - {{ 'ABOUT.PRESENT' | translate }}</div>
-                  <div class="exp-content">
-                    <h4>{{ 'ABOUT.CLINIC_FOUNDER' | translate }}</h4>
-                    <p class="company">{{ 'ABOUT.COMPANY.OWN_CLINIC' | translate }}</p>
-                    <p class="location">{{ 'ABOUT.LOCATION.ATASEHIR_ISTANBUL' | translate }}</p>
-                    <div class="skills-tags">
-                      <span class="skill-tag">{{ 'ABOUT.SKILLS.CHILD_DEVELOPMENT' | translate }}</span>
-                      <span class="skill-tag">{{ 'ABOUT.SKILLS.BREASTFEEDING' | translate }}</span>
-                      <span class="skill-tag">{{ 'ABOUT.SKILLS.SLEEP_CONSULTATION' | translate }}</span>
-                      <span class="skill-tag">{{ 'ABOUT.SKILLS.CHILD_HEALTH' | translate }}</span>
-                      <span class="skill-tag">{{ 'ABOUT.SKILLS.VACCINATION' | translate }}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="exp-item">
-                  <div class="exp-period">{{ 'ABOUT.JUL' | translate }} 2017 - {{ 'ABOUT.AUG' | translate }} 2022</div>
-                  <div class="exp-content">
-                    <h4>{{ 'ABOUT.PEDIATRICIAN' | translate }}</h4>
-                    <p class="company">{{ 'ABOUT.COMPANY.MARMARA_HOSPITAL' | translate }}</p>
-                    <p class="location">{{ 'ABOUT.LOCATION.ISTANBUL' | translate }}</p>
-                  </div>
-                </div>
-                <div class="exp-item">
-                  <div class="exp-period">{{ 'ABOUT.JUN' | translate }} 2017 - {{ 'ABOUT.JUL' | translate }} 2017</div>
-                  <div class="exp-content">
-                    <h4>{{ 'ABOUT.PEDIATRICIAN' | translate }}</h4>
-                    <p class="company">{{ 'ABOUT.COMPANY.IGDIR_HOSPITAL' | translate }}</p>
-                    <p class="location">{{ 'ABOUT.LOCATION.IGDIR' | translate }}</p>
-                  </div>
-                </div>
-                <div class="exp-item">
-                  <div class="exp-period">{{ 'ABOUT.DEC' | translate }} 2011 - {{ 'ABOUT.JAN' | translate }} 2017</div>
-                  <div class="exp-content">
-                    <h4>{{ 'ABOUT.PEDIATRIC_RESIDENT' | translate }}</h4>
-                    <p class="company">{{ 'ABOUT.COMPANY.MARMARA_UNIVERSITY' | translate }}</p>
-                    <p class="location">{{ 'ABOUT.LOCATION.ISTANBUL' | translate }}</p>
-                  </div>
-                </div>
-                <div class="exp-item">
-                  <div class="exp-period">{{ 'ABOUT.JUL' | translate }} 2008 - {{ 'ABOUT.JUN' | translate }} 2009</div>
-                  <div class="exp-content">
-                    <h4>{{ 'ABOUT.MEDICAL_CONSULTANT' | translate }}</h4>
-                    <p class="company">{{ 'ABOUT.COMPANY.ACTAVIS' | translate }}</p>
-                    <p class="location">{{ 'ABOUT.LOCATION.ISTANBUL' | translate }}</p>
-                    <p class="description">{{ 'ABOUT.JOB_DESC.MEDICAL_CONSULTANT' | translate }}</p>
-                  </div>
-                </div>
-                <div class="exp-item">
-                  <div class="exp-period">{{ 'ABOUT.APR' | translate }} 2008 - {{ 'ABOUT.JUN' | translate }} 2008</div>
-                  <div class="exp-content">
-                    <h4>{{ 'ABOUT.PHYSICIAN' | translate }}</h4>
-                    <p class="company">{{ 'ABOUT.COMPANY.ARTVIN_HEALTH_CENTER' | translate }}</p>
-                    <p class="location">{{ 'ABOUT.LOCATION.ARTVIN' | translate }}</p>
-                  </div>
+              <div class="timeline-item">
+                <div class="timeline-dot education"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2019 - 2023</span>
+                  <h4>{{ 'ABOUT.BACHELOR' | translate }}</h4>
+                  <span class="timeline-org">{{ 'ABOUT.INSTITUTION.ISTANBUL_UNIVERSITY' | translate }}</span>
                 </div>
               </div>
-            </div>
-
-            <!-- Certifications Section -->
-            <div class="cv-section">
-              <h3><span class="material-icons">verified</span> {{ 'ABOUT.CERTIFICATIONS' | translate }}</h3>
-              <div class="certifications-grid">
-                <div class="cert-item">
-                  <div class="cert-icon">
-                    <span class="material-icons">restaurant</span>
-                  </div>
-                  <div class="cert-content">
-                    <h4>{{ 'ABOUT.CERT.SOS_FEEDING_TITLE' | translate }}</h4>
-                    <p>{{ 'ABOUT.CERT.SOS_FEEDING_PROVIDER' | translate }}</p>
-                    <span class="cert-date">{{ 'ABOUT.AUG' | translate }} 2025</span>
-                  </div>
+              <div class="timeline-item">
+                <div class="timeline-dot education"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2012 - 2017</span>
+                  <h4>{{ 'ABOUT.SPECIALIZATION' | translate }}</h4>
+                  <span class="timeline-org">{{ 'ABOUT.INSTITUTION.MARMARA_UNIVERSITY' | translate }}</span>
                 </div>
-                <div class="cert-item">
-                  <div class="cert-icon">
-                    <span class="material-icons">child_care</span>
-                  </div>
-                  <div class="cert-content">
-                    <h4>{{ 'ABOUT.CERT.DENVER_TITLE' | translate }}</h4>
-                    <p>{{ 'ABOUT.CERT.DENVER_PROVIDER' | translate }}</p>
-                    <span class="cert-date">{{ 'ABOUT.NOV' | translate }} 2022</span>
-                  </div>
-                </div>
-                <div class="cert-item">
-                  <div class="cert-icon">
-                    <span class="material-icons">groups</span>
-                  </div>
-                  <div class="cert-content">
-                    <h4>{{ 'ABOUT.CERT.TEEN_TRIPLE_P_TITLE' | translate }}</h4>
-                    <p>{{ 'ABOUT.CERT.QUEENSLAND_UNIVERSITY' | translate }}</p>
-                    <span class="cert-date">{{ 'ABOUT.NOV' | translate }} 2022</span>
-                  </div>
-                </div>
-                <div class="cert-item">
-                  <div class="cert-icon">
-                    <span class="material-icons">family_restroom</span>
-                  </div>
-                  <div class="cert-content">
-                    <h4>{{ 'ABOUT.CERT.GROUP_TRIPLE_P_TITLE' | translate }}</h4>
-                    <p>{{ 'ABOUT.CERT.QUEENSLAND_UNIVERSITY' | translate }}</p>
-                    <span class="cert-date">{{ 'ABOUT.NOV' | translate }} 2022</span>
-                  </div>
-                </div>
-                <div class="cert-item">
-                  <div class="cert-icon">
-                    <span class="material-icons">psychology</span>
-                  </div>
-                  <div class="cert-content">
-                    <h4>{{ 'ABOUT.CERT.EARLY_INTERVENTION_TITLE' | translate }}</h4>
-                    <p>{{ 'ABOUT.CERT.PILUMUNUS_PROVIDER' | translate }}</p>
-                    <span class="cert-date">{{ 'ABOUT.OCT' | translate }} 2022</span>
-                  </div>
-                </div>
-                <div class="cert-item">
-                  <div class="cert-icon">
-                    <span class="material-icons">pregnant_woman</span>
-                  </div>
-                  <div class="cert-content">
-                    <h4>{{ 'ABOUT.CERT.BREASTFEEDING_TITLE' | translate }}</h4>
-                    <p>{{ 'ABOUT.CERT.ISTANBUL_CHILD_HEALTH' | translate }}</p>
-                    <span class="cert-date">{{ 'ABOUT.AUG' | translate }} 2021</span>
-                  </div>
-                </div>
-                <div class="cert-item">
-                  <div class="cert-icon">
-                    <span class="material-icons">assessment</span>
-                  </div>
-                  <div class="cert-content">
-                    <h4>{{ 'ABOUT.CERT.BAYLEY_TITLE' | translate }}</h4>
-                    <p>{{ 'ABOUT.CERT.CHILD_NEUROLOGY_ASSOC' | translate }}</p>
-                    <span class="cert-date">{{ 'ABOUT.APR' | translate }} 2021</span>
-                  </div>
-                </div>
-                <div class="cert-item">
-                  <div class="cert-icon">
-                    <span class="material-icons">trending_up</span>
-                  </div>
-                  <div class="cert-content">
-                    <h4>{{ 'ABOUT.CERT.GIDR_TITLE' | translate }}</h4>
-                    <p>{{ 'ABOUT.CERT.ANKARA_MEDICAL' | translate }}</p>
-                    <span class="cert-date">{{ 'ABOUT.FEB' | translate }} 2018</span>
-                  </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot education"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2001 - 2007</span>
+                  <h4>{{ 'ABOUT.MEDICAL_DOCTOR' | translate }}</h4>
+                  <span class="timeline-org">{{ 'ABOUT.INSTITUTION.ISTANBUL_MEDICAL' | translate }}</span>
                 </div>
               </div>
             </div>
           </div>
           
-          <!-- CTA to Detail Page -->
-          <div class="profile-cta">
-            <h3>{{ 'COMMON.READ_MORE' | translate }}</h3>
-            <p>{{ 'ABOUT.DESCRIPTION' | translate }}</p>
-            <a href="/hakkimizda/dr-ozlem-murzoglu" class="btn-primary">
-              <span class="material-icons">arrow_forward</span>
-              <span>{{ 'COMMON.READ_MORE' | translate }}</span>
+          <!-- Experience -->
+          <div class="resume-section">
+            <h3 class="resume-section-title text-gradient-teal">{{ 'ABOUT.EXPERIENCE' | translate }}</h3>
+            <div class="timeline-compact">
+              <div class="timeline-item">
+                <div class="timeline-dot experience"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2022 - {{ 'COMMON.PRESENT' | translate }}</span>
+                  <h4>{{ 'ABOUT.CLINIC_FOUNDER' | translate }}</h4>
+                  <span class="timeline-org">{{ 'ABOUT.COMPANY.OWN_CLINIC' | translate }}</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot experience"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2017 - 2022</span>
+                  <h4>{{ 'ABOUT.PEDIATRICIAN' | translate }}</h4>
+                  <span class="timeline-org">{{ 'ABOUT.COMPANY.MARMARA_HOSPITAL' | translate }}</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot experience"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2011 - 2017</span>
+                  <h4>{{ 'ABOUT.PEDIATRIC_RESIDENT' | translate }}</h4>
+                  <span class="timeline-org">{{ 'ABOUT.COMPANY.MARMARA_UNIVERSITY' | translate }}</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot experience"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2008 - 2009</span>
+                  <h4>{{ 'ABOUT.MEDICAL_CONSULTANT' | translate }}</h4>
+                  <span class="timeline-org">{{ 'ABOUT.COMPANY.ACTAVIS' | translate }}</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot experience"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">{{ 'ABOUT.APR' | translate }} 2008 - {{ 'ABOUT.JUN' | translate }} 2008</span>
+                  <h4>{{ 'ABOUT.PHYSICIAN' | translate }}</h4>
+                  <span class="timeline-org">{{ 'ABOUT.COMPANY.ARTVIN_HEALTH_CENTER' | translate }}</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- CTA Link -->
+            <a href="/hakkimizda/dr-ozlem-murzoglu" class="resume-cta-link">
+              <span>{{ 'ABOUT.LEARN_MORE_CTA' | translate }}</span>
+              <span class="material-icons-rounded">arrow_forward</span>
             </a>
           </div>
+          
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 3. Certifications Grid -->
+  <div class="certifications-section section" scrollReveal="fade-up">
+    <div class="container-lg">
+      <div class="section-header-centered mb-5"> 
+        <h2 class="display-small text-gradient-teal">{{ 'ABOUT.CERTIFICATIONS.TITLE' | translate }}</h2>
+      </div>
+      
+      <div class="cert-grid">
+         <!-- Certs items restored -->
+         <div class="cert-card glass-card-hover">
+           <div class="cert-icon">
+             <span class="material-icons-rounded">restaurant</span>
+           </div>
+           <div class="cert-info">
+             <div class="cert-date">2025</div>
+             <h3>{{ 'ABOUT.CERT.SOS_FEEDING_TITLE' | translate }}</h3>
+             <p class="subtitle">{{ 'ABOUT.CERT.SOS_FEEDING_PROVIDER' | translate }}</p>
+           </div>
+         </div>
+
+         <div class="cert-card glass-card-hover">
+            <div class="cert-icon">
+              <span class="material-icons-rounded">child_care</span>
+            </div>
+            <div class="cert-info">
+              <div class="cert-date">2022</div>
+              <h3>{{ 'ABOUT.CERT.DENVER_TITLE' | translate }}</h3>
+              <p class="subtitle">{{ 'ABOUT.CERT.DENVER_PROVIDER' | translate }}</p>
+            </div>
+          </div>
+
+          <div class="cert-card glass-card-hover">
+            <div class="cert-icon">
+              <span class="material-icons-rounded">groups</span>
+            </div>
+            <div class="cert-info">
+              <div class="cert-date">2022</div>
+              <h3>{{ 'ABOUT.CERT.TEEN_TRIPLE_P_TITLE' | translate }}</h3>
+              <p class="subtitle">{{ 'ABOUT.CERT.QUEENSLAND_UNIVERSITY' | translate }}</p>
+            </div>
+          </div>
+
+          <div class="cert-card glass-card-hover">
+            <div class="cert-icon">
+              <span class="material-icons-rounded">family_restroom</span>
+            </div>
+            <div class="cert-info">
+              <div class="cert-date">2022</div>
+              <h3>{{ 'ABOUT.CERT.GROUP_TRIPLE_P_TITLE' | translate }}</h3>
+              <p class="subtitle">{{ 'ABOUT.CERT.QUEENSLAND_UNIVERSITY' | translate }}</p>
+            </div>
+          </div>
+
+          <div class="cert-card glass-card-hover">
+            <div class="cert-icon">
+              <span class="material-icons-rounded">psychology</span>
+            </div>
+            <div class="cert-info">
+              <div class="cert-date">2022</div>
+              <h3>{{ 'ABOUT.CERT.EARLY_INTERVENTION_TITLE' | translate }}</h3>
+              <p class="subtitle">{{ 'ABOUT.CERT.PILUMUNUS_PROVIDER' | translate }}</p>
+            </div>
+          </div>
+
+          <div class="cert-card glass-card-hover">
+            <div class="cert-icon">
+              <span class="material-icons-rounded">pregnant_woman</span>
+            </div>
+            <div class="cert-info">
+              <div class="cert-date">2021</div>
+              <h3>{{ 'ABOUT.CERT.BREASTFEEDING_TITLE' | translate }}</h3>
+              <p class="subtitle">{{ 'ABOUT.CERT.ISTANBUL_CHILD_HEALTH' | translate }}</p>
+            </div>
+          </div>
+
+          <div class="cert-card glass-card-hover">
+            <div class="cert-icon">
+              <span class="material-icons-rounded">assessment</span>
+            </div>
+            <div class="cert-info">
+              <div class="cert-date">2021</div>
+              <h3>{{ 'ABOUT.CERT.BAYLEY_TITLE' | translate }}</h3>
+              <p class="subtitle">{{ 'ABOUT.CERT.CHILD_NEUROLOGY_ASSOC' | translate }}</p>
+            </div>
+          </div>
+
+          <div class="cert-card glass-card-hover">
+            <div class="cert-icon">
+              <span class="material-icons-rounded">trending_up</span>
+            </div>
+            <div class="cert-info">
+              <div class="cert-date">2018</div>
+              <h3>{{ 'ABOUT.CERT.GIDR_TITLE' | translate }}</h3>
+              <p class="subtitle">{{ 'ABOUT.CERT.ANKARA_MEDICAL' | translate }}</p>
+            </div>
+          </div>
       </div>
     </div>
   </div>
 
-  <!-- Services Section -->
-  <div class="services-overview">
-    <div class="container">
-      <h2 class="section-title">{{ 'SERVICES.SECTION_TITLE' | translate }}</h2>
+  <!-- Services Section (Hizmetlerimiz) with Teal Background -->
+  <section class="services-section-teal">
+    <div class="container-lg">
+      <div class="section-header-centered mb-5">
+        <h2 class="display-small text-light">{{ 'SERVICES.SECTION_TITLE' | translate }}</h2>
+      </div>
       
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card-light" scrollReveal="fade-up">
           <div class="service-icon">
-            <span class="material-icons">star</span>
+            <span class="material-icons-rounded">star</span>
           </div>
           <h3>{{ 'SERVICES.SERVICE_BRIGHT_FUTURES.TITLE' | translate }}</h3>
           <p>{{ 'SERVICES.SERVICE_BRIGHT_FUTURES.DESC' | translate }}</p>
         </div>
         
-        <div class="service-card">
+        <div class="service-card-light" scrollReveal="fade-up" [scrollDelay]="100">
           <div class="service-icon">
-            <span class="material-icons">bedtime</span>
+            <span class="material-icons-rounded">bedtime</span>
           </div>
           <h3>{{ 'SERVICES.SERVICE_SLEEP.TITLE' | translate }}</h3>
           <p>{{ 'SERVICES.SERVICE_SLEEP.DESC' | translate }}</p>
         </div>
         
-        <div class="service-card">
+        <div class="service-card-light" scrollReveal="fade-up" [scrollDelay]="200">
           <div class="service-icon">
-            <span class="material-icons">family_restroom</span>
+            <span class="material-icons-rounded">family_restroom</span>
           </div>
           <h3>{{ 'SERVICES.SERVICE_TRIPLE_P.TITLE' | translate }}</h3>
           <p>{{ 'SERVICES.SERVICE_TRIPLE_P.DESC' | translate }}</p>
         </div>
         
-        <div class="service-card">
+        <div class="service-card-light" scrollReveal="fade-up" [scrollDelay]="300">
           <div class="service-icon">
-            <span class="material-icons">biotech</span>
+            <span class="material-icons-rounded">biotech</span>
           </div>
           <h3>{{ 'SERVICES.SERVICE_LAB.TITLE' | translate }}</h3>
           <p>{{ 'SERVICES.SERVICE_LAB.DESC' | translate }}</p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Values Section -->
+
+
+
+
+  <!-- 5. Values Section (Refined) -->
   <div class="values-section">
-    <div class="container">
-      <h2 class="section-title">{{ 'APPROACH.TITLE' | translate }}</h2>
+    <div class="container-lg">
+      <div class="section-header-centered mb-5">
+        <h2 class="display-small text-gradient-teal">{{ 'APPROACH.TITLE' | translate }}</h2>
+      </div>
       
       <div class="values-grid">
-        <div class="value-card">
+        <div class="value-card glass-card-hover" scrollReveal="fade-up">
           <div class="value-icon">
-            <span class="material-icons">favorite</span>
+            <span class="material-icons-rounded">favorite</span>
           </div>
           <h3>{{ 'APPROACH.LOVE_COMPASSION_TITLE' | translate }}</h3>
           <p>{{ 'APPROACH.LOVE_COMPASSION_DESC' | translate }}</p>
         </div>
         
-        <div class="value-card">
+        <div class="value-card glass-card-hover" scrollReveal="fade-up" [scrollDelay]="100">
           <div class="value-icon">
-            <span class="material-icons">psychology</span>
+            <span class="material-icons-rounded">psychology</span>
           </div>
           <h3>{{ 'APPROACH.SOCIAL_PEDIATRICS_TITLE' | translate }}</h3>
           <p>{{ 'APPROACH.SOCIAL_PEDIATRICS_DESC' | translate }}</p>
         </div>
         
-        <div class="value-card">
+        <div class="value-card glass-card-hover" scrollReveal="fade-up" [scrollDelay]="200">
           <div class="value-icon">
-            <span class="material-icons">family_restroom</span>
+            <span class="material-icons-rounded">family_restroom</span>
           </div>
           <h3>{{ 'APPROACH.FAMILY_CENTERED_TITLE' | translate }}</h3>
           <p>{{ 'APPROACH.FAMILY_CENTERED_DESC' | translate }}</p>
         </div>
         
-        <div class="value-card">
+        <div class="value-card glass-card-hover" scrollReveal="fade-up" [scrollDelay]="300">
           <div class="value-icon">
-            <span class="material-icons">science</span>
+            <span class="material-icons-rounded">science</span>
           </div>
           <h3>{{ 'APPROACH.EVIDENCE_BASED_TITLE' | translate }}</h3>
           <p>{{ 'APPROACH.EVIDENCE_BASED_DESC' | translate }}</p>
@@ -325,4 +329,3 @@
       </div>
     </div>
   </div>
-</section>

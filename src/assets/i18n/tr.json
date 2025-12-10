@@ -25,6 +25,8 @@
     "SHARE_LINKEDIN": "LinkedIn'de Paylaş",
     "COPY_LINK": "Bağlantıyı Kopyala",
     "BOOK_APPOINTMENT": "Randevu Al",
+    "MAKE_APPOINTMENT": "Randevu Al",
+    "PRESENT": "Günümüz",
     "DOCTOR_NAME": "Uzm. Dr. Özlem Murzoğlu"
   },
   "HEADER": {
@@ -61,6 +63,9 @@
   "ABOUT": {
     "PAGE_TITLE": "Hakkımızda",
     "PAGE_SUBTITLE": "Çocuk sağlığını sosyal pediatri ve çocuk gelişimi ile bütünleştiriyoruz",
+    "LEARN_MORE_CTA": "Dr. Özlem Murzoğlu hakkında daha fazla bilgi almak için tıklayınız",
+    "CONSULTATION_CTA_TITLE": "Danışma Alın",
+    "CONSULTATION_CTA_DESC": "15+ yıllık deneyimimle çocuğunuzun sağlığı, gelişimi ve eğitimi için yanınızdayım. Hemen randevu alın.",
     "HOME_BREADCRUMB": "Ana Sayfa",
     "ABOUT_BREADCRUMB": "Hakkımızda",
     "SECTION_TITLE": "Hakkımızda",
@@ -71,7 +76,9 @@
     "EXPERIENCE_TEXT": "Deneyim",
     "HAPPY_FAMILIES": "5000+",
     "HAPPY_FAMILIES_TEXT": "Mutlu Aile",
-    "CERTIFICATIONS": "Lisans ve Sertifikalar",
+    "CERTIFICATIONS": {
+      "TITLE": "Lisans ve Sertifikalar"
+    },
     "EDUCATION": "Eğitim",
     "EXPERIENCE": "Deneyim",
     "VERIFIED_DOCTOR": "Uzman Hekim",
@@ -187,7 +194,9 @@
       "NEW_BEGINNING_TEXT2": "Artık kanıta dayalı, bilimsel veriler ışığında pediatri hekimliği yapacak imkanlar, süre ve yakınlık ile çalışma zamanı gelmişti.",
       "NEW_BEGINNING_TEXT3": "Eşim, kızım, annem, geniş ailem, doyamadığım arkadaşlarımın destekleri ile yeni bir yolculuğa başlıyorum. Bundan sonra kendi kliniğimde çocuklarımı karşılacak ve onca yıllık çocuk tecrübeme rağmen her gün beni yeniden hayrete düşürmelerinin keyfini çıkaracağım."
     },
-    "PRESENT": "Halen"
+    "PRESENT": "Halen",
+    "PHILOSOPHY_QUOTE": "\"Her çocuk biriciktir ve kendi hızında, sevgi dolu bir ortamda yeşermeyi hak eder.\"",
+    "SIGNATURE": "Dr. Özlem Murzoğlu"
   },
   "SERVICES": {
     "PAGE_TITLE": "Hizmetlerimiz",
@@ -1225,7 +1234,8 @@
     "STATS_CERTIFICATES": "Sertifika"
   },
   "APPROACH": {
-    "TITLE": "Yaklaşımımız",
+    "TITLE": "Değerlerimiz",
+
     "SUBTITLE": "Çocuğunuzun Sağlığı İçin Bütüncül Bakım",
     "SECTION_DESC": "Her çocuğun fiziksel, zihinsel ve duygusal gelişimini bir bütün olarak ele alıyor; bilimsel takibi şefkatli bir yaklaşımla harmanlıyoruz.",
     "COMPREHENSIVE_TITLE": "Kapsamlı Yaklaşım",

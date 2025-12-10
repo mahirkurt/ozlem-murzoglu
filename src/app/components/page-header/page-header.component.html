@@ -1,0 +1,29 @@
+<div class="page-header">
+  <div class="container">
+    <div class="header-content">
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" *ngIf="breadcrumbs.length > 0" aria-label="Breadcrumb">
+        <ol>
+          <li *ngFor="let breadcrumb of breadcrumbs; let last = last">
+            <ng-container *ngIf="!last">
+              <a [routerLink]="breadcrumb.url" class="breadcrumb-link">
+                {{ breadcrumb.translateKey ? (breadcrumb.translateKey | translate) : breadcrumb.label }}
+              </a>
+              <span class="material-icons separator">chevron_right</span>
+            </ng-container>
+            <span *ngIf="last" class="breadcrumb-current" aria-current="page">
+              {{ breadcrumb.translateKey ? (breadcrumb.translateKey | translate) : breadcrumb.label }}
+            </span>
+          </li>
+        </ol>
+      </nav>
+
+      <!-- Access Title/Subtitle -->
+      <h1 class="header-title">{{ title }}</h1>
+      <p class="header-subtitle" *ngIf="subtitle">{{ subtitle }}</p>
+    </div>
+  </div>
+  
+  <!-- Aurora Overlay -->
+  <div class="aurora-overlay"></div>
+</div>
