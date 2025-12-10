@@ -17,6 +17,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* MD3 Header Band Global Utilities */
+.material-icons-rounded {
+  font-family: 'Material Icons Round';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
 .md3-header-band {
   background: linear-gradient(
     135deg,
@@ -60,6 +83,16 @@ app-hero-section {
   margin-top: var(--header-height-desktop) !important;
 }
 
+/* Global Gradient Text Utility (Strict Teal) */
+.text-gradient-teal {
+  background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-inverse-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback */
+  display: inline-block;
+}
+
 @media (max-width: 768px) {
   app-hero-section {
     margin-top: var(--header-height-mobile) !important;
@@ -100,7 +133,7 @@ app-header,
   left: 0;
   right: 0;
   z-index: var(--z-index-header);
-  background: var(--md-sys-color-surface);
+  background: transparent;
 }
 
 /* Mobile menu */
@@ -294,7 +327,11 @@ label {
    ========================================================================== */
 
 .container,
-.md3-container {
+.md3-container,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
   width: 100%;
   max-width: var(--container-max-width);
   margin-left: auto;
@@ -304,7 +341,7 @@ label {
   box-sizing: border-box;
 }
 
-/* Specific container sizes */
+/* Specific container sizes (overriding max-width only) */
 .container-xl { max-width: 1440px; }
 .container-lg { max-width: 1240px; }
 .container-md { max-width: 1024px; }

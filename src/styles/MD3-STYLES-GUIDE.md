@@ -104,3 +104,32 @@ The following components in `src/styles/md3/components/` have been updated to Ex
 -   `_navigation.scss`
 
 *(Note: See individual files for implementation details)*
+
+---
+
+## 🏛️ Global Page Header Standard
+
+All sub-pages (pages other than Home) **MUST** use the shared `PageHeaderComponent`. This ensures a meaningful, consistent, and premium entry point for every section of the site.
+
+### Component Specs
+-   **Selector**: `<app-page-header>`
+-   **Location**: `src/app/components/page-header/`
+-   **Design**:
+    -   **Background**: "Aurora" Mesh Gradient (Primary/Secondary blend).
+    -   **Layout**: Full-bleed (extends behind the transparent global header).
+    -   **Typography**: Title (`display-medium`), Subtitle (`headline-small`).
+
+### Breadcrumb Standard
+Breadcrumbs are an integral part of this header and follow a strict "Compact Glassmorphic" design:
+-   **Style**: Individual pills with `rgba(255,255,255,0.1)` background and blur.
+-   **Spacing**: 32px gap between breadcrumbs and the main Title.
+-   **Size**: Compact interaction model (reduced padding/font-size).
+
+### Usage Example
+```html
+<app-page-header
+  [title]="'PAGE.TITLE' | translate"
+  [subtitle]="'PAGE.SUBTITLE' | translate"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+```

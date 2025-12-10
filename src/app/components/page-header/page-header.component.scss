@@ -1,0 +1,169 @@
+@import 'styles/md3/index';
+
+:host {
+  display: block;
+}
+
+.page-header {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 160px 0 80px; /* Increased to 160px to clear transparent header */
+  
+  /* Aurora Background Base */
+  background-color: var(--md-sys-color-primary);
+  
+  /* Aurora Gradients - Simplified Version of Hero */
+  background-image: 
+    radial-gradient(at 20% 20%, hsla(180, 70%, 25%, 0.6) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, hsla(340, 90%, 75%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, hsla(45, 100%, 65%, 0.1) 0px, transparent 60%);
+    
+  background-size: 150% 150%;
+  animation: auroraPulse 15s ease-in-out infinite alternate;
+}
+
+@keyframes auroraPulse {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.aurora-overlay {
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
+}
+
+/* content positioning */
+.header-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px; /* Increased from 16px to 32px (Doubled) */
+}
+
+/* Breadcrumbs - Glassmorphic Buttons (Compact) */
+.breadcrumbs ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Reduced from 12px */
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+}
+
+.breadcrumbs li {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Reduced from 8px */
+}
+
+.breadcrumb-link {
+  display: flex;
+  align-items: center;
+  padding: 5px 12px; /* Reduced padding */
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-family: var(--md-sys-typescale-label-medium-font);
+  font-size: 11px; /* Reduced font size */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px; /* Reduced icon size */
+  display: flex;
+  align-items: center;
+}
+
+/* Current Page (Static Pill) */
+.breadcrumb-current {
+  display: flex;
+  align-items: center;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid white;
+  border-radius: 50px;
+  
+  color: var(--md-sys-color-primary); 
+  font-family: var(--md-sys-typescale-label-medium-font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Typography */
+.header-title {
+  color: white;
+  font-family: var(--md-sys-typescale-display-medium-font);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-subtitle {
+  color: var(--md-sys-color-secondary-container); /* Amber Tint */
+  font-family: var(--md-sys-typescale-headline-small-font);
+  font-size: 20px;
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    min-height: 320px;
+    padding: 100px 0 60px;
+  }
+
+  .header-title {
+    font-size: 32px;
+  }
+  
+  .header-subtitle {
+    font-size: 16px;
+  }
+}
