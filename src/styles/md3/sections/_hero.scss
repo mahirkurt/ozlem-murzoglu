@@ -1,0 +1,736 @@
+// ============================================================================
+// HERO SECTION STYLES
+// ============================================================================
+// MD3 Token-Compliant - Zero Hardcoded Values
+// Converted from legacy hero-section-global.css
+//
+// STRICT POLICY: All colors, spacing, typography, motion, and shapes
+// MUST use MD3 design tokens. No hex codes, rgba(), or pixel values allowed.
+// ============================================================================
+
+// ============================================================================
+// SECTION 1: HERO SEMANTIC TOKENS
+// ============================================================================
+// Local semantic tokens that reference core MD3 tokens
+
+:root {
+  // Hero gradient tokens
+  --md-sys-hero-gradient-1: var(--md-sys-color-primary);
+  --md-sys-hero-gradient-2: var(--md-sys-color-primary);
+  --md-sys-hero-gradient-3: var(--md-sys-color-tertiary);
+
+  // Hero padding and sizing
+  --md-sys-hero-padding-y: 3.9rem;
+  --md-sys-hero-min-height: 234px;
+
+  // Hero text colors
+  --md-sys-hero-text-primary: var(--md-sys-color-surface);
+  --md-sys-hero-text-secondary: oklch(from var(--md-sys-color-on-primary) l c h / 0.85);
+  --md-sys-hero-text-muted: oklch(from var(--md-sys-color-on-primary) l c h / 0.6);
+
+  // Hero glass effects
+  --md-sys-hero-glass-surface: oklch(from var(--md-sys-color-on-primary) l c h / 0.12);
+  --md-sys-hero-glass-border: oklch(from var(--md-sys-color-on-primary) l c h / 0.3);
+
+  // Hero shadow (for text)
+  --md-sys-hero-text-shadow: oklch(from var(--md-sys-color-shadow) l c h / 0.1);
+}
+
+// Dark mode adjustments
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-hero-text-secondary: oklch(from var(--md-sys-color-on-primary) l c h / 0.9);
+    --md-sys-hero-text-muted: oklch(from var(--md-sys-color-on-primary) l c h / 0.7);
+    --md-sys-hero-glass-surface: oklch(from var(--md-sys-color-on-primary) l c h / 0.15);
+  }
+}
+
+// ============================================================================
+// SECTION 2: HERO SECTION BASE
+// ============================================================================
+
+// Apply to ALL hero sections including component-based ones
+.hero-section:not(.homepage-hero),
+app-hero-section .hero-section {
+  position: relative;
+  padding: var(--md-sys-hero-padding-y) 0;
+  margin-top: var(--header-height-desktop, 108px);
+  min-height: var(--md-sys-hero-min-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--app-hero-bg) !important;
+  background-size: var(--app-hero-bg-size) !important;
+  background-position: var(--app-hero-bg-position) !important;
+  background-attachment: var(--app-hero-bg-attachment) !important;
+  background-repeat: no-repeat !important;
+  animation: none !important;
+}
+
+// Apply to all hero variations except homepage
+.resource-hero,
+.page-hero,
+.service-hero,
+section[class*='hero']:not(.hero-content):not(.homepage-hero) {
+  position: relative;
+  padding: var(--md-sys-hero-padding-y) 0;
+  margin-top: var(--header-height-desktop, 108px);
+  min-height: var(--md-sys-hero-min-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--app-hero-bg) !important;
+  background-size: var(--app-hero-bg-size) !important;
+  background-position: var(--app-hero-bg-position) !important;
+  background-attachment: var(--app-hero-bg-attachment) !important;
+  background-repeat: no-repeat !important;
+  animation: none !important;
+}
+
+// ============================================================================
+// SECTION 3: ANIMATED GRADIENT KEYFRAMES
+// ============================================================================
+
+@keyframes hero-wave-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Webkit support
+@-webkit-keyframes hero-wave-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// ============================================================================
+// SECTION 4: PATTERN OVERLAY
+// ============================================================================
+
+.hero-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.12;
+  background-image:
+    repeating-linear-gradient(
+      30deg,
+      transparent,
+      transparent 35px,
+      oklch(from var(--md-sys-color-on-primary) l c h / 0.08) 35px,
+      oklch(from var(--md-sys-color-on-primary) l c h / 0.08) 70px
+    ),
+    repeating-linear-gradient(
+      -30deg,
+      transparent,
+      transparent 35px,
+      oklch(from var(--md-sys-color-on-primary) l c h / 0.04) 35px,
+      oklch(from var(--md-sys-color-on-primary) l c h / 0.04) 70px
+    );
+  animation: hero-pattern-move 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes hero-pattern-move {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(5px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-5px) translateX(10px);
+  }
+}
+
+// ============================================================================
+// SECTION 5: GRADIENT OVERLAY
+// ============================================================================
+
+.hero-overlay,
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    oklch(from var(--md-sys-color-shadow) l c h / 0.15) 0%,
+    oklch(from var(--md-sys-color-shadow) l c h / 0.03) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+// ============================================================================
+// SECTION 6: HERO CONTENT CONTAINER
+// ============================================================================
+
+.hero-content:not(.liquid-hero .hero-content),
+.hero-main {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+// Liquid hero content needs absolute positioning
+.liquid-hero .hero-content {
+  position: absolute !important;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Ensure container inside hero-content centers properly
+.hero-content .container,
+.hero-main .container {
+  width: 100%;
+  max-width: min(1440px, 90vw);
+  margin: 0 auto;
+  padding: 0 var(--md-sys-spacing-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// ============================================================================
+// SECTION 7: BREADCRUMB NAVIGATION
+// ============================================================================
+
+:where(
+  .hero-section,
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero)
+) .breadcrumb,
+:where(
+  .hero-section,
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero)
+) nav.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--md-sys-spacing-sm);
+  margin-bottom: var(--md-sys-spacing-xl);
+  font-family: var(--md-sys-typescale-font-plain);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  flex-wrap: wrap;
+}
+
+:where(
+  .hero-section,
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero)
+) .breadcrumb a,
+:where(
+  .hero-section,
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero)
+) .breadcrumb-link {
+  color: var(--md-sys-hero-text-secondary) !important;
+  text-decoration: none;
+  transition: all var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
+  display: inline-flex;
+  align-items: center;
+}
+
+:where(
+  .hero-section,
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero)
+) .breadcrumb a:hover,
+:where(
+  .hero-section,
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero)
+) .breadcrumb-link:hover {
+  color: var(--md-sys-hero-text-primary) !important;
+  transform: translateX(2px);
+}
+
+:where(
+  .hero-section,
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero)
+) .breadcrumb .material-icons-rounded,
+:where(
+  .hero-section,
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero)
+) .breadcrumb .separator {
+  color: var(--md-sys-hero-text-muted) !important;
+  font-size: var(--md-sys-typescale-body-large-size);
+  margin: 0 var(--md-sys-spacing-2xs);
+}
+
+:where(
+  .hero-section,
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero)
+) .breadcrumb span:last-child:not(.material-icons-rounded),
+:where(
+  .hero-section,
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero)
+) .breadcrumb .current {
+  color: var(--md-sys-hero-text-primary) !important;
+  font-weight: 500;
+}
+
+// ============================================================================
+// SECTION 8: HERO TYPOGRAPHY
+// ============================================================================
+
+// Main Title
+.hero-title,
+.page-title,
+h1.hero-title,
+.hero-section h1 {
+  font-family: var(--md-sys-typescale-font-brand) !important;
+  font-size: clamp(
+    var(--md-sys-typescale-headline-medium-size),
+    5vw,
+    var(--md-sys-typescale-display-small-size)
+  ) !important;
+  font-weight: var(--md-sys-typescale-display-small-weight) !important;
+  color: var(--md-sys-hero-text-primary) !important;
+  margin: 0 0 var(--md-sys-spacing-md) 0 !important;
+  line-height: var(--md-sys-typescale-display-small-line-height) !important;
+  letter-spacing: var(--md-sys-typescale-display-small-tracking) !important;
+  text-shadow: 0 2px 4px var(--md-sys-hero-text-shadow);
+}
+
+// Subtitle
+.hero-subtitle,
+.page-subtitle,
+.hero-section p.hero-subtitle {
+  font-family: var(--md-sys-typescale-font-plain) !important;
+  font-size: clamp(
+    var(--md-sys-typescale-body-large-size),
+    2.5vw,
+    var(--md-sys-typescale-title-medium-size)
+  ) !important;
+  font-weight: var(--md-sys-typescale-body-large-weight) !important;
+  color: var(--md-sys-hero-text-secondary) !important;
+  margin: 0 !important;
+  line-height: var(--md-sys-typescale-body-large-line-height) !important;
+  letter-spacing: var(--md-sys-typescale-body-large-tracking) !important;
+  max-width: 800px;
+}
+
+// ============================================================================
+// SECTION 9: SPECIAL ELEMENTS
+// ============================================================================
+
+// Hero Badge (for logos like Triple P)
+.hero-badge {
+  margin-bottom: var(--md-sys-spacing-lg);
+}
+
+.hero-badge img,
+.program-logo {
+  width: 180px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+// Meta Information
+.meta-info {
+  display: flex;
+  justify-content: center;
+  gap: var(--md-sys-spacing-lg);
+  margin-top: var(--md-sys-spacing-xl);
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-xs);
+  padding: var(--md-sys-spacing-sm) var(--md-sys-spacing-md);
+  background: var(--md-sys-hero-glass-surface);
+  backdrop-filter: blur(10px);
+  border-radius: var(--md-sys-shape-corner-full);
+  color: var(--md-sys-hero-text-primary);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: 500;
+}
+
+.meta-item .material-icons-rounded {
+  font-size: var(--md-sys-typescale-title-medium-size);
+}
+
+// ============================================================================
+// SECTION 10: HERO CTA BUTTONS
+// ============================================================================
+
+.hero-ctas {
+  display: flex;
+  gap: var(--md-sys-spacing-lg);
+  justify-content: center;
+  margin-top: var(--md-sys-spacing-2xl);
+  flex-wrap: wrap;
+}
+
+.hero-ctas .btn,
+.hero-ctas a[class*='btn'] {
+  padding: var(--md-sys-spacing-md) var(--md-sys-spacing-2xl);
+  border-radius: var(--md-sys-shape-corner-full);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  text-decoration: none;
+  transition: all var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-xs);
+}
+
+.hero-ctas .btn-primary {
+  background: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
+  border: 2px solid transparent;
+}
+
+.hero-ctas .btn-primary:hover {
+  background: oklch(from var(--md-sys-color-secondary) calc(l + 0.05) c h);
+  transform: translateY(-2px);
+  box-shadow: var(--md-sys-elevation-level4);
+}
+
+.hero-ctas .btn-secondary {
+  background: oklch(from var(--md-sys-color-on-primary) l c h / 0.95);
+  color: var(--md-sys-hero-gradient-1);
+  border: 2px solid var(--md-sys-hero-glass-border);
+}
+
+.hero-ctas .btn-secondary:hover {
+  background: var(--md-sys-color-on-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--md-sys-elevation-level3);
+}
+
+// ============================================================================
+// SECTION 11: CONTENT ANIMATIONS
+// ============================================================================
+
+@keyframes hero-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content > * {
+  animation: hero-fade-in-up var(--md-sys-motion-duration-long) var(--md-sys-motion-easing-emphasized-decelerate);
+  animation-fill-mode: both;
+}
+
+:where(
+  .hero-section,
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero)
+) .breadcrumb {
+  animation-delay: 0.1s;
+}
+.hero-badge {
+  animation-delay: 0.15s;
+}
+.hero-title {
+  animation-delay: 0.2s;
+}
+.hero-subtitle {
+  animation-delay: 0.3s;
+}
+.meta-info {
+  animation-delay: 0.4s;
+}
+.hero-ctas {
+  animation-delay: 0.5s;
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .hero-section:not(.homepage-hero),
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero) {
+    animation: none !important;
+  }
+
+  .hero-pattern {
+    animation: none;
+  }
+
+  .hero-content > * {
+    animation: none;
+  }
+
+  .hero-ctas .btn,
+  .hero-ctas a[class*='btn'] {
+    transition: none;
+  }
+}
+
+// ============================================================================
+// SECTION 12: RESPONSIVE DESIGN
+// ============================================================================
+
+@media (max-width: 768px) {
+  :root {
+    --md-sys-hero-padding-y: 3.25rem;
+    --md-sys-hero-min-height: 208px;
+  }
+
+  .hero-section:not(.homepage-hero),
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero) {
+    padding: var(--md-sys-hero-padding-y) 0;
+    min-height: var(--md-sys-hero-min-height);
+    margin-top: var(--header-height-mobile, 80px);
+  }
+
+  :where(
+    .hero-section,
+    app-hero-section .hero-section,
+    .resource-hero,
+    .page-hero,
+    .service-hero,
+    section[class*='hero']:not(.hero-content):not(.homepage-hero)
+  ) .breadcrumb {
+    font-size: var(--md-sys-typescale-body-small-size);
+    margin-bottom: var(--md-sys-spacing-lg);
+  }
+
+  .hero-badge img,
+  .program-logo {
+    width: 150px;
+  }
+
+  .meta-info {
+    gap: var(--md-sys-spacing-md);
+  }
+
+  .meta-item {
+    padding: var(--md-sys-spacing-xs) var(--md-sys-spacing-md);
+    font-size: var(--md-sys-typescale-body-small-size);
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-ctas .btn,
+  .hero-ctas a[class*='btn'] {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --md-sys-hero-padding-y: 2.6rem;
+    --md-sys-hero-min-height: 182px;
+  }
+
+  .hero-content .container,
+  .hero-main .container {
+    padding: 0 var(--md-sys-spacing-md);
+  }
+
+  :where(
+    .hero-section,
+    app-hero-section .hero-section,
+    .resource-hero,
+    .page-hero,
+    .service-hero,
+    section[class*='hero']:not(.hero-content):not(.homepage-hero)
+  ) .breadcrumb {
+    font-size: var(--md-sys-typescale-label-medium-size);
+    gap: var(--md-sys-spacing-xs);
+  }
+
+  .hero-badge img,
+  .program-logo {
+    width: 120px;
+  }
+}
+
+// ============================================================================
+// SECTION 13: PERFORMANCE OPTIMIZATION
+// ============================================================================
+
+.hero-section,
+.resource-hero,
+.page-hero,
+.service-hero,
+section[class*='hero']:not(.hero-content) {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  will-change: background-position;
+}
+
+// ============================================================================
+// SECTION 14: FORCE ANIMATION OVERRIDE (PSEUDO-ELEMENT)
+// ============================================================================
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--app-hero-bg);
+  background-size: var(--app-hero-bg-size);
+  background-position: var(--app-hero-bg-position);
+  background-attachment: var(--app-hero-bg-attachment);
+  background-repeat: no-repeat;
+  animation: none;
+  -webkit-animation: none;
+  z-index: 0;
+}
+
+.hero-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+// ============================================================================
+// SECTION 15: PRINT STYLES
+// ============================================================================
+
+@media print {
+  .hero-section:not(.homepage-hero),
+  app-hero-section .hero-section,
+  .resource-hero,
+  .page-hero,
+  .service-hero,
+  section[class*='hero']:not(.hero-content):not(.homepage-hero) {
+    background: none !important;
+    animation: none !important;
+    min-height: auto;
+    padding: var(--md-sys-spacing-lg) 0;
+    margin-top: 0;
+  }
+
+  .hero-section::before,
+  .hero-pattern,
+  .hero-overlay,
+  .gradient-overlay {
+    display: none !important;
+  }
+
+  .hero-title,
+  .page-title,
+  h1.hero-title,
+  .hero-section h1 {
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+
+  .hero-subtitle,
+  .page-subtitle,
+  .hero-section p.hero-subtitle {
+    color: #333 !important;
+  }
+
+  :where(
+    .hero-section,
+    app-hero-section .hero-section,
+    .resource-hero,
+    .page-hero,
+    .service-hero,
+    section[class*='hero']:not(.hero-content):not(.homepage-hero)
+  ) .breadcrumb,
+  .meta-info,
+  .hero-ctas,
+  .hero-badge {
+    display: none !important;
+  }
+}

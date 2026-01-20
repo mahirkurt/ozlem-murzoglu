@@ -8,6 +8,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &.md3-page-header {
+    --md3-page-header-text: var(--app-hero-on);
+    --md3-page-header-subtitle: color-mix(in oklch, var(--app-hero-on) 82%, transparent);
+    --md3-page-header-chip-text: var(--app-hero-on);
+    --md3-page-header-chip-bg: color-mix(in oklch, var(--app-hero-on) 16%, transparent);
+    --md3-page-header-chip-bg-strong: color-mix(in oklch, var(--app-hero-on) 20%, transparent);
+    --md3-page-header-chip-border: color-mix(in oklch, var(--app-hero-on) 26%, transparent);
+    --md3-page-header-chip-shadow: 0 12px 28px oklch(from var(--md-sys-color-shadow) l c h / 0.18);
+    --md3-page-header-title-shadow: 0 18px 48px oklch(from var(--md-sys-color-shadow) l c h / 0.28);
+  }
 }
 
 /* Background and Animations */
@@ -18,19 +29,11 @@
   right: 0;
   bottom: 0;
   z-index: 0;
-}
-
-/* Gradient Overlays by Theme - Using MD3 Tones */
-.hero-section[data-theme="blue"] .hero-background {
-  background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary) 50%, var(--md-sys-color-primary-container) 100%);
-}
-
-.hero-section[data-theme="yellow"] .hero-background {
-  background: linear-gradient(135deg, var(--md-sys-color-secondary) 0%, var(--md-sys-color-secondary) 50%, var(--md-sys-color-secondary-container) 100%);
-}
-
-.hero-section[data-theme="purple"] .hero-background {
-  background: linear-gradient(135deg, var(--md-sys-color-tertiary) 0%, var(--md-sys-color-tertiary) 50%, var(--md-sys-color-tertiary-container) 100%);
+  background: var(--app-hero-bg);
+  background-size: var(--app-hero-bg-size);
+  background-position: var(--app-hero-bg-position);
+  background-attachment: var(--app-hero-bg-attachment);
+  background-repeat: no-repeat;
 }
 
 /* Honeycomb Pattern Animation */
@@ -126,66 +129,14 @@
   padding: 0 var(--md-sys-spacing-5);
 }
 
-/* Breadcrumb */
-.breadcrumb {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--md-sys-spacing-2);
-  margin-bottom: 20px;
-  padding: var(--md-sys-spacing-3) var(--md-sys-spacing-5);
-  min-height: 48px; /* MD3 Touch Target */
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: var(--md-sys-shape-corner-extra-large);
-  font-family: var(--md-sys-typescale-label-large-font);
-  font-size: var(--md-sys-typescale-label-large-size);
-}
-
-.breadcrumb a,
-.breadcrumb span {
-  color: white;
-  text-decoration: none;
-  transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
-  min-height: 48px; /* MD3 Touch Target */
-  display: inline-flex;
-  align-items: center;
-  padding: 0 var(--md-sys-spacing-2);
-}
-
-.breadcrumb a:hover {
-  opacity: 0.8;
-}
-
-.breadcrumb-separator {
-  width: 18px;
-  height: 18px;
-  opacity: 0.7;
-  color: white;
-  margin: 0 var(--md-sys-spacing-1);
-  display: inline-block;
-  vertical-align: middle;
-}
-
 /* Typography */
 .hero-title {
-  font-family: var(--md-sys-typescale-display-medium-font);
-  font-size: var(--md-sys-typescale-display-medium-size);
-  font-weight: 800;
-  color: white;
-  margin-bottom: 12px;
-  letter-spacing: -0.02em;
-  text-shadow: 2px 2px 8px rgba(var(--md-sys-color-shadow), 0.3);
+  margin: 0;
   animation: fadeInUp 0.8s var(--md-sys-motion-easing-expressive-standard);
 }
 
 .hero-subtitle {
-  font-family: var(--md-sys-typescale-title-large-font);
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.95);
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
+  margin: 0;
   animation: fadeInUp 1s var(--md-sys-motion-easing-expressive-standard);
 }
 
@@ -204,14 +155,6 @@
     padding: var(--md-sys-spacing-10) 0;
   }
 
-  .hero-title {
-    font-size: 2rem; /* Clamp not always ideal for hero titles */
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
   .hexagon-grid::before {
     background-size: 70px 60.6px;
   }
@@ -223,10 +166,6 @@
 }
 
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.75rem;
-  }
-
   .hexagon-grid::before {
     background-size: 50px 43.3px;
   }

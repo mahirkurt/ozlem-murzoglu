@@ -1,19 +1,953 @@
+// ==========================================================================
+// MD3 EXPRESSIVE - ELEVATION & DEPTH SYSTEM
+// ==========================================================================
+// Material Design 3 Expressive Elevation Token System
+// Implements: Tonal Elevation, Box Shadows, Depth Hierarchy
+// Philosophy: Depth through tone, not just shadow
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// SECTION 1: CORE ELEVATION TOKENS
+// --------------------------------------------------------------------------
+
 :root {
-  /* MD3 elevation values */
+  // =======================================================================
+  // 1.1 Shadow Color Tokens
+  // =======================================================================
+
+  --md-sys-color-shadow: oklch(0% 0 0);
+  --md-sys-color-shadow-rgb: 0, 0, 0;
+
+  // Colored shadows for brand elements
+  --md-sys-color-shadow-primary: oklch(30% 0.1 194);
+  --md-sys-color-shadow-secondary: oklch(30% 0.1 85);
+  --md-sys-color-shadow-tertiary: oklch(30% 0.1 39);
+
+  // =======================================================================
+  // 1.2 MD3 Elevation Levels (Box Shadow System)
+  // =======================================================================
+  // Level 0-5 following Material Design 3 specifications
+  // Each level increases visual prominence
+
+  // Level 0 - No elevation (flat)
   --md-sys-elevation-level0: none;
-  --md-sys-elevation-level1: 
-    0px 1px 2px 0px rgba(0, 0, 0, 0.30),
-    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-  --md-sys-elevation-level2: 
-    0px 1px 2px 0px rgba(0, 0, 0, 0.30),
-    0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-  --md-sys-elevation-level3: 
-    0px 4px 8px 3px rgba(0, 0, 0, 0.15),
-    0px 1px 3px 0px rgba(0, 0, 0, 0.30);
-  --md-sys-elevation-level4: 
-    0px 6px 10px 4px rgba(0, 0, 0, 0.15),
-    0px 2px 3px 0px rgba(0, 0, 0, 0.30);
-  --md-sys-elevation-level5: 
-    0px 8px 12px 6px rgba(0, 0, 0, 0.15),
-    0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+
+  // Level 1 - Resting state (cards, buttons)
+  // Subtle shadow for slight lift
+  --md-sys-elevation-level1:
+    0px 1px 2px 0px rgba(var(--md-sys-color-shadow-rgb), 0.30),
+    0px 1px 3px 1px rgba(var(--md-sys-color-shadow-rgb), 0.15);
+
+  // Level 2 - Hovered state, emphasized elements
+  --md-sys-elevation-level2:
+    0px 1px 2px 0px rgba(var(--md-sys-color-shadow-rgb), 0.30),
+    0px 2px 6px 2px rgba(var(--md-sys-color-shadow-rgb), 0.15);
+
+  // Level 3 - Dialogs, modals, floating elements
+  --md-sys-elevation-level3:
+    0px 4px 8px 3px rgba(var(--md-sys-color-shadow-rgb), 0.15),
+    0px 1px 3px 0px rgba(var(--md-sys-color-shadow-rgb), 0.30);
+
+  // Level 4 - Dropdown menus, tooltips
+  --md-sys-elevation-level4:
+    0px 6px 10px 4px rgba(var(--md-sys-color-shadow-rgb), 0.15),
+    0px 2px 3px 0px rgba(var(--md-sys-color-shadow-rgb), 0.30);
+
+  // Level 5 - Maximum elevation (dragged elements)
+  --md-sys-elevation-level5:
+    0px 8px 12px 6px rgba(var(--md-sys-color-shadow-rgb), 0.15),
+    0px 4px 4px 0px rgba(var(--md-sys-color-shadow-rgb), 0.30);
+
+  // =======================================================================
+  // 1.3 Expressive Elevation (Enhanced Shadows)
+  // =======================================================================
+  // More dramatic shadows for hero moments and CTAs
+
+  --md-sys-elevation-expressive-1:
+    0px 2px 4px -1px rgba(var(--md-sys-color-shadow-rgb), 0.20),
+    0px 4px 6px 0px rgba(var(--md-sys-color-shadow-rgb), 0.14);
+
+  --md-sys-elevation-expressive-2:
+    0px 4px 8px -2px rgba(var(--md-sys-color-shadow-rgb), 0.20),
+    0px 8px 16px 0px rgba(var(--md-sys-color-shadow-rgb), 0.10);
+
+  --md-sys-elevation-expressive-3:
+    0px 8px 16px -4px rgba(var(--md-sys-color-shadow-rgb), 0.18),
+    0px 16px 24px 0px rgba(var(--md-sys-color-shadow-rgb), 0.08);
+
+  --md-sys-elevation-expressive-4:
+    0px 12px 24px -6px rgba(var(--md-sys-color-shadow-rgb), 0.16),
+    0px 24px 48px 0px rgba(var(--md-sys-color-shadow-rgb), 0.06);
+
+  --md-sys-elevation-expressive-5:
+    0px 16px 32px -8px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 32px 64px 0px rgba(var(--md-sys-color-shadow-rgb), 0.04);
+
+  // =======================================================================
+  // 1.4 Tonal Elevation (Surface Tint System)
+  // =======================================================================
+  // MD3 uses tonal elevation instead of pure shadows
+  // Higher elevation = more primary tint on surface
+
+  --md-sys-tonal-elevation-0: 0%;      // surface-container-lowest
+  --md-sys-tonal-elevation-1: 5%;      // surface-container-low
+  --md-sys-tonal-elevation-2: 8%;      // surface-container
+  --md-sys-tonal-elevation-3: 11%;     // surface-container-high
+  --md-sys-tonal-elevation-4: 12%;     // surface-container-highest
+  --md-sys-tonal-elevation-5: 14%;     // maximum tint
+
+  // =======================================================================
+  // 1.5 Z-Index Scale
+  // =======================================================================
+  // Consistent layering system
+
+  --md-sys-zindex-dropdown: 1000;
+  --md-sys-zindex-sticky: 1020;
+  --md-sys-zindex-fixed: 1030;
+  --md-sys-zindex-modal-backdrop: 1040;
+  --md-sys-zindex-modal: 1050;
+  --md-sys-zindex-popover: 1060;
+  --md-sys-zindex-tooltip: 1070;
+  --md-sys-zindex-toast: 1080;
+  --md-sys-zindex-maximum: 9999;
+}
+
+// --------------------------------------------------------------------------
+// SECTION 2: COLORED SHADOW SYSTEM
+// --------------------------------------------------------------------------
+
+:root {
+  // =======================================================================
+  // 2.1 Primary Colored Shadows
+  // =======================================================================
+
+  --md-sys-elevation-primary-1:
+    0px 2px 4px -1px rgba(var(--md-sys-color-primary-rgb), 0.25),
+    0px 4px 8px 0px rgba(var(--md-sys-color-primary-rgb), 0.15);
+
+  --md-sys-elevation-primary-2:
+    0px 4px 8px -2px rgba(var(--md-sys-color-primary-rgb), 0.30),
+    0px 8px 16px 0px rgba(var(--md-sys-color-primary-rgb), 0.20);
+
+  --md-sys-elevation-primary-3:
+    0px 8px 16px -4px rgba(var(--md-sys-color-primary-rgb), 0.25),
+    0px 16px 32px 0px rgba(var(--md-sys-color-primary-rgb), 0.15);
+
+  // =======================================================================
+  // 2.2 Secondary Colored Shadows
+  // =======================================================================
+
+  --md-sys-elevation-secondary-1:
+    0px 2px 4px -1px rgba(var(--md-sys-color-secondary-rgb), 0.25),
+    0px 4px 8px 0px rgba(var(--md-sys-color-secondary-rgb), 0.15);
+
+  --md-sys-elevation-secondary-2:
+    0px 4px 8px -2px rgba(var(--md-sys-color-secondary-rgb), 0.30),
+    0px 8px 16px 0px rgba(var(--md-sys-color-secondary-rgb), 0.20);
+
+  // =======================================================================
+  // 2.3 Tertiary Colored Shadows
+  // =======================================================================
+
+  --md-sys-elevation-tertiary-1:
+    0px 2px 4px -1px rgba(var(--md-sys-color-tertiary-rgb), 0.25),
+    0px 4px 8px 0px rgba(var(--md-sys-color-tertiary-rgb), 0.15);
+
+  --md-sys-elevation-tertiary-2:
+    0px 4px 8px -2px rgba(var(--md-sys-color-tertiary-rgb), 0.30),
+    0px 8px 16px 0px rgba(var(--md-sys-color-tertiary-rgb), 0.20);
+
+  // =======================================================================
+  // 2.4 Glow Effects (Soft Light Shadows)
+  // =======================================================================
+
+  --md-sys-glow-primary-soft:
+    0px 0px 20px 0px rgba(var(--md-sys-color-primary-rgb), 0.15);
+
+  --md-sys-glow-primary-medium:
+    0px 0px 40px 0px rgba(var(--md-sys-color-primary-rgb), 0.20);
+
+  --md-sys-glow-primary-strong:
+    0px 0px 60px 0px rgba(var(--md-sys-color-primary-rgb), 0.30);
+
+  --md-sys-glow-secondary-soft:
+    0px 0px 20px 0px rgba(var(--md-sys-color-secondary-rgb), 0.15);
+
+  --md-sys-glow-tertiary-soft:
+    0px 0px 20px 0px rgba(var(--md-sys-color-tertiary-rgb), 0.15);
+
+  // Mixed glow (aurora effect)
+  --md-sys-glow-aurora:
+    0px 0px 30px 0px rgba(var(--md-sys-color-primary-rgb), 0.15),
+    0px 0px 60px 0px rgba(var(--md-sys-color-secondary-rgb), 0.10),
+    0px 0px 90px 0px rgba(var(--md-sys-color-tertiary-rgb), 0.05);
+}
+
+// --------------------------------------------------------------------------
+// SECTION 3: DARK MODE ELEVATION
+// --------------------------------------------------------------------------
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    // Dark mode uses lighter shadows with more spread
+    // Creates "glow" effect rather than cast shadow
+
+    --md-sys-elevation-level1:
+      0px 1px 3px 0px rgba(0, 0, 0, 0.50),
+      0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+
+    --md-sys-elevation-level2:
+      0px 2px 6px 0px rgba(0, 0, 0, 0.50),
+      0px 1px 4px 0px rgba(0, 0, 0, 0.30);
+
+    --md-sys-elevation-level3:
+      0px 4px 10px 0px rgba(0, 0, 0, 0.50),
+      0px 2px 6px 0px rgba(0, 0, 0, 0.30);
+
+    --md-sys-elevation-level4:
+      0px 6px 14px 0px rgba(0, 0, 0, 0.50),
+      0px 3px 8px 0px rgba(0, 0, 0, 0.30);
+
+    --md-sys-elevation-level5:
+      0px 8px 18px 0px rgba(0, 0, 0, 0.50),
+      0px 4px 10px 0px rgba(0, 0, 0, 0.30);
+
+    // Expressive shadows in dark mode
+    --md-sys-elevation-expressive-1:
+      0px 2px 6px 0px rgba(0, 0, 0, 0.60),
+      0px 0px 4px 0px rgba(var(--md-sys-color-primary-rgb), 0.10);
+
+    --md-sys-elevation-expressive-2:
+      0px 4px 12px 0px rgba(0, 0, 0, 0.60),
+      0px 0px 8px 0px rgba(var(--md-sys-color-primary-rgb), 0.15);
+
+    --md-sys-elevation-expressive-3:
+      0px 8px 24px 0px rgba(0, 0, 0, 0.60),
+      0px 0px 16px 0px rgba(var(--md-sys-color-primary-rgb), 0.20);
+
+    // Enhanced glow in dark mode
+    --md-sys-glow-primary-soft:
+      0px 0px 24px 0px rgba(var(--md-sys-color-primary-rgb), 0.25);
+
+    --md-sys-glow-primary-medium:
+      0px 0px 48px 0px rgba(var(--md-sys-color-primary-rgb), 0.35);
+
+    --md-sys-glow-primary-strong:
+      0px 0px 80px 0px rgba(var(--md-sys-color-primary-rgb), 0.45);
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 4: ELEVATION UTILITY CLASSES
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 4.1 Standard Elevation Classes
+// =======================================================================
+
+.elevation-0, .md3-elevation-0 {
+  box-shadow: var(--md-sys-elevation-level0);
+}
+
+.elevation-1, .md3-elevation-1 {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.elevation-2, .md3-elevation-2 {
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.elevation-3, .md3-elevation-3 {
+  box-shadow: var(--md-sys-elevation-level3);
+}
+
+.elevation-4, .md3-elevation-4 {
+  box-shadow: var(--md-sys-elevation-level4);
+}
+
+.elevation-5, .md3-elevation-5 {
+  box-shadow: var(--md-sys-elevation-level5);
+}
+
+// =======================================================================
+// 4.2 Expressive Elevation Classes
+// =======================================================================
+
+.elevation-expressive-1 {
+  box-shadow: var(--md-sys-elevation-expressive-1);
+}
+
+.elevation-expressive-2 {
+  box-shadow: var(--md-sys-elevation-expressive-2);
+}
+
+.elevation-expressive-3 {
+  box-shadow: var(--md-sys-elevation-expressive-3);
+}
+
+.elevation-expressive-4 {
+  box-shadow: var(--md-sys-elevation-expressive-4);
+}
+
+.elevation-expressive-5 {
+  box-shadow: var(--md-sys-elevation-expressive-5);
+}
+
+// =======================================================================
+// 4.3 Colored Elevation Classes
+// =======================================================================
+
+.elevation-primary-1 {
+  box-shadow: var(--md-sys-elevation-primary-1);
+}
+
+.elevation-primary-2 {
+  box-shadow: var(--md-sys-elevation-primary-2);
+}
+
+.elevation-primary-3 {
+  box-shadow: var(--md-sys-elevation-primary-3);
+}
+
+.elevation-secondary-1 {
+  box-shadow: var(--md-sys-elevation-secondary-1);
+}
+
+.elevation-secondary-2 {
+  box-shadow: var(--md-sys-elevation-secondary-2);
+}
+
+.elevation-tertiary-1 {
+  box-shadow: var(--md-sys-elevation-tertiary-1);
+}
+
+.elevation-tertiary-2 {
+  box-shadow: var(--md-sys-elevation-tertiary-2);
+}
+
+// =======================================================================
+// 4.4 Glow Effect Classes
+// =======================================================================
+
+.glow-primary-soft {
+  box-shadow: var(--md-sys-glow-primary-soft);
+}
+
+.glow-primary-medium {
+  box-shadow: var(--md-sys-glow-primary-medium);
+}
+
+.glow-primary-strong {
+  box-shadow: var(--md-sys-glow-primary-strong);
+}
+
+.glow-secondary-soft {
+  box-shadow: var(--md-sys-glow-secondary-soft);
+}
+
+.glow-tertiary-soft {
+  box-shadow: var(--md-sys-glow-tertiary-soft);
+}
+
+.glow-aurora {
+  box-shadow: var(--md-sys-glow-aurora);
+}
+
+// =======================================================================
+// 4.5 Z-Index Utility Classes
+// =======================================================================
+
+.z-dropdown { z-index: var(--md-sys-zindex-dropdown); }
+.z-sticky { z-index: var(--md-sys-zindex-sticky); }
+.z-fixed { z-index: var(--md-sys-zindex-fixed); }
+.z-modal-backdrop { z-index: var(--md-sys-zindex-modal-backdrop); }
+.z-modal { z-index: var(--md-sys-zindex-modal); }
+.z-popover { z-index: var(--md-sys-zindex-popover); }
+.z-tooltip { z-index: var(--md-sys-zindex-tooltip); }
+.z-toast { z-index: var(--md-sys-zindex-toast); }
+.z-max { z-index: var(--md-sys-zindex-maximum); }
+
+// --------------------------------------------------------------------------
+// SECTION 5: TONAL ELEVATION SURFACES
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 5.1 Tonal Surface Classes
+// =======================================================================
+// These apply tonal elevation through background color change
+
+.surface-tonal-0 {
+  background-color: var(--md-sys-color-surface-container-lowest);
+}
+
+.surface-tonal-1 {
+  background-color: var(--md-sys-color-surface-container-low);
+}
+
+.surface-tonal-2 {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.surface-tonal-3 {
+  background-color: var(--md-sys-color-surface-container-high);
+}
+
+.surface-tonal-4,
+.surface-tonal-5 {
+  background-color: var(--md-sys-color-surface-container-highest);
+}
+
+// =======================================================================
+// 5.2 Combined Tonal + Shadow Elevation
+// =======================================================================
+// Best practice: combine tonal elevation with subtle shadow
+
+.surface-elevated-1 {
+  background-color: var(--md-sys-color-surface-container-low);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.surface-elevated-2 {
+  background-color: var(--md-sys-color-surface-container);
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.surface-elevated-3 {
+  background-color: var(--md-sys-color-surface-container-high);
+  box-shadow: var(--md-sys-elevation-level3);
+}
+
+.surface-elevated-4 {
+  background-color: var(--md-sys-color-surface-container-highest);
+  box-shadow: var(--md-sys-elevation-level4);
+}
+
+// --------------------------------------------------------------------------
+// SECTION 6: INTERACTIVE ELEVATION STATES
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 6.1 Hover Elevation Increase
+// =======================================================================
+
+.elevation-interactive {
+  box-shadow: var(--md-sys-elevation-level1);
+  transition: box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-level2);
+  }
+
+  &:active {
+    box-shadow: var(--md-sys-elevation-level1);
+  }
+}
+
+.elevation-interactive-2 {
+  box-shadow: var(--md-sys-elevation-level2);
+  transition: box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-level3);
+  }
+
+  &:active {
+    box-shadow: var(--md-sys-elevation-level2);
+  }
+}
+
+// =======================================================================
+// 6.2 Expressive Interactive Elevation
+// =======================================================================
+
+.elevation-expressive-interactive {
+  box-shadow: var(--md-sys-elevation-expressive-1);
+  transition:
+    box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+    transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-expressive-2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: var(--md-sys-elevation-expressive-1);
+    transform: translateY(0);
+  }
+}
+
+// =======================================================================
+// 6.3 Glow Interactive Effects
+// =======================================================================
+
+.glow-interactive {
+  box-shadow: var(--md-sys-elevation-level1);
+  transition: box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+
+  &:hover {
+    box-shadow:
+      var(--md-sys-elevation-level2),
+      var(--md-sys-glow-primary-soft);
+  }
+
+  &:focus-visible {
+    box-shadow:
+      var(--md-sys-elevation-level2),
+      var(--md-sys-glow-primary-medium);
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 7: COMPONENT-SPECIFIC ELEVATION
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 7.1 Card Elevation
+// =======================================================================
+
+.card-elevated {
+  background-color: var(--md-sys-color-surface-container-low);
+  box-shadow: var(--md-sys-elevation-level1);
+  border-radius: var(--md-sys-shape-corner-medium);
+  transition:
+    box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+    background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-level2);
+  }
+
+  &.card-interactive:active {
+    background-color: var(--md-sys-color-surface-container);
+  }
+}
+
+.card-filled {
+  background-color: var(--md-sys-color-surface-container-highest);
+  box-shadow: var(--md-sys-elevation-level0);
+}
+
+.card-outlined {
+  background-color: var(--md-sys-color-surface);
+  box-shadow: var(--md-sys-elevation-level0);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+// =======================================================================
+// 7.2 Dialog/Modal Elevation
+// =======================================================================
+
+.dialog-elevation {
+  background-color: var(--md-sys-color-surface-container-high);
+  box-shadow: var(--md-sys-elevation-level3);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+}
+
+.modal-elevation {
+  background-color: var(--md-sys-color-surface-container-highest);
+  box-shadow: var(--md-sys-elevation-expressive-3);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+}
+
+// =======================================================================
+// 7.3 FAB Elevation
+// =======================================================================
+
+.fab-elevation {
+  background-color: var(--md-sys-color-primary-container);
+  box-shadow: var(--md-sys-elevation-level3);
+  transition: box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-level4);
+  }
+
+  &:active {
+    box-shadow: var(--md-sys-elevation-level3);
+  }
+}
+
+.fab-lowered {
+  box-shadow: var(--md-sys-elevation-level1);
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-level2);
+  }
+}
+
+// =======================================================================
+// 7.4 Button Elevation
+// =======================================================================
+
+.button-elevated {
+  background-color: var(--md-sys-color-surface-container-low);
+  box-shadow: var(--md-sys-elevation-level1);
+  transition:
+    box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+    background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-level2);
+    background-color: var(--md-sys-color-surface-container);
+  }
+
+  &:active {
+    box-shadow: var(--md-sys-elevation-level1);
+  }
+
+  &:disabled {
+    box-shadow: var(--md-sys-elevation-level0);
+    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
+  }
+}
+
+// =======================================================================
+// 7.5 Navigation Elevation
+// =======================================================================
+
+.nav-rail-elevation {
+  background-color: var(--md-sys-color-surface);
+  box-shadow: var(--md-sys-elevation-level0);
+}
+
+.nav-drawer-elevation {
+  background-color: var(--md-sys-color-surface-container-low);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.top-app-bar-elevated {
+  background-color: var(--md-sys-color-surface-container);
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.bottom-app-bar-elevation {
+  background-color: var(--md-sys-color-surface-container);
+  box-shadow:
+    0px -1px 2px 0px rgba(var(--md-sys-color-shadow-rgb), 0.30),
+    0px -1px 3px 1px rgba(var(--md-sys-color-shadow-rgb), 0.15);
+}
+
+// =======================================================================
+// 7.6 Menu & Dropdown Elevation
+// =======================================================================
+
+.menu-elevation {
+  background-color: var(--md-sys-color-surface-container);
+  box-shadow: var(--md-sys-elevation-level2);
+  border-radius: var(--md-sys-shape-corner-extra-small);
+}
+
+.dropdown-elevation {
+  background-color: var(--md-sys-color-surface-container);
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.tooltip-elevation {
+  background-color: var(--md-sys-color-inverse-surface);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+// =======================================================================
+// 7.7 Snackbar & Toast Elevation
+// =======================================================================
+
+.snackbar-elevation {
+  background-color: var(--md-sys-color-inverse-surface);
+  box-shadow: var(--md-sys-elevation-level3);
+}
+
+.toast-elevation {
+  background-color: var(--md-sys-color-surface-container-high);
+  box-shadow: var(--md-sys-elevation-expressive-2);
+}
+
+// --------------------------------------------------------------------------
+// SECTION 8: ELEVATION MIXINS
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 8.1 Apply Elevation Mixin
+// =======================================================================
+
+@mixin elevation($level: 1) {
+  @if $level == 0 {
+    box-shadow: var(--md-sys-elevation-level0);
+  } @else if $level == 1 {
+    box-shadow: var(--md-sys-elevation-level1);
+  } @else if $level == 2 {
+    box-shadow: var(--md-sys-elevation-level2);
+  } @else if $level == 3 {
+    box-shadow: var(--md-sys-elevation-level3);
+  } @else if $level == 4 {
+    box-shadow: var(--md-sys-elevation-level4);
+  } @else if $level == 5 {
+    box-shadow: var(--md-sys-elevation-level5);
+  }
+}
+
+// =======================================================================
+// 8.2 Interactive Elevation Mixin
+// =======================================================================
+
+@mixin elevation-interactive($base-level: 1, $hover-level: 2) {
+  @include elevation($base-level);
+  transition: box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    @include elevation($hover-level);
+  }
+
+  &:active {
+    @include elevation($base-level);
+  }
+}
+
+// =======================================================================
+// 8.3 Expressive Elevation Mixin
+// =======================================================================
+
+@mixin elevation-expressive($level: 1) {
+  @if $level == 1 {
+    box-shadow: var(--md-sys-elevation-expressive-1);
+  } @else if $level == 2 {
+    box-shadow: var(--md-sys-elevation-expressive-2);
+  } @else if $level == 3 {
+    box-shadow: var(--md-sys-elevation-expressive-3);
+  } @else if $level == 4 {
+    box-shadow: var(--md-sys-elevation-expressive-4);
+  } @else if $level == 5 {
+    box-shadow: var(--md-sys-elevation-expressive-5);
+  }
+}
+
+// =======================================================================
+// 8.4 Glow Effect Mixin
+// =======================================================================
+
+@mixin glow($color: primary, $intensity: soft) {
+  @if $color == primary {
+    @if $intensity == soft {
+      box-shadow: var(--md-sys-glow-primary-soft);
+    } @else if $intensity == medium {
+      box-shadow: var(--md-sys-glow-primary-medium);
+    } @else if $intensity == strong {
+      box-shadow: var(--md-sys-glow-primary-strong);
+    }
+  } @else if $color == secondary {
+    box-shadow: var(--md-sys-glow-secondary-soft);
+  } @else if $color == tertiary {
+    box-shadow: var(--md-sys-glow-tertiary-soft);
+  } @else if $color == aurora {
+    box-shadow: var(--md-sys-glow-aurora);
+  }
+}
+
+// =======================================================================
+// 8.5 Tonal Surface Mixin
+// =======================================================================
+
+@mixin tonal-surface($level: 2) {
+  @if $level == 0 {
+    background-color: var(--md-sys-color-surface-container-lowest);
+  } @else if $level == 1 {
+    background-color: var(--md-sys-color-surface-container-low);
+  } @else if $level == 2 {
+    background-color: var(--md-sys-color-surface-container);
+  } @else if $level == 3 {
+    background-color: var(--md-sys-color-surface-container-high);
+  } @else if $level >= 4 {
+    background-color: var(--md-sys-color-surface-container-highest);
+  }
+}
+
+// =======================================================================
+// 8.6 Combined Elevation Mixin (Tonal + Shadow)
+// =======================================================================
+
+@mixin surface-elevation($level: 1) {
+  @include tonal-surface($level);
+  @include elevation($level);
+}
+
+// =======================================================================
+// 8.7 Card Elevation Mixin
+// =======================================================================
+
+@mixin card-elevation($type: elevated) {
+  @if $type == elevated {
+    background-color: var(--md-sys-color-surface-container-low);
+    box-shadow: var(--md-sys-elevation-level1);
+
+    &:hover {
+      box-shadow: var(--md-sys-elevation-level2);
+    }
+  } @else if $type == filled {
+    background-color: var(--md-sys-color-surface-container-highest);
+    box-shadow: none;
+  } @else if $type == outlined {
+    background-color: var(--md-sys-color-surface);
+    box-shadow: none;
+    border: 1px solid var(--md-sys-color-outline-variant);
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 9: SPECIAL ELEVATION EFFECTS
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 9.1 Inner Shadow (Inset)
+// =======================================================================
+
+.inset-shadow-sm {
+  box-shadow: inset 0 1px 2px rgba(var(--md-sys-color-shadow-rgb), 0.10);
+}
+
+.inset-shadow-md {
+  box-shadow: inset 0 2px 4px rgba(var(--md-sys-color-shadow-rgb), 0.15);
+}
+
+.inset-shadow-lg {
+  box-shadow: inset 0 4px 8px rgba(var(--md-sys-color-shadow-rgb), 0.20);
+}
+
+// =======================================================================
+// 9.2 Layered Shadows (Depth Effect)
+// =======================================================================
+
+.shadow-layered {
+  box-shadow:
+    0 1px 1px rgba(var(--md-sys-color-shadow-rgb), 0.12),
+    0 2px 2px rgba(var(--md-sys-color-shadow-rgb), 0.10),
+    0 4px 4px rgba(var(--md-sys-color-shadow-rgb), 0.08),
+    0 8px 8px rgba(var(--md-sys-color-shadow-rgb), 0.06),
+    0 16px 16px rgba(var(--md-sys-color-shadow-rgb), 0.04);
+}
+
+// =======================================================================
+// 9.3 Text Shadow Effects
+// =======================================================================
+
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(var(--md-sys-color-shadow-rgb), 0.20);
+}
+
+.text-shadow-md {
+  text-shadow: 0 2px 4px rgba(var(--md-sys-color-shadow-rgb), 0.25);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(var(--md-sys-color-shadow-rgb), 0.30);
+}
+
+.text-shadow-glow {
+  text-shadow:
+    0 0 10px rgba(var(--md-sys-color-primary-rgb), 0.50),
+    0 0 20px rgba(var(--md-sys-color-primary-rgb), 0.30);
+}
+
+// =======================================================================
+// 9.4 Drop Shadow (Filter-based)
+// =======================================================================
+
+.drop-shadow-sm {
+  filter: drop-shadow(0 1px 2px rgba(var(--md-sys-color-shadow-rgb), 0.15));
+}
+
+.drop-shadow-md {
+  filter: drop-shadow(0 4px 6px rgba(var(--md-sys-color-shadow-rgb), 0.20));
+}
+
+.drop-shadow-lg {
+  filter: drop-shadow(0 8px 16px rgba(var(--md-sys-color-shadow-rgb), 0.25));
+}
+
+.drop-shadow-primary {
+  filter: drop-shadow(0 4px 8px rgba(var(--md-sys-color-primary-rgb), 0.30));
+}
+
+// --------------------------------------------------------------------------
+// SECTION 10: ACCESSIBILITY - REDUCED MOTION
+// --------------------------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  .elevation-interactive,
+  .elevation-interactive-2,
+  .elevation-expressive-interactive,
+  .glow-interactive,
+  .card-elevated,
+  .fab-elevation,
+  .button-elevated {
+    transition: none;
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 11: FORCED COLORS MODE (HIGH CONTRAST)
+// --------------------------------------------------------------------------
+
+@media (forced-colors: active) {
+  // In forced colors mode, use borders instead of shadows
+
+  .elevation-1,
+  .elevation-2,
+  .elevation-3,
+  .elevation-4,
+  .elevation-5,
+  .md3-elevation-1,
+  .md3-elevation-2,
+  .md3-elevation-3,
+  .md3-elevation-4,
+  .md3-elevation-5 {
+    box-shadow: none;
+    border: 1px solid CanvasText;
+  }
+
+  .card-elevated,
+  .card-filled,
+  .card-outlined {
+    box-shadow: none;
+    border: 1px solid CanvasText;
+  }
+
+  .dialog-elevation,
+  .modal-elevation {
+    box-shadow: none;
+    border: 2px solid CanvasText;
+  }
+
+  .glow-primary-soft,
+  .glow-primary-medium,
+  .glow-primary-strong,
+  .glow-secondary-soft,
+  .glow-tertiary-soft,
+  .glow-aurora {
+    box-shadow: none;
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 12: PRINT STYLES
+// --------------------------------------------------------------------------
+
+@media print {
+  // Remove all shadows for print
+
+  [class*="elevation-"],
+  [class*="glow-"],
+  [class*="shadow-"],
+  .card-elevated,
+  .dialog-elevation,
+  .modal-elevation,
+  .fab-elevation,
+  .button-elevated {
+    box-shadow: none !important;
+  }
+
+  // Add borders for visual separation in print
+  .card-elevated,
+  .card-filled {
+    border: 1px solid #ddd;
+  }
 }

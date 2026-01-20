@@ -1,86 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/bright-futures-aile" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <h2>2. YAŞ ZİYARETİ</h2><h2>AİLENİZİN DURUMU</h2><ul><li>Kendinize ve eşinize zaman ayırın.</li><li>Arkadaşlarınızla iletişimde kalın.</li><li>Aile aktiviteleri için zaman ayırın. Her çocukla zaman geçirin.</li><li>Çocuğunuza diğer insanlara vurmamayı, onları ısırmamayı veya incitmemeyi öğretin. Rol model olun.</li><li>Sigara içmeyin veya elektronik sigara kullanmayın. Evinizi ve arabanızı dumansız tutun. Tütünsüz alanlar çocukları sağlıklı tutar.</li><li>Aile ve arkadaşlardan yardım istemekten çekinmeyin.</li></ul><h2>ÇOCUĞUNUZUN DAVRANIŞLARI</h2><ul><li>Çocuğunuzdan yapmasını istediğiniz şeyi yaptığında, onu övün.</li><li>Çocuğunuzu dinleyin ve saygı gösterin. Bunu başkalarından da bekleyin.</li><li>Çocuğunuzun duyguları hakkında konuşmasına yardımcı olun.</li><li>Yeni insanlara veya durumlara nasıl tepki verdiğini izleyin.</li><li>Birlikte okuyun, konuşun, şarkı söyleyin ve keşfedin. Bu etkinlikler, yeni yürümeye başlayan çocukların öğrenmesine yardımcı olmanın en iyi yoludur.</li><li>TV, tablet veya akıllı telefon kullanımını her gün 1 saatten fazla olmayacak şekilde yüksek kaliteli programlarla sınırlayın.<ul><li>Yeni yürümeye başlayan çocuklar için oyun oynamak TV izlemekten daha iyidir.</li><li>Çocuğunuzu günde en az 60 dakika aktif oyun oynamaya teşvik edin.</li></ul></li><li>Yemek yerken televizyon izlemeyin. Bunun yerine sohbet edin.</li></ul><h2>ÇOCUĞUNLA KONUŞMA VE İLETİŞİM</h2><ul><li>Çocuğunuzla anlaşılır, basit bir dil kullanın. Bebek konuşması kullanmayın.</li><li>Yavaş konuşun ve çocuğunuzun yanıt vermesinin biraz zaman alabileceğini unutmayın. Çocuğunuz basit talimatları takip edebilmelidir.</li><li>Çocuğunuza her gün okuyun. Çocuğunuz aynı hikâyeyi defalarca dinlemeyi sevebilir.</li><li>Kitaplardaki resimler hakkında konuşun ve onları tanımlayın.</li><li>Birlikteyken gördüğünüz ve duyduğunuz şeyler hakkında konuşun.</li><li>Okurken çocuğunuzdan bir şeyleri işaret etmesini isteyin.</li><li>Çocuğunuzun bir hayvan sesi çıkarması veya hikâyenin bir bölümünü bitirmesi için bir okumaya ara verin.</li></ul><h2>TUVALET EĞİTİMİ</h2><ul><li>Çocuğunuz hazır olduğunda tuvalet eğitimine başlayın. Tuvalet eğitimine hazır olmanın belirtileri şunlardır:<ul><li>2 saat kuru kalabilme</li><li>Islak veya kuru olduğunun farkında olma</li><li>Pantolonu aşağı ve yukarı çekebilme</li><li>Öğrenmeyi isteme</li><li>Bağırsak hareketi yapıp yapmayacağını size söyleyebilme</li></ul></li><li>Tuvalet molalarını sık olacak biçimde planlayın. Çocuklar tuvaleti günde 10 defaya kadar kullanırlar.</li><li>Çocuğunuza tuvaleti kullandıktan sonra ellerini yıkamasını öğretin.</li><li>Her kullanımdan sonra lazımlığı temizleyin.</li><li>Çocuğu, kendini hazır hissettiğinde iç çamaşırı seçmeye götürün.</li></ul><h2>GÜVENLİK</h2><ul><li>Çocuğunuzun oto koltuğunun, oto koltuğu üreticisinin izin verdiği en yüksek ağırlığa veya yüksekliğe ulaşana kadar arkaya dönük olduğundan emin olun. Çocuğunuz bu sınırlara ulaştığında, koltuğu öne bakan konuma getirme zamanı gelmiştir.</li><li>Araç güvenlik koltuğunun arka koltuğa doğru şekilde takıldığından emin olun. Emniyet kemeri kayışları çocuğunuzun göğsüne sıkıca oturmalıdır.</li><li>Çocuklar ne yaptığınızı izler. Arabada herkes kucak ve omuz emniyet kemeri takmalıdır.</li><li>Gözetleyen bir yetişkin olmadan çocuğunuzu evinizde veya bahçenizde, özellikle arabaların veya makinelerin yakınında asla yalnız bırakmayın.</li><li>Arabanızla park manevrası yaparken, başka bir yetişkinin çocuğunuzu arabanızın yoluna çıkmaması için güvenli bir mesafede tutmasını sağlayın.</li><li>Çocuğunuza bisiklet ve üç tekerlekli bisiklet sürerken tam olarak oturan bir kask kullandırın.</li></ul><h2>2½. YAŞ ZİYARETİNDE NELER BEKLEMELİSİNİZ?</h2><p>Şunlar hakkında konuşacağız:</p><ul><li>Aile rutinleri oluşturmak</li><li>Konuşan çocuğunuzu desteklemek</li><li>Diğer çocuklarla iyi geçinmek</li><li>Okul öncesi eğitime hazırlanmak</li><li>Çocuğunuzu evde, dışarıda ve arabada güvende tutmak.</li></ul>          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/bright-futures-aile/2.%20Ya%C5%9F%20-%20Aile%20%C4%B0%C3%A7in%20Bilgiler.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

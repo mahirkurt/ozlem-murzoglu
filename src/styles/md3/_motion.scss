@@ -1,35 +1,1274 @@
+// ==========================================================================
+// MD3 EXPRESSIVE - MOTION & ANIMATION SYSTEM
+// ==========================================================================
+// Material Design 3 Expressive Motion Token System
+// Implements: Spring Physics, Easing Curves, Duration Scale, Keyframe Library
+// Philosophy: Organic, physics-based animations that feel alive
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// SECTION 1: CORE MOTION TOKENS
+// --------------------------------------------------------------------------
+
 :root {
-  /* Easing functions */
-  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
-  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
-  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  // =======================================================================
+  // 1.1 Standard Easing Functions
+  // =======================================================================
+  // For utility transitions: color changes, opacity, simple state changes
+
   --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
   --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
   --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
-  
-  /* Expressive Easing (Spring Approximations) */
-  /* Overshoot for lively, bouncy feel */
+
+  // =======================================================================
+  // 1.2 Emphasized Easing Functions
+  // =======================================================================
+  // For important transitions that need attention
+
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+
+  // =======================================================================
+  // 1.3 Expressive Easing (Spring Physics Approximations)
+  // =======================================================================
+  // For hero moments - includes overshoot for lively, bouncy feel
+
   --md-sys-motion-easing-expressive-standard: cubic-bezier(0.4, 1.4, 0.2, 1);
   --md-sys-motion-easing-expressive-decelerate: cubic-bezier(0, 1.4, 0.2, 1);
   --md-sys-motion-easing-expressive-accelerate: cubic-bezier(0.4, 0, 0.2, 1);
-  
+
+  // Extra bouncy for playful interactions
+  --md-sys-motion-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --md-sys-motion-easing-bounce-in: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  --md-sys-motion-easing-bounce-out: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --md-sys-motion-easing-bounce-in-out: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  // =======================================================================
+  // 1.4 Elastic Easing (Stronger Spring Effect)
+  // =======================================================================
+
+  --md-sys-motion-easing-elastic-out: cubic-bezier(0.5, 1.8, 0.5, 0.8);
+  --md-sys-motion-easing-elastic-in-out: cubic-bezier(0.5, -0.3, 0.5, 1.3);
+
+  // =======================================================================
+  // 1.5 Utility Easing
+  // =======================================================================
+
   --md-sys-motion-easing-linear: linear;
-  
-  /* Duration scale */
-  --md-sys-motion-duration-short1: 50ms;
-  --md-sys-motion-duration-short2: 100ms;
-  --md-sys-motion-duration-short3: 150ms;
-  --md-sys-motion-duration-short4: 200ms;
-  --md-sys-motion-duration-medium1: 250ms;
-  --md-sys-motion-duration-medium2: 300ms;
-  --md-sys-motion-duration-medium3: 350ms;
-  --md-sys-motion-duration-medium4: 400ms;
-  --md-sys-motion-duration-long1: 450ms;
-  --md-sys-motion-duration-long2: 500ms;
-  --md-sys-motion-duration-long3: 550ms;
-  --md-sys-motion-duration-long4: 600ms;
-  --md-sys-motion-duration-extra-long1: 700ms;
-  --md-sys-motion-duration-extra-long2: 800ms;
-  --md-sys-motion-duration-extra-long3: 900ms;
-  --md-sys-motion-duration-extra-long4: 1000ms;
+  --md-sys-motion-easing-ease: ease;
+  --md-sys-motion-easing-ease-in: ease-in;
+  --md-sys-motion-easing-ease-out: ease-out;
+  --md-sys-motion-easing-ease-in-out: ease-in-out;
+
+  // =======================================================================
+  // 1.6 Custom Spring Curves
+  // =======================================================================
+  // Fine-tuned for specific interaction types
+
+  // Soft spring - gentle, soothing animations
+  --md-sys-motion-spring-soft: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  // Snappy spring - quick, responsive feedback
+  --md-sys-motion-spring-snappy: cubic-bezier(0.25, 1.25, 0.5, 1);
+
+  // Wobbly spring - playful, attention-grabbing
+  --md-sys-motion-spring-wobbly: cubic-bezier(0.5, 1.5, 0.5, 0.8);
+
+  // Stiff spring - controlled, professional
+  --md-sys-motion-spring-stiff: cubic-bezier(0.3, 1.1, 0.6, 1);
+}
+
+// --------------------------------------------------------------------------
+// SECTION 2: DURATION SCALE
+// --------------------------------------------------------------------------
+
+:root {
+  // =======================================================================
+  // 2.1 Short Durations - Micro-interactions
+  // =======================================================================
+  // For instant feedback, ripples, color changes
+
+  --md-sys-motion-duration-short1: 50ms;   // Instant feedback (ripple start)
+  --md-sys-motion-duration-short2: 100ms;  // State layer opacity
+  --md-sys-motion-duration-short3: 150ms;  // Quick hover effects
+  --md-sys-motion-duration-short4: 200ms;  // Standard UI transitions
+
+  // =======================================================================
+  // 2.2 Medium Durations - Component Transitions
+  // =======================================================================
+  // For element state changes, expand/collapse
+
+  --md-sys-motion-duration-medium1: 250ms; // Component transitions
+  --md-sys-motion-duration-medium2: 300ms; // Moderate transitions
+  --md-sys-motion-duration-medium3: 350ms; // Complex state changes
+  --md-sys-motion-duration-medium4: 400ms; // PRIMARY INTERACTION SPEED
+
+  // =======================================================================
+  // 2.3 Long Durations - Layout Changes
+  // =======================================================================
+  // For layout shifts, page transitions, modals
+
+  --md-sys-motion-duration-long1: 450ms;   // Layout shifts
+  --md-sys-motion-duration-long2: 500ms;   // Page transitions
+  --md-sys-motion-duration-long3: 550ms;   // Complex sequences
+  --md-sys-motion-duration-long4: 600ms;   // Full layout animations
+
+  // =======================================================================
+  // 2.4 Extra-Long Durations - Hero Moments
+  // =======================================================================
+  // For dramatic reveals, celebrations, onboarding
+
+  --md-sys-motion-duration-extra-long1: 700ms;  // Elaborate animations
+  --md-sys-motion-duration-extra-long2: 800ms;  // Hero moments
+  --md-sys-motion-duration-extra-long3: 900ms;  // Dramatic reveals
+  --md-sys-motion-duration-extra-long4: 1000ms; // Maximum duration
+
+  // =======================================================================
+  // 2.5 Special Durations
+  // =======================================================================
+
+  --md-sys-motion-duration-instant: 0ms;
+  --md-sys-motion-duration-skeleton: 1500ms;    // Skeleton loader cycle
+  --md-sys-motion-duration-background: 20000ms; // Background animations
+  --md-sys-motion-duration-infinite: infinite;
+
+  // =======================================================================
+  // 2.6 Stagger Delays
+  // =======================================================================
+  // For sequential element animations
+
+  --md-sys-motion-stagger-delay: 50ms;
+  --md-sys-motion-stagger-delay-fast: 30ms;
+  --md-sys-motion-stagger-delay-slow: 80ms;
+}
+
+// --------------------------------------------------------------------------
+// SECTION 3: TRANSITION PRESETS
+// --------------------------------------------------------------------------
+
+:root {
+  // =======================================================================
+  // 3.1 Standard Transitions
+  // =======================================================================
+
+  --md-sys-transition-standard:
+    var(--md-sys-motion-duration-short4)
+    var(--md-sys-motion-easing-standard);
+
+  --md-sys-transition-standard-decelerate:
+    var(--md-sys-motion-duration-medium1)
+    var(--md-sys-motion-easing-standard-decelerate);
+
+  --md-sys-transition-standard-accelerate:
+    var(--md-sys-motion-duration-short3)
+    var(--md-sys-motion-easing-standard-accelerate);
+
+  // =======================================================================
+  // 3.2 Emphasized Transitions
+  // =======================================================================
+
+  --md-sys-transition-emphasized:
+    var(--md-sys-motion-duration-medium2)
+    var(--md-sys-motion-easing-emphasized);
+
+  --md-sys-transition-emphasized-decelerate:
+    var(--md-sys-motion-duration-medium4)
+    var(--md-sys-motion-easing-emphasized-decelerate);
+
+  --md-sys-transition-emphasized-accelerate:
+    var(--md-sys-motion-duration-short4)
+    var(--md-sys-motion-easing-emphasized-accelerate);
+
+  // =======================================================================
+  // 3.3 Expressive Transitions
+  // =======================================================================
+
+  --md-sys-transition-expressive:
+    var(--md-sys-motion-duration-medium4)
+    var(--md-sys-motion-easing-expressive-standard);
+
+  --md-sys-transition-expressive-decelerate:
+    var(--md-sys-motion-duration-long2)
+    var(--md-sys-motion-easing-expressive-decelerate);
+
+  --md-sys-transition-expressive-accelerate:
+    var(--md-sys-motion-duration-medium2)
+    var(--md-sys-motion-easing-expressive-accelerate);
+
+  // =======================================================================
+  // 3.4 Spring Transitions
+  // =======================================================================
+
+  --md-sys-transition-bounce:
+    var(--md-sys-motion-duration-medium4)
+    var(--md-sys-motion-easing-bounce);
+
+  --md-sys-transition-spring-soft:
+    var(--md-sys-motion-duration-medium2)
+    var(--md-sys-motion-spring-soft);
+
+  --md-sys-transition-spring-snappy:
+    var(--md-sys-motion-duration-short4)
+    var(--md-sys-motion-spring-snappy);
+
+  --md-sys-transition-spring-wobbly:
+    var(--md-sys-motion-duration-medium4)
+    var(--md-sys-motion-spring-wobbly);
+}
+
+// --------------------------------------------------------------------------
+// SECTION 4: KEYFRAME ANIMATIONS
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 4.1 Fade Animations
+// =======================================================================
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// =======================================================================
+// 4.2 Scale Animations
+// =======================================================================
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes scaleInBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// =======================================================================
+// 4.3 Slide Animations
+// =======================================================================
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+// =======================================================================
+// 4.4 Modal/Dialog Animations
+// =======================================================================
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalExit {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+}
+
+@keyframes dialogEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bottomSheetEnter {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes sideSheetEnter {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+// =======================================================================
+// 4.5 Hero Animations
+// =======================================================================
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// =======================================================================
+// 4.6 Staggered Entry Animations
+// =======================================================================
+
+@keyframes staggeredEntry {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes staggeredFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes staggeredScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// =======================================================================
+// 4.7 Attention Seekers
+// =======================================================================
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes pulseScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-4px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rubberBand {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+// =======================================================================
+// 4.8 Loading Animations
+// =======================================================================
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes progressIndeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+}
+
+// =======================================================================
+// 4.9 Background Animations
+// =======================================================================
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floatLeftRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes auroraFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(10%, -10%) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-5%, 5%) scale(0.95);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(-10%, -5%) scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+// =======================================================================
+// 4.10 Ripple Animation
+// =======================================================================
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes rippleSoft {
+  0% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 5: ANIMATION UTILITY CLASSES
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 5.1 Fade Animation Classes
+// =======================================================================
+
+.animate-fade-in {
+  animation: fadeIn var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.animate-fade-out {
+  animation: fadeOut var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-accelerate) both;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+// =======================================================================
+// 5.2 Scale Animation Classes
+// =======================================================================
+
+.animate-scale-in {
+  animation: scaleIn var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.animate-scale-out {
+  animation: scaleOut var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-accelerate) both;
+}
+
+.animate-scale-in-bounce {
+  animation: scaleInBounce var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-standard) both;
+}
+
+.animate-pop-in {
+  animation: popIn var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-standard) both;
+}
+
+// =======================================================================
+// 5.3 Slide Animation Classes
+// =======================================================================
+
+.animate-slide-in-up {
+  animation: slideInUp var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.animate-slide-in-down {
+  animation: slideInDown var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+// =======================================================================
+// 5.4 Modal/Dialog Animation Classes
+// =======================================================================
+
+.animate-modal-enter {
+  animation: modalEnter var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-decelerate) both;
+}
+
+.animate-modal-exit {
+  animation: modalExit var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-accelerate) both;
+}
+
+.animate-dialog-enter {
+  animation: dialogEnter var(--md-sys-motion-duration-long2) var(--md-sys-motion-easing-expressive-standard) both;
+}
+
+.animate-bottom-sheet-enter {
+  animation: bottomSheetEnter var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.animate-side-sheet-enter {
+  animation: sideSheetEnter var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+// =======================================================================
+// 5.5 Hero Animation Classes
+// =======================================================================
+
+.animate-hero-reveal {
+  animation: heroReveal var(--md-sys-motion-duration-extra-long2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.animate-hero-text {
+  animation: heroTextReveal var(--md-sys-motion-duration-long2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.animate-hero-slide {
+  animation: heroSlideIn var(--md-sys-motion-duration-long2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+// =======================================================================
+// 5.6 Attention Seeker Classes
+// =======================================================================
+
+.animate-pulse {
+  animation: pulse 2s var(--md-sys-motion-easing-ease-in-out) infinite;
+}
+
+.animate-pulse-scale {
+  animation: pulseScale 2s var(--md-sys-motion-easing-ease-in-out) infinite;
+}
+
+.animate-shake {
+  animation: shake var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-standard);
+}
+
+.animate-wiggle {
+  animation: wiggle var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-standard) infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s var(--md-sys-motion-easing-ease) infinite;
+}
+
+.animate-rubber-band {
+  animation: rubberBand var(--md-sys-motion-duration-long2) var(--md-sys-motion-easing-standard);
+}
+
+// =======================================================================
+// 5.7 Loading Animation Classes
+// =======================================================================
+
+.animate-spin {
+  animation: spin 1s var(--md-sys-motion-easing-linear) infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 2s var(--md-sys-motion-easing-linear) infinite;
+}
+
+.animate-skeleton {
+  animation: skeletonShimmer var(--md-sys-motion-duration-skeleton) var(--md-sys-motion-easing-linear) infinite;
+}
+
+.animate-progress {
+  animation: progressIndeterminate 2s var(--md-sys-motion-easing-ease-in-out) infinite;
+}
+
+// =======================================================================
+// 5.8 Background Animation Classes
+// =======================================================================
+
+.animate-gradient {
+  background-size: 400% 400%;
+  animation: gradientShift 15s var(--md-sys-motion-easing-ease) infinite;
+}
+
+.animate-float {
+  animation: floatUpDown 6s var(--md-sys-motion-easing-ease-in-out) infinite;
+}
+
+.animate-float-horizontal {
+  animation: floatLeftRight 8s var(--md-sys-motion-easing-ease-in-out) infinite;
+}
+
+.animate-aurora {
+  animation: auroraFloat 20s var(--md-sys-motion-easing-ease-in-out) infinite;
+}
+
+.animate-breathe {
+  animation: breathe 4s var(--md-sys-motion-easing-ease-in-out) infinite;
+}
+
+// --------------------------------------------------------------------------
+// SECTION 6: STAGGERED ANIMATION SYSTEM
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 6.1 Stagger Container
+// =======================================================================
+
+.stagger-container {
+  > * {
+    animation: staggeredEntry var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-decelerate) both;
+  }
+
+  // Stagger delays (50ms increments)
+  > *:nth-child(1) { animation-delay: 0ms; }
+  > *:nth-child(2) { animation-delay: 50ms; }
+  > *:nth-child(3) { animation-delay: 100ms; }
+  > *:nth-child(4) { animation-delay: 150ms; }
+  > *:nth-child(5) { animation-delay: 200ms; }
+  > *:nth-child(6) { animation-delay: 250ms; }
+  > *:nth-child(7) { animation-delay: 300ms; }
+  > *:nth-child(8) { animation-delay: 350ms; }
+  > *:nth-child(9) { animation-delay: 400ms; }
+  > *:nth-child(10) { animation-delay: 450ms; }
+  > *:nth-child(11) { animation-delay: 500ms; }
+  > *:nth-child(12) { animation-delay: 550ms; }
+}
+
+.stagger-container-fast {
+  > * {
+    animation: staggeredEntry var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-decelerate) both;
+  }
+
+  // Fast stagger (30ms increments)
+  > *:nth-child(1) { animation-delay: 0ms; }
+  > *:nth-child(2) { animation-delay: 30ms; }
+  > *:nth-child(3) { animation-delay: 60ms; }
+  > *:nth-child(4) { animation-delay: 90ms; }
+  > *:nth-child(5) { animation-delay: 120ms; }
+  > *:nth-child(6) { animation-delay: 150ms; }
+  > *:nth-child(7) { animation-delay: 180ms; }
+  > *:nth-child(8) { animation-delay: 210ms; }
+  > *:nth-child(9) { animation-delay: 240ms; }
+  > *:nth-child(10) { animation-delay: 270ms; }
+}
+
+.stagger-container-slow {
+  > * {
+    animation: staggeredEntry var(--md-sys-motion-duration-long2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+  }
+
+  // Slow stagger (80ms increments)
+  > *:nth-child(1) { animation-delay: 0ms; }
+  > *:nth-child(2) { animation-delay: 80ms; }
+  > *:nth-child(3) { animation-delay: 160ms; }
+  > *:nth-child(4) { animation-delay: 240ms; }
+  > *:nth-child(5) { animation-delay: 320ms; }
+  > *:nth-child(6) { animation-delay: 400ms; }
+  > *:nth-child(7) { animation-delay: 480ms; }
+  > *:nth-child(8) { animation-delay: 560ms; }
+}
+
+// =======================================================================
+// 6.2 Delay Utility Classes
+// =======================================================================
+
+.delay-0 { animation-delay: 0ms; }
+.delay-50 { animation-delay: 50ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-250 { animation-delay: 250ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+// --------------------------------------------------------------------------
+// SECTION 7: TRANSITION UTILITY CLASSES
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 7.1 Transition Property Classes
+// =======================================================================
+
+.transition-none { transition: none; }
+.transition-all { transition-property: all; }
+.transition-colors { transition-property: color, background-color, border-color, fill, stroke; }
+.transition-opacity { transition-property: opacity; }
+.transition-shadow { transition-property: box-shadow; }
+.transition-transform { transition-property: transform; }
+
+// =======================================================================
+// 7.2 Transition Duration Classes
+// =======================================================================
+
+.duration-instant { transition-duration: var(--md-sys-motion-duration-instant); }
+.duration-short1 { transition-duration: var(--md-sys-motion-duration-short1); }
+.duration-short2 { transition-duration: var(--md-sys-motion-duration-short2); }
+.duration-short3 { transition-duration: var(--md-sys-motion-duration-short3); }
+.duration-short4 { transition-duration: var(--md-sys-motion-duration-short4); }
+.duration-medium1 { transition-duration: var(--md-sys-motion-duration-medium1); }
+.duration-medium2 { transition-duration: var(--md-sys-motion-duration-medium2); }
+.duration-medium3 { transition-duration: var(--md-sys-motion-duration-medium3); }
+.duration-medium4 { transition-duration: var(--md-sys-motion-duration-medium4); }
+.duration-long1 { transition-duration: var(--md-sys-motion-duration-long1); }
+.duration-long2 { transition-duration: var(--md-sys-motion-duration-long2); }
+.duration-long3 { transition-duration: var(--md-sys-motion-duration-long3); }
+.duration-long4 { transition-duration: var(--md-sys-motion-duration-long4); }
+
+// =======================================================================
+// 7.3 Easing Classes
+// =======================================================================
+
+.ease-standard { transition-timing-function: var(--md-sys-motion-easing-standard); }
+.ease-standard-decelerate { transition-timing-function: var(--md-sys-motion-easing-standard-decelerate); }
+.ease-standard-accelerate { transition-timing-function: var(--md-sys-motion-easing-standard-accelerate); }
+.ease-emphasized { transition-timing-function: var(--md-sys-motion-easing-emphasized); }
+.ease-emphasized-decelerate { transition-timing-function: var(--md-sys-motion-easing-emphasized-decelerate); }
+.ease-emphasized-accelerate { transition-timing-function: var(--md-sys-motion-easing-emphasized-accelerate); }
+.ease-expressive { transition-timing-function: var(--md-sys-motion-easing-expressive-standard); }
+.ease-bounce { transition-timing-function: var(--md-sys-motion-easing-bounce); }
+.ease-spring-soft { transition-timing-function: var(--md-sys-motion-spring-soft); }
+.ease-spring-snappy { transition-timing-function: var(--md-sys-motion-spring-snappy); }
+.ease-linear { transition-timing-function: var(--md-sys-motion-easing-linear); }
+
+// --------------------------------------------------------------------------
+// SECTION 8: MOTION MIXINS
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 8.1 Transition Mixin
+// =======================================================================
+
+@mixin transition($property: all, $duration: medium2, $easing: emphasized) {
+  $duration-var: var(--md-sys-motion-duration-#{$duration});
+  $easing-var: var(--md-sys-motion-easing-#{$easing});
+
+  transition: #{$property} #{$duration-var} #{$easing-var};
+}
+
+// =======================================================================
+// 8.2 Animation Mixin
+// =======================================================================
+
+@mixin animate($name, $duration: medium4, $easing: expressive-decelerate, $fill: both, $delay: 0ms) {
+  $duration-var: var(--md-sys-motion-duration-#{$duration});
+  $easing-var: var(--md-sys-motion-easing-#{$easing});
+
+  animation: #{$name} #{$duration-var} #{$easing-var} #{$delay} #{$fill};
+}
+
+// =======================================================================
+// 8.3 Hover Transition Mixin
+// =======================================================================
+
+@mixin hover-lift($distance: -2px) {
+  transition:
+    transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized),
+    box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized);
+
+  &:hover {
+    transform: translateY($distance);
+  }
+}
+
+// =======================================================================
+// 8.4 Interactive State Mixin
+// =======================================================================
+
+@mixin interactive-states {
+  transition:
+    background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+    box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+    transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// =======================================================================
+// 8.5 Stagger Children Mixin
+// =======================================================================
+
+@mixin stagger-children($delay: 50ms, $count: 10) {
+  @for $i from 1 through $count {
+    > *:nth-child(#{$i}) {
+      animation-delay: ($i - 1) * $delay;
+    }
+  }
+}
+
+// =======================================================================
+// 8.6 Spring Animation Mixin
+// =======================================================================
+
+@mixin spring-animation($property: transform, $duration: medium4) {
+  $duration-var: var(--md-sys-motion-duration-#{$duration});
+
+  transition: #{$property} #{$duration-var} var(--md-sys-motion-easing-expressive-standard);
+}
+
+// --------------------------------------------------------------------------
+// SECTION 9: INTERACTION STATE ANIMATIONS
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 9.1 Hover States
+// =======================================================================
+
+.hover-lift {
+  transition:
+    transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized),
+    box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.hover-scale {
+  transition: transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized);
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.hover-glow {
+  transition: box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+
+  &:hover {
+    box-shadow:
+      0 0 20px rgba(var(--md-sys-color-primary-rgb), 0.15),
+      var(--md-sys-elevation-level2);
+  }
+}
+
+// =======================================================================
+// 9.2 Active/Press States
+// =======================================================================
+
+.active-shrink {
+  transition: transform var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.active-press {
+  transition: transform var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// =======================================================================
+// 9.3 Focus States
+// =======================================================================
+
+.focus-ring {
+  transition:
+    outline-offset var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard),
+    box-shadow var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+
+  &:focus-visible {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.focus-glow {
+  transition: box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:focus-visible {
+    box-shadow: 0 0 0 4px rgba(var(--md-sys-color-primary-rgb), 0.25);
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 10: ACCESSIBILITY - REDUCED MOTION
+// --------------------------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  // Disable all animations
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  // Allow essential motion for functionality
+  .essential-motion {
+    animation-duration: var(--md-sys-motion-duration-short4) !important;
+    transition-duration: var(--md-sys-motion-duration-short4) !important;
+  }
+
+  // Reduce but don't eliminate hover feedback
+  .hover-lift:hover,
+  .hover-scale:hover {
+    transform: none;
+  }
+
+  // Keep focus indicators visible
+  .focus-ring:focus-visible,
+  .focus-glow:focus-visible {
+    transition: none;
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 11: PRINT STYLES
+// --------------------------------------------------------------------------
+
+@media print {
+  // Disable all animations and transitions for print
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

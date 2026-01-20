@@ -1,0 +1,754 @@
+// ============================================================================
+// MD3 Breakpoints System
+// Version: 5.0.0 (MD3 Expressive 2025)
+//
+// Responsive breakpoint system following Material Design 3 window size classes.
+// Provides variables, mixins, and utility classes for responsive design.
+// ============================================================================
+
+// ============================================================================
+// TABLE OF CONTENTS
+// ============================================================================
+// 1. Breakpoint Variables
+// 2. CSS Custom Properties
+// 3. Breakpoint Mixins
+// 4. Container Queries
+// 5. Orientation Mixins
+// 6. Device Type Mixins
+// 7. Feature Query Mixins
+// 8. Responsive Visibility Classes
+// 9. Responsive Typography
+// 10. Responsive Spacing
+// ============================================================================
+
+// ============================================================================
+// 1. BREAKPOINT VARIABLES
+// ============================================================================
+
+// MD3 Window Size Classes
+// Compact: 0-599px (phones in portrait)
+// Medium: 600-839px (tablets in portrait, foldables)
+// Expanded: 840-1199px (tablets in landscape, small desktops)
+// Large: 1200-1599px (desktops)
+// Extra-large: 1600px+ (large desktops, TVs)
+
+$bp-compact: 0;
+$bp-compact-max: 599px;
+$bp-medium: 600px;
+$bp-medium-max: 839px;
+$bp-expanded: 840px;
+$bp-expanded-max: 1199px;
+$bp-large: 1200px;
+$bp-large-max: 1599px;
+$bp-xlarge: 1600px;
+
+// Breakpoint map for programmatic access
+$md3-breakpoints: (
+  'compact': (
+    'min': $bp-compact,
+    'max': $bp-compact-max
+  ),
+  'medium': (
+    'min': $bp-medium,
+    'max': $bp-medium-max
+  ),
+  'expanded': (
+    'min': $bp-expanded,
+    'max': $bp-expanded-max
+  ),
+  'large': (
+    'min': $bp-large,
+    'max': $bp-large-max
+  ),
+  'xlarge': (
+    'min': $bp-xlarge,
+    'max': null
+  )
+);
+
+// Common device breakpoints (for reference/compatibility)
+$bp-phone-portrait: 360px;
+$bp-phone-landscape: 640px;
+$bp-tablet-portrait: 768px;
+$bp-tablet-landscape: 1024px;
+$bp-laptop: 1280px;
+$bp-desktop: 1440px;
+$bp-wide: 1920px;
+
+// ============================================================================
+// 2. CSS CUSTOM PROPERTIES
+// ============================================================================
+
+:root {
+  // Breakpoint values as CSS variables
+  --md-breakpoint-compact: #{$bp-compact};
+  --md-breakpoint-medium: #{$bp-medium};
+  --md-breakpoint-expanded: #{$bp-expanded};
+  --md-breakpoint-large: #{$bp-large};
+  --md-breakpoint-xlarge: #{$bp-xlarge};
+
+  // Current breakpoint indicator (set via media queries below)
+  --md-current-breakpoint: 'compact';
+
+  // Responsive content padding
+  --md-responsive-padding: 16px;
+
+  // Responsive grid columns
+  --md-responsive-columns: 4;
+
+  // Responsive gutter
+  --md-responsive-gutter: 16px;
+}
+
+@media (min-width: $bp-medium) {
+  :root {
+    --md-current-breakpoint: 'medium';
+    --md-responsive-padding: 24px;
+    --md-responsive-columns: 8;
+    --md-responsive-gutter: 24px;
+  }
+}
+
+@media (min-width: $bp-expanded) {
+  :root {
+    --md-current-breakpoint: 'expanded';
+    --md-responsive-padding: 24px;
+    --md-responsive-columns: 12;
+    --md-responsive-gutter: 24px;
+  }
+}
+
+@media (min-width: $bp-large) {
+  :root {
+    --md-current-breakpoint: 'large';
+    --md-responsive-padding: 32px;
+    --md-responsive-columns: 12;
+    --md-responsive-gutter: 32px;
+  }
+}
+
+@media (min-width: $bp-xlarge) {
+  :root {
+    --md-current-breakpoint: 'xlarge';
+    --md-responsive-padding: 48px;
+    --md-responsive-columns: 12;
+    --md-responsive-gutter: 32px;
+  }
+}
+
+// ============================================================================
+// 3. BREAKPOINT MIXINS
+// ============================================================================
+
+// Min-width (mobile-first)
+@mixin bp-compact {
+  @media (min-width: $bp-compact) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media (min-width: $bp-medium) {
+    @content;
+  }
+}
+
+@mixin bp-expanded {
+  @media (min-width: $bp-expanded) {
+    @content;
+  }
+}
+
+@mixin bp-large {
+  @media (min-width: $bp-large) {
+    @content;
+  }
+}
+
+@mixin bp-xlarge {
+  @media (min-width: $bp-xlarge) {
+    @content;
+  }
+}
+
+// Max-width (for desktop-first or exclusions)
+@mixin bp-compact-only {
+  @media (max-width: $bp-compact-max) {
+    @content;
+  }
+}
+
+@mixin bp-medium-only {
+  @media (min-width: $bp-medium) and (max-width: $bp-medium-max) {
+    @content;
+  }
+}
+
+@mixin bp-expanded-only {
+  @media (min-width: $bp-expanded) and (max-width: $bp-expanded-max) {
+    @content;
+  }
+}
+
+@mixin bp-large-only {
+  @media (min-width: $bp-large) and (max-width: $bp-large-max) {
+    @content;
+  }
+}
+
+@mixin bp-xlarge-only {
+  @media (min-width: $bp-xlarge) {
+    @content;
+  }
+}
+
+// Down (max-width, exclusive)
+@mixin bp-below-medium {
+  @media (max-width: #{$bp-medium - 1px}) {
+    @content;
+  }
+}
+
+@mixin bp-below-expanded {
+  @media (max-width: #{$bp-expanded - 1px}) {
+    @content;
+  }
+}
+
+@mixin bp-below-large {
+  @media (max-width: #{$bp-large - 1px}) {
+    @content;
+  }
+}
+
+@mixin bp-below-xlarge {
+  @media (max-width: #{$bp-xlarge - 1px}) {
+    @content;
+  }
+}
+
+// Between breakpoints
+@mixin bp-between($min, $max) {
+  $min-val: if(map-has-key($md3-breakpoints, $min), map-get(map-get($md3-breakpoints, $min), 'min'), $min);
+  $max-val: if(map-has-key($md3-breakpoints, $max), map-get(map-get($md3-breakpoints, $max), 'max'), $max);
+
+  @if $max-val {
+    @media (min-width: $min-val) and (max-width: $max-val) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $min-val) {
+      @content;
+    }
+  }
+}
+
+// Dynamic breakpoint mixin
+@mixin breakpoint($size) {
+  @if $size == 'compact' {
+    @include bp-compact { @content; }
+  } @else if $size == 'medium' {
+    @include bp-medium { @content; }
+  } @else if $size == 'expanded' {
+    @include bp-expanded { @content; }
+  } @else if $size == 'large' {
+    @include bp-large { @content; }
+  } @else if $size == 'xlarge' {
+    @include bp-xlarge { @content; }
+  } @else {
+    @media (min-width: $size) {
+      @content;
+    }
+  }
+}
+
+// ============================================================================
+// 4. CONTAINER QUERIES
+// ============================================================================
+
+// Container query breakpoints (for component-level responsiveness)
+@mixin container-compact {
+  @container (min-width: 0) and (max-width: 299px) {
+    @content;
+  }
+}
+
+@mixin container-small {
+  @container (min-width: 300px) {
+    @content;
+  }
+}
+
+@mixin container-medium {
+  @container (min-width: 450px) {
+    @content;
+  }
+}
+
+@mixin container-large {
+  @container (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin container-xlarge {
+  @container (min-width: 800px) {
+    @content;
+  }
+}
+
+// Container query wrapper class
+.container-query {
+  container-type: inline-size;
+}
+
+.container-query-size {
+  container-type: size;
+}
+
+// ============================================================================
+// 5. ORIENTATION MIXINS
+// ============================================================================
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+// Combined orientation + breakpoint
+@mixin phone-portrait {
+  @media (max-width: $bp-compact-max) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin phone-landscape {
+  @media (max-width: $bp-medium-max) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media (min-width: $bp-medium) and (max-width: $bp-expanded-max) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media (min-width: $bp-medium) and (max-width: $bp-large-max) and (orientation: landscape) {
+    @content;
+  }
+}
+
+// ============================================================================
+// 6. DEVICE TYPE MIXINS
+// ============================================================================
+
+// Touch device detection
+@mixin touch-device {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+// Mouse/trackpad device detection
+@mixin pointer-device {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+// Stylus/pen device
+@mixin stylus-device {
+  @media (hover: none) and (pointer: fine) {
+    @content;
+  }
+}
+
+// Any hover capability
+@mixin any-hover {
+  @media (any-hover: hover) {
+    @content;
+  }
+}
+
+// High DPI screens
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+@mixin retina-3x {
+  @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+    @content;
+  }
+}
+
+// ============================================================================
+// 7. FEATURE QUERY MIXINS
+// ============================================================================
+
+// Reduced motion preference
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin no-reduced-motion {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+// Color scheme preference
+@mixin prefers-dark {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin prefers-light {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+}
+
+// Contrast preference
+@mixin high-contrast {
+  @media (prefers-contrast: more) {
+    @content;
+  }
+}
+
+@mixin low-contrast {
+  @media (prefers-contrast: less) {
+    @content;
+  }
+}
+
+// Forced colors (Windows High Contrast Mode)
+@mixin forced-colors {
+  @media (forced-colors: active) {
+    @content;
+  }
+}
+
+// Reduced transparency
+@mixin reduced-transparency {
+  @media (prefers-reduced-transparency: reduce) {
+    @content;
+  }
+}
+
+// Print media
+@mixin print {
+  @media print {
+    @content;
+  }
+}
+
+// Screen only
+@mixin screen {
+  @media screen {
+    @content;
+  }
+}
+
+// ============================================================================
+// 8. RESPONSIVE VISIBILITY CLASSES
+// ============================================================================
+
+// Hide at specific breakpoints
+.hide-at-compact {
+  @include bp-compact-only {
+    display: none !important;
+  }
+}
+
+.hide-at-medium {
+  @include bp-medium-only {
+    display: none !important;
+  }
+}
+
+.hide-at-expanded {
+  @include bp-expanded-only {
+    display: none !important;
+  }
+}
+
+.hide-at-large {
+  @include bp-large-only {
+    display: none !important;
+  }
+}
+
+.hide-at-xlarge {
+  @include bp-xlarge-only {
+    display: none !important;
+  }
+}
+
+// Show only at specific breakpoints
+.show-at-compact {
+  display: none !important;
+
+  @include bp-compact-only {
+    display: block !important;
+  }
+}
+
+.show-at-medium {
+  display: none !important;
+
+  @include bp-medium-only {
+    display: block !important;
+  }
+}
+
+.show-at-expanded {
+  display: none !important;
+
+  @include bp-expanded-only {
+    display: block !important;
+  }
+}
+
+.show-at-large {
+  display: none !important;
+
+  @include bp-large-only {
+    display: block !important;
+  }
+}
+
+.show-at-xlarge {
+  display: none !important;
+
+  @include bp-xlarge-only {
+    display: block !important;
+  }
+}
+
+// Show from breakpoint up (mobile-first)
+.show-medium-up {
+  display: none !important;
+
+  @include bp-medium {
+    display: block !important;
+  }
+}
+
+.show-expanded-up {
+  display: none !important;
+
+  @include bp-expanded {
+    display: block !important;
+  }
+}
+
+.show-large-up {
+  display: none !important;
+
+  @include bp-large {
+    display: block !important;
+  }
+}
+
+.show-xlarge-up {
+  display: none !important;
+
+  @include bp-xlarge {
+    display: block !important;
+  }
+}
+
+// Hide from breakpoint up
+.hide-medium-up {
+  @include bp-medium {
+    display: none !important;
+  }
+}
+
+.hide-expanded-up {
+  @include bp-expanded {
+    display: none !important;
+  }
+}
+
+.hide-large-up {
+  @include bp-large {
+    display: none !important;
+  }
+}
+
+.hide-xlarge-up {
+  @include bp-xlarge {
+    display: none !important;
+  }
+}
+
+// Inline variants
+.show-medium-up-inline {
+  display: none !important;
+
+  @include bp-medium {
+    display: inline !important;
+  }
+}
+
+.show-medium-up-inline-block {
+  display: none !important;
+
+  @include bp-medium {
+    display: inline-block !important;
+  }
+}
+
+.show-medium-up-flex {
+  display: none !important;
+
+  @include bp-medium {
+    display: flex !important;
+  }
+}
+
+.show-medium-up-grid {
+  display: none !important;
+
+  @include bp-medium {
+    display: grid !important;
+  }
+}
+
+// ============================================================================
+// 9. RESPONSIVE TYPOGRAPHY
+// ============================================================================
+
+// Responsive font size mixin
+@mixin responsive-font($compact, $medium: null, $expanded: null, $large: null) {
+  font-size: $compact;
+
+  @if $medium {
+    @include bp-medium {
+      font-size: $medium;
+    }
+  }
+
+  @if $expanded {
+    @include bp-expanded {
+      font-size: $expanded;
+    }
+  }
+
+  @if $large {
+    @include bp-large {
+      font-size: $large;
+    }
+  }
+}
+
+// Fluid typography (clamp-based)
+@mixin fluid-type($min-size, $max-size, $min-vw: $bp-compact, $max-vw: $bp-large) {
+  $slope: calc(($max-size - $min-size) / ($max-vw - $min-vw));
+  $y-intercept: calc($min-size - $slope * $min-vw);
+
+  font-size: clamp(#{$min-size}, #{$y-intercept} + #{$slope * 100}vw, #{$max-size});
+}
+
+// Responsive text classes
+.text-responsive-sm {
+  @include responsive-font(14px, 15px, 16px);
+}
+
+.text-responsive-base {
+  @include responsive-font(16px, 17px, 18px);
+}
+
+.text-responsive-lg {
+  @include responsive-font(18px, 20px, 22px, 24px);
+}
+
+.text-responsive-xl {
+  @include responsive-font(24px, 28px, 32px, 36px);
+}
+
+.text-responsive-2xl {
+  @include responsive-font(30px, 36px, 42px, 48px);
+}
+
+.text-responsive-3xl {
+  @include responsive-font(36px, 44px, 52px, 60px);
+}
+
+// ============================================================================
+// 10. RESPONSIVE SPACING
+// ============================================================================
+
+// Responsive spacing mixin
+@mixin responsive-spacing($property, $compact, $medium: null, $expanded: null, $large: null) {
+  #{$property}: $compact;
+
+  @if $medium {
+    @include bp-medium {
+      #{$property}: $medium;
+    }
+  }
+
+  @if $expanded {
+    @include bp-expanded {
+      #{$property}: $expanded;
+    }
+  }
+
+  @if $large {
+    @include bp-large {
+      #{$property}: $large;
+    }
+  }
+}
+
+// Responsive padding classes
+.p-responsive {
+  padding: var(--md-responsive-padding);
+}
+
+.px-responsive {
+  padding-inline: var(--md-responsive-padding);
+}
+
+.py-responsive {
+  padding-block: var(--md-responsive-padding);
+}
+
+// Responsive gap classes
+.gap-responsive {
+  gap: var(--md-responsive-gutter);
+}
+
+// Responsive margin classes
+.m-responsive {
+  margin: var(--md-responsive-padding);
+}
+
+.mx-responsive {
+  margin-inline: var(--md-responsive-padding);
+}
+
+.my-responsive {
+  margin-block: var(--md-responsive-padding);
+}
+
+// Section spacing responsive
+.section-spacing-responsive {
+  @include responsive-spacing(padding-block, 48px, 64px, 80px, 100px);
+}

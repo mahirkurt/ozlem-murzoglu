@@ -1,20 +1,14 @@
 <section class="saygiyla-page">
   <!-- Hero Section -->
-  <div class="page-hero">
-    <div class="hero-background">
-      <div class="hero-gradient"></div>
-      <div class="hero-pattern"></div>
-    </div>
+  <app-hero-section
+    [title]="'SAYGIYLA.PAGE_TITLE' | translate"
+    [subtitle]="'SAYGIYLA.PAGE_SUBTITLE' | translate"
+    colorTheme="purple">
+  </app-hero-section>
+
+  <div class="saygiyla-badge-row">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="badge-line"></span>
-          <span class="badge-text">{{ 'SAYGIYLA.BADGE' | translate }}</span>
-          <span class="badge-line"></span>
-        </div>
-        <h1 class="hero-title">{{ 'SAYGIYLA.PAGE_TITLE' | translate }}</h1>
-        <p class="hero-description">{{ 'SAYGIYLA.PAGE_SUBTITLE' | translate }}</p>
-      </div>
+      <span class="md3-breadcrumb-current hero-badge">{{ 'SAYGIYLA.BADGE' | translate }}</span>
     </div>
   </div>
 
@@ -86,11 +80,11 @@
         <!-- CTA Buttons -->
         <div class="cta-buttons">
           <a routerLink="/iletisim" class="btn-primary">
-            <i class="fas fa-calendar-check"></i>
+            <span class="material-icons-rounded" aria-hidden="true">event_available</span>
             <span>{{ 'SAYGIYLA.CTA.APPOINTMENT_BUTTON' | translate }}</span>
           </a>
           <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
-            <i class="fab fa-whatsapp"></i>
+            <span class="material-icons-rounded" aria-hidden="true">chat</span>
             <span>WhatsApp</span>
           </a>
         </div>

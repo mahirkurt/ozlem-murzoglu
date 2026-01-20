@@ -4,12 +4,13 @@ test.describe('Hero Section Comparison', () => {
   test('Compare hero sections between About and Dr. Ozlem pages', async ({ page }) => {
     // First, inspect the About page (reference)
     await page.goto('https://ozlemmurzoglu.com/hakkimizda');
-    await page.waitForSelector('.hero-section', { timeout: 10000 });
+    await page.waitForSelector('.hero-section, .page-header', { timeout: 10000 });
 
     // Get About page hero section details
     const aboutHeroSection = await page.evaluate(() => {
-      const hero = document.querySelector('.hero-section');
-      const heroContent = document.querySelector('.hero-section .hero-content');
+      const hero = document.querySelector('.hero-section') || document.querySelector('.page-header');
+      const heroContent = document.querySelector('.hero-section .hero-content') ||
+        document.querySelector('.page-header .header-content');
       const container = hero?.closest('.container') || hero?.parentElement;
       const computedStyle = window.getComputedStyle(hero);
 
@@ -34,11 +35,12 @@ test.describe('Hero Section Comparison', () => {
 
     // Now inspect the Dr. Ozlem page
     await page.goto('https://ozlemmurzoglu.com/hakkimizda/dr-ozlem-murzoglu');
-    await page.waitForSelector('.hero-section', { timeout: 10000 });
+    await page.waitForSelector('.hero-section, .page-header', { timeout: 10000 });
 
     const drOzlemHeroSection = await page.evaluate(() => {
-      const hero = document.querySelector('.hero-section');
-      const heroContent = document.querySelector('.hero-section .hero-content');
+      const hero = document.querySelector('.hero-section') || document.querySelector('.page-header');
+      const heroContent = document.querySelector('.hero-section .hero-content') ||
+        document.querySelector('.page-header .header-content');
       const container = hero?.closest('.container') || hero?.parentElement;
       const computedStyle = window.getComputedStyle(hero);
 
@@ -70,7 +72,7 @@ test.describe('Hero Section Comparison', () => {
 
     // Check for any wrapper divs
     const aboutWrapper = await page.evaluate(() => {
-      const hero = document.querySelector('.hero-section');
+      const hero = document.querySelector('.hero-section') || document.querySelector('.page-header');
       let parent = hero?.parentElement;
       const wrappers = [];
 
@@ -92,10 +94,10 @@ test.describe('Hero Section Comparison', () => {
     });
 
     await page.goto('https://ozlemmurzoglu.com/hakkimizda/dr-ozlem-murzoglu');
-    await page.waitForSelector('.hero-section');
+    await page.waitForSelector('.hero-section, .page-header');
 
     const drOzlemWrapper = await page.evaluate(() => {
-      const hero = document.querySelector('.hero-section');
+      const hero = document.querySelector('.hero-section') || document.querySelector('.page-header');
       let parent = hero?.parentElement;
       const wrappers = [];
 

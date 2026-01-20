@@ -2,7 +2,7 @@
 @import 'styles/md3/index';
 
 .services-section {
-  padding: 100px 0;
+  padding: var(--md-sys-spacing-section-vertical) 0;
   background: var(--md-sys-color-surface-container-low);
   position: relative;
   overflow: hidden;
@@ -40,9 +40,8 @@
 }
 
 .container {
-  max-width: var(--container-max-width, 1200px);
-  margin: 0 auto;
-  padding: 0 var(--container-padding-x, 24px);
+  @include content-width();
+  @include container-padding;
   position: relative;
   z-index: 1;
 }
@@ -54,31 +53,41 @@
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px; // Compact gap 32px -> 24px
-  margin-bottom: 48px; // Reduced 64px -> 48px
+  gap: var(--md-sys-spacing-6); // Compact gap 32px -> 24px
+  margin-bottom: var(--md-sys-spacing-12); // Reduced 64px -> 48px
 }
 
-// ... media queries ...
+@include bp-below-expanded {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include bp-below-medium {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .service-card {
   position: relative;
   height: 100%;
-  border-radius: 24px; // Reduced radius 32px -> 24px for compactness
+  border-radius: var(--md-sys-shape-corner-extra-large); // Reduced radius 32px -> 24px for compactness
   
   // ... gradients/glass styles stay ...
   background: linear-gradient(
     145deg, 
-    rgba(255, 255, 255, 0.9), 
-    rgba(255, 255, 255, 0.6)
+    var(--md-sys-color-glass-surface-bright), 
+    var(--md-sys-color-glass-surface)
   );
   
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--md-sys-color-glass-border);
   
   box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.05),
-    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    0 10px 30px oklch(from var(--md-sys-color-shadow) l c h / 0.05),
+    0 0 0 1px oklch(from var(--md-sys-color-surface) l c h / 0.5) inset;
     
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   overflow: hidden;
@@ -86,31 +95,20 @@
   // ... vars ...
   --card-theme: var(--md-sys-color-primary);
   --card-theme-rgb: var(--md-sys-color-primary-rgb);
+  --card-on-theme: var(--md-sys-color-on-primary);
 
   &:hover {
     transform: translateY(-8px); // Reduced lift 12px -> 8px
     // ... hover styles ...
     background: linear-gradient(
       145deg, 
-      rgba(255, 255, 255, 0.95), 
-      rgba(var(--card-theme-rgb), 0.15)
+      var(--md-sys-color-glass-surface-bright), 
+      oklch(from var(--card-theme) l c h / 0.15)
     );
     border-color: var(--card-theme);
     box-shadow: 
-      0 16px 32px rgba(var(--card-theme-rgb), 0.15), // Reduced shadow
-      0 0 0 2px rgba(var(--card-theme-rgb), 0.1) inset;
-      
-    .service-arrow {
-      // ... arrow hover ...
-      background: var(--card-theme);
-      transform: scale(1.1);
-      border-color: transparent;
-      
-      .material-icons {
-        color: white; 
-        transform: translateX(0);
-      }
-    }
+      0 16px 32px oklch(from var(--card-theme) l c h / 0.15), // Reduced shadow
+      0 0 0 2px oklch(from var(--card-theme) l c h / 0.1) inset;
 
     .service-icon-wrapper {
       transform: scale(1.1) rotate(-5deg); // Reduced scale
@@ -122,28 +120,28 @@
 .service-link {
   display: flex;
   flex-direction: column;
-  padding: 32px 24px; // Compact padding 48px 32px -> 32px 24px
+  padding: var(--md-sys-spacing-8) var(--md-sys-spacing-6); // Compact padding 32px 24px
   text-decoration: none;
   color: inherit;
-  gap: 16px; // Reduced gap 20px -> 16px
+  gap: var(--md-sys-spacing-4); // Reduced gap 20px -> 16px
   height: 100%;
 }
 
 .service-icon-wrapper {
   flex-shrink: 0;
-  width: 64px; // Compact icon 80px -> 64px
-  height: 64px;
-  border-radius: 20px; // Compact radius
+  width: var(--md-sys-spacing-16); // Compact icon 80px -> 64px
+  height: var(--md-sys-spacing-16);
+  border-radius: var(--md-sys-shape-corner-large); // Compact radius
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--card-theme);
-  color: white;
+  color: var(--card-on-theme);
   box-shadow: 0 6px 16px rgba(var(--card-theme-rgb), 0.25);
   transition: all 0.4s ease;
   
-  .material-icons {
-    font-size: 28px; // Smaller icon 32px -> 28px
+  .material-icons-rounded {
+    font-size: 28px; // Icon size exception
   }
 }
 
@@ -151,25 +149,27 @@
 .service-card--secondary {
   --card-theme: var(--md-sys-color-secondary);
   --card-theme-rgb: var(--md-sys-color-secondary-rgb);
+  --card-on-theme: var(--md-sys-color-on-secondary);
 }
 
 .service-card--tertiary {
   --card-theme: var(--md-sys-color-tertiary);
   --card-theme-rgb: var(--md-sys-color-tertiary-rgb);
+  --card-on-theme: var(--md-sys-color-on-tertiary);
 }
 
 .service-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px; // Reduced gap 16px -> 12px
+  gap: var(--md-sys-spacing-3); // Reduced gap 16px -> 12px
 }
 
 .service-title {
   font-family: var(--md-sys-typescale-headline-small-font);
-  font-size: 20px; // Reduced Size 22px -> 20px
+  font-size: var(--md-sys-typescale-title-large-size); // Reduced Size 22px -> 20px
   font-weight: 700;
-  color: var(--card-theme);
+  color: var(--md-sys-color-on-surface);
   margin: 0;
   letter-spacing: -0.2px;
   transition: color 0.3s;
@@ -177,7 +177,7 @@
 
 .service-description {
   font-family: var(--md-sys-typescale-body-large-font);
-  font-size: 15px; // Reduced Size 16px -> 15px
+  font-size: var(--md-sys-typescale-body-medium-size); // Reduced Size 16px -> 15px
   color: var(--md-sys-color-on-surface-variant);
   margin: 0;
   line-height: 1.5; // Tighter line height
@@ -188,66 +188,47 @@
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
-  padding-top: 20px; // Reduced top padding
+  padding-top: var(--md-sys-spacing-5); // Reduced top padding
 }
 
 .read-more-text {
   font-family: var(--md-sys-typescale-label-large-font);
-  font-size: 13px; // Smaller
+  font-size: var(--md-sys-typescale-label-medium-size); // Smaller
   font-weight: 700;
-  color: var(--card-theme);
+  color: var(--md-sys-color-on-surface);
   opacity: 1;
-}
-
-.service-arrow {
-  width: 40px; // Smaller arrow 48px -> 40px
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 2px solid rgba(var(--card-theme-rgb), 0.2);
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  color: var(--card-theme);
-  
-  .material-icons {
-    font-size: 20px; // Smaller icon
-    color: var(--card-theme);
-    transition: color 0.3s ease;
-  }
 }
 
 /* CTA Section */
 .section-cta {
   text-align: center;
-  margin-top: 64px;
+  margin-top: var(--md-sys-spacing-16);
 }
 
 .cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 0 40px;
-  height: 64px;
-  background: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
-  border-radius: 100px;
+  gap: var(--md-sys-spacing-3);
+  padding: 0 var(--md-sys-spacing-10);
+  min-height: var(--md-sys-touch-target-comfortable);
+  background: var(--md-sys-color-tertiary);
+  color: var(--md-sys-color-on-tertiary);
+  border-radius: var(--md-sys-shape-corner-full);
   text-decoration: none;
   font-weight: 600;
   font-family: var(--md-sys-typescale-title-medium-font);
   font-size: var(--md-sys-typescale-title-medium-size);
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  box-shadow: 0 8px 24px rgba(var(--md-sys-color-primary-rgb), 0.25);
+  box-shadow: 0 8px 24px rgba(var(--md-sys-color-tertiary-rgb), 0.25);
   
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(var(--md-sys-color-primary-rgb), 0.35);
-    background: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
+    box-shadow: 0 12px 32px rgba(var(--md-sys-color-tertiary-rgb), 0.35);
+    background: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-on-tertiary-container);
   }
   
-  .material-icons {
-    font-size: 24px;
+  .material-icons-rounded {
+    font-size: 24px; // Icon standard
   }
 }

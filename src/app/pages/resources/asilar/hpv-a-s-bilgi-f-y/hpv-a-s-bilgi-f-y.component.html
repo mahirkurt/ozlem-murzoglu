@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/bilgi-merkezi/asilar" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>THE IMMUNIZATION ACTION COALITION (IAC)</p></td></tr><tr><td><p>AŞI BİLGİ FÖYÜ</p><p><strong>HPV AŞISI</strong></p></td><td><p></p></td></tr></table><table><tr><td><p><strong>Neden Aşı Olalım?</strong></p></td></tr></table><p><strong>HPV (insan papilloma virüsü) aşısı</strong>, bazı insan papilloma virüsü türleri ile enfeksiyonu önleyebilir.</p><p>HPV enfeksiyonları aşağıdakiler de dâhil olmak üzere belirli kanser türlerine neden olabilir: </p><ul><li>Kadınlarda rahim ağzı, vajina ve vulva kanserleri</li><li>Erkeklerde penis kanseri</li><li>Erkeklerde ve kadınlarda anal kanser </li><li>Erkeklerde ve kadınlarda bademcik, dil kökü ve boğaz arkası (orofaringeal kanser) kanserleri </li></ul><p>HPV enfeksiyonları anogenital siğillere de neden olabilir. </p><p>HPV aşısı, HPV'nin neden olduğu kanserlerin %90'ından fazlasını önleyebilir. </p><p>HPV yakın cilt teması veya cinsel ilişki yoluyla bulaşır. HPV enfeksiyonları o kadar sık görülür ki, neredeyse tüm insanlar hayatlarının bir döneminde en az bir tür HPV ile enfekte olurlar. </p><p>Çoğu HPV enfeksiyonu 2 yıl içinde kendiliğinden geçer. Ancak bazen HPV enfeksiyonları daha uzun sürer ve yaşamın ilerleyen dönemlerinde kansere neden olabilir.</p><p></p><table><tr><td><p><strong>HPV Aşıları</strong></p></td></tr></table><p>HPV aşısı virüse maruz kalmadan önce korunmalarını sağlamak amacıyla 11 ya da 12 yaşındaki ergenlere rutin olarak önerilir. HPV aşısı 9 yaşından itibaren yapılabilir ve 26 yaşına kadar olan herkese önerilir.</p><p>HPV aşısı hasta ile sağlık uzmanı arasındaki görüşmelere bağlı olarak 27 ilâ 45 yaşlarındaki yetişkinlere uygulanabilir.    </p><p>İlk dozu 15 yaşından önce yapılmış olan çocukların çoğu 2 doz HPV aşısına ihtiyaç duyar. İlk dozu 15 yaşında veya daha sonra olan kişiler ile bağışıklık sistemini baskılayıcı belirli durumları olan daha küçük kişilerin 3 doza ihtiyaçları vardır. Sağlık uzmanınız size daha fazla bilgi verebilir. </p><p>HPV aşısı diğer aşılarla aynı anda yapılabilir.</p><table><tr><td><p><strong>Sağlık Uzmanınız ile Konuşunuz</strong></p></td></tr></table><p>Aşıyı yaptıran kişide aşağıdaki durumlar mevcutsa bunları aşı uygulayıcınıza söyleyiniz: </p><ul><li>Önceki bir HPV aşısından sonra alerjik bir reaksiyon gösterdiyse veya ciddi, yaşamı tehdit eden herhangi bir alerjisi varsa </li><li>Gebe ise. HPV aşısı gebelik bitene kadar önerilmez </li></ul><p>Bazı durumlarda, sağlık uzmanınız HPV aşısını gelecekteki bir ziyarete ertelemeye karar verebilir. </p><p>Soğuk algınlığı gibi hafif rahatsızlıkları olan kişiler aşılanabilir. Orta veya ağır derecede hasta olan kişiler HPV aşısı yaptırmadan önce genellikle iyileşene kadar beklemelidir. </p><p>Sağlık uzmanınız size daha fazla bilgi verebilir.</p><table><tr><td><p><strong>Aşı Reaksiyonu Riskleri</strong></p></td></tr></table><ul><li>HPV aşılamasından sonra aşı yapılan yerde ağrı, kızarıklık ve şişlik olabilir. </li><li>HPV aşılamasından sonra ateş veya baş ağrısı olabilir. </li></ul><p>İnsanlar bazen aşılanma dâhil olmak üzere tıbbi bir işlemden sonra bayılırlar. Başınız dönerse, görme değişikliğiniz veya kulaklarınızda çınlama olursa aşı uygulayıcınıza bildiriniz. </p><p>Herhangi bir ilaçta olduğu gibi aşının da ağır bir alerjik reaksiyona, diğer ciddi bir tıbbi hasara neden olma ihtimali çok düşük olsa da vardır.</p><table><tr><td><p> <strong>Ciddi Bir Reaksiyon Olursa?</strong></p></td></tr></table><p>Alerjik bir reaksiyon aşılanan kişi klinikten ayrıldıktan sonra meydana gelebilir. Eğer ağır alerjik reaksiyon belirtileri (kurdeşen, yüzün ve boğazın şişmesi, nefes darlığı, hızlı kalp atışı, sersemlik veya güçsüzlük) görürseniz 112'yi arayınız ve kişiyi en yakın hastaneye götürünüz. </p><p>Sizi endişelendiren diğer belirtiler için sağlık uzmanınızı arayınız. </p><table><tr><td><p><strong>NASIL DAHA FAZLA BİLGİ EDİNEBİLİRİM?</strong></p><p>Aşılar hakkında daha detaylı bilgilere ulaşabileceğiniz bazı kaynaklar:</p><ul><li>T.C. Sağlık Bakanlığı Aşı Portalı <br /><a href="https://asi.saglik.gov.tr/">https://asi.saglik.gov.tr/</a> </li><li>Dünya Sağlık Örgütü Aşılar Sayfası: <a href="https://www.who.int/health-topics/vaccines-and-immunization">https://www.who.int/health-topics/vaccines-and-immunization</a> </li><li>Amerikan Gıda ve İlaç Dairesi (FDA) Aşılar Sayfası: <a href="https://www.fda.gov/vaccines-blood-biologics/vaccines">https://www.fda.gov/vaccines-blood-biologics/vaccines</a> </li><li>Amerikan Hastalık Kontrol ve Önleme Merkezi (CDC) Aşılar Sayfası:  <a href="https://www.cdc.gov/vaccines/index.html">https://www.cdc.gov/vaccines/index.html</a> </li></ul></td></tr></table><table><tr><td><p>Vaccine Information Statement ●  HPV (8/6/21) ● Turkish Translation ● www.immunize.org/vis</p><p>Distributed by the Immunization Action Coalition</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Aşı bilgi föyleri, Amerikan Hastalık Kontrol ve Önleme Merkezi (CDC) tarafından hazırlanan ve aşı yaptıranlara aşının hem yararlarını hem de risklerini açıklayan bilgi kaynaklarıdır. Türkçe çeviri Betül Polatdemir, MD ve Sibel Bostancıoğlu, MD tarafından yapılmıştır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/asilar/HPV%20A%C5%9F%C4%B1s%C4%B1%20Bilgi%20F%C3%B6y%C3%BC.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

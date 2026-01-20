@@ -10,7 +10,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('MD3 Global Style Implementation', () => {
 
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4201');
+    await page.goto('http://localhost:4200');
     await page.waitForLoadState('networkidle');
   });
 
@@ -592,7 +592,7 @@ test.describe('MD3 Performance', () => {
 
   test('should minimize layout shifts', async ({ page }) => {
     // Navigate and wait for stability
-    await page.goto('http://localhost:4201');
+    await page.goto('http://localhost:4200');
     await page.waitForLoadState('networkidle');
     await page.waitForTimeout(1000); // Wait for any late-loading content
 

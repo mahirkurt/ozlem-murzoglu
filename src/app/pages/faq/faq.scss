@@ -31,7 +31,7 @@
   box-shadow: var(--md-sys-elevation-level2);
 }
 
-.search-box .material-icons {
+.search-box .material-icons-rounded {
   color: var(--md-sys-color-primary);
   font-size: 24px;
 }
@@ -197,17 +197,17 @@
   transform: scale(1.05);
 }
 
-.toggle-btn:hover .material-icons {
+.toggle-btn:hover .material-icons-rounded {
   color: var(--md-sys-color-on-primary);
 }
 
-.toggle-btn .material-icons {
+.toggle-btn .material-icons-rounded {
   color: var(--md-sys-color-primary);
   font-size: 24px;
   transition: transform var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-standard);
 }
 
-.faq-item.open .toggle-btn .material-icons {
+.faq-item.open .toggle-btn .material-icons-rounded {
   transform: rotate(180deg);
 }
 
@@ -271,7 +271,7 @@
   color: var(--md-sys-color-tertiary);
 }
 
-.helpful-btn .material-icons {
+.helpful-btn .material-icons-rounded {
   font-size: 18px;
 }
 
@@ -281,7 +281,7 @@
   padding: var(--md-sys-spacing-20) var(--md-sys-spacing-5);
 }
 
-.no-results .material-icons {
+.no-results .material-icons-rounded {
   font-size: 80px;
   color: var(--md-sys-color-outline-variant);
   margin-bottom: 24px;

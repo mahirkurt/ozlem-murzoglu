@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/bright-futures-cocuk" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td><p>UZM.DR. ÖZLEM MURZOĞLU</p></td></tr><tr><td><p>GENÇ  ERGENE</p><p>DOKTORUNDAN MEKTUP</p></td></tr></table><table><tr><td><p>Artık yetişkinlik dönemine yaklaşıyorsun ve çocuklukta olduğundan farklı sağlık ihtiyaçların var. Bununla birlikte, doktorun sağlıklı kalmana yardımcı olmak için hep yanında olacak!</p></td></tr></table><table><tr><td><p><strong>SADECE SORMAN YETER!</strong></p></td></tr></table><p></p><p>11 veya 12 yaşlarından başlayarak, sağlık ziyaretlerin sırasında doktorun seninle biraz baş başa kalmak isteyebilir. Peki neden? Hayatındaki bazı kişisel veya özel konular hakkında ebeveynlerle konuşmak her zaman önemli olsa da bazen gerçekten zor olabilir. Ancak doktoruna her zaman bu konular hakkında soru sorabilirsin. Hepsini duymak isteyeceğinden emin olabilirsin! Ayrıca, doktorun sağlığını önemser ve sana her şekilde yardımcı olmak ister.</p><p>Doktorunla konuşmak; vücudunun nasıl çalıştığı, kendine nasıl bakacağın, duygularınla nasıl başa çıkacağın, nasıl sağlıklı kalacağın ve bu konular hakkında ebeveynlerinle nasıl konuşacağın hakkında cevaplar almanın harika bir yoludur.</p><p>Unutma, doktorun seninle konuştuklarını gizli tutacaktır! Buna "mahremiyet" denir. Senin veya bir başkasının hayatının tehlikede olması gibi olağanüstü durumlar dışında bu ilkeye daima uyulur. Bu konuda aklına takılan bir şey varsa bir sonraki ziyaretinde doktoruna sormaktan çekinme!</p><table><tr><td><p><strong>SORUMLULUK ÜSTLEN!</strong></p></td></tr></table><p>Senin yaşındaki bazı gençler doktorlarını yalnızca hastalandıklarında görürler. Ancak sağlıklı kalmak, bir şeyler ters gittiğinde doktora görünmekten daha fazlası demektir. Kendi sağlığının sorumluluğunu üstlenmeye başlayacak kadar olgunlaşıyorsun. Bu da sorunları başlamadan önce önlemek anlamına gelir.</p><p>Bu nedenle, her şeyin yolunda olduğundan emin olmak için yılda bir kez doktoruna görünmeyi unutma.</p><p>Tabii ki, hasta olduğunda da doktorunu görmelisin.</p><table><tr><td><p><strong>BAZI ÖNEMLİ KONULAR</strong></p></td></tr></table><p>Umarım kendini doktoruna her şeyi sorabilecek kadar rahat hissedersin; hatta kendini biraz utangaç hissettiğin şeyleri bile! Doktorunun sana ne tür konularda yardımcı olabileceğini merak ediyorsan, aşağıdaki listeye bir göz at: </p><p></p><p>Spor ve Fiziksel Aktiviteler</p><ul><li>Spor yapıyorsan, muhtemelen spora başlamadan önce doktoruna muayene olman gerekir. Bu, doktorunla yaralanmaları nasıl önleyeceğin, nasıl sağlıklı ve formda kalacağın hakkında konuşmak için harika bir zamandır.</li></ul><p>Hastalıkların ve Yaralanmaların Tedavisi</p><ul><li>Son zamanlarda hasta oldun mu? Yakın zamanda yaralandın mı? Bunlar, önemli olmadığını düşünsen bile, doktoruna söylemen gereken önemli şeylerdir. Doktoruna, herhangi bir ağrı veya kendini farklı hissettiren herhangi bir şey hakkında bilgi vermeyi unutma.</li></ul><p>Büyüme ve Gelişme</p><ul><li>Vücudun hızla değişiyor ve neler olduğu hakkında konuşmak isteyebilirsin. Nereden başlayacağını bilmiyor musun? Şunları sormak isteyebilirsin:<ul><li>Ailem kadar uzun olacak mıyım?</li><li>Bu sivilceler için ne yapabilirim?</li><li>Şişman mıyım?</li></ul></li></ul><p>Kişisel ve/veya Ailevi Sorunlar</p><ul><li>Arkadaşların veya ailenle uğraşmakta zorlanıyor musunuz? Ailenin seni anlamadığını mı düşünüyorsun? Belki okulda seninle dalga geçenler var, belki bazı arkadaşlarından baskı hissediyorsun veya zorbalığa uğruyorsun. Tüm bu şeylerle başa çıkmak oldukça zor olabilir. Nereye başvuracağını bilmiyorsan, doktorunun yardım etmek için orada olduğunu unutma. Sadece sor!</li></ul><p>Okul Sorunları</p><p></p><ul><li>Notların ve geleceğin için endişelenebilirsin. Belki okula, işe, spora veya diğer etkinliklere ayak uydurmakta zorlanıyorsundur. Doktorun, hayatının bu yoğun döneminde sana yardımcı olabilir.</li></ul><p>Alkol ve Sigara Kullanımı</p><ul><li>Muhtemelen sigara, alkol veya diğer maddeleri kullanan insanlar tanıyorsundur. Belki de bunları denemek sana da cazip geldi. Ama unutma, onlar için doğru olan senin için her zaman doğru olmayabilir.</li><li>Bir yetişkin olmak, sadece daha uzun boylu olmaktan fazlasını ifade eder. Aynı zamanda, başka birinin senin yerine karar vermesine izin vermeyerek, hayatın hakkında kararlar vermen gerektiği anlamına gelir. Doktorun, sigara içmenin, alkol almanın veya diğer ilaçları kullanmanın seni nasıl etkileyebileceğini ve bunlardan uzak durmanın neden akıllıca olduğunu açıklayacaktır.</li></ul><p>Cinsellik</p><ul><li>Doktoruna yapacağın ziyaretler sırasında flört, cinsellik ve diğer kişisel konular hakkında sorular sorma şansın olacak. Bu konularda doğru seçimler yapmak önemlidir. Yanlış seçimler hayatının geri kalanını etkileyebilir. İyi haber şu ki, sen ve doktorunun konuştuğu her şey özeldir. Bu konuda bilmek istediklerin hakkında soru sormaktan çekinme.</li></ul><p>Ebeveynlerle İlişkiler</p><p></p><ul><li>Evde sorun mu yaşıyorsun? Bazen kimse seni anlamıyor veya fikirlerine saygı duymuyor gibi mi geliyor? Yalnız değilsin. </li><li>Ailenin anlayamayabileceği bir sorunun varsa, doktorunla konuşabilirsin. Bazen dışarıdan biri bu zor durumlar hakkında daha iyi bir fikir verebilir. Doktorunun da anne babana nasıl ulaşacağın konusunda bazı fikirleri olabilir.</li></ul><p>Özel Sağlık İhtiyaçların</p><ul><li>Farklı bir doktora veya uzmana görünmeni gerektirecek tıbbi bir sorunun olabilir. Bu durumda, doktorun seni sana yardımcı olabilecek başka bir doktora yönlendirebilir. Ancak bir diğer uzmana görünmen gerekse bile, doktorun yine de sağlığını önemser ve seni düzenli kontroller veya diğer hastalıklar için görmek ister.</li></ul><table><tr><td><p><strong>SAĞLIĞIN İÇİN YAPABİLECEKLERİN</strong></p></td></tr></table><p></p><p>Kendi sağlığının sorumluluğunu üstlenmeye iyi bir başlangıç yapmak ve kendini sağlıklı tutmak için aşağıdaki tavsiyeleri kullanabilirsin:</p><ul><li>Doğru beslen ve bol bol uyu (gençlerin çoğu gecede 9-10 saate ihtiyaç duyar).</li><li>Kesikler ve morluklar gibi küçük yaralanmaların yanı sıra soğuk algınlığı gibi küçük hastalıklarla nasıl başa çıkacağını bil.</li><li>Kusma, baş ağrısı, yüksek ateş, kulak ağrısı, boğaz ağrısı, ishal veya mide ağrısı gibi durumlarda nasıl tıbbi yardım alacağını bil.</li><li>Uyku sorunların, üzüntün, aile stresin, okul sorunların varsa veya arkadaşların, ailen veya öğretmenlerinle geçinmekte zorlanıyorsan yardım iste.</li><li>Alkol, sigara, elektronik sigara ve diğer keyif verici maddeleri kullanma.</li><li>Düzenli egzersiz ve spor yap.</li><li>Daima emniyet kemerini tak.</li></ul><table><tr><td><p>Bir yetişkin olduğunda birçok zorlukla karşılaşacaksın. Doktorunun yardımıyla, sağlıklı gelişmene yardımcı olacak doğru kararları nasıl alacağını öğreneceksin!</p><p>DOKTORUN<strong> <br />ÖZLEM MURZOĞLU</strong></p><p><strong></strong></p></td></tr></table><table><tr><td><p>	</p></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/bright-futures-cocuk/Gen%C3%A7%20Ergene%20Doktorundan%20Mektup.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

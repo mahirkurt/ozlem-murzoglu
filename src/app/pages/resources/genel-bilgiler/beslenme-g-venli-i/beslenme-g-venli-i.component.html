@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>İRLANDA ULUSAL SAĞLIK HİZMETLERİ KURUMU</p></td></tr><tr><td><p><strong>BESLENME GÜVENLİĞİ<br /></strong>ÇOCUKLARDA BOĞULMAYI ÖNLEME</p></td><td><p></p></td></tr></table><table><tr><td><p>Bebekler ve çocukların nesneleri ağızlarına götürme konusunda doğal bir eğilimleri vardır. Bunlara küçük oyuncaklar ve ev eşyaları gibi gıda ve gıda dışı ürünler dahildir. Bu kolayca boğulmaya neden olabilir.</p></td></tr></table><table><tr><td><p><strong>Temel İlkeler</strong></p></td></tr></table><p></p><ul><li><strong>Çocuğunuzun yemek yemesini izleyin.</strong></li><li><strong>Bir çocuğun boğulmasına sebep olabilecek en muhtemel şey gıdalardır.</strong></li><li><strong>Çocuğunuza verdiğiniz yiyeceklerin yaşına ve gelişim düzeyine uygun olduğundan emin olun.</strong></li></ul><table><tr><td><p><strong>DİKKAT!</strong></p><p>Boğulması ihtimaline karşı çocuğunuzu yemek yerken asla yalnız bırakmayın. Yemekleri ve atıştırmalıkları daima denetleyin.</p></td></tr></table><table><tr><td><p><strong>Çocuğunuz Nasıl Yemek Yemeli?</strong></p></td></tr></table><ul><li>Mama sandalyesinde veya bir yetişkinin gözetiminde bir masada oturarak yemek yemeli.</li><li>Yürürken veya koşarken asla yemek yememeli; boğulma riski vardır</li><li>Asla yatakta yemek yememeli.</li><li>Çocuğunuzun arabada veya pusette yemek yemesine izin vermeyin.</li><li>Farklı yiyeceklerin farklı riskleri vardır. Çocuğunuzun boğulabileceği yiyecekleri görüş alanından uzakta ve ulaşamayacağı bir yerde saklayın.</li><li>Büyük çocukların uygun olmayan yiyecekleri küçük çocuklarla paylaşmamasına dikkat edin.</li><li>Çocuklar, küçük dilimler halinde kesilmiş olsa bile, herhangi bir anda ağızlarına çok fazla yiyecek koyabilirler.</li></ul><table><tr><td><p><strong>Hangi Yiyeceklerden Uzak Duralım?</strong></p></td></tr></table><p></p><p>5 yaşın altındaki bir çocuğa asla aşağıdaki yiyecekleri vermeyin:</p><ul><li>Bütün fındık - fıstık </li><li>Marşmelov</li><li>Patlamış mısır</li><li>Sakız</li><li>Küçük, sert, yuvarlak veya oval şekilli tatlılar - Bunlar arasında pişirilmiş tatlılar, öksürük pastilleri, meyveli sakızlar, jöle fasulye, lolipoplar, karameller ve çikolatalı mini yumurtalar vardır.</li><li>Küçük sert çikolatalar</li><li>Nohut</li></ul><p>Bunlar çocuğunuzun boğulmasına neden olabilir.</p><table><tr><td><p><strong>Besinleri Güvenli Hale Getirme Yolları</strong></p></td></tr></table><ul><li>Tüm yiyecekleri güvenli hale getirmek için hazırlık yapın.</li><li>Bebeğiniz katı gıdaya geçerken şunlardan emin olun:<ul><li>Yaşlarına ve gelişim aşamalarına uygun.</li><li>Yeterince küçük ve doğru şekilde kesilmiş.</li><li>Yemeleri için yeterince yumuşak.</li></ul></li><li>Yiyecekleri daima çocuğunuzun çiğneyebileceği ve güvenle yiyebileceği büyüklükte kesin. Yiyecekleri daha güvenli hale getirmek için dokusunu değiştirin; rendeleyin, pişirin, ince ince doğrayın veya ezin.</li><li>Çocuğunuzun boğulmasına neden olabilecek yiyecek parçalarını çıkarın. Kabuklarını soyun veya güçlü lifleri, tohumları, çekirdekleri çıkarın.</li></ul><table><tr><td><p><strong>Küçük Meyve ve Sebzeler</strong></p></td></tr></table><p></p><ul><li>Üzüm, kiraz domates ve benzeri büyüklükteki yiyecekler çocuğunuzun boğulmasına neden olabilir.</li><li>Üzüm çocuklar için özel bir risktir. Bunları uzunlamasına ikiye ve daha küçük parçalara bölün. Tüm çekirdekleri çıkarın.</li><li>Kiraz domatesleri ve benzeri büyüklükteki yiyecekleri de aynı şekilde kesin.  Çekirdekleri veya güçlü lifleri çıkarın. Çocuğunuzun hava yolunu tıkayabilir.</li></ul><table><tr><td><p><strong>Sert Meyve ve Sebzeler</strong></p></td></tr></table><p></p><ul><li>Bunlara havuç, kereviz ve elma dahildir. Yemeğin yapısını değiştirirseniz çocuğunuzun </li><li>boğulma riskini azaltabilirsiniz. Rendeleyin, pişirin, ince doğrayın veya ezin.</li></ul><table><tr><td><p><strong>Kabuklu veya Yapraklı Yiyecekler</strong></p></td></tr></table><p></p><ul><li>Yiyecek kabuklarının çiğnenmesi zordur ve çocukların solunum yollarını tamamen tıkayabilir.</li><li>Bunlar:<ul><li>Sosisler, sosisli sandviçler </li><li>Elmalar ve armutlar</li><li>Domates</li><li>Marul ve diğer çiğ salata yaprakları</li><li>Ispanak ve lahana</li></ul></li><li>Derilerini çıkarın veya soyun ve çocuğunuzun küçük tırnağından daha büyük olmayan küçük parçalar halinde uzunlamasına kesin.</li><li>Salata yapraklarını ince ince doğrayın. </li><li>Ispanak ve lahanayı yumuşayana kadar pişirin ve ince ince doğrayın.</li></ul><table><tr><td><p><strong>Macunlar &amp; Kuru Yemişler</strong></p></td></tr></table><p><strong></strong></p><p><strong>Kalın Macunlar </strong></p><ul><li>Fıstık ezmesi ve çikolata kreması gibi kalın macunlar çocuğunuzun boğazına ve nefes borusuna (solunum yoluna) yapışabilir. </li><li>Bu nefes almayı zorlaştırır. Macunları ince ve eşit bir şekilde yayın.</li></ul><p><strong>Fındık, Tahıl ve Tohumlar</strong></p><ul><li>Boğulma riski nedeniyle 5 yaşın altındaki çocuklara bütün fındık vermeyin. </li><li>Fındık ve yağlı tohumlar ezilmeli veya öğütülmelidir. </li><li>Yayılan fındık ezmesi eşit şekilde yayılır ve çok kalın olmaz. </li><li>Granola barlar gibi tam tahıl taneli barlardan kaçının.</li></ul><table><tr><td><p><strong>Biberon ile Beslenme</strong></p></td></tr></table><ul><li>Biberonla besliyorsanız bebeği daima kucağınızda ve biberonu da elinizde tutun.</li><li>Şişeyi yastık gibi bir desteğe yaslayıp bırakmayın. Bu boğulmaya ve diğer sağlık sorunlarına neden olabilir.</li></ul><p></p><ul><li>Yatağınızda besleniyorsanız, bebeği uyuması için kendi yatağına koymayı her zaman unutmayın. </li></ul><table><tr><td><p>İrlanda Cumhuriyeti Ulusal Sağlık Hizmetleri Otoritesi (The Health Service Executive - HSE) kaynaklarından <br />faydalanılarak hazırlanmıştır. Daha fazla bilgi için <a href="https://www.hse.ie/"><strong>https://www.hse.ie/</strong></a><strong> </strong>adresine gidiniz.</p></td></tr></table><p><strong>The Health Service Executive</strong></p><p>our health service</p><table><tr><td><p></p></td><td><p>HSE Web Sitesi aracılığıyla erişilebilen bilgiler, tamamı HSE tarafından kontrol edilmeyen birçok kaynaktan derlenmiştir. Bu web sitesinin içeriğinin derlenmesi ve yayınlanması sırasında tüm makul özen gösterilmiş olmakla birlikte, HSE, bu kaynakta yer alan bilgi veya materyallerin doğruluğu veya uygunluğu konusunda açık veya zımni hiçbir beyanda bulunmaz veya garanti vermez. </p><p><strong>© 2019 The Health Service Executive. </strong></p><p>Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr><tr><td></td><td></td><td></td><td></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/genel-bilgiler/Beslenme%20G%C3%BCvenli%C4%9Fi.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

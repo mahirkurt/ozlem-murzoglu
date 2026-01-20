@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>UZM.DR. ÖZLEM MURZOĞLU - ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ</p></td></tr><tr><td><p>AİLELER İÇİN İPUÇLARI:</p><p><strong>EMZİK BIRAKMA</strong></p></td><td><p></p></td></tr></table><table><tr><td><p><strong>Emzikler ve Faydaları</strong></p></td></tr></table><p></p><p>Emzikler, bebeğin doğal emme içgüdüsünü tatmin ettiği, hayal kırıklıkları ile başa çıkmaları için rahatlık ve dikkat dağınıklığı sağladığı ve bebeklerin uykuya dalmasına yardımcı olduğu için bebekler için faydalı olabilir. Emziklerin ayrıca 1 ay ile 6 ay arasında yatmadan önce kullanıldığında ani bebek ölümü sendromu (SIDS) riskini azalttığı gösterilmiştir. Çünkü sürekli periyodik emme, bebeğinizin daha hafif bir uyku durumunda kalmasına yardımcı olarak nefes almayı bırakma olasılığını azaltır. Emzirmenin tam olarak yerleşmesi ve bebeğin meme başı şaşkınlığı yaşamaması için ilk bir ay emzik kullanımı önerilmez. Bunu aklımızda tutalım.</p><table><tr><td><p><strong>Emzik Kullanımının Olumsuz Sonuçları</strong></p></td></tr></table><p>Emzik kullanımı, bir ayın üstündeki bebeklerde ilk aylarda pek çok avantaj sağlarken bebeğiniz büyüdükçe riskleri yararlarından ağır basmaya başlar. </p><p>6 aylıktan sonra düzenli olarak emzik kullanan bebeklerin orta kulak iltihabına yakalanma olasılığı kullanmayanlara göre daha yüksektir. Bu, sürekli emmenin kulaklarda basınç değişikliklerine neden olması ve potansiyel olarak sıvı drenajını önleyerek birikmesinden ve enfeksiyon oluşturmasından kaynaklanır. Bir diğer risk ise çocuklar genellikle 1 yaşında konuşmaya başlar ve emziğin dil gelişimini de yavaşlatma ihtimali vardır; dudak kaslarının normal gelişimini engelleyebileceği gibi, sürekli ağzında bir cisim varken bebek yeterince babıldama ve ses çıkarma fırsatı bulamayacaktır. Ayrıca Amerikan Pediatri Akademisi (AAP) ve Amerikan Diş Hekimleri Birliği'ne (ADA) göre, 2 yaşından sonra emziğin sık kullanımı dişlerin yanlış hizalanmasına ve damağın şeklinde bozukluklara neden olabilir.</p><table><tr><td><p><strong>Emzik Kullanımını Bırakma</strong></p></td></tr></table><p>Tüm bu bilgilerle emzik kullanmayı bırakmak için en iyi zamanın, orta kulak enfeksiyonlarını önlemek için 6 ila 12 ay arası ve konuşma gelişiminde gecikmeleri önlemek için 1 yaşından öncesi olduğunu söyleyebiliriz. Bebeğinize 1 yaşına kadar uyku vaktinde veya yatmadan önce emzik vermenizde bir sakınca yok.  Bebeğiniz biraz daha büyükse, emziğini 3 yaşına kadar tutmanızda da bir sorun yok ancak emziği yalnızca bebeğinizin uyumasına yardımcı olmak için kullanmanız gerekiyor. Yani emzik yalnızca ihtiyaç duyulduğunda kullanılmalı.  Küçük çocuğunuz evin içinde koştururken ve dil becerilerini geliştirmesi gerektiğinde bütün gün emzik kullanmamalıdır. </p><p>Çocuğunuzu 2 yaşına kadar emzikten kesmekte sorun yaşıyorsanız, diş sorunları riskini sınırlamaya yardımcı olması için en azından "ortodonti dostu" bir emzik kullandığınızdan emin olun. Ortodontik bir emziğin alt kısmı düzleştirilmiş ve üst kısmı yuvarlak bir emziği vardır. En doğal emme şeklini sağlamak için bebeğinizin ağzında tıpkı bir annenin meme ucu gibi düzleşirler. Ayrıca diş etleri ve gelişmekte olan dişler üzerindeki baskıyı azaltırlar ve bebeğinizin gelişmekte olan damak ve çenesinin şeklini desteklerler.</p><table><tr><td><p><strong>Emzik nasıl bıraktırılır?</strong></p></td></tr></table><p>Emzik emmenin ömür boyu sürecek bir alışkanlık haline gelmediğini kendinize hatırlatarak üzerinizdeki baskıyı biraz azaltın. Pek çok çocuk kendi kendine emziği kullanmayı bırakacaktır. </p><ul><li>Çocuğunuz anlayacak yaştaysa, çocuğunuzla emzikten vazgeçmesi hakkında konuşun.</li><li>Gün içinde rahatlamak için emziği daha az kullanmayı deneyin.</li><li>Bunu yapmanın bir yolu, emziği özel bir yere koymak ve ardından sadece uyku rutininin bir parçası olarak çıkarmaktır. Bu, işlerin daha hızlı ilerlemesine yardımcı olacaktır.</li><li>Emzik kullanımını belirli zaman ve yerlerle sınırlayın - Örneğin, araba veya bebek karyolası. Bu, çocuğunuza emziksiz olmaya alışması için bir şans verir.</li><li>Geceleri çocuğunuzu yeniden yerleştirirken emziği kademeli olarak daha az kullanın. </li><li>Örneğin, emziği çocuğunuza ikinci gün gece her iki ağlayışında bir, ardından üçüncü gün her üç ağlayışında bir verin ve bu şekilde devam edin.</li><li>Çocuğunuz, emzik olmadan rahatlamaya başardıktan bir süre sonra, bir tarih ve saat belirleyin - ardından emziği kaldırın. </li></ul><p></p><table><tr><td><p>Çocuğunuzun emziği bırakma zamanı geldiyse, aşağıdaki yedi adımı izleyerek bunu en az öfke nöbeti ve gözyaşıyla yapmasına yardımcı olun:</p></td></tr></table><table><tr><td><p><strong>1. Zamanlama önemlidir!</strong></p></td></tr></table><ul><li>Emzikten kesmek için, kreşe başlama, yeni bir kardeşin gelişi, uzun bir araba yolculuğuna çıkma, aile tatili ya da yeni bir eve taşınma gibi stresli olayların yaşandığı dönemler uygun değildir.</li><li>Çocuğunuzun bu zorlu durumlarda kendi kendine sakinleşmesi gerekecek ve bunu yapmanın başka bir kusursuz yolunu bulana kadar, en iyisi bu olaylar bitene kadar emzikten mahrum bırakmamaktır.</li></ul><table><tr><td><p><strong>2. İlk önce emzik kullanma süresini kısıtlayın!</strong></p></td></tr></table><ul><li>Çocuğunuzun gün içinde emzik kullanımını sınırlandırarak başlamak en kolayıdır. Gün içinde bebeğinizi rahatlamak için emziği daha az kullanmayı deneyin. Gün boyunca aşamalı olarak emzik kullanımını tamamen ortadan kaldırmayı hedefleyin. Bunu yapmanın bir yolu, emziği özel bir yere koymak ve ardından sadece uyku rutininin bir parçası olarak çıkarmaktır (gündüz şekerleme saatinde ve yatmadan önce). Bu bir kez iyi gittiğinde, sonunda onu şekerleme zamanından ve ardından yatma vaktinden çıkarabilirsiniz.</li><li>Gece vakti her zaman en zoru gibi görünür, bu yüzden yeni bir uyku zamanı rutini başlatmak faydalı olabilir. Bu, banyo, yatmadan önce bir kitap, biraz şarkı söylemek ve küçük çocuğunuzun uyuması için pışpışlamak oluşabilir. Birkaç şey deneyin ve en iyi neyin işe yaradığını görün. Bu, işlerin daha hızlı ilerlemesine yardımcı olacaktır.</li></ul><table><tr><td><p><strong>3. Alternatif bir obje sunun!</strong></p></td></tr></table><ul><li>Çocuğunuza emziği yerine bir geçiş nesnesi sunun. Emzik yerine kullanabileceği bir geçiş nesnesi, stresi azaltmaya ve çocuğunuzun yeni veya zorlu durumlara uyum sağlamasına yardımcı olacaktır. Bunlar genellikle güvenlik öğeleri olarak bilinir ve yeni bir oyuncak, pelüş hayvan veya favori battaniye olabilir. Genellikle, geceleri kendilerini rahatlatabilmeleri için güvenle sarılabilecekleri bir şeyi sunduğunuzda kabul edeceklerdir.</li></ul><table><tr><td><p><strong>4. Zor durumlarda emziği ilk müdahale olarak kullanmayın!</strong></p></td></tr></table><ul><li>Bir kriz sırasında hemen pes etmek ve çocuğunuza emzik vermek çok kolay gelebilir. Bebeğinizin ağlamasının birçok nedeni olsa da önce emziğe dönmemek için elinizden gelenin en iyisini yapın.</li><li>Bezini, aç olup olmadığını, sıcaklığını kontrol edin. Çocuğunuzu kucağınıza alın, ona şarkı söyleyin veya hafif müzik çalın, ona kitap okuyun, sallayın veya oyuncaklarla veya etkinliklerle dikkatini dağıtın. Çocuğunuzu meşgul etmeye ve hareket etmeye çalışın, böylece emzikle rahatlama düşünceleri dağılabilir.</li></ul><table><tr><td><p><strong>5. Emzik istemediğinde bebeğiniz ile gururlandığınızı gösterin!</strong></p></td></tr></table><ul><li>Çocuğunuzun emziksiz başarabildiklerine tanık oldukça onu onurlandırın. Emzik tercih etmediğinde; ona ne kadar harika bir iş başardığını hissettirin ("Çok büyüdün, aferin!", "Seninle çok gurur duyuyorum!").  Çıkartmalar, pullar, oyun hamurları veya favori sağlıklı atıştırmalıklar gibi eğlenceli küçük ödüller sunun.</li></ul><table><tr><td><p><strong>ÖNEMLİ BİR UYARI:</strong> Çocuğunuz emziğe geri dönerse asla cezalandırmayın, azarlamayın veya herhangi bir olumsuz pekiştirici kullanmadığınızdan emin olun. Olumsuz pekiştirme korku, stres ve güvensizlik yaratarak genellikle gerilemeye yol açar!</p></td></tr></table><table><tr><td><p><strong>6. Emziğin artık daha faydalı olacağı birine devredilmesi fikrinden bahsedin!</strong></p></td></tr></table><ul><li>En ideali ve eğlenceli olanı, çocuğunuzun emzikten vazgeçmesi için ona büyülü bir motivasyon yaratmanızdır. Örneğin, perilerin emzikleri olmayan diğer bebeklere vermesi için onu ağaca asmayı önerebilirsiniz ya da emzikleri, yavru kuşlar için kuş yuvalarına koyabilirsiniz. Bu şekilde, çocuğunuz onu geri isterse, artık sizde olmadığını söyleyebilirsiniz. Bu planda tüm emzikleri evden çıkardığınıza emin olmalısınız, yavru kuşlara verdiğinizi söylediğiniz emziği, çocuğunuzun bulmasın!</li><li>Çocuğunuz emziği bırakmakta çok çok zorlanıyorsa, emziği daha az çekici hale getirmeye de çalışabilirsiniz; bunu son seçenek olarak düşünmelisiniz. Emziği, tadından hoşlanmayacağı hale getirmek için beyaz sirke veya limon suyuna batırabilirsiniz (asla çocuğunuzu zorlayacak tatlar denemeyin). Çocuğunuz muhtemelen hemen tükürecek ve kısa süre sonra onunla hiçbir şey yapmak istemeyecektir. Ancak bu yöntemden önce sabırlı olup, emziğe ihtiyaç duymayacağı süreyi ona vermeniz ve gönüllü bırakmayı teşvik etmeniz önemli.</li><li>Bazı anneler ayrıca emme zevkini azaltmak için emziğin ucunu kesmeyi veya delmeyi severler, ancak bu potansiyel olarak boğulma tehlikesine neden olabilir. <strong>Bunu yaparsanız, çocuğa emziğinin kırıldığını göstermek ve birlikte atmak en iyisidir!</strong></li></ul><table><tr><td><p><strong>7. Emziğe veda kutlaması/töreni yapın!</strong></p></td></tr></table><ul><li>Çocuğunuz nihayet emziğine sonsuza dek elveda demeye hazır olduğunda, özel bir veda töreni düzenleyerek bunu kutlayın. Bu özellikle daha büyük çocuklar için işe yarar.</li><li>Çocuğunuzu alışverişe götürün, yeni bir oyuncak seçmesine izin verin ve yeni oyuncağının bedelini emzikle "ödemesine" izin verin. Ayrıca parti şapkaları, balonlar ve lezzetli ikramlarla dolu bir güle güle emzik partisi de verebilirsiniz.</li><li>Çocuğunuz, emzik olmadan rahatlamaya başardıktan bir süre sonra, bir tarih ve saat belirleyin - ardından emziği kaldırın. </li><li>Süreçte geri dönmemeye çalışın. Çocuğunuzu bu değişime ne kadar iyi hazırlamış olursanız olun, biraz rahatsızlık olabilir.</li></ul><table><tr><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. </p><p>Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p><strong>© 2022 Uzm.Dr. Özlem Murzoğlu. Tüm hakları saklıdır.</strong></p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/genel-bilgiler/Emzik%20B%C4%B1rakma%20%C4%B0pu%C3%A7lar%C4%B1.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

@@ -33,11 +33,13 @@ export class AppComponent {
       if (savedLang) {
         this.translate.use(savedLang);
         this.locale = savedLang;
+        this.updateDocumentLang(savedLang);
       } else {
         const browserLang = this.translate.getBrowserLang();
         const langToUse = browserLang?.match(/en|tr/) ? browserLang : 'tr';
         this.translate.use(langToUse);
         this.locale = langToUse;
+        this.updateDocumentLang(langToUse);
       }
     }
   }
@@ -45,6 +47,7 @@ export class AppComponent {
   onLocaleChange(newLocale: string) {
     this.locale = newLocale;
     this.translate.use(newLocale);
+    this.updateDocumentLang(newLocale);
     // Save language preference
     if (typeof window !== 'undefined') {
       localStorage.setItem('selectedLanguage', newLocale);
@@ -53,5 +56,11 @@ export class AppComponent {
   
   ngOnInit() {
     // Language initialization is handled in constructor
+  }
+
+  private updateDocumentLang(locale: string) {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = locale;
+    }
   }
 }

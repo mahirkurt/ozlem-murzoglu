@@ -1,0 +1,1105 @@
+// ============================================================================
+// _spacing.scss - MD3 Expressive 2025 Spacing & Layout Token System
+// Dr. Özlem Murzoğlu Pediatri Kliniği
+// Version: 5.0 (Final Production Edition)
+// Last Updated: 2025-12-19
+//
+// Reference: MASTER-STYLE-GUIDE.md v5.0
+// Dependencies: None (foundational tokens)
+// ============================================================================
+
+// ============================================================================
+// TABLE OF CONTENTS
+// ============================================================================
+// 1.  BASE SPACING SCALE (4px Grid System)
+// 2.  SEMANTIC SPACING ALIASES
+// 3.  ADAPTIVE DENSITY SYSTEM
+// 4.  TOUCH TARGET SPECIFICATIONS
+// 5.  COMPONENT SPACING TOKENS
+// 6.  LAYOUT SPACING TOKENS
+// 7.  SECTION & PAGE SPACING
+// 8.  RESPONSIVE CONTAINER SYSTEM
+// 9.  GRID GAP SYSTEM
+// 10. NEGATIVE SPACING (Overlap Effects)
+// 11. INLINE SPACING (Text Elements)
+// 12. DENSITY VARIANTS
+// 13. POINTER-BASED DENSITY
+// 14. UTILITY CLASSES - MARGIN
+// 15. UTILITY CLASSES - PADDING
+// 16. UTILITY CLASSES - GAP
+// 17. UTILITY CLASSES - INSET
+// 18. UTILITY CLASSES - SPACE BETWEEN
+// 19. RESPONSIVE SPACING UTILITIES
+// 20. LOGICAL PROPERTY UTILITIES (RTL Support)
+// 21. SPACING MIXINS
+// 22. LAYOUT MIXINS
+// 23. PRINT STYLES
+// 24. ACCESSIBILITY
+// ============================================================================
+
+:root {
+  // ==========================================================================
+  // SECTION 1: BASE SPACING SCALE
+  // 4px grid system (Material Design Foundation)
+  // Each step = 4px × multiplier
+  // ==========================================================================
+
+  --md-sys-spacing-0: 0;
+  --md-sys-spacing-0-5: 2px;     // Half unit for fine adjustments (0.5 × 4)
+  --md-sys-spacing-1: 4px;       // 1 × 4 - Micro spacing
+  --md-sys-spacing-1-5: 6px;     // 1.5 × 4 - Between micro and small
+  --md-sys-spacing-2: 8px;       // 2 × 4 - Small spacing
+  --md-sys-spacing-2-5: 10px;    // 2.5 × 4 - Between small and medium-small
+  --md-sys-spacing-3: 12px;      // 3 × 4 - Medium-small spacing
+  --md-sys-spacing-3-5: 14px;    // 3.5 × 4 - Fine-tune value
+  --md-sys-spacing-4: 16px;      // 4 × 4 - Medium spacing (BASE UNIT)
+  --md-sys-spacing-5: 20px;      // 5 × 4 - Medium-large
+  --md-sys-spacing-6: 24px;      // 6 × 4 - Large spacing
+  --md-sys-spacing-7: 28px;      // 7 × 4 - Large+
+  --md-sys-spacing-8: 32px;      // 8 × 4 - Extra large
+  --md-sys-spacing-9: 36px;      // 9 × 4 - Extra large+
+  --md-sys-spacing-10: 40px;     // 10 × 4 - 2XL spacing
+  --md-sys-spacing-11: 44px;     // 11 × 4 - Touch target base
+  --md-sys-spacing-12: 48px;     // 12 × 4 - 3XL spacing
+  --md-sys-spacing-14: 56px;     // 14 × 4 - 4XL spacing
+  --md-sys-spacing-16: 64px;     // 16 × 4 - Section spacing small
+  --md-sys-spacing-18: 72px;     // 18 × 4 - Section spacing medium
+  --md-sys-spacing-20: 80px;     // 20 × 4 - Section spacing large
+  --md-sys-spacing-24: 96px;     // 24 × 4 - Section spacing XL
+  --md-sys-spacing-28: 112px;    // 28 × 4 - Hero spacing
+  --md-sys-spacing-32: 128px;    // 32 × 4 - Hero spacing large
+  --md-sys-spacing-36: 144px;    // 36 × 4 - Page-level spacing
+  --md-sys-spacing-40: 160px;    // 40 × 4 - Page-level spacing large
+  --md-sys-spacing-48: 192px;    // 48 × 4 - Major section divider
+  --md-sys-spacing-56: 224px;    // 56 × 4 - Hero height contribution
+  --md-sys-spacing-64: 256px;    // 64 × 4 - Maximum spacing unit
+
+  // ==========================================================================
+  // SECTION 2: SEMANTIC SPACING ALIASES
+  // Human-readable aliases for common use cases
+  // ==========================================================================
+
+  // T-shirt size aliases
+  --spacing-none: var(--md-sys-spacing-0);
+  --spacing-3xs: var(--md-sys-spacing-0-5);  // 2px
+  --spacing-2xs: var(--md-sys-spacing-1);    // 4px
+  --spacing-xs: var(--md-sys-spacing-2);     // 8px
+  --spacing-sm: var(--md-sys-spacing-3);     // 12px
+  --spacing-md: var(--md-sys-spacing-4);     // 16px
+  --spacing-lg: var(--md-sys-spacing-6);     // 24px
+  --spacing-xl: var(--md-sys-spacing-8);     // 32px
+  --spacing-2xl: var(--md-sys-spacing-12);   // 48px
+  --spacing-3xl: var(--md-sys-spacing-16);   // 64px
+  --spacing-4xl: var(--md-sys-spacing-24);   // 96px
+  --spacing-5xl: var(--md-sys-spacing-32);   // 128px
+
+  // Functional aliases
+  --spacing-inline-icon: var(--md-sys-spacing-2);       // 8px - Icon to text
+  --spacing-inline-text: var(--md-sys-spacing-1);       // 4px - Text elements
+  --spacing-stack-tight: var(--md-sys-spacing-2);       // 8px - Tight vertical
+  --spacing-stack-default: var(--md-sys-spacing-4);     // 16px - Default vertical
+  --spacing-stack-loose: var(--md-sys-spacing-6);       // 24px - Loose vertical
+  --spacing-inset-squish: var(--md-sys-spacing-2) var(--md-sys-spacing-4);  // 8px 16px
+  --spacing-inset-stretch: var(--md-sys-spacing-4) var(--md-sys-spacing-2); // 16px 8px
+  --spacing-inset-square: var(--md-sys-spacing-4);      // 16px all sides
+
+  // ==========================================================================
+  // SECTION 3: ADAPTIVE DENSITY SYSTEM
+  // MD3 Expressive 2025 - Density scaling for different contexts
+  // ==========================================================================
+
+  --md-sys-density-scale: 1;           // Base scale (touch-first)
+  --md-sys-density-scale-compact: 0.75;
+  --md-sys-density-scale-expanded: 1.25;
+  --md-sys-density-scale-comfortable: 1.5;
+
+  // ==========================================================================
+  // SECTION 4: TOUCH TARGET SPECIFICATIONS
+  // WCAG 2.2 Level AAA compliant touch targets
+  // ==========================================================================
+
+  --md-sys-touch-target-min: 48px;        // Minimum (WCAG 2.2 AA)
+  --md-sys-touch-target-default: 48px;    // Default interactive size
+  --md-sys-touch-target-expanded: 56px;   // Expanded for accessibility
+  --md-sys-touch-target-comfortable: 64px; // Maximum comfort
+  --md-sys-touch-target-compact: 44px;    // Compact (minimum WCAG 2.1)
+  --md-sys-touch-target-dense: 36px;      // Dense data tables only
+
+  // Touch target spacing (gap between targets)
+  --md-sys-touch-spacing: 8px;            // Minimum between targets
+
+  // ==========================================================================
+  // SECTION 5: COMPONENT SPACING TOKENS
+  // Specific spacing for MD3 components
+  // ==========================================================================
+
+  // Button Spacing
+  --md-sys-spacing-button-padding-x: calc(var(--md-sys-spacing-6) * var(--md-sys-density-scale));
+  --md-sys-spacing-button-padding-y: calc(var(--md-sys-spacing-3) * var(--md-sys-density-scale));
+  --md-sys-spacing-button-gap: calc(var(--md-sys-spacing-2) * var(--md-sys-density-scale));
+  --md-sys-spacing-button-icon-gap: var(--md-sys-spacing-2);
+  --md-sys-spacing-button-fab-padding: var(--md-sys-spacing-4);
+  --md-sys-spacing-button-extended-fab-padding: var(--md-sys-spacing-4) var(--md-sys-spacing-6);
+
+  // Card Spacing
+  --md-sys-spacing-card-padding: calc(var(--md-sys-spacing-6) * var(--md-sys-density-scale));
+  --md-sys-spacing-card-padding-compact: calc(var(--md-sys-spacing-4) * var(--md-sys-density-scale));
+  --md-sys-spacing-card-gap: calc(var(--md-sys-spacing-4) * var(--md-sys-density-scale));
+  --md-sys-spacing-card-header-gap: calc(var(--md-sys-spacing-3) * var(--md-sys-density-scale));
+  --md-sys-spacing-card-media-margin: calc(var(--md-sys-spacing-0) - var(--md-sys-spacing-card-padding));
+  --md-sys-spacing-card-actions-padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
+
+  // Input/Form Spacing
+  --md-sys-spacing-input-padding-x: var(--md-sys-spacing-4);
+  --md-sys-spacing-input-padding-y: calc(var(--md-sys-spacing-4) * var(--md-sys-density-scale));
+  --md-sys-spacing-input-gap: var(--md-sys-spacing-2);
+  --md-sys-spacing-input-label-gap: var(--md-sys-spacing-1);
+  --md-sys-spacing-input-helper-gap: var(--md-sys-spacing-1);
+  --md-sys-spacing-form-field-gap: var(--md-sys-spacing-6);
+  --md-sys-spacing-form-group-gap: var(--md-sys-spacing-8);
+
+  // List Spacing
+  --md-sys-spacing-list-item-padding-x: var(--md-sys-spacing-4);
+  --md-sys-spacing-list-item-padding-y: calc(var(--md-sys-spacing-4) * var(--md-sys-density-scale));
+  --md-sys-spacing-list-item-gap: var(--md-sys-spacing-4);
+  --md-sys-spacing-list-item-min-height: calc(56px * var(--md-sys-density-scale));
+  --md-sys-spacing-list-divider-inset: var(--md-sys-spacing-16);
+  --md-sys-spacing-list-section-gap: var(--md-sys-spacing-8);
+
+  // Chip Spacing
+  --md-sys-spacing-chip-padding-x: calc(var(--md-sys-spacing-4) * var(--md-sys-density-scale));
+  --md-sys-spacing-chip-padding-y: calc(var(--md-sys-spacing-2) * var(--md-sys-density-scale));
+  --md-sys-spacing-chip-gap: var(--md-sys-spacing-2);
+  --md-sys-spacing-chip-icon-gap: var(--md-sys-spacing-2);
+  --md-sys-spacing-chip-set-gap: var(--md-sys-spacing-2);
+
+  // Dialog & Modal Spacing
+  --md-sys-spacing-dialog-padding: var(--md-sys-spacing-6);
+  --md-sys-spacing-dialog-header-padding: var(--md-sys-spacing-6) var(--md-sys-spacing-6) var(--md-sys-spacing-4);
+  --md-sys-spacing-dialog-content-padding: var(--md-sys-spacing-0) var(--md-sys-spacing-6);
+  --md-sys-spacing-dialog-footer-padding: var(--md-sys-spacing-4) var(--md-sys-spacing-6) var(--md-sys-spacing-6);
+  --md-sys-spacing-dialog-content-gap: var(--md-sys-spacing-4);
+  --md-sys-spacing-dialog-actions-gap: var(--md-sys-spacing-2);
+  --md-sys-spacing-dialog-icon-margin: var(--md-sys-spacing-6) auto;
+  --md-sys-spacing-bottom-sheet-handle-margin: var(--md-sys-spacing-4) auto;
+
+  // Menu & Dropdown Spacing
+  --md-sys-spacing-menu-padding-y: var(--md-sys-spacing-2);
+  --md-sys-spacing-menu-item-padding: var(--md-sys-spacing-3) var(--md-sys-spacing-4);
+  --md-sys-spacing-menu-item-gap: var(--md-sys-spacing-3);
+  --md-sys-spacing-menu-divider-margin: var(--md-sys-spacing-2) 0;
+  --md-sys-spacing-dropdown-offset: var(--md-sys-spacing-1);
+
+  // Navigation Spacing
+  --md-sys-spacing-nav-item-padding-x: var(--md-sys-spacing-4);
+  --md-sys-spacing-nav-item-padding-y: calc(var(--md-sys-spacing-3) * var(--md-sys-density-scale));
+  --md-sys-spacing-nav-item-gap: var(--md-sys-spacing-3);
+  --md-sys-spacing-nav-label-gap: var(--md-sys-spacing-1);
+  --md-sys-spacing-nav-rail-width: 80px;
+  --md-sys-spacing-nav-rail-padding: var(--md-sys-spacing-3);
+  --md-sys-spacing-nav-drawer-width: 360px;
+  --md-sys-spacing-nav-drawer-padding: var(--md-sys-spacing-4);
+  --md-sys-spacing-nav-bar-height: calc(80px * var(--md-sys-density-scale));
+  --md-sys-spacing-nav-bottom-bar-height: 80px;
+  --md-sys-spacing-breadcrumb-gap: var(--md-sys-spacing-2);
+
+  // Tab Spacing
+  --md-sys-spacing-tab-padding-x: var(--md-sys-spacing-6);
+  --md-sys-spacing-tab-padding-y: var(--md-sys-spacing-4);
+  --md-sys-spacing-tab-gap: var(--md-sys-spacing-0);
+  --md-sys-spacing-tab-indicator-height: 3px;
+  --md-sys-spacing-tab-icon-gap: var(--md-sys-spacing-1);
+
+  // Tooltip & Snackbar Spacing
+  --md-sys-spacing-tooltip-padding: var(--md-sys-spacing-2) var(--md-sys-spacing-3);
+  --md-sys-spacing-tooltip-offset: var(--md-sys-spacing-2);
+  --md-sys-spacing-snackbar-padding: var(--md-sys-spacing-4);
+  --md-sys-spacing-snackbar-gap: var(--md-sys-spacing-4);
+  --md-sys-spacing-snackbar-action-gap: var(--md-sys-spacing-2);
+  --md-sys-spacing-snackbar-margin: var(--md-sys-spacing-4);
+
+  // Badge Spacing
+  --md-sys-spacing-badge-padding: var(--md-sys-spacing-1) var(--md-sys-spacing-2);
+  --md-sys-spacing-badge-offset: calc(var(--md-sys-spacing-0) - var(--md-sys-spacing-2));
+
+  // Avatar Spacing
+  --md-sys-spacing-avatar-gap: var(--md-sys-spacing-3);
+  --md-sys-spacing-avatar-stack-overlap: calc(var(--md-sys-spacing-0) - var(--md-sys-spacing-3));
+
+  // Progress & Slider Spacing
+  --md-sys-spacing-progress-track-height: 4px;
+  --md-sys-spacing-progress-track-height-expanded: 8px;
+  --md-sys-spacing-slider-thumb-size: 20px;
+  --md-sys-spacing-slider-track-height: 4px;
+  --md-sys-spacing-slider-label-offset: var(--md-sys-spacing-2);
+
+  // Table Spacing
+  --md-sys-spacing-table-cell-padding: var(--md-sys-spacing-4);
+  --md-sys-spacing-table-header-padding: var(--md-sys-spacing-4) var(--md-sys-spacing-4) var(--md-sys-spacing-3);
+  --md-sys-spacing-table-row-min-height: 52px;
+  --md-sys-spacing-table-row-min-height-dense: 40px;
+
+  // ==========================================================================
+  // SECTION 6: LAYOUT SPACING TOKENS
+  // Page-level and layout structure spacing
+  // ==========================================================================
+
+  // Content Width Constraints
+  --md-sys-spacing-content-max-width: 1200px;
+  --md-sys-spacing-content-max-width-narrow: 800px;
+  --md-sys-spacing-content-max-width-wide: 1440px;
+  --md-sys-spacing-content-max-width-full: 100%;
+  --md-sys-spacing-text-max-width: 65ch;        // Optimal reading width
+  --md-sys-spacing-text-max-width-wide: 80ch;
+
+  // ==========================================================================
+  // SECTION 7: SECTION & PAGE SPACING
+  // Vertical rhythm and section separators
+  // ==========================================================================
+
+  // Section Vertical Rhythm (Desktop)
+  --md-sys-spacing-section-vertical: var(--md-sys-spacing-24);          // 96px
+  --md-sys-spacing-section-vertical-sm: var(--md-sys-spacing-16);       // 64px
+  --md-sys-spacing-section-vertical-lg: var(--md-sys-spacing-32);       // 128px
+
+  // Section Vertical Rhythm (Tablet)
+  --md-sys-spacing-section-vertical-tablet: var(--md-sys-spacing-16);   // 64px
+  --md-sys-spacing-section-vertical-tablet-sm: var(--md-sys-spacing-12);// 48px
+  --md-sys-spacing-section-vertical-tablet-lg: var(--md-sys-spacing-24);// 96px
+
+  // Section Vertical Rhythm (Mobile)
+  --md-sys-spacing-section-vertical-mobile: var(--md-sys-spacing-14);   // 56px
+  --md-sys-spacing-section-vertical-mobile-sm: var(--md-sys-spacing-10);// 40px
+  --md-sys-spacing-section-vertical-mobile-lg: var(--md-sys-spacing-18);// 72px
+
+  // Section Header Spacing
+  --md-sys-spacing-section-title-gap: var(--md-sys-spacing-4);          // 16px
+  --md-sys-spacing-section-subtitle-margin: var(--md-sys-spacing-12);   // 48px
+  --md-sys-spacing-section-content-gap: var(--md-sys-spacing-8);        // 32px
+  --md-sys-spacing-section-header-margin: var(--md-sys-spacing-12);     // 48px below header
+
+  // Hero Spacing
+  --md-sys-spacing-hero-padding-y: var(--md-sys-spacing-16);            // 64px
+  --md-sys-spacing-hero-padding-y-mobile: var(--md-sys-spacing-12);     // 48px
+  --md-sys-spacing-hero-content-gap: var(--md-sys-spacing-8);           // 32px
+  --md-sys-spacing-hero-title-margin: var(--md-sys-spacing-4);          // 16px
+  --md-sys-spacing-hero-cta-gap: var(--md-sys-spacing-4);               // 16px
+  --md-sys-spacing-hero-min-height: 500px;
+  --md-sys-spacing-hero-min-height-mobile: 400px;
+
+  // Footer Spacing
+  --md-sys-spacing-footer-padding-y: var(--md-sys-spacing-16);
+  --md-sys-spacing-footer-section-gap: var(--md-sys-spacing-12);
+  --md-sys-spacing-footer-link-gap: var(--md-sys-spacing-3);
+
+  // ==========================================================================
+  // SECTION 8: RESPONSIVE CONTAINER SYSTEM
+  // Adaptive container padding for different viewport sizes
+  // ==========================================================================
+
+  // Container Padding (Desktop - 1024px+)
+  --md-sys-spacing-container-padding: var(--md-sys-spacing-6);          // 24px
+  --md-sys-spacing-container-padding-lg: var(--md-sys-spacing-8);       // 32px
+
+  // Container Padding (Tablet - 768px - 1023px)
+  --md-sys-spacing-container-padding-tablet: var(--md-sys-spacing-5);   // 20px
+
+  // Container Padding (Mobile - < 768px)
+  --md-sys-spacing-container-padding-mobile: var(--md-sys-spacing-4);   // 16px
+
+  // Container Padding (Small Mobile - < 480px)
+  --md-sys-spacing-container-padding-mobile-sm: var(--md-sys-spacing-3);// 12px
+
+  // ==========================================================================
+  // SECTION 9: GRID GAP SYSTEM
+  // Gap tokens for grid and flex layouts
+  // ==========================================================================
+
+  --md-sys-spacing-grid-gap-3xs: var(--md-sys-spacing-0-5); // 2px
+  --md-sys-spacing-grid-gap-2xs: var(--md-sys-spacing-1);   // 4px
+  --md-sys-spacing-grid-gap-xs: var(--md-sys-spacing-2);    // 8px
+  --md-sys-spacing-grid-gap-sm: var(--md-sys-spacing-4);    // 16px
+  --md-sys-spacing-grid-gap-md: var(--md-sys-spacing-6);    // 24px
+  --md-sys-spacing-grid-gap-lg: var(--md-sys-spacing-8);    // 32px
+  --md-sys-spacing-grid-gap-xl: var(--md-sys-spacing-12);   // 48px
+  --md-sys-spacing-grid-gap-2xl: var(--md-sys-spacing-16);  // 64px
+
+  // Card Grid Gaps
+  --md-sys-spacing-card-grid-gap: var(--md-sys-spacing-6);
+  --md-sys-spacing-card-grid-gap-mobile: var(--md-sys-spacing-4);
+
+  // ==========================================================================
+  // SECTION 10: NEGATIVE SPACING (Overlap Effects)
+  // For overlapping elements and pull effects
+  // ==========================================================================
+
+  --md-sys-spacing-overlap-sm: -8px;
+  --md-sys-spacing-overlap-md: -16px;
+  --md-sys-spacing-overlap-lg: -24px;
+  --md-sys-spacing-overlap-xl: -32px;
+  --md-sys-spacing-overlap-section: -48px;  // Section overlap
+  --md-sys-spacing-overlap-hero: -80px;     // Hero to content overlap
+
+  // ==========================================================================
+  // SECTION 11: INLINE SPACING (Text Elements)
+  // Spacing within text and inline content
+  // ==========================================================================
+
+  --md-sys-spacing-inline-xs: 0.125em;  // 2px at 16px
+  --md-sys-spacing-inline-sm: 0.25em;   // 4px at 16px
+  --md-sys-spacing-inline-md: 0.5em;    // 8px at 16px
+  --md-sys-spacing-inline-lg: 0.75em;   // 12px at 16px
+  --md-sys-spacing-inline-xl: 1em;      // 16px at 16px
+
+  // Word and letter spacing
+  --md-sys-spacing-letter-tight: -0.025em;
+  --md-sys-spacing-letter-normal: 0;
+  --md-sys-spacing-letter-wide: 0.025em;
+  --md-sys-spacing-letter-wider: 0.05em;
+  --md-sys-spacing-letter-widest: 0.1em;
+  --md-sys-spacing-word-normal: 0;
+  --md-sys-spacing-word-wide: 0.1em;
+}
+
+// ============================================================================
+// SECTION 12: DENSITY VARIANTS
+// MD3 Expressive 2025 - Context-specific density scaling
+// ============================================================================
+
+// Default Density (touch-first)
+[data-density="default"],
+.density-default {
+  --md-sys-density-scale: 1;
+  --md-sys-touch-target-min: 48px;
+}
+
+// Expanded Density - High accessibility, large touch targets
+[data-density="expanded"],
+.density-expanded {
+  --md-sys-density-scale: 1.25;
+  --md-sys-touch-target-min: 56px;
+  --md-sys-spacing-button-padding-x: var(--md-sys-spacing-8);
+  --md-sys-spacing-button-padding-y: var(--md-sys-spacing-4);
+  --md-sys-spacing-list-item-min-height: 72px;
+}
+
+// Comfortable Density - Maximum touch comfort
+[data-density="comfortable"],
+.density-comfortable {
+  --md-sys-density-scale: 1.5;
+  --md-sys-touch-target-min: 64px;
+  --md-sys-spacing-button-padding-x: var(--md-sys-spacing-10);
+  --md-sys-spacing-button-padding-y: var(--md-sys-spacing-5);
+}
+
+// Compact Density - Data-dense UIs, tables
+[data-density="compact"],
+.density-compact {
+  --md-sys-density-scale: 0.85;
+  --md-sys-touch-target-min: 44px;
+  --md-sys-spacing-button-padding-x: var(--md-sys-spacing-4);
+  --md-sys-spacing-button-padding-y: var(--md-sys-spacing-2);
+  --md-sys-spacing-list-item-min-height: 44px;
+}
+
+// Dense Density - Extreme data density (use sparingly)
+[data-density="dense"],
+.density-dense {
+  --md-sys-density-scale: 0.75;
+  --md-sys-touch-target-min: 36px;
+  --md-sys-spacing-list-item-min-height: 36px;
+  --md-sys-spacing-table-row-min-height: 40px;
+}
+
+// ============================================================================
+// SECTION 13: POINTER-BASED DENSITY
+// Automatic density based on input device
+// ============================================================================
+
+// Touch devices (coarse pointer) - Use default touch-friendly spacing
+@media (pointer: coarse) {
+  :root {
+    --md-sys-density-scale: 1;
+    --md-sys-touch-target-min: 48px;
+  }
+}
+
+// Mouse/trackpad (fine pointer) - Slightly tighter spacing
+@media (pointer: fine) {
+  :root {
+    --md-sys-density-scale: 0.9;
+    --md-sys-touch-target-min: 44px;
+  }
+}
+
+// Hybrid devices - Prioritize touch
+@media (any-pointer: coarse) {
+  :root {
+    --md-sys-density-scale: 1;
+  }
+}
+
+// ============================================================================
+// SECTION 14: UTILITY CLASSES - MARGIN
+// ============================================================================
+
+// All sides margin
+.m-0 { margin: var(--md-sys-spacing-0); }
+.m-0-5 { margin: var(--md-sys-spacing-0-5); }
+.m-1 { margin: var(--md-sys-spacing-1); }
+.m-2 { margin: var(--md-sys-spacing-2); }
+.m-3 { margin: var(--md-sys-spacing-3); }
+.m-4 { margin: var(--md-sys-spacing-4); }
+.m-5 { margin: var(--md-sys-spacing-5); }
+.m-6 { margin: var(--md-sys-spacing-6); }
+.m-8 { margin: var(--md-sys-spacing-8); }
+.m-10 { margin: var(--md-sys-spacing-10); }
+.m-12 { margin: var(--md-sys-spacing-12); }
+.m-16 { margin: var(--md-sys-spacing-16); }
+.m-auto { margin: auto; }
+
+// Margin top
+.mt-0 { margin-top: var(--md-sys-spacing-0); }
+.mt-0-5 { margin-top: var(--md-sys-spacing-0-5); }
+.mt-1 { margin-top: var(--md-sys-spacing-1); }
+.mt-2 { margin-top: var(--md-sys-spacing-2); }
+.mt-3 { margin-top: var(--md-sys-spacing-3); }
+.mt-4 { margin-top: var(--md-sys-spacing-4); }
+.mt-5 { margin-top: var(--md-sys-spacing-5); }
+.mt-6 { margin-top: var(--md-sys-spacing-6); }
+.mt-8 { margin-top: var(--md-sys-spacing-8); }
+.mt-10 { margin-top: var(--md-sys-spacing-10); }
+.mt-12 { margin-top: var(--md-sys-spacing-12); }
+.mt-16 { margin-top: var(--md-sys-spacing-16); }
+.mt-auto { margin-top: auto; }
+
+// Margin right
+.mr-0 { margin-right: var(--md-sys-spacing-0); }
+.mr-1 { margin-right: var(--md-sys-spacing-1); }
+.mr-2 { margin-right: var(--md-sys-spacing-2); }
+.mr-3 { margin-right: var(--md-sys-spacing-3); }
+.mr-4 { margin-right: var(--md-sys-spacing-4); }
+.mr-6 { margin-right: var(--md-sys-spacing-6); }
+.mr-8 { margin-right: var(--md-sys-spacing-8); }
+.mr-auto { margin-right: auto; }
+
+// Margin bottom
+.mb-0 { margin-bottom: var(--md-sys-spacing-0); }
+.mb-0-5 { margin-bottom: var(--md-sys-spacing-0-5); }
+.mb-1 { margin-bottom: var(--md-sys-spacing-1); }
+.mb-2 { margin-bottom: var(--md-sys-spacing-2); }
+.mb-3 { margin-bottom: var(--md-sys-spacing-3); }
+.mb-4 { margin-bottom: var(--md-sys-spacing-4); }
+.mb-5 { margin-bottom: var(--md-sys-spacing-5); }
+.mb-6 { margin-bottom: var(--md-sys-spacing-6); }
+.mb-8 { margin-bottom: var(--md-sys-spacing-8); }
+.mb-10 { margin-bottom: var(--md-sys-spacing-10); }
+.mb-12 { margin-bottom: var(--md-sys-spacing-12); }
+.mb-16 { margin-bottom: var(--md-sys-spacing-16); }
+.mb-auto { margin-bottom: auto; }
+
+// Margin left
+.ml-0 { margin-left: var(--md-sys-spacing-0); }
+.ml-1 { margin-left: var(--md-sys-spacing-1); }
+.ml-2 { margin-left: var(--md-sys-spacing-2); }
+.ml-3 { margin-left: var(--md-sys-spacing-3); }
+.ml-4 { margin-left: var(--md-sys-spacing-4); }
+.ml-6 { margin-left: var(--md-sys-spacing-6); }
+.ml-8 { margin-left: var(--md-sys-spacing-8); }
+.ml-auto { margin-left: auto; }
+
+// Margin horizontal (left & right)
+.mx-0 { margin-left: var(--md-sys-spacing-0); margin-right: var(--md-sys-spacing-0); }
+.mx-1 { margin-left: var(--md-sys-spacing-1); margin-right: var(--md-sys-spacing-1); }
+.mx-2 { margin-left: var(--md-sys-spacing-2); margin-right: var(--md-sys-spacing-2); }
+.mx-3 { margin-left: var(--md-sys-spacing-3); margin-right: var(--md-sys-spacing-3); }
+.mx-4 { margin-left: var(--md-sys-spacing-4); margin-right: var(--md-sys-spacing-4); }
+.mx-6 { margin-left: var(--md-sys-spacing-6); margin-right: var(--md-sys-spacing-6); }
+.mx-8 { margin-left: var(--md-sys-spacing-8); margin-right: var(--md-sys-spacing-8); }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+// Margin vertical (top & bottom)
+.my-0 { margin-top: var(--md-sys-spacing-0); margin-bottom: var(--md-sys-spacing-0); }
+.my-1 { margin-top: var(--md-sys-spacing-1); margin-bottom: var(--md-sys-spacing-1); }
+.my-2 { margin-top: var(--md-sys-spacing-2); margin-bottom: var(--md-sys-spacing-2); }
+.my-3 { margin-top: var(--md-sys-spacing-3); margin-bottom: var(--md-sys-spacing-3); }
+.my-4 { margin-top: var(--md-sys-spacing-4); margin-bottom: var(--md-sys-spacing-4); }
+.my-6 { margin-top: var(--md-sys-spacing-6); margin-bottom: var(--md-sys-spacing-6); }
+.my-8 { margin-top: var(--md-sys-spacing-8); margin-bottom: var(--md-sys-spacing-8); }
+.my-10 { margin-top: var(--md-sys-spacing-10); margin-bottom: var(--md-sys-spacing-10); }
+.my-12 { margin-top: var(--md-sys-spacing-12); margin-bottom: var(--md-sys-spacing-12); }
+.my-16 { margin-top: var(--md-sys-spacing-16); margin-bottom: var(--md-sys-spacing-16); }
+.my-auto { margin-top: auto; margin-bottom: auto; }
+
+// Negative margins
+.-mt-1 { margin-top: calc(var(--md-sys-spacing-1) * -1); }
+.-mt-2 { margin-top: calc(var(--md-sys-spacing-2) * -1); }
+.-mt-4 { margin-top: calc(var(--md-sys-spacing-4) * -1); }
+.-mt-6 { margin-top: calc(var(--md-sys-spacing-6) * -1); }
+.-mt-8 { margin-top: calc(var(--md-sys-spacing-8) * -1); }
+.-mb-4 { margin-bottom: calc(var(--md-sys-spacing-4) * -1); }
+.-mb-8 { margin-bottom: calc(var(--md-sys-spacing-8) * -1); }
+.-mx-4 { margin-left: calc(var(--md-sys-spacing-4) * -1); margin-right: calc(var(--md-sys-spacing-4) * -1); }
+
+// ============================================================================
+// SECTION 15: UTILITY CLASSES - PADDING
+// ============================================================================
+
+// All sides padding
+.p-0 { padding: var(--md-sys-spacing-0); }
+.p-0-5 { padding: var(--md-sys-spacing-0-5); }
+.p-1 { padding: var(--md-sys-spacing-1); }
+.p-2 { padding: var(--md-sys-spacing-2); }
+.p-3 { padding: var(--md-sys-spacing-3); }
+.p-4 { padding: var(--md-sys-spacing-4); }
+.p-5 { padding: var(--md-sys-spacing-5); }
+.p-6 { padding: var(--md-sys-spacing-6); }
+.p-8 { padding: var(--md-sys-spacing-8); }
+.p-10 { padding: var(--md-sys-spacing-10); }
+.p-12 { padding: var(--md-sys-spacing-12); }
+.p-16 { padding: var(--md-sys-spacing-16); }
+
+// Padding top
+.pt-0 { padding-top: var(--md-sys-spacing-0); }
+.pt-1 { padding-top: var(--md-sys-spacing-1); }
+.pt-2 { padding-top: var(--md-sys-spacing-2); }
+.pt-3 { padding-top: var(--md-sys-spacing-3); }
+.pt-4 { padding-top: var(--md-sys-spacing-4); }
+.pt-5 { padding-top: var(--md-sys-spacing-5); }
+.pt-6 { padding-top: var(--md-sys-spacing-6); }
+.pt-8 { padding-top: var(--md-sys-spacing-8); }
+.pt-10 { padding-top: var(--md-sys-spacing-10); }
+.pt-12 { padding-top: var(--md-sys-spacing-12); }
+.pt-16 { padding-top: var(--md-sys-spacing-16); }
+
+// Padding right
+.pr-0 { padding-right: var(--md-sys-spacing-0); }
+.pr-1 { padding-right: var(--md-sys-spacing-1); }
+.pr-2 { padding-right: var(--md-sys-spacing-2); }
+.pr-3 { padding-right: var(--md-sys-spacing-3); }
+.pr-4 { padding-right: var(--md-sys-spacing-4); }
+.pr-6 { padding-right: var(--md-sys-spacing-6); }
+.pr-8 { padding-right: var(--md-sys-spacing-8); }
+
+// Padding bottom
+.pb-0 { padding-bottom: var(--md-sys-spacing-0); }
+.pb-1 { padding-bottom: var(--md-sys-spacing-1); }
+.pb-2 { padding-bottom: var(--md-sys-spacing-2); }
+.pb-3 { padding-bottom: var(--md-sys-spacing-3); }
+.pb-4 { padding-bottom: var(--md-sys-spacing-4); }
+.pb-5 { padding-bottom: var(--md-sys-spacing-5); }
+.pb-6 { padding-bottom: var(--md-sys-spacing-6); }
+.pb-8 { padding-bottom: var(--md-sys-spacing-8); }
+.pb-10 { padding-bottom: var(--md-sys-spacing-10); }
+.pb-12 { padding-bottom: var(--md-sys-spacing-12); }
+.pb-16 { padding-bottom: var(--md-sys-spacing-16); }
+
+// Padding left
+.pl-0 { padding-left: var(--md-sys-spacing-0); }
+.pl-1 { padding-left: var(--md-sys-spacing-1); }
+.pl-2 { padding-left: var(--md-sys-spacing-2); }
+.pl-3 { padding-left: var(--md-sys-spacing-3); }
+.pl-4 { padding-left: var(--md-sys-spacing-4); }
+.pl-6 { padding-left: var(--md-sys-spacing-6); }
+.pl-8 { padding-left: var(--md-sys-spacing-8); }
+
+// Padding horizontal
+.px-0 { padding-left: var(--md-sys-spacing-0); padding-right: var(--md-sys-spacing-0); }
+.px-1 { padding-left: var(--md-sys-spacing-1); padding-right: var(--md-sys-spacing-1); }
+.px-2 { padding-left: var(--md-sys-spacing-2); padding-right: var(--md-sys-spacing-2); }
+.px-3 { padding-left: var(--md-sys-spacing-3); padding-right: var(--md-sys-spacing-3); }
+.px-4 { padding-left: var(--md-sys-spacing-4); padding-right: var(--md-sys-spacing-4); }
+.px-5 { padding-left: var(--md-sys-spacing-5); padding-right: var(--md-sys-spacing-5); }
+.px-6 { padding-left: var(--md-sys-spacing-6); padding-right: var(--md-sys-spacing-6); }
+.px-8 { padding-left: var(--md-sys-spacing-8); padding-right: var(--md-sys-spacing-8); }
+.px-10 { padding-left: var(--md-sys-spacing-10); padding-right: var(--md-sys-spacing-10); }
+.px-12 { padding-left: var(--md-sys-spacing-12); padding-right: var(--md-sys-spacing-12); }
+
+// Padding vertical
+.py-0 { padding-top: var(--md-sys-spacing-0); padding-bottom: var(--md-sys-spacing-0); }
+.py-1 { padding-top: var(--md-sys-spacing-1); padding-bottom: var(--md-sys-spacing-1); }
+.py-2 { padding-top: var(--md-sys-spacing-2); padding-bottom: var(--md-sys-spacing-2); }
+.py-3 { padding-top: var(--md-sys-spacing-3); padding-bottom: var(--md-sys-spacing-3); }
+.py-4 { padding-top: var(--md-sys-spacing-4); padding-bottom: var(--md-sys-spacing-4); }
+.py-5 { padding-top: var(--md-sys-spacing-5); padding-bottom: var(--md-sys-spacing-5); }
+.py-6 { padding-top: var(--md-sys-spacing-6); padding-bottom: var(--md-sys-spacing-6); }
+.py-8 { padding-top: var(--md-sys-spacing-8); padding-bottom: var(--md-sys-spacing-8); }
+.py-10 { padding-top: var(--md-sys-spacing-10); padding-bottom: var(--md-sys-spacing-10); }
+.py-12 { padding-top: var(--md-sys-spacing-12); padding-bottom: var(--md-sys-spacing-12); }
+.py-16 { padding-top: var(--md-sys-spacing-16); padding-bottom: var(--md-sys-spacing-16); }
+.py-24 { padding-top: var(--md-sys-spacing-24); padding-bottom: var(--md-sys-spacing-24); }
+
+// ============================================================================
+// SECTION 16: UTILITY CLASSES - GAP
+// ============================================================================
+
+// Gap (for flex/grid)
+.gap-0 { gap: var(--md-sys-spacing-0); }
+.gap-0-5 { gap: var(--md-sys-spacing-0-5); }
+.gap-1 { gap: var(--md-sys-spacing-1); }
+.gap-2 { gap: var(--md-sys-spacing-2); }
+.gap-3 { gap: var(--md-sys-spacing-3); }
+.gap-4 { gap: var(--md-sys-spacing-4); }
+.gap-5 { gap: var(--md-sys-spacing-5); }
+.gap-6 { gap: var(--md-sys-spacing-6); }
+.gap-8 { gap: var(--md-sys-spacing-8); }
+.gap-10 { gap: var(--md-sys-spacing-10); }
+.gap-12 { gap: var(--md-sys-spacing-12); }
+.gap-16 { gap: var(--md-sys-spacing-16); }
+
+// Row gap
+.row-gap-0 { row-gap: var(--md-sys-spacing-0); }
+.row-gap-1 { row-gap: var(--md-sys-spacing-1); }
+.row-gap-2 { row-gap: var(--md-sys-spacing-2); }
+.row-gap-3 { row-gap: var(--md-sys-spacing-3); }
+.row-gap-4 { row-gap: var(--md-sys-spacing-4); }
+.row-gap-6 { row-gap: var(--md-sys-spacing-6); }
+.row-gap-8 { row-gap: var(--md-sys-spacing-8); }
+.row-gap-12 { row-gap: var(--md-sys-spacing-12); }
+
+// Column gap
+.col-gap-0 { column-gap: var(--md-sys-spacing-0); }
+.col-gap-1 { column-gap: var(--md-sys-spacing-1); }
+.col-gap-2 { column-gap: var(--md-sys-spacing-2); }
+.col-gap-3 { column-gap: var(--md-sys-spacing-3); }
+.col-gap-4 { column-gap: var(--md-sys-spacing-4); }
+.col-gap-6 { column-gap: var(--md-sys-spacing-6); }
+.col-gap-8 { column-gap: var(--md-sys-spacing-8); }
+.col-gap-12 { column-gap: var(--md-sys-spacing-12); }
+
+// ============================================================================
+// SECTION 17: UTILITY CLASSES - INSET
+// ============================================================================
+
+// Square inset (padding shorthand)
+.inset-squish-xs { padding: var(--md-sys-spacing-1) var(--md-sys-spacing-2); }
+.inset-squish-sm { padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4); }
+.inset-squish-md { padding: var(--md-sys-spacing-3) var(--md-sys-spacing-6); }
+.inset-squish-lg { padding: var(--md-sys-spacing-4) var(--md-sys-spacing-8); }
+
+.inset-stretch-xs { padding: var(--md-sys-spacing-2) var(--md-sys-spacing-1); }
+.inset-stretch-sm { padding: var(--md-sys-spacing-4) var(--md-sys-spacing-2); }
+.inset-stretch-md { padding: var(--md-sys-spacing-6) var(--md-sys-spacing-3); }
+.inset-stretch-lg { padding: var(--md-sys-spacing-8) var(--md-sys-spacing-4); }
+
+// ============================================================================
+// SECTION 18: UTILITY CLASSES - SPACE BETWEEN
+// ============================================================================
+
+// Space-y (vertical spacing between children)
+.space-y-0 > * + * { margin-top: var(--md-sys-spacing-0); }
+.space-y-1 > * + * { margin-top: var(--md-sys-spacing-1); }
+.space-y-2 > * + * { margin-top: var(--md-sys-spacing-2); }
+.space-y-3 > * + * { margin-top: var(--md-sys-spacing-3); }
+.space-y-4 > * + * { margin-top: var(--md-sys-spacing-4); }
+.space-y-6 > * + * { margin-top: var(--md-sys-spacing-6); }
+.space-y-8 > * + * { margin-top: var(--md-sys-spacing-8); }
+.space-y-12 > * + * { margin-top: var(--md-sys-spacing-12); }
+.space-y-16 > * + * { margin-top: var(--md-sys-spacing-16); }
+
+// Space-x (horizontal spacing between children)
+.space-x-0 > * + * { margin-left: var(--md-sys-spacing-0); }
+.space-x-1 > * + * { margin-left: var(--md-sys-spacing-1); }
+.space-x-2 > * + * { margin-left: var(--md-sys-spacing-2); }
+.space-x-3 > * + * { margin-left: var(--md-sys-spacing-3); }
+.space-x-4 > * + * { margin-left: var(--md-sys-spacing-4); }
+.space-x-6 > * + * { margin-left: var(--md-sys-spacing-6); }
+.space-x-8 > * + * { margin-left: var(--md-sys-spacing-8); }
+
+// ============================================================================
+// SECTION 19: RESPONSIVE SPACING UTILITIES
+// ============================================================================
+
+// Tablet breakpoint (768px - 1023px)
+@media (min-width: 768px) and (max-width: 1023px) {
+  .md\:m-0 { margin: var(--md-sys-spacing-0); }
+  .md\:m-4 { margin: var(--md-sys-spacing-4); }
+  .md\:m-6 { margin: var(--md-sys-spacing-6); }
+  .md\:mx-auto { margin-left: auto; margin-right: auto; }
+  .md\:p-4 { padding: var(--md-sys-spacing-4); }
+  .md\:p-6 { padding: var(--md-sys-spacing-6); }
+  .md\:px-4 { padding-left: var(--md-sys-spacing-4); padding-right: var(--md-sys-spacing-4); }
+  .md\:px-6 { padding-left: var(--md-sys-spacing-6); padding-right: var(--md-sys-spacing-6); }
+  .md\:py-8 { padding-top: var(--md-sys-spacing-8); padding-bottom: var(--md-sys-spacing-8); }
+  .md\:py-12 { padding-top: var(--md-sys-spacing-12); padding-bottom: var(--md-sys-spacing-12); }
+  .md\:gap-4 { gap: var(--md-sys-spacing-4); }
+  .md\:gap-6 { gap: var(--md-sys-spacing-6); }
+}
+
+// Desktop breakpoint (1024px+)
+@media (min-width: 1024px) {
+  .lg\:m-0 { margin: var(--md-sys-spacing-0); }
+  .lg\:m-4 { margin: var(--md-sys-spacing-4); }
+  .lg\:m-6 { margin: var(--md-sys-spacing-6); }
+  .lg\:m-8 { margin: var(--md-sys-spacing-8); }
+  .lg\:mx-auto { margin-left: auto; margin-right: auto; }
+  .lg\:p-4 { padding: var(--md-sys-spacing-4); }
+  .lg\:p-6 { padding: var(--md-sys-spacing-6); }
+  .lg\:p-8 { padding: var(--md-sys-spacing-8); }
+  .lg\:px-6 { padding-left: var(--md-sys-spacing-6); padding-right: var(--md-sys-spacing-6); }
+  .lg\:px-8 { padding-left: var(--md-sys-spacing-8); padding-right: var(--md-sys-spacing-8); }
+  .lg\:py-12 { padding-top: var(--md-sys-spacing-12); padding-bottom: var(--md-sys-spacing-12); }
+  .lg\:py-16 { padding-top: var(--md-sys-spacing-16); padding-bottom: var(--md-sys-spacing-16); }
+  .lg\:py-24 { padding-top: var(--md-sys-spacing-24); padding-bottom: var(--md-sys-spacing-24); }
+  .lg\:gap-6 { gap: var(--md-sys-spacing-6); }
+  .lg\:gap-8 { gap: var(--md-sys-spacing-8); }
+  .lg\:gap-12 { gap: var(--md-sys-spacing-12); }
+}
+
+// Mobile-only (< 768px)
+@media (max-width: 767px) {
+  .sm\:m-0 { margin: var(--md-sys-spacing-0); }
+  .sm\:m-2 { margin: var(--md-sys-spacing-2); }
+  .sm\:m-4 { margin: var(--md-sys-spacing-4); }
+  .sm\:mx-auto { margin-left: auto; margin-right: auto; }
+  .sm\:p-2 { padding: var(--md-sys-spacing-2); }
+  .sm\:p-3 { padding: var(--md-sys-spacing-3); }
+  .sm\:p-4 { padding: var(--md-sys-spacing-4); }
+  .sm\:px-3 { padding-left: var(--md-sys-spacing-3); padding-right: var(--md-sys-spacing-3); }
+  .sm\:px-4 { padding-left: var(--md-sys-spacing-4); padding-right: var(--md-sys-spacing-4); }
+  .sm\:py-6 { padding-top: var(--md-sys-spacing-6); padding-bottom: var(--md-sys-spacing-6); }
+  .sm\:py-8 { padding-top: var(--md-sys-spacing-8); padding-bottom: var(--md-sys-spacing-8); }
+  .sm\:gap-2 { gap: var(--md-sys-spacing-2); }
+  .sm\:gap-3 { gap: var(--md-sys-spacing-3); }
+  .sm\:gap-4 { gap: var(--md-sys-spacing-4); }
+}
+
+// ============================================================================
+// SECTION 20: LOGICAL PROPERTY UTILITIES (RTL Support)
+// ============================================================================
+
+// Margin inline (start/end for RTL support)
+.ms-0 { margin-inline-start: var(--md-sys-spacing-0); }
+.ms-1 { margin-inline-start: var(--md-sys-spacing-1); }
+.ms-2 { margin-inline-start: var(--md-sys-spacing-2); }
+.ms-3 { margin-inline-start: var(--md-sys-spacing-3); }
+.ms-4 { margin-inline-start: var(--md-sys-spacing-4); }
+.ms-6 { margin-inline-start: var(--md-sys-spacing-6); }
+.ms-8 { margin-inline-start: var(--md-sys-spacing-8); }
+.ms-auto { margin-inline-start: auto; }
+
+.me-0 { margin-inline-end: var(--md-sys-spacing-0); }
+.me-1 { margin-inline-end: var(--md-sys-spacing-1); }
+.me-2 { margin-inline-end: var(--md-sys-spacing-2); }
+.me-3 { margin-inline-end: var(--md-sys-spacing-3); }
+.me-4 { margin-inline-end: var(--md-sys-spacing-4); }
+.me-6 { margin-inline-end: var(--md-sys-spacing-6); }
+.me-8 { margin-inline-end: var(--md-sys-spacing-8); }
+.me-auto { margin-inline-end: auto; }
+
+// Padding inline
+.ps-0 { padding-inline-start: var(--md-sys-spacing-0); }
+.ps-1 { padding-inline-start: var(--md-sys-spacing-1); }
+.ps-2 { padding-inline-start: var(--md-sys-spacing-2); }
+.ps-3 { padding-inline-start: var(--md-sys-spacing-3); }
+.ps-4 { padding-inline-start: var(--md-sys-spacing-4); }
+.ps-6 { padding-inline-start: var(--md-sys-spacing-6); }
+.ps-8 { padding-inline-start: var(--md-sys-spacing-8); }
+
+.pe-0 { padding-inline-end: var(--md-sys-spacing-0); }
+.pe-1 { padding-inline-end: var(--md-sys-spacing-1); }
+.pe-2 { padding-inline-end: var(--md-sys-spacing-2); }
+.pe-3 { padding-inline-end: var(--md-sys-spacing-3); }
+.pe-4 { padding-inline-end: var(--md-sys-spacing-4); }
+.pe-6 { padding-inline-end: var(--md-sys-spacing-6); }
+.pe-8 { padding-inline-end: var(--md-sys-spacing-8); }
+
+// RTL-aware spacing
+[dir="rtl"] {
+  .space-x-2 > * + * { margin-left: 0; margin-right: var(--md-sys-spacing-2); }
+  .space-x-4 > * + * { margin-left: 0; margin-right: var(--md-sys-spacing-4); }
+  .space-x-6 > * + * { margin-left: 0; margin-right: var(--md-sys-spacing-6); }
+}
+
+// ============================================================================
+// SECTION 21: SPACING MIXINS
+// ============================================================================
+
+// Section padding with responsive breakpoints
+@mixin section-padding($size: 'default') {
+  @if $size == 'small' {
+    padding-top: var(--md-sys-spacing-section-vertical-sm);
+    padding-bottom: var(--md-sys-spacing-section-vertical-sm);
+  } @else if $size == 'large' {
+    padding-top: var(--md-sys-spacing-section-vertical-lg);
+    padding-bottom: var(--md-sys-spacing-section-vertical-lg);
+  } @else {
+    padding-top: var(--md-sys-spacing-section-vertical);
+    padding-bottom: var(--md-sys-spacing-section-vertical);
+  }
+
+  padding-left: var(--md-sys-spacing-container-padding);
+  padding-right: var(--md-sys-spacing-container-padding);
+
+  @media (max-width: 1023px) {
+    @if $size == 'small' {
+      padding-top: var(--md-sys-spacing-section-vertical-tablet-sm);
+      padding-bottom: var(--md-sys-spacing-section-vertical-tablet-sm);
+    } @else if $size == 'large' {
+      padding-top: var(--md-sys-spacing-section-vertical-tablet-lg);
+      padding-bottom: var(--md-sys-spacing-section-vertical-tablet-lg);
+    } @else {
+      padding-top: var(--md-sys-spacing-section-vertical-tablet);
+      padding-bottom: var(--md-sys-spacing-section-vertical-tablet);
+    }
+    padding-left: var(--md-sys-spacing-container-padding-tablet);
+    padding-right: var(--md-sys-spacing-container-padding-tablet);
+  }
+
+  @media (max-width: 767px) {
+    @if $size == 'small' {
+      padding-top: var(--md-sys-spacing-section-vertical-mobile-sm);
+      padding-bottom: var(--md-sys-spacing-section-vertical-mobile-sm);
+    } @else if $size == 'large' {
+      padding-top: var(--md-sys-spacing-section-vertical-mobile-lg);
+      padding-bottom: var(--md-sys-spacing-section-vertical-mobile-lg);
+    } @else {
+      padding-top: var(--md-sys-spacing-section-vertical-mobile);
+      padding-bottom: var(--md-sys-spacing-section-vertical-mobile);
+    }
+    padding-left: var(--md-sys-spacing-container-padding-mobile);
+    padding-right: var(--md-sys-spacing-container-padding-mobile);
+  }
+
+  @media (max-width: 479px) {
+    padding-left: var(--md-sys-spacing-container-padding-mobile-sm);
+    padding-right: var(--md-sys-spacing-container-padding-mobile-sm);
+  }
+}
+
+// Container padding only (no vertical)
+@mixin container-padding {
+  padding-left: var(--md-sys-spacing-container-padding);
+  padding-right: var(--md-sys-spacing-container-padding);
+
+  @media (max-width: 1023px) {
+    padding-left: var(--md-sys-spacing-container-padding-tablet);
+    padding-right: var(--md-sys-spacing-container-padding-tablet);
+  }
+
+  @media (max-width: 767px) {
+    padding-left: var(--md-sys-spacing-container-padding-mobile);
+    padding-right: var(--md-sys-spacing-container-padding-mobile);
+  }
+
+  @media (max-width: 479px) {
+    padding-left: var(--md-sys-spacing-container-padding-mobile-sm);
+    padding-right: var(--md-sys-spacing-container-padding-mobile-sm);
+  }
+}
+
+// Card padding with density support
+@mixin card-padding($compact: false) {
+  @if $compact {
+    padding: var(--md-sys-spacing-card-padding-compact);
+  } @else {
+    padding: var(--md-sys-spacing-card-padding);
+  }
+}
+
+// Touch target sizing
+@mixin touch-target($size: 'default') {
+  @if $size == 'compact' {
+    min-width: var(--md-sys-touch-target-compact);
+    min-height: var(--md-sys-touch-target-compact);
+  } @else if $size == 'expanded' {
+    min-width: var(--md-sys-touch-target-expanded);
+    min-height: var(--md-sys-touch-target-expanded);
+  } @else if $size == 'comfortable' {
+    min-width: var(--md-sys-touch-target-comfortable);
+    min-height: var(--md-sys-touch-target-comfortable);
+  } @else {
+    min-width: var(--md-sys-touch-target-min);
+    min-height: var(--md-sys-touch-target-min);
+  }
+
+  // Ensure clickable area even with smaller visible element
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: var(--md-sys-touch-target-min);
+    min-height: var(--md-sys-touch-target-min);
+    pointer-events: none;
+  }
+}
+
+// Responsive gap
+@mixin responsive-gap($desktop: 6, $tablet: 4, $mobile: 3) {
+  gap: var(--md-sys-spacing-#{$desktop});
+
+  @media (max-width: 1023px) {
+    gap: var(--md-sys-spacing-#{$tablet});
+  }
+
+  @media (max-width: 767px) {
+    gap: var(--md-sys-spacing-#{$mobile});
+  }
+}
+
+// Stack spacing (vertical)
+@mixin stack($gap: 4) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-#{$gap});
+}
+
+// Inline spacing (horizontal)
+@mixin inline($gap: 2) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--md-sys-spacing-#{$gap});
+}
+
+// Cluster (wrap with gap)
+@mixin cluster($gap: 2) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--md-sys-spacing-#{$gap});
+}
+
+// Content width constraint
+@mixin content-width($width: 'default') {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @if $width == 'narrow' {
+    max-width: var(--md-sys-spacing-content-max-width-narrow);
+  } @else if $width == 'wide' {
+    max-width: var(--md-sys-spacing-content-max-width-wide);
+  } @else if $width == 'full' {
+    max-width: var(--md-sys-spacing-content-max-width-full);
+  } @else {
+    max-width: var(--md-sys-spacing-content-max-width);
+  }
+}
+
+// Readable text width
+@mixin readable-width {
+  max-width: var(--md-sys-spacing-text-max-width);
+}
+
+// ============================================================================
+// SECTION 22: LAYOUT MIXINS
+// ============================================================================
+
+// Center content
+@mixin center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Stretch to fill container
+@mixin stretch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// Safe area insets (for mobile notches)
+@mixin safe-area-insets {
+  padding-left: max(var(--md-sys-spacing-container-padding-mobile), env(safe-area-inset-left));
+  padding-right: max(var(--md-sys-spacing-container-padding-mobile), env(safe-area-inset-right));
+  padding-bottom: max(var(--md-sys-spacing-4), env(safe-area-inset-bottom));
+}
+
+// Aspect ratio container
+@mixin aspect-ratio($ratio: '16/9') {
+  aspect-ratio: #{$ratio};
+
+  @supports not (aspect-ratio: 16/9) {
+    // Fallback for older browsers
+    &::before {
+      content: '';
+      display: block;
+      padding-top: calc(100% / (#{$ratio}));
+    }
+  }
+}
+
+// Grid auto-fill
+@mixin grid-auto-fill($min-width: 280px, $gap: 6) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+  gap: var(--md-sys-spacing-#{$gap});
+}
+
+// Grid auto-fit
+@mixin grid-auto-fit($min-width: 280px, $gap: 6) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: var(--md-sys-spacing-#{$gap});
+}
+
+// ============================================================================
+// SECTION 23: PRINT STYLES
+// ============================================================================
+
+@media print {
+  :root {
+    // Reduce spacing for print
+    --md-sys-spacing-section-vertical: var(--md-sys-spacing-8);
+    --md-sys-spacing-section-vertical-tablet: var(--md-sys-spacing-8);
+    --md-sys-spacing-section-vertical-mobile: var(--md-sys-spacing-8);
+    --md-sys-spacing-container-padding: var(--md-sys-spacing-4);
+    --md-sys-spacing-card-padding: var(--md-sys-spacing-3);
+  }
+
+  // Remove unnecessary spacing in print
+  .no-print-spacing {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+// ============================================================================
+// SECTION 24: ACCESSIBILITY
+// ============================================================================
+
+// High contrast mode - Increase spacing for clarity
+@media (prefers-contrast: high) {
+  :root {
+    --md-sys-spacing-button-padding-x: var(--md-sys-spacing-8);
+    --md-sys-spacing-button-padding-y: var(--md-sys-spacing-4);
+    --md-sys-spacing-input-padding-x: var(--md-sys-spacing-5);
+    --md-sys-spacing-input-padding-y: var(--md-sys-spacing-5);
+  }
+}
+
+// Large text mode
+@media (prefers-reduced-motion: no-preference) {
+  .spacing-animated {
+    transition:
+      padding var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease),
+      margin var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease),
+      gap var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease);
+  }
+}
+
+// Focus visible larger touch targets
+:focus-visible {
+  // Ensure focused elements have adequate touch target
+  min-height: var(--md-sys-touch-target-compact);
+}
+
+// Skip link styling
+.skip-link {
+  position: absolute;
+  top: calc(var(--md-sys-spacing-0) - 100px);
+  left: var(--md-sys-spacing-4);
+  padding: var(--md-sys-spacing-3) var(--md-sys-spacing-4);
+  z-index: 9999;
+
+  &:focus {
+    top: var(--md-sys-spacing-4);
+  }
+}

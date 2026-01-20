@@ -211,6 +211,29 @@ html {
   --header-height-desktop: 108px; /* Top bar (28px) + Main nav (80px) */
   --header-height-mobile: 80px;
 
+  /* Hero continuation background (shared with top bar) */
+  --app-hero-bg:
+    radial-gradient(
+      circle at 20% 14%,
+      color-mix(in oklch, var(--md-sys-color-primary) 40%, transparent) 0%,
+      transparent 58%
+    ),
+    radial-gradient(
+      circle at 78% 20%,
+      color-mix(in oklch, var(--md-sys-color-primary-container) 58%, transparent) 0%,
+      transparent 62%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in oklch, var(--md-sys-color-primary) 92%, var(--md-sys-color-primary-container) 8%) 0%,
+      color-mix(in oklch, var(--md-sys-color-primary-container) 88%, var(--md-sys-color-primary) 12%) 100%
+    );
+  --app-hero-accent: var(--md-sys-color-primary);
+  --app-hero-on: var(--md-sys-color-on-primary);
+  --app-hero-bg-size: 100% 100vh;
+  --app-hero-bg-position: center top;
+  --app-hero-bg-attachment: fixed;
+
   /* Transitions - GLOBAL EXPRESSIVE MOTION UPDATE */
   --transition-transform: transform var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-standard);
   --transition-all: all var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-standard);
@@ -231,6 +254,59 @@ html {
   /* Container Configuration - MD3 Responsive Standard */
   --container-max-width: min(1440px, 90vw);
   --container-padding-x: 24px;
+}
+
+:root[data-theme='dark'],
+:root.dark-theme {
+  --app-hero-bg:
+    radial-gradient(
+      circle at 18% 14%,
+      color-mix(in oklch, var(--md-sys-color-primary) 34%, transparent) 0%,
+      transparent 62%
+    ),
+    radial-gradient(
+      circle at 82% 20%,
+      color-mix(in oklch, var(--md-sys-color-primary-container) 40%, transparent) 0%,
+      transparent 64%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in oklch, var(--md-sys-color-primary) 78%, black 22%) 0%,
+      color-mix(in oklch, var(--md-sys-color-primary-container) 70%, black 30%) 100%
+    );
+}
+
+:root:has(.hero-section[data-theme='blue']) {
+  --app-hero-bg: linear-gradient(
+    135deg,
+    var(--md-sys-color-primary) 0%,
+    var(--md-sys-color-primary) 50%,
+    var(--md-sys-color-primary-container) 100%
+  );
+  --app-hero-accent: var(--md-sys-color-primary);
+  --app-hero-on: var(--md-sys-color-on-primary);
+}
+
+:root:has(.hero-section[data-theme='yellow']) {
+  --app-hero-bg: linear-gradient(
+    135deg,
+    var(--md-sys-color-secondary) 0%,
+    var(--md-sys-color-secondary) 50%,
+    var(--md-sys-color-secondary-container) 100%
+  );
+  --app-hero-accent: var(--md-sys-color-secondary);
+  --app-hero-on: var(--md-sys-color-on-secondary);
+}
+
+:root:has(.hero-section[data-theme='purple']) {
+  --app-hero-bg: linear-gradient(
+    135deg,
+    var(--md-sys-color-tertiary) 0%,
+    var(--md-sys-color-tertiary) 50%,
+    var(--md-sys-color-tertiary-container) 100%
+  );
+  --app-hero-accent: var(--md-sys-color-tertiary);
+  --app-hero-on: var(--md-sys-color-on-tertiary);
 }
 
 body {
@@ -354,6 +430,8 @@ label {
 @media (max-width: 768px) {
   :root {
     --container-padding-x: 16px;
+    --app-hero-bg-attachment: scroll;
+    --app-hero-bg-size: 100% 100%;
   }
 }
 
@@ -454,29 +532,8 @@ img[loading='lazy'] {
   perspective: 1000px;
 }
 
-/* Homepage Liquid Hero */
-.liquid-hero {
-  margin-top: var(--header-height-desktop);
-  height: calc(100vh - var(--header-height-desktop));
-  width: 100%;
-  position: relative;
-}
-
-.liquid-hero .hero-content {
-  width: 100%;
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .liquid-hero {
-    margin-top: var(--header-height-mobile);
-    height: calc(100vh - var(--header-height-mobile));
-  }
-}
+/* Homepage Liquid Hero - Styled in component */
+/* Removed global constraints to allow component-level control for overlapping header */
 
 /* Section spacing */
 section,

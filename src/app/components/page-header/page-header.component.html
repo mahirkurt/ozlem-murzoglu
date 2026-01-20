@@ -1,17 +1,17 @@
-<div class="page-header">
+<div class="page-header md3-page-header">
   <div class="container">
     <div class="header-content">
       <!-- Breadcrumbs -->
-      <nav class="breadcrumbs" *ngIf="breadcrumbs.length > 0" aria-label="Breadcrumb">
+      <nav class="breadcrumbs md3-page-breadcrumbs" *ngIf="breadcrumbs.length > 0" [attr.aria-label]="'COMMON.BREADCRUMB_NAV' | translate">
         <ol>
           <li *ngFor="let breadcrumb of breadcrumbs; let last = last">
             <ng-container *ngIf="!last">
-              <a [routerLink]="breadcrumb.url" class="breadcrumb-link">
+              <a [routerLink]="breadcrumb.url" class="breadcrumb-link md3-breadcrumb-link">
                 {{ breadcrumb.translateKey ? (breadcrumb.translateKey | translate) : breadcrumb.label }}
               </a>
-              <span class="material-icons separator">chevron_right</span>
+              <span class="material-icons-rounded separator md3-breadcrumb-separator" aria-hidden="true">chevron_right</span>
             </ng-container>
-            <span *ngIf="last" class="breadcrumb-current" aria-current="page">
+            <span *ngIf="last" class="breadcrumb-current md3-breadcrumb-current" aria-current="page">
               {{ breadcrumb.translateKey ? (breadcrumb.translateKey | translate) : breadcrumb.label }}
             </span>
           </li>
@@ -19,8 +19,8 @@
       </nav>
 
       <!-- Access Title/Subtitle -->
-      <h1 class="header-title">{{ title }}</h1>
-      <p class="header-subtitle" *ngIf="subtitle">{{ subtitle }}</p>
+      <h1 class="header-title md3-page-header-title hero-title">{{ title }}</h1>
+      <p class="header-subtitle md3-page-header-subtitle hero-subtitle" *ngIf="subtitle">{{ subtitle }}</p>
     </div>
   </div>
   

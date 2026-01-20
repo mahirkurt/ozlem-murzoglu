@@ -15,8 +15,8 @@ test.describe('Hero Section Analysis - All Pages', () => {
       await page.waitForTimeout(2000); // Wait for page to fully load
 
       const heroData = await page.evaluate(() => {
-        const hero = document.querySelector('.hero-section');
-        const appHero = document.querySelector('app-hero-section');
+        const hero = document.querySelector('.hero-section') || document.querySelector('.page-header');
+        const appHero = document.querySelector('app-hero-section') || document.querySelector('app-page-header');
         const header = document.querySelector('app-header, header');
         const body = document.body;
 
@@ -26,7 +26,7 @@ test.describe('Hero Section Analysis - All Pages', () => {
         if (!hero) {
           return {
             exists: false,
-            message: 'No hero section found'
+            message: 'No hero or page header found'
           };
         }
 
@@ -104,7 +104,7 @@ test.describe('Hero Section Analysis - All Pages', () => {
         try {
           const rules = Array.from(sheet.cssRules || sheet.rules || []);
           rules.forEach(rule => {
-            if (rule.selectorText && rule.selectorText.includes('hero-section')) {
+            if (rule.selectorText && (rule.selectorText.includes('hero-section') || rule.selectorText.includes('page-header'))) {
               heroRules.push({
                 selector: rule.selectorText,
                 marginTop: rule.style.marginTop,

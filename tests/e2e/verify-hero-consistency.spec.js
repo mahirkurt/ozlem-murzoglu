@@ -5,7 +5,7 @@ test.describe('Hero Section Consistency Verification', () => {
     { url: '/hakkimizda', name: 'Hakkımızda' },
     { url: '/sss', name: 'SSS' },
     { url: '/hakkimizda/dr-ozlem-murzoglu', name: 'Dr. Özlem Murzoğlu' },
-    { url: '/bilgi-merkezi', name: 'Kaynaklar' }
+    { url: '/kaynaklar', name: 'Kaynaklar' }
   ];
 
   test('All pages should have consistent hero section positioning', async ({ page }) => {
@@ -13,20 +13,22 @@ test.describe('Hero Section Consistency Verification', () => {
 
     for (const testPage of pages) {
       await page.goto(testPage.url);
-      await page.waitForSelector('.hero-section', { timeout: 10000 });
+      await page.waitForSelector('.hero-section, .page-header', { timeout: 10000 });
 
-      // Get hero section position
-      const heroSection = await page.locator('.hero-section').first();
-      const heroOffsetTop = await heroSection.evaluate(el => el.offsetTop);
+      const heroMeta = await page.evaluate(() => {
+        const header = document.querySelector('.hero-section') || document.querySelector('.page-header');
+        const parentSection = document.querySelector('section[class*="-page"]');
+        const title = document.querySelector('.hero-title') || document.querySelector('.header-title');
 
-      // Get parent section element
-      const parentSection = await page.locator('section[class*="-page"]').first();
-      const parentPaddingTop = await parentSection.evaluate(el =>
-        window.getComputedStyle(el).paddingTop
-      );
+        return {
+          offsetTop: header ? header.offsetTop : 0,
+          parentPaddingTop: parentSection ? window.getComputedStyle(parentSection).paddingTop : '0px',
+          titleText: title ? title.textContent.trim() : ''
+        };
+      });
 
       // Check translations are rendered (not showing keys)
-      const heroTitle = await page.locator('.hero-title').first().textContent();
+      const heroTitle = heroMeta.titleText;
       const hasTranslationKeys = heroTitle.includes('COMMON.') ||
                                 heroTitle.includes('ABOUT.') ||
                                 heroTitle.includes('RESOURCES.') ||
@@ -35,8 +37,8 @@ test.describe('Hero Section Consistency Verification', () => {
       results.push({
         page: testPage.name,
         url: testPage.url,
-        heroOffsetTop,
-        parentPaddingTop,
+        heroOffsetTop: heroMeta.offsetTop,
+        parentPaddingTop: heroMeta.parentPaddingTop,
         translationsWorking: !hasTranslationKeys,
         heroTitle: heroTitle.trim()
       });

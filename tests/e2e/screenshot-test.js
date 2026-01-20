@@ -9,7 +9,7 @@ const puppeteer = require('puppeteer');
   
   // Navigate to the page
   console.log('Navigating to homepage...');
-  await page.goto('http://localhost:4201', { waitUntil: 'networkidle2' });
+  await page.goto('http://localhost:4200', { waitUntil: 'networkidle2' });
   
   // Wait for content to load
   await page.waitForSelector('header', { timeout: 5000 });
@@ -40,7 +40,7 @@ const puppeteer = require('puppeteer');
   
   // Navigate to About page
   console.log('\nNavigating to About page...');
-  await page.goto('http://localhost:4201/hakkimizda', { waitUntil: 'networkidle2' });
+  await page.goto('http://localhost:4200/hakkimizda', { waitUntil: 'networkidle2' });
   await page.screenshot({ path: 'about-page.png', fullPage: false });
   
   // Check about page content

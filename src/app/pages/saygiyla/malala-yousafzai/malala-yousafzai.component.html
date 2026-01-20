@@ -185,7 +185,7 @@
       <div class="contributions-grid">
         <div *ngFor="let contribution of contributions" class="contribution-card">
           <div class="contribution-icon">
-            <span class="material-icons">{{ contribution.icon }}</span>
+            <span class="material-icons-rounded">{{ contribution.icon }}</span>
           </div>
           <h3>{{ contribution.title }}</h3>
           <p>{{ contribution.description }}</p>
@@ -229,11 +229,11 @@
         <!-- CTA Buttons -->
         <div class="cta-buttons">
           <a routerLink="/iletisim" class="btn-primary">
-            <i class="fas fa-calendar-check"></i>
+            <span class="material-icons-rounded" aria-hidden="true">event_available</span>
             <span>{{ 'SAYGIYLA.CTA.APPOINTMENT_BUTTON' | translate }}</span>
           </a>
           <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
-            <i class="fab fa-whatsapp"></i>
+            <span class="material-icons-rounded" aria-hidden="true">chat</span>
             <span>WhatsApp</span>
           </a>
         </div>

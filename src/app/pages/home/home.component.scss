@@ -1,0 +1,20 @@
+@import 'styles/md3/index';
+/* Home Page Styles */
+
+:host {
+  display: block;
+}
+
+/* Remove all section spacing for scrollReveal wrapper */
+:host ::ng-deep > div[scrollReveal] {
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive adjustments */
+@include respond-to('tablet') {
+  :host ::ng-deep > div[scrollReveal] {
+    margin: 0;
+    padding: 0;
+  }
+}

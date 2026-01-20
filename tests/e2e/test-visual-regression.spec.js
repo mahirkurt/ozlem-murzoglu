@@ -19,8 +19,7 @@ const pages = [
   { name: '0leti_im', path: '/iletisim' },
   { name: 'Blog', path: '/blog' },
   { name: 'Sayg1yla', path: '/saygiyla' },
-  { name: 'Style Guide', path: '/style-guide' },
-  { name: 'Material Showcase', path: '/material-showcase' }
+  { name: 'Kaynak Detay', path: '/kaynaklar/bright-futures-aile/1-ay-aile-in-bilgiler' }
 ];
 
 // Farkl1 viewport boyutlar1
@@ -81,34 +80,34 @@ test.describe('Görsel Regresyon Testleri', () => {
 
   test.describe('Bile_en Testleri', () => {
     test('Resource Hero Bile_eni', async ({ page }) => {
-      await page.goto('/style-guide');
+      await page.goto('/kaynaklar/bright-futures-aile/1-ay-aile-in-bilgiler');
       await page.waitForLoadState('networkidle');
       
-      const heroSection = page.locator('app-resource-hero').first();
+      const heroSection = page.locator('.page-header').first();
       await expect(heroSection).toHaveScreenshot('resource-hero-component.png');
     });
 
     test('TOC Sidebar Bile_eni', async ({ page }) => {
-      await page.goto('/style-guide');
+      await page.goto('/kaynaklar/bright-futures-aile/1-ay-aile-in-bilgiler');
       await page.waitForLoadState('networkidle');
       
-      const tocSection = page.locator('app-toc-sidebar').first();
+      const tocSection = page.locator('.toc-sidebar').first();
       await expect(tocSection).toHaveScreenshot('toc-sidebar-component.png');
     });
 
     test('Content Card Bile_eni', async ({ page }) => {
-      await page.goto('/style-guide');
+      await page.goto('/kaynaklar/bright-futures-aile/1-ay-aile-in-bilgiler');
       await page.waitForLoadState('networkidle');
       
-      const cardSection = page.locator('app-content-card').first();
+      const cardSection = page.locator('.content-card').first();
       await expect(cardSection).toHaveScreenshot('content-card-component.png');
     });
 
     test('Action Bar Bile_eni', async ({ page }) => {
-      await page.goto('/style-guide');
+      await page.goto('/kaynaklar/bright-futures-aile/1-ay-aile-in-bilgiler');
       await page.waitForLoadState('networkidle');
       
-      const actionBar = page.locator('app-action-bar').first();
+      const actionBar = page.locator('.action-bar').first();
       await expect(actionBar).toHaveScreenshot('action-bar-component.png');
     });
   });

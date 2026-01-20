@@ -1,17 +1,22 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
-import { HeroSectionComponent } from '../../../components/shared/hero-section/hero-section.component';
+import { ContactCtaComponent } from '../../../components/contact-cta/contact-cta.component';
+import { PageHeaderComponent, Breadcrumb } from '../../../components/page-header/page-header.component';
 
 @Component({
   selector: 'app-saglikli-uykular',
   standalone: true,
-  imports: [RouterLink, RouterModule, TranslateModule, CommonModule, HeroSectionComponent],
+  imports: [CommonModule, TranslateModule, PageHeaderComponent, ContactCtaComponent],
   templateUrl: './saglikli-uykular.component.html',
   styleUrl: './saglikli-uykular.component.css'
 })
 export class SaglikliUykularComponent implements OnInit, AfterViewInit {
+  breadcrumbs: Breadcrumb[] = [
+    { translateKey: 'HEADER.NAV_HOME', url: '/' },
+    { translateKey: 'HEADER.NAV_SERVICES', url: '/hizmetlerimiz' },
+    { translateKey: 'SERVICES.SERVICE_SLEEP.TITLE' }
+  ];
 
   ngOnInit(): void {
     this.animateStatNumbers();

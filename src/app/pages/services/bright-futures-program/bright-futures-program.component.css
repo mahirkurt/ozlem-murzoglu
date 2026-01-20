@@ -146,7 +146,7 @@ p, span, li, a, div {
   margin: 0 auto 1rem;
 }
 
-.section-icon .material-icons {
+.section-icon .material-icons-rounded {
   font-size: 30px;
   color: white;
 }
@@ -229,7 +229,7 @@ p, span, li, a, div {
   border-left: 4px solid #10b981;
 }
 
-.highlight-box .material-icons {
+.highlight-box .material-icons-rounded {
   font-size: 28px;
   color: #059669;
 }
@@ -270,7 +270,7 @@ p, span, li, a, div {
   box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15);
 }
 
-.feature-item .material-icons {
+.feature-item .material-icons-rounded {
   font-size: 24px;
   color: #10b981;
   flex-shrink: 0;
@@ -354,7 +354,7 @@ p, span, li, a, div {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
 }
 
-.principle-icon .material-icons {
+.principle-icon .material-icons-rounded {
   font-size: 40px;
   color: white;
 }
@@ -448,7 +448,7 @@ p, span, li, a, div {
   box-shadow: 0 4px 12px rgba(var(--md-sys-color-shadow), 0.1);
 }
 
-.pillar-icon .material-icons {
+.pillar-icon .material-icons-rounded {
   font-size: 30px;
   color: #10b981;
 }
@@ -541,7 +541,7 @@ p, span, li, a, div {
   margin-bottom: 1.5rem;
 }
 
-.expect-icon .material-icons {
+.expect-icon .material-icons-rounded {
   font-size: 28px;
   color: #059669;
 }
@@ -639,7 +639,7 @@ p, span, li, a, div {
   margin-top: 2rem;
 }
 
-.info-card .material-icons {
+.info-card .material-icons-rounded {
   font-size: 24px;
   color: #f59e0b;
   flex-shrink: 0;
@@ -679,7 +679,7 @@ p, span, li, a, div {
   box-shadow: 0 4px 16px rgba(16, 185, 129, 0.1);
 }
 
-.exam-item .material-icons {
+.exam-item .material-icons-rounded {
   font-size: 24px;
   color: #10b981;
   flex-shrink: 0;
@@ -769,7 +769,7 @@ p, span, li, a, div {
   margin-bottom: 1.5rem;
 }
 
-.theme-icon .material-icons {
+.theme-icon .material-icons-rounded {
   font-size: 28px;
   color: #059669;
 }
@@ -829,7 +829,7 @@ p, span, li, a, div {
   box-shadow: 0 12px 32px rgba(16, 185, 129, 0.15);
 }
 
-.component-card .material-icons {
+.component-card .material-icons-rounded {
   font-size: 40px;
   color: #10b981;
   margin-bottom: 1rem;
@@ -911,7 +911,7 @@ p, span, li, a, div {
   background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
 }
 
-.evidence-icon .material-icons {
+.evidence-icon .material-icons-rounded {
   font-size: 35px;
   color: white;
 }
@@ -947,7 +947,7 @@ p, span, li, a, div {
   color: #065f46;
 }
 
-.evidence-detail .material-icons {
+.evidence-detail .material-icons-rounded {
   font-size: 18px;
   color: #10b981;
 }
@@ -977,7 +977,7 @@ p, span, li, a, div {
   box-shadow: 0 4px 16px rgba(16, 185, 129, 0.1);
 }
 
-.benefit-item .material-icons {
+.benefit-item .material-icons-rounded {
   font-size: 24px;
   color: #10b981;
   flex-shrink: 0;
@@ -1013,7 +1013,7 @@ p, span, li, a, div {
   box-shadow: 0 2px 8px rgba(var(--md-sys-color-shadow), 0.05);
 }
 
-.resource-item .material-icons {
+.resource-item .material-icons-rounded {
   font-size: 24px;
   color: #10b981;
   flex-shrink: 0;
@@ -1042,7 +1042,7 @@ p, span, li, a, div {
   background: white;
 }
 
-.metrics-section .section-icon .material-icons {
+.metrics-section .section-icon .material-icons-rounded {
   color: #10b981;
 }
 
@@ -1153,18 +1153,18 @@ p, span, li, a, div {
   box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
 }
 
-.phase-btn .material-icons {
+.phase-btn .material-icons-rounded {
   font-size: 1.75rem;
   margin-bottom: 0.375rem;
   color: #059669;
   transition: all 0.3s ease;
 }
 
-.phase-btn.active .material-icons {
+.phase-btn.active .material-icons-rounded {
   color: white;
 }
 
-.phase-btn:hover .material-icons {
+.phase-btn:hover .material-icons-rounded {
   transform: scale(1.1);
 }
 
@@ -1350,7 +1350,7 @@ p, span, li, a, div {
   margin: 0 auto;
 }
 
-.journey-info .info-card .material-icons {
+.journey-info .info-card .material-icons-rounded {
   font-size: 2rem;
   color: #059669;
   flex-shrink: 0;
@@ -1448,7 +1448,7 @@ p, span, li, a, div {
   background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
 }
 
-.period-icon .material-icons {
+.period-icon .material-icons-rounded {
   font-size: 40px;
   color: white;
 }
@@ -1555,7 +1555,7 @@ p, span, li, a, div {
   box-shadow: 0 4px 20px rgba(251, 191, 36, 0.15);
 }
 
-.note-card .material-icons {
+.note-card .material-icons-rounded {
   font-size: 32px;
   color: #f59e0b;
   flex-shrink: 0;
@@ -1642,7 +1642,7 @@ p, span, li, a, div {
   transform: translateY(-3px);
 }
 
-.btn .material-icons {
+.btn .material-icons-rounded {
   font-size: 24px;
 }
 

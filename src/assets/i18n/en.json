@@ -24,14 +24,23 @@
     "SHARE_FACEBOOK": "Share on Facebook",
     "SHARE_LINKEDIN": "Share on LinkedIn",
     "COPY_LINK": "Copy Link",
+    "BREADCRUMB_NAV": "Breadcrumb",
     "BOOK_APPOINTMENT": "Book Appointment",
-    "DOCTOR_NAME": "Dr. Özlem Murzoğlu"
+    "CALL": "Call",
+    "THEME": {
+      "AUTO_DARK": "Theme: Auto (Dark mode)",
+      "AUTO_LIGHT": "Theme: Auto (Light mode)",
+      "DARK": "Theme: Dark",
+      "LIGHT": "Theme: Light"
+    },
+    "DOCTOR_NAME": "Dr. Özlem Murzoğlu",
+    "PRESENT": "Present"
   },
   "HEADER": {
     "BRAND_NAME": "Dr. Özlem Murzoğlu",
     "NAV_HOME": "Home",
-    "NAV_ABOUT": "About",
-    "NAV_ABOUT_US": "About Us",
+    "NAV_ABOUT": "About Me",
+    "NAV_ABOUT_US": "About Me",
     "NAV_DR_OZLEM": "Dr. Özlem Murzoğlu",
     "NAV_CLINIC": "Our Clinic",
     "NAV_CLINIC_DESIGN": "Clinic Design",
@@ -52,26 +61,32 @@
     "CLOSE_MENU": "Close menu"
   },
   "HOME": {
-    "HERO_TITLE": "A holistic medical practice bringing together social pediatrics and child development disciplines with compassion and love",
+    "HERO_TITLE": "A next-generation child health<br>practice uniting social pediatrics<br>and child development with<br><span class=\"hero-highlight\">compassion</span> and <span class=\"hero-highlight\">love</span>",
     "HERO_SUBTITLE": "SPEC.DR. ÖZLEM MURZOĞLU PEDIATRICS AND CHILD HEALTH CLINIC",
-    "HERO_DESCRIPTION": "With modern medicine and a caring approach",
+    "HERO_DESCRIPTION": "",
+    "HERO_MICROCOPY": "Schedule the time that suits you for appointments or information requests.",
+    "HERO_TRUST_1": "Specialist-led care",
+    "HERO_TRUST_2": "Evidence-based follow-up",
+    "HERO_TRUST_3": "Family-centered communication",
     "CTA_APPOINTMENT": "Book Appointment",
     "CTA_LEARN_MORE": "Learn More"
   },
   "ABOUT": {
-    "PAGE_TITLE": "About Us",
+    "PAGE_TITLE": "About Me",
     "PAGE_SUBTITLE": "Integrating child health with social pediatrics and child development",
     "HOME_BREADCRUMB": "Home",
     "ABOUT_BREADCRUMB": "About",
-    "SECTION_TITLE": "About Us",
-    "TITLE": "Dr. Özlem Murzoğlu",
+    "SECTION_TITLE": "About Me",
+    "TITLE": "Özlem Murzoğlu, MD, PhD",
     "SUBTITLE": "Pediatrics and Child Health Specialist",
     "DESCRIPTION": "With over 15 years of experience, I apply the most current treatment methods for your children's health. We provide services according to American Academy of Pediatrics standards.",
     "EXPERIENCE_YEARS": "15+ Years",
     "EXPERIENCE_TEXT": "Experience",
     "HAPPY_FAMILIES": "5000+",
     "HAPPY_FAMILIES_TEXT": "Happy Families",
-    "CERTIFICATIONS": "Licenses and Certifications",
+    "CERTIFICATIONS": {
+      "TITLE": "Licenses and Certifications"
+    },
     "EDUCATION": "Education",
     "EXPERIENCE": "Experience",
     "VERIFIED_DOCTOR": "Specialist Physician",
@@ -105,13 +120,13 @@
     "VALUES_TITLE": "Our Values",
     "VALUES_DESC": "We operate with principles of scientific approach, transparency, empathy, and continuous improvement.",
     "DR_PAGE": {
-      "HERO_TITLE": "Dr. Özlem Murzoğlu",
-      "HERO_SUBTITLE": "Pediatrics and Child Health Specialist",
-      "HERO_MY_STORY": "My Story",
-      "HERO_I_AM": "I am Özlem Murzoğlu",
+      "HERO_TITLE": "My Story",
+      "HERO_SUBTITLE": "I am Özlem Murzoğlu",
+      "HERO_MY_STORY": "Dr. Özlem Murzoğlu",
+      "HERO_I_AM": "Pediatrics and Child Health Specialist",
       "BADGE_PEDIATRICIAN": "Pediatrician",
       "BADGE_SOCIAL_PEDIATRICS": "Social Pediatrics Doctorate",
-      "INTRO_TEXT": "[EN] Intro Text",
+      "INTRO_TEXT": "A brief look at my journey in social pediatrics and child development.",
       "PEDIATRICS_JOURNEY_TITLE": "My Pediatrics Journey",
       "MARMARA_UNIVERSITY": "Marmara University",
       "SOCIAL_PEDIATRICS_DOCTORATE": "Social Pediatrics Doctorate Program",
@@ -123,7 +138,8 @@
       "SOCIAL_PEDIATRICS": "Social Pediatrics",
       "EXPERT_TEAM_DESIGN": "Design with Expert Team",
       "BADGE_UNIVERSITY": "Istanbul Medical Faculty",
-      "MY_STORY": "My Story",
+      "MY_STORY": "Biography",
+      "BIOGRAPHY_TITLE": "Biography",
       "ROOTS_TITLE": "My Roots",
       "ROOTS_TEXT": "I grew up in a small, unique and authentic Black Sea city, living through the famous local jokes. I shared my passion for trees and soil with my best preschool friends - my mother and grandfather. As the youngest of four children, I was deeply loved and I loved deeply, testing my dear sister's patience for years.",
       "EDUCATION_JOURNEY": "My Educational Journey",
@@ -187,7 +203,11 @@
       "CHILD_NEUROLOGY_ASSOC": "Developmental Child Neurology Association",
       "GIDR_TITLE": "International Guide for Monitoring Child Development (GMCD)",
       "ANKARA_MEDICAL": "Ankara University Faculty of Medicine"
-    }
+    },
+    "LEARN_MORE_CTA": "Click to learn more about Dr. Ozlem Murzoglu",
+    "CONSULTATION_CTA_TITLE": "Book a Consultation",
+    "CONSULTATION_CTA_DESC": "With 15+ years of experience, I'm here for your child's health, development, and education. Book an appointment today.",
+    "PHILOSOPHY_QUOTE": "I blend my expertise in Social Pediatrics and Child Development not only with clinical data, but also with compassion, love, and deep understanding. Because I believe true healing begins when you embrace the child and family as a whole."
   },
   "SERVICES": {
     "PAGE_TITLE": "Our Services",
@@ -764,25 +784,25 @@
       "DESCRIPTION": "Support for family dynamics and child-parent relationships"
     },
     "SERVICE_BRIGHT": {
-      "WHAT_IS": "[EN] What Is",
-      "WHAT_IS_DESC": "[EN] What Is Desc",
-      "CLINIC_INFO": "[EN] Clinic Info",
-      "PROGRAM_SCOPE": "[EN] Program Scope",
-      "AGE_RANGE": "[EN] Age Range",
-      "AGE_RANGE_DESC": "[EN] Age Range Desc",
-      "VISITS_COUNT": "[EN] Visits Count",
-      "VISITS_DESC": "[EN] Visits Desc",
-      "AAP_STANDARDS": "[EN] Aap Standards",
-      "AAP_STANDARDS_DESC": "[EN] Aap Standards Desc",
-      "GLOBAL_STANDARD": "[EN] Global Standard",
-      "GLOBAL_STANDARD_DESC": "[EN] Global Standard Desc",
-      "FIVE_FOUNDATIONS": "[EN] Five Foundations",
-      "THREE_PILLARS": "[EN] Three Pillars",
-      "VISIT_SCHEDULE": "[EN] Visit Schedule",
-      "BABY_PERIOD": "[EN] Baby Period",
-      "EARLY_CHILDHOOD": "[EN] Early Childhood",
-      "SCHOOL_AGE": "[EN] School Age",
-      "BREADCRUMB": "[EN] Breadcrumb"
+      "WHAT_IS": "What is Bright Futures®?",
+      "WHAT_IS_DESC": "Bright Futures®, developed by the American Academy of Pediatrics (AAP), is a comprehensive program designed to monitor the health and development of children and adolescents from birth to age 21.",
+      "CLINIC_INFO": "Our clinic provides care aligned with American Academy of Pediatrics standards.",
+      "PROGRAM_SCOPE": "Program Scope",
+      "AGE_RANGE": "Ages 0-21",
+      "AGE_RANGE_DESC": "From birth to young adulthood",
+      "VISITS_COUNT": "31 Checkups",
+      "VISITS_DESC": "Regular health visits",
+      "AAP_STANDARDS": "AAP Standards",
+      "AAP_STANDARDS_DESC": "American Academy of Pediatrics",
+      "GLOBAL_STANDARD": "Global Standard",
+      "GLOBAL_STANDARD_DESC": "Globally recognized",
+      "FIVE_FOUNDATIONS": "Five Core Principles",
+      "THREE_PILLARS": "Three Core Pillars",
+      "VISIT_SCHEDULE": "Visit Schedule",
+      "BABY_PERIOD": "Infancy (0-12 months)",
+      "EARLY_CHILDHOOD": "Early Childhood (1-4 years)",
+      "SCHOOL_AGE": "School Age (5-10 years)",
+      "BREADCRUMB": "Bright Futures Program"
     },
     "SERVICE_LAB_IMAGING": {
       "HERO_TITLE": "Laboratory and Imaging Services",
@@ -844,10 +864,11 @@
       "LATEST_TECHNOLOGY": "Latest technology equipment"
     },
     "CTA": {
-      "TITLE": "[EN] Title",
-      "SUBTITLE": "[EN] Subtitle",
-      "APPOINTMENT_BUTTON": "[EN] Appointment Button"
-    }
+      "TITLE": "Take the first step for your child's health",
+      "SUBTITLE": "Book an appointment now and let's work together for your child's healthy future",
+      "APPOINTMENT_BUTTON": "Book Appointment"
+    },
+    "SECTION_DESC": "In line with American Academy of Pediatrics standards, we provide scientific, compassionate healthcare across a broad spectrum from birth through adolescence."
   },
   "RESOURCES": {
     "TITLE": "Resources",
@@ -875,6 +896,7 @@
     "JOURNEY_BANNER_BTN": "Start Journey",
     "POPULAR_RESOURCES": "Popular Resources",
     "ALL_RESOURCES": "All Resources",
+    "CATEGORY_SUBTITLE": "All resources in this category",
     "FEATURE1_TITLE": "Reliable Resources",
     "FEATURE1_DESC": "Content approved by international organizations like American Academy of Pediatrics and WHO",
     "FEATURE2_TITLE": "Turkish Content",
@@ -885,7 +907,9 @@
     "FEATURE4_DESC": "Continuously updated content in light of the latest scientific developments",
     "CATEGORIES": {
       "BRIGHT_FUTURES_FAMILY": "Bright Futures (Family)",
+      "BRIGHT_FUTURES_FAMILY_DESC": "Family guides prepared by the American Academy of Pediatrics for each age stage",
       "BRIGHT_FUTURES_CHILD": "Bright Futures (Child)",
+      "BRIGHT_FUTURES_CHILD_DESC": "Age-appropriate development and health information prepared for children",
       "VACCINES": "Vaccines",
       "VACCINES_DESC": "Detailed information about vaccines, schedules, and frequently asked questions",
       "PREGNANCY": "Pregnancy Period",
@@ -1109,9 +1133,9 @@
     "Q11": "How long does the examination take?",
     "A11": "Our standard examinations take an average of 30-45 minutes, while our Bright Futures comprehensive examinations take a minimum of 1 hour. First examinations usually take longer.",
     "CTA": {
-      "TITLE": "[EN] Title",
-      "SUBTITLE": "[EN] Subtitle",
-      "APPOINTMENT_BUTTON": "[EN] Appointment Button"
+      "TITLE": "Do you have more questions?",
+      "SUBTITLE": "We are here to help. Reach out and we will answer your questions.",
+      "APPOINTMENT_BUTTON": "Call Now"
     }
   },
   "BLOG": {
@@ -1129,48 +1153,17 @@
     "ALL_ARTICLES": "All Articles"
   },
   "APPOINTMENT": {
-    "TITLE": "Book Appointment",
-    "SUBTITLE": "Book an appointment quickly and easily with our online system",
-    "FORM_TITLE": "Appointment Form",
-    "TYPE_ROUTINE": "Routine Check-up",
+    "FAST_ACCESS": "24/7 Online",
+    "HERO_TITLE": "Book appointment easily online,\nreduce waiting times",
+    "HERO_DESC": "Don't waste time for your health with our fast and reliable appointment system.",
+    "NO_WAITING": "Fast Appointment",
+    "SECURE_SYSTEM": "Secure System",
+    "EASY_BOOKING": "Easy Booking",
+    "TYPE_ROUTINE": "Routine Checkup",
     "TYPE_SICK": "Sick Visit",
     "TYPE_VACCINATION": "Vaccination",
     "TYPE_CONSULTATION": "Consultation",
-    "TYPE_ONLINE": "Online Consultation",
-    "SELECT_TYPE": "Appointment Type",
-    "SELECT_DATE": "Select Date",
-    "SELECT_TIME": "Select Time",
-    "PATIENT_NAME": "Patient Name",
-    "PATIENT_AGE": "Patient Age",
-    "PARENT_NAME": "Parent Name",
-    "PHONE": "Phone Number",
-    "EMAIL": "Email Address",
-    "NOTES": "Notes (Optional)",
-    "SUBMIT": "Book Appointment",
-    "SUCCESS_TITLE": "Appointment Confirmed",
-    "SUCCESS_MESSAGE": "Your appointment has been successfully created. We will send you a confirmation message shortly.",
-    "ERROR_TITLE": "Error",
-    "ERROR_MESSAGE": "An error occurred while creating the appointment. Please try again.",
-    "MODAL_TITLE": "Online Appointment",
-    "MODAL_DESC": "Fill out the form to create your appointment request",
-    "FORM_PARENT_NAME": "Parent Name",
-    "FORM_PARENT_PHONE": "Phone Number",
-    "FORM_PARENT_EMAIL": "Email Address",
-    "FORM_CHILD_NAME": "Child's Name",
-    "FORM_CHILD_AGE": "Child's Age",
-    "FORM_APPOINTMENT_TYPE": "Appointment Type",
-    "FORM_MESSAGE": "Additional Notes (Optional)",
-    "FORM_SUBMIT": "Submit Appointment Request",
-    "FORM_CANCEL": "Cancel",
-    "SUCCESS_DESC": "We will contact you shortly.",
-    "ERROR_DESC": "An error occurred. Please try again.",
-    "REASON": "Appointment Reason",
-    "CONFIRM": "Book Appointment",
-    "LOADING": "Loading appointment system...",
-    "CLOSE": "Close appointment window",
-    "ALTERNATIVE_CONTACT": "Alternative contact methods:",
-    "WHATSAPP": "WhatsApp",
-    "CALL": "+90 216 688 44 83"
+    "TYPE_ONLINE": "Online Consultation"
   },
   "HERO": {
     "TITLE": "A Compassionate Touch Guided by Science",
@@ -1206,7 +1199,8 @@
     "FAMILY_CENTERED_TITLE": "Family-Centered Care",
     "FAMILY_CENTERED_DESC": "We make families an active part of the treatment process",
     "EVIDENCE_BASED_TITLE": "Evidence-Based Approach",
-    "EVIDENCE_BASED_DESC": "We apply treatment protocols based on the latest scientific research"
+    "EVIDENCE_BASED_DESC": "We apply treatment protocols based on the latest scientific research",
+    "SECTION_DESC": "We approach every child's physical, mental, and emotional development as a whole, blending scientific follow-up with a compassionate approach."
   },
   "TESTIMONIALS": {
     "TITLE": "Reviews from Our Families",
@@ -1225,7 +1219,9 @@
     "DATE_1_MONTH": "1 month ago",
     "DATE_3_WEEKS": "3 weeks ago",
     "DATE_2_WEEKS": "2 weeks ago",
-    "DATE_1_WEEK": "1 week ago"
+    "DATE_1_WEEK": "1 week ago",
+    "LABEL": "Testimonials",
+    "VIEW_ON_MAPS": "View on Maps"
   },
   "CLINIC": {
     "HERO": {
@@ -1320,18 +1316,20 @@
     "INTERIOR_VIEW": "Clinic Interior View"
   },
   "DOCTOR_BIO": {
+    "LABEL": "ABOUT ME",
+    "SECTION_TITLE": "Spec. Dr. Ozlem Murzoglu",
     "TITLE": "Spec. Dr. Özlem Murzoğlu",
     "SUBTITLE": "Pediatrics and Child Health Specialist",
     "BIO_PARAGRAPH_1": "Dr. Özlem Murzoğlu graduated from Istanbul University Istanbul Faculty of Medicine and completed her pediatrics specialization training at Marmara University Faculty of Medicine Department of Pediatrics and Child Health.",
     "BIO_PARAGRAPH_2": "Having received her doctorate degree in Social Pediatrics from the same institution, Dr. Murzoğlu also completed her bachelor's degree in Child Development simultaneously, developing a holistic approach to child health.",
     "BIO_PARAGRAPH_3": "Specializing in Bright Futures® Well-Child Care, sleep consultation, and Triple P® Positive Parenting Program, Dr. Murzoğlu provides comprehensive pediatric services to families at her clinic in Ataşehir.",
-    "MEDICAL_EDUCATION": "Medical Education",
+    "MEDICAL_EDUCATION": "MEDICAL EDUCATION",
     "MEDICAL_SCHOOL": "Istanbul University Istanbul Faculty of Medicine",
-    "SPECIALIZATION": "Specialization",
+    "SPECIALIZATION": "SPECIALIZATION",
     "SPECIALIZATION_SCHOOL": "Marmara University Pediatrics and Child Health",
-    "DOCTORATE": "Doctorate",
+    "DOCTORATE": "DOCTORATE",
     "DOCTORATE_FIELD": "Social Pediatrics",
-    "BACHELOR": "Bachelor",
+    "BACHELOR": "BACHELOR",
     "BACHELOR_FIELD": "Child Development",
     "EXPERIENCE_TITLE": "Professional Experience",
     "EDUCATION_TITLE": "Education",
@@ -1347,10 +1345,11 @@
     "MEMBERSHIPS_TITLE": "Professional Memberships",
     "MEMBERSHIP_AAP": "American Academy of Pediatrics",
     "MEMBERSHIP_TURKISH": "Turkish Pediatrics Association",
+    "READ_MORE": "Read More",
     "CTA": {
-      "TITLE": "[EN] Title",
-      "SUBTITLE": "[EN] Subtitle",
-      "APPOINTMENT_BUTTON": "[EN] Appointment Button"
+      "TITLE": "Take the first step for your child's health",
+      "SUBTITLE": "Book an appointment now and let's work together for your child's healthy future",
+      "APPOINTMENT_BUTTON": "Book Appointment"
     }
   },
   "DOCUMENT": {
@@ -2280,9 +2279,9 @@
     "CTA_SUBTITLE": "Experience our child-friendly environment",
     "CTA_BUTTON": "Schedule a Visit",
     "CTA": {
-      "TITLE": "[EN] Title",
-      "SUBTITLE": "[EN] Subtitle",
-      "APPOINTMENT_BUTTON": "[EN] Appointment Button"
+      "TITLE": "Take the first step for your child's health",
+      "SUBTITLE": "Book an appointment now and let's work together for your child's healthy future",
+      "APPOINTMENT_BUTTON": "Book Appointment"
     }
   },
   "KLINIK_TASARIMI": {
@@ -2374,9 +2373,9 @@
     "CTA_DESCRIPTION": "Discover the stories of these inspiring figures",
     "CTA_BUTTON": "Explore Stories",
     "CTA": {
-      "TITLE": "[EN] Title",
-      "SUBTITLE": "[EN] Subtitle",
-      "APPOINTMENT_BUTTON": "[EN] Appointment Button"
+      "TITLE": "Take the first step for your child's health",
+      "SUBTITLE": "Book an appointment now and let's work together for your child's healthy future",
+      "APPOINTMENT_BUTTON": "Book Appointment"
     }
   },
   "SERVICE_SOS_FEEDING": {
@@ -2406,13 +2405,5 @@
       "MINUTES": "{{count}} minutes ago",
       "JUST_NOW": "Just now"
     }
-  },
-  "APPOINTMENT": {
-    "FAST_ACCESS": "24/7 Online",
-    "HERO_TITLE": "Book appointment easily online,\nreduce waiting times",
-    "HERO_DESC": "Don't waste time for your health with our fast and reliable appointment system.",
-    "NO_WAITING": "Fast Appointment",
-    "SECURE_SYSTEM": "Secure System",
-    "EASY_BOOKING": "Easy Booking"
   }
 }

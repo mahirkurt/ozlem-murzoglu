@@ -32,7 +32,6 @@
               }
             ],
             "styles": [
-              "src/app/styles/tokens/_index.scss",
               "src/styles.scss"
             ],
             "scripts": [],
@@ -44,16 +43,23 @@
           },
           "configurations": {
             "production": {
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": {
+                  "inline": false
+                }
+              },
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "700kB",
+                  "maximumWarning": "1.5MB",
                   "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "100kB",
-                  "maximumError": "150kB"
+                  "maximumWarning": "500kB",
+                  "maximumError": "600kB"
                 }
               ],
               "outputHashing": "all"

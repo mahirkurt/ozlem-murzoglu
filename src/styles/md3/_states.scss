@@ -1,0 +1,1451 @@
+// ============================================================================
+// _states.scss - MD3 Expressive 2025 State Layer & Interaction System
+// Dr. Özlem Murzoğlu Pediatri Kliniği
+// Version: 5.0 (Final Production Edition)
+// Last Updated: 2025-12-19
+//
+// Reference: MASTER-STYLE-GUIDE.md v5.0 Section VIII
+// Dependencies: _colors.scss, _motion.scss
+// ============================================================================
+
+// ============================================================================
+// TABLE OF CONTENTS
+// ============================================================================
+// 1.  STATE LAYER OPACITIES
+// 2.  EXPRESSIVE STATE OPACITIES
+// 3.  COLOR-SPECIFIC STATE LAYERS
+// 4.  SEMANTIC STATE COLORS
+// 5.  RIPPLE CONFIGURATION
+// 6.  FOCUS RING SYSTEM
+// 7.  TRANSITION TIMING
+// 8.  DARK MODE ADJUSTMENTS
+// 9.  HIGH CONTRAST MODE
+// 10. STATE LAYER CLASSES
+// 11. COLOR VARIANT STATE LAYERS
+// 12. RIPPLE EFFECT CLASSES
+// 13. FOCUS RING CLASSES
+// 14. DISABLED STATES
+// 15. DRAGGED & DROP STATES
+// 16. EXPRESSIVE INTERACTIVE FEEDBACK
+// 17. LOADING & PROGRESS STATES
+// 18. VALIDATION STATES
+// 19. SELECTION STATES
+// 20. STATE LAYER MIXINS
+// 21. COMPONENT STATE MIXINS
+// 22. REDUCED MOTION
+// 23. TOUCH DEVICE OPTIMIZATIONS
+// 24. FORCED COLORS MODE
+// 25. PRINT STYLES
+// ============================================================================
+
+:root {
+  // ==========================================================================
+  // SECTION 1: STATE LAYER OPACITIES
+  // MD3 Standard Values
+  // ==========================================================================
+
+  --md-sys-state-hover-opacity: 0.08;
+  --md-sys-state-focus-opacity: 0.10;
+  --md-sys-state-pressed-opacity: 0.10;
+  --md-sys-state-dragged-opacity: 0.16;
+  --md-sys-state-disabled-opacity: 0.38;
+  --md-sys-state-disabled-container-opacity: 0.12;
+  --md-sys-state-selected-opacity: 0.08;
+  --md-sys-state-activated-opacity: 0.12;
+
+  // ==========================================================================
+  // SECTION 2: EXPRESSIVE STATE OPACITIES
+  // MD3 Expressive 2025 - Enhanced visual feedback
+  // ==========================================================================
+
+  --md-sys-state-hover-opacity-expressive: 0.10;
+  --md-sys-state-focus-opacity-expressive: 0.14;
+  --md-sys-state-pressed-opacity-expressive: 0.14;
+  --md-sys-state-selected-opacity-expressive: 0.12;
+  --md-sys-state-dragged-opacity-expressive: 0.20;
+
+  // Glow state opacities (for expressive components)
+  --md-sys-state-glow-hover-opacity: 0.15;
+  --md-sys-state-glow-focus-opacity: 0.25;
+  --md-sys-state-glow-active-opacity: 0.30;
+
+  // ==========================================================================
+  // SECTION 3: COLOR-SPECIFIC STATE LAYERS
+  // Pre-computed RGBA values for different container colors
+  // ==========================================================================
+
+  // Primary Container States
+  --md-sys-state-primary-hover: rgba(var(--md-sys-color-on-primary-container-rgb), 0.08);
+  --md-sys-state-primary-focus: rgba(var(--md-sys-color-on-primary-container-rgb), 0.10);
+  --md-sys-state-primary-pressed: rgba(var(--md-sys-color-on-primary-container-rgb), 0.10);
+  --md-sys-state-primary-dragged: rgba(var(--md-sys-color-on-primary-container-rgb), 0.16);
+
+  // Secondary Container States
+  --md-sys-state-secondary-hover: rgba(var(--md-sys-color-on-secondary-container-rgb), 0.08);
+  --md-sys-state-secondary-focus: rgba(var(--md-sys-color-on-secondary-container-rgb), 0.10);
+  --md-sys-state-secondary-pressed: rgba(var(--md-sys-color-on-secondary-container-rgb), 0.10);
+  --md-sys-state-secondary-dragged: rgba(var(--md-sys-color-on-secondary-container-rgb), 0.16);
+
+  // Tertiary Container States
+  --md-sys-state-tertiary-hover: rgba(var(--md-sys-color-on-tertiary-container-rgb), 0.08);
+  --md-sys-state-tertiary-focus: rgba(var(--md-sys-color-on-tertiary-container-rgb), 0.10);
+  --md-sys-state-tertiary-pressed: rgba(var(--md-sys-color-on-tertiary-container-rgb), 0.10);
+  --md-sys-state-tertiary-dragged: rgba(var(--md-sys-color-on-tertiary-container-rgb), 0.16);
+
+  // Surface States
+  --md-sys-state-surface-hover: rgba(var(--md-sys-color-on-surface-rgb), 0.08);
+  --md-sys-state-surface-focus: rgba(var(--md-sys-color-on-surface-rgb), 0.10);
+  --md-sys-state-surface-pressed: rgba(var(--md-sys-color-on-surface-rgb), 0.10);
+  --md-sys-state-surface-dragged: rgba(var(--md-sys-color-on-surface-rgb), 0.16);
+
+  // Surface Variant States
+  --md-sys-state-surface-variant-hover: rgba(var(--md-sys-color-on-surface-variant-rgb), 0.08);
+  --md-sys-state-surface-variant-focus: rgba(var(--md-sys-color-on-surface-variant-rgb), 0.10);
+  --md-sys-state-surface-variant-pressed: rgba(var(--md-sys-color-on-surface-variant-rgb), 0.10);
+
+  // Inverse Surface States
+  --md-sys-state-inverse-hover: rgba(var(--md-sys-color-inverse-on-surface-rgb), 0.08);
+  --md-sys-state-inverse-focus: rgba(var(--md-sys-color-inverse-on-surface-rgb), 0.10);
+  --md-sys-state-inverse-pressed: rgba(var(--md-sys-color-inverse-on-surface-rgb), 0.10);
+
+  // Error States
+  --md-sys-state-error-hover: rgba(var(--md-sys-color-on-error-rgb), 0.08);
+  --md-sys-state-error-focus: rgba(var(--md-sys-color-on-error-rgb), 0.10);
+  --md-sys-state-error-pressed: rgba(var(--md-sys-color-on-error-rgb), 0.10);
+
+  // ==========================================================================
+  // SECTION 4: SEMANTIC STATE COLORS
+  // For success, warning, info states
+  // ==========================================================================
+
+  --md-sys-state-success-hover: rgba(var(--md-sys-color-success-rgb, 56, 142, 60), 0.08);
+  --md-sys-state-success-focus: rgba(var(--md-sys-color-success-rgb, 56, 142, 60), 0.12);
+  --md-sys-state-success-pressed: rgba(var(--md-sys-color-success-rgb, 56, 142, 60), 0.12);
+
+  --md-sys-state-warning-hover: rgba(var(--md-sys-color-warning-rgb, 237, 108, 2), 0.08);
+  --md-sys-state-warning-focus: rgba(var(--md-sys-color-warning-rgb, 237, 108, 2), 0.12);
+  --md-sys-state-warning-pressed: rgba(var(--md-sys-color-warning-rgb, 237, 108, 2), 0.12);
+
+  --md-sys-state-info-hover: rgba(var(--md-sys-color-info-rgb, 2, 136, 209), 0.08);
+  --md-sys-state-info-focus: rgba(var(--md-sys-color-info-rgb, 2, 136, 209), 0.12);
+  --md-sys-state-info-pressed: rgba(var(--md-sys-color-info-rgb, 2, 136, 209), 0.12);
+
+  // ==========================================================================
+  // SECTION 5: RIPPLE CONFIGURATION
+  // ==========================================================================
+
+  --md-sys-state-ripple-duration: 400ms;
+  --md-sys-state-ripple-duration-unbounded: 600ms;
+  --md-sys-state-ripple-duration-quick: 200ms;
+  --md-sys-state-ripple-color: currentColor;
+  --md-sys-state-ripple-opacity: 0.12;
+  --md-sys-state-ripple-opacity-light: 0.08;
+  --md-sys-state-ripple-scale: 2.5;
+  --md-sys-state-ripple-scale-unbounded: 2;
+
+  // Expressive ripple (larger, more visible)
+  --md-sys-state-ripple-opacity-expressive: 0.16;
+  --md-sys-state-ripple-scale-expressive: 3;
+
+  // ==========================================================================
+  // SECTION 6: FOCUS RING SYSTEM
+  // WCAG 2.2 Compliant
+  // ==========================================================================
+
+  --md-sys-state-focus-ring-width: 3px;
+  --md-sys-state-focus-ring-offset: 2px;
+  --md-sys-state-focus-ring-color: var(--md-sys-color-primary);
+  --md-sys-state-focus-ring-color-error: var(--md-sys-color-error);
+  --md-sys-state-focus-ring-color-success: var(--md-sys-color-success, #388e3c);
+
+  // High Contrast Focus
+  --md-sys-state-focus-ring-hc-width: 4px;
+  --md-sys-state-focus-ring-hc-color: var(--md-sys-color-on-surface);
+  --md-sys-state-focus-ring-hc-outline: 2px solid var(--md-sys-color-surface);
+
+  // Focus glow (expressive)
+  --md-sys-state-focus-glow: 0 0 0 4px rgba(var(--md-sys-color-primary-rgb), 0.25);
+  --md-sys-state-focus-glow-error: 0 0 0 4px rgba(var(--md-sys-color-error-rgb), 0.25);
+
+  // ==========================================================================
+  // SECTION 7: TRANSITION TIMING
+  // ==========================================================================
+
+  --md-sys-state-layer-transition: opacity 150ms var(--md-sys-motion-easing-standard, ease);
+  --md-sys-state-layer-transition-emphasized: opacity 200ms var(--md-sys-motion-easing-emphasized, ease);
+  --md-sys-state-focus-transition: box-shadow 150ms var(--md-sys-motion-easing-standard, ease);
+  --md-sys-state-scale-transition: transform 100ms var(--md-sys-motion-easing-standard, ease);
+  --md-sys-state-scale-transition-spring: transform 200ms var(--md-sys-motion-easing-expressive-standard, cubic-bezier(0.4, 1.4, 0.2, 1));
+  --md-sys-state-elevation-transition: box-shadow 200ms var(--md-sys-motion-easing-standard, ease);
+  --md-sys-state-color-transition: background-color 200ms var(--md-sys-motion-easing-standard, ease),
+                                    color 200ms var(--md-sys-motion-easing-standard, ease),
+                                    border-color 200ms var(--md-sys-motion-easing-standard, ease);
+}
+
+// ============================================================================
+// SECTION 8: DARK MODE ADJUSTMENTS
+// ============================================================================
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    // Slightly higher opacity for visibility in dark mode
+    --md-sys-state-hover-opacity: 0.10;
+    --md-sys-state-focus-opacity: 0.12;
+    --md-sys-state-pressed-opacity: 0.12;
+    --md-sys-state-dragged-opacity: 0.18;
+    --md-sys-state-selected-opacity: 0.10;
+    --md-sys-state-activated-opacity: 0.14;
+    --md-sys-state-ripple-opacity: 0.16;
+
+    // Expressive states also get a boost
+    --md-sys-state-hover-opacity-expressive: 0.12;
+    --md-sys-state-focus-opacity-expressive: 0.16;
+    --md-sys-state-pressed-opacity-expressive: 0.16;
+
+    // Focus glow more visible
+    --md-sys-state-focus-glow: 0 0 0 4px rgba(var(--md-sys-color-primary-rgb), 0.35);
+  }
+}
+
+[data-theme="dark"] {
+  --md-sys-state-hover-opacity: 0.10;
+  --md-sys-state-focus-opacity: 0.12;
+  --md-sys-state-pressed-opacity: 0.12;
+  --md-sys-state-dragged-opacity: 0.18;
+  --md-sys-state-selected-opacity: 0.10;
+  --md-sys-state-ripple-opacity: 0.16;
+}
+
+// ============================================================================
+// SECTION 9: HIGH CONTRAST MODE
+// ============================================================================
+
+@media (prefers-contrast: more) {
+  :root {
+    --md-sys-state-hover-opacity: 0.14;
+    --md-sys-state-focus-opacity: 0.18;
+    --md-sys-state-pressed-opacity: 0.18;
+    --md-sys-state-disabled-opacity: 0.50;
+    --md-sys-state-disabled-container-opacity: 0.18;
+    --md-sys-state-focus-ring-width: var(--md-sys-state-focus-ring-hc-width);
+    --md-sys-state-focus-ring-color: var(--md-sys-state-focus-ring-hc-color);
+    --md-sys-state-ripple-opacity: 0.20;
+  }
+}
+
+@media (prefers-contrast: less) {
+  :root {
+    --md-sys-state-hover-opacity: 0.06;
+    --md-sys-state-focus-opacity: 0.08;
+    --md-sys-state-pressed-opacity: 0.08;
+    --md-sys-state-ripple-opacity: 0.10;
+  }
+}
+
+// ============================================================================
+// SECTION 10: STATE LAYER CLASSES
+// ============================================================================
+
+// Base State Layer - Surface Content
+.md3-state-layer {
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: currentColor;
+    opacity: 0;
+    transition: var(--md-sys-state-layer-transition);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+  }
+
+  &:hover::before {
+    opacity: var(--md-sys-state-hover-opacity);
+  }
+
+  &:focus-visible::before {
+    opacity: var(--md-sys-state-focus-opacity);
+  }
+
+  &:active::before {
+    opacity: var(--md-sys-state-pressed-opacity);
+  }
+
+  // Selection state
+  &[aria-selected="true"]::before,
+  &.selected::before {
+    opacity: var(--md-sys-state-selected-opacity);
+  }
+
+  &[aria-selected="true"]:hover::before,
+  &.selected:hover::before {
+    opacity: calc(var(--md-sys-state-selected-opacity) + var(--md-sys-state-hover-opacity));
+  }
+
+  &[aria-selected="true"]:focus-visible::before,
+  &.selected:focus-visible::before {
+    opacity: calc(var(--md-sys-state-selected-opacity) + var(--md-sys-state-focus-opacity));
+  }
+
+  // Activated state (like active nav item)
+  &[aria-current="page"]::before,
+  &[aria-current="true"]::before,
+  &.activated::before {
+    opacity: var(--md-sys-state-activated-opacity);
+  }
+
+  // Disabled state
+  &:disabled::before,
+  &[disabled]::before,
+  &[aria-disabled="true"]::before {
+    opacity: 0;
+  }
+}
+
+// Expressive State Layer (larger opacity changes)
+.md3-state-layer-expressive {
+  @extend .md3-state-layer;
+
+  &:hover::before {
+    opacity: var(--md-sys-state-hover-opacity-expressive);
+  }
+
+  &:focus-visible::before {
+    opacity: var(--md-sys-state-focus-opacity-expressive);
+  }
+
+  &:active::before {
+    opacity: var(--md-sys-state-pressed-opacity-expressive);
+  }
+}
+
+// ============================================================================
+// SECTION 11: COLOR VARIANT STATE LAYERS
+// ============================================================================
+
+// Primary State Layer
+.md3-state-layer-primary {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-primary);
+  }
+}
+
+// On Primary State Layer (for primary containers)
+.md3-state-layer-on-primary {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-on-primary);
+  }
+}
+
+// On Primary Container State Layer
+.md3-state-layer-on-primary-container {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-on-primary-container);
+  }
+}
+
+// Secondary State Layer
+.md3-state-layer-secondary {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-secondary);
+  }
+}
+
+// On Secondary Container
+.md3-state-layer-on-secondary-container {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-on-secondary-container);
+  }
+}
+
+// Tertiary State Layer
+.md3-state-layer-tertiary {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-tertiary);
+  }
+}
+
+// On Tertiary Container
+.md3-state-layer-on-tertiary-container {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-on-tertiary-container);
+  }
+}
+
+// Error State Layer
+.md3-state-layer-error {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-error);
+  }
+}
+
+// On Error Container
+.md3-state-layer-on-error-container {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-on-error-container);
+  }
+}
+
+// On Surface State Layer
+.md3-state-layer-on-surface {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-on-surface);
+  }
+}
+
+// On Surface Variant
+.md3-state-layer-on-surface-variant {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-on-surface-variant);
+  }
+}
+
+// Inverse State Layer
+.md3-state-layer-inverse {
+  @extend .md3-state-layer;
+
+  &::before {
+    background-color: var(--md-sys-color-inverse-on-surface);
+  }
+}
+
+// ============================================================================
+// SECTION 12: RIPPLE EFFECT CLASSES
+// ============================================================================
+
+// CSS-only Ripple (basic)
+.md3-ripple {
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at var(--ripple-x, 50%) var(--ripple-y, 50%),
+      var(--md-sys-state-ripple-color) 0%,
+      var(--md-sys-state-ripple-color) 33%,
+      transparent 33.01%
+    );
+    transform: scale(0);
+    opacity: 0;
+    transition:
+      transform var(--md-sys-state-ripple-duration) var(--md-sys-motion-easing-emphasized-decelerate, ease-out),
+      opacity 300ms var(--md-sys-motion-easing-standard, ease);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  &:active::after {
+    transform: scale(var(--md-sys-state-ripple-scale));
+    opacity: var(--md-sys-state-ripple-opacity);
+    transition: transform 0s, opacity 0s;
+  }
+}
+
+// Quick Ripple (faster animation)
+.md3-ripple-quick {
+  @extend .md3-ripple;
+
+  &::after {
+    transition:
+      transform var(--md-sys-state-ripple-duration-quick) var(--md-sys-motion-easing-emphasized-decelerate, ease-out),
+      opacity 150ms var(--md-sys-motion-easing-standard, ease);
+  }
+}
+
+// Unbounded Ripple (for icon buttons, FABs)
+.md3-ripple-unbounded {
+  position: relative;
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: radial-gradient(
+      circle,
+      var(--md-sys-state-ripple-color) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition:
+      transform var(--md-sys-state-ripple-duration-unbounded) var(--md-sys-motion-easing-emphasized-decelerate, ease-out),
+      opacity 300ms var(--md-sys-motion-easing-standard, ease);
+    pointer-events: none;
+    border-radius: 50%;
+  }
+
+  &:active::after {
+    transform: translate(-50%, -50%) scale(var(--md-sys-state-ripple-scale-unbounded));
+    opacity: var(--md-sys-state-ripple-opacity);
+    transition: transform 0s, opacity 0s;
+  }
+}
+
+// Expressive Ripple (larger, more visible)
+.md3-ripple-expressive {
+  @extend .md3-ripple;
+
+  &:active::after {
+    transform: scale(var(--md-sys-state-ripple-scale-expressive));
+    opacity: var(--md-sys-state-ripple-opacity-expressive);
+  }
+}
+
+// Color Variant Ripples
+.md3-ripple-primary {
+  --md-sys-state-ripple-color: var(--md-sys-color-primary);
+}
+
+.md3-ripple-secondary {
+  --md-sys-state-ripple-color: var(--md-sys-color-secondary);
+}
+
+.md3-ripple-tertiary {
+  --md-sys-state-ripple-color: var(--md-sys-color-tertiary);
+}
+
+.md3-ripple-error {
+  --md-sys-state-ripple-color: var(--md-sys-color-error);
+}
+
+.md3-ripple-on-primary {
+  --md-sys-state-ripple-color: var(--md-sys-color-on-primary);
+}
+
+.md3-ripple-on-secondary {
+  --md-sys-state-ripple-color: var(--md-sys-color-on-secondary);
+}
+
+.md3-ripple-on-surface {
+  --md-sys-state-ripple-color: var(--md-sys-color-on-surface);
+}
+
+// ============================================================================
+// SECTION 13: FOCUS RING CLASSES
+// ============================================================================
+
+// Standard Focus Ring
+.md3-focus-ring {
+  outline: none;
+
+  &:focus-visible {
+    outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
+    outline-offset: var(--md-sys-state-focus-ring-offset);
+  }
+}
+
+// Inset Focus Ring (for filled containers)
+.md3-focus-ring-inset {
+  outline: none;
+
+  &:focus-visible {
+    outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
+    outline-offset: calc(-1 * var(--md-sys-state-focus-ring-offset) - var(--md-sys-state-focus-ring-width));
+  }
+}
+
+// Box Shadow Focus Ring (smoother appearance)
+.md3-focus-ring-shadow {
+  outline: none;
+  transition: var(--md-sys-state-focus-transition);
+
+  &:focus-visible {
+    box-shadow:
+      0 0 0 var(--md-sys-state-focus-ring-offset) var(--md-sys-color-surface),
+      0 0 0 calc(var(--md-sys-state-focus-ring-offset) + var(--md-sys-state-focus-ring-width)) var(--md-sys-state-focus-ring-color);
+  }
+}
+
+// Focus Glow (expressive)
+.md3-focus-glow {
+  outline: none;
+  transition: var(--md-sys-state-focus-transition);
+
+  &:focus-visible {
+    box-shadow: var(--md-sys-state-focus-glow);
+    outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
+    outline-offset: var(--md-sys-state-focus-ring-offset);
+  }
+}
+
+// Error Focus Ring
+.md3-focus-ring-error {
+  &:focus-visible {
+    outline-color: var(--md-sys-state-focus-ring-color-error);
+  }
+}
+
+// Success Focus Ring
+.md3-focus-ring-success {
+  &:focus-visible {
+    outline-color: var(--md-sys-state-focus-ring-color-success);
+  }
+}
+
+// Rounded Focus Ring (follows border-radius)
+.md3-focus-ring-rounded {
+  &:focus-visible {
+    border-radius: inherit;
+  }
+}
+
+// ============================================================================
+// SECTION 14: DISABLED STATES
+// ============================================================================
+
+.md3-disabled,
+:disabled,
+[disabled],
+[aria-disabled="true"] {
+  opacity: var(--md-sys-state-disabled-opacity);
+  pointer-events: none;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+// Disabled Container (buttons, cards)
+.md3-disabled-container {
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), var(--md-sys-state-disabled-container-opacity)) !important;
+  color: rgba(var(--md-sys-color-on-surface-rgb), var(--md-sys-state-disabled-opacity)) !important;
+  pointer-events: none;
+  cursor: not-allowed;
+  box-shadow: none !important;
+
+  * {
+    color: inherit !important;
+  }
+}
+
+// Disabled Text
+.md3-disabled-text {
+  color: rgba(var(--md-sys-color-on-surface-rgb), var(--md-sys-state-disabled-opacity)) !important;
+}
+
+// Disabled Icon
+.md3-disabled-icon {
+  opacity: var(--md-sys-state-disabled-opacity);
+  filter: grayscale(100%);
+}
+
+// Disabled Outline (for outlined components)
+.md3-disabled-outline {
+  border-color: rgba(var(--md-sys-color-on-surface-rgb), var(--md-sys-state-disabled-container-opacity)) !important;
+  color: rgba(var(--md-sys-color-on-surface-rgb), var(--md-sys-state-disabled-opacity)) !important;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+// ============================================================================
+// SECTION 15: DRAGGED & DROP STATES
+// ============================================================================
+
+.md3-dragged,
+[aria-grabbed="true"] {
+  opacity: 0.9;
+  box-shadow: var(--md-sys-elevation-level4, 0 8px 12px rgba(0, 0, 0, 0.15));
+  transform: scale(1.02) rotate(1deg);
+  z-index: 1000;
+  cursor: grabbing;
+  transition:
+    transform var(--md-sys-motion-duration-short3, 150ms) var(--md-sys-motion-easing-standard, ease),
+    box-shadow var(--md-sys-motion-duration-short3, 150ms) var(--md-sys-motion-easing-standard, ease);
+}
+
+// Draggable element
+.md3-draggable {
+  cursor: grab;
+  touch-action: none;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+// Drop Target
+.md3-drop-target {
+  position: relative;
+  transition:
+    background-color var(--md-sys-motion-duration-short3, 150ms) var(--md-sys-motion-easing-standard, ease),
+    border-color var(--md-sys-motion-duration-short3, 150ms) var(--md-sys-motion-easing-standard, ease);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px dashed var(--md-sys-color-primary);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity var(--md-sys-motion-duration-short3, 150ms) var(--md-sys-motion-easing-standard, ease);
+    pointer-events: none;
+  }
+
+  &.drag-over,
+  &[aria-dropeffect]:not([aria-dropeffect="none"]) {
+    &::before {
+      opacity: 1;
+      background-color: rgba(var(--md-sys-color-primary-rgb), 0.08);
+    }
+  }
+}
+
+// Drop Target Valid
+.md3-drop-target-valid {
+  &.drag-over::before {
+    border-color: var(--md-sys-color-success, #388e3c);
+    background-color: rgba(var(--md-sys-color-success-rgb, 56, 142, 60), 0.08);
+  }
+}
+
+// Drop Target Invalid
+.md3-drop-target-invalid {
+  &.drag-over::before {
+    border-color: var(--md-sys-color-error);
+    background-color: rgba(var(--md-sys-color-error-rgb), 0.08);
+  }
+}
+
+// ============================================================================
+// SECTION 16: EXPRESSIVE INTERACTIVE FEEDBACK
+// MD3 Expressive 2025
+// ============================================================================
+
+// Scale on Press
+.md3-press-scale {
+  transition: var(--md-sys-state-scale-transition);
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+// Scale on Press (subtle)
+.md3-press-scale-subtle {
+  transition: var(--md-sys-state-scale-transition);
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+// Bounce on Press (Expressive with spring physics)
+.md3-press-bounce {
+  transition: var(--md-sys-state-scale-transition-spring);
+
+  &:active {
+    transform: scale(0.95);
+    transition-duration: 0s;
+  }
+}
+
+// Squish on Press (horizontal squeeze)
+.md3-press-squish {
+  transition: var(--md-sys-state-scale-transition-spring);
+
+  &:active {
+    transform: scaleX(0.97) scaleY(1.02);
+    transition-duration: 0s;
+  }
+}
+
+// Lift on Hover (for cards)
+.md3-hover-lift {
+  transition:
+    transform var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease),
+    box-shadow var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--md-sys-elevation-level2, 0 3px 6px rgba(0, 0, 0, 0.1));
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: var(--md-sys-elevation-level1, 0 1px 3px rgba(0, 0, 0, 0.08));
+  }
+}
+
+// Lift on Hover (more dramatic)
+.md3-hover-lift-lg {
+  transition:
+    transform var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease),
+    box-shadow var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--md-sys-elevation-level3, 0 6px 12px rgba(0, 0, 0, 0.12));
+  }
+}
+
+// Glow on Hover
+.md3-hover-glow {
+  transition: box-shadow var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease);
+
+  &:hover {
+    box-shadow: var(--md-sys-glow-primary, 0 0 20px rgba(var(--md-sys-color-primary-rgb), 0.3));
+  }
+}
+
+// Glow on Hover (secondary)
+.md3-hover-glow-secondary {
+  transition: box-shadow var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease);
+
+  &:hover {
+    box-shadow: var(--md-sys-glow-secondary, 0 0 20px rgba(var(--md-sys-color-secondary-rgb), 0.3));
+  }
+}
+
+// Tilt on Hover (3D effect)
+.md3-hover-tilt {
+  transition: transform var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease);
+  transform-style: preserve-3d;
+
+  &:hover {
+    transform: perspective(1000px) rotateX(-2deg) rotateY(2deg);
+  }
+}
+
+// Border highlight on hover
+.md3-hover-border {
+  transition: border-color var(--md-sys-motion-duration-short3, 150ms) var(--md-sys-motion-easing-standard, ease);
+
+  &:hover {
+    border-color: var(--md-sys-color-primary);
+  }
+}
+
+// Background shift on hover
+.md3-hover-bg-shift {
+  transition: background-color var(--md-sys-motion-duration-short3, 150ms) var(--md-sys-motion-easing-standard, ease);
+
+  &:hover {
+    background-color: var(--md-sys-color-surface-container-high);
+  }
+}
+
+// ============================================================================
+// SECTION 17: LOADING & PROGRESS STATES
+// ============================================================================
+
+.md3-loading {
+  position: relative;
+  pointer-events: none;
+  color: transparent !important;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(var(--md-sys-color-on-surface-rgb), 0.2);
+    border-top-color: var(--md-sys-color-primary);
+    border-radius: 50%;
+    animation: md3-spin 0.8s linear infinite;
+  }
+}
+
+.md3-loading-overlay {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(var(--md-sys-color-surface-rgb), 0.7);
+    border-radius: inherit;
+    z-index: 10;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    margin: -16px 0 0 -16px;
+    border: 3px solid rgba(var(--md-sys-color-on-surface-rgb), 0.2);
+    border-top-color: var(--md-sys-color-primary);
+    border-radius: 50%;
+    z-index: 11;
+    animation: md3-spin 0.8s linear infinite;
+  }
+}
+
+@keyframes md3-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Skeleton loading
+.md3-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(var(--md-sys-color-on-surface-rgb), 0.08) 0%,
+    rgba(var(--md-sys-color-on-surface-rgb), 0.12) 50%,
+    rgba(var(--md-sys-color-on-surface-rgb), 0.08) 100%
+  );
+  background-size: 200% 100%;
+  animation: md3-skeleton-shimmer 1.5s infinite;
+  border-radius: var(--md-sys-shape-corner-small, 8px);
+}
+
+@keyframes md3-skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// ============================================================================
+// SECTION 18: VALIDATION STATES
+// ============================================================================
+
+// Error state
+.md3-state-error {
+  border-color: var(--md-sys-color-error) !important;
+
+  &:focus-visible {
+    outline-color: var(--md-sys-color-error);
+    box-shadow: var(--md-sys-state-focus-glow-error);
+  }
+}
+
+// Success state
+.md3-state-success {
+  border-color: var(--md-sys-color-success, #388e3c) !important;
+
+  &:focus-visible {
+    outline-color: var(--md-sys-color-success, #388e3c);
+  }
+}
+
+// Warning state
+.md3-state-warning {
+  border-color: var(--md-sys-color-warning, #ed6c02) !important;
+}
+
+// ============================================================================
+// SECTION 19: SELECTION STATES
+// ============================================================================
+
+// Single selection
+.md3-selectable {
+  cursor: pointer;
+  transition: var(--md-sys-state-color-transition);
+
+  &[aria-selected="true"],
+  &.selected {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+  }
+}
+
+// Multi-selection
+.md3-multi-selectable {
+  cursor: pointer;
+  transition: var(--md-sys-state-color-transition);
+
+  &[aria-checked="true"],
+  &.checked {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+  }
+
+  &[aria-checked="mixed"],
+  &.indeterminate {
+    background-color: rgba(var(--md-sys-color-primary-rgb), 0.1);
+  }
+}
+
+// Toggle state
+.md3-toggleable {
+  cursor: pointer;
+  transition: var(--md-sys-state-color-transition);
+
+  &[aria-pressed="true"],
+  &.toggled {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+  }
+}
+
+// ============================================================================
+// SECTION 20: STATE LAYER MIXINS
+// ============================================================================
+
+@mixin state-layer($color: currentColor) {
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: $color;
+    opacity: 0;
+    transition: var(--md-sys-state-layer-transition);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+  }
+
+  &:hover::before {
+    opacity: var(--md-sys-state-hover-opacity);
+  }
+
+  &:focus-visible::before {
+    opacity: var(--md-sys-state-focus-opacity);
+  }
+
+  &:active::before {
+    opacity: var(--md-sys-state-pressed-opacity);
+  }
+}
+
+@mixin state-layer-expressive($color: currentColor) {
+  @include state-layer($color);
+
+  &:hover::before {
+    opacity: var(--md-sys-state-hover-opacity-expressive);
+  }
+
+  &:focus-visible::before {
+    opacity: var(--md-sys-state-focus-opacity-expressive);
+  }
+
+  &:active::before {
+    opacity: var(--md-sys-state-pressed-opacity-expressive);
+  }
+}
+
+@mixin state-layer-primary {
+  @include state-layer(var(--md-sys-color-primary));
+}
+
+@mixin state-layer-secondary {
+  @include state-layer(var(--md-sys-color-secondary));
+}
+
+@mixin state-layer-tertiary {
+  @include state-layer(var(--md-sys-color-tertiary));
+}
+
+@mixin state-layer-on-primary {
+  @include state-layer(var(--md-sys-color-on-primary));
+}
+
+@mixin state-layer-on-surface {
+  @include state-layer(var(--md-sys-color-on-surface));
+}
+
+@mixin state-layer-on-surface-variant {
+  @include state-layer(var(--md-sys-color-on-surface-variant));
+}
+
+@mixin ripple-effect($color: currentColor) {
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at var(--ripple-x, 50%) var(--ripple-y, 50%),
+      $color 0%,
+      $color 33%,
+      transparent 33.01%
+    );
+    transform: scale(0);
+    opacity: 0;
+    transition:
+      transform var(--md-sys-state-ripple-duration) var(--md-sys-motion-easing-emphasized-decelerate, ease-out),
+      opacity 300ms var(--md-sys-motion-easing-standard, ease);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  &:active::after {
+    transform: scale(var(--md-sys-state-ripple-scale));
+    opacity: var(--md-sys-state-ripple-opacity);
+    transition: transform 0s, opacity 0s;
+  }
+}
+
+@mixin focus-ring($color: var(--md-sys-state-focus-ring-color), $offset: var(--md-sys-state-focus-ring-offset)) {
+  outline: none;
+
+  &:focus-visible {
+    outline: var(--md-sys-state-focus-ring-width) solid $color;
+    outline-offset: $offset;
+  }
+}
+
+@mixin focus-ring-inset {
+  @include focus-ring($offset: calc(-1 * var(--md-sys-state-focus-ring-offset) - var(--md-sys-state-focus-ring-width)));
+}
+
+@mixin focus-glow($color: var(--md-sys-color-primary)) {
+  outline: none;
+  transition: var(--md-sys-state-focus-transition);
+
+  &:focus-visible {
+    box-shadow: 0 0 0 4px rgba($color, 0.25);
+    outline: var(--md-sys-state-focus-ring-width) solid $color;
+    outline-offset: var(--md-sys-state-focus-ring-offset);
+  }
+}
+
+@mixin disabled-state {
+  &:disabled,
+  &[disabled],
+  &[aria-disabled="true"] {
+    opacity: var(--md-sys-state-disabled-opacity);
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+@mixin disabled-container {
+  &:disabled,
+  &[disabled],
+  &[aria-disabled="true"] {
+    background-color: rgba(var(--md-sys-color-on-surface-rgb), var(--md-sys-state-disabled-container-opacity));
+    color: rgba(var(--md-sys-color-on-surface-rgb), var(--md-sys-state-disabled-opacity));
+    pointer-events: none;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+// ============================================================================
+// SECTION 21: COMPONENT STATE MIXINS
+// ============================================================================
+
+@mixin interactive-feedback {
+  @include state-layer;
+  @include focus-ring;
+  @include disabled-state;
+}
+
+@mixin button-states($color: var(--md-sys-color-primary)) {
+  @include state-layer($color);
+  @include ripple-effect($color);
+  @include focus-ring;
+  @include disabled-container;
+  transition: var(--md-sys-state-scale-transition);
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+@mixin button-states-expressive($color: var(--md-sys-color-primary)) {
+  @include state-layer-expressive($color);
+  @include ripple-effect($color);
+  @include focus-glow;
+  @include disabled-container;
+  transition: var(--md-sys-state-scale-transition-spring);
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@mixin card-states {
+  @include state-layer-on-surface;
+  @include focus-ring;
+  transition:
+    transform var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease),
+    box-shadow var(--md-sys-motion-duration-medium2, 300ms) var(--md-sys-motion-easing-standard, ease);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--md-sys-elevation-level2, 0 3px 6px rgba(0, 0, 0, 0.1));
+  }
+}
+
+@mixin list-item-states {
+  @include state-layer-on-surface;
+  @include focus-ring-inset;
+  @include disabled-state;
+}
+
+@mixin chip-states($selected-color: var(--md-sys-color-secondary-container)) {
+  @include state-layer-on-surface-variant;
+  @include focus-ring;
+  @include disabled-state;
+  transition: var(--md-sys-state-color-transition);
+
+  &[aria-selected="true"],
+  &.selected {
+    background-color: $selected-color;
+  }
+}
+
+@mixin input-states {
+  @include focus-ring;
+  transition: var(--md-sys-state-color-transition);
+
+  &:hover:not(:focus):not(:disabled) {
+    border-color: var(--md-sys-color-on-surface);
+  }
+
+  &:focus-visible {
+    border-color: var(--md-sys-color-primary);
+  }
+
+  &[aria-invalid="true"],
+  &.error {
+    border-color: var(--md-sys-color-error);
+
+    &:focus-visible {
+      outline-color: var(--md-sys-color-error);
+    }
+  }
+}
+
+@mixin navigation-item-states {
+  @include state-layer-on-surface;
+  @include focus-ring;
+  transition: var(--md-sys-state-color-transition);
+
+  &[aria-current="page"],
+  &.active {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+  }
+}
+
+// ============================================================================
+// SECTION 22: REDUCED MOTION
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .md3-state-layer::before,
+  .md3-ripple::after,
+  .md3-ripple-unbounded::after,
+  .md3-ripple-expressive::after {
+    transition: none !important;
+  }
+
+  .md3-press-scale,
+  .md3-press-scale-subtle,
+  .md3-press-bounce,
+  .md3-press-squish,
+  .md3-hover-lift,
+  .md3-hover-lift-lg,
+  .md3-hover-tilt {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .md3-dragged {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .md3-loading::after,
+  .md3-loading-overlay::after {
+    animation: none;
+    // Show static indicator instead
+    border: 2px solid var(--md-sys-color-primary);
+    border-radius: 50%;
+  }
+
+  .md3-skeleton {
+    animation: none;
+    background: rgba(var(--md-sys-color-on-surface-rgb), 0.1);
+  }
+
+  // Still allow color/opacity transitions as they're less disorienting
+  .md3-hover-glow,
+  .md3-hover-glow-secondary,
+  .md3-hover-bg-shift,
+  .md3-hover-border {
+    transition: none;
+  }
+}
+
+// ============================================================================
+// SECTION 23: TOUCH DEVICE OPTIMIZATIONS
+// ============================================================================
+
+@media (pointer: coarse) {
+  // Larger touch targets on touch devices
+  .md3-state-layer,
+  .md3-ripple {
+    min-width: var(--md-sys-touch-target-min, 48px);
+    min-height: var(--md-sys-touch-target-min, 48px);
+  }
+
+  // Disable hover states on touch-only devices
+  @media (hover: none) {
+    .md3-state-layer:hover::before {
+      opacity: 0;
+    }
+
+    .md3-hover-lift:hover,
+    .md3-hover-lift-lg:hover {
+      transform: none;
+      box-shadow: inherit;
+    }
+
+    .md3-hover-glow:hover,
+    .md3-hover-glow-secondary:hover {
+      box-shadow: inherit;
+    }
+
+    .md3-hover-tilt:hover {
+      transform: none;
+    }
+
+    .md3-hover-bg-shift:hover {
+      background-color: inherit;
+    }
+
+    .md3-hover-border:hover {
+      border-color: inherit;
+    }
+  }
+}
+
+// ============================================================================
+// SECTION 24: FORCED COLORS MODE (Windows High Contrast)
+// ============================================================================
+
+@media (forced-colors: active) {
+  .md3-state-layer::before,
+  .md3-ripple::after,
+  .md3-ripple-unbounded::after {
+    forced-color-adjust: none;
+    background-color: Highlight;
+  }
+
+  .md3-focus-ring:focus-visible,
+  .md3-focus-ring-inset:focus-visible,
+  .md3-focus-ring-shadow:focus-visible,
+  .md3-focus-glow:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  .md3-disabled,
+  :disabled,
+  [disabled],
+  [aria-disabled="true"] {
+    opacity: 1;
+    color: GrayText;
+    border-color: GrayText;
+  }
+
+  .md3-state-error {
+    border-color: LinkText;
+  }
+
+  .md3-selectable[aria-selected="true"],
+  .md3-selectable.selected,
+  .md3-multi-selectable[aria-checked="true"],
+  .md3-multi-selectable.checked,
+  .md3-toggleable[aria-pressed="true"],
+  .md3-toggleable.toggled {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .md3-drop-target.drag-over::before {
+    border-color: Highlight;
+    background-color: transparent;
+  }
+
+  .md3-skeleton,
+  .md3-loading::after,
+  .md3-loading-overlay::after {
+    forced-color-adjust: none;
+    border-color: CanvasText;
+    background: Canvas;
+  }
+}
+
+// ============================================================================
+// SECTION 25: PRINT STYLES
+// ============================================================================
+
+@media print {
+  .md3-state-layer::before,
+  .md3-ripple::after,
+  .md3-ripple-unbounded::after {
+    display: none !important;
+  }
+
+  .md3-disabled,
+  :disabled,
+  [disabled],
+  [aria-disabled="true"] {
+    opacity: 0.5;
+    color: #666 !important;
+  }
+
+  .md3-loading,
+  .md3-loading-overlay,
+  .md3-skeleton {
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
+
+  // Show selected states clearly in print
+  .md3-selectable[aria-selected="true"],
+  .md3-multi-selectable[aria-checked="true"],
+  .md3-toggleable[aria-pressed="true"] {
+    background-color: #e0e0e0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

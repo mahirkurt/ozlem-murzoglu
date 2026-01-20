@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/aile-medya-plani" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>American Academy of Pediatrics</p></td></tr><tr><td><p>AİLE MEDYA KULLANIM PLANI</p><p><strong>MEDYA DENGESİNİ SAĞLAMAK</strong></p></td><td><p></p></td></tr></table><p>  </p><table><tr><td><p>Evde, okulda veya işte, medya ve dijital cihazlarla çevriliyiz. Öte yandan aile, arkadaşlar ve öğretmenlerle yüz yüze zaman geçirmenin çocuğun öğrenmesi ve sağlıklı gelişimi açısından çok önemli olduğunu da biliyoruz. </p></td></tr></table><p></p><table><tr><td colspan="2"><p><a id="_Hlk156229001"></a>Her gün aile olarak birlikte yapabileceğiniz "ekransız" bir etkinlik planlayın.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Ailece yaşadığınız en güzel hatıralardan bazıları anlık gündelik olaylar sonucu oluşur: Örneğin birlikte yemeğe çıkmak, bir evcil hayvanla oynamak veya araba ya da otobüs yolculuğunda sohbet etmek gibi. Birlikte geçirdiğiniz bu zamanlar çocuğunuzun öğrenmesinde ve gelişiminde önemli bir rol oynar.</li><li>Telefonunuzdan uzaklaşmak, o anlarda tamamen ailenizle birlikte olmanızı sağlar. Bu zamandan yararlanan sadece çocuklarınız değil siz de olacaksınız; ruh sağlığınızı ve ebeveynlik güveninizi de artırabileceksiniz.</li></ul></td><td><p>Nasıl?</p><ul><li>Her gün aynı saatte ekransız bir aktivite planlayın veya bunu spontane gerçekleşecek hale getirin.</li><li>Günlük bir programınız varsa, ailenizle birlikte yemek pişirebileceğiniz, kitap okuyabileceğiniz veya dışarı çıkabileceğiniz bir zaman dilimi yaratabilirsiniz. Çocuklar öngörülebilir, tutarlı rutinleri severler.</li><li>Kullanılabileceğiniz ekransız aktivite fikirleri edinmek için bir etkinlik fikirleri kavanozu oluşturun. Aklınıza gelenleri yazın ve kavanoza atın. </li><li>Fikirler için sanatsal faaliyetler ve el işleri, kütüphane ziyaretleri, spor aktiviteleri veya çocuğunuzun sevdiği diğer hobilerden ilham alın.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Toplumsal etkinliklere katılın.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Toplumlarına bağlı olan çocukların ruh sağlığı daha iyi olur.</li><li>Kültür merkezlerine, kütüphanelere veya doğa parklarına düzenli geziler bu bağ duygusunu geliştirebilir. Tüm bunlar ve diğer gönüllü etkinliklere katılmak, gerçek dünyayla sağlıklı bir bağlantı kurmanızı ve düzenli olarak medyadan uzaklaşmanızı sağlar.</li></ul></td><td><p>Nasıl?</p><ul><li>Örneğin kültür merkezlerinin ve kütüphanelerin çocuk dostu etkinliklerine, gençlik gruplarına veya doğa gezilerine göz atın. </li><li>Yürüyüş yapmak için düzenli bir rutin oluşturmaya çalışın.</li><li>Daha büyük çocuklar spor salonuna veya alışveriş merkezlerine gezi planlamayı sevebilir.</li><li>Kamu kurumları, hayvan barınakları ve diğer yardımlaşma kuruluşları çocukların düzenli olarak gönüllülük faaliyetlerine katılmasına imkân sağlayabilir.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Kimsenin izlemediği veya kullanmadığı medya cihazını kapatmayı alışkanlık haline getirin.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Birçok aile, kimsenin izlemediği zamanlarda televizyonu açık bırakma alışkanlığındadır. Fazladan elektrik kullanmanın ötesinde, bu durum çocukların dil, dikkat ve oyun becerilerini olumsuz etkileyebilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Kullanılmadıkları zaman lambaları ve medya cihazlarını kapatma alışkanlığını başlatın. </li><li>Dikkatinizin dağıldığını hissediyorsanız etrafınıza bakın ve hangi ekranların veya seslerin düşüncelerinizi böldüğünü tespit edin. Daha sonra bunları kapatın.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Çevrimiçi etkinliklerinizi takip edin ve hangilerinin fazla zaman alabileceği hakkında değerlendirme yapın.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Akıllı telefonların, tabletlerin ve internete bağlı cihazların çoğu, aile üyelerinin farklı uygulamalarda ne kadar zaman harcadığını gösteren haftalık raporlar sunar.</li><li>Bazen bu haftalık raporlara bakana kadar medya kullanımının ne kadar zaman alabileceğini fark etmeyebiliyoruz. Ebeveynler olarak kendi cihazlarınızda ne kadar zaman harcadığınızı bilmiyor olabilirsiniz; dolayısıyla bu değerlendirmeyi yapmak tüm aile için yararlı bir egzersiz olacaktır.</li></ul></td><td><p>Nasıl?</p><ul><li>Ailenizin çevrimiçi kullanımını izlemenize ve kontrol etmenize yardımcı olacak <a href="https://support.apple.com/tr-tr/108806">Apple Ekran Süresi</a> veya <a href="https://families.google/intl/tr_ALL/familylink/">Google Family Link</a> gibi özelliklerin nasıl kurulacağıyla ilgili eğitimlere bakın. Birçok farklı ebeveyn kontrol uygulaması mevcuttur.</li><li>Ebeveyn denetimlerini kullanmanın özellikleri, yararları ve sakıncaları hakkında daha detaylı bilgi edinmek için bkz. <a href="https://www.commonsensemedia.org/articles/parents-ultimate-guide-to-parental-controls">Common Sense Media® Ebeveyn Denetimlerine İlişkin Temel Kılavuz</a> (İngilizce)</li><li>Ebeveyn kontrollerini ayarlarken çocuğunuza neyi sınırladığınızı ve bunun nedenini açıklayın. Ancak izlemenin çözümün yalnızca bir parçası olduğunu unutmayın. </li><li>Hangi uygulamaların "zaman kaybı" olduğu ve hangilerinin makul olduğu (ve nedeni) hakkında tartışın.</li><li>Her aile üyesinin çevrimiçi ve çevrimdışı deneyimleri nasıl dengeleyeceğine ilişkin hedefler belirleyin.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Medya cihazlarınızda daha az uygulama bulundurun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Cihazınızın ana ekranında bulunan çeşitli uygulamaları gördüğünüzde onları hemen kullanmak cazip gelebilir. Bu, cihazlarda daha fazla zaman harcanmasına neden olabilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Cihazlarındaki ana ekranları temizlemek için çocuklarınızla birlikte inisiyatif alın. Kullanmadıkları, hoşlanmadıkları veya çok fazla zaman ve dikkatlerini alan uygulamaları kaldırın.</li><li>Kaldırmak istemedikleri ancak hemen görünür olmaları gerekmeyen uygulamaları klasörlere koyun. Bu aynı zamanda güzel veya eğlenceli bir ana ekran görüntüsü için alan açar. </li></ul></td></tr></table><table><tr><td colspan="2"><p>Çocuklarınızın günlerini medyadan çok oyunla doldurun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Beyin gelişiminin büyük bir kısmı 5 yaşından önce gerçekleşir. Bu gelişmenin çoğu oyun, keşif ve çocukların kendi başlarına bir şeyler çözmeye çalışmaları yoluyla elde edilir. Pek çok popüler video ve uygulama aslında pek de eğitici değildir. Eğitim etiketlerini ve açıklamalarını dikkatlice okuduğunuzdan emin olun.</li></ul></td><td><p>Nasıl?</p><ul><li>HealthyChildren.org e-bültenlerinden fikir alın. <a href="https://healthychildren.org/English/tips-tools/HealthyChildren-Texting-Program/Pages/default.aspx">Buradan kaydolun!</a> (İngilizce) </li><li><a href="https://app.vroom.org/">Vroom</a> uygulaması zihinsel gelişime yardımcı fikirler sunmaktadır. <a href="https://pbskids.org/apps/pbs-parents-play--learn.html">PBS Play and Learn</a> uygulamasında ise ekrandan ve ekran dışı kaynaklardan yeni şeyler öğrenmenin yolları vardır.  </li></ul></td></tr></table><table><tr><td colspan="2"><p>Kilit ekranlarınıza lüzumsuz kullanıma dair hatırlatma mesajları koyun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Bazen cihazlarımızı hiç düşünmeden kullanırız, sırf alışkanlıktan dolayı elimize alırız. Görsel bir hatırlatma sizin veya çocuklarınızın yaptığı anlamsız ve amaçsız cihaz kullanımını azaltmanıza yardımcı olabilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Komik bir resim ya da ilham verici bir nesne veya alıntı bulun ve bunu kilit ekranı olarak kaydedin. Daha sonra, hiç düşünmeden telefonunuzu elinize aldığınızda, başka bir şey yapmanız veya cihazınızı bilerek kullanmanız için bir hatırlatıcı alırsınız. </li></ul></td></tr></table><table><tr><td colspan="2"><p>Medya kullanımı için zaman sınırları belirleyin.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Erken çocukluk döneminde 1 saat veya daha az eğlence amaçlı medya izlemenin olumlu sağlık sonuçlarıyla doğrudan bağlantısı vardır.</li><li>Çocuklara medya kullanımlarını kendi başlarına düzenlemeyi öğretmek, büyüdüklerinde medya üzerinde daha fazla öz kontrole sahip olmalarına yardımcı olabilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Çocuklarınızla zaman sınırlarının ne olduğu ve ekranı kendi kendilerine kapatma konusunda öz kontrol geliştirmelerinin ne kadar önemli olduğu hakkında konuşun.</li><li>Çocuğunuzun bir zamanlayıcı ayarlamasını ve kullanmasını sağlayın. Bir sonraki bölüm bittiğinde veya belirli bir saate ulaşıldığında cihazlarını veya TV'lerini kapatmayı kabul edebilirler. </li></ul></td></tr></table><p></p><table><tr><td colspan="2"><p>Ekran başında geçirilen zamanın fiziksel aktiviteyi ve sağlıklı beslenmeyi etkilemediğinden emin olun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Çocukların her gün fiziksel aktivite için zamana ihtiyacı vardır.<ul><li><strong>Çocuklar ve Gençler:</strong> 6 yaş ve üzeri her gün 60 dakika orta düzeyde fiziksel aktiviteye ihtiyaç duyar.</li><li><strong>Okul öncesi çocuklar:</strong> 3-5 yaş arası uyanık oldukları her saat için 15 dakikalık aktiviteye ihtiyaç duyarlar. Bu, günde 3 saate kadardır.</li><li><strong>Bebekler ve Yeni Yürümeye Başlayan Çocuklar:</strong> Her gün en az 30 dakika "karın üstü vakit geçirmeye" veya diğer etkileşimli oyunlara ihtiyaç duyarlar.</li></ul></li><li>Çok fazla medya zamanı, daha yüksek obezite riskiyle bağlantılıdır. Medya oyundan ve fiziksel aktiviteden zaman alabilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Fiziksel aktiviteye zaman ayırın. Bu, yürüyüşleri, egzersizleri ve ayrıca dans etme veya oyun oynama gibi eğlenceli hareketleri içerebilir. </li><li>Yemek zamanlarında cihazları kapatın. Çocuğunuzun gününün nasıl geçtiği hakkında konuşmak için zaman ayırın.</li></ul></td></tr></table><table><tr><td colspan="2"><p>Duygularımızı köreltmek için medyaya başvurduğumuzu fark edin ve buna alternatif sağlıklı yollar bulun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Siz veya çocuğunuz stresli hissettiğinde telefonunuzu elinize almak veya TV izlemek cazip gelebilir. Ancak bu, stres duygularıyla gerektiği gibi başa çıkılmadığı anlamına da gelebilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Rahatsız edici duygu ve durumlardan kaçınmak yerine, çocuğunuzun bunları yönetmenin sağlıklı yollarını öğrenmesine yardımcı olun. Örneğin, stresli veya zorlu görevleri küçük parçalara ayırma konusunda onlarla konuşun.</li><li>Çocuğunuzun daha fazla zihinsel sağlık desteğinden yararlanabileceğini düşünüyorsanız çocuk doktorunuzla konuşun.</li></ul></td></tr><tr><td colspan="2"><p>Sağlıksız video oyunu alışkanlıklarının önüne geçin.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Video oyunları oynamak, ergenlik/gençlik yaşamının eğlenceli ve normal bir parçasıdır. Ancak oyun oynayarak geçirdikleri zamanı kontrol etmekte zorlanan az sayıda çocuk da vardır.</li><li>Araştırmalar bize video oyunlarının kumara benzediğini, beyindeki ödül sistemini harekete geçirebileceğini göstermiştir.</li><li>Sağlıksız video oyunlarının belirtileri:<ul><li>Oyun elinden alındığında üzgün, kızgın veya endişeli olma</li><li>Oyunu kesememe veya bırakamama.</li><li>Eskiden keyif aldığı diğer aktiviteleri yapmaktan hoşlanmama</li><li>Oynamak için ne kadar zaman harcandığına dair yalan söyleme</li><li>Kötü ruh hallerini gidermek için oyunları kullanma</li></ul></li></ul></td><td><p>Nasıl?</p><ul><li>Oyun oynamayla ilgili kurallar belirleyin.<ul><li>Okul ödevleri tamamlandıktan sonra oyun oynamasına müsaade edin.</li><li>Oyun cihazlarını mümkün olduğunca ortak alanlarda tutun.</li><li>Çocuğunuzla oturun ve en sevdiği oyunların üzerinden geçin. Artık büyüdükleri veya artık fazla oynamadıkları oyunları birlikte silin.</li><li>Birlikte video oyunları oynayın. Bu, sınırları belirlemenize de yardımcı olabilir.</li><li>Mümkünse dışarıda oynamak gibi etkinlikleri teşvik edin.</li><li>Çocuğunuzun indirdiği ve oynadığı oyunların farkında olun. Bazı oyunların şiddet içeriği olabilir. Oyunları şiddet içermeyen başkalarıyla değiştirmeye çalışın.</li><li>Çocuğunuzla, bazı video oyunlardaki reklamları veya mesajları nasıl gizleyebileceği hakkında konuşun. Oyunlar lokasyonumuz gibi kişisel bilgileri de toplayabilir.</li></ul></li></ul></td></tr></table><table><tr><td><p></p></td><td><p>Amerikan Pediatri Akademisi Aile Medya Planlayıcısı, <br />2023 yılında ABD'de düzenlenen Digital Health Awards <br />(Dijital Sağlık Ödülleri) yarışmasında "Web Tabanlı Dijital Sağlık Uygulamaları" kategorisinde bronz ödülü kazanmıştır.</p></td></tr></table><table><tr><td><p>Amerikan Pediatri Akademisi (AAP) sponsorluğunda HealthyChildren.org sayfasından uyarlanmıştır. <br />Daha fazla bilgi için <a href="https://healthychildren.org//english/fmp/pages/mediaplan.aspx"><strong>https://healthychildren.org//english/fmp/pages/mediaplan.aspx</strong></a><strong> </strong>adresine gidin.</p></td></tr></table><table><tr><td><p>      <sup>|</sup>      </p></td><td><p>Bu plan kılavuzunda yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p>© 2024 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A-30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:klinik&#64;drmurzoglu.com">klinik&#64;drmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/aile-medya-plani/Aile%20Medya%20Plan%C4%B1%20%5B1%5D%20-%20Medya%20Dengesi.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

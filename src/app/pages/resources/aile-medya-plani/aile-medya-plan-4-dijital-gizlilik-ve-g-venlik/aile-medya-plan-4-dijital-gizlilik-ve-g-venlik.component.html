@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/aile-medya-plani" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>American Academy of Pediatrics</p></td></tr><tr><td><p>AİLE MEDYA KULLANIM PLANI</p><p><strong>DİJİTAL GİZLİLİK VE GÜVENLİK</strong></p></td><td><p></p></td></tr></table><p>  </p><table><tr><td><p>Başkalarına karşı nazik ve anlayışlı olma konusunda beklenti sahibi olun. </p><p>Sağlıklı, saygılı ilişkilerin ve pozitif medya kullanımının anahtarı budur. (Hem çevrimiçi hem de çevrimdışı)</p></td></tr></table><p></p><table><tr><td colspan="2"><p>Aşırı paylaşım yapmaktan kaçınmaya çalışın.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Dijital bilginin paylaşılması ve yayılması kolaydır. Fotoğraflar, hassas kişisel bilgiler veya iletişim bilgileri gibi özel bilgilerin sosyal medya, mesaj veya e-posta yoluyla yayılması, utanç verici olabilir ve çocuğun sağlığına zarar verebilir.</li><li>Çocukların fotoğraflarını ebeveynlerin internette aşırı derecede paylaşımı da aynı tehlikeyi taşır.</li></ul></td><td><p>Nasıl?</p><ul><li>Bir fotoğrafı veya bilgiyi çevrimiçi olarak yayınlamadan önce ebeveynler, gençler ve çocuklar kendilerine aşağıdaki soruları sormalıdır:<ul><li>Bu bilgiyi/fotoğrafı herkesin görmesinin bir sakıncası olur mu?</li><li>Fotoğraftaki kişiler fotoğrafın internette yayınlanmasından memnun mu? </li></ul></li></ul></td></tr></table><table><tr><td colspan="2"><p>Medyadaki tuzakları ve uygunsuz içerikleri tartışın ve bunlardan kaçının.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Çok küçük çocuklarda medya dili, davranışı veya sosyal becerileri etkileyebilir. Araştırmalar, küçük çocukların medyadan öğrendiklerinin sizinle konuşmak ve oynamak kadar olmadığını gösteriyor.</li></ul></td><td><p>Nasıl?</p><ul><li>Çocuğunuzu medyayla tanıştırmada aceleci olmayın. Çocuğunuz 18 ila 24 aylık olana kadar görüntülü sohbet dışında medya kullanmayın. 2-5 yaş arası çocuğunuz için medyayı günde bir saatten fazla olmayacak şekilde sınırlayın.<ul><li>Oyuna öncelik verin. Diğer çocukları çocuğunuzla oynamaya davet edin.</li><li>Medyayı birlikte izleyin ve tartışın. Bu, çocuğunuzun gördüklerini ve duyduklarını anlamasına yardımcı olur.</li><li>Yüksek kaliteli ve eğitici programları seçin. </li></ul></li><li>Daha fazla ipucu için, bkz. <a href="https://www.healthychildren.org/English/family-life/power-of-play/Pages/10-no-cost-screen-free-activities-to-play-with-your-preschooler.aspx">Okul Öncesi Çocuğunuzla Oynayabileceğiniz 10 Ekransız Aktivite</a> (İngilizce içerik)</li></ul></td></tr></table><table><tr><td colspan="2"><p>İyi bir dijital vatandaş olmanın yolları hakkında konuşun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Küçük yaşlardan itibaren çocuklar internette neyin kabul edilebilir (veya neyin kabul edilemez) olduğuna dair fikirler geliştirir. Ebeveynler, bu tartışmayı erken çocukluk döneminde başlatarak dijital nezaket ve öz kontrol konusunda sağlam bir temel oluşturmaya yardımcı olabilirler.</li></ul></td><td><p>Nasıl?</p><ul><li>Çocuğunuza dijital vatandaşlığı öğretmeye başlamak için Common Sense Media'daki bu <a href="https://www.commonsense.org/education/videos/pause-think-online">videoya</a> göz atın. (İngilizce içerik)</li></ul></td></tr></table><table><tr><td colspan="2"><p>Çevrimiçi olarak kimlerle sohbet edeceğinize ilişkin güvenlik kurallarını belirleyin ve bunlara uyun.</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p>Neden?</p><ul><li>Bugün herkes çevrimiçi ortamlarda zaman geçirmektedir. Bu, ebeveynlerin ve çocukların muhtemelen şahsen konuşamayacakları her türden farklı insanla tanışabilecekleri anlamına gelir.</li><li>Bazen bu olumlu bir şeydir; belirli tıbbi sorunlar için destek grupları bulmak gibi. Ancak bu durum, çevrimiçi ortamda birinin tacizde bulunması veya kim olduğu hakkında yalan söylemesi gibi sorunlara da yol açabilir.</li></ul></td><td><p>Nasıl?</p><ul><li>Çocuğunuz yeni bir sosyal medya hesabına, çevrimiçi video oyununa, sanal gerçeklik oyununa veya diğer çevrimiçi sosyal aktiviteye başlamadan önce, yabancılarla nasıl başa çıkacağına dair bir plan yapın. Sadece okuldaki arkadaşlarıyla konuşacakları özel bir ortam mı seçecekler? Bir trol olursa nasıl tepki verecekler? </li><li>Çocukların gerçek yaşlarını bildirdiğinden emin olun. Pek çok site, 13 yaşın altındaki kullanıcılara (bazı durumlarda 18) hitap etmemektedir ve bu nedenle güvenli olmayacaktır.</li></ul></td></tr></table><table><tr><td><p></p></td><td><p>Amerikan Pediatri Akademisi Aile Medya Planlayıcısı, <br />2023 yılında ABD'de düzenlenen Digital Health Awards <br />(Dijital Sağlık Ödülleri) yarışmasında "Web Tabanlı Dijital Sağlık Uygulamaları" kategorisinde bronz ödülü kazanmıştır.</p></td></tr></table><table><tr><td><p>Amerikan Pediatri Akademisi (AAP) sponsorluğunda HealthyChildren.org sayfasından uyarlanmıştır. <br />Daha fazla bilgi için <a href="https://healthychildren.org//english/fmp/pages/mediaplan.aspx"><strong>https://healthychildren.org//english/fmp/pages/mediaplan.aspx</strong></a><strong> </strong>adresine gidin.</p></td></tr></table><table><tr><td><p>      <sup>|</sup>      </p></td><td><p>Bu plan kılavuzunda yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p>© 2024 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A-30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:klinik&#64;drmurzoglu.com">klinik&#64;drmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/aile-medya-plani/Aile%20Medya%20Plan%C4%B1%20%5B4%5D%20-%20Dijital%20Gizlilik%20ve%20G%C3%BCvenlik.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

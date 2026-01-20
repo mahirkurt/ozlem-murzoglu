@@ -13,8 +13,8 @@ import { CommonModule } from '@angular/common';
         (click)="toggleWidget()"
         [attr.aria-label]="isExpanded ? 'Randevu panelini kapat' : 'Online randevu al'"
       >
-        <span class="material-icons" *ngIf="!isExpanded">calendar_today</span>
-        <span class="material-icons" *ngIf="isExpanded">close</span>
+        <span class="material-icons-rounded" *ngIf="!isExpanded">calendar_today</span>
+        <span class="material-icons-rounded" *ngIf="isExpanded">close</span>
         <span class="widget-text" *ngIf="!isExpanded">Online Randevu</span>
       </button>
 
@@ -32,7 +32,7 @@ import { CommonModule } from '@angular/common';
             class="widget-action primary"
             (click)="trackAction('online')"
           >
-            <span class="material-icons">open_in_new</span>
+            <span class="material-icons-rounded">open_in_new</span>
             <div>
               <strong>Online Randevu</strong>
               <small>Randevu sistemine git</small>
@@ -59,7 +59,7 @@ import { CommonModule } from '@angular/common';
             class="widget-action phone"
             (click)="trackAction('phone')"
           >
-            <span class="material-icons">phone</span>
+            <span class="material-icons-rounded">phone</span>
             <div>
               <strong>0216 576 11 90</strong>
               <small>Telefon ile randevu</small>
@@ -121,7 +121,7 @@ import { CommonModule } from '@angular/common';
       box-shadow: 0 12px 40px rgba(var(--md-sys-color-primary-rgb), 0.4);
     }
 
-    .widget-button .material-icons {
+    .widget-button .material-icons-rounded {
       font-size: 24px;
       position: relative;
       z-index: 1;
@@ -229,7 +229,7 @@ import { CommonModule } from '@angular/common';
       background: linear-gradient(135deg, #fde68a, #fbbf24);
     }
 
-    .widget-action .material-icons {
+    .widget-action .material-icons-rounded {
       font-size: 24px;
       color: var(--color-primary);
     }
@@ -240,7 +240,7 @@ import { CommonModule } from '@angular/common';
       color: var(--md-sys-color-brand-whatsapp);
     }
 
-    .widget-action.phone .material-icons {
+    .widget-action.phone .material-icons-rounded {
       color: #f59e0b;
     }
 

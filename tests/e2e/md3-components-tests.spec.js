@@ -10,7 +10,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('MD3 Component Validation', () => {
 
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4201');
+    await page.goto('http://localhost:4200');
     await page.waitForLoadState('domcontentloaded');
   });
 

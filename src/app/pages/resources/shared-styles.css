@@ -252,7 +252,7 @@
   flex-shrink: 0;
 }
 
-.doc-icon-wrapper .material-icons {
+.doc-icon-wrapper .material-icons-rounded {
   font-size: 24px;
 }
 
@@ -330,12 +330,12 @@
   font-size: 0.875rem;
 }
 
-.doc-action .material-icons {
+.doc-action .material-icons-rounded {
   font-size: 18px;
   transition: transform 0.3s;
 }
 
-.doc-card:hover .doc-action .material-icons {
+.doc-card:hover .doc-action .material-icons-rounded {
   transform: translateX(4px);
 }
 
@@ -476,7 +476,7 @@
   justify-content: center;
 }
 
-.empty-icon .material-icons {
+.empty-icon .material-icons-rounded {
   font-size: 48px;
   color: var(--color-neutral-400);
 }

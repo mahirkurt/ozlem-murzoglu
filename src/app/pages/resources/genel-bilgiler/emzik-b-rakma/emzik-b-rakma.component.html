@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>UZM.DR. ÖZLEM MURZOĞLU - ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ</p></td></tr><tr><td><p>EMZİRME İÇİN İPUÇLARI:</p><p><strong>YERLEŞME VE KAVRAMA</strong></p></td><td><p></p></td></tr></table><table><tr><td><p><strong>Yerleşme ve kavrama nedir?</strong></p></td></tr></table><p></p><p>Yerleşme ve kavrama, bebeğinizi beslerken göğsünüzde nasıl tuttuğunuzu açıklamak için kullanılan terimlerdir. Başarılı emzirme için en önemli adımlar doğru yerleştirme ve kavramadır. Bebeğiniz memeye iyi yerleşip kavradığında, kolayca beslenebilecektir.</p><p>Emzirmenin ilk günlerinde, bebeğinizi emzirdiğiniz ilk dakikalarda meme ucunda hassasiyet hissedebilirsiniz. Ancak bu durum acı verici olmamalıdır.</p><p>Emzirmeye başlamadan önce rahat bir pozisyon bulun. Herhangi bir yeni beceri gibi, bu da pratik gerektirir. Çok az kural var ama sizin ve bebeğinizin rahat oturması veya uzanması önemlidir.</p><table><tr><td><p><strong>Doğru Pozisyonu Bulmak ve Kavramayı Kolaylaştırmak</strong></p></td></tr></table><p></p><ol><li>Meme ucunuzla bebeğinizin dudaklarını gıdıklayın. Bu, bebeğin ağzını geniş açmasına yardımcı olacaktır. Bebeğinizin ağzı açıkken onu göğsünüze getirin.</li><li>Göğüs ucunuzla bebeğinizin üst dudağının hemen yukarısını (ağzın üst kısmını) hedefleyin. Bebeğinizin çenesinin göğsüne sıkışmadığından emin olun.</li><li>Bebeğiniz memeyi doğru kavradığında, göğüs ucunuz ve areolanın çoğu (meme ucunun etrafındaki alan) bebeğinizin ağzının derinliklerinde olacak; bebeğinizin çenesi memenize basılı halde olacaktır.</li><li>Bebeğin dudakları, emerken balık gibi dışa dönük olmalıdır. Bebeğiniz çenesi önce memenize dokunmalı ve ardından göğsünüzü kavramalıdır. Bebeğinizin dili uzamalı ve memeniz bebeğinizin ağzını doldurmalıdır.</li><li>Bebeğinizin rahat nefes alabilmesi için burnu temiz olmalıdır. Yenidoğanlar burundan nefes alırlar, emerken rahat nefes alamazlar ise memeden koparlar. Doğru pozisyonda bebeğiniz rahat bir şekilde emebilir, yutabilir ve nefes alabilir. Bebeğinizin burnu tıkalı görünüyorsa, poposunu kendinize yaklaştırın. Bu, bir baş eğimi yaratacak ve burun deliklerinin açık kalmasını sağlayacaktır.</li><li>Kavrama ne kadar derin olursa, kendinizi o kadar rahat hissedersiniz ve bebeğiniz o kadar iyi beslenir.</li><li>Areolanız (memenizin ucunun çevresindeki kahverengi kısmı), bebeğinizin  alt dudağının altından çok, üst dudağının üstünde görünür olacaktır. Yanakları daha dolgun görünecektir.</li><li>Bebekler ilk başta hızlı bir şekilde emerler, ardından daha uzun ve yavaş emerler. Yutkunduklarını duyabilirsiniz.</li></ol><p>Bebeğiniz göğüs ucunuzun hemen ucunu tutuyorsa veya emerken acı hissediyorsanız, bebeği memeden ayırmak için temiz bir parmağınızı nazikçe bebeğinizin ağzına sokun ve ardından tekrar deneyin.</p><table><tr><td><p>Emzirme Pozisyonları</p></td></tr></table><table><tr><td><p><strong>Sırt Üstü Uzanarak Emzirmek</strong></p></td></tr></table><p>Bebek yönetiminde emzirmenin uygulanabileceği harika bir emzirme pozisyonudur. Bebeğiniz göğsünüze kolayca tutunurken sizin rahatlamanızı sağlar. Bu, her ikinizin de emzirmeye alışmaya başladığınız ilk günlerde çok önemlidir. </p><p>Ayrıca daha sonra sütün çok fazla geldiği ve bebeğin bol süt nedeniyle öksürdüğü durumlarda da tercih edebilirsiniz.</p><p></p><p><strong>Tekniğinizi tam olarak doğru yapmanıza yardımcı olacak birkaç ipucu:</strong></p><ul><li>Bu pozisyona geçmek için gereken hareket pelvisinizdendir. Yarı yaslanmış bir pozisyon oluşturmak için kalçalarınızı bir sandalyede veya yatakta öne doğru kaydırın. Bebeğinizi yarı yatırılmış vücudunuza yatırmanız, bebeğinizin vücudunuzla boşluksuz bir şekilde birleşmesini sağlar.</li><li>Bebeğinizi karnı aşağı ve yanakları göğsünüze yakın olacak şekilde üzerinize yatırın.</li><li>Bebeğinizin kendi kendine kavramasına izin verin. Memeyi bulacak ve kendisi memeyi kavrayacaktır. Ayrıca bebeğinizin kavramasına rehberlik edebilir veya yardımcı olabilirsiniz.</li><li>Bebeğinizi vücudunuzun üzerinde desteklemek için kollarınızla destek olabilirsiniz. Ayrıca ihtiyaç duyduğunuz her yerde destek sağlamak için yastık ve minderler kullanabilirsiniz.</li></ul><table><tr><td><p><strong>Çapraz Beşik Pozisyonunda Emzirmek</strong></p></td></tr></table><ul><li>Bebeğinizi yakın ve size dönük tutun. Bebeğinizi desteklemek için kucağınızda bir yastık yerleştirebilirsiniz. Bebeğinizin boynunu, sırtını ve omuzlarını nazikçe destekleyin. Bu, başını kolayca geriye doğru eğebilmesine olanak verecektir.</li><li>Bebeğinizin başının arkasını tutmayın veya örtmeyin. Bu, geriye doğru itilmelerine veya memeyi kavrama başarısızlığına neden olabilir. Başarılı bir kavrama için bebeğin başını geriye doğru eğebileceği bir alan yaratmak önemlidir.</li><li>Bazen parmaklarınızı ve başparmağınızı areolanın gerisine yerleştirerek memenize şekil verebilirsiniz. Bu şekil verme sayesinde bebeğiniz memenizi daha rahat kavrayabilir. </li><li>Diğer elinizin avuç içi bebeğinizin sırtını destekleyebilir.</li></ul><p></p><table><tr><td><p><strong>Futbol Topu Pozisyonunda Emzirmek</strong></p></td></tr></table><ul><li>Eliniz ve bileğinizle bebeğinizin boynunu, sırtını ve omuzlarını destekleyin.</li><li>Bebeğinizin sırtının kolunuz boyunca uzanmasına izin verin. Bebeğiniz, burnu meme ucuna yakın olacak şekilde size bakmalıdır. Diğer elinizle ise memenizi destekleyin.</li><li>Meme ucunuzu, bebeğinizin ağzına doğru yönlendirin.</li><li>Bebeğiniz daha sonra yakınlaşacak ve emmeye başlayacaktır.</li></ul><p></p><table><tr><td><p><strong>Yatarak Emzirmek</strong></p></td></tr></table><ul><li>Siz ve bebeğiniz birbirinize bakacak şekilde uzanın.</li><li>Boynunuzun ve sırtınızın desteklendiğinden ve rahat olduğundan emin olun. Bebeğinizin göğsü sizin göğsünüze dönük olmalıdır.</li><li>Üstüne uzandığınız kolu başınızın altına koyun ya da bebeğinizi desteklemek için başının altına veya vücuduna dolayarak kullanın.</li><li>Destek için bebeğinizin sırtının arkasına bir yastık veya kıvrılmış bir battaniye yerleştirebilirsiniz.</li><li>Bebeğinizin burnu meme ucuna yakın olmalıdır. Oradan bebeğiniz anne sütünün kokusunu alacak, ağzını kocaman açacak ve meme ucunu bulacaktır.</li><li>Göğsünüzün bebeğinizin ağzının derinliklerinde olduğundan emin olun (ideal olarak sert ve yumuşak damağın birleştiği yerde).</li></ul><p></p><table><tr><td><p><strong>ASLA YAPMAYIN!</strong></p><ul><li>Mümkünse, emme sırasında bebeğinizi göğsünüze doğru bastırmayın-itmeyin.</li><li>Emzirdikten sonra bebeğinizin dudaklarını kontrol etmeyin. Bu, memenizin bebeğinizin ağzından çıkmasına neden olur.</li><li>Bebeğinizin ellerini örtmeyin veya kısıtlamayın.</li><li>Bebeğinizin başının arkasına dokunmayın. Bu onların geri itilmesine neden olabilir.</li><li><strong>Ani bebek ölümü sendromu (bebek karyolası ölümü) riskini artıracağından asla bebeğinizle kanepede veya koltukta uyuya kalmayın!</strong></li></ul></td></tr></table><table><tr><td><p>İyi Kavramanın İşaretleri</p></td></tr></table><p></p><ul><li>Kavrama-emme rahat ve ağrısızdır.</li><li>Bebeğinizin göğsü ve midesi vücudunuza yaslanır, böylece bebeğin başı yana doğru değil düz olur.</li><li>Bebeğinizin ağzı açık ve dudakları dışarı dönüktür. Bebeğinizin dil çukurları göğsünüzün altındadır.</li><li>Çenesi ve burnu memenize dayalıdır.</li><li>Bebeğiniz, areolayı mümkün olduğu kadar ağzına almıştır. Bebeğinizin ağzı sadece meme ucunun değil, göğsünüzün etrafında genişçe açılır.</li><li>Duraklamalarla ayrılmış kısa aralıklarla ritmik ve derin bir şekilde emiyordur.</li><li>Düzenli olarak yutkunduğunu duyabilirsiniz.</li><li>Bebeğinizin kulakları hafifçe hareket eder.</li><li>İlk birkaç emmeden sonra göğüs ucunuz rahatlar.</li></ul><p><strong>Yanlış Kavrama Belirtileri</strong></p><ul><li>Bebeğinizin kafası vücuduyla aynı hizada değildir.</li><li>Meme ucu ile birlikte areolayı emmek yerine sadece meme ucunu emiyordur.</li><li>Derin, düzenli emmek yerine hafif, hızlı, çırpınan bir şekilde emiyor.</li><li>Yanakları içe doğru büzülmüş veya şapırtılar duyuyorsunuz.</li><li>Süt üretiminiz arttıktan sonra bile düzenli olarak yutkunduğunu duymazsınız.</li><li>Emzirme boyunca ağrı hissediyorsunuzdur veya meme ucunda hasar belirtileri (çatlama veya kanama gibi) vardır.</li></ul><p><strong>İyi bir kavrama pozisyonu bulmakta sorun yaşıyorsanız, şunu deneyin:</strong></p><ul><li>Sessiz, sakin bir yere geçin.</li><li>Bebeğinizi ten ten tene tutun. Hem siz hem de bebeğiniz soyunurken bebeğinizi göğsünüze yaslayın.</li><li>Bebeğinizin yönetmesine izin verin. Ellerinizle bebeğinizin boynunu, omuzlarını ve kalçasını destekleyin. Göğsünüzü sunun, ancak bebeğinizin meme ucunuzu kendi kendine bulmasına izin verin.</li></ul><table><tr><td><p>Etkisiz Emmenin Sonuçları</p></td></tr></table><ul><li>Memeler sütle dolu kalabilir.</li><li>Süt yavaş geldiğinde bebek tatmin olmayabilir.</li><li>Bebek fazla ağlayabilir, sık beslenmek ya da uzun süreli beslenmek isteyebilir.</li><li>Bebek yeterli süt alamayabilir.</li><li>Bebek o kadar sinirlenir ki anne sütü ile beslenmeyi tümden reddedebilir. Ağırlık alamayabilir. </li><li>Süt boşalmadığından, memeler daha az süt yapabilir.</li></ul><table><tr><td><p><strong>Anne Sütü Elle Nasıl Sağılır?</strong></p></td></tr></table><ul><li>Süt refleksinizi uyarmak için elleriniz ve parmak uçlarınızla göğüslerinize hafifçe masaj yapın. Bu, en etkili elle sağma uyaranıdır.</li><li>Parmaklarınızı ve başparmağınızı göğsünüzün etrafını C şeklinde sarın, parmaklarınızı areolanıza yakın ama areolanıza değmeyecek şekilde göğsünüze yerleştirin.</li></ul><p></p><ul><li>Parmaklarınızı ve başparmağınızı göğsünüze doğru bastırın.</li><li>Göğsünüzü parmaklarınız ve başparmağınız arasında sıkıştırın, onları göğsünüzden kaldırmadan hafifçe meme ucunuza doğru hareket ettirin.</li><li>Elinizi göğsünüzden çekmeden bırakın.</li><li>Birkaç basıdan sonra veya süt akışı durduğunda elinizi göğsünüzün etrafında farklı bir yere hareket ettirerek aynı işlemi tekrarlayın, böylece tüm süt kanallarınızı sıkıştırmış olursunuz. Bastırıp serbest bırakarak ve ritmik olarak tekrarlayarak, bebeğin emmesini taklit etmiş olursunuz.</li></ul><table><tr><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. </p><p>Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p><strong>© 2022 Uzm.Dr. Özlem Murzoğlu. Tüm hakları saklıdır.</strong></p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/genel-bilgiler/Emzik%20B%C4%B1rakma.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

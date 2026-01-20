@@ -143,7 +143,8 @@
       font-size: 2.5rem;
       font-weight: 800;
       margin: 0 0 8px 0;
-      line-height: 1.2;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
     }
     
     .doctor-specialty {
@@ -151,6 +152,8 @@
       color: var(--md-sys-color-secondary);
       margin: 0;
       font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: 0.2px;
     }
   }
   
@@ -166,6 +169,8 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 20px;
+    line-height: 1.3;
+    letter-spacing: 0.2px;
   }
   
   .resume-cta-link {
@@ -258,8 +263,9 @@
       font-weight: 700;
       color: var(--md-sys-color-primary);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
+      letter-spacing: 0.7px;
+      line-height: 1.4;
+      margin-bottom: 6px;
     }
     
     h4 {
@@ -267,13 +273,23 @@
       font-weight: 600;
       color: var(--md-sys-color-on-surface);
       margin: 0 0 4px 0;
-      line-height: 1.3;
+      line-height: 1.35;
+      letter-spacing: 0.1px;
     }
     
     .timeline-org {
       font-size: 13px;
       color: var(--md-sys-color-secondary);
+      line-height: 1.4;
     }
+  }
+
+  .timeline-item.education .timeline-content .timeline-year {
+    color: var(--md-sys-color-tertiary);
+  }
+
+  .timeline-item.experience .timeline-content .timeline-year {
+    color: var(--md-sys-color-primary);
   }
 }
 
@@ -319,9 +335,10 @@
 /* Quote Section */
 .bio-quote {
   position: relative;
-  margin: 0 0 32px;
+  margin: 0 auto 32px;
   padding-left: 24px;
   border-left: 3px solid var(--md-sys-color-primary);
+  max-width: 68ch;
   
   .quote-icon {
     position: absolute;
@@ -337,8 +354,12 @@
     font-weight: 500;
     color: var(--md-sys-color-primary);
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.7;
   }
+}
+
+.about-quote-section {
+  padding: 0 0 80px;
 }
 
 /* Restored Badges Styles */
@@ -363,7 +384,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.02);
   backdrop-filter: blur(10px);
   
-  .material-icons {
+  .material-icons-rounded {
     font-size: 18px;
   }
 }
@@ -666,13 +687,17 @@
 
 
 /* =========================================
-   3. Certifications Grid (4-Column, 25% Larger)
+   3. Certifications Grid (3-Column, Balanced)
    ========================================= */
 .certifications-section {
   padding: 100px 0;
-  background: linear-gradient(180deg, 
-    rgba(var(--md-sys-color-tertiary-rgb), 0.08) 0%, 
-    rgba(var(--md-sys-color-secondary-rgb), 0.05) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(var(--md-sys-color-tertiary-rgb), 0.1) 12%,
+    rgba(var(--md-sys-color-secondary-rgb), 0.06) 88%,
+    transparent 100%
+  );
   position: relative;
   
   &::before {
@@ -703,14 +728,15 @@
 
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Strict 4-col */
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 24px;
+  row-gap: 28px;
   
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 1120px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   
-  @media (max-width: 600px) {
+  @media (max-width: 720px) {
     grid-template-columns: 1fr;
   }
 }
@@ -763,26 +789,26 @@
   
   .cert-info {
     h3 {
-        font-size: 16px; /* +7% (was 15px) */
-        font-weight: 600;
-        margin: 0 0 4px 0;
-        line-height: 1.3;
-        color: var(--md-sys-color-on-surface);
-        transition: color 0.3s;
+      font-size: 16px; /* +7% (was 15px) */
+      font-weight: 600;
+      margin: 0 0 4px 0;
+      line-height: 1.35;
+      color: var(--md-sys-color-on-surface);
+      transition: color 0.3s;
     }
     .subtitle {
-        font-size: 13px; /* +8% */
-        color: var(--md-sys-color-secondary);
-        margin: 0;
-        line-height: 1.5;
+      font-size: 13px; /* +8% */
+      color: var(--md-sys-color-secondary);
+      margin: 0;
+      line-height: 1.6;
     }
     .cert-date {
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: var(--md-sys-color-tertiary);
-        margin-bottom: 4px;
-        font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--md-sys-color-tertiary);
+      margin-bottom: 4px;
+      font-weight: 700;
     }
   }
 }
@@ -793,10 +819,14 @@
    ========================================= */
 .values-section {
   padding: 100px 0 120px; /* Extra bottom for footer spacing */
-  margin-bottom: 60px; /* Gap before footer */
-  background: linear-gradient(180deg, 
-    rgba(var(--md-sys-color-secondary-rgb), 0.06) 0%, 
-    rgba(var(--md-sys-color-tertiary-rgb), 0.04) 100%);
+  margin-bottom: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(var(--md-sys-color-secondary-rgb), 0.08) 12%,
+    rgba(var(--md-sys-color-tertiary-rgb), 0.06) 88%,
+    transparent 100%
+  );
   position: relative;
   
   &::before {
@@ -881,7 +911,8 @@
     font-size: 18px; 
     font-weight: 700;
     margin: 0;
-    line-height: 1.3;
+    line-height: 1.35;
+    letter-spacing: 0.2px;
     color: var(--md-sys-color-on-surface);
     transition: color 0.3s;
   }
@@ -890,7 +921,7 @@
     font-size: 14px;
     color: var(--md-sys-color-on-surface-variant);
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 }
 
@@ -937,6 +968,22 @@
     bottom: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--md-sys-color-surface) 60%, transparent) 0%,
+      transparent 18%,
+      transparent 82%,
+      color-mix(in oklch, var(--md-sys-color-surface) 60%, transparent) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
   }
   
   .cta-content {
@@ -1003,6 +1050,7 @@
     right: 0;
     bottom: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.35;
     pointer-events: none;
   }
   
@@ -1093,6 +1141,143 @@
     color: var(--md-sys-color-on-surface-variant);
     line-height: 1.6;
     margin: 0;
+  }
+}
+
+:host-context([data-theme='dark']),
+:host-context(.dark-theme) {
+  .bio-photo-column .image-frame-glass {
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  }
+
+  .bio-badges .glass-chip {
+    background: color-mix(in oklch, var(--md-sys-color-surface-container-high) 85%, transparent);
+    border-color: color-mix(in oklch, var(--md-sys-color-outline) 35%, transparent);
+    color: var(--md-sys-color-on-surface);
+    box-shadow: var(--md-sys-elevation-level1);
+
+    .material-icons-rounded {
+      color: var(--md-sys-color-primary);
+    }
+  }
+
+  .bio-resume-column .resume-header {
+    border-bottom-color: color-mix(in oklch, var(--md-sys-color-outline) 40%, transparent);
+  }
+
+  .timeline-compact {
+    border-left-color: color-mix(in oklch, var(--md-sys-color-outline) 35%, transparent);
+
+    .timeline-dot {
+      border-color: var(--md-sys-color-surface-container-high);
+      box-shadow: 0 0 0 2px color-mix(in oklch, var(--md-sys-color-primary) 35%, transparent);
+
+      &.education {
+        box-shadow: 0 0 0 2px color-mix(in oklch, var(--md-sys-color-tertiary) 35%, transparent);
+      }
+    }
+
+    .timeline-content {
+      background: color-mix(in oklch, var(--md-sys-color-surface-container-high) 92%, transparent);
+      border-color: color-mix(in oklch, var(--md-sys-color-outline) 35%, transparent);
+      box-shadow: var(--md-sys-elevation-level1);
+
+      &:hover {
+        background: color-mix(in oklch, var(--md-sys-color-surface-container-highest) 94%, transparent);
+        box-shadow: var(--md-sys-elevation-level2);
+      }
+
+      .timeline-year {
+        color: color-mix(in oklch, var(--md-sys-color-primary) 75%, var(--md-sys-color-on-surface) 25%);
+      }
+
+      .timeline-org {
+        color: var(--md-sys-color-on-surface-variant);
+      }
+    }
+
+    .timeline-item.education .timeline-content .timeline-year {
+      color: color-mix(in oklch, var(--md-sys-color-tertiary) 75%, var(--md-sys-color-on-surface) 25%);
+    }
+
+    .timeline-item.experience .timeline-content .timeline-year {
+      color: color-mix(in oklch, var(--md-sys-color-primary) 75%, var(--md-sys-color-on-surface) 25%);
+    }
+  }
+
+  .bio-glass-card {
+    background: color-mix(in oklch, var(--md-sys-color-surface-container-high) 90%, transparent);
+    border-color: color-mix(in oklch, var(--md-sys-color-outline) 30%, transparent);
+    box-shadow: var(--md-sys-elevation-level1);
+
+    &:hover {
+      background: color-mix(in oklch, var(--md-sys-color-surface-container-highest) 92%, transparent);
+      box-shadow: var(--md-sys-elevation-level2);
+    }
+  }
+
+  .certifications-section {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      color-mix(in oklch, var(--md-sys-color-surface-container-high) 92%, var(--md-sys-color-tertiary) 8%) 12%,
+      color-mix(in oklch, var(--md-sys-color-surface-container) 92%, var(--md-sys-color-secondary) 8%) 88%,
+      transparent 100%
+    );
+  }
+
+  .cert-card {
+    background: color-mix(in oklch, var(--md-sys-color-surface-container-high) 90%, transparent);
+    border-color: color-mix(in oklch, var(--md-sys-color-outline) 35%, transparent);
+    box-shadow: var(--md-sys-elevation-level1);
+
+    &:hover {
+      background: color-mix(in oklch, var(--md-sys-color-surface-container-highest) 92%, transparent);
+      box-shadow: var(--md-sys-elevation-level2);
+    }
+
+    .cert-icon {
+      background: color-mix(in oklch, var(--md-sys-color-primary) 20%, transparent);
+    }
+  }
+
+  .values-section {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      color-mix(in oklch, var(--md-sys-color-surface-container) 90%, var(--md-sys-color-secondary) 10%) 12%,
+      color-mix(in oklch, var(--md-sys-color-surface-container) 90%, var(--md-sys-color-tertiary) 10%) 88%,
+      transparent 100%
+    );
+  }
+
+  .value-card {
+    background: color-mix(in oklch, var(--md-sys-color-surface-container-high) 90%, transparent);
+    border-color: color-mix(in oklch, var(--md-sys-color-outline) 35%, transparent);
+    box-shadow: var(--md-sys-elevation-level1);
+
+    &:hover {
+      background: color-mix(in oklch, var(--md-sys-color-surface-container-highest) 92%, transparent);
+      box-shadow: var(--md-sys-elevation-level2);
+    }
+
+    .value-icon {
+      background: color-mix(in oklch, var(--md-sys-color-secondary) 24%, transparent);
+    }
+  }
+
+  .service-card-light {
+    background: color-mix(in oklch, var(--md-sys-color-surface-container-high) 88%, transparent);
+    border-color: color-mix(in oklch, var(--md-sys-color-outline) 30%, transparent);
+    box-shadow: var(--md-sys-elevation-level1);
+
+    &:hover {
+      box-shadow: var(--md-sys-elevation-level2);
+    }
+
+    .service-icon {
+      background: color-mix(in oklch, var(--md-sys-color-primary) 22%, transparent);
+    }
   }
 }
 

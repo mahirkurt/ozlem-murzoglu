@@ -107,7 +107,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.meta-item .material-icons {
+.meta-item .material-icons-rounded {
   font-size: 18px;
   opacity: 0.9;
 }

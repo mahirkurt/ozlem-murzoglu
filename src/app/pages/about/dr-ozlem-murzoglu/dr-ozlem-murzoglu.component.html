@@ -1,166 +1,160 @@
 <section class="doctor-profile-page">
-  <!-- Global Hero Section -->
-  <app-hero-section
-    title="ABOUT.DR_PAGE.HERO_MY_STORY"
-    subtitle="ABOUT.DR_PAGE.HERO_I_AM"
-    [breadcrumbs]="breadcrumbs"
-    colorTheme="blue">
-  </app-hero-section>
+  <app-page-header
+    [title]="'ABOUT.DR_PAGE.HERO_TITLE' | translate"
+    [subtitle]="'ABOUT.DR_PAGE.HERO_SUBTITLE' | translate"
+    [breadcrumbs]="breadcrumbs">
+  </app-page-header>
 
-  <div class="content-section">
-    <div class="container">
-      <div class="profile-layout">
-      <div class="profile-image-section">
-        <img src="images/drmurzoglu_fish.png" alt="Dr. Özlem Murzoğlu" class="profile-image">
-        <div class="credentials">
-          <div class="credential-item">
-            <i class="fas fa-graduation-cap"></i>
-            <span>{{ 'ABOUT.DR_PAGE.BADGE_UNIVERSITY' | translate }}</span>
+  <main class="page-content">
+    <section class="content-section">
+      <div class="container">
+        <div class="profile-layout">
+          <div class="profile-image-section">
+            <img src="images/drmurzoglu_fish.png" [alt]="'COMMON.DOCTOR_NAME' | translate" class="profile-image">
+            <div class="credentials">
+              <div class="credential-item">
+                <span class="material-icons-rounded" aria-hidden="true">school</span>
+                <span>{{ 'ABOUT.DR_PAGE.BADGE_UNIVERSITY' | translate }}</span>
+              </div>
+              <div class="credential-item">
+                <span class="material-icons-rounded" aria-hidden="true">verified</span>
+                <span>{{ 'ABOUT.DR_PAGE.BADGE_PEDIATRICIAN' | translate }}</span>
+              </div>
+              <div class="credential-item">
+                <span class="material-icons-rounded" aria-hidden="true">menu_book</span>
+                <span>{{ 'ABOUT.DR_PAGE.BADGE_SOCIAL_PEDIATRICS' | translate }}</span>
+              </div>
+            </div>
           </div>
-          <div class="credential-item">
-            <i class="fas fa-certificate"></i>
-            <span>{{ 'ABOUT.DR_PAGE.BADGE_PEDIATRICIAN' | translate }}</span>
-          </div>
-          <div class="credential-item">
-            <i class="fas fa-book"></i>
-            <span>{{ 'ABOUT.DR_PAGE.BADGE_SOCIAL_PEDIATRICS' | translate }}</span>
+
+          <div class="story-section">
+
+            <div class="story-content">
+              <div class="story-block md3-card md3-card-elevated">
+                <h3 class="md3-title-large">
+                  <span class="material-icons-rounded" aria-hidden="true">home</span>
+                  {{ 'ABOUT.DR_PAGE.ROOTS_TITLE' | translate }}
+                </h3>
+                <p class="md3-body-large">{{ 'ABOUT.DR_PAGE.ROOTS_TEXT' | translate }}</p>
+              </div>
+
+              <div class="story-block md3-card md3-card-elevated">
+                <h3 class="md3-title-large">
+                  <span class="material-icons-rounded" aria-hidden="true">school</span>
+                  {{ 'ABOUT.DR_PAGE.EDUCATION_JOURNEY' | translate }}
+                </h3>
+                <p class="md3-body-large">{{ 'ABOUT.DR_PAGE.EDUCATION_TEXT' | translate }}</p>
+                <p class="md3-body-large" [innerHTML]="'ABOUT.DR_PAGE.EDUCATION_TEXT2' | translate"></p>
+              </div>
+
+              <div class="story-block md3-card md3-card-elevated">
+                <h3 class="md3-title-large">
+                  <span class="material-icons-rounded" aria-hidden="true">favorite</span>
+                  {{ 'ABOUT.DR_PAGE.FAMILY_TITLE' | translate }}
+                </h3>
+                <p class="md3-body-large">{{ 'ABOUT.DR_PAGE.FAMILY_TEXT' | translate }}</p>
+              </div>
+
+              <div class="story-block md3-card md3-card-elevated">
+                <h3 class="md3-title-large">
+                  <span class="material-icons-rounded" aria-hidden="true">stethoscope</span>
+                  {{ 'ABOUT.DR_PAGE.PEDIATRICS_JOURNEY_TITLE' | translate }}
+                </h3>
+                <p class="md3-body-large" [innerHTML]="'ABOUT.DR_PAGE.PEDIATRICS_TEXT' | translate"></p>
+                <p class="md3-body-large">{{ 'ABOUT.DR_PAGE.PEDIATRICS_TEXT2' | translate }}</p>
+              </div>
+
+              <div class="story-block md3-card md3-card-elevated">
+                <h3 class="md3-title-large">
+                  <span class="material-icons-rounded" aria-hidden="true">child_care</span>
+                  {{ 'ABOUT.DR_PAGE.HEALTHY_CHILD' | translate }}
+                </h3>
+                <p class="md3-body-large">{{ 'ABOUT.DR_PAGE.HEALTHY_CHILD_TEXT' | translate }}</p>
+              </div>
+
+              <div class="story-block md3-card md3-card-elevated">
+                <h3 class="md3-title-large">
+                  <span class="material-icons-rounded" aria-hidden="true">medical_services</span>
+                  {{ 'ABOUT.DR_PAGE.NEW_BEGINNING' | translate }}
+                </h3>
+                <p class="md3-body-large">{{ 'ABOUT.DR_PAGE.NEW_BEGINNING_TEXT' | translate }}</p>
+                <p class="md3-body-large">{{ 'ABOUT.DR_PAGE.NEW_BEGINNING_TEXT2' | translate }}</p>
+                <p class="md3-body-large">{{ 'ABOUT.DR_PAGE.NEW_BEGINNING_TEXT3' | translate }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="story-section">
-        <h2 class="section-title md3-headline-large">{{ 'ABOUT.DR_PAGE.MY_STORY' | translate }}</h2>
-
-        <div class="story-content">
-          <div class="story-block md3-card">
-            <h3 class="md3-title-large"><i class="fas fa-home"></i> {{ 'ABOUT.DR_PAGE.ROOTS_TITLE' | translate }}</h3>
-            <p class="md3-body-large">{{ 'ABOUT.DR_PAGE.ROOTS_TEXT' | translate }}</p>
+    <section class="services-section">
+      <div class="container">
+        <h2 class="section-title md3-headline-medium">{{ 'SERVICES.MY_SERVICES' | translate }}</h2>
+        <div class="services-grid">
+          <div class="service-card md3-card md3-card-outlined">
+            <span class="material-icons-rounded" aria-hidden="true">stroller</span>
+            <h4>{{ 'SERVICES.NEWBORN_CARE.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.NEWBORN_CARE.DESCRIPTION' | translate }}</p>
           </div>
-
-          <div class="story-block md3-card">
-            <h3 class="md3-title-large"><i class="fas fa-school"></i> {{ 'ABOUT.DR_PAGE.EDUCATION_JOURNEY' | translate }}</h3>
-            <p class="md3-body-large">{{ 'ABOUT.DR_PAGE.EDUCATION_TEXT' | translate }}</p>
-            <p class="md3-body-large" [innerHTML]="'ABOUT.DR_PAGE.EDUCATION_TEXT2' | translate"></p>
+          <div class="service-card md3-card md3-card-outlined">
+            <span class="material-icons-rounded" aria-hidden="true">syringe</span>
+            <h4>{{ 'SERVICES.VACCINATION.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.VACCINATION.DESCRIPTION' | translate }}</p>
           </div>
-
-          <div class="story-block md3-card">
-            <h3 class="md3-title-large"><i class="fas fa-heart"></i> {{ 'ABOUT.DR_PAGE.FAMILY_TITLE' | translate }}</h3>
-            <p class="md3-body-large">{{ 'ABOUT.DR_PAGE.FAMILY_TEXT' | translate }}</p>
+          <div class="service-card md3-card md3-card-outlined">
+            <span class="material-icons-rounded" aria-hidden="true">monitor_heart</span>
+            <h4>{{ 'SERVICES.CHILDHOOD_DISEASES.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.CHILDHOOD_DISEASES.DESCRIPTION' | translate }}</p>
           </div>
-
-          <div class="story-block">
-            <h3><i class="fas fa-stethoscope"></i> {{ 'ABOUT.DR_PAGE.PEDIATRICS_JOURNEY_TITLE' | translate }}</h3>
-            <p [innerHTML]="'ABOUT.DR_PAGE.PEDIATRICS_TEXT' | translate"></p>
-            <p>{{ 'ABOUT.DR_PAGE.PEDIATRICS_TEXT2' | translate }}</p>
+          <div class="service-card md3-card md3-card-outlined">
+            <span class="material-icons-rounded" aria-hidden="true">female</span>
+            <h4>{{ 'SERVICES.BREASTFEEDING.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.BREASTFEEDING.DESCRIPTION' | translate }}</p>
           </div>
-
-          <div class="story-block">
-            <h3><i class="fas fa-baby"></i> {{ 'ABOUT.DR_PAGE.HEALTHY_CHILD' | translate }}</h3>
-            <p>{{ 'ABOUT.DR_PAGE.HEALTHY_CHILD_TEXT' | translate }}</p>
+          <div class="service-card md3-card md3-card-outlined">
+            <span class="material-icons-rounded" aria-hidden="true">bed</span>
+            <h4>{{ 'SERVICES.SLEEP_CONSULTATION.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.SLEEP_CONSULTATION.DESCRIPTION' | translate }}</p>
           </div>
-
-          <div class="story-block">
-            <h3><i class="fas fa-clinic-medical"></i> {{ 'ABOUT.DR_PAGE.NEW_BEGINNING' | translate }}</h3>
-            <p>{{ 'ABOUT.DR_PAGE.NEW_BEGINNING_TEXT' | translate }}</p>
-            <p>{{ 'ABOUT.DR_PAGE.NEW_BEGINNING_TEXT2' | translate }}</p>
-            <p>{{ 'ABOUT.DR_PAGE.NEW_BEGINNING_TEXT3' | translate }}</p>
+          <div class="service-card md3-card md3-card-outlined">
+            <span class="material-icons-rounded" aria-hidden="true">restaurant</span>
+            <h4>{{ 'SERVICES.NUTRITION.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.NUTRITION.DESCRIPTION' | translate }}</p>
+          </div>
+          <div class="service-card md3-card md3-card-outlined">
+            <span class="material-icons-rounded" aria-hidden="true">wc</span>
+            <h4>{{ 'SERVICES.TOILET_TRAINING.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.TOILET_TRAINING.DESCRIPTION' | translate }}</p>
+          </div>
+          <div class="service-card md3-card md3-card-outlined">
+            <span class="material-icons-rounded" aria-hidden="true">groups</span>
+            <h4>{{ 'SERVICES.POSITIVE_PARENTING.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.POSITIVE_PARENTING.DESCRIPTION' | translate }}</p>
+          </div>
+          <div class="service-card md3-card md3-card-outlined">
+            <span class="material-icons-rounded" aria-hidden="true">school</span>
+            <h4>{{ 'SERVICES.SCHOOL_CONSULTATION.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.SCHOOL_CONSULTATION.DESCRIPTION' | translate }}</p>
+          </div>
+          <div class="service-card md3-card md3-card-outlined">
+            <span class="material-icons-rounded" aria-hidden="true">child_friendly</span>
+            <h4>{{ 'SERVICES.ADOLESCENCE.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.ADOLESCENCE.DESCRIPTION' | translate }}</p>
+          </div>
+          <div class="service-card md3-card md3-card-outlined">
+            <span class="material-icons-rounded" aria-hidden="true">laptop_mac</span>
+            <h4>{{ 'SERVICES.MEDIA_USE.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.MEDIA_USE.DESCRIPTION' | translate }}</p>
+          </div>
+          <div class="service-card">
+            <span class="material-icons-rounded" aria-hidden="true">volunteer_activism</span>
+            <h4>{{ 'SERVICES.FAMILY_COUNSELING.TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.FAMILY_COUNSELING.DESCRIPTION' | translate }}</p>
           </div>
         </div>
       </div>
-    </div>
-    </div>
+    </section>
+  </main>
 
-    <div class="container">
-    <div class="services-section">
-      <h2 class="section-title">{{ 'SERVICES.MY_SERVICES' | translate }}</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <i class="fas fa-baby-carriage"></i>
-          <h4>{{ 'SERVICES.NEWBORN_CARE.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.NEWBORN_CARE.DESCRIPTION' | translate }}</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-syringe"></i>
-          <h4>{{ 'SERVICES.VACCINATION.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.VACCINATION.DESCRIPTION' | translate }}</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-heartbeat"></i>
-          <h4>{{ 'SERVICES.CHILDHOOD_DISEASES.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.CHILDHOOD_DISEASES.DESCRIPTION' | translate }}</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-female"></i>
-          <h4>{{ 'SERVICES.BREASTFEEDING.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.BREASTFEEDING.DESCRIPTION' | translate }}</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-bed"></i>
-          <h4>{{ 'SERVICES.SLEEP_CONSULTATION.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.SLEEP_CONSULTATION.DESCRIPTION' | translate }}</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-apple-alt"></i>
-          <h4>{{ 'SERVICES.NUTRITION.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.NUTRITION.DESCRIPTION' | translate }}</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-toilet"></i>
-          <h4>{{ 'SERVICES.TOILET_TRAINING.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.TOILET_TRAINING.DESCRIPTION' | translate }}</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-users"></i>
-          <h4>{{ 'SERVICES.POSITIVE_PARENTING.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.POSITIVE_PARENTING.DESCRIPTION' | translate }}</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-school"></i>
-          <h4>{{ 'SERVICES.SCHOOL_CONSULTATION.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.SCHOOL_CONSULTATION.DESCRIPTION' | translate }}</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-child"></i>
-          <h4>{{ 'SERVICES.ADOLESCENCE.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.ADOLESCENCE.DESCRIPTION' | translate }}</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-laptop"></i>
-          <h4>{{ 'SERVICES.MEDIA_USE.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.MEDIA_USE.DESCRIPTION' | translate }}</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-hands-helping"></i>
-          <h4>{{ 'SERVICES.FAMILY_COUNSELING.TITLE' | translate }}</h4>
-          <p>{{ 'SERVICES.FAMILY_COUNSELING.DESCRIPTION' | translate }}</p>
-        </div>
-      </div>
-    </div>
-    </div>
-
-  <!-- CTA Section with Global Styles -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <!-- Title -->
-        <h3 class="cta-title">{{ 'DOCTOR_BIO.CTA.TITLE' | translate }}</h3>
-
-        <!-- Description -->
-        <p class="cta-description">{{ 'DOCTOR_BIO.CTA.SUBTITLE' | translate }}</p>
-
-        <!-- CTA Buttons -->
-        <div class="cta-buttons">
-          <a routerLink="/iletisim" class="btn-primary">
-            <i class="fas fa-calendar-check"></i>
-            <span>{{ 'DOCTOR_BIO.CTA.APPOINTMENT_BUTTON' | translate }}</span>
-          </a>
-          <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
-            <i class="fab fa-whatsapp"></i>
-            <span>WhatsApp</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  </div>
+  <app-contact-cta></app-contact-cta>
 </section>

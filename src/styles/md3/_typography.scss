@@ -1,102 +1,693 @@
+// ============================================================================
+// _typography.scss - MD3 Expressive 2025 Typography Token System
+// Dr. Ozlem Murzoglu Pediatri Klinigi - Tasarim Anayasasi v5.0
+// ============================================================================
+// Variable Font Implementation with Fluid Typography
+//
+// Font Families:
+//   Figtree   - Brand Font (Display, Headlines, Titles)
+//   DM Sans   - Content Font (Body, Labels, UI Elements)
+// ============================================================================
+
+// =============================================================================
+// SECTION 1: FONT IMPORTS (Variable Fonts)
+// =============================================================================
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+// =============================================================================
+// SECTION 2: FONT FAMILY TOKENS
+// =============================================================================
+
 :root {
-  /* Font families */
-  --md-sys-typescale-font-brand: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --md-sys-typescale-font-plain: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  
-  /* Display - Fluid Scaling */
+  // ---------------------------------------------------------------------------
+  // 2.1 Primary Font Families
+  // ---------------------------------------------------------------------------
+
+  // Brand Font - Figtree (Display, Headlines, Titles)
+  // Character: Modern, samimi, yaklaşılabilir
+  --md-sys-typescale-font-brand: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  // Content Font - DM Sans (Body, Labels, UI Elements)
+  // Character: Temiz, okunabilir, profesyonel
+  --md-sys-typescale-font-plain: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  // ---------------------------------------------------------------------------
+  // 2.2 Specialized Font Stacks
+  // ---------------------------------------------------------------------------
+
+  // Monospace (Code blocks, technical content)
+  --md-sys-typescale-font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Consolas', monospace;
+
+  // System UI (Native performance, fallback)
+  --md-sys-typescale-font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  // =============================================================================
+  // SECTION 3: DISPLAY SCALE (Large Headlines - Fluid)
+  // =============================================================================
+
+  // ---------------------------------------------------------------------------
+  // 3.1 Display Large - 57px (Hero headlines)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-display-large-font: var(--md-sys-typescale-font-brand);
-  --md-sys-typescale-display-large-size: clamp(3rem, 5vw + 1rem, 57px);
+  --md-sys-typescale-display-large-size: clamp(2.5rem, 5vw + 1rem, 3.5625rem);
   --md-sys-typescale-display-large-line-height: 1.1;
   --md-sys-typescale-display-large-weight: 700;
   --md-sys-typescale-display-large-tracking: -0.25px;
-  
+
+  // ---------------------------------------------------------------------------
+  // 3.2 Display Medium - 45px (Section headlines)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-display-medium-font: var(--md-sys-typescale-font-brand);
-  --md-sys-typescale-display-medium-size: clamp(2.25rem, 4vw + 1rem, 45px);
+  --md-sys-typescale-display-medium-size: clamp(2rem, 4vw + 1rem, 2.8125rem);
   --md-sys-typescale-display-medium-line-height: 1.15;
   --md-sys-typescale-display-medium-weight: 600;
   --md-sys-typescale-display-medium-tracking: 0;
-  
+
+  // ---------------------------------------------------------------------------
+  // 3.3 Display Small - 36px (Sub-section headlines)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-display-small-font: var(--md-sys-typescale-font-brand);
-  --md-sys-typescale-display-small-size: clamp(1.75rem, 3vw + 1rem, 36px);
+  --md-sys-typescale-display-small-size: clamp(1.75rem, 3vw + 1rem, 2.25rem);
   --md-sys-typescale-display-small-line-height: 1.2;
   --md-sys-typescale-display-small-weight: 600;
   --md-sys-typescale-display-small-tracking: 0;
-  
-  /* Headline - Fluid Scaling */
+
+  // =============================================================================
+  // SECTION 4: HEADLINE SCALE (Medium Headlines - Fluid)
+  // =============================================================================
+
+  // ---------------------------------------------------------------------------
+  // 4.1 Headline Large - 32px
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-headline-large-font: var(--md-sys-typescale-font-brand);
-  --md-sys-typescale-headline-large-size: clamp(1.75rem, 2vw + 1rem, 32px);
+  --md-sys-typescale-headline-large-size: clamp(1.5rem, 2vw + 1rem, 2rem);
   --md-sys-typescale-headline-large-line-height: 1.25;
   --md-sys-typescale-headline-large-weight: 600;
   --md-sys-typescale-headline-large-tracking: 0;
-  
+
+  // ---------------------------------------------------------------------------
+  // 4.2 Headline Medium - 28px
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-headline-medium-font: var(--md-sys-typescale-font-brand);
-  --md-sys-typescale-headline-medium-size: clamp(1.5rem, 1.5vw + 1rem, 28px);
+  --md-sys-typescale-headline-medium-size: clamp(1.375rem, 1.5vw + 1rem, 1.75rem);
   --md-sys-typescale-headline-medium-line-height: 1.3;
   --md-sys-typescale-headline-medium-weight: 500;
   --md-sys-typescale-headline-medium-tracking: 0;
-  
+
+  // ---------------------------------------------------------------------------
+  // 4.3 Headline Small - 24px
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-headline-small-font: var(--md-sys-typescale-font-brand);
-  --md-sys-typescale-headline-small-size: clamp(1.25rem, 1vw + 1rem, 24px);
+  --md-sys-typescale-headline-small-size: clamp(1.25rem, 1vw + 1rem, 1.5rem);
   --md-sys-typescale-headline-small-line-height: 1.35;
   --md-sys-typescale-headline-small-weight: 500;
   --md-sys-typescale-headline-small-tracking: 0;
-  
-  /* Title - Fixed sizes commonly used for UI elements */
+
+  // =============================================================================
+  // SECTION 5: TITLE SCALE (UI Titles - Fixed)
+  // =============================================================================
+
+  // ---------------------------------------------------------------------------
+  // 5.1 Title Large - 22px (Dialog/card titles)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-title-large-font: var(--md-sys-typescale-font-brand);
-  --md-sys-typescale-title-large-size: 22px;
-  --md-sys-typescale-title-large-line-height: 28px;
+  --md-sys-typescale-title-large-size: 1.375rem;
+  --md-sys-typescale-title-large-line-height: 1.75rem;
   --md-sys-typescale-title-large-weight: 500;
   --md-sys-typescale-title-large-tracking: 0;
-  
+
+  // ---------------------------------------------------------------------------
+  // 5.2 Title Medium - 16px (App bar, list subheaders)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-title-medium-font: var(--md-sys-typescale-font-brand);
-  --md-sys-typescale-title-medium-size: 16px;
-  --md-sys-typescale-title-medium-line-height: 24px;
+  --md-sys-typescale-title-medium-size: 1rem;
+  --md-sys-typescale-title-medium-line-height: 1.5rem;
   --md-sys-typescale-title-medium-weight: 600;
   --md-sys-typescale-title-medium-tracking: 0.15px;
-  
+
+  // ---------------------------------------------------------------------------
+  // 5.3 Title Small - 14px (Tabs, navigation)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-title-small-font: var(--md-sys-typescale-font-brand);
-  --md-sys-typescale-title-small-size: 14px;
-  --md-sys-typescale-title-small-line-height: 20px;
+  --md-sys-typescale-title-small-size: 0.875rem;
+  --md-sys-typescale-title-small-line-height: 1.25rem;
   --md-sys-typescale-title-small-weight: 600;
   --md-sys-typescale-title-small-tracking: 0.1px;
-  
-  /* Body - DM Sans */
+
+  // =============================================================================
+  // SECTION 6: BODY SCALE (Content Text - DM Sans)
+  // =============================================================================
+
+  // ---------------------------------------------------------------------------
+  // 6.1 Body Large - 16px (Primary paragraph text)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-body-large-font: var(--md-sys-typescale-font-plain);
-  --md-sys-typescale-body-large-size: 16px;
-  --md-sys-typescale-body-large-line-height: 24px;
+  --md-sys-typescale-body-large-size: 1rem;
+  --md-sys-typescale-body-large-line-height: 1.5rem;
   --md-sys-typescale-body-large-weight: 400;
   --md-sys-typescale-body-large-tracking: 0.5px;
-  
+
+  // ---------------------------------------------------------------------------
+  // 6.2 Body Medium - 14px (Secondary text, descriptions)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-body-medium-font: var(--md-sys-typescale-font-plain);
-  --md-sys-typescale-body-medium-size: 14px;
-  --md-sys-typescale-body-medium-line-height: 20px;
+  --md-sys-typescale-body-medium-size: 0.875rem;
+  --md-sys-typescale-body-medium-line-height: 1.25rem;
   --md-sys-typescale-body-medium-weight: 400;
   --md-sys-typescale-body-medium-tracking: 0.25px;
-  
+
+  // ---------------------------------------------------------------------------
+  // 6.3 Body Small - 12px (Captions, footnotes)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-body-small-font: var(--md-sys-typescale-font-plain);
-  --md-sys-typescale-body-small-size: 12px;
-  --md-sys-typescale-body-small-line-height: 16px;
+  --md-sys-typescale-body-small-size: 0.75rem;
+  --md-sys-typescale-body-small-line-height: 1rem;
   --md-sys-typescale-body-small-weight: 400;
   --md-sys-typescale-body-small-tracking: 0.4px;
-  
-  /* Label */
+
+  // =============================================================================
+  // SECTION 7: LABEL SCALE (UI Labels - DM Sans)
+  // =============================================================================
+
+  // ---------------------------------------------------------------------------
+  // 7.1 Label Large - 14px (Button text, prominent labels)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-label-large-font: var(--md-sys-typescale-font-plain);
-  --md-sys-typescale-label-large-size: 14px;
-  --md-sys-typescale-label-large-line-height: 20px;
+  --md-sys-typescale-label-large-size: 0.875rem;
+  --md-sys-typescale-label-large-line-height: 1.25rem;
   --md-sys-typescale-label-large-weight: 500;
   --md-sys-typescale-label-large-tracking: 0.1px;
-  
+
+  // ---------------------------------------------------------------------------
+  // 7.2 Label Medium - 12px (Form labels, chips)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-label-medium-font: var(--md-sys-typescale-font-plain);
-  --md-sys-typescale-label-medium-size: 12px;
-  --md-sys-typescale-label-medium-line-height: 16px;
+  --md-sys-typescale-label-medium-size: 0.75rem;
+  --md-sys-typescale-label-medium-line-height: 1rem;
   --md-sys-typescale-label-medium-weight: 500;
   --md-sys-typescale-label-medium-tracking: 0.5px;
-  
+
+  // ---------------------------------------------------------------------------
+  // 7.3 Label Small - 11px (Timestamps, badges)
+  // ---------------------------------------------------------------------------
   --md-sys-typescale-label-small-font: var(--md-sys-typescale-font-plain);
-  --md-sys-typescale-label-small-size: 11px;
-  --md-sys-typescale-label-small-line-height: 16px;
+  --md-sys-typescale-label-small-size: 0.6875rem;
+  --md-sys-typescale-label-small-line-height: 1rem;
   --md-sys-typescale-label-small-weight: 500;
   --md-sys-typescale-label-small-tracking: 0.5px;
+
+  // =============================================================================
+  // SECTION 8: SPECIAL TYPOGRAPHY TOKENS
+  // =============================================================================
+
+  // ---------------------------------------------------------------------------
+  // 8.1 Overline (All caps, small)
+  // ---------------------------------------------------------------------------
+  --md-sys-typescale-overline-font: var(--md-sys-typescale-font-plain);
+  --md-sys-typescale-overline-size: 0.6875rem;
+  --md-sys-typescale-overline-line-height: 1rem;
+  --md-sys-typescale-overline-weight: 600;
+  --md-sys-typescale-overline-tracking: 1.5px;
+
+  // ---------------------------------------------------------------------------
+  // 8.2 Caption (Small descriptive text)
+  // ---------------------------------------------------------------------------
+  --md-sys-typescale-caption-font: var(--md-sys-typescale-font-plain);
+  --md-sys-typescale-caption-size: 0.75rem;
+  --md-sys-typescale-caption-line-height: 1.25rem;
+  --md-sys-typescale-caption-weight: 400;
+  --md-sys-typescale-caption-tracking: 0.4px;
+
+  // ---------------------------------------------------------------------------
+  // 8.3 Button Text
+  // ---------------------------------------------------------------------------
+  --md-sys-typescale-button-font: var(--md-sys-typescale-font-plain);
+  --md-sys-typescale-button-size: 0.875rem;
+  --md-sys-typescale-button-line-height: 1.25rem;
+  --md-sys-typescale-button-weight: 600;
+  --md-sys-typescale-button-tracking: 0.1px;
+
+  // ---------------------------------------------------------------------------
+  // 8.4 Code/Monospace
+  // ---------------------------------------------------------------------------
+  --md-sys-typescale-code-font: var(--md-sys-typescale-font-mono);
+  --md-sys-typescale-code-size: 0.875rem;
+  --md-sys-typescale-code-line-height: 1.5rem;
+  --md-sys-typescale-code-weight: 400;
+  --md-sys-typescale-code-tracking: 0;
+
+  // =============================================================================
+  // SECTION 9: VARIABLE FONT AXES
+  // =============================================================================
+
+  // Figtree Variable Axes
+  --figtree-weight-min: 300;
+  --figtree-weight-max: 900;
+
+  // DM Sans Variable Axes
+  --dm-sans-weight-min: 100;
+  --dm-sans-weight-max: 1000;
+  --dm-sans-optical-min: 9;
+  --dm-sans-optical-max: 40;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+// =============================================================================
+// SECTION 10: TYPOGRAPHY UTILITY CLASSES
+// =============================================================================
+
+// ---------------------------------------------------------------------------
+// 10.1 Display Classes
+// ---------------------------------------------------------------------------
+.md3-display-large {
+  font-family: var(--md-sys-typescale-display-large-font);
+  font-size: var(--md-sys-typescale-display-large-size);
+  line-height: var(--md-sys-typescale-display-large-line-height);
+  font-weight: var(--md-sys-typescale-display-large-weight);
+  letter-spacing: var(--md-sys-typescale-display-large-tracking);
+}
+
+.md3-display-medium {
+  font-family: var(--md-sys-typescale-display-medium-font);
+  font-size: var(--md-sys-typescale-display-medium-size);
+  line-height: var(--md-sys-typescale-display-medium-line-height);
+  font-weight: var(--md-sys-typescale-display-medium-weight);
+  letter-spacing: var(--md-sys-typescale-display-medium-tracking);
+}
+
+.md3-display-small {
+  font-family: var(--md-sys-typescale-display-small-font);
+  font-size: var(--md-sys-typescale-display-small-size);
+  line-height: var(--md-sys-typescale-display-small-line-height);
+  font-weight: var(--md-sys-typescale-display-small-weight);
+  letter-spacing: var(--md-sys-typescale-display-small-tracking);
+}
+
+// ---------------------------------------------------------------------------
+// 10.2 Headline Classes
+// ---------------------------------------------------------------------------
+.md3-headline-large {
+  font-family: var(--md-sys-typescale-headline-large-font);
+  font-size: var(--md-sys-typescale-headline-large-size);
+  line-height: var(--md-sys-typescale-headline-large-line-height);
+  font-weight: var(--md-sys-typescale-headline-large-weight);
+  letter-spacing: var(--md-sys-typescale-headline-large-tracking);
+}
+
+.md3-headline-medium {
+  font-family: var(--md-sys-typescale-headline-medium-font);
+  font-size: var(--md-sys-typescale-headline-medium-size);
+  line-height: var(--md-sys-typescale-headline-medium-line-height);
+  font-weight: var(--md-sys-typescale-headline-medium-weight);
+  letter-spacing: var(--md-sys-typescale-headline-medium-tracking);
+}
+
+.md3-headline-small {
+  font-family: var(--md-sys-typescale-headline-small-font);
+  font-size: var(--md-sys-typescale-headline-small-size);
+  line-height: var(--md-sys-typescale-headline-small-line-height);
+  font-weight: var(--md-sys-typescale-headline-small-weight);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+}
+
+// ---------------------------------------------------------------------------
+// 10.3 Title Classes
+// ---------------------------------------------------------------------------
+.md3-title-large {
+  font-family: var(--md-sys-typescale-title-large-font);
+  font-size: var(--md-sys-typescale-title-large-size);
+  line-height: var(--md-sys-typescale-title-large-line-height);
+  font-weight: var(--md-sys-typescale-title-large-weight);
+  letter-spacing: var(--md-sys-typescale-title-large-tracking);
+}
+
+.md3-title-medium {
+  font-family: var(--md-sys-typescale-title-medium-font);
+  font-size: var(--md-sys-typescale-title-medium-size);
+  line-height: var(--md-sys-typescale-title-medium-line-height);
+  font-weight: var(--md-sys-typescale-title-medium-weight);
+  letter-spacing: var(--md-sys-typescale-title-medium-tracking);
+}
+
+.md3-title-small {
+  font-family: var(--md-sys-typescale-title-small-font);
+  font-size: var(--md-sys-typescale-title-small-size);
+  line-height: var(--md-sys-typescale-title-small-line-height);
+  font-weight: var(--md-sys-typescale-title-small-weight);
+  letter-spacing: var(--md-sys-typescale-title-small-tracking);
+}
+
+// ---------------------------------------------------------------------------
+// 10.4 Body Classes
+// ---------------------------------------------------------------------------
+.md3-body-large {
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  font-weight: var(--md-sys-typescale-body-large-weight);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+}
+
+.md3-body-medium {
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  letter-spacing: var(--md-sys-typescale-body-medium-tracking);
+}
+
+.md3-body-small {
+  font-family: var(--md-sys-typescale-body-small-font);
+  font-size: var(--md-sys-typescale-body-small-size);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  font-weight: var(--md-sys-typescale-body-small-weight);
+  letter-spacing: var(--md-sys-typescale-body-small-tracking);
+}
+
+// ---------------------------------------------------------------------------
+// 10.5 Label Classes
+// ---------------------------------------------------------------------------
+.md3-label-large {
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: var(--md-sys-typescale-label-large-size);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+}
+
+.md3-label-medium {
+  font-family: var(--md-sys-typescale-label-medium-font);
+  font-size: var(--md-sys-typescale-label-medium-size);
+  line-height: var(--md-sys-typescale-label-medium-line-height);
+  font-weight: var(--md-sys-typescale-label-medium-weight);
+  letter-spacing: var(--md-sys-typescale-label-medium-tracking);
+}
+
+.md3-label-small {
+  font-family: var(--md-sys-typescale-label-small-font);
+  font-size: var(--md-sys-typescale-label-small-size);
+  line-height: var(--md-sys-typescale-label-small-line-height);
+  font-weight: var(--md-sys-typescale-label-small-weight);
+  letter-spacing: var(--md-sys-typescale-label-small-tracking);
+}
+
+// ---------------------------------------------------------------------------
+// 10.6 Special Typography Classes
+// ---------------------------------------------------------------------------
+.md3-overline {
+  font-family: var(--md-sys-typescale-overline-font);
+  font-size: var(--md-sys-typescale-overline-size);
+  line-height: var(--md-sys-typescale-overline-line-height);
+  font-weight: var(--md-sys-typescale-overline-weight);
+  letter-spacing: var(--md-sys-typescale-overline-tracking);
+  text-transform: uppercase;
+}
+
+.md3-caption {
+  font-family: var(--md-sys-typescale-caption-font);
+  font-size: var(--md-sys-typescale-caption-size);
+  line-height: var(--md-sys-typescale-caption-line-height);
+  font-weight: var(--md-sys-typescale-caption-weight);
+  letter-spacing: var(--md-sys-typescale-caption-tracking);
+}
+
+.md3-code {
+  font-family: var(--md-sys-typescale-code-font);
+  font-size: var(--md-sys-typescale-code-size);
+  line-height: var(--md-sys-typescale-code-line-height);
+  font-weight: var(--md-sys-typescale-code-weight);
+  letter-spacing: var(--md-sys-typescale-code-tracking);
+}
+
+// =============================================================================
+// SECTION 11: TEXT DECORATION UTILITIES
+// =============================================================================
+
+// Text weight utilities
+.font-light { font-weight: 300 !important; }
+.font-normal { font-weight: 400 !important; }
+.font-medium { font-weight: 500 !important; }
+.font-semibold { font-weight: 600 !important; }
+.font-bold { font-weight: 700 !important; }
+.font-extrabold { font-weight: 800 !important; }
+.font-black { font-weight: 900 !important; }
+
+// Text style utilities
+.italic { font-style: italic !important; }
+.not-italic { font-style: normal !important; }
+.underline { text-decoration: underline !important; }
+.line-through { text-decoration: line-through !important; }
+.no-underline { text-decoration: none !important; }
+
+// Text alignment
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+// Text transform
+.uppercase { text-transform: uppercase !important; }
+.lowercase { text-transform: lowercase !important; }
+.capitalize { text-transform: capitalize !important; }
+.normal-case { text-transform: none !important; }
+
+// Whitespace
+.whitespace-normal { white-space: normal !important; }
+.whitespace-nowrap { white-space: nowrap !important; }
+.whitespace-pre { white-space: pre !important; }
+.whitespace-pre-wrap { white-space: pre-wrap !important; }
+
+// Word break
+.break-words { word-break: break-word !important; overflow-wrap: break-word !important; }
+.break-all { word-break: break-all !important; }
+.break-keep { word-break: keep-all !important; }
+
+// Text overflow
+.truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.line-clamp-1 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.line-clamp-2 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.line-clamp-3 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.line-clamp-4 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 4 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+// =============================================================================
+// SECTION 12: TYPOGRAPHY MIXINS
+// =============================================================================
+
+// Apply display typography
+@mixin typography-display($size: 'large') {
+  @if $size == 'large' {
+    font-family: var(--md-sys-typescale-display-large-font);
+    font-size: var(--md-sys-typescale-display-large-size);
+    line-height: var(--md-sys-typescale-display-large-line-height);
+    font-weight: var(--md-sys-typescale-display-large-weight);
+    letter-spacing: var(--md-sys-typescale-display-large-tracking);
+  } @else if $size == 'medium' {
+    font-family: var(--md-sys-typescale-display-medium-font);
+    font-size: var(--md-sys-typescale-display-medium-size);
+    line-height: var(--md-sys-typescale-display-medium-line-height);
+    font-weight: var(--md-sys-typescale-display-medium-weight);
+    letter-spacing: var(--md-sys-typescale-display-medium-tracking);
+  } @else if $size == 'small' {
+    font-family: var(--md-sys-typescale-display-small-font);
+    font-size: var(--md-sys-typescale-display-small-size);
+    line-height: var(--md-sys-typescale-display-small-line-height);
+    font-weight: var(--md-sys-typescale-display-small-weight);
+    letter-spacing: var(--md-sys-typescale-display-small-tracking);
+  }
+}
+
+// Apply headline typography
+@mixin typography-headline($size: 'large') {
+  @if $size == 'large' {
+    font-family: var(--md-sys-typescale-headline-large-font);
+    font-size: var(--md-sys-typescale-headline-large-size);
+    line-height: var(--md-sys-typescale-headline-large-line-height);
+    font-weight: var(--md-sys-typescale-headline-large-weight);
+    letter-spacing: var(--md-sys-typescale-headline-large-tracking);
+  } @else if $size == 'medium' {
+    font-family: var(--md-sys-typescale-headline-medium-font);
+    font-size: var(--md-sys-typescale-headline-medium-size);
+    line-height: var(--md-sys-typescale-headline-medium-line-height);
+    font-weight: var(--md-sys-typescale-headline-medium-weight);
+    letter-spacing: var(--md-sys-typescale-headline-medium-tracking);
+  } @else if $size == 'small' {
+    font-family: var(--md-sys-typescale-headline-small-font);
+    font-size: var(--md-sys-typescale-headline-small-size);
+    line-height: var(--md-sys-typescale-headline-small-line-height);
+    font-weight: var(--md-sys-typescale-headline-small-weight);
+    letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+  }
+}
+
+// Apply title typography
+@mixin typography-title($size: 'large') {
+  @if $size == 'large' {
+    font-family: var(--md-sys-typescale-title-large-font);
+    font-size: var(--md-sys-typescale-title-large-size);
+    line-height: var(--md-sys-typescale-title-large-line-height);
+    font-weight: var(--md-sys-typescale-title-large-weight);
+    letter-spacing: var(--md-sys-typescale-title-large-tracking);
+  } @else if $size == 'medium' {
+    font-family: var(--md-sys-typescale-title-medium-font);
+    font-size: var(--md-sys-typescale-title-medium-size);
+    line-height: var(--md-sys-typescale-title-medium-line-height);
+    font-weight: var(--md-sys-typescale-title-medium-weight);
+    letter-spacing: var(--md-sys-typescale-title-medium-tracking);
+  } @else if $size == 'small' {
+    font-family: var(--md-sys-typescale-title-small-font);
+    font-size: var(--md-sys-typescale-title-small-size);
+    line-height: var(--md-sys-typescale-title-small-line-height);
+    font-weight: var(--md-sys-typescale-title-small-weight);
+    letter-spacing: var(--md-sys-typescale-title-small-tracking);
+  }
+}
+
+// Apply body typography
+@mixin typography-body($size: 'large') {
+  @if $size == 'large' {
+    font-family: var(--md-sys-typescale-body-large-font);
+    font-size: var(--md-sys-typescale-body-large-size);
+    line-height: var(--md-sys-typescale-body-large-line-height);
+    font-weight: var(--md-sys-typescale-body-large-weight);
+    letter-spacing: var(--md-sys-typescale-body-large-tracking);
+  } @else if $size == 'medium' {
+    font-family: var(--md-sys-typescale-body-medium-font);
+    font-size: var(--md-sys-typescale-body-medium-size);
+    line-height: var(--md-sys-typescale-body-medium-line-height);
+    font-weight: var(--md-sys-typescale-body-medium-weight);
+    letter-spacing: var(--md-sys-typescale-body-medium-tracking);
+  } @else if $size == 'small' {
+    font-family: var(--md-sys-typescale-body-small-font);
+    font-size: var(--md-sys-typescale-body-small-size);
+    line-height: var(--md-sys-typescale-body-small-line-height);
+    font-weight: var(--md-sys-typescale-body-small-weight);
+    letter-spacing: var(--md-sys-typescale-body-small-tracking);
+  }
+}
+
+// Apply label typography
+@mixin typography-label($size: 'large') {
+  @if $size == 'large' {
+    font-family: var(--md-sys-typescale-label-large-font);
+    font-size: var(--md-sys-typescale-label-large-size);
+    line-height: var(--md-sys-typescale-label-large-line-height);
+    font-weight: var(--md-sys-typescale-label-large-weight);
+    letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  } @else if $size == 'medium' {
+    font-family: var(--md-sys-typescale-label-medium-font);
+    font-size: var(--md-sys-typescale-label-medium-size);
+    line-height: var(--md-sys-typescale-label-medium-line-height);
+    font-weight: var(--md-sys-typescale-label-medium-weight);
+    letter-spacing: var(--md-sys-typescale-label-medium-tracking);
+  } @else if $size == 'small' {
+    font-family: var(--md-sys-typescale-label-small-font);
+    font-size: var(--md-sys-typescale-label-small-size);
+    line-height: var(--md-sys-typescale-label-small-line-height);
+    font-weight: var(--md-sys-typescale-label-small-weight);
+    letter-spacing: var(--md-sys-typescale-label-small-tracking);
+  }
+}
+
+// Text rendering optimization
+@mixin text-optimized {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Truncate text with ellipsis
+@mixin text-truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// =============================================================================
+// SECTION 13: GLOBAL TEXT RENDERING
+// =============================================================================
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+// =============================================================================
+// SECTION 14: ACCESSIBILITY MODES
+// =============================================================================
+
+// Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+  * {
+    font-variation-settings: inherit !important;
+  }
+}
+
+// High Contrast Mode
+@media (prefers-contrast: more) {
+  :root {
+    --md-sys-typescale-body-large-weight: 500;
+    --md-sys-typescale-body-medium-weight: 500;
+    --md-sys-typescale-label-large-weight: 600;
+    --md-sys-typescale-label-medium-weight: 600;
+  }
+}
+
+// =============================================================================
+// SECTION 15: PRINT TYPOGRAPHY
+// =============================================================================
+
+@media print {
+  :root {
+    --md-sys-typescale-body-large-size: 11pt;
+    --md-sys-typescale-body-medium-size: 10pt;
+    --md-sys-typescale-body-small-size: 9pt;
+    --md-sys-typescale-font-plain: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+}

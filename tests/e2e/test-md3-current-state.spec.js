@@ -138,10 +138,10 @@ test.describe('MD3 Current State Analysis', () => {
   test('Check MD3 on all pages', async ({ page }) => {
     const pages = [
       { path: '/', name: 'home' },
-      { path: '/about', name: 'about' },
-      { path: '/services', name: 'services' },
+      { path: '/hakkimizda', name: 'about' },
+      { path: '/hizmetlerimiz', name: 'services' },
       { path: '/blog', name: 'blog' },
-      { path: '/contact', name: 'contact' }
+      { path: '/iletisim', name: 'contact' }
     ];
 
     for (const { path, name } of pages) {

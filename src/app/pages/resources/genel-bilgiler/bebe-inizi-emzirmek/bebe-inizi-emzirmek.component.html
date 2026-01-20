@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p>YENİ ANNELER İÇİN</p><p><strong>BEBEĞİNİZİ EMZİRMEK</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Bebeğinizin doğumuna hazırlanmak heyecan verici ve yoğun bir zamandır. Vereceğiniz en önemli kararlardan biri bebeğinizi nasıl besleyeceğinizdir. Emzirmeye karar vermek, bebeğinize hayata mümkün olan en iyi başlangıcı sağlar. Emzirmek size ve bebeğinize birçok yönden fayda sağlar. Aşağıdakiler Amerikan Pediatri Akademisi (AAP)'nin "Bebeğinizi Emzirme: Sık Sorulan Sorulara Cevaplar" kitabından alıntılardır.</p></td></tr></table><table><tr><td><p><strong>Emzirmenin Faydaları</strong></p></td></tr></table><p>Genel olarak, ne kadar uzun süre emzirirseniz sizin ve bebeğinizin alacağı faydalar o kadar fazla olur ve bu faydalar o kadar uzun sürer.</p><p></p><p><strong>Emzirmek bebeğim için neden bu kadar faydalı?</strong></p><p>Emzirmek bebeğiniz için faydalıdır, çünkü:</p><ol><li>Emzirme sıcaklık ve yakınlık sağlar. Fiziksel temas, siz ve bebeğiniz arasında özel bir bağ oluşturmanıza yardımcı olur.</li><li>İnsan sütünün birçok faydası vardır.<ul><li>Bebeğinizin sindirimi için daha kolaydır.</li><li>Hazırlanmasına gerek yoktur.</li><li>Her zaman kullanılabilir.</li><li>Bebeğinizin sağlıklı olması için ihtiyaç duyduğu tüm besinleri, kaloriyi ve sıvıyı içerir.</li><li>Bebeğinizin organlarının en iyi şekilde gelişmesini sağlayan büyüme faktörlerine sahiptir.</li><li>Bebeğinizi birçok hastalık ve enfeksiyondan korumaya yardımcı olan ve formül mamalarda bulunmayan birçok maddeye sahiptir. Hatta, anne sütüyle beslenen bebeklerde şunların gelişme olasılığı daha azdır:<ul><li>Kulak enfeksiyonları</li><li>İshal</li><li>Zatürre, hırıltı ve bronşiyolit</li><li>Diğer bakteriyel ve viral enfeksiyonlar, örneğin menenjit</li></ul></li><li>Ayrıca araştırmalar emzirmenin obezite, diyabet, ani bebek ölümü sendromu, astım, egzama, kolit ve bazı kanserlere karşı korunmaya yardımcı olabildiğini göstermiştir.</li></ul></li></ol><p><strong>Emzirmek neden benim için faydalı?</strong></p><p>Emzirmek sağlığınız için faydalıdır, çünkü:</p><ul><li>Vücudunuzdaki annelik davranışını destekleyen hormonları harekete geçirir.</li><li>Rahminizi gebelikten önceki boyutuna daha çabuk döndürür.</li><li>Daha fazla kalori yakmanızı sağlar, gebelik sırasında aldığınız kiloları vermenize yardımcı olabilir.</li><li>Demirin vücudunuzda kalmasına yardımcı olmak için adet döneminizin geri dönüşünü geciktirir.</li><li>Yumurtalık kanseri ve meme kanseri riskini azaltır.</li><li>Kemikleri güçlü tutar, bu da ileri yaşlardaki kemik kırıklarına karşı korunmaya yardımcı olur.</li></ul><table><tr><td><p><strong>Emzirme nasıl gerçekleşir?</strong></p></td></tr></table><p>Gebe kaldığınızda, vücudunuz emzirmeye hazırlanmaya başlar. Gebeliğinizin dördüncü veya beşinci ayından sonra memeleriniz büyür ve vücudunuz süt üretebilir.</p><p><strong>Kolostrum nedir?</strong></p><p>Kolostrum, vücudunuzun yaptığı ilk süttür. Sarı veya turuncu tonlarındadır ve olgun süte göre daha yoğundur. Kolostrum, yenidoğan bebeğinizin ihtiyaç duyduğu tüm besinlere sahiptir. Ayrıca bebeğinizi hastalıklara ve enfeksiyonlara karşı koruyan birçok madde içerir. Küçük bir miktar gibi görünse de bu sütle beslenmek bebeğinizin sağlığı için çok önemlidir. Bebeğinizin ilk gün her beslenmede yalnızca 1 yemek kaşığından daha azına ve ikinci gün her beslenmede yaklaşık 2 yemek kaşığına ihtiyacı vardır.</p><p><strong>Sütün gelmesi ve sütün inmesi arasındaki fark nedir?</strong></p><p>Sütün gelmesi ve sütün inmesi farklı şeyleri ifade eder, ancak ikisi de önemlidir.</p><ul><li>Süt, bebeğiniz doğduktan 2 ila 5 gün sonra salgılanır. Bu, kolostrumun hacminin hızla arttığı ve süt beyazı tonlarına geçtiği zamandır.</li></ul><p><strong>Sütün gelmesine</strong> dair işaretler şunları içerir:</p><ul><li><ul><li>Dolgun ve hassas memeler</li><li>Sütün sızması</li><li>Bebeğinizin ağzının etrafında süt görmek</li><li>Beslendiğinde bebeğinizin yutkunduğunu duymak</li></ul></li></ul><p>Anne sütü günlük olarak değişir ve emzirdiğiniz zamanın geri kalanında bebeğinizin ihtiyaçlarına göre ayarlanır. Sütün rengi veya yoğunluğu günlük olarak değişebileceğinden sütünüzün nasıl göründüğü konusunda endişelenmeyin.</p><ul><li><strong>Sütün inmesi</strong>, sütün memenin arkasından meme ucuna akışını sağlayan reflekstir. İnme, bebek her emdiğinde gerçekleşir. Rahatladığınızda ve bebeğiniz göğsünüzü doğru şekilde kavradığında tetiklenir. Sütün inmesi beslenmelerin arasında da olabilir, örneğin memeleriniz dolu olduğunda veya bir bebeğin ağlamasını duyduğunuzda. İlk birkaç emzirmenizde, süt inmesi refleksi birkaç dakika sürebilir. Daha sonra, genellikle birkaç saniye içinde, daha hızlı bir şekilde süt salıverilir. Sütün inmesi her iki memede de aynı anda meydana gelir. Her besleme sırasında birkaç kez yaşanabilir.</li></ul><p>Her kadın için sütün inmesi belirtileri farklıdır. Bazı kadınlar emzirme iyi gidiyor olsa bile hiçbir şey hissetmez. Diğer kadınlarsa şunları hissedebilir:</p><ul><li><ul><li>Rahimde kramp. Bu, doğumdan sonraki ilk birkaç gün için güçlü olabilir, ancak emzirme iyice yerleştikten sonra genellikle geçer.</li><li>Memede karıncalanma ve hafif ağrı.</li><li>Memelerin ağırlaştığına dair ani bir his.</li><li>Kullanılmayan memeden süt damlaması.</li><li>Bebeklerini beslerken bebeğin yutması veya yutkunması.</li></ul></li></ul><p><strong>Arz ve talep nedir?</strong></p><p>Bebeğiniz memenizden ne kadar çok süt alırsa, o kadar çok süt yaparsınız. Buna arz ve talep denir, çünkü bebeğiniz ne kadar çok süt talep ederse, siz de o kadar çok tedarik edeceksiniz. Küçük memeli birçok kadın, yeterince süt yapamayacaklarından endişe eder. Ancak arz ve talep nedeniyle meme büyüklüğü ile ne kadar süt üretildiği arasında bir ilişki yoktur.</p><table><tr><td><p><strong>Emzirmeye Başlarken</strong></p></td></tr></table><p>Bebekler doğduktan sonra çok uyanık ve memeyi bulmaya hazırdır! Kendinizi ne kadar rahat ve kendinden emin hissederseniz, sütünüz bebeğinize o kadar hızlı ulaşacaktır. Rahatlamak, bebeğinizin memeyi daha iyi kavramaya başlamasına yardımcı olacaktır.</p><p><strong>Ne kadar erken emzirebilirim?</strong></p><p>Siz ve bebeğiniz fiziksel olarak yapabiliyorsanız, doğumdan sonraki ilk saat içinde emzirebilirsiniz ve emzirmelisiniz. Doğumun ardından memenize veya karnınıza, ten tene yerleştirilmelidir. Sütünüzün erken kokusu ve tadı bebeğinizin emzirmeyi öğrenmesine yardımcı olur. Bebeğiniz sağlıklıysa bebeğinizin tek ihtiyacı anne sütüdür. Su, şekerli su ve formül mama dahil diğer sıvılar, bebeğinizin erken anne sütünden elde ettiği faydaları yalnızca azaltacaktır. </p><p>Mümkün olduğunca bebeğinizin yanında kalmaya çalışın. Hastanede kaldığınız süre boyunca bebeğinizle gece ve gündüz aynı odada kalmanın emzirmeye başlamanıza ve daha uzun süre devam etmesine yardımcı olduğu gösterilmiştir.</p><p><strong>Farklı emzirme pozisyonları nelerdir?</strong></p><p>Rahatlamak için daima zaman ayırın. İlk beslenmeler sırasında yardım istemekten çekinmeyin. Birkaç deneme gerektirebilir ancak biraz sabırla siz ve bebeğiniz başaracaksınız. Aşağıdakiler 3 emzirme pozisyonudur:</p><ul><li><strong>Sarmalayarak emzirme:</strong> geleneksel emzirme pozisyonu. Bebeğinizin sırtını ve poposunu sıkıca destekleyin. Bu şekilde beslenirken, bebeğinizin tüm vücudunun tavana değil, vücudunuza baktığından emin olun.</li></ul><p></p><ul><li><strong>Koltukaltı emzirme:</strong> Sezaryen doğum yaptıysanız daha rahat olabilir çünkü bebeğin ağırlığını dikişlerden uzak tutar. </li></ul><p></p><ul><li><strong>Yatarak emzirme:</strong> Bebeğinizi yatarken beslemek rahatlamanızı sağlar ve sezaryenle doğum yaptıysanız veya yorgunsanız yardımcı olabilir.</li></ul><p></p><p><strong>Emzirirken nasıl rahat olabilirim?</strong></p><p>Birkaç basit şey kendinizi rahat hissetmenize yardımcı olabilir.</p><ul><li>Sırt ve kol desteği iyi olan rahat bir sandalyeye oturun.</li><li>Bebeğiniz size bakacak şekilde yatakta yan yatın. Sırtınızı ve boynunuzu desteklemek için yastıklar yerleştirin.</li><li>Derin nefes alın ve kendinizi huzurlu bir yerde hayal edin.</li><li>Sağlıklı bir içecek yudumlarken rahatlatıcı müzikler dinleyin.</li><li>Her emzirmeden birkaç dakika önce memenize sıcak (ılık, ıslak bezler gibi) uygulayın.</li><li>Eviniz çok kalabalıksa, beslenme sırasında rahatsız edilmeyeceğiniz sakin bir yer bulun.</li><li>Sezaryenle doğum yaptıysanız bebeğinizin pozisyon almasına yardımcı olması için ekstra yastıklar kullanın.</li><li>Farklı emzirme pozisyonları deneyin.</li><li>Bebeğinizin memenizi doğru şekilde kavradığından emin olun. </li></ul><table><tr><td><p><strong>Acıkmanın Erken Belirtileri</strong></p><p>Bebeğiniz acıktığında aşağıdaki ipucu ve işaretleri yaparak size haber vermeye başlar:</p><ul><li>Uyanmaya başladığında küçük hareketler</li><li>Fısıltı veya dudak şapırdatma</li><li>Kollarını veya bacaklarını orta hatta birleştirme</li><li>Esneme</li><li>Uyanma ve uyanık görünme</li><li>Ellerini ağzına götürme</li><li>Emme hareketleri yapma</li><li>Yumruklarını ağzına götürme</li><li>Daha aktif olma</li><li>Memenize sürtünme</li></ul></td></tr></table><p><strong>Memeyi kavramak neden bu kadar önemlidir ve nasıl yapılır?</strong></p><p>İyi bir kavrama, bebeğinizin ağzını iyice açtığı, meme ucu ve meme başını ağzına tamamen aldığı anlamına gelir. Doğru kavrama çok önemlidir, çünkü:</p><ul><li>Süt akışını daha iyi hale getirir</li><li>Ağrıyan meme uçlarını önler</li><li>Bebeğinizi memnun eder</li><li>Bebeğin kilo alması için iyi bir süt tedarikini uyarır</li><li>Tıkanmış (aşırı dolgun) memeleri önlemeye yardımcı olur</li></ul><p>Serbest elinizle memenizi tutarak bebeğinizin kavramasına yardımcı olabilirsiniz. Parmaklarınızı göğsünüzün altında ve baş parmağınız üstte olacak şekilde yerleştirin. Araya girmemeleri için parmaklarınızı areoladan uzağa yerleştirin. Bebeğinizi tüm vücudu size bakacak şekilde konumlandırın.</p><p></p><p>Meme ucunuzu bebeğinizin alt dudağının ortasına dokundurun. Bu, bebeğinizin ağzını genişçe açmasını sağlayacaktır. Buna emme refleksi denir. Bu meydana geldiğinde, bebeğinizi meme ucuna ve meme başına doğru doğru çekin. Bebeğiniz doğru şekilde yerleştiğinde ve memenizi kavradığında meme ucunuz ve meme başınızın büyük bir kısmı ağzının içine iyice çekileceğini aklınızda tutun. Bebeğinizin dudakları ve diş etleri sadece meme ucunda değil meme başı çevresinde olmalıdır. Bebeğinizin çenesi memenize değmeli ve burnu memeye yakın olmalıdır.</p><p></p><p>İlk başta bir asılma hissi hissedeceksiniz. Ayrıca kısa süren bir ağrı hissedebilirsiniz. Emzirme acıtmaya, sıkmaya veya yakmaya devam ederse bebeğiniz doğru şekilde memeyi kavramamış olabilir. Bebeğinizi memeden ayırmak için parmağınızı bebeğin ağzıyla memenizin arasına koyun. Bu işlemi birkaç kez tekrarlamanız gerekebilir. </p><p>Hastane personeli bir beslenmeyi izlemeli ve önerilerde bulunmalıdır. Emzirme canınızı acıtmaya devam ederse, bir emzirme uzmanının yardımına ihtiyacınız olabilir. Bir sorun varsa çocuk doktorunuza danışın.</p><table><tr><td><p><strong>İlk Beslenmelerin Sonrasında</strong></p></td></tr></table><p><strong>Ne sıklıkla emzirmeliyim?</strong></p><p>Yenidoğanlar sık sık beslenirler ve beslenmeye hazır olduklarında ipuçları veya işaretler verirler. Her beslenmenin uzunluğu değişkenlik gösterebilir ve bebeğiniz doyduğunda size belirtiler gösterecektir. Yenidoğanlar farklı zamanlarda acıkırlar. Emzirilen yenidoğanların çoğu 24 saatte 8 ila 12 kez veya daha fazla beslenir (süt salgılandığında). </p><p>Bebeğiniz ilk birkaç hafta kendi kendine uyanmıyorsa, son beslenmenin üzerinden 4 saatten fazla zaman geçmişse onu uyandırın. Bebeğinizi beslemek için uyandırmakta zorlanıyorsanız, çocuk doktorunuza bildirin.</p><p><strong>Emzirilen bir bebek için en iyi beslenme programı nedir?</strong></p><p>Beslenme programları her bebek için farklıdır, ancak bebeğinizi ağlamaya başlamadan emzirmek en iyisidir. Ağlamak, açlığın geç bir belirtisidir. Mümkün olduğunda, ne zaman emzireceğinize karar vermek için saat yerine bebeğinizin ipuçlarını kullanın. Bebeğinizin erken açlık ipuçlarını öğrenirseniz, bu sizin ve bebeğiniz için daha az sinir bozucu olabilir. </p><p>Sık beslenme, memelerin daha verimli süt üretmesini sağlamaya yardımcı olur. Büyüme atağı sırasında (hızlı büyüme), bebekler her zaman emzirmek isteyeceklerdir. Unutmayın, bu normal ve geçicidir, genellikle yaklaşık 4 ila 5 gün sürer. Emzirmeye devam edin ve başka herhangi bir sıvı veya yiyecek vermeyin.</p><p><strong>Emzirme ne kadar sürer?</strong></p><p>Her bebek farklı beslenir: bazıları daha yavaş, bazıları daha hızlı. Bebeğinizin iştahına ve günün saatine bağlı olarak bazı beslemeler diğerlerinden daha uzun olabilir. </p><p>Bazı bebekler uyuyor gibi görünseler bile emzirebilirler. Bazı bebekler bir memede sadece 10 dakika emzirirken, bazılarının bir tarafta çok daha uzun süre kalması oldukça yaygındır. Bebeğinizin beslenmenin ne zaman biteceğine karar vermesine izin vermek genellikle iyidir; doyduğunda bırakıp geri çekilecektir. Bebeğiniz göğsünüzde uyuyakaldıysa veya bebeğiniz doymadan önce emzirmeyi bırakmanız gerekiyorsa, parmağınızla emmeyi nazikçe durdurun. Bunu, bebeğiniz hala memeyi kavrıyorken ağzıyla memeniz arasına parmak koyarak yapın. Emmeyi bırakmadan bebeği asla memeden çekmeyin. Her iki memeyi de uyarmak için verdiğiniz memeyi değiştirin. </p><p>Bazı kadınlar, hatırlamaya yardımcı olması için sütyen askılarına çengelli iğne takmayı sever. Her iki taraftan da eşit şekilde emzirmeye çalışmanız gerekirken, birçok bebek bir tarafı diğerine tercih eder ve o tarafı daha uzun süre emer. Bu olduğunda, meme süt üretimini bebeğinizin beslenmesine göre ayarlar.</p><p></p><p><strong>Bebeğimin acıkıp acıkmadığını nasıl anlarım?</strong></p><p>Yakında bebeğinizin beslenme düzenini öğreneceksiniz. Ayrıca bebekler açlıktan başka nedenlerle de emzirmek isteyebilirler. Bebeğinizin ihtiyaçlarını karşılamanın başka bir yolu olarak bu "konfor beslenmelerini" sunmanızda bir sakınca yoktur. </p><p>Neredeyse tüm yenidoğanlar doğumdan yaklaşık 2 saat sonra uyanıktır ve beslenmeye hemen ilgi gösterirler. Bu fırsattan yararlanmayı planladığınızı hastane personeline bildirin; bu, emzirme süreci için çok önemlidir. 2 saatin ardından, birçok yenidoğan uykuludur ve ertesi gün için uyanmakta güçlük çeker. </p><p>Hastanedeyken bebeğinizi ten tene yanınızda tutmak, açlık belirtilerini tanımanızı kolaylaştıracak ve ayrıca bebeğinizin daha uyanık olmasını ve sık beslenmesini kolaylaştıracaktır. </p><p>Açlığın erken belirtilerine dikkat edin. Bu, bebeğinizi kucağınıza alma, nazikçe uyandırma, bezini kontrol etme ve onu beslemeye çalışma zamanıdır. (Bkz. "Açlığın Erken Belirtileri".)</p><p><strong>Bebeğimin yeterince süt alıp almadığını nasıl anlarım?</strong></p><p>Bebeğinizin yeterince süt alıp almadığını anlamanın birkaç yolu vardır. Örneğin;</p><ul><li>Bebeğinizin sık sık ıslak ve kirli bezleri olması.</li><li>Bebeğiniz beslendikten sonra memnun görünmesi.</li><li>Emzirme sırasında sütün görünmesi (sızma veya damlama).</li><li>Bebeğiniz ilk haftadan sonra kilo alması.</li></ul><p>Bebeğinizin doğumdan sonraki ilk birkaç gün boyunca her gün birkaç ıslak veya kirli bezi olmalıdır. Sütünüzün salgılandığı andan itibaren ıslak bez sayısı günde 6 veya daha fazla olmalıdır. Aynı zamanda dışkı önce yeşile, sonra sarıya dönmeye başlamalıdır. 24 saatte 3 veya daha fazla dışkı olmalıdır. Genel olarak, emzirme iyi giderken, emzirilen bebeklerin her beslenme sırasında veya sonrasında sarı bir dışkısı olur. Bebeğiniz büyüdükçe dışkı daha az sıklıkta ortaya çıkabilir ve bir ay sonra birkaç gün bile atlayabilir. Dışkı yumuşaksa, bebeğiniz iyi besleniyor ve iyi davranıyorsa bu oldukça normaldir. </p><p></p><p>Bebeğinizin beslenme düzeni, yeterince beslendiğinin önemli bir işaretidir. Gün boyunca tüm beslenmeleri toplarsanız, bebeğiniz günde en az 8 ila 12 kez beslenmelidir. Unutmayın, yeni doğanlar sık sık beslenirler ve beslenmeye hazır olduklarında ipuçları veya işaretler verirler. Her beslenmenin uzunluğu değişir ve bebeğiniz doyduğunda size belirtiler gösterecektir. Bebeğiniz iyi bir kavrama ile iyi beslendiğinde memenizi derinden emecek, yutkunma sesleri duyacaksınız ve besleme ağrılı olmayacaktır. Bebeğiniz beslenmenin ardından memnun görünmelidir ve/veya bir sonraki beslenmeye kadar uyumalıdır. Bebeğiniz ilk 2 haftada 4 saatten uzun süre uyuyorsa, onu emzirmek için uyandırın. Bebeğiniz günde en az 8 kez beslenmek için uyanmıyorsa, çocuk doktorunuzu arayın. Çocuğunuz her doktor ziyaretinde tartılacaktır. Bu, bebeğinizin ne kadar süt aldığını anlamanın en iyi yollarından biridir. AAP, emzirmeyi ve bebeğin kilosunu kontrol etmek için bebeklerin 3 ila 5 günlükken bir çocuk doktoru tarafından muayene edilmesini önerir. İlk hafta boyunca çoğu bebek birkaç kilo kaybeder, ancak ikinci haftanın sonunda doğum kilolarına geri dönmelidirler. Süt tedarikiniz sağlandıktan sonra, bebeğiniz ilk 3 ayda günde 15 ila 30 gram arasında kilo kazanır.</p><table><tr><td><p><strong>Emzirme: Doğal Bir Hediye</strong></p></td></tr></table><p>Anne sütü bebeğinize iyi bir beslenmeden daha fazlasını verir. Ayrıca enfeksiyonla savaşmak için önemli maddeler sağlar. Emzirmenin ikiniz için de tıbbi ve psikolojik faydaları vardır. Birçok anne ve bebek için emzirme başlangıçtan itibaren sorunsuz geçer. Diğerleri için, süreci etkili bir şekilde ilerletmek için biraz zaman ve birkaç deneme gerekebilir. Yeni olan her şey gibi, emzirmek de biraz pratik gerektirir. Bu tamamen normaldir. Yardıma ihtiyacınız olursa, hastanedeyken doktorlara ve hemşirelere, çocuk doktorunuza veya emzirme uzmanınıza danışın.</p><p>Emzirme hakkında daha fazla bilgi için, AAP'nin Yeni Annenin Emzirme Rehberi kitabını okuyun.</p><table><tr><td><p>Bright Futures: Guidelines for Health Supervision of Infants, Children, and Adolescents, <br />4.Baskı'dan uyarlanmıştır. Daha fazla bilgi için <strong>https://brightfutures.aap.org</strong> adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/genel-bilgiler/Bebe%C4%9Finizi%20Emzirmek.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

@@ -1,0 +1,1087 @@
+// ============================================================================
+// MD3 Expressive 2025 - Progress Indicators
+// ============================================================================
+// Material Design 3 compliant progress and loading components
+// Features: Linear, Circular, Dots, Skeleton, Spinner
+// Accessibility: ARIA progress, reduced motion support
+// ============================================================================
+
+@use '../colors' as colors;
+@use '../typography' as typography;
+@use '../shapes' as shapes;
+@use '../elevation' as elevation;
+@use '../motion' as motion;
+@use '../states' as states;
+@use '../spacing' as spacing;
+@use '../effects' as effects;
+
+// ============================================================================
+// PROGRESS TOKENS
+// ============================================================================
+
+:root {
+  // Linear progress
+  --md-sys-progress-linear-height: 4px;
+  --md-sys-progress-linear-height-thick: 8px;
+
+  // Circular progress
+  --md-sys-progress-circular-size: 48px;
+  --md-sys-progress-circular-size-sm: 24px;
+  --md-sys-progress-circular-size-lg: 64px;
+  --md-sys-progress-circular-size-xl: 96px;
+  --md-sys-progress-circular-stroke-width: 4px;
+
+  // Colors
+  --md-sys-color-progress-track: var(--md-sys-color-surface-container-highest);
+  --md-sys-color-progress-indicator: var(--md-sys-color-primary);
+  --md-sys-color-progress-stop: var(--md-sys-color-primary-container);
+
+  // Animation
+  --md-sys-progress-animation-duration: 2s;
+  --md-sys-progress-animation-duration-fast: 1s;
+  --md-sys-progress-animation-easing: var(--md-sys-motion-easing-standard);
+}
+
+// Dark mode adjustments
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-progress-track: var(--md-sys-color-surface-container);
+  }
+}
+
+// ============================================================================
+// LINEAR PROGRESS - DETERMINATE
+// ============================================================================
+
+.md3-progress-linear {
+  position: relative;
+  width: 100%;
+  height: var(--md-sys-progress-linear-height);
+  background: var(--md-sys-color-progress-track);
+  border-radius: var(--md-sys-shape-corner-full);
+  overflow: hidden;
+
+  // Progress indicator
+  &__indicator {
+    position: absolute;
+    inset: 0;
+    background: var(--md-sys-color-progress-indicator);
+    border-radius: inherit;
+    transform-origin: left center;
+    transform: scaleX(var(--progress, 0));
+    transition: transform var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+  }
+
+  // Active track (filled portion)
+  &__active-track {
+    position: absolute;
+    inset: 0;
+    background: var(--md-sys-color-progress-indicator);
+    border-radius: inherit;
+    width: calc(var(--progress, 0) * 100%);
+    transition: width var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+  }
+
+  // Stop indicator (optional circle at end)
+  &__stop {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: var(--md-sys-color-progress-stop);
+    border-radius: var(--md-sys-shape-corner-full);
+  }
+
+  // Thick variant
+  &--thick {
+    height: var(--md-sys-progress-linear-height-thick);
+  }
+
+  // Rounded ends
+  &--rounded {
+    .md3-progress-linear__indicator,
+    .md3-progress-linear__active-track {
+      border-radius: var(--md-sys-shape-corner-full);
+    }
+  }
+}
+
+// ============================================================================
+// LINEAR PROGRESS - INDETERMINATE
+// ============================================================================
+
+.md3-progress-linear--indeterminate {
+  .md3-progress-linear__indicator {
+    animation: md3-linear-indeterminate var(--md-sys-progress-animation-duration) var(--md-sys-progress-animation-easing) infinite;
+  }
+
+  // Secondary indicator for dual animation
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--md-sys-color-progress-indicator);
+    border-radius: inherit;
+    animation: md3-linear-indeterminate-secondary var(--md-sys-progress-animation-duration) var(--md-sys-progress-animation-easing) infinite;
+    animation-delay: 0.5s;
+    opacity: 0.5;
+  }
+}
+
+@keyframes md3-linear-indeterminate {
+  0% {
+    transform: translateX(-100%) scaleX(0.2);
+  }
+  50% {
+    transform: translateX(0%) scaleX(0.5);
+  }
+  100% {
+    transform: translateX(100%) scaleX(0.2);
+  }
+}
+
+@keyframes md3-linear-indeterminate-secondary {
+  0% {
+    transform: translateX(-150%) scaleX(0.3);
+  }
+  50% {
+    transform: translateX(-25%) scaleX(0.4);
+  }
+  100% {
+    transform: translateX(100%) scaleX(0.3);
+  }
+}
+
+// ============================================================================
+// LINEAR PROGRESS - BUFFER
+// ============================================================================
+
+.md3-progress-linear--buffer {
+  // Buffer indicator (background)
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: oklch(from var(--md-sys-color-progress-indicator) l c h / 0.3);
+    border-radius: inherit;
+    width: calc(var(--buffer, 0) * 100%);
+    transition: width var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+  }
+
+  // Dots pattern for unbuffered area
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(var(--buffer, 0) * 100%);
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+      circle,
+      var(--md-sys-color-progress-track) 1px,
+      transparent 1px
+    );
+    background-size: 8px 8px;
+    background-position: center;
+  }
+}
+
+// ============================================================================
+// CIRCULAR PROGRESS - DETERMINATE
+// ============================================================================
+
+.md3-progress-circular {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--md-sys-progress-circular-size);
+  height: var(--md-sys-progress-circular-size);
+
+  // SVG container
+  svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  // Track circle
+  &__track {
+    fill: none;
+    stroke: var(--md-sys-color-progress-track);
+    stroke-width: var(--md-sys-progress-circular-stroke-width);
+  }
+
+  // Indicator circle
+  &__indicator {
+    fill: none;
+    stroke: var(--md-sys-color-progress-indicator);
+    stroke-width: var(--md-sys-progress-circular-stroke-width);
+    stroke-linecap: round;
+    stroke-dasharray: var(--circumference, 138.23);
+    stroke-dashoffset: calc(var(--circumference, 138.23) * (1 - var(--progress, 0)));
+    transition: stroke-dashoffset var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+  }
+
+  // Label in center
+  &__label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--md-sys-typescale-label-medium-font);
+    font-size: var(--md-sys-typescale-label-medium-size);
+    font-weight: var(--md-sys-typescale-label-medium-weight);
+    color: var(--md-sys-color-on-surface);
+  }
+
+  // Size variants
+  &--sm {
+    width: var(--md-sys-progress-circular-size-sm);
+    height: var(--md-sys-progress-circular-size-sm);
+
+    .md3-progress-circular__track,
+    .md3-progress-circular__indicator {
+      stroke-width: 3px;
+    }
+
+    .md3-progress-circular__label {
+      font-size: var(--md-sys-typescale-label-small-size);
+    }
+  }
+
+  &--lg {
+    width: var(--md-sys-progress-circular-size-lg);
+    height: var(--md-sys-progress-circular-size-lg);
+
+    .md3-progress-circular__label {
+      font-size: var(--md-sys-typescale-label-large-size);
+    }
+  }
+
+  &--xl {
+    width: var(--md-sys-progress-circular-size-xl);
+    height: var(--md-sys-progress-circular-size-xl);
+
+    .md3-progress-circular__track,
+    .md3-progress-circular__indicator {
+      stroke-width: 6px;
+    }
+
+    .md3-progress-circular__label {
+      font-size: var(--md-sys-typescale-title-medium-size);
+    }
+  }
+}
+
+// ============================================================================
+// CIRCULAR PROGRESS - INDETERMINATE
+// ============================================================================
+
+.md3-progress-circular--indeterminate {
+  svg {
+    animation: md3-circular-rotate var(--md-sys-progress-animation-duration) linear infinite;
+  }
+
+  .md3-progress-circular__indicator {
+    stroke-dasharray: 80, 200;
+    stroke-dashoffset: 0;
+    animation: md3-circular-dash var(--md-sys-progress-animation-duration) var(--md-sys-motion-easing-emphasized) infinite;
+  }
+}
+
+@keyframes md3-circular-rotate {
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes md3-circular-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -124;
+  }
+}
+
+// ============================================================================
+// SPINNER (Simple rotating indicator)
+// ============================================================================
+
+.md3-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--md-sys-progress-circular-size);
+  height: var(--md-sys-progress-circular-size);
+  animation: md3-spinner-rotate var(--md-sys-progress-animation-duration-fast) linear infinite;
+
+  // Spinner icon
+  &__icon {
+    width: 100%;
+    height: 100%;
+    color: var(--md-sys-color-progress-indicator);
+  }
+
+  // CSS-only spinner
+  &--css {
+    border: var(--md-sys-progress-circular-stroke-width) solid var(--md-sys-color-progress-track);
+    border-top-color: var(--md-sys-color-progress-indicator);
+    border-radius: var(--md-sys-shape-corner-full);
+  }
+
+  // Size variants
+  &--sm {
+    width: var(--md-sys-progress-circular-size-sm);
+    height: var(--md-sys-progress-circular-size-sm);
+  }
+
+  &--lg {
+    width: var(--md-sys-progress-circular-size-lg);
+    height: var(--md-sys-progress-circular-size-lg);
+  }
+
+  &--xl {
+    width: var(--md-sys-progress-circular-size-xl);
+    height: var(--md-sys-progress-circular-size-xl);
+  }
+}
+
+@keyframes md3-spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ============================================================================
+// DOTS LOADER
+// ============================================================================
+
+.md3-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    background: var(--md-sys-color-progress-indicator);
+    border-radius: var(--md-sys-shape-corner-full);
+    animation: md3-dots-pulse 1.4s var(--md-sys-motion-easing-standard) infinite both;
+
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  }
+
+  // Size variants
+  &--sm {
+    gap: 6px;
+
+    .md3-dots__dot {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  &--lg {
+    gap: 12px;
+
+    .md3-dots__dot {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+@keyframes md3-dots-pulse {
+  0%,
+  80%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Bouncing dots variant
+.md3-dots--bounce {
+  .md3-dots__dot {
+    animation: md3-dots-bounce 1.4s var(--md-sys-motion-easing-standard) infinite both;
+  }
+}
+
+@keyframes md3-dots-bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+}
+
+// ============================================================================
+// SKELETON LOADER
+// ============================================================================
+
+.md3-skeleton {
+  position: relative;
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: var(--md-sys-shape-corner-small);
+  overflow: hidden;
+
+  // Shimmer effect
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      oklch(from var(--md-sys-color-surface) l c h / 0.4) 50%,
+      transparent 100%
+    );
+    animation: md3-skeleton-shimmer 1.5s linear infinite;
+  }
+
+  // Text skeleton
+  &--text {
+    height: 16px;
+    border-radius: var(--md-sys-shape-corner-extra-small);
+
+    &.md3-skeleton--sm {
+      height: 12px;
+    }
+
+    &.md3-skeleton--lg {
+      height: 24px;
+    }
+  }
+
+  // Heading skeleton
+  &--heading {
+    height: 32px;
+    border-radius: var(--md-sys-shape-corner-small);
+  }
+
+  // Avatar skeleton
+  &--avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--md-sys-shape-corner-full);
+
+    &.md3-skeleton--sm {
+      width: 32px;
+      height: 32px;
+    }
+
+    &.md3-skeleton--lg {
+      width: 64px;
+      height: 64px;
+    }
+
+    &.md3-skeleton--xl {
+      width: 96px;
+      height: 96px;
+    }
+  }
+
+  // Rectangle skeleton
+  &--rect {
+    height: 100px;
+    border-radius: var(--md-sys-shape-corner-medium);
+
+    &.md3-skeleton--sm {
+      height: 60px;
+    }
+
+    &.md3-skeleton--lg {
+      height: 200px;
+    }
+  }
+
+  // Card skeleton
+  &--card {
+    height: 200px;
+    border-radius: var(--md-sys-shape-corner-large);
+  }
+
+  // Button skeleton
+  &--button {
+    width: 100px;
+    height: 40px;
+    border-radius: var(--md-sys-shape-corner-full);
+  }
+
+  // Image skeleton
+  &--image {
+    aspect-ratio: 16 / 9;
+    border-radius: var(--md-sys-shape-corner-medium);
+  }
+
+  // No animation variant (static)
+  &--static {
+    &::after {
+      display: none;
+    }
+  }
+
+  // Pulse variant (instead of shimmer)
+  &--pulse {
+    animation: md3-skeleton-pulse 1.5s var(--md-sys-motion-easing-standard) infinite;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+@keyframes md3-skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes md3-skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Skeleton group layout
+.md3-skeleton-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  // Card layout
+  &--card {
+    .md3-skeleton:first-child {
+      height: 160px;
+      border-radius: var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-large) 0 0;
+    }
+  }
+
+  // List item layout
+  &--list-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+
+    .md3-skeleton--text {
+      flex: 1;
+    }
+  }
+
+  // Inline layout
+  &--inline {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+// ============================================================================
+// LOADING OVERLAY
+// ============================================================================
+
+.md3-loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: oklch(from var(--md-sys-color-surface) l c h / 0.8);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard),
+    visibility var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard);
+
+  &.is-loading,
+  &[data-loading="true"] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__text {
+    font-family: var(--md-sys-typescale-body-medium-font);
+    font-size: var(--md-sys-typescale-body-medium-size);
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  // Fixed variant (covers viewport)
+  &--fixed {
+    position: fixed;
+    z-index: 9999;
+  }
+
+  // Glass variant
+  &--glass {
+    background: var(--md-sys-color-glass-surface);
+    backdrop-filter: blur(var(--md-sys-glass-blur));
+    -webkit-backdrop-filter: blur(var(--md-sys-glass-blur));
+  }
+}
+
+// ============================================================================
+// PROGRESS WITH LABEL
+// ============================================================================
+
+.md3-progress-labeled {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__label {
+    font-family: var(--md-sys-typescale-label-medium-font);
+    font-size: var(--md-sys-typescale-label-medium-size);
+    font-weight: var(--md-sys-typescale-label-medium-weight);
+    color: var(--md-sys-color-on-surface);
+  }
+
+  &__value {
+    font-family: var(--md-sys-typescale-label-medium-font);
+    font-size: var(--md-sys-typescale-label-medium-size);
+    font-weight: var(--md-sys-typescale-label-medium-weight);
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  &__helper {
+    font-family: var(--md-sys-typescale-body-small-font);
+    font-size: var(--md-sys-typescale-body-small-size);
+    color: var(--md-sys-color-on-surface-variant);
+  }
+}
+
+// ============================================================================
+// STEP INDICATOR
+// ============================================================================
+
+.md3-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.md3-step {
+  display: flex;
+  align-items: center;
+  flex: 1;
+
+  &__indicator {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--md-sys-color-surface-container-highest);
+    border-radius: var(--md-sys-shape-corner-full);
+    font-family: var(--md-sys-typescale-label-large-font);
+    font-size: var(--md-sys-typescale-label-large-size);
+    font-weight: var(--md-sys-typescale-label-large-weight);
+    color: var(--md-sys-color-on-surface-variant);
+    transition: all var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+
+    // Icon for completed state
+    svg,
+    .material-symbols-outlined {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__connector {
+    flex: 1;
+    height: 2px;
+    background: var(--md-sys-color-outline-variant);
+    margin: 0 8px;
+    transition: background-color var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+  }
+
+  &__label {
+    margin-top: 8px;
+    font-family: var(--md-sys-typescale-label-medium-font);
+    font-size: var(--md-sys-typescale-label-medium-size);
+    color: var(--md-sys-color-on-surface-variant);
+    text-align: center;
+  }
+
+  // Active state
+  &--active {
+    .md3-step__indicator {
+      background: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+
+    .md3-step__label {
+      color: var(--md-sys-color-primary);
+      font-weight: 500;
+    }
+  }
+
+  // Completed state
+  &--completed {
+    .md3-step__indicator {
+      background: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+
+    .md3-step__connector {
+      background: var(--md-sys-color-primary);
+    }
+
+    .md3-step__label {
+      color: var(--md-sys-color-on-surface);
+    }
+  }
+
+  // Error state
+  &--error {
+    .md3-step__indicator {
+      background: var(--md-sys-color-error);
+      color: var(--md-sys-color-on-error);
+    }
+
+    .md3-step__label {
+      color: var(--md-sys-color-error);
+    }
+  }
+
+  // Last step (no connector)
+  &:last-child {
+    flex: 0;
+
+    .md3-step__connector {
+      display: none;
+    }
+  }
+}
+
+// Vertical steps
+.md3-steps--vertical {
+  flex-direction: column;
+  align-items: flex-start;
+
+  .md3-step {
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__connector {
+      width: 2px;
+      height: 32px;
+      margin: 8px 0 8px 15px;
+    }
+
+    &__content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    &__label {
+      margin-top: 0;
+      text-align: left;
+    }
+  }
+}
+
+// ============================================================================
+// COLOR VARIANTS
+// ============================================================================
+
+.md3-progress--primary {
+  --md-sys-color-progress-indicator: var(--md-sys-color-primary);
+}
+
+.md3-progress--secondary {
+  --md-sys-color-progress-indicator: var(--md-sys-color-secondary);
+}
+
+.md3-progress--tertiary {
+  --md-sys-color-progress-indicator: var(--md-sys-color-tertiary);
+}
+
+.md3-progress--error {
+  --md-sys-color-progress-indicator: var(--md-sys-color-error);
+}
+
+.md3-progress--success {
+  --md-sys-color-progress-indicator: oklch(0.55 0.2 145);
+}
+
+.md3-progress--warning {
+  --md-sys-color-progress-indicator: oklch(0.7 0.15 85);
+}
+
+// ============================================================================
+// PROGRESS MIXINS
+// ============================================================================
+
+@mixin progress-linear-base {
+  position: relative;
+  width: 100%;
+  height: var(--md-sys-progress-linear-height);
+  background: var(--md-sys-color-progress-track);
+  border-radius: var(--md-sys-shape-corner-full);
+  overflow: hidden;
+}
+
+@mixin progress-circular-base($size: var(--md-sys-progress-circular-size)) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $size;
+  height: $size;
+}
+
+@mixin skeleton-base {
+  position: relative;
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: var(--md-sys-shape-corner-small);
+  overflow: hidden;
+}
+
+@mixin skeleton-shimmer {
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      oklch(from var(--md-sys-color-surface) l c h / 0.4) 50%,
+      transparent 100%
+    );
+    animation: md3-skeleton-shimmer 1.5s linear infinite;
+  }
+}
+
+// ============================================================================
+// RESPONSIVE BEHAVIOR
+// ============================================================================
+
+@media (max-width: 599px) {
+  .md3-steps:not(.md3-steps--vertical) {
+    // On mobile, make steps more compact
+    .md3-step__label {
+      font-size: var(--md-sys-typescale-label-small-size);
+    }
+
+    .md3-step__indicator {
+      width: 24px;
+      height: 24px;
+      font-size: var(--md-sys-typescale-label-small-size);
+    }
+  }
+}
+
+// ============================================================================
+// REDUCED MOTION
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .md3-progress-linear--indeterminate .md3-progress-linear__indicator,
+  .md3-progress-linear--indeterminate::before,
+  .md3-progress-circular--indeterminate svg,
+  .md3-progress-circular--indeterminate .md3-progress-circular__indicator,
+  .md3-spinner,
+  .md3-dots__dot,
+  .md3-skeleton::after,
+  .md3-skeleton--pulse {
+    animation: none;
+  }
+
+  .md3-progress-linear--indeterminate .md3-progress-linear__indicator {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+
+  .md3-progress-circular--indeterminate .md3-progress-circular__indicator {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -35;
+  }
+
+  .md3-spinner--css {
+    border-color: var(--md-sys-color-progress-indicator);
+  }
+
+  .md3-dots__dot {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  .md3-skeleton {
+    opacity: 0.7;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+// ============================================================================
+// PRINT STYLES
+// ============================================================================
+
+@media print {
+  .md3-progress-linear,
+  .md3-progress-circular,
+  .md3-spinner,
+  .md3-dots,
+  .md3-loading-overlay {
+    display: none !important;
+  }
+
+  .md3-skeleton {
+    background: #e0e0e0;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+// ============================================================================
+// HIGH CONTRAST MODE
+// ============================================================================
+
+@media (prefers-contrast: more) {
+  .md3-progress-linear {
+    border: 1px solid var(--md-sys-color-on-surface);
+  }
+
+  .md3-progress-linear__indicator,
+  .md3-progress-linear__active-track {
+    background: var(--md-sys-color-on-surface);
+  }
+
+  .md3-progress-circular__track {
+    stroke: var(--md-sys-color-outline);
+    stroke-width: 6px;
+  }
+
+  .md3-progress-circular__indicator {
+    stroke: var(--md-sys-color-on-surface);
+    stroke-width: 6px;
+  }
+
+  .md3-skeleton {
+    border: 2px dashed var(--md-sys-color-outline);
+    background: transparent;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .md3-step__indicator {
+    border: 2px solid currentColor;
+  }
+}
+
+// ============================================================================
+// FORCED COLORS MODE (Windows High Contrast)
+// ============================================================================
+
+@media (forced-colors: active) {
+  .md3-progress-linear {
+    border: 1px solid CanvasText;
+    background: Canvas;
+  }
+
+  .md3-progress-linear__indicator,
+  .md3-progress-linear__active-track {
+    background: Highlight;
+  }
+
+  .md3-progress-circular__track {
+    stroke: GrayText;
+  }
+
+  .md3-progress-circular__indicator {
+    stroke: Highlight;
+  }
+
+  .md3-spinner--css {
+    border-color: GrayText;
+    border-top-color: Highlight;
+  }
+
+  .md3-dots__dot {
+    background: Highlight;
+  }
+
+  .md3-skeleton {
+    border: 2px dashed GrayText;
+    background: Canvas;
+    forced-color-adjust: none;
+  }
+
+  .md3-step__indicator {
+    border: 2px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .md3-step--active .md3-step__indicator,
+  .md3-step--completed .md3-step__indicator {
+    background: Highlight;
+    color: HighlightText;
+    border-color: Highlight;
+  }
+
+  .md3-step__connector {
+    background: GrayText;
+  }
+
+  .md3-step--completed .md3-step__connector {
+    background: Highlight;
+  }
+}

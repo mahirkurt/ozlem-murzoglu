@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p><strong>SAĞLIKLI UYKULAR </strong>- UZM.DR. ÖZLEM MURZOĞLU</p></td></tr><tr><td><p>6 - 8 AYLIK BEBEKLER İÇİN</p><p><strong>UYKU ÖNERİLERİ</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Bebeğiniz ilk birkaç ayı kucak, meme veya araba koltukları gibi alışılmadık yerlerde uyuyarak geçirdiyse, onu artık beşiğinde uyutma zamanınız geldi. Değişiklikler yaparken biraz gözyaşına katlanmak zorunda kalabilirsiniz ama onun sonsuza kadar ya da tek başına ağlamasına izin vermek zorunda değilsiniz. Ağlarken yanında oturun ve başını okşayın ya da biraz sırtını sıvazlayın; yatıştırıcı sözler fısıldayın. Uyku düzenini oluşturmak için bütün gününüzü düzenleyecek rutinler oluşturmanız en önemli adımdır.</p></td></tr></table><table><tr><td><p><strong>Rutinler Oluşturmak</strong></p></td></tr></table><p></p><p>Rutinler oluşturmak ebeveynliği kolaylaştırır. Örneğin; bebeğiniz ağlıyorsa, bir rutin onun ne istediğini anlamanıza yardımcı olur. Kendinize şu soruyu sorabilirsiniz: "Ne zamandır uyanık? En son ne zaman yemek yedi?" Programından iyi beslendiğini ve iyi dinlendiğini biliyorsanız, onu neyin rahatsız ettiğini anlamak için doğru soruları sorma şansınız olur. Çok mu sıcak yoksa soğuk mu? Giysileri kaşındırıyor mu? Bezi ıslanmış mı? Hasta mı oluyor? Aşırı uyana mı maruz kaldı? Daha sessiz bir ortamda mı olması gerekiyor (daha loş ışıklar, daha az gürültü, daha az insan)? Oysa tamamen plansız, gelişigüzel bir gün geçirirseniz, aç mı yoksa yorgun mu gibi temel soruları yanıtlamanız güçleşir. Bir rutinin olmaması onun size anlatmak istediklerini yorumlamanızı ve ihtiyaçlarına cevap vermenizi zorlaştırır.</p><p>Rutinler sadece bebekleri huzurlu bir hale getirmekle kalmaz, aynı zamanda beyne yavaşlaması ve uykuya hazırlanması için doğru zamanın olduğuna dair işaretler verir. Bir bebek çok yorulduysa ama uyuyamıyor ise, kortizol patlaması yaşar ve bu da onun uyumasını daha da zorlaştırır. Uyku sinyallerini erken tanımak bu nedenle çok önemlidir.</p><p>Bu yaş dönemine ait uykuyu etkileyen bazı özellikleri bilmeniz bebeğinize yaklaşırken işinizi kolaylaştırabilir. Bebeğiniz bu dönemde ayrılık kaygısı edinmeye, desteksiz oturma, dönme gibi birçok motor yeteneği kazanmaya başlar.</p><table><tr><td><p>Ayrılık Kaygısını Yönetme</p></td></tr></table><p></p><p>Bu dönem bebeğiniz sizden ayrılma konusunda direnç göstermeye meyilli olacaktır. Bu nedenle onu karanlıkta ağlaması için nadiren ve asla birkaç dakikadan fazla yalnız bırakmamalısınız. Gece uyandığında, yüzünüzün üstüne bir yastık koyup ağlamasının durmasını umamazsınız, bebeğinize hemen cevap vermelisiniz. Sevdiği insanların yanında olduğunu ve onu gözetlediğini böylece öğrenecektir.</p><p>Yumuşak bir uyku arkadaşı, bebeğinizin gece ayrılığıyla başa çıkmasına yardımcı olur ve siz yanında değilken kendisini güvende hissetmesini sağlar.</p><p>Bu uyku arkadaşı, sevimli küçük, yumuşak ve güvenli olmalıdır - bebeğinizin boğulmasına neden olabilecek bir yapıda olmamalı veya daha sonra beşikten çıkmak için basamak olarak kullanılamayacağına emin olmalısınız.</p><p>Onu emzirirken veya biberonla beslerken uyku arkadaşı ile bebeğiniz arasındaki bağı güçlendirmek için uyku arkadaşını aranıza almayı unutmayın. Uyurken, yatarken ve gece uyandığında kollarına veya yanına uyku arkadaşını hemen koyun. Bazen uyku arkadaşını birkaç saat kendi tişörtünüzün içine sıkıştırmak ona anne kokusu kazandırıp bebeğinizi de rahatlatmaya yardımcı olabilir. Özellikle yatmadan önce mutlaka uyku arkadaşı ile oynayın. Ce-ee oyununa dahil edin ya da ona sevgi dolu öpücükler verin. </p><table><tr><td><p>Yeni Motor Hareket Yeteneği Kazanmasına Yönelik Tutum</p></td></tr></table><p></p><p>Bebeklerin bu yaşta artan hareketliliği, bazı yeni uyku veya şekerleme zamanı sorunlarına neden olabilir. Bazen bir tarafa dönerler ama eski pozisyonlarına geri dönemedikleri olur- bu durumda müdahale etmemeye çalışın. Bu hareketlerde yeteneğinin gelişmesi için gündüzleri karın üstü zaman geçirdiğinden ve yerde çokça serbest zaman geçirdiğinden emin olun.</p><p>Aynı şekilde bebekler önce beşiğe tutunarak oturmayı veya ayakta durmayı öğrenirler ama tekrar yerine oturup yatabilmeyi öğrenmeleri daha sonra olur. Bu süreçte de gün içinde pratik yapmaları için onlara biraz zaman tanıyın. Her konuda olduğu gibi bu konuda da onlara ne kadar izin verirseniz, kendi başlarına o kadar hızlı öğreneceklerdir. Müdahale etmeniz gerekiyorsa, bunu "sihirli an" da yapın. Diğer bir deyişle, eğer bebeğiniz dik oturuyorsa, yere düşeceğini ve yerde zor durumda kalacağını tahmin ettiğiniz bir anda bir kez onun olduğu yere uzanmasına yardım edin. Tekrar ayağa kalkarsa, onu yere yatırmayın. Bu şekilde, ebeveynin pek de kazanamadığı oturma-kalkma mücadelesine girmemiş olursunuz. </p><table><tr><td><p><strong>Örnek Program</strong></p></td></tr></table><ul><li><strong>7:00 - 7:30 </strong></li></ul><p>Uyanma. Uyandıktan sonra emzirme/katı yiyecekler ile beslenme. Oyun oynama/kitap okuma.</p><ul><li><strong>9:00 veya 9:30</strong></li></ul><p>Sabah uykusu (bir buçuk saate yakın olmasını ümit ediyoruz). Uyandıktan sonra emzirin/ katı yiyecekler verin. Mutlaka dışarıya gün ışığını bolca alabileceği bir yürüyüşe çıkarın.</p><ul><li><strong>12:30 veya 13:00 </strong></li></ul><p>Öğleden sonra uykusu (yine bir buçuk saat olmasını ümit ediyoruz). Uyandıktan sonra emzirme/beslenme. Oyun oynama/kitap okuma.</p><ul><li><strong>15:30 - 16:00  </strong></li></ul><p>(Önceki uyku saatine bağlı olarak) İsteğe bağlı üçüncü şekerleme, yaklaşık kırk beş dakika ile bir saat arasında.</p><ul><li><strong>17:00 veya 17:30</strong></li></ul><p>Emzirme /katı yiyecekler ile besleme. Oyun oynama/kitap okuma.</p><ul><li><strong>18:00 - 18:30</strong></li></ul><p>Emzirmeyi içerebilecek banyo ve yatma vakti hazırlıklarına başlayın.</p><ul><li><strong>19:00 - 19:30</strong></li></ul><p>Uykuya dalış.</p><p>Bu takvimde dikkat etmeniz gereken şey öncelikli görevinizin takvime uymak olmasıdır.  Diğer görevlerinizi, ayak işlerinizi ve aktivitelerinizi uyku, şekerlemeler ve bebek beslenme saatlerine göre planlamalısınız. Özellikle gündüz şekerleme eğitimi, birkaç hafta için zaman alıcı olabilir.</p><table><tr><td><p><strong>Takvimi Nasıl Uygulayabilirsiniz?</strong></p></td></tr></table><ul><li><strong>Sabah Uyanması</strong></li></ul><p>Bebeğiniz güne başlamaya hazır olduğunuzda perdeleri açın ve "Günaydın" deyin. Gündüz uyanmaları ile gece uyanmaları, gündüz beslenmeleri ile akşam beslenmeleri arasında bebeğinizin ayrım yapmayı öğrenmesini istiyoruz.</p><ul><li><strong>Beslenme</strong></li></ul><p>Bebeğiniz uyandığında emzirin ve bir süre oyun oynayın. Ardından kendinize kahvaltı hazırlayın ve bebeğinizi de katı gıdalarla besleyin.</p><ul><li><strong>Sabah Uykusu</strong></li></ul><p>Uyandıktan yaklaşık bir buçuk ila iki saat sonra tekrar yatma zamanı gelir. Genellikle sabah uykusu 9:00 veya 9:30 civarında başlar, erken kalkanlar için biraz daha erken. Unutmayın, o saatte uyumayı hazırlık değil uykuya dalma saatidir. Şekerleme bir-bir buçuk saat sürmesini ümit ediyoruz. Uykuya 10:00 veya 10:30'da başlamak yaygın bir hatadır. Bu saat genellikle çok geç olur ve bebeğinizin iyice yorulup huzursuzlanması uyku için çok geciktiğiniz anlamına gelir. Bebeğinizin uykuya hazır olduğuna dair ipuçlarını gözleyin. Gözlerini ovuşturabilir, esneyebilir, daha az aktif hale gelebilir veya huysuzlaşabilir- aslında bunlar bebeğinizin iyice yorulmuş olduğunu gösteren geç ipuçlarıdır. Bazı bebekler, dikkatli bir ebeveynin yorumlamayı öğrenebileceği özel küçük "beni şimdi yatırın" sesleri çıkarır. Herhangi bir yorgunluk işareti algılamazsanız, bebeğinizi daha sessiz bir odaya götürmeyi deneyin. Bebeğiniz ile mutfakta, oyun odasında veya aktivite ve uyaranla dolu başka bir yerdeyseniz, uyku sinyallerini gizleyebilir. Bu süreçte bebeğinizi uykuya yönlendirmeden hemen önce beslememeye çalışın (uyku beslenme ilişkisini kırmaya çalıştığımızı unutmayın).</p><ul><li><strong>Uyanma Zamanı ve Öğle Yemeği</strong></li></ul><p>Sabah uykusunun sonu ile öğleden sonranın başlangıcı arasında iki ila üç saatlik uyanık kalma süresi planlayın. Bu, oyun oynamak, yürüyüş yapmak veya bazı işleri halletmek ve öğle yemeği yemek için güzel bir zamandır.</p><p>Planınız araba kullanmayı gerektiriyorsa, bunu bu uyanıklığının başında yapmayı deneyin, sonunda yapmayın.</p><ul><li><strong>Öğleden Sonra Uykusu</strong></li></ul><p>Sabah uykusunun sonu ile öğle uykusunun başlangıcı arasında üç saatten fazla geçmemelidir.</p><ul><li><strong>Atıştırmalık</strong></li></ul><p>Uyandığında bir şeyler atıştırabilir veya emzirebilirsiniz.</p><ul><li><strong>İsteğe Bağlı Öğleden Sonra Uykusu</strong></li></ul><p>Bazı bebekler öğleden sonra kırk beş dakika ile bir saat arasında kısa bir üçüncü şekerleme yaparlar. Bebeğiniz önceki şekerlemelerini kısa süreli yapıyorsa ve günlük iki ana uykusu bir saat veya daha az sürüyorsa o zaman bu üçüncü küçük şekerleme zorunludur. </p><ul><li><strong>Akşam Yemeği</strong></li></ul><p>Akşam yemeği ve emzirme saat 17:00 civarında olmalıdır. Yine, öğleden sonra uykusuna bağlı olarak küçük bir değişiklik olabilir ancak çok geç olmasına izin vermeyin.</p><ul><li><strong>Yatma Vakti</strong></li></ul><p>Yatma saati 19:00 veya19:30 olmalıdır (Bu yatakta yatmış olduğu saattir; uyku rutinine başlama saati değil. Uyku rutininiz olabilecek banyo, pijama, hikâye okuma saatinize daha erken başlamalısınız. Uykuya hazırlanmak için bebeğinize gerekli rutin zamanını sağlamanız önemlidir (genellikle bu rutinler için 20-30 dakika yeterli olacaktır). Bebeğiniz yatmadan önce müziğe alışıksa, müziğin yumuşak ve kısık sesli olmasına özen gösterin. Uyku çağrışımları yapabilmesi ve beyne uyuması için işaret vermek için müzik kullanabilirsiniz ancak yatağına yatırmadan veya tamamen uykuya dalmadan önce ya sesi daha da kısın ya da müziği kapatın (müziksiz de uyuyamayacak hale gelmesinin önüne geçmek istiyoruz). </p><ul><li><strong>Yatmadan Önce Besleme</strong></li></ul><p>Uyumak için buna bağlı olmadığı ve gece uyandığında uyuması için onu beslemediğiniz sürece, yatmadan önce emzirmenizde bir sakınca yoktur. Ancak emzirmeyi mutlaka uyku rutininin başında yapmaya çalışın. Emerek uykuya dalmasına izin vermeyin; uykulu ama uyanıkken onu yatağına koyun.</p><p>Bebeğinizi uykulu ama uyanık hale getirme hedefi çok önemlidir. Bebeğinizin bununla ilgili bir sorunu varsa, enerjinizi yatmadan önce bunu başarmaya odaklayın. Sabah saat 2:00'de uyandığında da bu kuralı bozmamanız çok önemli. Bunu yatmadan hemen önce başarabildiğinizde diğer zamanlarda uygulayabilmek çok daha kolay olacaktır.</p><table><tr><td><p><strong>Sorunlar ve Çözüm Önerileri</strong></p></td></tr></table><table><tr><td><p><strong>Olumsuz Uyku İlişkileri</strong></p></td></tr></table><p>Pek çok bebeğin, uykuyu başlatma ya da tekrar uykuya dalmak için kullandıkları olumsuz yardımcıları vardır (emmek, tutulmak, sallanmak ve benzeri şeyler). Yatmadan önce ve bebeğiniz gece uyandığında yardımcıları kullanmamaya çalışın. Gece uykusuna yatırırken çocuğunuzun hemen yanında oturun  ve onu sesinizle, ara ara dokunmalarınız ile rahatlatmaya çalışabilirsiniz. Bu temasları içgüdülerinize de kulak vererek kısa tutmanız önemli. Gece arada bir uyanırsa kuralları değiştirmeyin ve  uyku arkadaşı ile temas etmesine yardımcı olmanın da önemli olduğunu unutmayın.</p><table><tr><td><p><strong>Müdahale Süreleri ve Yaklaşım</strong></p></td></tr></table><p>Yatmadan önce, gece rutininizi yapın, bebeğinizi yatırmadan önce sakinleştirin. Sonra onu öpüp yatağına yerleştirin. </p><p>Ona ne sıklıkta temas etmeniz gerektiğine dair net bir kural yoktur ve biraz deneme yanılma gerekebilir. Müdahaleyi çok hızlı yaparsanız, bunu bir oyun gibi görebilir ve daha fazla uyarılabilir. Çok uzun süre uzak kalırsanız, sinirlenebilir ve üzülebilir. Her yedi dakikada bir başlayıp ve kademeli olarak süreyi artırabilirsiniz ancak kendi içgüdülerinize güvenin ve gerekli ayarlamaları yapın.  <strong>Uzun müdahalelerin olmaması çok önemli; yarım saat boyunca onu uyutmak için okşarsanız, tüm amacı bozarsınız.</strong></p><p>Beşiğin parmaklıklarından çocuğunuza aralıklı olarak okşayabilir, hafifçe vurabilir, ovuşturabilir, ş-şşşşş şarkı söyleyebilirsiniz. Ancak uyuyana kadar bunu sürekli yapmayın, yoksa yeni bir uyku bağımlılığı oluşur. Uyumaya başladığında durun. (Bazı bebekler uykuya dalarken dokunulmasından hoşlanmazlar; içgüdülerinizi ve ipuçlarını takip edin.) <strong>Bu dokunuşları sizin kontrol ediyor olmanız önemli! </strong>Örneğin, parmağınızı veya elinizi tutarak uykuya dalmasına izin vermeyin, çünkü hareket ettiğinizde uyanacak ve her şey yeniden başlayacaktır. Vücudunun veya elinin üst kısmının farklı bir yerine hafifçe vurun veya okşayın. Bebeğiniz çok çok ajite hale gelirse, onu sakinleştirmek için kucağınıza alın. Bu sırada mutlaka odasında kalın; evin içinde dolaşmayın. <strong>Kollarınızda uyuyakalmasına izin vermeyin.</strong> <strong>Sakinleştiğinde onu öpün, beşiğine geri koyun ve sandalyeye yanına oturun.</strong> Sakinleştirici sesler çıkarın ve onu okşayın. <strong>Onu kucağınıza aldığınızda hemen sakinleşiyorsa, o zaman "ele geçirildiniz" demektir. Onu uyuması için eğitmek yerine, o sizi onu kaldırmanız için eğitiyor demektir!</strong> Müdahale etmek için bir dahaki sefere biraz daha bekleyin. İçgüdülerinize ve çocuğunuz hakkındaki bilginize güvenin.</p><p>Bir veya iki gece içinde, onu kucağınıza almanın ona yardımcı olup olmadığını veya onu daha fazla uyarıp uyarmadığını anlayacaksınız.</p><p>İlk günler yatma vaktinde ve tüm gece uyanışlarında derin bir uykuya dalana kadar beşiğinin yanında kalın. Gözlerini kapattığı anda odadan dışarı fırlarsanız, uyanacak ve üzülecek ve her şeye baştan başlamanız gerekecek.</p><p><strong>Olası gözyaşlarıyla ilgili endişelerinizi bebeğinize aktarmamaya çalışın. Eğer ona fırsat verirseniz, bebeğiniz gerçekten kendini rahatlatarak uyuyabilir.</strong> Nadiren, bir bebek birkaç gece biraz ağlayabilir, ancak acele edip erkenden onu kurtarmaya çalışmayın. Sakinleşmesine ve uyumasına izin verin. <strong>Onu sakinleştirmek için müdahale edebilirsiniz ancak ona her yaklaştığında daha fazla uyanmasını teşvik ediyorsa bu doğru bir yaklaşım olamaz. </strong></p><p><strong></strong></p><p>Tavsiyelere uymanıza rağmen bebeğiniz hala geceleri çok sık uyanıyorsa, rutinine bir kez daha bakın. Onu biraz fazla uykulu mu yatırıyorsunuz? Bu durumda siz onun için uykuya hazırlanma işinin çoğunu yapıyorsunuzdur, o da yatma vaktinde uyumayı öğrenmiş olabilir ancak sizin yardımınız olmadan geceleri tekrar uyuyamaz. Kendini yatıştırma becerilerini mükemmelleştirebilmesi için biraz daha az uykulu ve biraz daha uyanık olduğu yatma vaktinde onu yatırmayı deneyin. Ayrıca yatma saatini on beş dakika veya yarım saat daha erkene almayı deneyebilir ve belki de son emzirme ile uyku arasında biraz daha fazla ayrım yaratabilirsiniz. </p><table><tr><td><p><strong>Gece Beslenmeleri</strong></p></td></tr></table><p></p><p>Hepsi değilse bile, bu yaştaki uyku problemlerinin çoğu, uyku ve yemek yeme arasındaki ilişkileri içerir. Bebeğinizin emerken ya da ağzında biberonla uykuya dalmasını istemeyiz çünkü bu davranış hem uyku bağımsızlığını bozar hem de her an patlayacak olan o küçük dişleri için sakıncalıdır. Ayrıca bebeğinizin için öngörülebilir beslenme zamanları belirlemeye başlamalısınız, bu da bütün gece emmek için kalkmasını engelleyecektir.</p><p><strong>Gece Beslenmelerini Nasıl Azaltabilirsiniz?</strong></p><ul><li>Acıkmadığı sürece emmesine ve memede uyuklamasına izin vermeyin. <strong>Uykulu ama uyanıkken </strong>onu yatağına geri koyun. </li><li>Gece boyunca onu beslemek için bir zaman aralığı  belirleyin ve ardından onu yalnızca önceden belirlenmiş olan zaman aralığında besleyin. Yatma vakti beslenmesinden en az dört saat sonra olduğu sürece, ilk uyandığında beslemeye karar verebilirsiniz. Ya da daha geç bir zaman seçebilirsiniz; örneğin, gece yarısından sonra ilk uyandığı zamanı (özellikle onun en acıktığı ya da tepki vermediği zamanı biliyorsanız).</li><li>Acıkmadığını düşündüğünüz saatlerde uykuya dalmakta zorluk çekse de onu gece sadece bir kez besleyin ve en az sabah 6:00'ya kadar tekrar etmeyin. <strong>Pes ederseniz, ona sadece aralıklı pekiştirme vermiş olursunuz ve bu karışık mesajlar uzun vadede onun için durumu sadece daha zor hale gelir.</strong> </li><li>Beslenme planınızın bir parçası olmayan bir saatte uyanırsa, onu sakinleştirmenin başka yollarını bulun. Beşiğine kısaca gidin, onu rahatlatın ve sözlü ve bazı fiziksel güvencelerle onu rahatlatmaya devam edin. Bu uyanıklıklarda su önermeyi ve uyku arkadaşı ile temas yaratmayı unutmayın. Sağlıklı, iyi beslenmiş bir bebek olduğunu kendinize hatırlatarak kendinizi de rahatlatın.</li><li>Ayarlanan beslenme saatinden önce uyanır ve ayarlanan saate kadar huzursuzluk çekerse de onu beslemeyin. Bunu yaparsanız onu ağlaması için eğitmiş olursunuz! Onu beslemeden önce en azından kısa bir süre uyumasını sağlayın. Örneğin, saat 22:00'de uyanır ve emme saatine kadar huzursuzlanırsa, saat 23:00'ü vurduğu için onu kaldırıp beslemeyin. Bu, ona sadece siz pes edene kadar bir saat boyunca yaygara koparmasını veya ağlamasını öğretecektir ve bu, gözyaşlarını en aza indirmenin en iyi yolu değildir. Bu yüzden, sadece otuz dakika için de olsa, tekrar uyanana kadar onu uyutun. Yani 22:00'de uyanır, 23:00'e kadar huzursuzlanırsa, sonunda 23:10'da uykuya dalar ve23:45'te uyanırsa, ŞİMDİ onu besleyebilirsiniz. O yemek yemeden uyumayı öğrendi. Huzursuzken onu kaldırmamaya çalışın, ancak çok ajite olursa onu okşayıp kısaca rahatlatın. </li></ul><table><tr><td><p><strong>Bazı bebekler üç veya dört günde uyum sağlar. Bazıları biraz daha uzun sürer, ancak tutarlı olursanız, gözyaşları hızla geri çekilecek ve daha az uyanacaktır.</strong></p></td></tr></table><table><tr><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. </p><p>Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p><strong>© 2022 Uzm.Dr. Özlem Murzoğlu - Sağlıklı Uykular. Tüm hakları saklıdır.</strong></p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/genel-bilgiler/6-8%20Ay%20i%C3%A7in%20Uyku%20%C3%96nerileri.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

@@ -10,7 +10,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('MD3 Critical Implementation Tests', () => {
 
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4201');
+    await page.goto('http://localhost:4200');
     await page.waitForLoadState('domcontentloaded');
   });
 
@@ -226,7 +226,7 @@ test.describe('MD3 Critical Implementation Tests', () => {
     test('should load with good Core Web Vitals', async ({ page }) => {
       const startTime = Date.now();
       
-      await page.goto('http://localhost:4201');
+      await page.goto('http://localhost:4200');
       await page.waitForLoadState('networkidle');
       
       const loadTime = Date.now() - startTime;

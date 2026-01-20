@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>UZM.DR. ÖZLEM MURZOĞLU - ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ</p></td></tr><tr><td><p>EMZİRME İÇİN İPUÇLARI:</p><p><strong>SÜT SAKLAMA</strong></p></td><td><p></p></td></tr></table><table><tr><td><p><strong>Anne Sütünü Sağmadan Önce</strong></p></td></tr></table><p></p><ul><li>Ellerinizi sabun ve suyla iyice yıkayın. Sabun ve su yoksa, en az %60 alkol içeren alkol bazlı bir el dezenfektanı kullanın.</li><li>Anne sütünü elle veya manuel veya elektrikli pompa ile sağabilirsiniz.</li><li>Pompa kullanıyorsanız, temiz olduğundan emin olmak için pompa kitini ve hortumu inceleyin. Küflü hortumu hemen atın ve değiştirin.</li><li>Paylaşılan bir pompa kullanılıyorsa pompa kadranlarını, güç anahtarını ve tezgahı dezenfektan bezle temizleyin.</li><li>Sütünüzü saklayacağınız kabın temizlenmiş olduğundan emin olun. </li></ul><table><tr><td><p><strong>Anne Sütünün Sağıldıktan Sonra Saklanması</strong></p></td></tr></table><ul><li>Sağılmış anne sütünü saklamak için anne sütü saklama torbaları veya temiz, gıdaya uygun kaplar kullanın. Kapların cam veya plastikten yapıldığından ve sıkıca kapanan kapaklara sahip olduğundan emin olun.</li><li>Kabın BPA içeren bir plastikten yapılmış olabileceğini gösteren 7 numaralı geri dönüşüm sembolüne sahip şişelerden kaçının.</li><li>Sütün yağ ve kalori içeriğini azaltan, kaptan kaba transferden kaçının (saklayacağınız kaba doğrudan sağım yapmanız iyi bir fikir olur). </li><li>Anne sütünü asla tek kullanımlık biberonlarda veya anne sütünün saklanması için tasarlanmamış plastik torbalarda saklamayın.</li><li>Bebeğiniz bir beslenmede bitiremezse süt israfını en aza indirmek için aileleri sütü 60-120 ml gibi küçük miktarlarda paketlemeye çalışın.</li><li>Taze sağılmış süt şu koşullarda saklanabilir:<ul><li>4 saate kadar oda sıcaklığında.</li><li>4 güne kadar buzdolabında.</li><li>Dondurucuda yaklaşık 6 ay en iyisidir; 12 aya kadar kabul edilebilir. Dondurmak, yiyecekleri neredeyse sonsuza kadar güvenli tutsa da, en iyi kalite için önerilen saklama sürelerine uyulması önemlidir.</li></ul></li></ul><table><tr><td><p><strong>Depolama İpuçları</strong></p></td></tr></table><ul><li>Anne sütünü, sağıldığı tarihle açıkça etiketleyin.</li><li>Anne sütünü buzdolabının veya derin dondurucunun kapısında saklamayın. Bu, anne sütünü kapının açılıp kapanmasından kaynaklanan sıcaklık değişikliklerinden korumaya yardımcı olacaktır.</li><li>Taze sağılmış anne sütünü 4 gün içinde kullanamayacağınızı düşünüyorsanız hemen dondurun. Bu anne sütünün kalitesinin korunmasına yardımcı olacaktır.</li><li>Anne sütünü dondururken:<ul><li>Bitmemiş olabilecek süt israfını önlemek için küçük miktarlarda saklayın (60-120 ml veya bir beslemede sunulan miktarda).</li><li>Anne sütü donarken genişlediğinden, kabın üstünde yaklaşık 2-3cm boşluk bırakın.</li></ul></li><li>Anne sütünü kreşte bir çocuk bakıcısına veriyorsanız, kabı çocuğun adıyla açık bir şekilde etiketleyin. Anne sütünün etiketlenmesi ve saklanması ile ilgili diğer gereksinimler hakkında çocuk bakıcınızla konuşun.</li><li>Anne sütü, siz seyahat ederken 24 saate kadar donmuş buz paketleri ile yalıtımlı bir soğutucuda saklanabilir. <ul><li>Gittiğiniz yerde sütü hemen kullanın, buzdolabında saklayın veya dondurun.</li></ul></li></ul><table><tr><td><p><strong>Sağılmış Süt için Saklama Kapları</strong></p></td></tr></table><p></p><p><strong>Anne Sütü Saklama Poşetleri</strong></p><ul><li>Bunlar az miktarda sütü saklamak için çok kullanışlıdır. </li><li>Torbanın yırtılmasını önlemek ve dondurucuda buz teması yanmasını önlemek için torbayı ikiye katlamanız gerekebilir. <ul><li>Torbaları korumak için dondurucunuzdaki bir kabın içine de yerleştirebilirsiniz.</li></ul></li><li>Plastik poşetler dondurucuda daha az yer kaplar ve tek kullanımlıktır, bu nedenle yıkama işlemi söz konusu değildir. <ul><li>Bazı süt saklama torbaları doğrudan sağım cihazınıza bağlanır.</li></ul></li><li>Süt saklama torbalarını kullanmadan önce sterilize etmenize gerek yoktur. Ancak mümkün olduğunca temiz olmaları için paketlerinden yeni çıkmış olarak kullanmalısınız.</li><li>Sütü poşete yerleştirdiğinizde, poşetin üst kısmındaki havayı sıkın ve sütün iki santimetre yukarısına tutturun.</li><li>Süt poşetlerini dondurucudaki bir kaba yatay olarak yerleştirin çünkü daha düz-ince paketler daha çabuk eriyecektir.</li></ul><p><strong>Sert Kaplar</strong></p><p></p><ul><li>Sert kaplar plastik veya camdan yapılır. Araştırmalar, sert plastik veya cam kap kullandığınızda sütün daha az yağ ve antibakteriyel hücre kaybettiğini gösteriyor. Bu kapların dezavantajı ise dondurucunuzda çok yer kaplayabilmeleridir.</li><li>Sızdırmamaları için iyice kapattığınızdan emin olun.</li><li>Tüm sert süt kaplarınızı daha büyük bir plastik kutuda bir arada tutun.</li><li>Süt saklama için kullanmadan önce tüm kapları yıkayın, durulayın ve sterilize edin. Kimyasal olmayan bir sterilizasyon yöntemi kullanmak en iyisidir. Bu, bir buhar sterilizatörü veya mikrodalga sterilizatörü içerebilir.</li><li>Donduğunda sütün genişleyeceğini bilerek her zaman kabın üstünde yaklaşık iki santimetre boşluk bırakın. Süt genişledikçe sert kaplar kırılabilir ve torbalar yırtılabilir.</li></ul><table><tr><td><p><strong>Anne Sütünün Güvenle Çözdürülmesi</strong></p></td></tr></table><ul><li>Her zaman önce en eski anne sütünü çözün. Dolaba ilk giren ilk çıkmalı unutmayın. Zamanla anne sütünün kalitesi düşebilir.</li><li>Anne sütünüzü çözmenin birkaç yolu vardır:<ul><li>Bir gece buzdolabının soğutucu kısmında bekletmek</li><li>Ilık veya ılık su dolu bir kaba koymak.</li><li>Ilık akan su altında tutmak.</li></ul></li><li>Anne sütünü asla mikrodalga fırında eritmeyin veya ısıtmayın. Mikrodalga, anne sütündeki besinleri yok edebilir ve sütü homojen olarak ısıtmayabileceğinden bebeğinizin ağzını yakabilecek sıcak noktalar oluşturabilir.</li><li>Anne sütünü buzdolabında çözdürürseniz 24 saat içinde kullanın. <ul><li>Anne sütünün buzdolabından çıkarıldığı andan itibaren değil, tamamen çözüldüğü 24 saati saymaya başlayın.</li></ul></li><li>Anne sütü oda sıcaklığına getirildikten veya ılıtıldıktan sonra 2 saat içinde tüketin.</li><li>Çözünen süt oda sıcaklığında maksimum 1-2 saat, buzdolabında maksimum 24 saat bekletilebilir</li><li>Anne sütünü çözdükten sonra asla tekrar dondurmayınız.</li></ul><table><tr><td><p><strong>Sağılmış Anne Sütü Verme</strong></p></td></tr></table><ul><li>Ellerinizi sabun ve suyla yıkayın.</li><li>Anne sütünün ısıtılmasına gerek yoktur. Oda sıcaklığında veya soğuk olarak servis edilebilir. Biberon-bardak veya kaşıkla servis edilebilir</li><li>Anne sütünü ısıtmaya karar verirseniz, işte bazı ipuçları:<ul><li>Süt saklama poşetinin veya kabının kapağını kapalı tutun.</li><li>Sızdırmaz kabı ılık su dolu bir kâseye koyun veya birkaç dakika ılık ama sıcak olmayan akan suyun altında tutun.</li><li>Sütün sıcaklığını, bebeğinize vermeden önce bileğinize birkaç damla damlatarak test edin.</li></ul></li><li>Anne sütünü doğrudan ocakta veya mikrodalgada ısıtmayın.</li><li>Ayrılmış olabilecek yağı karıştırmak için anne sütünü yavaşça karıştırın.</li><li>Bebeğiniz biberonu bitirmediyse, kalan sütü bebeğinizin beslenmesi bittikten sonra 2 saat içinde kullanın. 2 saat sonra kalan anne sütü atılmalıdır.</li></ul><p>            </p><ul><li>Arta kalan sütü, çocuk beslenmeyi bıraktıktan sonraki 2 saat içinde kullanın.</li><li>Emziği temiz tutmak için şişenin kapağını kapatın; tezgâhın üzerinde veya buzdolabında saklayın</li><li>2 saat içinde kullanılmayan kalan sütü atın</li></ul><table><tr><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. </p><p>Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p><strong>© 2023 Uzm.Dr. Özlem Murzoğlu. Tüm hakları saklıdır.</strong></p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/genel-bilgiler/Emzirme%20%C4%B0pu%C3%A7lar%C4%B1%20-%20S%C3%BCt%20Saklama.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

@@ -16,7 +16,7 @@
   box-shadow: 0 4px 6px rgba(var(--md-sys-color-shadow), 0.1);
 }
 
-.coming-soon .material-icons {
+.coming-soon .material-icons-rounded {
   font-size: 64px;
   color: #7b61ff;
   margin-bottom: 1rem;

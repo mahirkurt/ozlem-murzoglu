@@ -25,7 +25,7 @@
                [attr.data-color]="service.color">
             <div class="service-card-header">
               <div class="service-icon-wrapper">
-                <span class="material-icons">{{service.icon}}</span>
+                <span class="material-icons-rounded">{{service.icon}}</span>
               </div>
               <div class="service-badge">{{ 'SERVICES.SPECIAL_PROGRAM' | translate }}</div>
             </div>
@@ -37,15 +37,13 @@
               
               <div class="service-features">
                 <div *ngFor="let feature of service.features.slice(0, 3)" class="feature-item">
-                  <span class="material-icons">check_circle</span>
+                  <span class="material-icons-rounded">check_circle</span>
                   <span>{{feature}}</span>
                 </div>
               </div>
               
               <a [routerLink]="['/hizmetlerimiz', service.id]" class="service-link">
-                <span>{{ 'SERVICES.LEARN_MORE' | translate }}</span>
-                <span class="material-icons">arrow_forward</span>
-              </a>
+                <span>{{ 'SERVICES.LEARN_MORE' | translate }}</span></a>
             </div>
           </div>
         </div>
@@ -65,7 +63,7 @@
                class="service-item"
                [attr.data-color]="service.color">
             <div class="service-item-icon">
-              <span class="material-icons">{{service.icon}}</span>
+              <span class="material-icons-rounded">{{service.icon}}</span>
             </div>
             
             <div class="service-item-content">
@@ -83,7 +81,7 @@
             <div class="service-item-action">
               <a [routerLink]="['/hizmetlerimiz', service.id]" class="action-btn">
                 <span>{{ 'SERVICES.VIEW_DETAILS' | translate }}</span>
-                <span class="material-icons">chevron_right</span>
+                <span class="material-icons-rounded">chevron_right</span>
               </a>
             </div>
           </div>
@@ -147,7 +145,7 @@
           
           <div class="benefit-item">
             <div class="benefit-icon">
-              <span class="material-icons">verified</span>
+              <span class="material-icons-rounded">verified</span>
             </div>
             <div class="benefit-text">
               <h4>{{ 'SERVICES.BENEFIT1_TITLE' | translate }}</h4>
@@ -157,7 +155,7 @@
 
           <div class="benefit-item">
             <div class="benefit-icon">
-              <span class="material-icons">science</span>
+              <span class="material-icons-rounded">science</span>
             </div>
             <div class="benefit-text">
               <h4>{{ 'SERVICES.BENEFIT2_TITLE' | translate }}</h4>
@@ -167,7 +165,7 @@
 
           <div class="benefit-item">
             <div class="benefit-icon">
-              <span class="material-icons">favorite</span>
+              <span class="material-icons-rounded">favorite</span>
             </div>
             <div class="benefit-text">
               <h4>{{ 'SERVICES.BENEFIT3_TITLE' | translate }}</h4>
@@ -177,7 +175,7 @@
 
           <div class="benefit-item">
             <div class="benefit-icon">
-              <span class="material-icons">access_time</span>
+              <span class="material-icons-rounded">access_time</span>
             </div>
             <div class="benefit-text">
               <h4>{{ 'SERVICES.BENEFIT4_TITLE' | translate }}</h4>
@@ -218,11 +216,11 @@
         <!-- CTA Buttons -->
         <div class="cta-buttons">
           <a routerLink="/iletisim" class="btn-primary">
-            <i class="fas fa-calendar-check"></i>
+            <span class="material-icons-rounded" aria-hidden="true">event_available</span>
             <span>{{ 'SERVICES.CTA.APPOINTMENT_BUTTON' | translate }}</span>
           </a>
           <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
-            <i class="fab fa-whatsapp"></i>
+            <span class="material-icons-rounded" aria-hidden="true">chat</span>
             <span>WhatsApp</span>
           </a>
         </div>

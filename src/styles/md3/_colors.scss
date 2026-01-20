@@ -1,88 +1,807 @@
+// ============================================================================
+// _colors.scss - MD3 Expressive 2025 Color Token System
+// Dr. Ozlem Murzoglu Pediatri Klinigi - Tasarim Anayasasi v5.0
+// ============================================================================
+// OKLCH Color Space Implementation
+// L = Lightness (0-100%), C = Chroma (0-0.4), H = Hue (0-360)
+//
+// Brand Colors:
+//   Primary:   Teal (Camgöbeği) - Güven, Sağlık, Huzur
+//   Secondary: Amber (Sarı/Bal) - Enerji, Pozitiflik, Çocuk Neşesi
+//   Tertiary:  Coral (Mercan)   - Sıcaklık, Şefkat, Bakım
+// ============================================================================
+
+// ============================================================================
+// SECTION 1: LIGHT MODE - PRIMARY PALETTE (Teal)
+// ============================================================================
+
 :root {
-  /* Primary palette - Teal/Camgöbeği (Güven, Sağlık, Huzur) */
+  // ---------------------------------------------------------------------------
+  // 1.1 Primary - Teal/Camgöbeği (Güven, Sağlık, Huzur)
+  // ---------------------------------------------------------------------------
   --md-sys-color-primary: oklch(57% 0.15 194);
   --md-sys-color-on-primary: oklch(100% 0 0);
   --md-sys-color-primary-container: oklch(86% 0.057 194);
   --md-sys-color-on-primary-container: oklch(20% 0.043 194);
-  
-  /* Secondary palette - Amber/Sarı (Enerji, Pozitiflik, Çocuk Neşesi) */
+  --md-sys-color-inverse-primary: oklch(70% 0.11 194);
+
+  // Primary Tonal Palette (for custom combinations)
+  --md-ref-palette-primary0: oklch(0% 0 194);
+  --md-ref-palette-primary10: oklch(20% 0.043 194);
+  --md-ref-palette-primary20: oklch(30% 0.08 194);
+  --md-ref-palette-primary30: oklch(40% 0.10 194);
+  --md-ref-palette-primary40: oklch(50% 0.13 194);
+  --md-ref-palette-primary50: oklch(57% 0.15 194);
+  --md-ref-palette-primary60: oklch(65% 0.13 194);
+  --md-ref-palette-primary70: oklch(70% 0.11 194);
+  --md-ref-palette-primary80: oklch(80% 0.08 194);
+  --md-ref-palette-primary90: oklch(86% 0.057 194);
+  --md-ref-palette-primary95: oklch(92% 0.03 194);
+  --md-ref-palette-primary99: oklch(98% 0.01 194);
+  --md-ref-palette-primary100: oklch(100% 0 0);
+
+  // RGB fallbacks (legacy browser support)
+  --md-sys-color-primary-rgb: 0, 137, 150;
+  --md-sys-color-on-primary-rgb: 255, 255, 255;
+  --md-sys-color-primary-container-rgb: 183, 229, 234;
+  --md-sys-color-on-primary-container-rgb: 0, 51, 55;
+
+  // ---------------------------------------------------------------------------
+  // 1.2 Secondary - Amber/Sarı (Enerji, Pozitiflik, Çocuk Neşesi)
+  // ---------------------------------------------------------------------------
   --md-sys-color-secondary: oklch(79% 0.18 85);
   --md-sys-color-on-secondary: oklch(26% 0.04 45);
   --md-sys-color-secondary-container: oklch(96% 0.04 85);
   --md-sys-color-on-secondary-container: oklch(38% 0.06 45);
-  
-  /* Tertiary palette - Coral/Mercan (Sıcaklık, Şefkat, Bakım) */
+
+  // Secondary Tonal Palette
+  --md-ref-palette-secondary0: oklch(0% 0 85);
+  --md-ref-palette-secondary10: oklch(26% 0.04 45);
+  --md-ref-palette-secondary20: oklch(35% 0.06 65);
+  --md-ref-palette-secondary30: oklch(45% 0.10 75);
+  --md-ref-palette-secondary40: oklch(55% 0.14 80);
+  --md-ref-palette-secondary50: oklch(65% 0.16 82);
+  --md-ref-palette-secondary60: oklch(72% 0.17 84);
+  --md-ref-palette-secondary70: oklch(79% 0.18 85);
+  --md-ref-palette-secondary80: oklch(85% 0.14 85);
+  --md-ref-palette-secondary90: oklch(92% 0.08 85);
+  --md-ref-palette-secondary95: oklch(96% 0.04 85);
+  --md-ref-palette-secondary99: oklch(99% 0.01 85);
+  --md-ref-palette-secondary100: oklch(100% 0 0);
+
+  // RGB fallbacks
+  --md-sys-color-secondary-rgb: 255, 193, 7;
+  --md-sys-color-on-secondary-rgb: 63, 49, 0;
+  --md-sys-color-secondary-container-rgb: 255, 248, 225;
+  --md-sys-color-on-secondary-container-rgb: 89, 70, 10;
+
+  // ---------------------------------------------------------------------------
+  // 1.3 Tertiary - Coral/Mercan (Sıcaklık, Şefkat, Bakım)
+  // ---------------------------------------------------------------------------
   --md-sys-color-tertiary: oklch(64% 0.19 39);
   --md-sys-color-on-tertiary: oklch(100% 0 0);
   --md-sys-color-tertiary-container: oklch(87% 0.07 39);
   --md-sys-color-on-tertiary-container: oklch(44% 0.18 39);
-  
-  /* Error palette */
+
+  // Tertiary Tonal Palette
+  --md-ref-palette-tertiary0: oklch(0% 0 39);
+  --md-ref-palette-tertiary10: oklch(25% 0.08 39);
+  --md-ref-palette-tertiary20: oklch(35% 0.12 39);
+  --md-ref-palette-tertiary30: oklch(44% 0.15 39);
+  --md-ref-palette-tertiary40: oklch(52% 0.17 39);
+  --md-ref-palette-tertiary50: oklch(58% 0.18 39);
+  --md-ref-palette-tertiary60: oklch(64% 0.19 39);
+  --md-ref-palette-tertiary70: oklch(72% 0.16 39);
+  --md-ref-palette-tertiary80: oklch(80% 0.12 39);
+  --md-ref-palette-tertiary90: oklch(87% 0.07 39);
+  --md-ref-palette-tertiary95: oklch(93% 0.04 39);
+  --md-ref-palette-tertiary99: oklch(98% 0.01 39);
+  --md-ref-palette-tertiary100: oklch(100% 0 0);
+
+  // RGB fallbacks
+  --md-sys-color-tertiary-rgb: 255, 111, 97;
+  --md-sys-color-on-tertiary-rgb: 255, 255, 255;
+  --md-sys-color-tertiary-container-rgb: 255, 218, 214;
+  --md-sys-color-on-tertiary-container-rgb: 139, 57, 47;
+
+  // ---------------------------------------------------------------------------
+  // 1.4 Error Palette
+  // ---------------------------------------------------------------------------
   --md-sys-color-error: oklch(48% 0.22 28);
   --md-sys-color-on-error: oklch(100% 0 0);
   --md-sys-color-error-container: oklch(88% 0.05 28);
   --md-sys-color-on-error-container: oklch(39% 0.2 28);
-  
-  /* Surface tokens (5 levels) - Sıcak ve samimi tonlar */
-  --md-sys-color-surface-dim: oklch(97% 0 0);
+
+  // RGB fallbacks
+  --md-sys-color-error-rgb: 186, 26, 26;
+  --md-sys-color-on-error-rgb: 255, 255, 255;
+  --md-sys-color-error-container-rgb: 255, 218, 214;
+  --md-sys-color-on-error-container-rgb: 65, 14, 11;
+
+  // ===========================================================================
+  // SECTION 2: SEMANTIC/STATUS COLORS
+  // ===========================================================================
+
+  // ---------------------------------------------------------------------------
+  // 2.1 Success - Başarı durumu (Yeşil)
+  // ---------------------------------------------------------------------------
+  --md-sys-color-success: oklch(69% 0.19 142);
+  --md-sys-color-on-success: oklch(100% 0 0);
+  --md-sys-color-success-container: oklch(89% 0.06 142);
+  --md-sys-color-on-success-container: oklch(44% 0.1 142);
+
+  // RGB fallbacks
+  --md-sys-color-success-rgb: 67, 160, 71;
+  --md-sys-color-on-success-rgb: 255, 255, 255;
+
+  // ---------------------------------------------------------------------------
+  // 2.2 Warning - Uyarı durumu (Turuncu)
+  // ---------------------------------------------------------------------------
+  --md-sys-color-warning: oklch(75% 0.19 65);
+  --md-sys-color-on-warning: oklch(0% 0 0);
+  --md-sys-color-warning-container: oklch(91% 0.08 65);
+  --md-sys-color-on-warning-container: oklch(53% 0.2 65);
+
+  // RGB fallbacks
+  --md-sys-color-warning-rgb: 251, 140, 0;
+  --md-sys-color-on-warning-rgb: 0, 0, 0;
+
+  // ---------------------------------------------------------------------------
+  // 2.3 Info - Bilgi durumu (Mavi)
+  // ---------------------------------------------------------------------------
+  --md-sys-color-info: oklch(65% 0.18 260);
+  --md-sys-color-on-info: oklch(100% 0 0);
+  --md-sys-color-info-container: oklch(89% 0.05 260);
+  --md-sys-color-on-info-container: oklch(36% 0.18 270);
+
+  // RGB fallbacks
+  --md-sys-color-info-rgb: 33, 150, 243;
+  --md-sys-color-on-info-rgb: 255, 255, 255;
+
+  // ---------------------------------------------------------------------------
+  // 2.4 Brand Logos (Semantic)
+  // ---------------------------------------------------------------------------
+  --color-brand-instagram: #d62976;
+  --color-brand-facebook: #1877f2;
+  --color-brand-whatsapp: #25D366;
+  --color-brand-google: #EA4335;
+
+
+  // ===========================================================================
+  // SECTION 3: SURFACE SYSTEM (Tonal Elevation)
+  // ===========================================================================
+
+  // ---------------------------------------------------------------------------
+  // 3.1 Surface Hierarchy (Light Mode)
+  // Lowest = En açık (en yüksek "yüzerlik" hissi)
+  // Highest = En koyu (görsel olarak "en yakın")
+  // ---------------------------------------------------------------------------
   --md-sys-color-surface: oklch(98% 0.005 85);
+  --md-sys-color-surface-dim: oklch(97% 0 0);
   --md-sys-color-surface-bright: oklch(100% 0 0);
   --md-sys-color-surface-container-lowest: oklch(100% 0 0);
   --md-sys-color-surface-container-low: oklch(98% 0 0);
   --md-sys-color-surface-container: oklch(97% 0 0);
   --md-sys-color-surface-container-high: oklch(94% 0 0);
   --md-sys-color-surface-container-highest: oklch(92% 0 0);
-  
-  /* Surface variants */
+
+  // RGB fallbacks
+  --md-sys-color-surface-rgb: 252, 252, 251;
+  --md-sys-color-surface-container-rgb: 244, 244, 244;
+  --md-sys-color-surface-container-high-rgb: 235, 235, 235;
+  --md-sys-color-surface-container-highest-rgb: 227, 227, 227;
+
+  // ---------------------------------------------------------------------------
+  // 3.2 Surface Variant (Teal tintli)
+  // ---------------------------------------------------------------------------
   --md-sys-color-surface-variant: oklch(94% 0.02 194);
+
+  // ---------------------------------------------------------------------------
+  // 3.3 On-Surface Colors (Text/Icon on surface)
+  // ---------------------------------------------------------------------------
   --md-sys-color-on-surface: oklch(24% 0 0);
   --md-sys-color-on-surface-variant: oklch(48% 0 0);
-  
-  /* Outline */
+
+  // RGB fallbacks
+  --md-sys-color-on-surface-rgb: 28, 28, 28;
+  --md-sys-color-on-surface-variant-rgb: 113, 113, 113;
+
+  // ---------------------------------------------------------------------------
+  // 3.4 Outline & Dividers
+  // ---------------------------------------------------------------------------
   --md-sys-color-outline: oklch(71% 0 0);
   --md-sys-color-outline-variant: oklch(82% 0 0);
-  
-  /* Inverse */
+
+  // RGB fallbacks
+  --md-sys-color-outline-rgb: 160, 160, 160;
+  --md-sys-color-outline-variant-rgb: 196, 196, 196;
+
+  // ---------------------------------------------------------------------------
+  // 3.5 Inverse Colors (Dark overlays on light backgrounds)
+  // ---------------------------------------------------------------------------
   --md-sys-color-inverse-surface: oklch(30% 0 0);
   --md-sys-color-inverse-on-surface: oklch(98% 0 0);
-  --md-sys-color-inverse-primary: oklch(70% 0.11 194);
-  
-  /* Shadows */
+
+  // RGB fallbacks
+  --md-sys-color-inverse-surface-rgb: 49, 49, 49;
+  --md-sys-color-inverse-on-surface-rgb: 250, 250, 250;
+
+  // ---------------------------------------------------------------------------
+  // 3.6 Scrim & Shadow
+  // ---------------------------------------------------------------------------
   --md-sys-color-shadow: oklch(0% 0 0);
   --md-sys-color-scrim: oklch(0% 0 0);
-  
-  /* Pediatri Kliniği Özel Renkleri */
-  --md-sys-color-success: oklch(69% 0.19 142);
-  --md-sys-color-on-success: oklch(100% 0 0);
-  --md-sys-color-success-container: oklch(89% 0.06 142);
-  --md-sys-color-on-success-container: oklch(44% 0.1 142);
-  
-  --md-sys-color-warning: oklch(75% 0.19 65);
-  --md-sys-color-on-warning: oklch(0% 0 0);
-  --md-sys-color-warning-container: oklch(91% 0.08 65);
-  --md-sys-color-on-warning-container: oklch(53% 0.2 65);
-  
-  --md-sys-color-info: oklch(65% 0.18 260);
-  --md-sys-color-on-info: oklch(100% 0 0);
-  --md-sys-color-info-container: oklch(89% 0.05 260);
-  --md-sys-color-on-info-container: oklch(36% 0.18 270);
+
+  // RGB fallbacks
+  --md-sys-color-shadow-rgb: 0, 0, 0;
+  --md-sys-color-scrim-rgb: 0, 0, 0;
+
+  // ===========================================================================
+  // SECTION 4: NEUTRAL PALETTE (Grays)
+  // ===========================================================================
+
+  --md-ref-palette-neutral0: oklch(0% 0 0);
+  --md-ref-palette-neutral4: oklch(10% 0 0);
+  --md-ref-palette-neutral6: oklch(14% 0 0);
+  --md-ref-palette-neutral10: oklch(20% 0 0);
+  --md-ref-palette-neutral12: oklch(22% 0 0);
+  --md-ref-palette-neutral17: oklch(27% 0 0);
+  --md-ref-palette-neutral20: oklch(30% 0 0);
+  --md-ref-palette-neutral22: oklch(32% 0 0);
+  --md-ref-palette-neutral24: oklch(34% 0 0);
+  --md-ref-palette-neutral30: oklch(40% 0 0);
+  --md-ref-palette-neutral40: oklch(50% 0 0);
+  --md-ref-palette-neutral50: oklch(60% 0 0);
+  --md-ref-palette-neutral60: oklch(70% 0 0);
+  --md-ref-palette-neutral70: oklch(75% 0 0);
+  --md-ref-palette-neutral80: oklch(85% 0 0);
+  --md-ref-palette-neutral87: oklch(90% 0 0);
+  --md-ref-palette-neutral90: oklch(93% 0 0);
+  --md-ref-palette-neutral92: oklch(94% 0 0);
+  --md-ref-palette-neutral94: oklch(96% 0 0);
+  --md-ref-palette-neutral95: oklch(97% 0 0);
+  --md-ref-palette-neutral96: oklch(98% 0 0);
+  --md-ref-palette-neutral98: oklch(99% 0 0);
+  --md-ref-palette-neutral99: oklch(99.5% 0 0);
+  --md-ref-palette-neutral100: oklch(100% 0 0);
+
+  // ===========================================================================
+  // SECTION 5: GRADIENT PRESETS
+  // ===========================================================================
+
+  // ---------------------------------------------------------------------------
+  // 5.1 Aurora Gradient (Hero sections)
+  // ---------------------------------------------------------------------------
+  --gradient-aurora: linear-gradient(
+    135deg,
+    var(--md-sys-color-primary) 0%,
+    oklch(65% 0.14 140) 50%,
+    var(--md-sys-color-tertiary) 100%
+  );
+
+  // ---------------------------------------------------------------------------
+  // 5.2 Brand Gradient (Teal)
+  // ---------------------------------------------------------------------------
+  --gradient-teal: linear-gradient(
+    135deg,
+    var(--md-sys-color-primary),
+    var(--md-sys-color-inverse-primary)
+  );
+
+  // ---------------------------------------------------------------------------
+  // 5.3 Warm Gradient (Coral to Amber)
+  // ---------------------------------------------------------------------------
+  --gradient-warm: linear-gradient(
+    135deg,
+    var(--md-sys-color-tertiary),
+    var(--md-sys-color-secondary)
+  );
+
+  // ---------------------------------------------------------------------------
+  // 5.4 Tonal Gradient (Soft sections)
+  // ---------------------------------------------------------------------------
+  --gradient-tonal: linear-gradient(
+    180deg,
+    var(--md-sys-color-surface-container) 0%,
+    var(--md-sys-color-surface) 100%
+  );
+
+  // ---------------------------------------------------------------------------
+  // 5.5 Mesh Gradient (Premium backgrounds)
+  // ---------------------------------------------------------------------------
+  --gradient-mesh:
+    radial-gradient(
+      ellipse 80% 50% at 20% 30%,
+      oklch(from var(--md-sys-color-primary) l calc(c * 0.4) h / 0.15) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 60% at 80% 20%,
+      oklch(from var(--md-sys-color-tertiary) l calc(c * 0.4) h / 0.12) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 70% 70% at 50% 80%,
+      oklch(from var(--md-sys-color-secondary) l calc(c * 0.4) h / 0.10) 0%,
+      transparent 70%
+    );
+
+  // ---------------------------------------------------------------------------
+  // 5.6 Animated Gradient
+  // ---------------------------------------------------------------------------
+  --gradient-animated: linear-gradient(
+    -45deg,
+    var(--md-sys-color-primary-container),
+    var(--md-sys-color-secondary-container),
+    var(--md-sys-color-tertiary-container),
+    var(--md-sys-color-surface)
+  );
+
+  // ===========================================================================
+  // SECTION 6: GLASSMORPHISM COLORS
+  // ===========================================================================
+
+  --md-sys-color-glass-surface: oklch(from var(--md-sys-color-surface) l c h / 0.72);
+  --md-sys-color-glass-surface-dim: oklch(from var(--md-sys-color-surface-dim) l c h / 0.80);
+  --md-sys-color-glass-surface-bright: oklch(from var(--md-sys-color-surface-bright) l c h / 0.65);
+  --md-sys-color-glass-border: oklch(from var(--md-sys-color-outline) l c h / 0.12);
+  --md-sys-color-glass-border-strong: oklch(from var(--md-sys-color-outline) l c h / 0.24);
+
+  // Tinted glass
+  --md-sys-color-glass-primary: oklch(from var(--md-sys-color-primary) l c h / 0.12);
+  --md-sys-color-glass-secondary: oklch(from var(--md-sys-color-secondary) l c h / 0.10);
+  --md-sys-color-glass-tertiary: oklch(from var(--md-sys-color-tertiary) l c h / 0.10);
+
+  // ===========================================================================
+  // SECTION 7: GLOW COLORS
+  // ===========================================================================
+
+  --md-sys-color-glow-primary: oklch(from var(--md-sys-color-primary) l c h / 0.4);
+  --md-sys-color-glow-secondary: oklch(from var(--md-sys-color-secondary) l c h / 0.35);
+  --md-sys-color-glow-tertiary: oklch(from var(--md-sys-color-tertiary) l c h / 0.35);
+  --md-sys-color-glow-error: oklch(from var(--md-sys-color-error) l c h / 0.4);
+  --md-sys-color-glow-success: oklch(from var(--md-sys-color-success) l c h / 0.4);
+
+  // ===========================================================================
+  // SECTION 8: ELEVATION OVERLAY COLORS (Tonal Elevation)
+  // ===========================================================================
+
+  // Surface tint for elevation levels
+  --md-sys-color-surface-tint: var(--md-sys-color-primary);
+
+  // Elevation overlay opacities (for dark mode primarily)
+  --md-sys-elevation-overlay-opacity-1: 0.05;
+  --md-sys-elevation-overlay-opacity-2: 0.08;
+  --md-sys-elevation-overlay-opacity-3: 0.11;
+  --md-sys-elevation-overlay-opacity-4: 0.12;
+  --md-sys-elevation-overlay-opacity-5: 0.14;
 }
 
-/* Dark theme overrides */
+// =============================================================================
+// SECTION 9: DARK MODE COLORS
+// =============================================================================
+
 @media (prefers-color-scheme: dark) {
   :root {
+    color-scheme: dark;
+    // -------------------------------------------------------------------------
+    // 9.1 Primary (Lighter, less saturated for dark backgrounds)
+    // -------------------------------------------------------------------------
     --md-sys-color-primary: oklch(70% 0.11 194);
     --md-sys-color-on-primary: oklch(20% 0.04 194);
     --md-sys-color-primary-container: oklch(46% 0.09 194);
     --md-sys-color-on-primary-container: oklch(86% 0.06 194);
-    
+    --md-sys-color-inverse-primary: oklch(50% 0.13 194);
+
+    // RGB fallbacks
+    --md-sys-color-primary-rgb: 128, 203, 213;
+    --md-sys-color-on-primary-rgb: 0, 54, 60;
+    --md-sys-color-primary-container-rgb: 0, 79, 88;
+    --md-sys-color-on-primary-container-rgb: 183, 229, 234;
+
+    // -------------------------------------------------------------------------
+    // 9.2 Secondary
+    // -------------------------------------------------------------------------
     --md-sys-color-secondary: oklch(86% 0.15 85);
     --md-sys-color-on-secondary: oklch(26% 0.04 45);
     --md-sys-color-secondary-container: oklch(65% 0.20 85);
     --md-sys-color-on-secondary-container: oklch(96% 0.04 85);
-    
+
+    // RGB fallbacks
+    --md-sys-color-secondary-rgb: 255, 214, 106;
+    --md-sys-color-on-secondary-rgb: 63, 49, 0;
+
+    // -------------------------------------------------------------------------
+    // 9.3 Tertiary
+    // -------------------------------------------------------------------------
+    --md-sys-color-tertiary: oklch(75% 0.14 39);
+    --md-sys-color-on-tertiary: oklch(25% 0.08 39);
+    --md-sys-color-tertiary-container: oklch(50% 0.12 39);
+    --md-sys-color-on-tertiary-container: oklch(90% 0.04 39);
+
+    // RGB fallbacks
+    --md-sys-color-tertiary-rgb: 255, 178, 169;
+    --md-sys-color-on-tertiary-rgb: 75, 30, 23;
+
+    // -------------------------------------------------------------------------
+    // 9.4 Error
+    // -------------------------------------------------------------------------
+    --md-sys-color-error: oklch(75% 0.16 28);
+    --md-sys-color-on-error: oklch(30% 0.14 28);
+    --md-sys-color-error-container: oklch(45% 0.18 28);
+    --md-sys-color-on-error-container: oklch(88% 0.05 28);
+
+    // -------------------------------------------------------------------------
+    // 9.5 Surface System (Inverted hierarchy for dark mode)
+    // -------------------------------------------------------------------------
     --md-sys-color-surface: oklch(18% 0 0);
-    --md-sys-color-surface-container: oklch(23% 0 0);
+    --md-sys-color-surface-dim: oklch(14% 0 0);
+    --md-sys-color-surface-bright: oklch(28% 0 0);
+    --md-sys-color-surface-container-lowest: oklch(12% 0 0);
+    --md-sys-color-surface-container-low: oklch(16% 0 0);
+    --md-sys-color-surface-container: oklch(20% 0 0);
+    --md-sys-color-surface-container-high: oklch(24% 0 0);
+    --md-sys-color-surface-container-highest: oklch(28% 0 0);
+
+    // RGB fallbacks
+    --md-sys-color-surface-rgb: 28, 28, 28;
+    --md-sys-color-surface-container-rgb: 41, 41, 41;
+    --md-sys-color-surface-container-high-rgb: 54, 54, 54;
+    --md-sys-color-surface-container-highest-rgb: 66, 66, 66;
+
+    // -------------------------------------------------------------------------
+    // 9.6 Surface Variant
+    // -------------------------------------------------------------------------
+    --md-sys-color-surface-variant: oklch(30% 0.02 194);
+
+    // -------------------------------------------------------------------------
+    // 9.7 On-Surface Colors
+    // -------------------------------------------------------------------------
     --md-sys-color-on-surface: oklch(90% 0 0);
+    --md-sys-color-on-surface-variant: oklch(70% 0 0);
+
+    // RGB fallbacks
+    --md-sys-color-on-surface-rgb: 227, 227, 227;
+    --md-sys-color-on-surface-variant-rgb: 160, 160, 160;
+
+    // -------------------------------------------------------------------------
+    // 9.8 Outline
+    // -------------------------------------------------------------------------
+    --md-sys-color-outline: oklch(55% 0 0);
+    --md-sys-color-outline-variant: oklch(40% 0 0);
+
+    // RGB fallbacks
+    --md-sys-color-outline-rgb: 125, 125, 125;
+    --md-sys-color-outline-variant-rgb: 90, 90, 90;
+
+    // -------------------------------------------------------------------------
+    // 9.9 Inverse Colors
+    // -------------------------------------------------------------------------
+    --md-sys-color-inverse-surface: oklch(92% 0 0);
+    --md-sys-color-inverse-on-surface: oklch(24% 0 0);
+
+    // -------------------------------------------------------------------------
+    // 9.10 Glass Colors (Dark mode adjustments)
+    // -------------------------------------------------------------------------
+    --md-sys-color-glass-surface: oklch(from var(--md-sys-color-surface) l c h / 0.65);
+    --md-sys-color-glass-surface-dim: oklch(from var(--md-sys-color-surface-dim) l c h / 0.70);
+    --md-sys-color-glass-border: oklch(from var(--md-sys-color-outline) l c h / 0.18);
+    --md-sys-color-glass-border-strong: oklch(from var(--md-sys-color-outline) l c h / 0.30);
+
+    // -------------------------------------------------------------------------
+    // 9.11 Glow Colors (More visible in dark mode)
+    // -------------------------------------------------------------------------
+    --md-sys-color-glow-primary: oklch(from var(--md-sys-color-primary) l c h / 0.5);
+    --md-sys-color-glow-secondary: oklch(from var(--md-sys-color-secondary) l c h / 0.45);
+    --md-sys-color-glow-tertiary: oklch(from var(--md-sys-color-tertiary) l c h / 0.45);
+
+    // -------------------------------------------------------------------------
+    // 9.12 Gradient Adjustments
+    // -------------------------------------------------------------------------
+    --gradient-aurora: linear-gradient(
+      135deg,
+      oklch(from var(--md-sys-color-primary) calc(l - 0.15) calc(c * 0.8) h / 0.8) 0%,
+      oklch(45% 0.12 140) 50%,
+      oklch(from var(--md-sys-color-tertiary) calc(l - 0.15) calc(c * 0.8) h / 0.8) 100%
+    );
+
+    // -------------------------------------------------------------------------
+    // 9.13 Elevation Overlay (More prominent in dark mode)
+    // -------------------------------------------------------------------------
+    --md-sys-elevation-overlay-opacity-1: 0.05;
+    --md-sys-elevation-overlay-opacity-2: 0.08;
+    --md-sys-elevation-overlay-opacity-3: 0.11;
+    --md-sys-elevation-overlay-opacity-4: 0.12;
+    --md-sys-elevation-overlay-opacity-5: 0.14;
+  }
+}
+
+:root[data-theme='dark'],
+:root.dark-theme {
+  color-scheme: dark;
+  // -------------------------------------------------------------------------
+  // 9.1 Primary (Lighter, less saturated for dark backgrounds)
+  // -------------------------------------------------------------------------
+  --md-sys-color-primary: oklch(70% 0.11 194);
+  --md-sys-color-on-primary: oklch(20% 0.04 194);
+  --md-sys-color-primary-container: oklch(46% 0.09 194);
+  --md-sys-color-on-primary-container: oklch(86% 0.06 194);
+  --md-sys-color-inverse-primary: oklch(50% 0.13 194);
+
+  // RGB fallbacks
+  --md-sys-color-primary-rgb: 128, 203, 213;
+  --md-sys-color-on-primary-rgb: 0, 54, 60;
+  --md-sys-color-primary-container-rgb: 0, 79, 88;
+  --md-sys-color-on-primary-container-rgb: 183, 229, 234;
+
+  // -------------------------------------------------------------------------
+  // 9.2 Secondary
+  // -------------------------------------------------------------------------
+  --md-sys-color-secondary: oklch(86% 0.15 85);
+  --md-sys-color-on-secondary: oklch(26% 0.04 45);
+  --md-sys-color-secondary-container: oklch(65% 0.20 85);
+  --md-sys-color-on-secondary-container: oklch(96% 0.04 85);
+
+  // RGB fallbacks
+  --md-sys-color-secondary-rgb: 255, 214, 106;
+  --md-sys-color-on-secondary-rgb: 63, 49, 0;
+
+  // -------------------------------------------------------------------------
+  // 9.3 Tertiary
+  // -------------------------------------------------------------------------
+  --md-sys-color-tertiary: oklch(75% 0.14 39);
+  --md-sys-color-on-tertiary: oklch(25% 0.08 39);
+  --md-sys-color-tertiary-container: oklch(50% 0.12 39);
+  --md-sys-color-on-tertiary-container: oklch(90% 0.04 39);
+
+  // RGB fallbacks
+  --md-sys-color-tertiary-rgb: 255, 178, 169;
+  --md-sys-color-on-tertiary-rgb: 75, 30, 23;
+
+  // -------------------------------------------------------------------------
+  // 9.4 Error
+  // -------------------------------------------------------------------------
+  --md-sys-color-error: oklch(75% 0.16 28);
+  --md-sys-color-on-error: oklch(30% 0.14 28);
+  --md-sys-color-error-container: oklch(45% 0.18 28);
+  --md-sys-color-on-error-container: oklch(88% 0.05 28);
+
+  // -------------------------------------------------------------------------
+  // 9.5 Surface System (Inverted hierarchy for dark mode)
+  // -------------------------------------------------------------------------
+  --md-sys-color-surface: oklch(18% 0 0);
+  --md-sys-color-surface-dim: oklch(14% 0 0);
+  --md-sys-color-surface-bright: oklch(28% 0 0);
+  --md-sys-color-surface-container-lowest: oklch(12% 0 0);
+  --md-sys-color-surface-container-low: oklch(16% 0 0);
+  --md-sys-color-surface-container: oklch(20% 0 0);
+  --md-sys-color-surface-container-high: oklch(24% 0 0);
+  --md-sys-color-surface-container-highest: oklch(28% 0 0);
+
+  // RGB fallbacks
+  --md-sys-color-surface-rgb: 28, 28, 28;
+  --md-sys-color-surface-container-rgb: 41, 41, 41;
+  --md-sys-color-surface-container-high-rgb: 54, 54, 54;
+  --md-sys-color-surface-container-highest-rgb: 66, 66, 66;
+
+  // -------------------------------------------------------------------------
+  // 9.6 Surface Variant
+  // -------------------------------------------------------------------------
+  --md-sys-color-surface-variant: oklch(30% 0.02 194);
+
+  // -------------------------------------------------------------------------
+  // 9.7 On-Surface Colors
+  // -------------------------------------------------------------------------
+  --md-sys-color-on-surface: oklch(90% 0 0);
+  --md-sys-color-on-surface-variant: oklch(70% 0 0);
+
+  // RGB fallbacks
+  --md-sys-color-on-surface-rgb: 227, 227, 227;
+  --md-sys-color-on-surface-variant-rgb: 160, 160, 160;
+
+  // -------------------------------------------------------------------------
+  // 9.8 Outline
+  // -------------------------------------------------------------------------
+  --md-sys-color-outline: oklch(55% 0 0);
+  --md-sys-color-outline-variant: oklch(40% 0 0);
+
+  // RGB fallbacks
+  --md-sys-color-outline-rgb: 125, 125, 125;
+  --md-sys-color-outline-variant-rgb: 90, 90, 90;
+
+  // -------------------------------------------------------------------------
+  // 9.9 Inverse Colors
+  // -------------------------------------------------------------------------
+  --md-sys-color-inverse-surface: oklch(92% 0 0);
+  --md-sys-color-inverse-on-surface: oklch(24% 0 0);
+
+  // -------------------------------------------------------------------------
+  // 9.10 Glass Colors (Dark mode adjustments)
+  // -------------------------------------------------------------------------
+  --md-sys-color-glass-surface: oklch(from var(--md-sys-color-surface) l c h / 0.65);
+  --md-sys-color-glass-surface-dim: oklch(from var(--md-sys-color-surface-dim) l c h / 0.70);
+  --md-sys-color-glass-border: oklch(from var(--md-sys-color-outline) l c h / 0.18);
+  --md-sys-color-glass-border-strong: oklch(from var(--md-sys-color-outline) l c h / 0.30);
+
+  // -------------------------------------------------------------------------
+  // 9.11 Glow Colors (More visible in dark mode)
+  // -------------------------------------------------------------------------
+  --md-sys-color-glow-primary: oklch(from var(--md-sys-color-primary) l c h / 0.5);
+  --md-sys-color-glow-secondary: oklch(from var(--md-sys-color-secondary) l c h / 0.45);
+  --md-sys-color-glow-tertiary: oklch(from var(--md-sys-color-tertiary) l c h / 0.45);
+
+  // -------------------------------------------------------------------------
+  // 9.12 Gradient Adjustments
+  // -------------------------------------------------------------------------
+  --gradient-aurora: linear-gradient(
+    135deg,
+    oklch(from var(--md-sys-color-primary) calc(l - 0.15) calc(c * 0.8) h / 0.8) 0%,
+    oklch(45% 0.12 140) 50%,
+    oklch(from var(--md-sys-color-tertiary) calc(l - 0.15) calc(c * 0.8) h / 0.8) 100%
+  );
+
+  // -------------------------------------------------------------------------
+  // 9.13 Elevation Overlay (More prominent in dark mode)
+  // -------------------------------------------------------------------------
+  --md-sys-elevation-overlay-opacity-1: 0.05;
+  --md-sys-elevation-overlay-opacity-2: 0.08;
+  --md-sys-elevation-overlay-opacity-3: 0.11;
+  --md-sys-elevation-overlay-opacity-4: 0.12;
+  --md-sys-elevation-overlay-opacity-5: 0.14;
+}
+
+// =============================================================================
+// SECTION 10: FORCED COLORS MODE (High Contrast)
+// =============================================================================
+
+@media (forced-colors: active) {
+  :root {
+    --md-sys-color-primary: CanvasText;
+    --md-sys-color-on-primary: Canvas;
+    --md-sys-color-primary-container: Canvas;
+    --md-sys-color-on-primary-container: CanvasText;
+
+    --md-sys-color-secondary: CanvasText;
+    --md-sys-color-tertiary: CanvasText;
+    --md-sys-color-error: CanvasText;
+
+    --md-sys-color-surface: Canvas;
+    --md-sys-color-on-surface: CanvasText;
+    --md-sys-color-on-surface-variant: CanvasText;
+
+    --md-sys-color-outline: CanvasText;
+    --md-sys-color-outline-variant: CanvasText;
+
+    // Disable decorative effects
+    --gradient-aurora: none;
+    --gradient-mesh: none;
+    --gradient-animated: none;
+  }
+}
+
+// =============================================================================
+// SECTION 11: HIGH CONTRAST MODE
+// =============================================================================
+
+@media (prefers-contrast: more) {
+  :root {
+    // Increase contrast for better readability
+    --md-sys-color-on-surface: oklch(15% 0 0);
+    --md-sys-color-on-surface-variant: oklch(35% 0 0);
+    --md-sys-color-outline: oklch(50% 0 0);
+    --md-sys-color-outline-variant: oklch(65% 0 0);
+
+    // Increase primary saturation
+    --md-sys-color-primary: oklch(50% 0.18 194);
+    --md-sys-color-error: oklch(42% 0.26 28);
+  }
+}
+
+// =============================================================================
+// SECTION 12: COLOR UTILITY CLASSES
+// =============================================================================
+
+// Primary Colors
+.text-primary { color: var(--md-sys-color-primary) !important; }
+.text-on-primary { color: var(--md-sys-color-on-primary) !important; }
+.bg-primary { background-color: var(--md-sys-color-primary) !important; }
+.bg-primary-container { background-color: var(--md-sys-color-primary-container) !important; }
+
+// Secondary Colors
+.text-secondary { color: var(--md-sys-color-secondary) !important; }
+.text-on-secondary { color: var(--md-sys-color-on-secondary) !important; }
+.bg-secondary { background-color: var(--md-sys-color-secondary) !important; }
+.bg-secondary-container { background-color: var(--md-sys-color-secondary-container) !important; }
+
+// Tertiary Colors
+.text-tertiary { color: var(--md-sys-color-tertiary) !important; }
+.text-on-tertiary { color: var(--md-sys-color-on-tertiary) !important; }
+.bg-tertiary { background-color: var(--md-sys-color-tertiary) !important; }
+.bg-tertiary-container { background-color: var(--md-sys-color-tertiary-container) !important; }
+
+// Surface Colors
+.text-on-surface { color: var(--md-sys-color-on-surface) !important; }
+.text-on-surface-variant { color: var(--md-sys-color-on-surface-variant) !important; }
+.bg-surface { background-color: var(--md-sys-color-surface) !important; }
+.bg-surface-container { background-color: var(--md-sys-color-surface-container) !important; }
+.bg-surface-container-low { background-color: var(--md-sys-color-surface-container-low) !important; }
+.bg-surface-container-high { background-color: var(--md-sys-color-surface-container-high) !important; }
+.bg-surface-container-highest { background-color: var(--md-sys-color-surface-container-highest) !important; }
+
+// Semantic Colors
+.text-error { color: var(--md-sys-color-error) !important; }
+.text-success { color: var(--md-sys-color-success) !important; }
+.text-warning { color: var(--md-sys-color-warning) !important; }
+.text-info { color: var(--md-sys-color-info) !important; }
+.bg-error { background-color: var(--md-sys-color-error) !important; }
+.bg-error-container { background-color: var(--md-sys-color-error-container) !important; }
+.bg-success { background-color: var(--md-sys-color-success) !important; }
+.bg-success-container { background-color: var(--md-sys-color-success-container) !important; }
+
+// Gradients
+.bg-gradient-aurora { background: var(--gradient-aurora) !important; }
+.bg-gradient-teal { background: var(--gradient-teal) !important; }
+.bg-gradient-warm { background: var(--gradient-warm) !important; }
+.bg-gradient-tonal { background: var(--gradient-tonal) !important; }
+.bg-gradient-mesh { background: var(--gradient-mesh) !important; }
+
+// =============================================================================
+// SECTION 13: COLOR MIXINS
+// =============================================================================
+
+// Lighten a color
+@mixin lighten-color($color, $amount: 20%) {
+  background-color: color-mix(in oklch, #{$color}, white #{$amount});
+}
+
+// Darken a color
+@mixin darken-color($color, $amount: 20%) {
+  background-color: color-mix(in oklch, #{$color}, black #{$amount});
+}
+
+// Add transparency to a color
+@mixin alpha-color($color, $alpha: 0.5) {
+  background-color: oklch(from #{$color} l c h / #{$alpha});
+}
+
+// Create a tinted surface
+@mixin tinted-surface($tint-color, $tint-amount: 8%) {
+  background-color: color-mix(in oklch, var(--md-sys-color-surface), #{$tint-color} #{$tint-amount});
+}
+
+// Semantic background with proper text color
+@mixin semantic-bg($variant: 'primary') {
+  @if $variant == 'primary' {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+  } @else if $variant == 'secondary' {
+    background-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+  } @else if $variant == 'tertiary' {
+    background-color: var(--md-sys-color-tertiary);
+    color: var(--md-sys-color-on-tertiary);
+  } @else if $variant == 'error' {
+    background-color: var(--md-sys-color-error);
+    color: var(--md-sys-color-on-error);
+  } @else if $variant == 'success' {
+    background-color: var(--md-sys-color-success);
+    color: var(--md-sys-color-on-success);
+  }
+}
+
+// Container background with proper text color
+@mixin container-bg($variant: 'primary') {
+  @if $variant == 'primary' {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+  } @else if $variant == 'secondary' {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+  } @else if $variant == 'tertiary' {
+    background-color: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-on-tertiary-container);
+  } @else if $variant == 'error' {
+    background-color: var(--md-sys-color-error-container);
+    color: var(--md-sys-color-on-error-container);
   }
 }

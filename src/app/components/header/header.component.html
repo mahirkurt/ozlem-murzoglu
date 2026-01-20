@@ -5,22 +5,22 @@
     <div class="container utility-content">
       <div class="contact-group">
         <a [href]="'tel:' + contactInfo.phone" class="utility-link">
-          <span class="material-icons">phone</span>
+          <span class="material-icons-rounded" aria-hidden="true">phone</span>
           <span>{{ contactInfo.phone }}</span>
         </a>
-        <span class="dot">•</span>
+        <span class="dot" aria-hidden="true">•</span>
         <a href="https://api.whatsapp.com/send?phone=905466884483" target="_blank" class="utility-link whatsapp">
           <span>WhatsApp</span>
         </a>
-        <span class="dot">•</span>
+        <span class="dot" aria-hidden="true">•</span>
         <div class="location-display">
-          <span class="material-icons">location_on</span>
+          <span class="material-icons-rounded" aria-hidden="true">location_on</span>
           <span>{{ contactInfo.address }}</span>
         </div>
       </div>
       
       <a href="https://saglikpetegim.com" target="_blank" class="portal-link-text">
-        {{ 'HEADER.HEALTH_PORTAL' | translate }} &rarr;
+        {{ 'HEADER.HEALTH_PORTAL' | translate }}
       </a>
     </div>
   </div>
@@ -31,7 +31,7 @@
       
       <!-- Logo Section -->
       <a routerLink="/" class="island-logo">
-        <img src="/logos/OM-Wide-Color.svg" alt="Dr. Özlem Murzoğlu" class="logo-img" />
+        <img [src]="isDarkMode ? '/logos/OM-Wide-White.svg' : '/logos/OM-Wide-Color.svg'" alt="Dr. Özlem Murzoğlu" class="logo-img" />
       </a>
 
       <!-- Main Navigation Links -->
@@ -43,7 +43,7 @@
           
           <a [routerLink]="item.href" class="island-link" [class.active]="activeDropdown === (item.labelKey || item.label)">
             {{ item.labelKey ? (item.labelKey | translate) : item.label }}
-            <span *ngIf="item.children" class="material-icons dropdown-arrow">expand_more</span>
+            <span *ngIf="item.children" class="material-icons-rounded dropdown-arrow" aria-hidden="true">expand_more</span>
           </a>
 
           <!-- Dropdown -->
@@ -64,15 +64,26 @@
           <span [class.active]="locale === 'en'">EN</span>
         </button>
 
+        <!-- Theme Toggle -->
+        <button
+          class="theme-toggle"
+          (click)="toggleTheme()"
+          [attr.aria-label]="themeAriaLabel"
+          [attr.title]="themeAriaLabel">
+          <span class="material-icons-rounded" aria-hidden="true">
+            {{ themeIcon }}
+          </span>
+        </button>
+
         <!-- CTA Button -->
         <button class="island-cta" (click)="openAppointmentModal()">
           <span>{{ 'HEADER.NAV_APPOINTMENT' | translate }}</span>
-          <span class="material-icons icon-right">calendar_month</span>
+          <span class="material-icons-rounded icon-right" aria-hidden="true">calendar_month</span>
         </button>
 
         <!-- Mobile Toggle -->
         <button class="island-mobile-toggle" (click)="toggleMobileMenu()">
-          <span class="material-icons">menu</span>
+          <span class="material-icons-rounded" aria-hidden="true">menu</span>
         </button>
       </div>
 
@@ -84,7 +95,7 @@
 <!-- Mobile Menu Overlay -->
 <div [ngClass]="{'mobile-menu': true, 'active': isMobileMenuOpen}">
   <div class="mobile-menu-header">
-    <img src="/logos/OM-Wide-Color.svg" alt="Dr. Özlem Murzoğlu" />
+    <img [src]="isDarkMode ? '/logos/OM-Wide-White.svg' : '/logos/OM-Wide-Color.svg'" alt="Dr. Özlem Murzoğlu" />
     <button
       class="mobile-menu-close"
       (click)="toggleMobileMenu()"

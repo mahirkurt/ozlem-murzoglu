@@ -127,7 +127,7 @@ export class ContentCleanerService {
       
       const icon = document.createElement('div');
       icon.className = 'icon';
-      icon.innerHTML = '<span class="material-icons">info</span>';
+      icon.innerHTML = '<span class="material-icons-rounded">info</span>';
       
       const textDiv = document.createElement('div');
       textDiv.className = 'text';

@@ -42,10 +42,9 @@ const runTests = async () => {
   console.log('🔍 Testing application availability...\n');
   
   const port4200 = await testPort(4200);
-  const port4201 = await testPort(4201);
   
-  if (port4200 || port4201) {
-    const availablePort = port4200 ? 4200 : 4201;
+  if (port4200) {
+    const availablePort = 4200;
     console.log(`\n✨ Application is available on port ${availablePort}`);
     console.log(`🌐 Open http://localhost:${availablePort} in your browser\n`);
     
@@ -55,9 +54,9 @@ const runTests = async () => {
       '/',
       '/hakkimizda',
       '/hizmetlerimiz',
-      '/bilgi-merkezi',
+      '/kaynaklar',
       '/iletisim',
-      '/randevu'
+      '/hizmetlerimiz/triple-p'
     ];
     
     for (const endpoint of endpoints) {
@@ -88,7 +87,7 @@ const runTests = async () => {
       });
     }
   } else {
-    console.log('\n❌ Application is not running on either port 4200 or 4201');
+    console.log('\n❌ Application is not running on port 4200');
     console.log('💡 Please start the application with: npm start or ng serve');
   }
 };

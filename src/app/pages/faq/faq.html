@@ -35,7 +35,7 @@
               <h3>{{ faq.question | translate }}</h3>
             </div>
             <button class="toggle-btn">
-              <span class="material-icons">{{faq.isOpen ? 'remove' : 'add'}}</span>
+              <span class="material-icons-rounded">{{faq.isOpen ? 'remove' : 'add'}}</span>
             </button>
           </div>
           
@@ -45,7 +45,7 @@
               <div class="answer-footer">
                 <span class="category-badge">{{ 'FAQ.CATEGORY_' + (faq.category | uppercase) | translate }}</span>
                 <button class="helpful-btn">
-                  <span class="material-icons">thumb_up</span>
+                  <span class="material-icons-rounded">thumb_up</span>
                   <span>{{ 'FAQ.HELPFUL' | translate }}</span>
                 </button>
               </div>
@@ -56,7 +56,7 @@
 
       <!-- No Results -->
       <div *ngIf="filteredFaqs.length === 0" class="no-results">
-        <span class="material-icons">help_outline</span>
+        <span class="material-icons-rounded">help_outline</span>
         <h3>{{ 'FAQ.NO_RESULTS_TITLE' | translate }}</h3>
         <p>{{ 'FAQ.NO_RESULTS_DESC' | translate }}</p>
       </div>
@@ -76,11 +76,11 @@
         <!-- CTA Buttons -->
         <div class="cta-buttons">
           <a routerLink="/iletisim" class="btn-primary">
-            <i class="fas fa-calendar-check"></i>
+            <span class="material-icons-rounded" aria-hidden="true">event_available</span>
             <span>{{ 'FAQ.CTA.APPOINTMENT_BUTTON' | translate }}</span>
           </a>
           <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
-            <i class="fab fa-whatsapp"></i>
+            <span class="material-icons-rounded" aria-hidden="true">chat</span>
             <span>WhatsApp</span>
           </a>
         </div>

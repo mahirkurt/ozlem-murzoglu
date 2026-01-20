@@ -46,7 +46,7 @@
   cursor: pointer;
   transition: var(--transition-all);
 
-  .material-icons {
+  .material-icons-rounded {
     font-size: 20px;
   }
 
@@ -84,7 +84,7 @@
     color: var(--md-sys-color-on-primary-container);
     border-color: var(--md-sys-color-primary);
 
-    .material-icons {
+    .material-icons-rounded {
       color: var(--md-sys-color-primary);
     }
   }
@@ -103,7 +103,7 @@
   cursor: pointer;
   transition: var(--transition-all);
 
-  .material-icons {
+  .material-icons-rounded {
     font-size: 20px;
   }
 

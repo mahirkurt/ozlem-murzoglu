@@ -17,7 +17,7 @@ export interface TocItem {
     <aside class="toc-sidebar" [class.toc-sidebar--sticky]="sticky">
       <nav class="toc-nav">
         <h3 class="toc-title">
-          <span class="material-icons">format_list_bulleted</span>
+          <span class="material-icons-rounded">format_list_bulleted</span>
           {{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}
         </h3>
 

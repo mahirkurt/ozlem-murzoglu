@@ -227,7 +227,7 @@
   box-shadow: 0 12px 32px rgba(10, 147, 150, 0.25);
 }
 
-.science-section .md3-icon-container .material-icons {
+.science-section .md3-icon-container .material-icons-rounded {
   font-size: 36px;
 }
 
@@ -293,7 +293,7 @@
   text-decoration: none;
 }
 
-.md3-package-card .md3-button .material-icons {
+.md3-package-card .md3-button .material-icons-rounded {
   font-size: 20px;
 }
 

@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Kaynaklar</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/bright-futures-aile" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p>AİLENİZ İÇİN BİLGİLER</p><p><strong>7. YAŞ ZİYARETİ</strong></p></td><td><p></p></td></tr></table><table><tr><td><p><strong>AİLENİZİN DURUMU</strong></p></td></tr></table><ul><li>Çocuğunuzu bağımsız ve sorumlu olmaya teşvik edin. Ona sarılın ve övün.</li><li>Çocuğunuzla zaman geçirin. Arkadaşlarını ve ailelerini tanıyın.</li><li>İyi davranışlarından ve okulda başarılı olmasından dolayı çocuğunuzla gurur duyun.</li><li>Çocuğunuzun çatışmayla baş etmesine yardımcı olun.</li><li>Sigara içmeyin veya elektronik sigara kullanmayın. Evinizi ve arabanızı dumansız tutun. </li><li>Aile bilgisayarını merkezi bir yere koyun:<ul><li>Çocuğunuzun çevrimiçi ortamda kiminle konuştuğunu bilin.</li><li>Bir güvenlik filtresi kullanın.</li></ul></li></ul><table><tr><td><p><strong>SAĞLIKLI KALMA</strong></p></td></tr></table><ul><li>Çocuğunuzu yılda iki kez diş hekimine götürün.</li><li>Diş hekimi tavsiye ederse florür takviyesi kullanın.</li><li>Çocuğunuzun dişlerini günde iki kez fırçalamasına yardımcı olun:<ul><li>Kahvaltıdan sonra</li><li>Yatmadan önce</li></ul></li><li>Bezelye büyüklüğünde florürlü diş macunu kullanın.</li><li>Çocuğunuzun günde bir kez diş ipi kullanmasına yardımcı olun.</li><li>Çocuğunuzu spor yaparken dişlerini korumak için her zaman ağız koruyucu takması konusunda teşvik edin.</li><li>Ekran süresini günde 2 saat ile sınırlandırın (okul çalışmaları hariç).</li><li>Çocuğunuzun yatak odasına televizyon veya bilgisayar koymayın.</li><li>Bir aile medya kullanım planı yapmayı düşünün. Bu plan, medya kullanımı için kurallar oluşturmanıza ve egzersiz de dahil olmak üzere diğer etkinliklerle ekran başında kalma süresini dengelemenize yardımcı olur.</li><li>Çocuğunuzu günde en az 1 saat aktif olarak oynamaya teşvik edin.</li><li>Sağlıklı beslenmeyi teşvik edin:<ul><li>Aile olarak sık sık birlikte yemek yiyin.</li><li>Sebze, meyve, kepekli tahıllar, yağsız protein ve az yağlı veya yağsız süt ürünleri servis edin.</li><li>Şeker, tuz ve düşük besleyici değerli olan gıdaları sınırlandırın.</li></ul></li></ul><table><tr><td><p><strong>BÜYÜYEN VE GELİŞEN ÇOCUĞUNUZ</strong></p></td></tr></table><ul><li>Çocuğunuza yapması için görevler verin ve onların yapılmasını talep edin.</li><li>Sözel ve fiziksel şiddet kullanmayın ve kullanılmasına müsaade etmeyin.</li><li>Çocuğunuzun kendisi için bir şeyler yapmasına yardımcı olun.</li><li>Çocuğunuza başkalarına yardım etmeyi öğretin.</li><li>Çocuğunuzla kuralları ve bunların sonuçlarını tartışın.</li><li>Ergenlik çağının ve çocuğunuzun vücudundaki değişikliklerin farkında olun.</li><li>Çocuğunuzun sorularını yanıtlamak için basit yanıtlar kullanın.</li><li>Çocuğunuzla onu neyin endişelendirdiği hakkında konuşun.</li></ul><table><tr><td><p><strong>OKUL</strong></p></td></tr></table><ul><li>Çocuğunuzun okula hazırlanmasına yardımcı olun. Aşağıdaki stratejileri kullanın:<ul><li>En az 9 saat uyuması için yatma zamanı rutinleri oluşturun.</li><li>Her sabah ona sağlıklı bir kahvaltı sunun.</li></ul></li><li>Okula dönüş partilerine, veli - öğretmen etkinliklerine ve mümkün olduğunca çok sayıda diğer okul etkinliklerine katılın.</li><li>Çocuğunuzla ve çocuğunuzun öğretmeniyle zorbalar hakkında konuşun.</li><li>Çocuğunuzun ekstra yardıma veya özel derse ihtiyacı olabileceğini düşünüyorsanız, çocuğunuzun öğretmeniyle konuşun.</li><li>Çocuğunuz okulda başarılı değilse, öğretmeninin değerlendirmelerde yardımcı olabileceğini bilin.</li></ul><table><tr><td><p><strong>GÜVENLİK</strong></p></td></tr></table><ul><li>Çocuğunuz 13 yaşına gelene kadar arabada oturabileceği en güvenli yer arka koltuktur.</li><li>Çocuğunuz, emniyet kemerleri vücudunun uygun yerine oturana kadar yükseltici koltuk kullanmalıdır.</li><li>Çocuğunuza yüzmeyi öğretin ve sudayken onu kollayın.</li><li>Çocuğunuz güneşe maruzken ona şapka takın, güneşten koruyucu kıyafet giydirin ve  cildi açık olan yerlere SPF 15 veya daha güçlü güneş kremi sürün. Güneşin en güçlü olduğu zamanlarda dışarıda geçirdiği zamanı kısıtlayın. (11:00 - 15:00).</li><li>Çocuğunuz bisiklet, scooter, paten, kayak, kızak veya binicilik yaparken uygun kask ve güvenlik ekipmanı giydiğinden emin olun.</li><li>Çocuğunuza yangın gibi acil durumlar için planlar öğretin. Çocuğunuza 112'yi nasıl ve ne zaman araması gerektiğini öğretin.</li><li>Çocuğunuza diğer yetişkinlerin yanında nasıl güvende kalabileceğini öğretin:<ul><li>Hiçbir yetişkin bir çocuktan ebeveynlerinden sır saklamasını istememelidir.</li><li>Hiçbir yetişkin çocuğun özel bölgelerini görmek istememelidir.</li><li>Hiçbir yetişkin, yetişkinin kendi özel bölgeleri için çocuktan yardım istememelidir.</li></ul></li></ul><table><tr><td><p>Bright Futures: Guidelines for Health Supervision of Infants, Children, and Adolescents, <br />4.Baskı'dan uyarlanmıştır. Daha fazla bilgi için <strong>https://brightfutures.aap.org</strong> adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/bright-futures-aile/7.%20Ya%C5%9F%20-%20Aile%20%C4%B0%C3%A7in%20Bilgiler.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

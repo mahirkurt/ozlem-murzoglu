@@ -1,0 +1,1138 @@
+// ============================================================================
+// MD3 Expressive 2025 - Dialog System
+// ============================================================================
+// Material Design 3 compliant dialog and modal components
+// Features: Basic, Full-screen, Alert, Confirmation, Side Sheet, Bottom Sheet
+// Accessibility: Focus trap, ARIA, reduced motion, high contrast
+// ============================================================================
+
+@use '../colors' as colors;
+@use '../typography' as typography;
+@use '../shapes' as shapes;
+@use '../elevation' as elevation;
+@use '../motion' as motion;
+@use '../states' as states;
+@use '../spacing' as spacing;
+@use '../effects' as effects;
+
+// ============================================================================
+// DIALOG TOKENS
+// ============================================================================
+
+:root {
+  // Dialog dimensions
+  --md-sys-dialog-min-width: 280px;
+  --md-sys-dialog-max-width: 560px;
+  --md-sys-dialog-max-height: calc(100vh - 96px);
+  --md-sys-dialog-full-width: 100%;
+  --md-sys-dialog-full-height: 100%;
+
+  // Dialog spacing
+  --md-sys-dialog-padding: 24px;
+  --md-sys-dialog-padding-headline: 24px 24px 16px;
+  --md-sys-dialog-padding-content: 0 24px 24px;
+  --md-sys-dialog-padding-actions: 16px 24px 24px;
+  --md-sys-dialog-action-gap: 8px;
+
+  // Dialog colors
+  --md-sys-color-dialog-surface: var(--md-sys-color-surface-container-high);
+  --md-sys-color-dialog-headline: var(--md-sys-color-on-surface);
+  --md-sys-color-dialog-supporting-text: var(--md-sys-color-on-surface-variant);
+  --md-sys-color-dialog-icon: var(--md-sys-color-secondary);
+
+  // Scrim
+  --md-sys-color-scrim: oklch(0 0 0 / 0.32);
+  --md-sys-color-scrim-heavy: oklch(0 0 0 / 0.56);
+
+  // Dialog shape
+  --md-sys-dialog-shape: var(--md-sys-shape-corner-extra-large);
+  --md-sys-dialog-shape-full: 0;
+
+  // Dialog elevation
+  --md-sys-dialog-elevation: var(--md-sys-elevation-level-3);
+
+  // Side sheet
+  --md-sys-side-sheet-width: 360px;
+  --md-sys-side-sheet-max-width: 80vw;
+
+  // Bottom sheet
+  --md-sys-bottom-sheet-height: auto;
+  --md-sys-bottom-sheet-max-height: 90vh;
+  --md-sys-bottom-sheet-drag-handle-width: 32px;
+  --md-sys-bottom-sheet-drag-handle-height: 4px;
+
+  // Animation
+  --md-sys-dialog-animation-duration: var(--md-sys-motion-duration-medium-2);
+  --md-sys-dialog-animation-easing: var(--md-sys-motion-easing-emphasized-decelerate);
+  --md-sys-dialog-animation-easing-exit: var(--md-sys-motion-easing-emphasized-accelerate);
+}
+
+// Dark mode adjustments
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-dialog-surface: var(--md-sys-color-surface-container-high);
+    --md-sys-color-scrim: oklch(0 0 0 / 0.48);
+    --md-sys-color-scrim-heavy: oklch(0 0 0 / 0.72);
+  }
+}
+
+// ============================================================================
+// SCRIM / BACKDROP
+// ============================================================================
+
+.md3-scrim {
+  position: fixed;
+  inset: 0;
+  background: var(--md-sys-color-scrim);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing),
+    visibility var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing);
+
+  &.is-active,
+  &[data-state="open"] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // Heavy scrim variant
+  &--heavy {
+    background: var(--md-sys-color-scrim-heavy);
+  }
+
+  // Glass scrim
+  &--glass {
+    background: var(--md-sys-color-glass-surface);
+    backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+    -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  }
+}
+
+// ============================================================================
+// BASE DIALOG
+// ============================================================================
+
+.md3-dialog {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  min-width: var(--md-sys-dialog-min-width);
+  max-width: var(--md-sys-dialog-max-width);
+  max-height: var(--md-sys-dialog-max-height);
+  background: var(--md-sys-color-dialog-surface);
+  border-radius: var(--md-sys-dialog-shape);
+  box-shadow: var(--md-sys-dialog-elevation);
+  outline: none;
+  overflow: hidden;
+
+  // Positioning - centered by default
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%) scale(0.85);
+  opacity: 0;
+  visibility: hidden;
+
+  // Animation
+  transition:
+    transform var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing),
+    opacity var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing),
+    visibility var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing);
+
+  // Open state
+  &.is-open,
+  &[data-state="open"],
+  &[open] {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // Exit animation
+  &.is-closing {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0;
+    transition-timing-function: var(--md-sys-dialog-animation-easing-exit);
+    transition-duration: var(--md-sys-motion-duration-short-4);
+  }
+}
+
+// Dialog icon (optional)
+.md3-dialog__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 16px;
+  color: var(--md-sys-color-dialog-icon);
+
+  svg,
+  .material-symbols-outlined {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  // Centered icon variant
+  &--centered {
+    margin-inline: auto;
+  }
+
+  // Large icon variant
+  &--large {
+    width: 48px;
+    height: 48px;
+
+    svg,
+    .material-symbols-outlined {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+
+// Dialog headline
+.md3-dialog__headline {
+  padding: var(--md-sys-dialog-padding-headline);
+  margin: 0;
+  font-family: var(--md-sys-typescale-headline-small-font);
+  font-size: var(--md-sys-typescale-headline-small-size);
+  font-weight: var(--md-sys-typescale-headline-small-weight);
+  line-height: var(--md-sys-typescale-headline-small-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+  color: var(--md-sys-color-dialog-headline);
+
+  // Centered variant
+  &--centered {
+    text-align: center;
+  }
+}
+
+// Dialog content / supporting text
+.md3-dialog__content {
+  flex: 1;
+  padding: var(--md-sys-dialog-padding-content);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-body-medium-tracking);
+  color: var(--md-sys-color-dialog-supporting-text);
+
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--md-sys-color-outline-variant);
+    border-radius: 2px;
+  }
+
+  // Scrollbar on hover
+  &:hover::-webkit-scrollbar-thumb {
+    background: var(--md-sys-color-outline);
+  }
+}
+
+// Dialog actions
+.md3-dialog__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--md-sys-dialog-action-gap);
+  padding: var(--md-sys-dialog-padding-actions);
+
+  // Full width actions
+  &--full-width {
+    flex-direction: column;
+
+    .md3-button,
+    button {
+      width: 100%;
+    }
+  }
+
+  // Stacked actions (for long button text)
+  &--stacked {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+}
+
+// Dialog dividers
+.md3-dialog__divider {
+  height: 1px;
+  background: var(--md-sys-color-outline-variant);
+  margin: 0;
+  border: none;
+}
+
+// ============================================================================
+// DIALOG VARIANTS
+// ============================================================================
+
+// Basic dialog (standard)
+.md3-dialog--basic {
+  // Default styles applied
+}
+
+// Alert dialog
+.md3-dialog--alert {
+  text-align: center;
+
+  .md3-dialog__icon {
+    margin-inline: auto;
+    margin-bottom: 24px;
+    width: 48px;
+    height: 48px;
+    color: var(--md-sys-color-error);
+
+    svg,
+    .material-symbols-outlined {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  .md3-dialog__headline {
+    text-align: center;
+  }
+
+  .md3-dialog__content {
+    text-align: center;
+  }
+
+  .md3-dialog__actions {
+    justify-content: center;
+  }
+}
+
+// Confirmation dialog
+.md3-dialog--confirmation {
+  .md3-dialog__actions {
+    justify-content: space-between;
+
+    // Cancel button on left, confirm on right
+    .md3-button--text {
+      margin-right: auto;
+    }
+  }
+}
+
+// Simple dialog (list selection)
+.md3-dialog--simple {
+  .md3-dialog__content {
+    padding: 8px 0;
+  }
+
+  .md3-dialog-list-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+
+    &:hover {
+      background: var(--md-sys-color-surface-container-highest);
+    }
+
+    &:active {
+      background: oklch(from var(--md-sys-color-on-surface) l c h / 0.12);
+    }
+
+    &__icon {
+      width: 24px;
+      height: 24px;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    &__text {
+      flex: 1;
+      font-family: var(--md-sys-typescale-body-large-font);
+      font-size: var(--md-sys-typescale-body-large-size);
+      color: var(--md-sys-color-on-surface);
+    }
+  }
+}
+
+// Full-screen dialog
+.md3-dialog--fullscreen {
+  min-width: var(--md-sys-dialog-full-width);
+  max-width: var(--md-sys-dialog-full-width);
+  min-height: var(--md-sys-dialog-full-height);
+  max-height: var(--md-sys-dialog-full-height);
+  border-radius: var(--md-sys-dialog-shape-full);
+  inset: 0;
+  transform: translateY(100%);
+
+  &.is-open,
+  &[data-state="open"],
+  &[open] {
+    transform: translateY(0);
+  }
+
+  &.is-closing {
+    transform: translateY(100%);
+  }
+
+  // Full-screen header
+  .md3-dialog__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  }
+
+  .md3-dialog__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: var(--md-sys-shape-corner-full);
+    cursor: pointer;
+    color: var(--md-sys-color-on-surface);
+    transition: background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+
+    &:hover {
+      background: oklch(from var(--md-sys-color-on-surface) l c h / 0.08);
+    }
+
+    &:active {
+      background: oklch(from var(--md-sys-color-on-surface) l c h / 0.12);
+    }
+  }
+
+  .md3-dialog__headline {
+    flex: 1;
+    padding: 0;
+    font-family: var(--md-sys-typescale-title-large-font);
+    font-size: var(--md-sys-typescale-title-large-size);
+  }
+
+  .md3-dialog__save {
+    // Primary action in header
+  }
+
+  .md3-dialog__content {
+    flex: 1;
+    padding: 24px;
+  }
+
+  .md3-dialog__actions {
+    display: none; // Actions in header for full-screen
+  }
+}
+
+// Large dialog
+.md3-dialog--large {
+  max-width: 800px;
+  max-height: calc(100vh - 64px);
+}
+
+// Extra large dialog
+.md3-dialog--xl {
+  max-width: 1024px;
+  max-height: calc(100vh - 48px);
+}
+
+// ============================================================================
+// SIDE SHEET
+// ============================================================================
+
+.md3-side-sheet {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: var(--md-sys-side-sheet-width);
+  max-width: var(--md-sys-side-sheet-max-width);
+  display: flex;
+  flex-direction: column;
+  background: var(--md-sys-color-surface-container);
+  box-shadow: var(--md-sys-elevation-level-1);
+  transform: translateX(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    transform var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing),
+    opacity var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing),
+    visibility var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing);
+
+  // Open state
+  &.is-open,
+  &[data-state="open"] {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // Exit animation
+  &.is-closing {
+    transform: translateX(100%);
+    transition-timing-function: var(--md-sys-dialog-animation-easing-exit);
+    transition-duration: var(--md-sys-motion-duration-short-4);
+  }
+
+  // Left side variant
+  &--left {
+    right: auto;
+    left: 0;
+    transform: translateX(-100%);
+
+    &.is-open,
+    &[data-state="open"] {
+      transform: translateX(0);
+    }
+
+    &.is-closing {
+      transform: translateX(-100%);
+    }
+  }
+
+  // Modal variant (with scrim)
+  &--modal {
+    box-shadow: var(--md-sys-elevation-level-3);
+  }
+
+  // Detached variant
+  &--detached {
+    top: 16px;
+    bottom: 16px;
+    right: 16px;
+    border-radius: var(--md-sys-shape-corner-large);
+    box-shadow: var(--md-sys-elevation-level-2);
+  }
+
+  // Standard (coplanar) variant
+  &--standard {
+    position: relative;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border-left: 1px solid var(--md-sys-color-outline-variant);
+
+    &.md3-side-sheet--left {
+      border-left: none;
+      border-right: 1px solid var(--md-sys-color-outline-variant);
+    }
+  }
+}
+
+// Side sheet header
+.md3-side-sheet__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+
+  .md3-side-sheet__headline {
+    flex: 1;
+    margin: 0;
+    font-family: var(--md-sys-typescale-title-large-font);
+    font-size: var(--md-sys-typescale-title-large-size);
+    font-weight: var(--md-sys-typescale-title-large-weight);
+    line-height: var(--md-sys-typescale-title-large-line-height);
+    color: var(--md-sys-color-on-surface);
+  }
+
+  .md3-side-sheet__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: var(--md-sys-shape-corner-full);
+    cursor: pointer;
+    color: var(--md-sys-color-on-surface-variant);
+    transition: background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+
+    &:hover {
+      background: oklch(from var(--md-sys-color-on-surface-variant) l c h / 0.08);
+    }
+
+    &:active {
+      background: oklch(from var(--md-sys-color-on-surface-variant) l c h / 0.12);
+    }
+  }
+}
+
+// Side sheet content
+.md3-side-sheet__content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+// Side sheet actions
+.md3-side-sheet__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+// ============================================================================
+// BOTTOM SHEET
+// ============================================================================
+
+.md3-bottom-sheet {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 128px;
+  max-height: var(--md-sys-bottom-sheet-max-height);
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-extra-large) var(--md-sys-shape-corner-extra-large) 0 0;
+  box-shadow: var(--md-sys-elevation-level-1);
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    transform var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing),
+    opacity var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing),
+    visibility var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing);
+
+  // Open state
+  &.is-open,
+  &[data-state="open"] {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // Exit animation
+  &.is-closing {
+    transform: translateY(100%);
+    transition-timing-function: var(--md-sys-dialog-animation-easing-exit);
+    transition-duration: var(--md-sys-motion-duration-short-4);
+  }
+
+  // Modal variant
+  &--modal {
+    box-shadow: var(--md-sys-elevation-level-3);
+  }
+
+  // Standard (non-modal) variant
+  &--standard {
+    position: relative;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+  }
+
+  // Full height variant
+  &--full {
+    max-height: 100vh;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+
+// Drag handle
+.md3-bottom-sheet__drag-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  cursor: grab;
+  touch-action: none;
+
+  &::before {
+    content: '';
+    display: block;
+    width: var(--md-sys-bottom-sheet-drag-handle-width);
+    height: var(--md-sys-bottom-sheet-drag-handle-height);
+    background: var(--md-sys-color-on-surface-variant);
+    border-radius: var(--md-sys-shape-corner-full);
+    opacity: 0.4;
+  }
+
+  &:active {
+    cursor: grabbing;
+
+    &::before {
+      opacity: 0.6;
+    }
+  }
+}
+
+// Bottom sheet header
+.md3-bottom-sheet__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 24px 16px;
+
+  .md3-bottom-sheet__headline {
+    flex: 1;
+    margin: 0;
+    font-family: var(--md-sys-typescale-title-medium-font);
+    font-size: var(--md-sys-typescale-title-medium-size);
+    font-weight: var(--md-sys-typescale-title-medium-weight);
+    line-height: var(--md-sys-typescale-title-medium-line-height);
+    color: var(--md-sys-color-on-surface);
+  }
+}
+
+// Bottom sheet content
+.md3-bottom-sheet__content {
+  flex: 1;
+  padding: 0 24px 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+// Bottom sheet actions (list of actions)
+.md3-bottom-sheet__action-list {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+
+  .md3-bottom-sheet__action {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+
+    &:hover {
+      background: var(--md-sys-color-surface-container);
+    }
+
+    &:active {
+      background: var(--md-sys-color-surface-container-high);
+    }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    &__label {
+      flex: 1;
+      font-family: var(--md-sys-typescale-body-large-font);
+      font-size: var(--md-sys-typescale-body-large-size);
+      color: var(--md-sys-color-on-surface);
+    }
+  }
+}
+
+// ============================================================================
+// DIALOG WITH IMAGE
+// ============================================================================
+
+.md3-dialog--with-hero {
+  .md3-dialog__hero {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--md-sys-dialog-shape) var(--md-sys-dialog-shape) 0 0;
+  }
+
+  .md3-dialog__headline {
+    padding-top: 24px;
+  }
+}
+
+.md3-dialog--with-icon-hero {
+  .md3-dialog__icon-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 160px;
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+
+    svg,
+    .material-symbols-outlined {
+      font-size: 72px;
+      width: 72px;
+      height: 72px;
+    }
+  }
+}
+
+// ============================================================================
+// DIALOG ANIMATIONS
+// ============================================================================
+
+// Slide up animation
+.md3-dialog--slide-up {
+  transform: translate(-50%, -40%) scale(1);
+
+  &.is-open,
+  &[data-state="open"],
+  &[open] {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+// Fade animation (no scale)
+.md3-dialog--fade {
+  transform: translate(-50%, -50%);
+
+  &.is-open,
+  &[data-state="open"],
+  &[open] {
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Grow animation
+.md3-dialog--grow {
+  transform: translate(-50%, -50%) scale(0.5);
+
+  &.is-open,
+  &[data-state="open"],
+  &[open] {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+// ============================================================================
+// GLASS DIALOG VARIANT
+// ============================================================================
+
+.md3-dialog--glass {
+  background: var(--md-sys-color-glass-surface);
+  backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  border: 1px solid var(--md-sys-color-glass-border);
+
+  .md3-dialog__headline {
+    color: var(--md-sys-color-on-surface);
+  }
+
+  .md3-dialog__content {
+    color: var(--md-sys-color-on-surface-variant);
+  }
+}
+
+.md3-side-sheet--glass {
+  background: var(--md-sys-color-glass-surface);
+  backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  border-left: 1px solid var(--md-sys-color-glass-border);
+
+  &.md3-side-sheet--left {
+    border-left: none;
+    border-right: 1px solid var(--md-sys-color-glass-border);
+  }
+}
+
+.md3-bottom-sheet--glass {
+  background: var(--md-sys-color-glass-surface);
+  backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  border-top: 1px solid var(--md-sys-color-glass-border);
+}
+
+// ============================================================================
+// DIALOG MIXINS
+// ============================================================================
+
+@mixin dialog-base {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background: var(--md-sys-color-dialog-surface);
+  border-radius: var(--md-sys-dialog-shape);
+  box-shadow: var(--md-sys-dialog-elevation);
+  outline: none;
+  overflow: hidden;
+}
+
+@mixin dialog-headline {
+  padding: var(--md-sys-dialog-padding-headline);
+  margin: 0;
+  font-family: var(--md-sys-typescale-headline-small-font);
+  font-size: var(--md-sys-typescale-headline-small-size);
+  font-weight: var(--md-sys-typescale-headline-small-weight);
+  line-height: var(--md-sys-typescale-headline-small-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+  color: var(--md-sys-color-dialog-headline);
+}
+
+@mixin dialog-content {
+  flex: 1;
+  padding: var(--md-sys-dialog-padding-content);
+  overflow-y: auto;
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  color: var(--md-sys-color-dialog-supporting-text);
+}
+
+@mixin dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--md-sys-dialog-action-gap);
+  padding: var(--md-sys-dialog-padding-actions);
+}
+
+@mixin dialog-animation {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    transform var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing),
+    opacity var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing),
+    visibility var(--md-sys-dialog-animation-duration) var(--md-sys-dialog-animation-easing);
+}
+
+@mixin dialog-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+@mixin glass-surface {
+  background: var(--md-sys-color-glass-surface);
+  backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  border: 1px solid var(--md-sys-color-glass-border);
+}
+
+// ============================================================================
+// RESPONSIVE BEHAVIOR
+// ============================================================================
+
+// Mobile: dialogs become more full-screen like
+@media (max-width: 599px) {
+  .md3-dialog {
+    min-width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+    max-height: calc(100vh - 32px);
+    margin: 16px;
+  }
+
+  .md3-dialog--large,
+  .md3-dialog--xl {
+    min-width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+    max-height: calc(100vh - 32px);
+  }
+
+  .md3-side-sheet {
+    width: 100%;
+    max-width: 100%;
+
+    &--detached {
+      top: 0;
+      bottom: 0;
+      right: 0;
+      border-radius: 0;
+    }
+  }
+}
+
+// Tablet: intermediate sizes
+@media (min-width: 600px) and (max-width: 904px) {
+  .md3-dialog--xl {
+    max-width: calc(100% - 64px);
+  }
+
+  .md3-side-sheet {
+    max-width: 70vw;
+  }
+}
+
+// ============================================================================
+// REDUCED MOTION
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .md3-scrim,
+  .md3-dialog,
+  .md3-side-sheet,
+  .md3-bottom-sheet {
+    transition: opacity var(--md-sys-motion-duration-short-2) linear;
+  }
+
+  .md3-dialog {
+    transform: translate(-50%, -50%);
+
+    &.is-open,
+    &[data-state="open"],
+    &[open] {
+      transform: translate(-50%, -50%);
+    }
+
+    &.is-closing {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .md3-dialog--fullscreen {
+    transform: none;
+
+    &.is-open,
+    &[data-state="open"],
+    &[open] {
+      transform: none;
+    }
+
+    &.is-closing {
+      transform: none;
+    }
+  }
+
+  .md3-side-sheet {
+    transform: none;
+
+    &.is-open,
+    &[data-state="open"] {
+      transform: none;
+    }
+
+    &.is-closing {
+      transform: none;
+    }
+  }
+
+  .md3-bottom-sheet {
+    transform: none;
+
+    &.is-open,
+    &[data-state="open"] {
+      transform: none;
+    }
+
+    &.is-closing {
+      transform: none;
+    }
+  }
+}
+
+// ============================================================================
+// PRINT STYLES
+// ============================================================================
+
+@media print {
+  .md3-scrim,
+  .md3-dialog,
+  .md3-side-sheet,
+  .md3-bottom-sheet {
+    display: none !important;
+  }
+}
+
+// ============================================================================
+// HIGH CONTRAST MODE
+// ============================================================================
+
+@media (prefers-contrast: more) {
+  .md3-dialog {
+    border: 2px solid var(--md-sys-color-on-surface);
+  }
+
+  .md3-dialog__headline {
+    font-weight: 700;
+  }
+
+  .md3-side-sheet {
+    border-left: 2px solid var(--md-sys-color-on-surface);
+
+    &--left {
+      border-left: none;
+      border-right: 2px solid var(--md-sys-color-on-surface);
+    }
+  }
+
+  .md3-bottom-sheet {
+    border-top: 2px solid var(--md-sys-color-on-surface);
+  }
+
+  .md3-dialog__divider {
+    height: 2px;
+    background: var(--md-sys-color-on-surface);
+  }
+
+  // Glass effects disabled in high contrast
+  .md3-dialog--glass,
+  .md3-side-sheet--glass,
+  .md3-bottom-sheet--glass {
+    background: var(--md-sys-color-surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+// ============================================================================
+// FORCED COLORS MODE (Windows High Contrast)
+// ============================================================================
+
+@media (forced-colors: active) {
+  .md3-scrim {
+    background: Canvas;
+    opacity: 0.8;
+  }
+
+  .md3-dialog,
+  .md3-side-sheet,
+  .md3-bottom-sheet {
+    border: 2px solid CanvasText;
+    background: Canvas;
+    forced-color-adjust: none;
+  }
+
+  .md3-dialog__headline,
+  .md3-dialog__content,
+  .md3-side-sheet__headline,
+  .md3-bottom-sheet__headline {
+    color: CanvasText;
+  }
+
+  .md3-dialog__icon,
+  .md3-side-sheet__close,
+  .md3-bottom-sheet__drag-handle::before {
+    color: CanvasText;
+    background: Canvas;
+  }
+
+  .md3-dialog__divider,
+  .md3-side-sheet__header,
+  .md3-side-sheet__actions {
+    border-color: CanvasText;
+  }
+}

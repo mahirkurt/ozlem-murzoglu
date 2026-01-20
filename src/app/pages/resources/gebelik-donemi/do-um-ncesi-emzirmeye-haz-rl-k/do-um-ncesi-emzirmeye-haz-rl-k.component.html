@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/gebelik-donemi" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>AMERİKAN OBSTETRİK VE JİNEKOLOJİ AKADEMİSİ (ACOG)</p></td></tr><tr><td><p>DOĞUM ÖNCESİ</p><p><strong>EMZİRMEYE HAZIRLIK</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Emzirmeyi hazırlanmak için gebeliğinizin son ayında süreci kolaylaştırabilecek bazı şeyler yapabilirsiniz. Emzirme tamamen doğal bir süreç olmasına karşın, aynı zamanda zorluklarla karşılaşılabilen bir süreçtir. Biraz ön hazırlık, öğrenme sürecini kolaylaştırabilir. İşte nasıl hazırlanacağınıza dair bilgiler.</p></td></tr></table><table><tr><td><p><strong>Uygun bir süt pompası edinin.</strong></p></td></tr></table><p></p><ul><li>Gebeliğinizin son ayı, araştırmanızı yapma ve göğüs pompanızı sipariş etme zamanıdır. Süt pompası satın alınabileceği gibi, kiralama seçenekleri de mevcuttur.</li></ul><table><tr><td><p><strong>Bir emzirme uzmanı bulun.</strong></p></td></tr></table><p></p><ul><li>Hastanelerde, iyi bir başlangıç yapmanıza yardımcı olabilecek emzirme uzmanları (konu hakkında eğitim almış çocuk doktorları, ebeler ve hemşireler) bulunur. </li><li>Ama aynı zamanda hastaneden çıkış sonrası da bir emzirme uzmanının desteği ve yönlendirmeleri faydalı olacaktır. Zira nasıl doğru şekilde emzirileceğini öğrenmek biraz zaman alabilir. Doğumdan önceki ay, bir emzirme uzmanı bulmak için doğru bir zamandır.</li><li>Bazı emzirme uzmanları size telefonla veya görüntülü görüşme yoluyla tavsiye verebilir. Emzirme uzmanlarını araştırırken, sanal ortamda hizmet sunup sunmadıklarını sorabilirsiniz.</li></ul><table><tr><td><p><strong>Emzirme zorlukları hakkında konuşun.</strong></p></td></tr></table><p></p><ul><li>Doktorunuzla emzirme zorlukları hakkında konuşun ve bunu zorlaştırabilecek herhangi bir sağlık durumunuz olup olmadığını sorun.</li><li>Geçmişte emzirmeyle ilgili zorluklar yaşadıysanız veya endişelendiğiniz herhangi bir şey varsa, bunu doktorunuza bildirin.</li><li>Emzirmede zorluk yaşama olasılığını artıran bazı tıbbi durumlar da vardır. Örneğin, diyabet veya polikistik over sendromu (PKOS) geçmişine sahip olmak, süt yetersizliği riskini artırır.</li><li>Süt yetersizliği riski söz konusu olan gebelerin doğum öncesinde elle süt sağma konusunda bilgi edinmeleri önemlidir. </li><li>Elle süt sağma, anne sütünü memelerinizden çıkarmak için ellerinizi kullandığınız bir tekniktir. Gebeliğin son birkaç haftasında elle süt sağma çalışması yapmak süt üretiminin başlangıcında gelen ilk sıvı olan kolostrumun üretimini kolaylaştırabilir. </li></ul><table><tr><td><p><strong>Ten tene temasa hazırlanın.</strong></p></td></tr></table><p></p><ul><li>Doğumdan hemen sonra bebeğinizi doğrudan çıplak teninize tutmanıza "ten tene temas" denir. </li><li>Doğum yapacağınız yerde bunun nasıl yapıldığını sorun. Ten tene temas, siz ve bebeğiniz arasında bağ kurulmasına yardımcı olur. Bu aynı zamanda vücudunuza süt yapmaya başlaması için verilen ilk sinyallerden biridir.</li></ul><table><tr><td><p><strong>Tüm hazırlıklara karşın emzirmede yine de sorunlar çıkabilir.</strong></p></td></tr></table><p></p><ul><li>Emzirme, yeni ebeveynlerin karşılaştığı en büyük zorluklardan biridir. Bazen sağlık koşulları veya diğer zorluklar bu besleme yöntemini uygulanamaz hale getirebilir.</li><li>Emzirmek istiyorsanız ve sorun yaşıyorsanız, doktorunuz ve/veya emzirme uzmanınızla birlikte çalışın. Bebeğinizin memeyi kavraması, süt pompasının doğru şekilde kullanımı ve pompalama tekniğinizle ilgili sorunları çözmenize ve sütünüzü artırmanın diğer yollarını ele almaya yardımcı olabilirler.</li><li>Ama yine de emziremiyorsanız, formül mamalar bebeğinizin ihtiyaç duyduğu beslenmeyi sağlayabilir. </li></ul><table><tr><td><p>How to Prepare for Breastfeeding in the Month Before Birth - American College of Obstetricians and Gynecologists'den  uyarlanmıştır. Daha fazla bilgi için <a href="https://www.acog.org/womens-health/experts-and-stories/the-latest/how-to-prepare-for-breastfeeding-in-the-month-before-birth"><strong>https://www.acog.org/womens-health/experts-and-stories/the-latest/how-to-prepare-for-breastfeeding-in-the-month-before-birth</strong></a><strong> </strong>adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, toplum için bir eğitim yardımı olarak tasarlanmıştır. Kadın sağlığı ile ilgili güncel bilgi ve görüşleri sunar. Bu broşür, doktorunuzun veya sağlık uzmanınızın tavsiyesini teşkil etmez ve bir doktor veya sağlık uzmanının tavsiye veya tavsiyesinin yerini almaz. Özel durumunuza hakim olan doktorunuza veya sağlık uzmanlarına danışmalı ve yalnızca onların tavsiyelerine güvenmelisiniz. Bu broşür doğru ve güncel bilgi sağlamak için her türlü çabayı göstermekle birlikte, yayıncı bu konuda herhangi bir garanti veya taahhütte bulunamaz. © 2022, Amerikan Obstetrik ve Jinekoloji Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/gebelik-donemi/Do%C4%9Fum%20%C3%96ncesi%20Emzirmeye%20Haz%C4%B1rl%C4%B1k.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

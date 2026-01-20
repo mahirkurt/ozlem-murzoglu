@@ -1,0 +1,939 @@
+// ============================================================================
+// MD3 Expressive 2025 - Tooltip System
+// ============================================================================
+// Material Design 3 compliant tooltip and popover components
+// Features: Plain, Rich, Popover, Keyboard shortcut hints
+// Accessibility: ARIA tooltip, keyboard support, reduced motion
+// ============================================================================
+
+@use '../colors' as colors;
+@use '../typography' as typography;
+@use '../shapes' as shapes;
+@use '../elevation' as elevation;
+@use '../motion' as motion;
+@use '../states' as states;
+@use '../spacing' as spacing;
+@use '../effects' as effects;
+
+// ============================================================================
+// TOOLTIP TOKENS
+// ============================================================================
+
+:root {
+  // Plain tooltip dimensions
+  --md-sys-tooltip-plain-height: 24px;
+  --md-sys-tooltip-plain-padding: 4px 8px;
+  --md-sys-tooltip-plain-max-width: 200px;
+
+  // Rich tooltip dimensions
+  --md-sys-tooltip-rich-min-width: 200px;
+  --md-sys-tooltip-rich-max-width: 312px;
+  --md-sys-tooltip-rich-padding: 12px 16px;
+
+  // Tooltip colors - Plain (inverse colors)
+  --md-sys-color-tooltip-plain-surface: var(--md-sys-color-inverse-surface);
+  --md-sys-color-tooltip-plain-text: var(--md-sys-color-inverse-on-surface);
+
+  // Tooltip colors - Rich
+  --md-sys-color-tooltip-rich-surface: var(--md-sys-color-surface-container);
+  --md-sys-color-tooltip-rich-headline: var(--md-sys-color-on-surface);
+  --md-sys-color-tooltip-rich-text: var(--md-sys-color-on-surface-variant);
+  --md-sys-color-tooltip-rich-action: var(--md-sys-color-primary);
+
+  // Tooltip shape
+  --md-sys-tooltip-plain-shape: var(--md-sys-shape-corner-extra-small);
+  --md-sys-tooltip-rich-shape: var(--md-sys-shape-corner-medium);
+
+  // Tooltip elevation
+  --md-sys-tooltip-elevation: var(--md-sys-elevation-level-2);
+
+  // Arrow/caret
+  --md-sys-tooltip-arrow-size: 8px;
+
+  // Animation
+  --md-sys-tooltip-animation-duration: var(--md-sys-motion-duration-short-4);
+  --md-sys-tooltip-animation-easing: var(--md-sys-motion-easing-emphasized-decelerate);
+  --md-sys-tooltip-delay: 500ms;
+  --md-sys-tooltip-delay-short: 200ms;
+
+  // Offset from trigger
+  --md-sys-tooltip-offset: 8px;
+}
+
+// Dark mode adjustments
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-tooltip-rich-surface: var(--md-sys-color-surface-container-high);
+  }
+}
+
+// ============================================================================
+// BASE TOOLTIP (Plain)
+// ============================================================================
+
+.md3-tooltip {
+  position: absolute;
+  z-index: 1200;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--md-sys-tooltip-plain-height);
+  max-width: var(--md-sys-tooltip-plain-max-width);
+  padding: var(--md-sys-tooltip-plain-padding);
+  background: var(--md-sys-color-tooltip-plain-surface);
+  border-radius: var(--md-sys-tooltip-plain-shape);
+  font-family: var(--md-sys-typescale-body-small-font);
+  font-size: var(--md-sys-typescale-body-small-size);
+  font-weight: var(--md-sys-typescale-body-small-weight);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  letter-spacing: var(--md-sys-typescale-body-small-tracking);
+  color: var(--md-sys-color-tooltip-plain-text);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+
+  // Animation
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity var(--md-sys-tooltip-animation-duration) var(--md-sys-tooltip-animation-easing),
+    transform var(--md-sys-tooltip-animation-duration) var(--md-sys-tooltip-animation-easing);
+
+  // Visible state
+  &.is-visible,
+  &[data-state="visible"] {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  // Multi-line tooltip
+  &--multiline {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+// ============================================================================
+// TOOLTIP POSITIONING
+// ============================================================================
+
+// Top placement (default)
+.md3-tooltip--top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  margin-bottom: var(--md-sys-tooltip-offset);
+
+  &.is-visible,
+  &[data-state="visible"] {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+// Bottom placement
+.md3-tooltip--bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  margin-top: var(--md-sys-tooltip-offset);
+
+  &.is-visible,
+  &[data-state="visible"] {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+// Left placement
+.md3-tooltip--left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  margin-right: var(--md-sys-tooltip-offset);
+
+  &.is-visible,
+  &[data-state="visible"] {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+// Right placement
+.md3-tooltip--right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  margin-left: var(--md-sys-tooltip-offset);
+
+  &.is-visible,
+  &[data-state="visible"] {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+// ============================================================================
+// TOOLTIP WITH ARROW
+// ============================================================================
+
+.md3-tooltip--with-arrow {
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: var(--md-sys-tooltip-arrow-size) solid transparent;
+  }
+
+  // Arrow for top placement
+  &.md3-tooltip--top::before {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: var(--md-sys-color-tooltip-plain-surface);
+    border-bottom: none;
+  }
+
+  // Arrow for bottom placement
+  &.md3-tooltip--bottom::before {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: var(--md-sys-color-tooltip-plain-surface);
+    border-top: none;
+  }
+
+  // Arrow for left placement
+  &.md3-tooltip--left::before {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: var(--md-sys-color-tooltip-plain-surface);
+    border-right: none;
+  }
+
+  // Arrow for right placement
+  &.md3-tooltip--right::before {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: var(--md-sys-color-tooltip-plain-surface);
+    border-left: none;
+  }
+}
+
+// ============================================================================
+// RICH TOOLTIP
+// ============================================================================
+
+.md3-tooltip-rich {
+  position: absolute;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  min-width: var(--md-sys-tooltip-rich-min-width);
+  max-width: var(--md-sys-tooltip-rich-max-width);
+  padding: var(--md-sys-tooltip-rich-padding);
+  background: var(--md-sys-color-tooltip-rich-surface);
+  border-radius: var(--md-sys-tooltip-rich-shape);
+  box-shadow: var(--md-sys-tooltip-elevation);
+  pointer-events: auto; // Rich tooltips can be interactive
+
+  // Animation
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity var(--md-sys-tooltip-animation-duration) var(--md-sys-tooltip-animation-easing),
+    transform var(--md-sys-tooltip-animation-duration) var(--md-sys-tooltip-animation-easing);
+
+  // Visible state
+  &.is-visible,
+  &[data-state="visible"] {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Rich tooltip subhead
+.md3-tooltip-rich__subhead {
+  margin: 0 0 4px 0;
+  font-family: var(--md-sys-typescale-title-small-font);
+  font-size: var(--md-sys-typescale-title-small-size);
+  font-weight: var(--md-sys-typescale-title-small-weight);
+  line-height: var(--md-sys-typescale-title-small-line-height);
+  letter-spacing: var(--md-sys-typescale-title-small-tracking);
+  color: var(--md-sys-color-tooltip-rich-headline);
+}
+
+// Rich tooltip supporting text
+.md3-tooltip-rich__supporting-text {
+  margin: 0;
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-body-medium-tracking);
+  color: var(--md-sys-color-tooltip-rich-text);
+}
+
+// Rich tooltip actions
+.md3-tooltip-rich__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+// Rich tooltip action button
+.md3-tooltip-rich__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  border-radius: var(--md-sys-shape-corner-small);
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  color: var(--md-sys-color-tooltip-rich-action);
+  cursor: pointer;
+  transition: background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    background: oklch(from var(--md-sys-color-tooltip-rich-action) l c h / 0.08);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--md-sys-color-tooltip-rich-action);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    background: oklch(from var(--md-sys-color-tooltip-rich-action) l c h / 0.12);
+  }
+}
+
+// ============================================================================
+// RICH TOOLTIP WITH ARROW
+// ============================================================================
+
+.md3-tooltip-rich--with-arrow {
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: var(--md-sys-tooltip-arrow-size) solid transparent;
+  }
+
+  // Arrow positions same as plain tooltip
+  &.md3-tooltip--top::before {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: var(--md-sys-color-tooltip-rich-surface);
+    border-bottom: none;
+  }
+
+  &.md3-tooltip--bottom::before {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: var(--md-sys-color-tooltip-rich-surface);
+    border-top: none;
+  }
+
+  &.md3-tooltip--left::before {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: var(--md-sys-color-tooltip-rich-surface);
+    border-right: none;
+  }
+
+  &.md3-tooltip--right::before {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: var(--md-sys-color-tooltip-rich-surface);
+    border-left: none;
+  }
+}
+
+// ============================================================================
+// KEYBOARD SHORTCUT TOOLTIP
+// ============================================================================
+
+.md3-tooltip-shortcut {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.md3-tooltip-shortcut__label {
+  font-family: var(--md-sys-typescale-body-small-font);
+  font-size: var(--md-sys-typescale-body-small-size);
+  color: var(--md-sys-color-tooltip-plain-text);
+}
+
+.md3-tooltip-shortcut__keys {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.md3-tooltip-shortcut__key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 2px 6px;
+  background: oklch(from var(--md-sys-color-tooltip-plain-text) l c h / 0.12);
+  border-radius: var(--md-sys-shape-corner-extra-small);
+  font-family: var(--md-sys-typescale-label-small-font);
+  font-size: var(--md-sys-typescale-label-small-size);
+  font-weight: var(--md-sys-typescale-label-small-weight);
+  color: var(--md-sys-color-tooltip-plain-text);
+}
+
+// Separator between keys (+)
+.md3-tooltip-shortcut__separator {
+  font-family: var(--md-sys-typescale-label-small-font);
+  font-size: var(--md-sys-typescale-label-small-size);
+  color: oklch(from var(--md-sys-color-tooltip-plain-text) l c h / 0.6);
+}
+
+// ============================================================================
+// POPOVER
+// ============================================================================
+
+.md3-popover {
+  position: absolute;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 400px;
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-shape-corner-large);
+  box-shadow: var(--md-sys-elevation-level-3);
+  overflow: hidden;
+
+  // Animation
+  opacity: 0;
+  transform: scale(0.95);
+  visibility: hidden;
+  transition:
+    opacity var(--md-sys-motion-duration-medium-2) var(--md-sys-tooltip-animation-easing),
+    transform var(--md-sys-motion-duration-medium-2) var(--md-sys-tooltip-animation-easing),
+    visibility var(--md-sys-motion-duration-medium-2) var(--md-sys-tooltip-animation-easing);
+
+  // Visible state
+  &.is-visible,
+  &[data-state="visible"] {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+  }
+}
+
+// Popover header
+.md3-popover__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.md3-popover__title {
+  flex: 1;
+  margin: 0;
+  font-family: var(--md-sys-typescale-title-medium-font);
+  font-size: var(--md-sys-typescale-title-medium-size);
+  font-weight: var(--md-sys-typescale-title-medium-weight);
+  line-height: var(--md-sys-typescale-title-medium-line-height);
+  color: var(--md-sys-color-on-surface);
+}
+
+.md3-popover__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: var(--md-sys-shape-corner-full);
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  transition: background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    background: oklch(from var(--md-sys-color-on-surface-variant) l c h / 0.08);
+  }
+
+  &:active {
+    background: oklch(from var(--md-sys-color-on-surface-variant) l c h / 0.12);
+  }
+
+  svg,
+  .material-symbols-outlined {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+// Popover content
+.md3-popover__content {
+  padding: 16px;
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+// Popover footer
+.md3-popover__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+// Simple popover (no header/footer)
+.md3-popover--simple {
+  padding: 12px 16px;
+
+  .md3-popover__content {
+    padding: 0;
+  }
+}
+
+// ============================================================================
+// DROPDOWN MENU (as tooltip variant)
+// ============================================================================
+
+.md3-dropdown-menu {
+  position: absolute;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  max-width: 280px;
+  padding: 8px 0;
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-shape-corner-extra-small);
+  box-shadow: var(--md-sys-elevation-level-2);
+
+  // Animation
+  opacity: 0;
+  transform: scaleY(0.8);
+  transform-origin: top center;
+  visibility: hidden;
+  transition:
+    opacity var(--md-sys-motion-duration-short-4) var(--md-sys-tooltip-animation-easing),
+    transform var(--md-sys-motion-duration-short-4) var(--md-sys-tooltip-animation-easing),
+    visibility var(--md-sys-motion-duration-short-4) var(--md-sys-tooltip-animation-easing);
+
+  // Visible state
+  &.is-visible,
+  &[data-state="visible"] {
+    opacity: 1;
+    transform: scaleY(1);
+    visibility: visible;
+  }
+
+  // Open from bottom
+  &--from-bottom {
+    transform-origin: bottom center;
+  }
+}
+
+.md3-dropdown-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  transition: background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    background: var(--md-sys-color-surface-container-highest);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: -2px;
+  }
+
+  &:active {
+    background: oklch(from var(--md-sys-color-on-surface) l c h / 0.12);
+  }
+
+  // Disabled state
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.38;
+  }
+
+  // Destructive/danger state
+  &--danger {
+    color: var(--md-sys-color-error);
+
+    .md3-dropdown-menu__icon {
+      color: var(--md-sys-color-error);
+    }
+  }
+}
+
+.md3-dropdown-menu__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--md-sys-color-on-surface-variant);
+
+  svg,
+  .material-symbols-outlined {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.md3-dropdown-menu__label {
+  flex: 1;
+}
+
+.md3-dropdown-menu__shortcut {
+  font-family: var(--md-sys-typescale-label-medium-font);
+  font-size: var(--md-sys-typescale-label-medium-size);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.md3-dropdown-menu__divider {
+  height: 1px;
+  background: var(--md-sys-color-outline-variant);
+  margin: 8px 0;
+}
+
+.md3-dropdown-menu__group-label {
+  padding: 8px 16px;
+  font-family: var(--md-sys-typescale-label-medium-font);
+  font-size: var(--md-sys-typescale-label-medium-size);
+  font-weight: var(--md-sys-typescale-label-medium-weight);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+// ============================================================================
+// TOOLTIP TRIGGER (Wrapper)
+// ============================================================================
+
+.md3-tooltip-trigger {
+  position: relative;
+  display: inline-flex;
+
+  // Show tooltip on hover/focus with delay
+  &:hover .md3-tooltip,
+  &:focus-within .md3-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    transition-delay: var(--md-sys-tooltip-delay);
+  }
+
+  // Different positions need different transforms
+  &:hover .md3-tooltip--left,
+  &:focus-within .md3-tooltip--left,
+  &:hover .md3-tooltip--right,
+  &:focus-within .md3-tooltip--right {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+// Instant tooltip (no delay)
+.md3-tooltip-trigger--instant {
+  &:hover .md3-tooltip,
+  &:focus-within .md3-tooltip {
+    transition-delay: 0ms;
+  }
+}
+
+// ============================================================================
+// GLASS VARIANTS
+// ============================================================================
+
+.md3-tooltip--glass {
+  background: var(--md-sys-color-glass-surface);
+  backdrop-filter: blur(var(--md-sys-glass-blur));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur));
+  border: 1px solid var(--md-sys-color-glass-border);
+  --md-sys-color-tooltip-plain-text: var(--md-sys-color-on-surface);
+}
+
+.md3-tooltip-rich--glass {
+  background: var(--md-sys-color-glass-surface);
+  backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  border: 1px solid var(--md-sys-color-glass-border);
+}
+
+.md3-popover--glass {
+  background: var(--md-sys-color-glass-surface);
+  backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  border: 1px solid var(--md-sys-color-glass-border);
+}
+
+.md3-dropdown-menu--glass {
+  background: var(--md-sys-color-glass-surface);
+  backdrop-filter: blur(var(--md-sys-glass-blur));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur));
+  border: 1px solid var(--md-sys-color-glass-border);
+}
+
+// ============================================================================
+// TOOLTIP MIXINS
+// ============================================================================
+
+@mixin tooltip-base {
+  position: absolute;
+  z-index: 1200;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--md-sys-tooltip-plain-height);
+  max-width: var(--md-sys-tooltip-plain-max-width);
+  padding: var(--md-sys-tooltip-plain-padding);
+  background: var(--md-sys-color-tooltip-plain-surface);
+  border-radius: var(--md-sys-tooltip-plain-shape);
+  font-family: var(--md-sys-typescale-body-small-font);
+  font-size: var(--md-sys-typescale-body-small-size);
+  color: var(--md-sys-color-tooltip-plain-text);
+  pointer-events: none;
+}
+
+@mixin tooltip-animation {
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity var(--md-sys-tooltip-animation-duration) var(--md-sys-tooltip-animation-easing),
+    transform var(--md-sys-tooltip-animation-duration) var(--md-sys-tooltip-animation-easing);
+}
+
+@mixin tooltip-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@mixin rich-tooltip-base {
+  position: absolute;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  min-width: var(--md-sys-tooltip-rich-min-width);
+  max-width: var(--md-sys-tooltip-rich-max-width);
+  padding: var(--md-sys-tooltip-rich-padding);
+  background: var(--md-sys-color-tooltip-rich-surface);
+  border-radius: var(--md-sys-tooltip-rich-shape);
+  box-shadow: var(--md-sys-tooltip-elevation);
+}
+
+// ============================================================================
+// RESPONSIVE BEHAVIOR
+// ============================================================================
+
+@media (max-width: 599px) {
+  :root {
+    --md-sys-tooltip-rich-max-width: 280px;
+    --md-sys-tooltip-plain-max-width: 160px;
+  }
+
+  .md3-popover {
+    min-width: 160px;
+    max-width: calc(100vw - 32px);
+  }
+
+  .md3-dropdown-menu {
+    min-width: 160px;
+    max-width: calc(100vw - 32px);
+  }
+}
+
+// Touch devices: Increase touch targets
+@media (pointer: coarse) {
+  .md3-dropdown-menu__item {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+
+  .md3-popover__close {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+// ============================================================================
+// REDUCED MOTION
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .md3-tooltip,
+  .md3-tooltip-rich,
+  .md3-popover,
+  .md3-dropdown-menu {
+    transition: opacity var(--md-sys-motion-duration-short-2) linear;
+    transform: none;
+
+    &.is-visible,
+    &[data-state="visible"] {
+      transform: none;
+    }
+  }
+
+  .md3-tooltip--top,
+  .md3-tooltip--bottom {
+    transform: translateX(-50%);
+
+    &.is-visible,
+    &[data-state="visible"] {
+      transform: translateX(-50%);
+    }
+  }
+
+  .md3-tooltip--left,
+  .md3-tooltip--right {
+    transform: translateY(-50%);
+
+    &.is-visible,
+    &[data-state="visible"] {
+      transform: translateY(-50%);
+    }
+  }
+
+  .md3-tooltip-trigger:hover .md3-tooltip,
+  .md3-tooltip-trigger:focus-within .md3-tooltip {
+    transition-delay: 0ms;
+  }
+
+  .md3-tooltip-rich__action,
+  .md3-popover__close,
+  .md3-dropdown-menu__item {
+    transition: none;
+  }
+}
+
+// ============================================================================
+// PRINT STYLES
+// ============================================================================
+
+@media print {
+  .md3-tooltip,
+  .md3-tooltip-rich,
+  .md3-popover,
+  .md3-dropdown-menu {
+    display: none !important;
+  }
+}
+
+// ============================================================================
+// HIGH CONTRAST MODE
+// ============================================================================
+
+@media (prefers-contrast: more) {
+  .md3-tooltip,
+  .md3-tooltip-rich {
+    border: 2px solid currentColor;
+  }
+
+  .md3-tooltip-shortcut__key {
+    border: 1px solid currentColor;
+    background: transparent;
+  }
+
+  .md3-popover,
+  .md3-dropdown-menu {
+    border: 2px solid var(--md-sys-color-on-surface);
+  }
+
+  .md3-dropdown-menu__item:focus-visible {
+    outline-width: 3px;
+  }
+
+  .md3-tooltip-rich__action {
+    text-decoration: underline;
+    font-weight: 700;
+  }
+
+  // Glass effects disabled in high contrast
+  .md3-tooltip--glass,
+  .md3-tooltip-rich--glass,
+  .md3-popover--glass,
+  .md3-dropdown-menu--glass {
+    background: var(--md-sys-color-surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+// ============================================================================
+// FORCED COLORS MODE (Windows High Contrast)
+// ============================================================================
+
+@media (forced-colors: active) {
+  .md3-tooltip,
+  .md3-tooltip-rich,
+  .md3-popover,
+  .md3-dropdown-menu {
+    border: 2px solid CanvasText;
+    background: Canvas;
+    forced-color-adjust: none;
+  }
+
+  .md3-tooltip {
+    color: CanvasText;
+  }
+
+  .md3-tooltip-rich__subhead,
+  .md3-tooltip-rich__supporting-text,
+  .md3-popover__title,
+  .md3-popover__content,
+  .md3-dropdown-menu__item {
+    color: CanvasText;
+  }
+
+  .md3-tooltip-rich__action,
+  .md3-dropdown-menu__item:hover {
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .md3-tooltip-shortcut__key {
+    border: 1px solid CanvasText;
+    background: transparent;
+  }
+
+  .md3-tooltip--with-arrow::before,
+  .md3-tooltip-rich--with-arrow::before {
+    border-color: CanvasText;
+  }
+
+  .md3-dropdown-menu__divider {
+    background: CanvasText;
+  }
+
+  .md3-popover__header,
+  .md3-popover__footer {
+    border-color: CanvasText;
+  }
+}

@@ -24,7 +24,7 @@ import { RouterLink } from '@angular/router';
               <div class="photo-frame">
                 <img 
                   src="/images/dr_murzoglu.jpg" 
-                  alt="Uzm. Dr. Özlem Murzoğlu" 
+                  [attr.alt]="'DOCTOR_BIO.TITLE' | translate" 
                   class="doctor-photo"
                   loading="lazy"
                 />
@@ -49,7 +49,7 @@ import { RouterLink } from '@angular/router';
             <div class="qualifications-grid">
               <div class="qualification-card">
                 <div class="qual-icon">
-                  <span class="material-icons">school</span>
+                  <span class="material-icons-rounded">school</span>
                 </div>
                 <div class="qual-content">
                   <span class="qual-title">{{ 'DOCTOR_BIO.MEDICAL_EDUCATION' | translate }}</span>
@@ -59,7 +59,7 @@ import { RouterLink } from '@angular/router';
 
               <div class="qualification-card">
                 <div class="qual-icon secondary">
-                  <span class="material-icons">medical_services</span>
+                  <span class="material-icons-rounded">medical_services</span>
                 </div>
                 <div class="qual-content">
                   <span class="qual-title">{{ 'DOCTOR_BIO.SPECIALIZATION' | translate }}</span>
@@ -69,7 +69,7 @@ import { RouterLink } from '@angular/router';
 
               <div class="qualification-card">
                 <div class="qual-icon tertiary">
-                  <span class="material-icons">psychology</span>
+                  <span class="material-icons-rounded">psychology</span>
                 </div>
                 <div class="qual-content">
                   <span class="qual-title">{{ 'DOCTOR_BIO.DOCTORATE' | translate }}</span>
@@ -79,7 +79,7 @@ import { RouterLink } from '@angular/router';
 
               <div class="qualification-card">
                 <div class="qual-icon">
-                  <span class="material-icons">child_care</span>
+                  <span class="material-icons-rounded">child_care</span>
                 </div>
                 <div class="qual-content">
                   <span class="qual-title">{{ 'DOCTOR_BIO.BACHELOR' | translate }}</span>
@@ -91,9 +91,7 @@ import { RouterLink } from '@angular/router';
             <!-- CTA Button -->
             <div class="bio-actions">
               <a routerLink="/hakkimizda/dr-ozlem-murzoglu" class="btn-primary">
-                <span>{{ 'DOCTOR_BIO.READ_MORE' | translate }}</span>
-                <span class="material-icons">arrow_forward</span>
-              </a>
+                <span>{{ 'DOCTOR_BIO.READ_MORE' | translate }}</span></a>
             </div>
           </div>
         </div>

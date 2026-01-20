@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p>ERKEKLERDE</p><p><strong>YENİDOĞAN SÜNNETİ</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Ebeveynler, tıbbi, dini, kültürel ve etnik geleneklere ve kişisel nedenlere dayalı olarak yenidoğan sünneti hakkında farklı görüşlere sahip olabilir. Çocukları için en iyi olanı seçmelerine yardımcı olmak adına sünnetin yararları ve riskleri hakkında bilgi edinmelidirler. Amerikan Pediatri Akademisi'nden (AAP) sünnet hakkında daha fazla bilgi için okumaya devam edin.</p></td></tr></table><table><tr><td><p><strong>Sünnet nedir?</strong></p></td></tr></table><p>Doğumda, erkeklerin sünnet derisi adı verilen penisin ucunu kaplayan bir derisi vardır. Sünnet, penis ucunun açığa çıkarılarak sünnet derisinin cerrahi olarak çıkarılmasıdır. Yenidoğan sünneti genellikle yaşamın ilk birkaç gününde bir doktor tarafından yapılır. Ameliyat, yeterli ağrı yönetimi ile steril koşullar altında yapılmalıdır. (Bkz. Sünnet ağrılı mıdır?) Yenidoğanın güvenli bir şekilde sünnet olabilmesi için stabil ve sağlıklı olması gerekir.</p><p>Sünnetin daha sonra yapılması daha riskli olabileceğinden, ebeveynler oğullarının doğumdan hemen sonra sünnet yapılmasını isteyip istemediğine karar vermelidir.</p><table><tr><td><p><strong>Sünnet ağrılı mıdır?</strong></p></td></tr></table><p>Evet. Bununla birlikte, güvenli ve etkili olan ağrı giderici ilaçlar vardır. AAP, sünnetten kaynaklanan ağrıyı azaltmak için bu ilaçların kullanılmalarını önerir. </p><table><tr><td><p>Ebeveynlerin sünneti seçme nedenleri</p></td></tr></table><p><strong>Tıbbi faydalar</strong></p><p>Yeni bilimsel çalışmalar, yenidoğan erkek sünnetinin sağlığa faydalarının (aşağıdakiler dahil olmak üzere) prosedürün risklerinden daha ağır bastığını göstermektedir.</p><ul><li>AIDS'e neden olan virüs olan HIV'i edinme riski belirgin şekilde daha düşüktür.</li><li>Genital herpes (HSV), insan papilloma virüsü (HPV) ve sifiliz dahil olmak üzere bir dizi başka cinsel yolla bulaşan enfeksiyona (CYBE) yakalanma riski önemli ölçüde daha düşüktür.</li><li>Daha düşük idrar yolu enfeksiyonu (İYE) riski. Sünnetli bir erkek bebek, yaşamının ilk yılında İYE geliştirme olasılığı yaklaşık 1000'de 1'dir; Sünnetsiz bir erkek bebeğin, yaşamının ilk yılında İYE geliştirme olasılığı ise yaklaşık 100'de 1'dir.</li><li>Penis kanseri olma riski daha düşüktür. Bununla birlikte, bu kanser türü tüm erkeklerde çok nadirdir.</li><li>Sünnet derisi enfeksiyonlarının önlenmesine yardımcı olur.</li><li>Sünnetsiz erkeklerde sünnet derisinin geri çekilmesini imkânsız kılan bir durum olan fimozisin önlenmesine yardımcı olur.</li><li>Daha kolay genital hijyen sağlar.</li></ul><p><strong>Sosyal nedenler</strong></p><p>Pek çok ebeveyn, "ailedeki diğer tüm erkekler" yaptırdığı için veya oğullarının "farklı" hissetmesini istemedikleri için yaptırmayı seçer.</p><p><strong>Dini veya kültürel nedenler </strong></p><p>Yahudi ve İslam inançlarına sahip olanlar dini ve kültürel nedenlerle sünnet uygulamaktadır.</p><table><tr><td><p>Ebeveynlerin sünneti seçmeme nedenleri</p></td></tr></table><ul><li>Sünnetin çocuğun seçimi olması gerektiğine inanmak.</li><li>"Hasar görmemişse, neden normal dokuyu çıkaralım?" inancı.</li><li>Risklerden korkma. Komplikasyonlar nadirdir ve genellikle basittir; ancak kanama, enfeksiyon, sünnet derisinin çok kısa veya çok uzun kesilmesi ve uygun olmayan iyileşmeyi içerebilir.</li><li>Sünnet derisinin gerekli olduğu inancı. Bazı insanlar penisin ucunu korumak için sünnet derisinin gerekli olduğunu düşünür. Onsuz, penisin ucu tahriş olabilir ve penisin açıklığının çok küçük olmasına neden olabilir. Bu, cerrahi olarak düzeltilmesi gerekebilecek idrara çıkma sorunlarına neden olabilir.</li><li>İnanç cinsel hissi etkileyebilir. Bazıları, sünnetin penisin ucunu daha az hassas hale getirdiğini ve daha sonraki yaşamda cinsel zevkin azalmasına neden olduğunu düşünüyor.</li><li>Uygun hijyenin sağlık risklerini azaltabileceğine olan inanç. Erkek çocuklara enfeksiyon, penis kanseri ve cinsel yolla bulaşan hastalıklara yakalanma şanslarını azaltabilecek uygun hijyen öğretilebilir.</li></ul><table><tr><td><p>Sünnetten sonraki iyileşme sürecinde neler beklemeliyim?</p></td></tr></table><p>Sünnetten sonra penisin ucu çiğ veya sarımsı görünebilir. Bir bandaj varsa, enfeksiyon riskini azaltmak için her bebek bezinde değiştirilmelidir. Bandajın yapışmasını önlemek için vazelin kullanın. Bazen bandaj yerine plastik bir halka da kullanılır. Bu 5 ila 8 gün içinde düşmelidir. Sünnetten yaklaşık 1 hafta ila 10 gün sonra penisin tamamen iyileşmesi gerekir.</p><table><tr><td><p><strong>Sünnet sonrası oluşabilecek problemler var mı?</strong></p></td></tr></table><p>Sünnet sonrası problemler çok nadirdir. Ancak, aşağıdaki durumlarda hemen çocuğunuzun doktorunu arayın:</p><ul><li>Bebeğiniz sünnetten sonraki 6-8 saat içinde normal idrarını yapmazsa.</li><li>Sünnet derisinin alındığı yerde kanama durmazsa.</li><li>Penis ucundaki kızarıklık 3 ila 5 gün sonra daha da kötüleşirse.</li><li>Sarı akıntı bir haftadan uzun sürerse. İlk hafta penis başı çevresinde hafif sarı bir akıntı olması normaldir. </li></ul><table><tr><td><p><strong>Ya oğlumu sünnet ettirmemeyi seçersem?</strong></p></td></tr></table><p>Oğlunuzu sünnet ettirmemeyi seçerseniz, oğlunuzun penisini nasıl temiz tutacağınız konusunda çocuğunuzun doktoruyla konuşun. Sünnet derisinin yıllar boyunca tamamen geri çekilmeyeceğini ve asla zorlanmaması gerektiğini unutmayın. Oğlunuz yeterince büyüdüğünde, vücudunun diğer kısımlarını temiz tutmayı öğreneceği gibi penisini de temiz tutmayı öğrenebilir.</p><table><tr><td><p><strong>Kadın sünneti hakkında bilgi</strong></p></td></tr></table><p>Kadın sünneti, bilinen hiçbir tıbbi faydası olmamasına ve hem tıbbi hem de psikolojik olarak bilinen birçok zarara neden olmasına rağmen, bazı bölgelerde hala uygulanmaktadır. Bu işlem bir kadının klitorisinin bir kısmının veya tamamının çıkarılmasını içerir. Vajina açıklığının dikilmesini de içerebilir. </p><p>Bu uygulamanın amacı, bir kadının evlenmeden önce bakire olduğunu kanıtlamak, cinsel zevk alma yeteneğini azaltmak ve evlilik sadakatini arttırmaktır. Birçok ciddi yan etkisi vardır: Pelvik ve idrar yolu enfeksiyonları, benlik saygısı ve cinsellik üzerinde olumsuz etkiler ve vajinal yolla bebek doğuramama gibi.</p><p>AAP bu uygulamaya kesinlikle karşı çıkmaktadır.</p><table><tr><td><p>Bright Futures: Guidelines for Health Supervision of Infants, Children, and Adolescents, <br />4.Baskı'dan uyarlanmıştır. Daha fazla bilgi için <strong>https://brightfutures.aap.org</strong> adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/genel-bilgiler/Yenido%C4%9Fan%20S%C3%BCnneti.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

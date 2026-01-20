@@ -1,17 +1,138 @@
-// Core Systems
+// ============================================================================
+// MD3 Design System - Main Index
+// Version: 5.0.0 (MD3 Expressive 2025)
+//
+// This file imports all MD3 design system modules in the correct order.
+// Import this file in your main styles.scss to use the complete MD3 system.
+// ============================================================================
+
+// ============================================================================
+// IMPORT ORDER
+// ============================================================================
+// 1. Core Design Tokens (no dependencies)
+// 2. Foundation Systems (depend on tokens)
+// 3. Layout Systems (depend on tokens + foundation)
+// 4. Components (depend on all above)
+// 5. Sections (page-level patterns)
+// 6. Utilities (helper classes, load last)
+// 7. Accessibility (a11y utilities, load last)
+// 8. Print Styles (media-specific, load last)
+// ============================================================================
+
+// ============================================================================
+// 1. CORE DESIGN TOKENS
+// ============================================================================
+// These define the fundamental design values used throughout the system
+
+// Colors - OKLCH color system with semantic tokens
 @import './colors';
+
+// Typography - Type scale and font families
 @import './typography';
+
+// Shapes - Border radius and morphic shape tokens
 @import './shapes';
+
+// Elevation - Shadow system and depth tokens
 @import './elevation';
+
+// Motion - Animation timing and spring physics
 @import './motion';
 
-// Shared Unified Layouts & Mixins
+// Spacing - 4px grid system and spacing tokens
+@import './spacing';
+
+// States - Interactive state layer opacities
+@import './states';
+
+// Breakpoints - Responsive breakpoint system
+@import './breakpoints';
+
+// Icons - Material Symbols and icon utilities
+@import './icons';
+
+// ============================================================================
+// 2. FOUNDATION SYSTEMS
+// ============================================================================
+// Visual effects and enhancements built on top of tokens
+
+// Effects - Glassmorphism, gradients, glows, shimmer
+@import './effects';
+
+// ============================================================================
+// 3. LAYOUT SYSTEMS
+// ============================================================================
+// Grid, container, and layout patterns
+
+// Unified Layout - Grid system, containers, sections, responsive patterns
 @import './unified-layout';
 
-// Components
+// ============================================================================
+// 4. COMPONENTS
+// ============================================================================
+// Reusable UI components following MD3 guidelines
+
+// Buttons - All button variants (filled, outlined, text, FAB, icon)
 @import './components/buttons';
+
+// Cards - Card containers with various elevations and states
 @import './components/cards';
+
+// Navigation - App bars, nav rails, drawers, bottom nav
 @import './components/navigation';
+
+// Text Fields - Input fields with labels and validation states
 @import './components/text-fields';
+
+// Chips - Filter, input, suggestion, and assist chips
 @import './components/chips';
+
+// Dialogs - Modal dialogs and bottom sheets
+@import './components/dialogs';
+
+// Lists - List items with leading/trailing content
+@import './components/lists';
+
+// Progress - Linear and circular progress indicators
+@import './components/progress';
+
+// Snackbars - Toast notifications and snackbar messages
+@import './components/snackbars';
+
+// Tooltips - Plain and rich tooltips
+@import './components/tooltips';
+
+// ============================================================================
+// 5. SECTIONS
+// ============================================================================
+// Page-level section patterns
+
+// Hero - Hero section patterns
+@import './sections/hero';
+
+// CTA - Call-to-action section patterns
+@import './sections/cta';
+
+// ============================================================================
+// 6. UTILITIES
+// ============================================================================
+// Helper classes for quick styling
+
+// Utilities - Display, spacing, typography, color utilities
 @import './utilities';
+
+// ============================================================================
+// 7. ACCESSIBILITY
+// ============================================================================
+// WCAG 2.2 compliant accessibility utilities
+
+// Accessibility - Focus management, screen reader utilities, high contrast
+@import './accessibility';
+
+// ============================================================================
+// 8. PRINT STYLES
+// ============================================================================
+// Print-specific styles (loaded last to override screen styles)
+
+// Print - Optimized styles for printing
+@import './print';

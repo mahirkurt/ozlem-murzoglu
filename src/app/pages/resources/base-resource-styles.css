@@ -134,7 +134,7 @@
   box-shadow: 0 4px 12px rgba(var(--md-sys-color-primary-rgb), 0.2);
 }
 
-.action-btn .material-icons {
+.action-btn .material-icons-rounded {
   font-size: 1.125rem;
 }
 

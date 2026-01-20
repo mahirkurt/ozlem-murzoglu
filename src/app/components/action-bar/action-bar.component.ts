@@ -15,7 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
             (click)="handlePrint()"
             [attr.aria-label]="'ACTIONS.PRINT' | translate"
           >
-            <span class="material-icons">print</span>
+            <span class="material-icons-rounded">print</span>
             <span class="action-btn__label">{{ 'ACTIONS.PRINT' | translate }}</span>
           </button>
 
@@ -25,7 +25,7 @@ import { TranslateModule } from '@ngx-translate/core';
             *ngIf="downloadLink"
             [attr.aria-label]="'ACTIONS.DOWNLOAD' | translate"
           >
-            <span class="material-icons">download</span>
+            <span class="material-icons-rounded">download</span>
             <span class="action-btn__label">{{ 'ACTIONS.DOWNLOAD' | translate }}</span>
           </button>
 
@@ -34,7 +34,7 @@ import { TranslateModule } from '@ngx-translate/core';
             (click)="handleShare()"
             [attr.aria-label]="'ACTIONS.SHARE' | translate"
           >
-            <span class="material-icons">share</span>
+            <span class="material-icons-rounded">share</span>
             <span class="action-btn__label">{{ 'ACTIONS.SHARE' | translate }}</span>
           </button>
 
@@ -46,7 +46,7 @@ import { TranslateModule } from '@ngx-translate/core';
               isBookmarked ? ('ACTIONS.BOOKMARKED' | translate) : ('ACTIONS.BOOKMARK' | translate)
             "
           >
-            <span class="material-icons">{{ isBookmarked ? 'bookmark' : 'bookmark_border' }}</span>
+            <span class="material-icons-rounded">{{ isBookmarked ? 'bookmark' : 'bookmark_border' }}</span>
             <span class="action-btn__label">
               {{ (isBookmarked ? 'ACTIONS.BOOKMARKED' : 'ACTIONS.BOOKMARK') | translate }}
             </span>
@@ -61,7 +61,7 @@ import { TranslateModule } from '@ngx-translate/core';
             [class.feedback-btn--active]="feedbackGiven === true"
             [attr.aria-label]="'ACTIONS.YES' | translate"
           >
-            <span class="material-icons">thumb_up</span>
+            <span class="material-icons-rounded">thumb_up</span>
           </button>
           <button
             class="feedback-btn"
@@ -69,7 +69,7 @@ import { TranslateModule } from '@ngx-translate/core';
             [class.feedback-btn--active]="feedbackGiven === false"
             [attr.aria-label]="'ACTIONS.NO' | translate"
           >
-            <span class="material-icons">thumb_down</span>
+            <span class="material-icons-rounded">thumb_down</span>
           </button>
         </div>
       </div>

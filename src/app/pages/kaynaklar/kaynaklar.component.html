@@ -12,7 +12,7 @@
   <!-- ARAMA BÖLÜMÜ (VURGU KARTI) -->
   <div class="info-card accent-card search-card" *ngIf="showSearch">
     <div class="md3-card__header">
-      <span class="material-icons md3-card__avatar">search</span>
+      <span class="material-icons-rounded md3-card__avatar">search</span>
       <h3 class="section-headline">Hızlı Arama</h3>
     </div>
     <div class="md3-card__content">
@@ -22,12 +22,12 @@
                [(ngModel)]="searchQuery"
                (input)="onSearchChange($event)"
                placeholder="Örn: aşı takvimi, uyku düzeni, emzirme">
-        <span class="material-icons md3-text-field__icon md3-text-field__icon--trailing">search</span>
+        <span class="material-icons-rounded md3-text-field__icon md3-text-field__icon--trailing">search</span>
         <button class="md3-icon-button" matSuffix 
                 *ngIf="searchQuery" 
                 (click)="clearSearch()"
                 aria-label="Temizle">
-          <span class="material-icons">clear</span>
+          <span class="material-icons-rounded">clear</span>
         </button>
       </div>
 
@@ -35,14 +35,14 @@
       <div class="search-results" *ngIf="searchResults.length > 0">
         <hr class="md3-divider"></hr>
         <h3 class="results-title">
-          <span class="material-icons">check_circle</span>
+          <span class="material-icons-rounded">check_circle</span>
           {{ searchResults.length }} sonuç bulundu
         </h3>
         <div class="md3-list">
           <div class="md3-list-item" *ngFor="let doc of searchResults" 
                          (click)="viewDocument(doc)"
                          class="result-item">
-            <span class="material-icons">description</span>
+            <span class="material-icons-rounded">description</span>
             <div matListItemTitle>{{ doc.title }}</div>
             <div matListItemLine>{{ getCategoryTitle(doc.categoryId) }}</div>
           </div>
@@ -54,17 +54,17 @@
   <!-- İSTATİSTİKLER -->
   <section class="stats-section" [@fadeIn]>
     <div class="stat-card">
-      <span class="material-icons">folder_open</span>
+      <span class="material-icons-rounded">folder_open</span>
       <div class="stat-number">{{ categories.length }}</div>
       <div class="stat-label">Kategori</div>
     </div>
     <div class="stat-card">
-      <span class="material-icons">description</span>
+      <span class="material-icons-rounded">description</span>
       <div class="stat-number">{{ getTotalDocumentCount() }}</div>
       <div class="stat-label">Doküman</div>
     </div>
     <div class="stat-card">
-      <span class="material-icons">verified</span>
+      <span class="material-icons-rounded">verified</span>
       <div class="stat-number">AAP</div>
       <div class="stat-label">Onaylı</div>
     </div>
@@ -79,7 +79,7 @@
               class="info-card accent-card category-card"
               [@cardAnimation]="i">
       <div class="md3-card__header">
-        <span class="material-icons md3-card__avatar">{{ section.icon }}</span>
+        <span class="material-icons-rounded md3-card__avatar">{{ section.icon }}</span>
         <h3 class="section-headline">{{ section.title }}</h3>
         <p class="md3-card__subtitle">{{ section.subtitle }}</p>
       </div>
@@ -91,7 +91,7 @@
                   (click)="navigateToCategory(cat.id)"
                   color="primary"
                   class="category-button">
-            <span class="material-icons">{{ getQuickAccessIcon(cat.id) }}</span>
+            <span class="material-icons-rounded">{{ getQuickAccessIcon(cat.id) }}</span>
             <span>{{ cat.title }}</span>
             <span class="doc-count">({{ cat.documentCount }})</span>
           </button>
@@ -104,7 +104,7 @@
               class="info-card category-card"
               [@cardAnimation]="i">
       <div class="md3-card__header">
-        <span class="material-icons md3-card__avatar">{{ section.icon }}</span>
+        <span class="material-icons-rounded md3-card__avatar">{{ section.icon }}</span>
         <h3 class="section-headline">{{ section.title }}</h3>
         <p class="md3-card__subtitle">{{ section.subtitle }}</p>
       </div>
@@ -115,11 +115,9 @@
             <div class="md3-list-item" *ngFor="let cat of section.categories"
                            (click)="navigateToCategory(cat.id)"
                            class="category-item">
-              <span class="material-icons">{{ getQuickAccessIcon(cat.id) }}</span>
+              <span class="material-icons-rounded">{{ getQuickAccessIcon(cat.id) }}</span>
               <div matListItemTitle>{{ cat.title }}</div>
-              <div matListItemLine>{{ cat.documentCount }} doküman</div>
-              <span class="material-icons">arrow_forward</span>
-            </div>
+              <div matListItemLine>{{ cat.documentCount }} doküman</div></div>
           </div>
         </div>
       </div>
@@ -130,7 +128,7 @@
               class="info-card expansion-card"
               [@cardAnimation]="i">
       <div class="md3-card__header">
-        <span class="material-icons md3-card__avatar">{{ section.icon }}</span>
+        <span class="material-icons-rounded md3-card__avatar">{{ section.icon }}</span>
         <h3 class="section-headline">{{ section.title }}</h3>
         <p class="md3-card__subtitle">{{ section.subtitle }}</p>
       </div>
@@ -141,7 +139,7 @@
                                 hideToggle>
             <summary class="md3-expansion-panel__header">
               <span class="md3-expansion-panel__title">
-                <span class="material-icons">{{ panel.icon }}</span>
+                <span class="material-icons-rounded">{{ panel.icon }}</span>
                 {{ panel.title }}
               </span>
               <span class="md3-expansion-panel__description">
@@ -152,7 +150,7 @@
             <div class="md3-expansion-panel__actions" *ngIf="panel.categoryId">
               <button class="md3-button" color="primary" 
                       (click)="navigateToCategory(panel.categoryId)">
-                <span class="material-icons">folder_open</span>
+                <span class="material-icons-rounded">folder_open</span>
                 Kategoriye Git
               </button>
             </div>
@@ -167,7 +165,7 @@
   <!-- POPÜLER DOKÜMANLAR -->
   <section class="popular-section" *ngIf="popularDocuments.length > 0">
     <h2 class="section-title">
-      <span class="material-icons">star</span>
+      <span class="material-icons-rounded">star</span>
       En Çok İndirilen Dokümanlar
     </h2>
     <div class="popular-grid">
@@ -176,16 +174,16 @@
                 (click)="viewDocument(doc)"
                 [@fadeIn]>
         <div class="md3-card__header">
-          <span class="material-icons md3-card__avatar">{{ getDocumentIcon(doc) }}</span>
+          <span class="material-icons-rounded md3-card__avatar">{{ getDocumentIcon(doc) }}</span>
           <h3>{{ doc.title }}</h3>
           <p class="md3-card__subtitle">{{ getCategoryTitle(doc.categoryId) }}</p>
         </div>
         <div class="md3-card__actions">
           <button class="md3-icon-button" (click)="downloadDocument(doc); $event.stopPropagation()">
-            <span class="material-icons">download</span>
+            <span class="material-icons-rounded">download</span>
           </button>
           <button class="md3-icon-button">
-            <span class="material-icons">visibility</span>
+            <span class="material-icons-rounded">visibility</span>
           </button>
         </div>
       </div>
@@ -195,7 +193,7 @@
   <!-- ALT BİLGİ -->
   <footer class="page-footer">
     <div class="footer-card">
-      <span class="material-icons">info</span>
+      <span class="material-icons-rounded">info</span>
       <p>
         Tüm dokümanlar Amerikan Pediatri Akademisi (AAP) ve güvenilir sağlık kuruluşları tarafından hazırlanmıştır.
         Bilgiler güncel tutulmaya çalışılmaktadır ancak her zaman doktorunuza danışmanız önerilir.

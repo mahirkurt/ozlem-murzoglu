@@ -92,7 +92,7 @@
   border-left: 4px solid var(--pistachio-green);
 }
 
-.point-item .material-icons {
+.point-item .material-icons-rounded {
   color: var(--pistachio-green);
   font-size: 1.5rem;
   filter: drop-shadow(0 1px 2px rgba(147, 197, 114, 0.3));
@@ -308,7 +308,7 @@
   border: 1px solid rgba(139, 195, 74, 0.2);
 }
 
-.badge .material-icons {
+.badge .material-icons-rounded {
   font-size: 2.5rem;
   color: var(--pistachio-green);
   filter: drop-shadow(0 2px 6px rgba(147, 197, 114, 0.3));
@@ -401,7 +401,7 @@
   box-shadow: 0 4px 12px rgba(147, 197, 114, 0.25);
 }
 
-.issue-icon .material-icons {
+.issue-icon .material-icons-rounded {
   font-size: 2.5rem;
   color: white;
   filter: drop-shadow(0 2px 4px rgba(var(--md-sys-color-shadow), 0.1));
@@ -525,7 +525,7 @@
   box-shadow: 0 2px 8px rgba(139, 195, 74, 0.15);
 }
 
-.step-icon .material-icons {
+.step-icon .material-icons-rounded {
   font-size: 28px;
   color: var(--pistachio-green);
   filter: drop-shadow(0 1px 3px rgba(147, 197, 114, 0.3));
@@ -694,7 +694,7 @@
   border: 2px solid white;
 }
 
-.cert-icon .material-icons {
+.cert-icon .material-icons-rounded {
   font-size: 2.5rem;
   color: var(--pistachio-green);
   filter: drop-shadow(0 2px 6px rgba(147, 197, 114, 0.3));
@@ -752,7 +752,7 @@
   box-shadow: 0 2px 8px rgba(139, 195, 74, 0.15);
 }
 
-.cert-points .point-item .material-icons {
+.cert-points .point-item .material-icons-rounded {
   font-size: 1.25rem;
   color: var(--pistachio-green);
   margin-top: 2px;
@@ -760,11 +760,11 @@
   filter: drop-shadow(0 1px 2px rgba(147, 197, 114, 0.3));
 }
 
-.cert-card.advanced .cert-points .point-item .material-icons {
+.cert-card.advanced .cert-points .point-item .material-icons-rounded {
   color: var(--md-sys-color-primary);
 }
 
-.cert-points .point-item span:not(.material-icons) {
+.cert-points .point-item span:not(.material-icons-rounded) {
   color: #444;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -809,7 +809,7 @@
   background: linear-gradient(135deg, var(--accent-lighter) 0%, var(--md-sys-color-surface) 100%);
 }
 
-.benefit-card .material-icons {
+.benefit-card .material-icons-rounded {
   font-size: 3rem;
   color: var(--pistachio-green);
   margin-bottom: 20px;
@@ -1118,7 +1118,7 @@
   transform: scaleY(1);
 }
 
-.level-steps .material-icons {
+.level-steps .material-icons-rounded {
   color: white;
   background: linear-gradient(135deg, var(--pistachio-green) 0%, var(--pistachio-green-dark) 100%);
   padding: var(--md-sys-spacing-2);
@@ -1127,7 +1127,7 @@
   box-shadow: 0 2px 6px rgba(147, 197, 114, 0.3);
 }
 
-.level-steps .step-item span:not(.material-icons) {
+.level-steps .step-item span:not(.material-icons-rounded) {
   color: var(--md-sys-color-on-surface);
   font-weight: 500;
   font-size: 0.95rem;

@@ -6,7 +6,7 @@
         <a routerLink="/kaynaklar" class="breadcrumb-link">Kaynaklar</a>
       </li>
       <li class="breadcrumb-separator">
-        <span class="material-icons">chevron_right</span>
+        <span class="material-icons-rounded">chevron_right</span>
       </li>
       <li class="breadcrumb-item current">
         <span>{{category.title}}</span>
@@ -19,7 +19,7 @@
     <div class="header-content">
       <div class="category-info">
         <div class="category-icon-large" [style.background-color]="category.color + '20'">
-          <span class="material-icons" [style.color]="category.color">{{category.icon}}</span>
+          <span class="material-icons-rounded" [style.color]="category.color">{{category.icon}}</span>
         </div>
         <div class="category-details">
           <h1 class="category-title">{{category.title}}</h1>
@@ -80,7 +80,7 @@
     <div class="filters-container">
       <div class="search-filter">
         <div class="search-input-wrapper">
-          <span class="material-icons search-icon">search</span>
+          <span class="material-icons-rounded search-icon">search</span>
           <input 
             type="text" 
             class="search-input"
@@ -88,7 +88,7 @@
             [(ngModel)]="searchQuery"
             (input)="onSearchChange($event)">
           <button *ngIf="searchQuery" class="clear-search" (click)="clearSearch()">
-            <span class="material-icons">clear</span>
+            <span class="material-icons-rounded">clear</span>
           </button>
         </div>
       </div>
@@ -130,7 +130,7 @@
     <div class="documents-container">
       <div *ngIf="filteredDocuments.length === 0" class="empty-state">
         <div class="empty-icon">
-          <span class="material-icons">search_off</span>
+          <span class="material-icons-rounded">search_off</span>
         </div>
         <h3 class="empty-title">Dokuman Bulunamadı</h3>
         <p class="empty-description">
@@ -148,18 +148,18 @@
              (click)="viewDocument(document)">
           <div class="document-header">
             <div class="document-icon" [class.pdf]="document.fileType === 'pdf'" [class.docx]="document.fileType === 'docx'">
-              <span class="material-icons">{{document.fileType === 'pdf' ? 'picture_as_pdf' : 'description'}}</span>
+              <span class="material-icons-rounded">{{document.fileType === 'pdf' ? 'picture_as_pdf' : 'description'}}</span>
             </div>
             <div class="document-actions">
               <button class="action-btn download-btn" 
                       (click)="downloadDocument(document); $event.stopPropagation()"
                       [title]="'İndir: ' + document.title">
-                <span class="material-icons">download</span>
+                <span class="material-icons-rounded">download</span>
               </button>
               <button class="action-btn view-btn" 
                       (click)="viewDocument(document); $event.stopPropagation()"
                       [title]="'Görüntüle: ' + document.title">
-                <span class="material-icons">visibility</span>
+                <span class="material-icons-rounded">visibility</span>
               </button>
             </div>
           </div>
@@ -186,7 +186,7 @@
              class="related-card"
              (click)="navigateToCategory(relatedCategory.id)">
           <div class="related-icon" [style.background-color]="relatedCategory.color + '20'">
-            <span class="material-icons" [style.color]="relatedCategory.color">{{relatedCategory.icon}}</span>
+            <span class="material-icons-rounded" [style.color]="relatedCategory.color">{{relatedCategory.icon}}</span>
           </div>
           <div class="related-content">
             <h4 class="related-card-title">{{relatedCategory.title}}</h4>

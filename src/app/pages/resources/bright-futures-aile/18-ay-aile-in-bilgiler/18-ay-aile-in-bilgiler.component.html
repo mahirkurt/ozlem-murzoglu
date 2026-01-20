@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/bright-futures-aile" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p> AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p>AİLENİZ İÇİN BİLGİLER</p><p>18. AY ZİYARETİ</p></td><td><p></p></td></tr></table><table><tr><td></td><td><p>ÇOCUĞUNUZUN DAVRANIŞLARI</p></td></tr></table><ul><li>Çocuğunuzun yeni ortamlarda ve durumlarda size yapışmasını veya yabancıların yanında kaygılı olmasını bu dönem için beklenen bir davranıştır.</li><li>Çocuğunuzla her gün sevdiği şeyleri yaparak oynayın.</li><li>Çocuğunuz için disiplin ve sınırlar koyma konusunda tutarlı olun.</li><li>O gün için oluşabilecek zor durumlar için önceden plan yapın ve bu zorlukları kolaylaştırabilecek şeyler deneyin. Gününüzü ve çocuğunuzun o günkü enerjisini ve ruh hali hakkında düşünerek plan yapın.</li><li>Çocuğunuz tuvalet eğitimine hazır olana kadar bekleyin. Tuvalet eğitimine hazır olduğuna dair belirtileri şunlardır:<ul><li>2 saat kuru kalabiliyor olması</li><li>Islak mı kuru mu olduğunu bilmesi</li><li>Pantolonunu aşağı ve yukarı çekebilmesi</li><li>Tuvalet eğitimi konusunda istekli olması</li><li>Kakasını yaparken veya yapacakken size söylemesi</li></ul></li><li>Bu süreçte çocuğunuzla mutlaka tuvalet eğitimi hakkında kitaplar okuyun.</li><li>Lazımlıkta veya tuvalette oturmayı övün.</li><li>Bu sırada yeni bir bebek bekliyorsanız, ağabey veya abla olmakla ilgili kitaplar okumanız da çok iyi olacaktır.</li><li>Çocuğunuzun neler yapabildiğini fark edin. Bu yaşta hazır olmadığı şeyleri ondan istemediğinize emin olun.</li></ul><table><tr><td></td><td><p>KONUŞMA VE DİNLEME</p></td></tr></table><ul><li>Çocuğunuza sık sık kitap okuyun ve şarkı söyleyin.</li><li>Kitaplardaki resimler hakkında çocuğunuzla konuşun ve tarif edin.</li><li>Çocuğunuzla konuşurken basit kelimeler kullanın.</li><li>Çocuğunuzun duyguların dilini öğrenmesine yardımcı olmak için duyguları tarif eden kelimeleri kullanın, tarif edin.</li><li>Çocuğunuza basit sorular sorun, cevaplar için övgüde bulunun. Sorularını ve onun için yeni olan durumları ona basitçe açıklayın.</li><li>Çocuğunuza ne yapmasını istediğinizi anlatmak için basit ve net kelimeler kullanın.</li></ul><table><tr><td></td><td><p>SAĞLIKLI BESLENME</p></td></tr></table><ul><li>Çocuğunuza çok çeşitli sağlıklı yiyecekler ve atıştırmalıklar, özellikle sebzeler, meyveler ve yağsız proteinler sunun.</li><li>Her gün 3 ana öğün ve 1-2 ara öğün almasını planlayın.</li><li>Çocuğunuzun ne kadar yiyeceğine karar vermesine izin verin.</li><li>Çocuğunuza her gün 480 ila 650 ml süt verin.</li><li>Çocuğunuza meyve suyu vermeniz gerekmediğini bilin. Eğer verirseniz, evde sıkılmış taze suyu bile olsa günde 120ml'den fazla meyve suyu vermeyin ve öğünlerle birlikte servis edin.</li><li>Minik çocuğunuza yeni bir yiyeceği denemesi için birçok şans verin. Yeni yiyeceğe dokunmasına ve ağzına koymasına izin verin, böylece onlar hakkında bilgi edinebilir.</li></ul><table><tr><td></td><td><p>ÇOCUĞUNUZ VE EKRAN</p></td></tr></table><ul><li>Çocuğunuzla birlikte okuma, oyun oynama ve şarkı söyleme gibi aktiviteler yapın.</li><li>Ailecek fiziksel olarak aktif olmaya özen gösterin. Çocuğunuzun sizinle, kreşte veya bakım vericileri ile aktif zaman geçirdiğinden emin olun.</li><li>Önerilmese de çocuğunuzu ekran ile şimdi tanıştırmaya karar verirseniz:<ul><li>Yüksek kaliteli programlar ve uygulamalar seçin. </li><li>Bu programları yalnız izlemesine izin vermeyin, birlikte izleyin.</li><li>Ekran maruziyetinin günde 1 saati geçmesine izin vermeyin.</li><li>Çocuğunuzu meşgul etmek için TV, tablet veya akıllı telefon kullanmaktan kaçının.</li><li>Ne kadar süre ile ekrana maruz kaldığının farkında olun.</li></ul></li></ul><table><tr><td></td><td><p>GÜVENLİK</p></td></tr></table><ul><li>Tüm araçların arka koltuğunda "arkaya bakan" araç güvenlik koltuğu kullanın. Bebeğinizin araba koltuğu üreticisinin izin verdiği en azami ağırlığa veya boya ulaşana kadar araba koltuğunu arkaya dönük tutun. Bu aşamaya varması genellikle 2 yaşından sonra olur. </li><li>Bebeğinizi asla yolcu hava yastığı açık bulunan bir aracın ön koltuğuna oturtmayın. Arka koltuk en güvenlisidir.</li><li>Bebeğinizin güvenliği sizin sağlığınıza bağlıdır. Her zaman emniyet kemerinizi takın. Alkol kullandıktan sonra asla araç kullanmayın. Araç kullanırken kısa mesaj atmayın veya cep telefonu ile konuşmayın. </li><li>Bebeğinizi asla arabada yalnız bırakmayın. Cep telefonunuzu arka koltuğa koymak gibi bebeğinizi arabada unutmanızı engelleyecek alışkanlıklar edinin. </li><li>Eğer evinizde varsa merdivenlerin başına ve sonuna güvenlik kapıları yerleştirin. </li><li>Masa örtülerinin üzerine bebeğinizin çekebileceği ağır veya sıcak nesneler koymayın. Masa örtüsü kullanmamak da iyi bir seçenektir.</li><li>Isıtıcılarının etrafına bariyerler koyun. Elektrik kablolarını bebeğinizin erişemeyeceği bir yerde tutun veya güvenli şekilde kaplayın. Prizleri mutlaka koruyucu ile kapatın.</li><li>Bebeğinizi asla suyun içinde veya yakınında, hatta banyo oturağında bile yalnız bırakmayın. Her zaman elinizin altında tutun. </li><li>Zehirli olabilecek içerikleri, bitki gübreleri ve ilaçlarını, tüm ilaçları ve temizlik malzemelerini kilitli bir yerde, bebeğinizin göremeyeceği ve erişemeyeceği bir yerde saklayın. </li><li>Cep telefonlarınıza ve ev telefonunuza Ulusal Zehir Danışma Merkezi (UZEM) numarasını kaydedin: 114. Bebeğinizin besin dışında bir şeyi, ağzına alması veya yutması durumunda hemen 114 ü arayıp yuttuğu şey ve müdahale hakkında en doğru bilgiyi alabilirsiniz. Bu süreçte çocuğunuzu kusturmaya çalışmayın.</li><li>Bebeğinizin zararlı bir şey yuttuğundan endişeleniyorsanız doktorunuzu arayın veya bir sağlık kuruluşuna başvurun. </li><li>Dışarı çıktığınızda çocuğunuza bir şapka takın, güneşten koruyucu giysiler giydirin ve açıkta kalan cildine SPF 15 veya daha yüksek olan güneş kremi sürün. Güneşin en güçlü olduğu zamanlarda (11:00 - 15:00) dışarıda geçirilen zamanı sınırlayın. </li><li>Evinizde silah bulundurmanız gerekiyorsa, silahı boş ve kilitli bir şekilde, mühimmatı ise ayrı bir yerde saklayın.</li></ul><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td><p><strong></strong></p></td><td></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A-30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:klinik&#64;drmurzoglu.com">klinik&#64;drmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table><table><tr><td></td><td></td><td></td><td></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/bright-futures-aile/18.%20Ay%20-%20Aile%20%C4%B0%C3%A7in%20Bilgiler.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

@@ -76,8 +76,9 @@ export class ThemeService {
       actualTheme = theme;
     }
     
-    // Apply theme class
+    // Apply theme class and data attribute
     root.classList.add(`${actualTheme}-theme`);
+    root.setAttribute('data-theme', actualTheme);
     
     // Update CSS variables for dynamic theming
     if (actualTheme === 'dark') {

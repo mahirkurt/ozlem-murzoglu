@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ThemeService } from '../../services/theme.service';
 
 interface SocialLink {
   platform: string;
@@ -17,6 +18,7 @@ interface SocialLink {
 })
 export class Footer {
   private translate = inject(TranslateService);
+  private themeService = inject(ThemeService);
   currentYear = new Date().getFullYear();
   
   contactInfo = {
@@ -67,4 +69,39 @@ export class Footer {
     { labelKey: 'FOOTER.TERMS', href: '/legal/terms' },
     { labelKey: 'FOOTER.KVKK', href: '/legal/kvkk' }
   ];
+
+  get currentTheme() {
+    return this.themeService.getTheme();
+  }
+
+  get isDarkMode() {
+    if (typeof document === 'undefined') {
+      return false;
+    }
+    return document.documentElement.classList.contains('dark-theme');
+  }
+
+  get themeIcon() {
+    const mode = this.currentTheme;
+    if (mode === 'auto') {
+      return 'brightness_auto';
+    }
+    return mode === 'dark' ? 'dark_mode' : 'light_mode';
+  }
+
+  get themeAriaLabel() {
+    const mode = this.currentTheme;
+    if (mode === 'auto') {
+      return this.translate.instant(
+        this.isDarkMode ? 'COMMON.THEME.AUTO_DARK' : 'COMMON.THEME.AUTO_LIGHT'
+      );
+    }
+    return this.translate.instant(
+      mode === 'dark' ? 'COMMON.THEME.DARK' : 'COMMON.THEME.LIGHT'
+    );
+  }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
+  }
 }

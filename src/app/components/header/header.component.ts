@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AppointmentModalComponent } from '../appointment-modal/appointment-modal.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @Output() localeChange = new EventEmitter<string>();
   
   private translate = inject(TranslateService);
+  private themeService = inject(ThemeService);
   
   isMobileMenuOpen = false;
   isScrolled = false;
@@ -143,5 +145,40 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (typeof document !== 'undefined') {
       document.body.style.overflow = '';
     }
+  }
+
+  get currentTheme() {
+    return this.themeService.getTheme();
+  }
+
+  get isDarkMode() {
+    if (typeof document === 'undefined') {
+      return false;
+    }
+    return document.documentElement.classList.contains('dark-theme');
+  }
+
+  get themeIcon() {
+    const mode = this.currentTheme;
+    if (mode === 'auto') {
+      return 'brightness_auto';
+    }
+    return mode === 'dark' ? 'dark_mode' : 'light_mode';
+  }
+
+  get themeAriaLabel() {
+    const mode = this.currentTheme;
+    if (mode === 'auto') {
+      return this.translate.instant(
+        this.isDarkMode ? 'COMMON.THEME.AUTO_DARK' : 'COMMON.THEME.AUTO_LIGHT'
+      );
+    }
+    return this.translate.instant(
+      mode === 'dark' ? 'COMMON.THEME.DARK' : 'COMMON.THEME.LIGHT'
+    );
+  }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
   }
 }

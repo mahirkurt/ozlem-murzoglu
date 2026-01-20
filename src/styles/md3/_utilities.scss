@@ -1,79 +1,880 @@
-// _md3-utilities.scss
+// ============================================================================
+// _utilities.scss - MD3 Expressive 2025 Utility System
+// Dr. Ozlem Murzoglu Pediatri Klinigi
+// ============================================================================
+//
+// Table of Contents:
+// 1. Display Utilities
+// 2. Flexbox Utilities
+// 3. Grid Utilities
+// 4. Spacing Utilities (Margin & Padding)
+// 5. Sizing Utilities
+// 6. Position Utilities
+// 7. Typography Utilities
+// 8. Color Utilities
+// 9. Background Utilities
+// 10. Border Utilities
+// 11. Border Radius Utilities
+// 12. Elevation Utilities
+// 13. Opacity Utilities
+// 14. Overflow Utilities
+// 15. Z-Index Utilities
+// 16. Cursor Utilities
+// 17. Pointer Events Utilities
+// 18. User Select Utilities
+// 19. Visibility Utilities
+// 20. Motion Utilities
+// 21. Transform Utilities
+// 22. Filter Utilities
+// 23. Responsive Utilities
+// 24. Accessibility Utilities
+// 25. Interaction Utilities
+// 26. Layout Utilities
+// 27. Aspect Ratio Utilities
+// 28. Object Fit Utilities
+// 29. Scroll Utilities
+// 30. Touch Action Utilities
+// 31. Reduced Motion Styles
+// 32. High Contrast Styles
+// 33. Forced Colors Mode
+// 34. Utility Mixins
+//
+// ============================================================================
 
-/* ============================================
-   MD3 Utility Classes (Opt-in)
-   ============================================ */
+// ============================================================================
+// SECTION 1: DISPLAY UTILITIES
+// ============================================================================
 
-/* Elevation utilities */
-.md3-elevation-0 {
-  box-shadow: var(--md-sys-elevation-level0);
+.d-none { display: none !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+.d-grid { display: grid !important; }
+.d-inline-grid { display: inline-grid !important; }
+.d-table { display: table !important; }
+.d-table-row { display: table-row !important; }
+.d-table-cell { display: table-cell !important; }
+.d-contents { display: contents !important; }
+
+// ============================================================================
+// SECTION 2: FLEXBOX UTILITIES
+// ============================================================================
+
+// Flex direction
+.flex-row { flex-direction: row !important; }
+.flex-row-reverse { flex-direction: row-reverse !important; }
+.flex-column { flex-direction: column !important; }
+.flex-column-reverse { flex-direction: column-reverse !important; }
+
+// Flex wrap
+.flex-wrap { flex-wrap: wrap !important; }
+.flex-nowrap { flex-wrap: nowrap !important; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse !important; }
+
+// Justify content
+.justify-start { justify-content: flex-start !important; }
+.justify-end { justify-content: flex-end !important; }
+.justify-center { justify-content: center !important; }
+.justify-between { justify-content: space-between !important; }
+.justify-around { justify-content: space-around !important; }
+.justify-evenly { justify-content: space-evenly !important; }
+
+// Align items
+.align-start { align-items: flex-start !important; }
+.align-end { align-items: flex-end !important; }
+.align-center { align-items: center !important; }
+.align-baseline { align-items: baseline !important; }
+.align-stretch { align-items: stretch !important; }
+
+// Align self
+.align-self-auto { align-self: auto !important; }
+.align-self-start { align-self: flex-start !important; }
+.align-self-end { align-self: flex-end !important; }
+.align-self-center { align-self: center !important; }
+.align-self-baseline { align-self: baseline !important; }
+.align-self-stretch { align-self: stretch !important; }
+
+// Align content
+.content-start { align-content: flex-start !important; }
+.content-end { align-content: flex-end !important; }
+.content-center { align-content: center !important; }
+.content-between { align-content: space-between !important; }
+.content-around { align-content: space-around !important; }
+.content-stretch { align-content: stretch !important; }
+
+// Flex grow/shrink
+.flex-grow-0 { flex-grow: 0 !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.flex-shrink-0 { flex-shrink: 0 !important; }
+.flex-shrink-1 { flex-shrink: 1 !important; }
+
+// Flex basis
+.flex-basis-auto { flex-basis: auto !important; }
+.flex-basis-0 { flex-basis: 0 !important; }
+.flex-basis-full { flex-basis: 100% !important; }
+
+// Flex shorthand
+.flex-1 { flex: 1 1 0% !important; }
+.flex-auto { flex: 1 1 auto !important; }
+.flex-initial { flex: 0 1 auto !important; }
+.flex-none { flex: none !important; }
+
+// Order
+.order-first { order: -9999 !important; }
+.order-last { order: 9999 !important; }
+.order-none { order: 0 !important; }
+@for $i from 1 through 12 {
+  .order-#{$i} { order: $i !important; }
 }
 
-.md3-elevation-1 {
+// ============================================================================
+// SECTION 3: GRID UTILITIES
+// ============================================================================
+
+// Grid template columns
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+.grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+.grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; }
+.grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)) !important; }
+.grid-cols-none { grid-template-columns: none !important; }
+
+// Grid template rows
+.grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)) !important; }
+.grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)) !important; }
+.grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)) !important; }
+.grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)) !important; }
+.grid-rows-none { grid-template-rows: none !important; }
+
+// Grid column span
+.col-span-1 { grid-column: span 1 / span 1 !important; }
+.col-span-2 { grid-column: span 2 / span 2 !important; }
+.col-span-3 { grid-column: span 3 / span 3 !important; }
+.col-span-4 { grid-column: span 4 / span 4 !important; }
+.col-span-5 { grid-column: span 5 / span 5 !important; }
+.col-span-6 { grid-column: span 6 / span 6 !important; }
+.col-span-full { grid-column: 1 / -1 !important; }
+
+// Grid row span
+.row-span-1 { grid-row: span 1 / span 1 !important; }
+.row-span-2 { grid-row: span 2 / span 2 !important; }
+.row-span-3 { grid-row: span 3 / span 3 !important; }
+.row-span-full { grid-row: 1 / -1 !important; }
+
+// Grid gap
+.gap-0 { gap: 0 !important; }
+.gap-1 { gap: var(--md-sys-spacing-1) !important; }
+.gap-2 { gap: var(--md-sys-spacing-2) !important; }
+.gap-3 { gap: var(--md-sys-spacing-3) !important; }
+.gap-4 { gap: var(--md-sys-spacing-4) !important; }
+.gap-5 { gap: var(--md-sys-spacing-5) !important; }
+.gap-6 { gap: var(--md-sys-spacing-6) !important; }
+.gap-8 { gap: var(--md-sys-spacing-8) !important; }
+.gap-10 { gap: var(--md-sys-spacing-10) !important; }
+.gap-12 { gap: var(--md-sys-spacing-12) !important; }
+.gap-16 { gap: var(--md-sys-spacing-16) !important; }
+
+// Column gap
+.gap-x-0 { column-gap: 0 !important; }
+.gap-x-1 { column-gap: var(--md-sys-spacing-1) !important; }
+.gap-x-2 { column-gap: var(--md-sys-spacing-2) !important; }
+.gap-x-3 { column-gap: var(--md-sys-spacing-3) !important; }
+.gap-x-4 { column-gap: var(--md-sys-spacing-4) !important; }
+.gap-x-6 { column-gap: var(--md-sys-spacing-6) !important; }
+.gap-x-8 { column-gap: var(--md-sys-spacing-8) !important; }
+
+// Row gap
+.gap-y-0 { row-gap: 0 !important; }
+.gap-y-1 { row-gap: var(--md-sys-spacing-1) !important; }
+.gap-y-2 { row-gap: var(--md-sys-spacing-2) !important; }
+.gap-y-3 { row-gap: var(--md-sys-spacing-3) !important; }
+.gap-y-4 { row-gap: var(--md-sys-spacing-4) !important; }
+.gap-y-6 { row-gap: var(--md-sys-spacing-6) !important; }
+.gap-y-8 { row-gap: var(--md-sys-spacing-8) !important; }
+
+// Place items
+.place-items-start { place-items: start !important; }
+.place-items-end { place-items: end !important; }
+.place-items-center { place-items: center !important; }
+.place-items-stretch { place-items: stretch !important; }
+
+// Place content
+.place-content-start { place-content: start !important; }
+.place-content-end { place-content: end !important; }
+.place-content-center { place-content: center !important; }
+.place-content-between { place-content: space-between !important; }
+.place-content-around { place-content: space-around !important; }
+.place-content-evenly { place-content: space-evenly !important; }
+.place-content-stretch { place-content: stretch !important; }
+
+// ============================================================================
+// SECTION 4: SPACING UTILITIES (Margin & Padding)
+// ============================================================================
+
+// Spacing scale based on 4px grid
+$spacing-scale: (
+  0: 0,
+  1: var(--md-sys-spacing-1),
+  2: var(--md-sys-spacing-2),
+  3: var(--md-sys-spacing-3),
+  4: var(--md-sys-spacing-4),
+  5: var(--md-sys-spacing-5),
+  6: var(--md-sys-spacing-6),
+  8: var(--md-sys-spacing-8),
+  10: var(--md-sys-spacing-10),
+  12: var(--md-sys-spacing-12),
+  16: var(--md-sys-spacing-16),
+  20: var(--md-sys-spacing-20),
+  24: var(--md-sys-spacing-24),
+  auto: auto
+);
+
+// Margin utilities
+@each $key, $value in $spacing-scale {
+  .m-#{$key} { margin: $value !important; }
+  .mt-#{$key} { margin-top: $value !important; }
+  .mr-#{$key} { margin-right: $value !important; }
+  .mb-#{$key} { margin-bottom: $value !important; }
+  .ml-#{$key} { margin-left: $value !important; }
+  .mx-#{$key} { margin-left: $value !important; margin-right: $value !important; }
+  .my-#{$key} { margin-top: $value !important; margin-bottom: $value !important; }
+
+  // Logical properties (RTL support)
+  .ms-#{$key} { margin-inline-start: $value !important; }
+  .me-#{$key} { margin-inline-end: $value !important; }
+  .mbs-#{$key} { margin-block-start: $value !important; }
+  .mbe-#{$key} { margin-block-end: $value !important; }
+}
+
+// Negative margins
+@each $key, $value in $spacing-scale {
+  @if $key != 0 and $key != auto {
+    .-m-#{$key} { margin: calc(#{$value} * -1) !important; }
+    .-mt-#{$key} { margin-top: calc(#{$value} * -1) !important; }
+    .-mr-#{$key} { margin-right: calc(#{$value} * -1) !important; }
+    .-mb-#{$key} { margin-bottom: calc(#{$value} * -1) !important; }
+    .-ml-#{$key} { margin-left: calc(#{$value} * -1) !important; }
+    .-mx-#{$key} { margin-left: calc(#{$value} * -1) !important; margin-right: calc(#{$value} * -1) !important; }
+    .-my-#{$key} { margin-top: calc(#{$value} * -1) !important; margin-bottom: calc(#{$value} * -1) !important; }
+  }
+}
+
+// Padding utilities
+@each $key, $value in $spacing-scale {
+  @if $key != auto {
+    .p-#{$key} { padding: $value !important; }
+    .pt-#{$key} { padding-top: $value !important; }
+    .pr-#{$key} { padding-right: $value !important; }
+    .pb-#{$key} { padding-bottom: $value !important; }
+    .pl-#{$key} { padding-left: $value !important; }
+    .px-#{$key} { padding-left: $value !important; padding-right: $value !important; }
+    .py-#{$key} { padding-top: $value !important; padding-bottom: $value !important; }
+
+    // Logical properties (RTL support)
+    .ps-#{$key} { padding-inline-start: $value !important; }
+    .pe-#{$key} { padding-inline-end: $value !important; }
+    .pbs-#{$key} { padding-block-start: $value !important; }
+    .pbe-#{$key} { padding-block-end: $value !important; }
+  }
+}
+
+// ============================================================================
+// SECTION 5: SIZING UTILITIES
+// ============================================================================
+
+// Width
+.w-0 { width: 0 !important; }
+.w-auto { width: auto !important; }
+.w-full { width: 100% !important; }
+.w-screen { width: 100vw !important; }
+.w-min { width: min-content !important; }
+.w-max { width: max-content !important; }
+.w-fit { width: fit-content !important; }
+
+// Percentage widths
+.w-1\/2 { width: 50% !important; }
+.w-1\/3 { width: 33.333333% !important; }
+.w-2\/3 { width: 66.666667% !important; }
+.w-1\/4 { width: 25% !important; }
+.w-3\/4 { width: 75% !important; }
+.w-1\/5 { width: 20% !important; }
+.w-2\/5 { width: 40% !important; }
+.w-3\/5 { width: 60% !important; }
+.w-4\/5 { width: 80% !important; }
+
+// Min width
+.min-w-0 { min-width: 0 !important; }
+.min-w-full { min-width: 100% !important; }
+.min-w-min { min-width: min-content !important; }
+.min-w-max { min-width: max-content !important; }
+.min-w-fit { min-width: fit-content !important; }
+
+// Max width
+.max-w-none { max-width: none !important; }
+.max-w-full { max-width: 100% !important; }
+.max-w-min { max-width: min-content !important; }
+.max-w-max { max-width: max-content !important; }
+.max-w-fit { max-width: fit-content !important; }
+.max-w-prose { max-width: 65ch !important; }
+.max-w-screen-sm { max-width: 600px !important; }
+.max-w-screen-md { max-width: 840px !important; }
+.max-w-screen-lg { max-width: 1200px !important; }
+.max-w-screen-xl { max-width: 1600px !important; }
+
+// Height
+.h-0 { height: 0 !important; }
+.h-auto { height: auto !important; }
+.h-full { height: 100% !important; }
+.h-screen { height: 100vh !important; }
+.h-dvh { height: 100dvh !important; }
+.h-min { height: min-content !important; }
+.h-max { height: max-content !important; }
+.h-fit { height: fit-content !important; }
+
+// Percentage heights
+.h-1\/2 { height: 50% !important; }
+.h-1\/3 { height: 33.333333% !important; }
+.h-2\/3 { height: 66.666667% !important; }
+.h-1\/4 { height: 25% !important; }
+.h-3\/4 { height: 75% !important; }
+
+// Min height
+.min-h-0 { min-height: 0 !important; }
+.min-h-full { min-height: 100% !important; }
+.min-h-screen { min-height: 100vh !important; }
+.min-h-dvh { min-height: 100dvh !important; }
+
+// Max height
+.max-h-none { max-height: none !important; }
+.max-h-full { max-height: 100% !important; }
+.max-h-screen { max-height: 100vh !important; }
+.max-h-dvh { max-height: 100dvh !important; }
+
+// Size (both width and height)
+.size-0 { width: 0 !important; height: 0 !important; }
+.size-full { width: 100% !important; height: 100% !important; }
+.size-screen { width: 100vw !important; height: 100vh !important; }
+
+// ============================================================================
+// SECTION 6: POSITION UTILITIES
+// ============================================================================
+
+.static { position: static !important; }
+.fixed { position: fixed !important; }
+.absolute { position: absolute !important; }
+.relative { position: relative !important; }
+.sticky { position: sticky !important; }
+
+// Inset
+.inset-0 { inset: 0 !important; }
+.inset-auto { inset: auto !important; }
+.inset-x-0 { left: 0 !important; right: 0 !important; }
+.inset-y-0 { top: 0 !important; bottom: 0 !important; }
+
+// Individual sides
+.top-0 { top: 0 !important; }
+.top-auto { top: auto !important; }
+.right-0 { right: 0 !important; }
+.right-auto { right: auto !important; }
+.bottom-0 { bottom: 0 !important; }
+.bottom-auto { bottom: auto !important; }
+.left-0 { left: 0 !important; }
+.left-auto { left: auto !important; }
+
+// Percentage positions
+.top-1\/2 { top: 50% !important; }
+.left-1\/2 { left: 50% !important; }
+.right-1\/2 { right: 50% !important; }
+.bottom-1\/2 { bottom: 50% !important; }
+.top-full { top: 100% !important; }
+.left-full { left: 100% !important; }
+.right-full { right: 100% !important; }
+.bottom-full { bottom: 100% !important; }
+
+// ============================================================================
+// SECTION 7: TYPOGRAPHY UTILITIES
+// ============================================================================
+
+// Font family
+.font-brand { font-family: var(--md-sys-typescale-font-brand) !important; }
+.font-plain { font-family: var(--md-sys-typescale-font-plain) !important; }
+.font-mono { font-family: var(--md-sys-typescale-font-mono, monospace) !important; }
+
+// Font size (MD3 type scale)
+.text-display-lg { font-size: var(--md-sys-typescale-display-large-size) !important; line-height: var(--md-sys-typescale-display-large-line-height) !important; }
+.text-display-md { font-size: var(--md-sys-typescale-display-medium-size) !important; line-height: var(--md-sys-typescale-display-medium-line-height) !important; }
+.text-display-sm { font-size: var(--md-sys-typescale-display-small-size) !important; line-height: var(--md-sys-typescale-display-small-line-height) !important; }
+.text-headline-lg { font-size: var(--md-sys-typescale-headline-large-size) !important; line-height: var(--md-sys-typescale-headline-large-line-height) !important; }
+.text-headline-md { font-size: var(--md-sys-typescale-headline-medium-size) !important; line-height: var(--md-sys-typescale-headline-medium-line-height) !important; }
+.text-headline-sm { font-size: var(--md-sys-typescale-headline-small-size) !important; line-height: var(--md-sys-typescale-headline-small-line-height) !important; }
+.text-title-lg { font-size: var(--md-sys-typescale-title-large-size) !important; line-height: var(--md-sys-typescale-title-large-line-height) !important; }
+.text-title-md { font-size: var(--md-sys-typescale-title-medium-size) !important; line-height: var(--md-sys-typescale-title-medium-line-height) !important; }
+.text-title-sm { font-size: var(--md-sys-typescale-title-small-size) !important; line-height: var(--md-sys-typescale-title-small-line-height) !important; }
+.text-body-lg { font-size: var(--md-sys-typescale-body-large-size) !important; line-height: var(--md-sys-typescale-body-large-line-height) !important; }
+.text-body-md { font-size: var(--md-sys-typescale-body-medium-size) !important; line-height: var(--md-sys-typescale-body-medium-line-height) !important; }
+.text-body-sm { font-size: var(--md-sys-typescale-body-small-size) !important; line-height: var(--md-sys-typescale-body-small-line-height) !important; }
+.text-label-lg { font-size: var(--md-sys-typescale-label-large-size) !important; line-height: var(--md-sys-typescale-label-large-line-height) !important; }
+.text-label-md { font-size: var(--md-sys-typescale-label-medium-size) !important; line-height: var(--md-sys-typescale-label-medium-line-height) !important; }
+.text-label-sm { font-size: var(--md-sys-typescale-label-small-size) !important; line-height: var(--md-sys-typescale-label-small-line-height) !important; }
+
+// Font weight
+.font-regular { font-weight: var(--md-sys-typescale-weight-regular) !important; }
+.font-medium { font-weight: var(--md-sys-typescale-weight-medium) !important; }
+.font-semibold { font-weight: var(--md-sys-typescale-weight-semibold) !important; }
+.font-bold { font-weight: var(--md-sys-typescale-weight-bold) !important; }
+
+// Text alignment
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+.text-start { text-align: start !important; }
+.text-end { text-align: end !important; }
+
+// Vertical alignment
+.align-baseline { vertical-align: baseline !important; }
+.align-top { vertical-align: top !important; }
+.align-middle { vertical-align: middle !important; }
+.align-bottom { vertical-align: bottom !important; }
+.align-text-top { vertical-align: text-top !important; }
+.align-text-bottom { vertical-align: text-bottom !important; }
+
+// Line height
+.leading-none { line-height: 1 !important; }
+.leading-tight { line-height: 1.25 !important; }
+.leading-snug { line-height: 1.375 !important; }
+.leading-normal { line-height: 1.5 !important; }
+.leading-relaxed { line-height: 1.625 !important; }
+.leading-loose { line-height: 2 !important; }
+
+// Letter spacing
+.tracking-tighter { letter-spacing: -0.05em !important; }
+.tracking-tight { letter-spacing: -0.025em !important; }
+.tracking-normal { letter-spacing: 0 !important; }
+.tracking-wide { letter-spacing: 0.025em !important; }
+.tracking-wider { letter-spacing: 0.05em !important; }
+.tracking-widest { letter-spacing: 0.1em !important; }
+
+// Text transform
+.uppercase { text-transform: uppercase !important; }
+.lowercase { text-transform: lowercase !important; }
+.capitalize { text-transform: capitalize !important; }
+.normal-case { text-transform: none !important; }
+
+// Text decoration
+.underline { text-decoration: underline !important; }
+.overline { text-decoration: overline !important; }
+.line-through { text-decoration: line-through !important; }
+.no-underline { text-decoration: none !important; }
+
+// Font style
+.italic { font-style: italic !important; }
+.not-italic { font-style: normal !important; }
+
+// White space
+.whitespace-normal { white-space: normal !important; }
+.whitespace-nowrap { white-space: nowrap !important; }
+.whitespace-pre { white-space: pre !important; }
+.whitespace-pre-line { white-space: pre-line !important; }
+.whitespace-pre-wrap { white-space: pre-wrap !important; }
+.whitespace-break-spaces { white-space: break-spaces !important; }
+
+// Word break
+.break-normal { overflow-wrap: normal !important; word-break: normal !important; }
+.break-words { overflow-wrap: break-word !important; }
+.break-all { word-break: break-all !important; }
+.break-keep { word-break: keep-all !important; }
+
+// Text overflow
+.truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+.text-ellipsis { text-overflow: ellipsis !important; }
+.text-clip { text-overflow: clip !important; }
+
+// Line clamp
+.line-clamp-1 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+.line-clamp-2 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+.line-clamp-3 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+.line-clamp-none {
+  -webkit-line-clamp: unset !important;
+}
+
+// ============================================================================
+// SECTION 8: COLOR UTILITIES
+// ============================================================================
+
+// Text colors
+.text-primary { color: var(--md-sys-color-primary) !important; }
+.text-on-primary { color: var(--md-sys-color-on-primary) !important; }
+.text-primary-container { color: var(--md-sys-color-primary-container) !important; }
+.text-on-primary-container { color: var(--md-sys-color-on-primary-container) !important; }
+.text-secondary { color: var(--md-sys-color-secondary) !important; }
+.text-on-secondary { color: var(--md-sys-color-on-secondary) !important; }
+.text-secondary-container { color: var(--md-sys-color-secondary-container) !important; }
+.text-on-secondary-container { color: var(--md-sys-color-on-secondary-container) !important; }
+.text-tertiary { color: var(--md-sys-color-tertiary) !important; }
+.text-on-tertiary { color: var(--md-sys-color-on-tertiary) !important; }
+.text-tertiary-container { color: var(--md-sys-color-tertiary-container) !important; }
+.text-on-tertiary-container { color: var(--md-sys-color-on-tertiary-container) !important; }
+.text-surface { color: var(--md-sys-color-surface) !important; }
+.text-on-surface { color: var(--md-sys-color-on-surface) !important; }
+.text-on-surface-variant { color: var(--md-sys-color-on-surface-variant) !important; }
+.text-error { color: var(--md-sys-color-error) !important; }
+.text-on-error { color: var(--md-sys-color-on-error) !important; }
+.text-outline { color: var(--md-sys-color-outline) !important; }
+.text-outline-variant { color: var(--md-sys-color-outline-variant) !important; }
+.text-inverse-surface { color: var(--md-sys-color-inverse-surface) !important; }
+.text-inverse-on-surface { color: var(--md-sys-color-inverse-on-surface) !important; }
+.text-inverse-primary { color: var(--md-sys-color-inverse-primary) !important; }
+
+// Semantic text colors
+.text-success { color: var(--md-sys-color-success, #4caf50) !important; }
+.text-warning { color: var(--md-sys-color-warning, #ff9800) !important; }
+.text-info { color: var(--md-sys-color-info, #2196f3) !important; }
+
+// Inherit and current
+.text-inherit { color: inherit !important; }
+.text-current { color: currentColor !important; }
+.text-transparent { color: transparent !important; }
+
+// ============================================================================
+// SECTION 9: BACKGROUND UTILITIES
+// ============================================================================
+
+// Background colors
+.bg-primary { background-color: var(--md-sys-color-primary) !important; }
+.bg-on-primary { background-color: var(--md-sys-color-on-primary) !important; }
+.bg-primary-container { background-color: var(--md-sys-color-primary-container) !important; }
+.bg-on-primary-container { background-color: var(--md-sys-color-on-primary-container) !important; }
+.bg-secondary { background-color: var(--md-sys-color-secondary) !important; }
+.bg-on-secondary { background-color: var(--md-sys-color-on-secondary) !important; }
+.bg-secondary-container { background-color: var(--md-sys-color-secondary-container) !important; }
+.bg-on-secondary-container { background-color: var(--md-sys-color-on-secondary-container) !important; }
+.bg-tertiary { background-color: var(--md-sys-color-tertiary) !important; }
+.bg-on-tertiary { background-color: var(--md-sys-color-on-tertiary) !important; }
+.bg-tertiary-container { background-color: var(--md-sys-color-tertiary-container) !important; }
+.bg-on-tertiary-container { background-color: var(--md-sys-color-on-tertiary-container) !important; }
+.bg-surface { background-color: var(--md-sys-color-surface) !important; }
+.bg-surface-dim { background-color: var(--md-sys-color-surface-dim) !important; }
+.bg-surface-bright { background-color: var(--md-sys-color-surface-bright) !important; }
+.bg-surface-container { background-color: var(--md-sys-color-surface-container) !important; }
+.bg-surface-container-low { background-color: var(--md-sys-color-surface-container-low) !important; }
+.bg-surface-container-lowest { background-color: var(--md-sys-color-surface-container-lowest) !important; }
+.bg-surface-container-high { background-color: var(--md-sys-color-surface-container-high) !important; }
+.bg-surface-container-highest { background-color: var(--md-sys-color-surface-container-highest) !important; }
+.bg-error { background-color: var(--md-sys-color-error) !important; }
+.bg-error-container { background-color: var(--md-sys-color-error-container) !important; }
+.bg-inverse-surface { background-color: var(--md-sys-color-inverse-surface) !important; }
+.bg-scrim { background-color: var(--md-sys-color-scrim) !important; }
+
+// Semantic backgrounds
+.bg-success { background-color: var(--md-sys-color-success, #4caf50) !important; }
+.bg-warning { background-color: var(--md-sys-color-warning, #ff9800) !important; }
+.bg-info { background-color: var(--md-sys-color-info, #2196f3) !important; }
+
+// Special backgrounds
+.bg-transparent { background-color: transparent !important; }
+.bg-inherit { background-color: inherit !important; }
+.bg-current { background-color: currentColor !important; }
+
+// ============================================================================
+// SECTION 10: BORDER UTILITIES
+// ============================================================================
+
+// Border width
+.border-0 { border-width: 0 !important; }
+.border { border-width: 1px !important; }
+.border-2 { border-width: 2px !important; }
+.border-3 { border-width: 3px !important; }
+.border-4 { border-width: 4px !important; }
+
+// Border sides
+.border-t { border-top-width: 1px !important; }
+.border-r { border-right-width: 1px !important; }
+.border-b { border-bottom-width: 1px !important; }
+.border-l { border-left-width: 1px !important; }
+.border-x { border-left-width: 1px !important; border-right-width: 1px !important; }
+.border-y { border-top-width: 1px !important; border-bottom-width: 1px !important; }
+
+// Border style
+.border-solid { border-style: solid !important; }
+.border-dashed { border-style: dashed !important; }
+.border-dotted { border-style: dotted !important; }
+.border-double { border-style: double !important; }
+.border-none { border-style: none !important; }
+
+// Border colors
+.border-primary { border-color: var(--md-sys-color-primary) !important; }
+.border-secondary { border-color: var(--md-sys-color-secondary) !important; }
+.border-tertiary { border-color: var(--md-sys-color-tertiary) !important; }
+.border-outline { border-color: var(--md-sys-color-outline) !important; }
+.border-outline-variant { border-color: var(--md-sys-color-outline-variant) !important; }
+.border-surface { border-color: var(--md-sys-color-surface) !important; }
+.border-error { border-color: var(--md-sys-color-error) !important; }
+.border-transparent { border-color: transparent !important; }
+.border-current { border-color: currentColor !important; }
+.border-inherit { border-color: inherit !important; }
+
+// ============================================================================
+// SECTION 11: BORDER RADIUS UTILITIES
+// ============================================================================
+
+.rounded-none { border-radius: var(--md-sys-shape-corner-none) !important; }
+.rounded-xs { border-radius: var(--md-sys-shape-corner-xs) !important; }
+.rounded-sm { border-radius: var(--md-sys-shape-corner-sm) !important; }
+.rounded { border-radius: var(--md-sys-shape-corner-md) !important; }
+.rounded-md { border-radius: var(--md-sys-shape-corner-md) !important; }
+.rounded-lg { border-radius: var(--md-sys-shape-corner-lg) !important; }
+.rounded-xl { border-radius: var(--md-sys-shape-corner-xl) !important; }
+.rounded-2xl { border-radius: var(--md-sys-shape-corner-2xl) !important; }
+.rounded-3xl { border-radius: var(--md-sys-shape-corner-3xl) !important; }
+.rounded-full { border-radius: var(--md-sys-shape-corner-full) !important; }
+
+// Individual corners
+.rounded-t-none { border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; }
+.rounded-r-none { border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; }
+.rounded-b-none { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; }
+.rounded-l-none { border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important; }
+
+.rounded-t-md { border-top-left-radius: var(--md-sys-shape-corner-md) !important; border-top-right-radius: var(--md-sys-shape-corner-md) !important; }
+.rounded-r-md { border-top-right-radius: var(--md-sys-shape-corner-md) !important; border-bottom-right-radius: var(--md-sys-shape-corner-md) !important; }
+.rounded-b-md { border-bottom-left-radius: var(--md-sys-shape-corner-md) !important; border-bottom-right-radius: var(--md-sys-shape-corner-md) !important; }
+.rounded-l-md { border-top-left-radius: var(--md-sys-shape-corner-md) !important; border-bottom-left-radius: var(--md-sys-shape-corner-md) !important; }
+
+.rounded-t-lg { border-top-left-radius: var(--md-sys-shape-corner-lg) !important; border-top-right-radius: var(--md-sys-shape-corner-lg) !important; }
+.rounded-r-lg { border-top-right-radius: var(--md-sys-shape-corner-lg) !important; border-bottom-right-radius: var(--md-sys-shape-corner-lg) !important; }
+.rounded-b-lg { border-bottom-left-radius: var(--md-sys-shape-corner-lg) !important; border-bottom-right-radius: var(--md-sys-shape-corner-lg) !important; }
+.rounded-l-lg { border-top-left-radius: var(--md-sys-shape-corner-lg) !important; border-bottom-left-radius: var(--md-sys-shape-corner-lg) !important; }
+
+// ============================================================================
+// SECTION 12: ELEVATION UTILITIES
+// ============================================================================
+
+.elevation-0, .md3-elevation-0 { box-shadow: var(--md-sys-elevation-level0) !important; }
+.elevation-1, .md3-elevation-1 { box-shadow: var(--md-sys-elevation-level1) !important; }
+.elevation-2, .md3-elevation-2 { box-shadow: var(--md-sys-elevation-level2) !important; }
+.elevation-3, .md3-elevation-3 { box-shadow: var(--md-sys-elevation-level3) !important; }
+.elevation-4, .md3-elevation-4 { box-shadow: var(--md-sys-elevation-level4) !important; }
+.elevation-5, .md3-elevation-5 { box-shadow: var(--md-sys-elevation-level5) !important; }
+
+// Interactive elevation
+.elevation-interactive {
   box-shadow: var(--md-sys-elevation-level1);
+  transition: box-shadow var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-level2);
+  }
+
+  &:active {
+    box-shadow: var(--md-sys-elevation-level1);
+  }
 }
 
-.md3-elevation-2 {
-  box-shadow: var(--md-sys-elevation-level2);
-}
+// Shadow none
+.shadow-none { box-shadow: none !important; }
 
-.md3-elevation-3 {
-  box-shadow: var(--md-sys-elevation-level3);
-}
+// ============================================================================
+// SECTION 13: OPACITY UTILITIES
+// ============================================================================
 
-.md3-elevation-4 {
-  box-shadow: var(--md-sys-elevation-level4);
-}
+.opacity-0 { opacity: 0 !important; }
+.opacity-5 { opacity: 0.05 !important; }
+.opacity-10 { opacity: 0.1 !important; }
+.opacity-20 { opacity: 0.2 !important; }
+.opacity-25 { opacity: 0.25 !important; }
+.opacity-30 { opacity: 0.3 !important; }
+.opacity-40 { opacity: 0.4 !important; }
+.opacity-50 { opacity: 0.5 !important; }
+.opacity-60 { opacity: 0.6 !important; }
+.opacity-70 { opacity: 0.7 !important; }
+.opacity-75 { opacity: 0.75 !important; }
+.opacity-80 { opacity: 0.8 !important; }
+.opacity-90 { opacity: 0.9 !important; }
+.opacity-95 { opacity: 0.95 !important; }
+.opacity-100 { opacity: 1 !important; }
 
-.md3-elevation-5 {
-  box-shadow: var(--md-sys-elevation-level5);
-}
+// ============================================================================
+// SECTION 14: OVERFLOW UTILITIES
+// ============================================================================
 
-/* Motion utilities */
+.overflow-auto { overflow: auto !important; }
+.overflow-hidden { overflow: hidden !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-scroll { overflow: scroll !important; }
+.overflow-clip { overflow: clip !important; }
+
+.overflow-x-auto { overflow-x: auto !important; }
+.overflow-x-hidden { overflow-x: hidden !important; }
+.overflow-x-visible { overflow-x: visible !important; }
+.overflow-x-scroll { overflow-x: scroll !important; }
+.overflow-x-clip { overflow-x: clip !important; }
+
+.overflow-y-auto { overflow-y: auto !important; }
+.overflow-y-hidden { overflow-y: hidden !important; }
+.overflow-y-visible { overflow-y: visible !important; }
+.overflow-y-scroll { overflow-y: scroll !important; }
+.overflow-y-clip { overflow-y: clip !important; }
+
+// ============================================================================
+// SECTION 15: Z-INDEX UTILITIES
+// ============================================================================
+
+.z-auto { z-index: auto !important; }
+.z-0 { z-index: 0 !important; }
+.z-10 { z-index: 10 !important; }
+.z-20 { z-index: 20 !important; }
+.z-30 { z-index: 30 !important; }
+.z-40 { z-index: 40 !important; }
+.z-50 { z-index: 50 !important; }
+.z-max { z-index: 2147483647 !important; }
+.-z-10 { z-index: -10 !important; }
+
+// ============================================================================
+// SECTION 16: CURSOR UTILITIES
+// ============================================================================
+
+.cursor-auto { cursor: auto !important; }
+.cursor-default { cursor: default !important; }
+.cursor-pointer { cursor: pointer !important; }
+.cursor-wait { cursor: wait !important; }
+.cursor-text { cursor: text !important; }
+.cursor-move { cursor: move !important; }
+.cursor-help { cursor: help !important; }
+.cursor-not-allowed { cursor: not-allowed !important; }
+.cursor-none { cursor: none !important; }
+.cursor-progress { cursor: progress !important; }
+.cursor-grab { cursor: grab !important; }
+.cursor-grabbing { cursor: grabbing !important; }
+.cursor-zoom-in { cursor: zoom-in !important; }
+.cursor-zoom-out { cursor: zoom-out !important; }
+
+// ============================================================================
+// SECTION 17: POINTER EVENTS UTILITIES
+// ============================================================================
+
+.pointer-events-none { pointer-events: none !important; }
+.pointer-events-auto { pointer-events: auto !important; }
+
+// ============================================================================
+// SECTION 18: USER SELECT UTILITIES
+// ============================================================================
+
+.select-none { user-select: none !important; }
+.select-text { user-select: text !important; }
+.select-all { user-select: all !important; }
+.select-auto { user-select: auto !important; }
+
+// ============================================================================
+// SECTION 19: VISIBILITY UTILITIES
+// ============================================================================
+
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+.collapse { visibility: collapse !important; }
+
+// ============================================================================
+// SECTION 20: MOTION UTILITIES
+// ============================================================================
+
+// Fade animations
 .md3-motion-fade-in {
-  animation: fadeIn var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+  animation: md3FadeIn var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) both;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.md3-motion-fade-out {
+  animation: md3FadeOut var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-accelerate) both;
 }
 
+@keyframes md3FadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes md3FadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+// Scale animations
 .md3-motion-scale-up {
-  animation: scaleUp var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+  animation: md3ScaleUp var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) both;
 }
 
-@keyframes scaleUp {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.md3-motion-scale-down {
+  animation: md3ScaleDown var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-accelerate) both;
 }
 
+@keyframes md3ScaleUp {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes md3ScaleDown {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.85); }
+}
+
+// Slide animations
 .md3-motion-slide-up {
-  animation: slideUp var(--md-sys-motion-duration-medium3) var(--md-sys-motion-easing-emphasized-decelerate) both;
+  animation: md3SlideUp var(--md-sys-motion-duration-medium3) var(--md-sys-motion-easing-emphasized-decelerate) both;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.md3-motion-slide-down {
+  animation: md3SlideDown var(--md-sys-motion-duration-medium3) var(--md-sys-motion-easing-emphasized-decelerate) both;
 }
 
-/* Expressive Motion Helpers */
+.md3-motion-slide-left {
+  animation: md3SlideLeft var(--md-sys-motion-duration-medium3) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.md3-motion-slide-right {
+  animation: md3SlideRight var(--md-sys-motion-duration-medium3) var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+@keyframes md3SlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes md3SlideDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes md3SlideLeft {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes md3SlideRight {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+// Expressive motion helpers
 .md3-expressive-transition {
   transition-timing-function: var(--md-sys-motion-easing-expressive-standard);
   transition-duration: var(--md-sys-motion-duration-medium4);
@@ -87,80 +888,651 @@
   transition-timing-function: var(--md-sys-motion-easing-expressive-accelerate);
 }
 
-/* Stagger animations for lists */
+// Stagger animations for lists
 .md3-stagger-children > * {
   opacity: 0;
-  animation: staggerFadeIn var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) both;
+  animation: md3StaggerFadeIn var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) both;
 }
 
-.md3-stagger-children > *:nth-child(1) { animation-delay: 50ms; }
-.md3-stagger-children > *:nth-child(2) { animation-delay: 100ms; }
-.md3-stagger-children > *:nth-child(3) { animation-delay: 150ms; }
-.md3-stagger-children > *:nth-child(4) { animation-delay: 200ms; }
-.md3-stagger-children > *:nth-child(5) { animation-delay: 250ms; }
-.md3-stagger-children > *:nth-child(6) { animation-delay: 300ms; }
-.md3-stagger-children > *:nth-child(7) { animation-delay: 350ms; }
-.md3-stagger-children > *:nth-child(8) { animation-delay: 400ms; }
-
-@keyframes staggerFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@for $i from 1 through 12 {
+  .md3-stagger-children > *:nth-child(#{$i}) {
+    animation-delay: calc(#{$i * 50}ms);
   }
 }
 
-/* ============================================
-   Accessibility Enhancements
-   ============================================ */
+@keyframes md3StaggerFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-  :root {
-    --md-sys-color-outline: rgba(0, 0, 0, 0.87);
-    --md-sys-state-hover-opacity: 0.12;
-    --md-sys-state-focus-opacity: 0.16;
-  }
-  
-  button, .md3-button {
-    border: 2px solid currentColor;
-  }
-  
-  *:focus-visible {
-    outline: 3px solid var(--md-sys-color-primary);
-    outline-offset: 2px;
+// Animation duration utilities
+.duration-short1 { animation-duration: var(--md-sys-motion-duration-short1) !important; transition-duration: var(--md-sys-motion-duration-short1) !important; }
+.duration-short2 { animation-duration: var(--md-sys-motion-duration-short2) !important; transition-duration: var(--md-sys-motion-duration-short2) !important; }
+.duration-short3 { animation-duration: var(--md-sys-motion-duration-short3) !important; transition-duration: var(--md-sys-motion-duration-short3) !important; }
+.duration-short4 { animation-duration: var(--md-sys-motion-duration-short4) !important; transition-duration: var(--md-sys-motion-duration-short4) !important; }
+.duration-medium1 { animation-duration: var(--md-sys-motion-duration-medium1) !important; transition-duration: var(--md-sys-motion-duration-medium1) !important; }
+.duration-medium2 { animation-duration: var(--md-sys-motion-duration-medium2) !important; transition-duration: var(--md-sys-motion-duration-medium2) !important; }
+.duration-medium3 { animation-duration: var(--md-sys-motion-duration-medium3) !important; transition-duration: var(--md-sys-motion-duration-medium3) !important; }
+.duration-medium4 { animation-duration: var(--md-sys-motion-duration-medium4) !important; transition-duration: var(--md-sys-motion-duration-medium4) !important; }
+.duration-long1 { animation-duration: var(--md-sys-motion-duration-long1) !important; transition-duration: var(--md-sys-motion-duration-long1) !important; }
+.duration-long2 { animation-duration: var(--md-sys-motion-duration-long2) !important; transition-duration: var(--md-sys-motion-duration-long2) !important; }
+.duration-long3 { animation-duration: var(--md-sys-motion-duration-long3) !important; transition-duration: var(--md-sys-motion-duration-long3) !important; }
+.duration-long4 { animation-duration: var(--md-sys-motion-duration-long4) !important; transition-duration: var(--md-sys-motion-duration-long4) !important; }
+
+// Animation delay utilities
+.delay-0 { animation-delay: 0ms !important; }
+.delay-75 { animation-delay: 75ms !important; }
+.delay-100 { animation-delay: 100ms !important; }
+.delay-150 { animation-delay: 150ms !important; }
+.delay-200 { animation-delay: 200ms !important; }
+.delay-300 { animation-delay: 300ms !important; }
+.delay-500 { animation-delay: 500ms !important; }
+.delay-700 { animation-delay: 700ms !important; }
+.delay-1000 { animation-delay: 1000ms !important; }
+
+// ============================================================================
+// SECTION 21: TRANSFORM UTILITIES
+// ============================================================================
+
+// Transform origin
+.origin-center { transform-origin: center !important; }
+.origin-top { transform-origin: top !important; }
+.origin-top-right { transform-origin: top right !important; }
+.origin-right { transform-origin: right !important; }
+.origin-bottom-right { transform-origin: bottom right !important; }
+.origin-bottom { transform-origin: bottom !important; }
+.origin-bottom-left { transform-origin: bottom left !important; }
+.origin-left { transform-origin: left !important; }
+.origin-top-left { transform-origin: top left !important; }
+
+// Scale
+.scale-0 { transform: scale(0) !important; }
+.scale-50 { transform: scale(0.5) !important; }
+.scale-75 { transform: scale(0.75) !important; }
+.scale-90 { transform: scale(0.9) !important; }
+.scale-95 { transform: scale(0.95) !important; }
+.scale-100 { transform: scale(1) !important; }
+.scale-105 { transform: scale(1.05) !important; }
+.scale-110 { transform: scale(1.1) !important; }
+.scale-125 { transform: scale(1.25) !important; }
+.scale-150 { transform: scale(1.5) !important; }
+
+// Rotate
+.rotate-0 { transform: rotate(0deg) !important; }
+.rotate-45 { transform: rotate(45deg) !important; }
+.rotate-90 { transform: rotate(90deg) !important; }
+.rotate-180 { transform: rotate(180deg) !important; }
+.-rotate-45 { transform: rotate(-45deg) !important; }
+.-rotate-90 { transform: rotate(-90deg) !important; }
+.-rotate-180 { transform: rotate(-180deg) !important; }
+
+// Translate
+.translate-x-0 { transform: translateX(0) !important; }
+.translate-y-0 { transform: translateY(0) !important; }
+.translate-x-1\/2 { transform: translateX(50%) !important; }
+.translate-y-1\/2 { transform: translateY(50%) !important; }
+.translate-x-full { transform: translateX(100%) !important; }
+.translate-y-full { transform: translateY(100%) !important; }
+.-translate-x-1\/2 { transform: translateX(-50%) !important; }
+.-translate-y-1\/2 { transform: translateY(-50%) !important; }
+.-translate-x-full { transform: translateX(-100%) !important; }
+.-translate-y-full { transform: translateY(-100%) !important; }
+
+// Center with transform
+.center-absolute {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+// ============================================================================
+// SECTION 22: FILTER UTILITIES
+// ============================================================================
+
+.blur-none { filter: blur(0) !important; }
+.blur-sm { filter: blur(4px) !important; }
+.blur { filter: blur(8px) !important; }
+.blur-md { filter: blur(12px) !important; }
+.blur-lg { filter: blur(16px) !important; }
+.blur-xl { filter: blur(24px) !important; }
+.blur-2xl { filter: blur(40px) !important; }
+.blur-3xl { filter: blur(64px) !important; }
+
+.grayscale-0 { filter: grayscale(0) !important; }
+.grayscale { filter: grayscale(100%) !important; }
+
+.invert-0 { filter: invert(0) !important; }
+.invert { filter: invert(100%) !important; }
+
+.sepia-0 { filter: sepia(0) !important; }
+.sepia { filter: sepia(100%) !important; }
+
+// Backdrop filter
+.backdrop-blur-none { backdrop-filter: blur(0) !important; }
+.backdrop-blur-sm { backdrop-filter: blur(4px) !important; }
+.backdrop-blur { backdrop-filter: blur(8px) !important; }
+.backdrop-blur-md { backdrop-filter: blur(12px) !important; }
+.backdrop-blur-lg { backdrop-filter: blur(16px) !important; }
+.backdrop-blur-xl { backdrop-filter: blur(24px) !important; }
+
+// ============================================================================
+// SECTION 23: RESPONSIVE UTILITIES
+// ============================================================================
+
+// MD3 Breakpoints
+// Compact: < 600px
+// Medium: 600-839px
+// Expanded: 840-1199px
+// Large: 1200-1599px
+// Extra-large: >= 1600px
+
+// Compact only (mobile)
+@media (max-width: 599px) {
+  .compact\:d-none { display: none !important; }
+  .compact\:d-block { display: block !important; }
+  .compact\:d-flex { display: flex !important; }
+  .compact\:d-grid { display: grid !important; }
+  .compact\:flex-column { flex-direction: column !important; }
+  .compact\:text-center { text-align: center !important; }
+  .compact\:w-full { width: 100% !important; }
+
+  .md3-hide-compact { display: none !important; }
+  .md3-show-compact { display: block !important; }
+}
+
+// Medium and up (tablet+)
+@media (min-width: 600px) {
+  .medium\:d-none { display: none !important; }
+  .medium\:d-block { display: block !important; }
+  .medium\:d-flex { display: flex !important; }
+  .medium\:d-grid { display: grid !important; }
+  .medium\:flex-row { flex-direction: row !important; }
+  .medium\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .medium\:text-left { text-align: left !important; }
+
+  .md3-hide-medium { display: none !important; }
+  .md3-show-medium { display: block !important; }
+}
+
+// Medium only
+@media (min-width: 600px) and (max-width: 839px) {
+  .medium-only\:d-none { display: none !important; }
+  .medium-only\:d-block { display: block !important; }
+}
+
+// Expanded and up (desktop)
+@media (min-width: 840px) {
+  .expanded\:d-none { display: none !important; }
+  .expanded\:d-block { display: block !important; }
+  .expanded\:d-flex { display: flex !important; }
+  .expanded\:d-grid { display: grid !important; }
+  .expanded\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .expanded\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+
+  .md3-hide-expanded { display: none !important; }
+  .md3-show-expanded { display: block !important; }
+}
+
+// Large and up
+@media (min-width: 1200px) {
+  .large\:d-none { display: none !important; }
+  .large\:d-block { display: block !important; }
+  .large\:d-flex { display: flex !important; }
+  .large\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  .large\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; }
+
+  .md3-hide-large { display: none !important; }
+  .md3-show-large { display: block !important; }
+}
+
+// Extra-large
+@media (min-width: 1600px) {
+  .xl\:d-none { display: none !important; }
+  .xl\:d-block { display: block !important; }
+  .xl\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; }
+
+  .md3-hide-xl { display: none !important; }
+  .md3-show-xl { display: block !important; }
+}
+
+// ============================================================================
+// SECTION 24: ACCESSIBILITY UTILITIES
+// ============================================================================
+
+// Screen reader only
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border-width: 0 !important;
+}
+
+// Not screen reader only (revert sr-only)
+.not-sr-only {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+// Focus visible styling
+.focus-ring {
+  &:focus-visible {
+    outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
+    outline-offset: var(--md-sys-state-focus-ring-offset);
   }
 }
 
-/* Reduced Motion */
+.focus-ring-inset {
+  &:focus-visible {
+    outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
+    outline-offset: calc(var(--md-sys-state-focus-ring-offset) * -1);
+  }
+}
+
+// Skip link
+.skip-link {
+  @extend .sr-only;
+
+  &:focus {
+    position: fixed !important;
+    top: var(--md-sys-spacing-4) !important;
+    left: var(--md-sys-spacing-4) !important;
+    width: auto !important;
+    height: auto !important;
+    padding: var(--md-sys-spacing-3) var(--md-sys-spacing-4) !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border-radius: var(--md-sys-shape-corner-md);
+    z-index: 9999;
+    font-weight: var(--md-sys-typescale-weight-medium);
+  }
+}
+
+// ============================================================================
+// SECTION 25: INTERACTION UTILITIES
+// ============================================================================
+
+// Touch target (WCAG 2.2 minimum 44x44, recommended 48x48)
+.touch-target {
+  min-width: var(--md-sys-touch-target-min);
+  min-height: var(--md-sys-touch-target-min);
+}
+
+.touch-target-comfortable {
+  min-width: var(--md-sys-touch-target-comfortable);
+  min-height: var(--md-sys-touch-target-comfortable);
+}
+
+// Hover effects
+.hover\:opacity-80:hover { opacity: 0.8 !important; }
+.hover\:opacity-100:hover { opacity: 1 !important; }
+.hover\:scale-105:hover { transform: scale(1.05) !important; }
+.hover\:scale-110:hover { transform: scale(1.1) !important; }
+.hover\:elevation-2:hover { box-shadow: var(--md-sys-elevation-level2) !important; }
+.hover\:elevation-3:hover { box-shadow: var(--md-sys-elevation-level3) !important; }
+
+// Active effects
+.active\:scale-95:active { transform: scale(0.95) !important; }
+.active\:scale-100:active { transform: scale(1) !important; }
+.active\:opacity-70:active { opacity: 0.7 !important; }
+
+// Focus effects
+.focus\:ring:focus { outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color) !important; }
+
+// Disabled state
+.disabled,
+[disabled] {
+  opacity: 0.38 !important;
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+}
+
+// ============================================================================
+// SECTION 26: LAYOUT UTILITIES
+// ============================================================================
+
+// Container
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--md-sys-spacing-4);
+  padding-right: var(--md-sys-spacing-4);
+
+  @media (min-width: 600px) {
+    max-width: 560px;
+    padding-left: var(--md-sys-spacing-6);
+    padding-right: var(--md-sys-spacing-6);
+  }
+
+  @media (min-width: 840px) {
+    max-width: 800px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+
+  @media (min-width: 1600px) {
+    max-width: 1520px;
+  }
+}
+
+.container-fluid {
+  width: 100%;
+  padding-left: var(--md-sys-spacing-4);
+  padding-right: var(--md-sys-spacing-4);
+
+  @media (min-width: 600px) {
+    padding-left: var(--md-sys-spacing-6);
+    padding-right: var(--md-sys-spacing-6);
+  }
+
+  @media (min-width: 840px) {
+    padding-left: var(--md-sys-spacing-8);
+    padding-right: var(--md-sys-spacing-8);
+  }
+}
+
+// Centering
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.my-auto { margin-top: auto !important; margin-bottom: auto !important; }
+.m-auto { margin: auto !important; }
+
+// Float
+.float-left { float: left !important; }
+.float-right { float: right !important; }
+.float-none { float: none !important; }
+
+// Clear
+.clear-left { clear: left !important; }
+.clear-right { clear: right !important; }
+.clear-both { clear: both !important; }
+.clear-none { clear: none !important; }
+
+// Isolation
+.isolate { isolation: isolate !important; }
+.isolation-auto { isolation: auto !important; }
+
+// ============================================================================
+// SECTION 27: ASPECT RATIO UTILITIES
+// ============================================================================
+
+.aspect-auto { aspect-ratio: auto !important; }
+.aspect-square { aspect-ratio: 1 / 1 !important; }
+.aspect-video { aspect-ratio: 16 / 9 !important; }
+.aspect-4\/3 { aspect-ratio: 4 / 3 !important; }
+.aspect-3\/2 { aspect-ratio: 3 / 2 !important; }
+.aspect-2\/1 { aspect-ratio: 2 / 1 !important; }
+.aspect-21\/9 { aspect-ratio: 21 / 9 !important; }
+
+// ============================================================================
+// SECTION 28: OBJECT FIT UTILITIES
+// ============================================================================
+
+.object-contain { object-fit: contain !important; }
+.object-cover { object-fit: cover !important; }
+.object-fill { object-fit: fill !important; }
+.object-none { object-fit: none !important; }
+.object-scale-down { object-fit: scale-down !important; }
+
+// Object position
+.object-center { object-position: center !important; }
+.object-top { object-position: top !important; }
+.object-right { object-position: right !important; }
+.object-bottom { object-position: bottom !important; }
+.object-left { object-position: left !important; }
+
+// ============================================================================
+// SECTION 29: SCROLL UTILITIES
+// ============================================================================
+
+// Scroll behavior
+.scroll-auto { scroll-behavior: auto !important; }
+.scroll-smooth { scroll-behavior: smooth !important; }
+
+// Scroll snap type
+.snap-none { scroll-snap-type: none !important; }
+.snap-x { scroll-snap-type: x mandatory !important; }
+.snap-y { scroll-snap-type: y mandatory !important; }
+.snap-both { scroll-snap-type: both mandatory !important; }
+.snap-x-proximity { scroll-snap-type: x proximity !important; }
+.snap-y-proximity { scroll-snap-type: y proximity !important; }
+
+// Scroll snap align
+.snap-start { scroll-snap-align: start !important; }
+.snap-end { scroll-snap-align: end !important; }
+.snap-center { scroll-snap-align: center !important; }
+.snap-align-none { scroll-snap-align: none !important; }
+
+// Overscroll behavior
+.overscroll-auto { overscroll-behavior: auto !important; }
+.overscroll-contain { overscroll-behavior: contain !important; }
+.overscroll-none { overscroll-behavior: none !important; }
+
+// ============================================================================
+// SECTION 30: TOUCH ACTION UTILITIES
+// ============================================================================
+
+.touch-auto { touch-action: auto !important; }
+.touch-none { touch-action: none !important; }
+.touch-pan-x { touch-action: pan-x !important; }
+.touch-pan-y { touch-action: pan-y !important; }
+.touch-pan-left { touch-action: pan-left !important; }
+.touch-pan-right { touch-action: pan-right !important; }
+.touch-pan-up { touch-action: pan-up !important; }
+.touch-pan-down { touch-action: pan-down !important; }
+.touch-pinch-zoom { touch-action: pinch-zoom !important; }
+.touch-manipulation { touch-action: manipulation !important; }
+
+// ============================================================================
+// SECTION 31: REDUCED MOTION STYLES
+// ============================================================================
+
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  // Disable stagger animations
+  .md3-stagger-children > * {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  // Disable motion utilities
+  [class*='md3-motion-'] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
-/* ============================================
-   Responsive Utilities
-   ============================================ */
+// ============================================================================
+// SECTION 32: HIGH CONTRAST STYLES
+// ============================================================================
 
-/* Hide/show based on MD3 breakpoints */
-@media (max-width: 599px) {
-  .md3-hide-compact { display: none !important; }
-  .md3-show-compact { display: block !important; }
+@media (prefers-contrast: more) {
+  :root {
+    --md-sys-color-outline: rgba(0, 0, 0, 0.87);
+    --md-sys-state-hover-opacity: 0.12;
+    --md-sys-state-focus-opacity: 0.16;
+    --md-sys-state-focus-ring-width: 3px;
+  }
+
+  button,
+  .md3-button,
+  [class*='btn'] {
+    border: 2px solid currentColor !important;
+  }
+
+  *:focus-visible {
+    outline: 3px solid var(--md-sys-color-primary) !important;
+    outline-offset: 2px !important;
+  }
+
+  // Increase text contrast
+  .text-on-surface-variant {
+    color: var(--md-sys-color-on-surface) !important;
+  }
+
+  // Thicker borders
+  .border {
+    border-width: 2px !important;
+  }
 }
 
-@media (min-width: 600px) and (max-width: 839px) {
-  .md3-hide-medium { display: none !important; }
-  .md3-show-medium { display: block !important; }
+// ============================================================================
+// SECTION 33: FORCED COLORS MODE
+// ============================================================================
+
+@media (forced-colors: active) {
+  // Ensure focus visibility
+  *:focus-visible {
+    outline: 3px solid CanvasText !important;
+    outline-offset: 2px !important;
+  }
+
+  // Preserve button appearance
+  button,
+  .md3-button,
+  [role='button'] {
+    border: 2px solid ButtonText !important;
+    background: ButtonFace !important;
+    color: ButtonText !important;
+  }
+
+  // Ensure link visibility
+  a {
+    color: LinkText !important;
+    text-decoration: underline !important;
+  }
+
+  // Preserve selection
+  ::selection {
+    background: Highlight !important;
+    color: HighlightText !important;
+  }
 }
 
-@media (min-width: 840px) {
-  .md3-hide-expanded { display: none !important; }
-  .md3-show-expanded { display: block !important; }
+// ============================================================================
+// SECTION 34: UTILITY MIXINS
+// ============================================================================
+
+// Mixin: Responsive utility generator
+@mixin responsive-utility($property, $value, $prefix: '') {
+  @if $prefix != '' {
+    .#{$prefix}\:#{$property} { #{$property}: $value !important; }
+  } @else {
+    .#{$property} { #{$property}: $value !important; }
+  }
+}
+
+// Mixin: Generate spacing utilities
+@mixin spacing-utilities($property, $prefix, $values) {
+  @each $key, $value in $values {
+    .#{$prefix}-#{$key} { #{$property}: $value !important; }
+  }
+}
+
+// Mixin: Truncate text
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// Mixin: Smooth scroll
+@mixin smooth-scroll {
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+// Mixin: Touch-friendly target
+@mixin touch-target($size: var(--md-sys-touch-target-min)) {
+  min-width: $size;
+  min-height: $size;
+}
+
+// Mixin: Focus ring
+@mixin focus-ring($color: var(--md-sys-state-focus-ring-color), $width: var(--md-sys-state-focus-ring-width), $offset: var(--md-sys-state-focus-ring-offset)) {
+  &:focus-visible {
+    outline: $width solid $color;
+    outline-offset: $offset;
+  }
+}
+
+// Mixin: Screen reader only
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Mixin: Centering
+@mixin center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Mixin: Aspect ratio (for older browser support)
+@mixin aspect-ratio($width, $height) {
+  aspect-ratio: $width / $height;
+
+  @supports not (aspect-ratio: 1) {
+    &::before {
+      content: '';
+      float: left;
+      padding-top: calc(#{$height} / #{$width} * 100%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
 }

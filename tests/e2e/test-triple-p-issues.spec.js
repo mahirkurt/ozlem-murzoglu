@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Triple P Page Issues Detection', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4202/hizmetlerimiz/triple-p');
+    await page.goto('http://localhost:4200/hizmetlerimiz/triple-p');
     await page.waitForTimeout(2000);
   });
 
@@ -54,7 +54,7 @@ test.describe('Triple P Page Issues Detection', () => {
     }
 
     // Compare with laboratory page
-    await page.goto('http://localhost:4202/hizmetlerimiz/laboratuvar-goruntuleme');
+    await page.goto('http://localhost:4200/hizmetlerimiz/laboratuvar-goruntuleme');
     await page.waitForTimeout(1000);
 
     console.log('\n=== Laboratory Page Sections ===');
@@ -77,7 +77,7 @@ test.describe('Triple P Page Issues Detection', () => {
   });
 
   test('Check section titles and icons', async ({ page }) => {
-    await page.goto('http://localhost:4202/hizmetlerimiz/triple-p');
+    await page.goto('http://localhost:4200/hizmetlerimiz/triple-p');
     await page.waitForTimeout(1000);
 
     const sectionTitles = await page.locator('.section-title').all();
@@ -109,7 +109,7 @@ test.describe('Triple P Page Issues Detection', () => {
   });
 
   test('Check for Font Awesome icons', async ({ page }) => {
-    await page.goto('http://localhost:4202/hizmetlerimiz/triple-p');
+    await page.goto('http://localhost:4200/hizmetlerimiz/triple-p');
     await page.waitForTimeout(1000);
 
     // Check for Font Awesome icons
@@ -131,7 +131,7 @@ test.describe('Triple P Page Issues Detection', () => {
   });
 
   test('Check Program Structure section', async ({ page }) => {
-    await page.goto('http://localhost:4202/hizmetlerimiz/triple-p');
+    await page.goto('http://localhost:4200/hizmetlerimiz/triple-p');
     await page.waitForTimeout(1000);
 
     const structureSection = page.locator('.structure-section');
@@ -162,7 +162,7 @@ test.describe('Triple P Page Issues Detection', () => {
   });
 
   test('Check Program Levels section', async ({ page }) => {
-    await page.goto('http://localhost:4202/hizmetlerimiz/triple-p');
+    await page.goto('http://localhost:4200/hizmetlerimiz/triple-p');
     await page.waitForTimeout(1000);
 
     const levelsSection = page.locator('.levels-section');
@@ -193,7 +193,7 @@ test.describe('Triple P Page Issues Detection', () => {
   });
 
   test('Check translations', async ({ page }) => {
-    await page.goto('http://localhost:4202/hizmetlerimiz/triple-p');
+    await page.goto('http://localhost:4200/hizmetlerimiz/triple-p');
     await page.waitForTimeout(1000);
 
     // Look for [TR] or [EN] placeholders
@@ -216,7 +216,7 @@ test.describe('Triple P Page Issues Detection', () => {
   });
 
   test('Visual comparison of sections', async ({ page }) => {
-    await page.goto('http://localhost:4202/hizmetlerimiz/triple-p');
+    await page.goto('http://localhost:4200/hizmetlerimiz/triple-p');
     await page.waitForTimeout(2000);
 
     // Take screenshot of full page

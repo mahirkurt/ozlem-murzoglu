@@ -44,7 +44,7 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
         (click)="toggleCollapse()"
         attr.aria-label="Toggle navigation"
         attr.aria-expanded="{{ !isCollapsed() }}">
-        <span class="material-icons">menu</span>
+        <span class="material-icons-rounded">menu</span>
       </button>
       
       <!-- Logo/Brand -->
@@ -68,7 +68,7 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
                     [title]="isCollapsed() ? item.label : ''"
           >
           
-          <span class="material-icons" 
+          <span class="material-icons-rounded" 
             [attr.data-badge]="item.badge"
                                     >
             {{ item.icon }}
@@ -87,7 +87,7 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
         *ngIf="fabIcon"
         (click)="onFabClick.emit()"
         [attr.aria-label]="fabLabel">
-        <span class="material-icons">{{ fabIcon }}</span>
+        <span class="material-icons-rounded">{{ fabIcon }}</span>
       </button>
     </nav>
     
@@ -130,7 +130,7 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
             (click)="handleItemClick(item)"
             matRipple>
             
-            <span class="material-icons" 
+            <span class="material-icons-rounded" 
               class="drawer-icon"
               [attr.data-badge]="item.badge"
                             matBadgeColor="accent">
@@ -139,7 +139,7 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
             
             <span class="drawer-label">{{ item.label }}</span>
             
-            <span class="material-icons" class="drawer-trailing" *ngIf="item.children">
+            <span class="material-icons-rounded" class="drawer-trailing" *ngIf="item.children">
               keyboard_arrow_right
             </span>
           </button>
@@ -167,14 +167,14 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
           class="md3-icon-button"
           (click)="onSettingsClick.emit()"
           title="Settings">
-          <span class="material-icons">settings</span>
+          <span class="material-icons-rounded">settings</span>
         </button>
         
         <button 
           class="md3-icon-button"
           (click)="onProfileClick.emit()"
           title="Profile">
-          <span class="material-icons">account_circle</span>
+          <span class="material-icons-rounded">account_circle</span>
         </button>
       </div>
     </nav>
@@ -194,7 +194,7 @@ type NavigationType = 'rail' | 'drawer' | 'bottom';
         (click)="handleItemClick(item)"
         matRipple>
         
-        <span class="material-icons" 
+        <span class="material-icons-rounded" 
           class="bottom-icon"
           [attr.data-badge]="item.badge"
                               >

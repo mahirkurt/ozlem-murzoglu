@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/bright-futures-aile" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><thead><tr><th colspan="2"><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></th></tr><tr><th><p>AİLENİZ İÇİN BİLGİLER</p><p><strong>12. AY ZİYARETİ</strong></p></th><th><p></p></th></tr></thead></table><table><thead><tr><th><p><strong>AİLENİZİN DURUMU</strong></p></th></tr></thead></table><ul><li>Sigara içmeyin veya elektronik sigara kullanmayın. Evinizi ve arabanızı dumansız tutun. Tütünsüz alanlar çocukları sağlıklı tutar.</li><li>Çocuğunuza bakıcılık yapan herkesin sağlıklı yiyecekler sunduğundan, tatlılardan kaçındığından, aktif oyun için zaman yarattığından ve sizin disiplin için uyguladığınız kuralların aynılarını kullandığından emin olun.</li><li>Çocuğunuzun kaldığı yerlerin güvenli olduğundan emin olun.</li><li>Bir çocuk oyun grubuna katılmayı veya ebeveynlik kursu almayı düşünün.</li><li>Kendinize ve eşinize zaman ayırın.</li><li>Aileniz ve arkadaşlarınızla iletişiminizi sürdürün.</li></ul><table><thead><tr><th><p><strong>ÇOCUĞUNUZUN BESLENMESİ</strong></p></th></tr></thead></table><ul><li>Çocuğunuza öğünler ve atıştırmalıklar için sağlıklı yiyecekler sunun. Gün içine eşit aralıklarla yerleştirilmiş olarak 3 öğün ve çocuğunuzun ihtiyacına göre 1-3 atıştırmalık verin.</li><li>Boğulmaya neden olabilecek küçük, sert yiyeceklerden kaçının; örneğin patlamış mısır, sosis, üzüm, fındık ve sert çiğ sebzeler.</li><li>Çocuğunuzun öğün sırasında ailenin geri kalanıyla birlikte yemesini sağlayın.</li><li>Çocuğunuzu kendi kendine beslenmeye teşvik edin.</li><li>Yiyecek ve içecekler için küçük bir tabak ve bardak kullanın.</li><li>Çocuğunuz yardım olmadan yemek yemeyi öğrenirken ona karşı sabırlı olun.</li><li>Neyi ve ne kadar yiyeceğine çocuğunuzun karar vermesine izin verin. Yemek yemeyi bıraktığında devam etmesi için ısrar etmeyin.</li><li>Bakıcıların öğünler sırasında sizinle aynı düşünce ve rutinleri takip ettiğinden emin olun.</li></ul><table><thead><tr><th><p><strong>RUTİN OLUŞTURMA</strong></p></th></tr></thead></table><ul><li>Çocuğunuz yapmasını istediğiniz şeyi yaptığında onu övün.</li><li>Çocuğunuz için kısa ve basit kurallar kullanın.</li><li>Çocuğunuza karşı her türlü şiddeti kullanmaktan sakının.</li><li>"Hayır" kelimesini çocuğunuzun kendisine veya başkasına zarar verdiği durumlarla sınırlı tutun. Çocuğunuzla olumlu disiplin kuralları oluşturmak konusunda bizden yardım alabilirsiniz.</li><li>Çocuğunuz sinirlenmeye başladığında sevdiği bir şeyle dikkatini dağıtın.</li><li>Çocuğunuzla sık sık oyun oynayın ve ona kitap okuyun.</li><li>Çocuğunuz günde en az bir kez gündüz uykusu.na ihtiyaç duyar.</li><li>Uykudan önceki saati kitap okuyarak, sakin şarkılar söyleyerek ve çocuğunuzun favori oyuncağıyla sevgi dolu ve sakin şekilde geçirin.</li><li>Çocuğunuzun bir tablet veya akıllı telefonda oyun oynamasına veya televizyon izlemesine izin vermeyin.</li><li>Bir aile medya planı yapmayı düşünün. Bu, medya kullanımı konusunda kurallar koymanıza ve ekran saatiyle diğer aktiviteleri (örneğin egzersiz) dengelemenize yardımcı olur.</li></ul><table><thead><tr><th><p><strong>DİŞ HEKİMİ BULMAK</strong></p></th></tr></thead></table><ul><li>Çocuğunuzun ilk dişi çıktığında veya çocuğunuz 12 aylık olduğunda onu en kısa sürede ilk diş hekimi ziyaretine götürün.</li><li>Çocuğunuzun dişlerini günde iki kere yumuşak bir diş fırçasıyla fırçalayın. Az miktarda florürlü diş macunu kullanın (pirinç tanesinden büyük olmayacak şekilde).</li><li>Hala bir biberon kullanıyorsanız, biberon ile yalnızca su verin.</li></ul><table><thead><tr><th><p><strong>GÜVENLİK</strong></p></th></tr></thead></table><ul><li>Çocuğunuz, araba güvenlik koltuğu üreticisinin izin verdiği kilo veya boy sınırına ulaşana kadar araba koltuğunun arkaya baktığından emin olun. Çoğunlukla bu durum çocuğunuz ikinci yaş gününü geçtiğinde yaşanacaktır.</li><li>Çocuğunuzu asla yolcu hava yastığı olan bir aracın ön koltuğuna oturtmayın. Arka koltuk en güvenlidir.</li><li>Merdivenlerin üstüne ve altına kapı yerleştirin. Pencerelerde pencere korumaları kullanın. Kullanılan korumalar, acil bir durumda bir yetişkinin bu pencereleri açabilmesine izin vermelidir.</li><li>Mobilyaları pencerelerden uzak tutun.</li><li>Çocuğunuzun çekememesi için televizyonların, mobilyaların ve diğer ağır eşyaların sabit olduğundan emin olun.</li><li>Çocuğunuz suda veya su yakınındayken onu kol mesafesinde tutun.</li><li>Kullanmayı bitirdiğinizde kovaları, havuzları ve küvetleri boşaltın.</li><li>Çocuğunuzun sorumluluğunu asla küçük yaştaki kardeşlerine bırakmayın.</li><li>Şapka, güneşten koruyucu giysi ve güneşe maruz kalan cildinde SPF 15 veya daha yüksek dereceli güneş kremi kullanın. Güneşin en güçlü olduğu saatlerde dışarıdaki zamanı sınırlayın (11:00 - 15:00).</li><li>Evcil hayvanınız yemek yerken çocuğunuzu ondan uzak tutun. Çocuğunuz evcil hayvanınızla oynarken yakınında olun.</li><li>Zehir, ilaç ve temizlik malzemelerini çocuğunuzun görüş ve erişim alanının dışında, kilitli dolaplarda saklayın.</li><li>Kordonları, lateks balonları, plastik torbaları ve misket ve pil gibi küçük nesneleri çocuğunuzdan uzak tutun. Tüm elektrik prizlerini kaplayın.</li><li>Ulusal Zehir Danışma Merkezi numarasını (114) kaydedin. Çocuğunuzun zararlı bir şey yuttuğundan endişeleniyorsanız bu numarayı arayın. Çocuğunuzu kusturmayın.</li></ul><table><thead><tr><th><p><strong>15. AY ZİYARETİNDE NELER BEKLEMELİSİNİZ?</strong></p><p>Şunlar hakkında konuşacağız:</p><ul><li>Çocuğunuzun konuşmasını ve bağımsızlığını desteklemek ve kendiniz için zaman yaratmak</li><li>İyi uyku rutinleri geliştirmek</li><li>Öfke nöbetleri ve disiplinle başa çıkmak</li><li>Çocuğunuzun diş bakımıyla ilgilenmek</li><li>Çocuğunuzu evde ve arabada güvende tutmak</li></ul></th></tr></thead></table><table><thead><tr><th><p>Bright Futures: Guidelines for Health Supervision of Infants, Children, and Adolescents, <br />4.Baskı'dan uyarlanmıştır. Daha fazla bilgi için <strong>https://brightfutures.aap.org</strong> adresine gidin.</p></th></tr></thead></table><table><thead><tr><th><p></p></th><th><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></th></tr></thead></table><table><thead><tr><th></th></tr></thead></table><table><thead><tr><th><p><strong></strong></p></th><th><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></th><th><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></th><th><p></p></th></tr></thead></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/bright-futures-aile/12.%20Ay%20-%20Aile%20%C4%B0%C3%A7in%20Bilgiler.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

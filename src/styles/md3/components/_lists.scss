@@ -1,0 +1,1005 @@
+// ============================================================================
+// MD3 Expressive 2025 - List Components
+// ============================================================================
+// Material Design 3 compliant list and item components
+// Features: One-line, Two-line, Three-line, Avatar, Icon, Trailing
+// Accessibility: ARIA listbox, keyboard navigation, focus management
+// ============================================================================
+
+@use '../colors' as colors;
+@use '../typography' as typography;
+@use '../shapes' as shapes;
+@use '../elevation' as elevation;
+@use '../motion' as motion;
+@use '../states' as states;
+@use '../spacing' as spacing;
+@use '../effects' as effects;
+
+// ============================================================================
+// LIST TOKENS
+// ============================================================================
+
+:root {
+  // List item dimensions
+  --md-sys-list-item-height-one-line: 56px;
+  --md-sys-list-item-height-two-line: 72px;
+  --md-sys-list-item-height-three-line: 88px;
+
+  // List item spacing
+  --md-sys-list-item-padding-horizontal: 16px;
+  --md-sys-list-item-padding-vertical: 8px;
+  --md-sys-list-item-leading-gap: 16px;
+  --md-sys-list-item-trailing-gap: 16px;
+
+  // Leading element sizes
+  --md-sys-list-leading-avatar-size: 40px;
+  --md-sys-list-leading-icon-size: 24px;
+  --md-sys-list-leading-image-size: 56px;
+  --md-sys-list-leading-video-width: 100px;
+  --md-sys-list-leading-video-height: 56px;
+
+  // Trailing element sizes
+  --md-sys-list-trailing-icon-size: 24px;
+  --md-sys-list-trailing-checkbox-size: 18px;
+
+  // List colors
+  --md-sys-color-list-surface: transparent;
+  --md-sys-color-list-headline: var(--md-sys-color-on-surface);
+  --md-sys-color-list-supporting-text: var(--md-sys-color-on-surface-variant);
+  --md-sys-color-list-trailing-text: var(--md-sys-color-on-surface-variant);
+  --md-sys-color-list-leading-icon: var(--md-sys-color-on-surface-variant);
+  --md-sys-color-list-trailing-icon: var(--md-sys-color-on-surface-variant);
+
+  // Divider
+  --md-sys-list-divider-height: 1px;
+  --md-sys-color-list-divider: var(--md-sys-color-outline-variant);
+}
+
+// ============================================================================
+// BASE LIST
+// ============================================================================
+
+.md3-list {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  background: var(--md-sys-color-list-surface);
+
+  // No padding variant
+  &--no-padding {
+    padding: 0;
+  }
+
+  // Dense variant
+  &--dense {
+    --md-sys-list-item-height-one-line: 48px;
+    --md-sys-list-item-height-two-line: 64px;
+    --md-sys-list-item-height-three-line: 76px;
+    --md-sys-list-item-padding-horizontal: 12px;
+  }
+}
+
+// ============================================================================
+// LIST ITEM - BASE
+// ============================================================================
+
+.md3-list-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: var(--md-sys-list-item-height-one-line);
+  padding: var(--md-sys-list-item-padding-vertical) var(--md-sys-list-item-padding-horizontal);
+  gap: var(--md-sys-list-item-leading-gap);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  transition: background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+
+  // State layer
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    pointer-events: none;
+    transition: background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+  }
+
+  // Hover state
+  &:hover::before {
+    background: oklch(from var(--md-sys-color-on-surface) l c h / 0.08);
+  }
+
+  // Focus state
+  &:focus-visible {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: -2px;
+  }
+
+  &:focus-visible::before {
+    background: oklch(from var(--md-sys-color-on-surface) l c h / 0.12);
+  }
+
+  // Active/pressed state
+  &:active::before {
+    background: oklch(from var(--md-sys-color-on-surface) l c h / 0.12);
+  }
+
+  // Selected state
+  &--selected {
+    &::before {
+      background: oklch(from var(--md-sys-color-primary) l c h / 0.08);
+    }
+
+    &:hover::before {
+      background: oklch(from var(--md-sys-color-primary) l c h / 0.12);
+    }
+
+    .md3-list-item__leading-icon {
+      color: var(--md-sys-color-primary);
+    }
+
+    .md3-list-item__headline {
+      color: var(--md-sys-color-primary);
+    }
+  }
+
+  // Disabled state
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.38;
+  }
+
+  // Non-interactive variant
+  &--non-interactive {
+    cursor: default;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover::before,
+    &:focus-visible::before,
+    &:active::before {
+      background: transparent;
+    }
+  }
+
+  // Two-line variant
+  &--two-line {
+    min-height: var(--md-sys-list-item-height-two-line);
+    align-items: flex-start;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    .md3-list-item__leading {
+      margin-top: 4px;
+    }
+
+    .md3-list-item__trailing {
+      margin-top: 4px;
+    }
+  }
+
+  // Three-line variant
+  &--three-line {
+    min-height: var(--md-sys-list-item-height-three-line);
+    align-items: flex-start;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    .md3-list-item__leading {
+      margin-top: 4px;
+    }
+
+    .md3-list-item__trailing {
+      margin-top: 4px;
+    }
+
+    .md3-list-item__supporting-text {
+      -webkit-line-clamp: 2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}
+
+// ============================================================================
+// LIST ITEM - LEADING ELEMENT
+// ============================================================================
+
+.md3-list-item__leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+// Leading icon
+.md3-list-item__leading-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--md-sys-list-leading-icon-size);
+  height: var(--md-sys-list-leading-icon-size);
+  color: var(--md-sys-color-list-leading-icon);
+
+  svg,
+  .material-symbols-outlined {
+    font-size: var(--md-sys-list-leading-icon-size);
+    width: var(--md-sys-list-leading-icon-size);
+    height: var(--md-sys-list-leading-icon-size);
+  }
+}
+
+// Leading avatar
+.md3-list-item__avatar {
+  width: var(--md-sys-list-leading-avatar-size);
+  height: var(--md-sys-list-leading-avatar-size);
+  border-radius: var(--md-sys-shape-corner-full);
+  object-fit: cover;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--md-sys-typescale-title-medium-font);
+  font-size: var(--md-sys-typescale-title-medium-size);
+  font-weight: var(--md-sys-typescale-title-medium-weight);
+
+  // Image inside avatar
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+  }
+}
+
+// Leading image (larger, square)
+.md3-list-item__image {
+  width: var(--md-sys-list-leading-image-size);
+  height: var(--md-sys-list-leading-image-size);
+  border-radius: var(--md-sys-shape-corner-small);
+  object-fit: cover;
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+// Leading video thumbnail
+.md3-list-item__video {
+  width: var(--md-sys-list-leading-video-width);
+  height: var(--md-sys-list-leading-video-height);
+  border-radius: var(--md-sys-shape-corner-small);
+  object-fit: cover;
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+// Leading checkbox
+.md3-list-item__checkbox {
+  width: var(--md-sys-list-trailing-checkbox-size);
+  height: var(--md-sys-list-trailing-checkbox-size);
+  accent-color: var(--md-sys-color-primary);
+}
+
+// Leading monogram (single letter circle)
+.md3-list-item__monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--md-sys-list-leading-avatar-size);
+  height: var(--md-sys-list-leading-avatar-size);
+  border-radius: var(--md-sys-shape-corner-full);
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-family: var(--md-sys-typescale-title-medium-font);
+  font-size: var(--md-sys-typescale-title-medium-size);
+  font-weight: var(--md-sys-typescale-title-medium-weight);
+}
+
+// ============================================================================
+// LIST ITEM - CONTENT
+// ============================================================================
+
+.md3-list-item__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0; // Allow text truncation
+}
+
+.md3-list-item__headline {
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  font-weight: var(--md-sys-typescale-body-large-weight);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+  color: var(--md-sys-color-list-headline);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  // Allow wrapping for multi-line
+  .md3-list-item--two-line &,
+  .md3-list-item--three-line & {
+    white-space: normal;
+  }
+}
+
+.md3-list-item__supporting-text {
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-body-medium-tracking);
+  color: var(--md-sys-color-list-supporting-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  // Allow wrapping for multi-line
+  .md3-list-item--three-line & {
+    white-space: normal;
+  }
+}
+
+.md3-list-item__overline {
+  font-family: var(--md-sys-typescale-label-small-font);
+  font-size: var(--md-sys-typescale-label-small-size);
+  font-weight: var(--md-sys-typescale-label-small-weight);
+  line-height: var(--md-sys-typescale-label-small-line-height);
+  letter-spacing: var(--md-sys-typescale-label-small-tracking);
+  color: var(--md-sys-color-list-supporting-text);
+  text-transform: uppercase;
+}
+
+// ============================================================================
+// LIST ITEM - TRAILING ELEMENT
+// ============================================================================
+
+.md3-list-item__trailing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-left: var(--md-sys-list-item-trailing-gap);
+}
+
+// Trailing icon
+.md3-list-item__trailing-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--md-sys-list-trailing-icon-size);
+  height: var(--md-sys-list-trailing-icon-size);
+  color: var(--md-sys-color-list-trailing-icon);
+
+  svg,
+  .material-symbols-outlined {
+    font-size: var(--md-sys-list-trailing-icon-size);
+    width: var(--md-sys-list-trailing-icon-size);
+    height: var(--md-sys-list-trailing-icon-size);
+  }
+}
+
+// Trailing text
+.md3-list-item__trailing-text {
+  font-family: var(--md-sys-typescale-label-small-font);
+  font-size: var(--md-sys-typescale-label-small-size);
+  font-weight: var(--md-sys-typescale-label-small-weight);
+  color: var(--md-sys-color-list-trailing-text);
+  text-align: right;
+  white-space: nowrap;
+}
+
+// Trailing supporting text (smaller text below)
+.md3-list-item__trailing-supporting {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .md3-list-item__trailing-text {
+    font-size: var(--md-sys-typescale-body-medium-size);
+    color: var(--md-sys-color-on-surface);
+  }
+}
+
+// Trailing checkbox
+.md3-list-item__trailing-checkbox {
+  width: var(--md-sys-list-trailing-checkbox-size);
+  height: var(--md-sys-list-trailing-checkbox-size);
+  accent-color: var(--md-sys-color-primary);
+}
+
+// Trailing switch
+.md3-list-item__trailing-switch {
+  // Use the switch component styles
+}
+
+// Trailing icon button
+.md3-list-item__trailing-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: var(--md-sys-shape-corner-full);
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  transition: background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    background: oklch(from var(--md-sys-color-on-surface-variant) l c h / 0.08);
+  }
+
+  &:active {
+    background: oklch(from var(--md-sys-color-on-surface-variant) l c h / 0.12);
+  }
+
+  svg,
+  .material-symbols-outlined {
+    font-size: var(--md-sys-list-trailing-icon-size);
+  }
+}
+
+// ============================================================================
+// LIST DIVIDER
+// ============================================================================
+
+.md3-list-divider {
+  height: var(--md-sys-list-divider-height);
+  background: var(--md-sys-color-list-divider);
+  border: none;
+  margin: 0;
+
+  // Full width divider
+  &--full-width {
+    margin-inline: 0;
+  }
+
+  // Inset divider (aligned with content)
+  &--inset {
+    margin-inline-start: calc(var(--md-sys-list-item-padding-horizontal) + var(--md-sys-list-leading-icon-size) + var(--md-sys-list-item-leading-gap));
+  }
+
+  // Inset with avatar
+  &--inset-avatar {
+    margin-inline-start: calc(var(--md-sys-list-item-padding-horizontal) + var(--md-sys-list-leading-avatar-size) + var(--md-sys-list-item-leading-gap));
+  }
+
+  // Middle inset (both sides)
+  &--middle {
+    margin-inline: var(--md-sys-list-item-padding-horizontal);
+  }
+}
+
+// ============================================================================
+// LIST SUBHEADER
+// ============================================================================
+
+.md3-list-subheader {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 var(--md-sys-list-item-padding-horizontal);
+  font-family: var(--md-sys-typescale-title-small-font);
+  font-size: var(--md-sys-typescale-title-small-size);
+  font-weight: var(--md-sys-typescale-title-small-weight);
+  line-height: var(--md-sys-typescale-title-small-line-height);
+  letter-spacing: var(--md-sys-typescale-title-small-tracking);
+  color: var(--md-sys-color-on-surface-variant);
+
+  // Primary color variant
+  &--primary {
+    color: var(--md-sys-color-primary);
+  }
+
+  // Inset variant (aligned with content)
+  &--inset {
+    padding-left: calc(var(--md-sys-list-item-padding-horizontal) + var(--md-sys-list-leading-icon-size) + var(--md-sys-list-item-leading-gap));
+  }
+}
+
+// ============================================================================
+// LIST GROUP
+// ============================================================================
+
+.md3-list-group {
+  // Collapsed state animation
+  &__items {
+    overflow: hidden;
+    transition:
+      max-height var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized),
+      opacity var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+  }
+
+  &--collapsed {
+    .md3-list-group__items {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    .md3-list-group__expand-icon {
+      transform: rotate(0deg);
+    }
+  }
+
+  &--expanded {
+    .md3-list-group__items {
+      max-height: 1000px;
+      opacity: 1;
+    }
+
+    .md3-list-group__expand-icon {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.md3-list-group__header {
+  display: flex;
+  align-items: center;
+  padding: var(--md-sys-list-item-padding-vertical) var(--md-sys-list-item-padding-horizontal);
+  cursor: pointer;
+}
+
+.md3-list-group__expand-icon {
+  margin-left: auto;
+  transition: transform var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+// ============================================================================
+// NAVIGATION LIST
+// ============================================================================
+
+.md3-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+}
+
+.md3-nav-list-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 0 16px 0 16px;
+  border-radius: var(--md-sys-shape-corner-full);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--md-sys-color-on-surface-variant);
+  outline: none;
+  transition:
+    background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard),
+    color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    background: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-on-surface);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: 2px;
+  }
+
+  &--active {
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+
+    &:hover {
+      background: oklch(from var(--md-sys-color-secondary-container) calc(l - 0.05) c h);
+    }
+  }
+}
+
+.md3-nav-list-item__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+
+  svg,
+  .material-symbols-outlined {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.md3-nav-list-item__label {
+  flex: 1;
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+}
+
+.md3-nav-list-item__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  background: var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+  border-radius: var(--md-sys-shape-corner-full);
+  font-family: var(--md-sys-typescale-label-small-font);
+  font-size: var(--md-sys-typescale-label-small-size);
+  font-weight: var(--md-sys-typescale-label-small-weight);
+}
+
+// ============================================================================
+// REORDERABLE LIST
+// ============================================================================
+
+.md3-list-item--draggable {
+  .md3-list-item__drag-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: -8px;
+    cursor: grab;
+    color: var(--md-sys-color-on-surface-variant);
+    touch-action: none;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
+
+.md3-list-item--dragging {
+  opacity: 0.5;
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+.md3-list-item--drop-target {
+  &::after {
+    content: '';
+    position: absolute;
+    left: var(--md-sys-list-item-padding-horizontal);
+    right: var(--md-sys-list-item-padding-horizontal);
+    bottom: -1px;
+    height: 2px;
+    background: var(--md-sys-color-primary);
+  }
+}
+
+// ============================================================================
+// SWIPEABLE LIST ITEM
+// ============================================================================
+
+.md3-list-item--swipeable {
+  position: relative;
+  overflow: hidden;
+
+  .md3-list-item__swipe-actions {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 0;
+
+    &--start {
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    &--end {
+      right: 0;
+      transform: translateX(100%);
+    }
+  }
+
+  .md3-list-item__swipe-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 72px;
+    height: 100%;
+    padding: 0 24px;
+    color: var(--md-sys-color-on-primary);
+    font-family: var(--md-sys-typescale-label-large-font);
+    font-size: var(--md-sys-typescale-label-large-size);
+
+    &--delete {
+      background: var(--md-sys-color-error);
+      color: var(--md-sys-color-on-error);
+    }
+
+    &--archive {
+      background: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+  }
+}
+
+// ============================================================================
+// VIRTUAL LIST (for large lists)
+// ============================================================================
+
+.md3-virtual-list {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  &__viewport {
+    position: relative;
+    width: 100%;
+  }
+
+  &__spacer {
+    width: 100%;
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+// ============================================================================
+// GLASS LIST VARIANT
+// ============================================================================
+
+.md3-list--glass {
+  background: var(--md-sys-color-glass-surface);
+  backdrop-filter: blur(var(--md-sys-glass-blur));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur));
+  border-radius: var(--md-sys-shape-corner-large);
+  border: 1px solid var(--md-sys-color-glass-border);
+}
+
+.md3-list-item--glass {
+  &:hover::before {
+    background: oklch(from var(--md-sys-color-on-surface) l c h / 0.04);
+  }
+
+  &:active::before {
+    background: oklch(from var(--md-sys-color-on-surface) l c h / 0.08);
+  }
+}
+
+// ============================================================================
+// LIST MIXINS
+// ============================================================================
+
+@mixin list-item-base {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: var(--md-sys-list-item-height-one-line);
+  padding: var(--md-sys-list-item-padding-vertical) var(--md-sys-list-item-padding-horizontal);
+  gap: var(--md-sys-list-item-leading-gap);
+  cursor: pointer;
+}
+
+@mixin list-item-state-layer {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    pointer-events: none;
+    transition: background-color var(--md-sys-motion-duration-short-2) var(--md-sys-motion-easing-standard);
+  }
+
+  &:hover::before {
+    background: oklch(from var(--md-sys-color-on-surface) l c h / 0.08);
+  }
+}
+
+@mixin list-item-headline {
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  font-weight: var(--md-sys-typescale-body-large-weight);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  color: var(--md-sys-color-list-headline);
+}
+
+@mixin list-item-supporting {
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  color: var(--md-sys-color-list-supporting-text);
+}
+
+// ============================================================================
+// RESPONSIVE BEHAVIOR
+// ============================================================================
+
+@media (max-width: 599px) {
+  :root {
+    --md-sys-list-item-height-one-line: 48px;
+    --md-sys-list-item-height-two-line: 64px;
+    --md-sys-list-item-height-three-line: 76px;
+    --md-sys-list-item-padding-horizontal: 16px;
+    --md-sys-list-leading-video-width: 80px;
+    --md-sys-list-leading-video-height: 45px;
+  }
+
+  .md3-nav-list {
+    padding: 8px;
+  }
+
+  .md3-nav-list-item {
+    min-height: 48px;
+  }
+}
+
+// ============================================================================
+// REDUCED MOTION
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .md3-list-item,
+  .md3-nav-list-item,
+  .md3-list-group__items,
+  .md3-list-group__expand-icon,
+  .md3-list-item__trailing-button {
+    transition: none;
+  }
+
+  .md3-list-item::before {
+    transition: none;
+  }
+}
+
+// ============================================================================
+// PRINT STYLES
+// ============================================================================
+
+@media print {
+  .md3-list {
+    padding: 0;
+  }
+
+  .md3-list-item {
+    min-height: auto;
+    padding: 8px 0;
+    page-break-inside: avoid;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .md3-list-divider {
+    border-bottom: 1px solid #ccc;
+    background: none;
+  }
+
+  .md3-list-item__leading-icon,
+  .md3-list-item__trailing-icon,
+  .md3-list-item__trailing-button,
+  .md3-list-item__drag-handle {
+    display: none;
+  }
+
+  .md3-nav-list,
+  .md3-list--glass {
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+  }
+}
+
+// ============================================================================
+// HIGH CONTRAST MODE
+// ============================================================================
+
+@media (prefers-contrast: more) {
+  .md3-list-item {
+    border-bottom: 1px solid var(--md-sys-color-on-surface);
+
+    &--selected {
+      border: 2px solid var(--md-sys-color-primary);
+    }
+  }
+
+  .md3-list-item__headline {
+    font-weight: 600;
+  }
+
+  .md3-list-divider {
+    height: 2px;
+    background: var(--md-sys-color-on-surface);
+  }
+
+  .md3-list-subheader {
+    font-weight: 700;
+  }
+
+  .md3-nav-list-item--active {
+    border: 2px solid var(--md-sys-color-primary);
+  }
+
+  // Glass effects disabled in high contrast
+  .md3-list--glass {
+    background: var(--md-sys-color-surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 2px solid var(--md-sys-color-on-surface);
+  }
+}
+
+// ============================================================================
+// FORCED COLORS MODE (Windows High Contrast)
+// ============================================================================
+
+@media (forced-colors: active) {
+  .md3-list-item {
+    border-bottom: 1px solid CanvasText;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      outline: 2px solid Highlight;
+    }
+
+    &--selected {
+      background: Highlight;
+      color: HighlightText;
+    }
+  }
+
+  .md3-list-item__headline,
+  .md3-list-item__supporting-text,
+  .md3-list-item__trailing-text {
+    color: CanvasText;
+  }
+
+  .md3-list-item--selected .md3-list-item__headline,
+  .md3-list-item--selected .md3-list-item__supporting-text {
+    color: HighlightText;
+  }
+
+  .md3-list-item__leading-icon,
+  .md3-list-item__trailing-icon {
+    color: CanvasText;
+    forced-color-adjust: none;
+  }
+
+  .md3-list-divider {
+    background: CanvasText;
+  }
+
+  .md3-list-subheader {
+    color: CanvasText;
+  }
+
+  .md3-nav-list-item {
+    border: 1px solid CanvasText;
+
+    &--active {
+      background: Highlight;
+      color: HighlightText;
+    }
+  }
+
+  .md3-nav-list-item__badge {
+    background: Highlight;
+    color: HighlightText;
+  }
+}

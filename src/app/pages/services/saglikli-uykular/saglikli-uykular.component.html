@@ -1,15 +1,11 @@
 <div class="healthy-sleep-page">
-  <!-- MD3 Hero Section -->
-  <app-hero-section
-    title="SERVICES.SERVICE_SLEEP.HERO_TITLE"
-    subtitle="SERVICES.SERVICE_SLEEP.HERO_SUBTITLE"
-    colorTheme="teal"
-    [breadcrumbs]="[
-      { label: 'HEADER.NAV_HOME', link: '/' },
-      { label: 'HEADER.NAV_SERVICES', link: '/hizmetlerimiz' },
-      { label: 'SERVICES.SERVICE_SLEEP.TITLE' }
-    ]">
-  </app-hero-section>
+  <app-page-header
+    [title]="'SERVICES.SERVICE_SLEEP.HERO_TITLE' | translate"
+    [subtitle]="'SERVICES.SERVICE_SLEEP.HERO_SUBTITLE' | translate"
+    [breadcrumbs]="breadcrumbs">
+  </app-page-header>
+
+  <main class="page-content">
 
   <!-- Introduction Section -->
   <section class="intro-section">
@@ -30,15 +26,15 @@
           <div class="md3-card-content">
             <div class="md3-list">
               <div class="md3-list-item">
-                <span class="material-icons md3-list-icon">check_circle</span>
+                <span class="material-icons-rounded md3-list-icon">check_circle</span>
                 <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.PERSONALIZED_APPROACH' | translate }}</span>
               </div>
               <div class="md3-list-item">
-                <span class="material-icons md3-list-icon">check_circle</span>
+                <span class="material-icons-rounded md3-list-icon">check_circle</span>
                 <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.SCIENTIFIC_METHODS' | translate }}</span>
               </div>
               <div class="md3-list-item">
-                <span class="material-icons md3-list-icon">check_circle</span>
+                <span class="material-icons-rounded md3-list-icon">check_circle</span>
                 <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.CONTINUOUS_SUPPORT' | translate }}</span>
               </div>
             </div>
@@ -61,7 +57,7 @@
         <div class="md3-card md3-card-elevated md3-card-interactive">
           <div class="md3-card-media">
             <div class="md3-icon-container md3-icon-tertiary">
-              <span class="material-icons">bedtime</span>
+              <span class="material-icons-rounded">bedtime</span>
             </div>
           </div>
           <div class="md3-card-content">
@@ -85,7 +81,7 @@
         <div class="md3-card md3-card-elevated md3-card-interactive">
           <div class="md3-card-media">
             <div class="md3-icon-container md3-icon-primary">
-              <span class="material-icons">wb_sunny</span>
+              <span class="material-icons-rounded">wb_sunny</span>
             </div>
           </div>
           <div class="md3-card-content">
@@ -94,11 +90,11 @@
 
             <div class="md3-chip-group md3-chip-group-small">
               <span class="md3-chip md3-chip-suggestion">
-                <span class="material-icons">light_mode</span>
+                <span class="material-icons-rounded">light_mode</span>
                 {{ 'SERVICES.SERVICE_SLEEP.DAYLIGHT' | translate }}
               </span>
               <span class="md3-chip md3-chip-suggestion">
-                <span class="material-icons">dark_mode</span>
+                <span class="material-icons-rounded">dark_mode</span>
                 {{ 'SERVICES.SERVICE_SLEEP.MELATONIN' | translate }}
               </span>
             </div>
@@ -109,7 +105,7 @@
         <div class="md3-card md3-card-elevated md3-card-interactive">
           <div class="md3-card-media">
             <div class="md3-icon-container md3-icon-secondary">
-              <span class="material-icons">hourglass_empty</span>
+              <span class="material-icons-rounded">hourglass_empty</span>
             </div>
           </div>
           <div class="md3-card-content">
@@ -192,19 +188,19 @@
             <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.KEY_PRINCIPLES' | translate }}</h4>
             <ul class="md3-list md3-list-compact">
               <li class="md3-list-item">
-                <span class="material-icons md3-list-icon-small">arrow_right</span>
+                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
                 {{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_1' | translate }}
               </li>
               <li class="md3-list-item">
-                <span class="material-icons md3-list-icon-small">arrow_right</span>
+                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
                 {{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_2' | translate }}
               </li>
               <li class="md3-list-item">
-                <span class="material-icons md3-list-icon-small">arrow_right</span>
+                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
                 {{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_3' | translate }}
               </li>
               <li class="md3-list-item">
-                <span class="material-icons md3-list-icon-small">arrow_right</span>
+                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
                 {{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_4' | translate }}
               </li>
             </ul>
@@ -225,19 +221,19 @@
             <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.KEY_TECHNIQUES' | translate }}</h4>
             <ul class="md3-list md3-list-compact">
               <li class="md3-list-item">
-                <span class="material-icons md3-list-icon-small">arrow_right</span>
+                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
                 {{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_1' | translate }}
               </li>
               <li class="md3-list-item">
-                <span class="material-icons md3-list-icon-small">arrow_right</span>
+                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
                 {{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_2' | translate }}
               </li>
               <li class="md3-list-item">
-                <span class="material-icons md3-list-icon-small">arrow_right</span>
+                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
                 {{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_3' | translate }}
               </li>
               <li class="md3-list-item">
-                <span class="material-icons md3-list-icon-small">arrow_right</span>
+                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
                 {{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_4' | translate }}
               </li>
             </ul>
@@ -250,7 +246,7 @@
         <div class="md3-card md3-card-elevated md3-card-primary">
           <div class="md3-card-content">
             <div class="md3-icon-container md3-icon-primary-container">
-              <span class="material-icons">hub</span>
+              <span class="material-icons-rounded">hub</span>
             </div>
             <h3 class="md3-headline-medium">{{ 'SERVICES.SERVICE_SLEEP.COMBINED_TITLE' | translate }}</h3>
             <p class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.COMBINED_DESC' | translate }}</p>
@@ -337,7 +333,7 @@
 
         <div class="md3-timeline-item">
           <div class="md3-timeline-marker md3-timeline-marker-complete">
-            <span class="material-icons">check</span>
+            <span class="material-icons-rounded">check</span>
           </div>
           <div class="md3-timeline-content">
             <div class="md3-card md3-card-filled md3-card-success">
@@ -363,9 +359,9 @@
         <!-- Nap Challenges -->
         <div class="md3-accordion-item">
           <button class="md3-accordion-header" (click)="toggleAccordion($event)">
-            <span class="material-icons">hotel</span>
+            <span class="material-icons-rounded">hotel</span>
             <span class="md3-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_NAP' | translate }}</span>
-            <span class="material-icons md3-accordion-icon">expand_more</span>
+            <span class="material-icons-rounded md3-accordion-icon">expand_more</span>
           </button>
           <div class="md3-accordion-content">
             <div class="md3-accordion-body">
@@ -386,9 +382,9 @@
         <!-- Separation Anxiety -->
         <div class="md3-accordion-item">
           <button class="md3-accordion-header" (click)="toggleAccordion($event)">
-            <span class="material-icons">child_care</span>
+            <span class="material-icons-rounded">child_care</span>
             <span class="md3-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_SEPARATION' | translate }}</span>
-            <span class="material-icons md3-accordion-icon">expand_more</span>
+            <span class="material-icons-rounded md3-accordion-icon">expand_more</span>
           </button>
           <div class="md3-accordion-content">
             <div class="md3-accordion-body">
@@ -409,9 +405,9 @@
         <!-- Feeding Association -->
         <div class="md3-accordion-item">
           <button class="md3-accordion-header" (click)="toggleAccordion($event)">
-            <span class="material-icons">restaurant</span>
+            <span class="material-icons-rounded">restaurant</span>
             <span class="md3-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING' | translate }}</span>
-            <span class="material-icons md3-accordion-icon">expand_more</span>
+            <span class="material-icons-rounded md3-accordion-icon">expand_more</span>
           </button>
           <div class="md3-accordion-content">
             <div class="md3-accordion-body">
@@ -460,9 +456,9 @@
         <!-- Illness Periods -->
         <div class="md3-accordion-item">
           <button class="md3-accordion-header" (click)="toggleAccordion($event)">
-            <span class="material-icons">medical_services</span>
+            <span class="material-icons-rounded">medical_services</span>
             <span class="md3-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_ILLNESS' | translate }}</span>
-            <span class="material-icons md3-accordion-icon">expand_more</span>
+            <span class="material-icons-rounded md3-accordion-icon">expand_more</span>
           </button>
           <div class="md3-accordion-content">
             <div class="md3-accordion-body">
@@ -506,15 +502,15 @@
           <div class="md3-package-content">
             <ul class="md3-package-features">
               <li class="md3-package-feature">
-                <span class="material-icons">check</span>
+                <span class="material-icons-rounded">check</span>
                 {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_1' | translate }}
               </li>
               <li class="md3-package-feature">
-                <span class="material-icons">check</span>
+                <span class="material-icons-rounded">check</span>
                 {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_2' | translate }}
               </li>
               <li class="md3-package-feature">
-                <span class="material-icons">check</span>
+                <span class="material-icons-rounded">check</span>
                 {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_3' | translate }}
               </li>
             </ul>
@@ -523,7 +519,7 @@
             <a href="https://wa.me/905333971416?text=Sağlıklı%20Uykular%20Danışmanlık%20Paketi%20hakkında%20bilgi%20almak%20istiyorum"
                target="_blank"
                class="md3-button md3-button-outlined md3-button-full-width">
-              <span class="material-icons">whatsapp</span>
+              <span class="material-icons-rounded">chat</span>
               {{ 'SERVICES.SERVICE_SLEEP.GET_INFO' | translate }}
             </a>
           </div>
@@ -538,19 +534,19 @@
           <div class="md3-package-content">
             <ul class="md3-package-features">
               <li class="md3-package-feature">
-                <span class="material-icons">check</span>
+                <span class="material-icons-rounded">check</span>
                 {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_4' | translate }}
               </li>
               <li class="md3-package-feature">
-                <span class="material-icons">check</span>
+                <span class="material-icons-rounded">check</span>
                 {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_5' | translate }}
               </li>
               <li class="md3-package-feature">
-                <span class="material-icons">check</span>
+                <span class="material-icons-rounded">check</span>
                 {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_6' | translate }}
               </li>
               <li class="md3-package-feature">
-                <span class="material-icons">check</span>
+                <span class="material-icons-rounded">check</span>
                 {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_7' | translate }}
               </li>
             </ul>
@@ -559,7 +555,7 @@
             <a href="https://wa.me/905333971416?text=13%20Günlük%20Uyku%20Programı%20hakkında%20bilgi%20almak%20istiyorum"
                target="_blank"
                class="md3-button md3-button-filled md3-button-full-width">
-              <span class="material-icons">whatsapp</span>
+              <span class="material-icons-rounded">chat</span>
               {{ 'SERVICES.SERVICE_SLEEP.GET_INFO' | translate }}
             </a>
           </div>
@@ -574,15 +570,15 @@
           <div class="md3-package-content">
             <ul class="md3-package-features">
               <li class="md3-package-feature">
-                <span class="material-icons">check</span>
+                <span class="material-icons-rounded">check</span>
                 {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_8' | translate }}
               </li>
               <li class="md3-package-feature">
-                <span class="material-icons">check</span>
+                <span class="material-icons-rounded">check</span>
                 {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_9' | translate }}
               </li>
               <li class="md3-package-feature">
-                <span class="material-icons">check</span>
+                <span class="material-icons-rounded">check</span>
                 {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_10' | translate }}
               </li>
             </ul>
@@ -591,7 +587,7 @@
             <a href="https://wa.me/905333971416?text=Uyku%20Takip%20Paketi%20hakkında%20bilgi%20almak%20istiyorum"
                target="_blank"
                class="md3-button md3-button-outlined md3-button-full-width">
-              <span class="material-icons">whatsapp</span>
+              <span class="material-icons-rounded">chat</span>
               {{ 'SERVICES.SERVICE_SLEEP.GET_INFO' | translate }}
             </a>
           </div>
@@ -631,28 +627,7 @@
     </div>
   </section>
 
-  <!-- CTA Section with Global Styles -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <!-- Title -->
-        <h3 class="cta-title">{{ 'SERVICES.SERVICE_SLEEP.CTA.TITLE' | translate }}</h3>
+  </main>
 
-        <!-- Description -->
-        <p class="cta-description">{{ 'SERVICES.SERVICE_SLEEP.CTA.SUBTITLE' | translate }}</p>
-
-        <!-- CTA Buttons -->
-        <div class="cta-buttons">
-          <a routerLink="/iletisim" class="btn-primary">
-            <i class="fas fa-calendar-check"></i>
-            <span>{{ 'SERVICES.SERVICE_SLEEP.CTA.APPOINTMENT_BUTTON' | translate }}</span>
-          </a>
-          <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
-            <i class="fab fa-whatsapp"></i>
-            <span>WhatsApp</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <app-contact-cta></app-contact-cta>
 </div>

@@ -1,0 +1,1470 @@
+// ============================================================================
+// _print.scss - MD3 Expressive 2025 Print System
+// Dr. Ozlem Murzoglu Pediatri Klinigi
+// ============================================================================
+//
+// Table of Contents:
+// 1. Print CSS Variables
+// 2. Base Document Styles
+// 3. Typography for Print
+// 4. Links and References
+// 5. Images and Media
+// 6. Hidden Elements
+// 7. Layout Adjustments
+// 8. Page Break Control
+// 9. Tables
+// 10. Code Blocks
+// 11. Blockquotes and Lists
+// 12. Cards and Components
+// 13. Hero Sections
+// 14. MD3 Component Print Styles
+// 15. Page Margins and Headers/Footers
+// 16. Accessibility for Print
+// 17. Material Icons
+// 18. Print Utility Classes
+// 19. Print Mixins
+//
+// ============================================================================
+
+// ============================================================================
+// SECTION 1: PRINT CSS VARIABLES
+// ============================================================================
+
+:root {
+  // Print-specific tokens (applied in @media print)
+  --md-print-font-body: Georgia, 'Times New Roman', Times, serif;
+  --md-print-font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --md-print-font-mono: 'Courier New', Courier, monospace;
+
+  // Print font sizes (in points)
+  --md-print-size-base: 11pt;
+  --md-print-size-sm: 9pt;
+  --md-print-size-lg: 12pt;
+  --md-print-size-h1: 24pt;
+  --md-print-size-h2: 18pt;
+  --md-print-size-h3: 14pt;
+  --md-print-size-h4: 12pt;
+  --md-print-size-code: 10pt;
+  --md-print-size-caption: 8pt;
+
+  // Print colors
+  --md-print-color-text: #000000;
+  --md-print-color-text-secondary: #333333;
+  --md-print-color-text-muted: #666666;
+  --md-print-color-border: #333333;
+  --md-print-color-border-light: #cccccc;
+  --md-print-color-bg: #ffffff;
+  --md-print-color-bg-muted: #f5f5f5;
+  --md-print-color-bg-accent: #eeeeee;
+
+  // Print spacing (in points)
+  --md-print-spacing-xs: 4pt;
+  --md-print-spacing-sm: 6pt;
+  --md-print-spacing-md: 8pt;
+  --md-print-spacing-lg: 12pt;
+  --md-print-spacing-xl: 16pt;
+  --md-print-spacing-2xl: 24pt;
+
+  // Print line heights
+  --md-print-line-height-tight: 1.3;
+  --md-print-line-height-normal: 1.5;
+  --md-print-line-height-relaxed: 1.6;
+
+  // Page margins (in cm)
+  --md-print-margin-top: 2cm;
+  --md-print-margin-right: 2cm;
+  --md-print-margin-bottom: 2.5cm;
+  --md-print-margin-left: 2cm;
+}
+
+// ============================================================================
+// SECTION 2: BASE DOCUMENT STYLES
+// ============================================================================
+
+@media print {
+  // Reset all elements for print
+  *,
+  *::before,
+  *::after {
+    // Remove visual effects
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    // Remove animations
+    transition: none !important;
+    animation: none !important;
+    animation-duration: 0s !important;
+
+    // Ensure color accuracy
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  html {
+    font-size: 12pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: var(--md-print-color-bg) !important;
+    color: var(--md-print-color-text) !important;
+    font-family: var(--md-print-font-body);
+    font-size: var(--md-print-size-base);
+    line-height: var(--md-print-line-height-relaxed);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  // ============================================================================
+  // SECTION 3: TYPOGRAPHY FOR PRINT
+  // ============================================================================
+
+  // Headings
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: var(--md-print-color-text) !important;
+    font-family: var(--md-print-font-heading);
+    font-weight: 700;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    break-after: avoid;
+    break-inside: avoid;
+    orphans: 3;
+    widows: 3;
+    margin-top: var(--md-print-spacing-lg);
+
+    // Remove any gradient text effects
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: var(--md-print-color-text) !important;
+    text-fill-color: var(--md-print-color-text) !important;
+  }
+
+  h1, .h1 {
+    font-size: var(--md-print-size-h1);
+    margin-bottom: var(--md-print-spacing-lg);
+    line-height: var(--md-print-line-height-tight);
+  }
+
+  h2, .h2 {
+    font-size: var(--md-print-size-h2);
+    margin-bottom: var(--md-print-spacing-md);
+    padding-bottom: var(--md-print-spacing-xs);
+    border-bottom: 1pt solid var(--md-print-color-border);
+  }
+
+  h3, .h3 {
+    font-size: var(--md-print-size-h3);
+    margin-bottom: var(--md-print-spacing-md);
+  }
+
+  h4, h5, h6,
+  .h4, .h5, .h6 {
+    font-size: var(--md-print-size-h4);
+    margin-bottom: var(--md-print-spacing-sm);
+  }
+
+  // Body text
+  p {
+    font-size: var(--md-print-size-base);
+    line-height: var(--md-print-line-height-relaxed);
+    margin-bottom: var(--md-print-spacing-md);
+    orphans: 3;
+    widows: 3;
+  }
+
+  // Text utilities
+  .lead,
+  .subtitle {
+    font-size: var(--md-print-size-lg);
+    color: var(--md-print-color-text-secondary) !important;
+  }
+
+  small,
+  .small,
+  .caption {
+    font-size: var(--md-print-size-sm);
+    color: var(--md-print-color-text-muted) !important;
+  }
+
+  strong, b {
+    font-weight: 700;
+  }
+
+  em, i {
+    font-style: italic;
+  }
+
+  // ============================================================================
+  // SECTION 4: LINKS AND REFERENCES
+  // ============================================================================
+
+  a,
+  a:visited,
+  a:link {
+    color: var(--md-print-color-text) !important;
+    text-decoration: underline;
+    text-decoration-thickness: 0.5pt;
+    text-underline-offset: 2pt;
+  }
+
+  // Show URLs after external links in content areas
+  article a[href^='http']::after,
+  main a[href^='http']::after,
+  .content a[href^='http']::after,
+  .article-content a[href^='http']::after,
+  .resource-content a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: var(--md-print-size-sm);
+    color: var(--md-print-color-text-muted);
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  // Don't show URLs for these links
+  a[href^='#']::after,
+  a[href^='/']::after,
+  a[href^='tel:']::after,
+  a[href^='mailto:']::after,
+  nav a::after,
+  header a::after,
+  footer a::after,
+  .breadcrumb a::after,
+  .pagination a::after,
+  .nav a::after,
+  .navbar a::after,
+  .button a::after,
+  .btn a::after,
+  .cta a::after {
+    content: none !important;
+  }
+
+  // Phone numbers - show formatted
+  a[href^='tel:'] {
+    white-space: nowrap;
+  }
+
+  // Email links - show email
+  a[href^='mailto:']::after {
+    content: ' (' attr(href) ')' !important;
+    content: none !important;
+  }
+
+  // ============================================================================
+  // SECTION 5: IMAGES AND MEDIA
+  // ============================================================================
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  // Keep color for important images
+  img.logo,
+  img.avatar,
+  img.photo,
+  img.product-image,
+  img.brand-logo,
+  .logo img,
+  .avatar img {
+    filter: none !important;
+  }
+
+  // Convert decorative images to grayscale (optional - uncomment if needed)
+  // img:not(.logo):not(.avatar):not(.photo):not(.product-image) {
+  //   filter: grayscale(100%);
+  // }
+
+  // Figure and figcaption
+  figure {
+    margin: var(--md-print-spacing-lg) 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  figcaption {
+    font-size: var(--md-print-size-sm);
+    font-style: italic;
+    color: var(--md-print-color-text-muted);
+    margin-top: var(--md-print-spacing-xs);
+    text-align: center;
+  }
+
+  // SVG handling
+  svg {
+    max-width: 100%;
+    height: auto;
+    page-break-inside: avoid;
+
+    // Make SVG visible in print
+    * {
+      fill: currentColor !important;
+      stroke: currentColor !important;
+    }
+  }
+
+  // Hide video, audio, and iframes
+  video,
+  audio,
+  iframe,
+  embed,
+  object,
+  canvas,
+  .video-container,
+  .video-wrapper,
+  .iframe-wrapper,
+  .embed-responsive {
+    display: none !important;
+  }
+
+  // Show placeholder for videos
+  .video-placeholder-print {
+    display: block !important;
+    background: var(--md-print-color-bg-muted);
+    border: 1pt solid var(--md-print-color-border-light);
+    padding: var(--md-print-spacing-lg);
+    text-align: center;
+    font-style: italic;
+    color: var(--md-print-color-text-muted);
+  }
+
+  // ============================================================================
+  // SECTION 6: HIDDEN ELEMENTS
+  // ============================================================================
+
+  // Navigation elements
+  header,
+  footer,
+  nav,
+  .nav,
+  .navbar,
+  .navigation,
+  .header,
+  .footer,
+  .site-header,
+  .site-footer,
+  .page-header,
+  .sticky-header,
+  .fixed-header {
+    display: none !important;
+  }
+
+  // Sidebar and aside
+  aside,
+  .sidebar,
+  .aside,
+  .side-nav,
+  .side-panel,
+  .sidebar-container {
+    display: none !important;
+  }
+
+  // Buttons and interactive elements
+  button,
+  .btn,
+  .button,
+  [class*='btn-'],
+  [class*='button-'],
+  input[type='submit'],
+  input[type='button'],
+  input[type='reset'],
+  .fab,
+  .floating-action-button {
+    display: none !important;
+  }
+
+  // Forms
+  form,
+  .form,
+  .form-group,
+  .form-control,
+  input:not([type='hidden']),
+  select,
+  textarea,
+  .input-group,
+  .search-box,
+  .search-form,
+  .contact-form,
+  .newsletter-form {
+    display: none !important;
+  }
+
+  // Decorative elements
+  .hero-pattern,
+  .hero-overlay,
+  .hero-background,
+  .gradient-overlay,
+  .background-decoration,
+  .decorative,
+  .ambient-gradient,
+  .aurora-bg,
+  .mesh-gradient,
+  .floating-shapes,
+  .animated-bg {
+    display: none !important;
+  }
+
+  // Animation classes
+  [class*='animation'],
+  [class*='animate-'],
+  .animated,
+  .lottie,
+  .lottie-animation {
+    display: none !important;
+  }
+
+  // Interactive elements
+  .modal,
+  .dialog,
+  .popup,
+  .tooltip,
+  .dropdown,
+  .dropdown-menu,
+  .menu,
+  .popover,
+  .toast,
+  .snackbar,
+  .notification,
+  .alert-banner {
+    display: none !important;
+  }
+
+  // Widgets
+  .cookie-banner,
+  .cookie-consent,
+  .chat-widget,
+  .chatbot,
+  .social-share,
+  .share-buttons,
+  .social-links,
+  .back-to-top,
+  .scroll-to-top,
+  .progress-bar,
+  .loading-spinner,
+  .skeleton,
+  .shimmer {
+    display: none !important;
+  }
+
+  // CTAs
+  .cta-section,
+  .cta-buttons,
+  .cta-icon,
+  .cta-banner,
+  .hero-ctas,
+  .action-buttons,
+  .floating-cta {
+    display: none !important;
+  }
+
+  // Maps
+  .map,
+  .google-map,
+  .map-container,
+  .leaflet-container,
+  #map {
+    display: none !important;
+  }
+
+  // Carousels and sliders
+  .carousel,
+  .slider,
+  .swiper,
+  .slick,
+  .owl-carousel,
+  .carousel-indicators,
+  .carousel-controls {
+    // Show first slide only
+    .slide:not(:first-child),
+    .carousel-item:not(:first-child),
+    .swiper-slide:not(:first-child) {
+      display: none !important;
+    }
+
+    // Hide controls
+    .carousel-control,
+    .carousel-arrow,
+    .swiper-button-prev,
+    .swiper-button-next,
+    .carousel-dots,
+    .swiper-pagination {
+      display: none !important;
+    }
+  }
+
+  // ============================================================================
+  // SECTION 7: LAYOUT ADJUSTMENTS
+  // ============================================================================
+
+  // Remove fixed/sticky positioning
+  [style*='position: fixed'],
+  [style*='position: sticky'],
+  .fixed,
+  .sticky,
+  .fixed-top,
+  .fixed-bottom,
+  .sticky-top {
+    position: static !important;
+  }
+
+  // Full width containers
+  .container,
+  .container-fluid,
+  .content,
+  .wrapper,
+  main,
+  article,
+  section,
+  .main-content,
+  .page-content,
+  .article-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: var(--md-print-spacing-md) 0 !important;
+    float: none !important;
+  }
+
+  // Simplify grid layouts
+  .grid,
+  [class*='grid-'],
+  .row,
+  .flex,
+  [class*='flex-'],
+  .d-flex,
+  .d-grid {
+    display: block !important;
+  }
+
+  // Grid/flex children
+  .col,
+  [class*='col-'],
+  .grid-item,
+  .flex-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    margin-bottom: var(--md-print-spacing-md);
+  }
+
+  // Two-column layouts for certain elements
+  .two-column-print {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--md-print-spacing-lg) !important;
+  }
+
+  // ============================================================================
+  // SECTION 8: PAGE BREAK CONTROL
+  // ============================================================================
+
+  // Prevent breaks inside these elements
+  blockquote,
+  pre,
+  code,
+  table,
+  figure,
+  img,
+  .card,
+  .feature-card,
+  .service-card,
+  .info-card,
+  .testimonial,
+  .quote-block,
+  .callout,
+  .alert,
+  .box,
+  .panel,
+  [class*='-card'],
+  [class*='-box'] {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  // Always start new page before these
+  .page-break-before,
+  .section-break,
+  .chapter,
+  .new-page {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  // Never break after these
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6,
+  dt,
+  .section-title,
+  .card-title {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  // Orphans and widows control
+  p, li, dd {
+    orphans: 3;
+    widows: 3;
+  }
+
+  // ============================================================================
+  // SECTION 9: TABLES
+  // ============================================================================
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    page-break-inside: auto;
+    font-size: var(--md-print-size-sm);
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
+  }
+
+  tbody {
+    display: table-row-group;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  th,
+  td {
+    border: 1pt solid var(--md-print-color-border);
+    padding: var(--md-print-spacing-sm);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: var(--md-print-color-bg-accent) !important;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  // Zebra striping (optional)
+  tbody tr:nth-child(even) {
+    background: var(--md-print-color-bg-muted) !important;
+  }
+
+  // Caption
+  caption {
+    font-size: var(--md-print-size-sm);
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: var(--md-print-spacing-sm);
+    color: var(--md-print-color-text-secondary);
+  }
+
+  // ============================================================================
+  // SECTION 10: CODE BLOCKS
+  // ============================================================================
+
+  pre,
+  code,
+  kbd,
+  samp {
+    font-family: var(--md-print-font-mono);
+    font-size: var(--md-print-size-code);
+  }
+
+  code {
+    background: var(--md-print-color-bg-muted) !important;
+    padding: 1pt 4pt;
+    border-radius: 2pt;
+  }
+
+  pre {
+    background: var(--md-print-color-bg-muted) !important;
+    border: 1pt solid var(--md-print-color-border-light);
+    padding: var(--md-print-spacing-md);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    page-break-inside: avoid;
+    margin: var(--md-print-spacing-md) 0;
+
+    code {
+      background: none !important;
+      padding: 0;
+      border-radius: 0;
+    }
+  }
+
+  kbd {
+    border: 1pt solid var(--md-print-color-border);
+    padding: 1pt 4pt;
+    border-radius: 2pt;
+  }
+
+  // ============================================================================
+  // SECTION 11: BLOCKQUOTES AND LISTS
+  // ============================================================================
+
+  blockquote {
+    margin: var(--md-print-spacing-lg) 0;
+    padding: var(--md-print-spacing-md) var(--md-print-spacing-xl);
+    border-left: 3pt solid var(--md-print-color-border);
+    background: var(--md-print-color-bg-muted) !important;
+    font-style: italic;
+    page-break-inside: avoid;
+
+    cite,
+    footer {
+      display: block;
+      font-size: var(--md-print-size-sm);
+      font-style: normal;
+      color: var(--md-print-color-text-muted);
+      margin-top: var(--md-print-spacing-sm);
+
+      &::before {
+        content: '— ';
+      }
+    }
+
+    // Remove decorative quote marks
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
+
+  // Lists
+  ul,
+  ol {
+    margin: var(--md-print-spacing-md) 0;
+    padding-left: var(--md-print-spacing-2xl);
+  }
+
+  li {
+    margin-bottom: var(--md-print-spacing-xs);
+    page-break-inside: avoid;
+    line-height: var(--md-print-line-height-normal);
+  }
+
+  // Nested lists
+  ul ul,
+  ol ol,
+  ul ol,
+  ol ul {
+    margin-top: var(--md-print-spacing-xs);
+    margin-bottom: 0;
+  }
+
+  // Definition lists
+  dl {
+    margin: var(--md-print-spacing-md) 0;
+  }
+
+  dt {
+    font-weight: 700;
+    margin-top: var(--md-print-spacing-md);
+    page-break-after: avoid;
+  }
+
+  dd {
+    margin-left: var(--md-print-spacing-xl);
+    margin-bottom: var(--md-print-spacing-sm);
+  }
+
+  // ============================================================================
+  // SECTION 12: CARDS AND COMPONENTS
+  // ============================================================================
+
+  .card,
+  .feature-card,
+  .service-card,
+  .info-card,
+  .testimonial-card,
+  .profile-card,
+  .product-card,
+  [class*='-card'] {
+    background: var(--md-print-color-bg) !important;
+    border: 1pt solid var(--md-print-color-border) !important;
+    border-radius: 0 !important;
+    padding: var(--md-print-spacing-lg);
+    margin-bottom: var(--md-print-spacing-lg);
+    page-break-inside: avoid;
+
+    // Remove all pseudo-element decorations
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
+
+  // Card content
+  .card-title,
+  .card-header {
+    font-size: var(--md-print-size-h4);
+    font-weight: 700;
+    margin-bottom: var(--md-print-spacing-sm);
+    border-bottom: none !important;
+  }
+
+  .card-body,
+  .card-content {
+    padding: 0 !important;
+  }
+
+  .card-footer {
+    border-top: 1pt solid var(--md-print-color-border-light);
+    padding-top: var(--md-print-spacing-sm);
+    margin-top: var(--md-print-spacing-sm);
+    font-size: var(--md-print-size-sm);
+    color: var(--md-print-color-text-muted);
+  }
+
+  // Callouts and alerts
+  .callout,
+  .alert,
+  .notice,
+  .info-box,
+  .warning-box,
+  .tip-box {
+    background: var(--md-print-color-bg-muted) !important;
+    border: 1pt solid var(--md-print-color-border) !important;
+    border-left-width: 4pt !important;
+    padding: var(--md-print-spacing-md);
+    margin: var(--md-print-spacing-md) 0;
+    page-break-inside: avoid;
+
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
+
+  // ============================================================================
+  // SECTION 13: HERO SECTIONS
+  // ============================================================================
+
+  .hero-section,
+  .page-hero,
+  .resource-hero,
+  .service-hero,
+  .article-hero,
+  section[class*='hero'],
+  [class*='-hero'] {
+    background: none !important;
+    min-height: auto !important;
+    padding: var(--md-print-spacing-lg) 0 !important;
+    margin: 0 !important;
+
+    // Remove all decorative pseudo-elements
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
+
+  // Hero content
+  .hero-content,
+  .hero-body {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .hero-title,
+  .page-title,
+  .article-title {
+    color: var(--md-print-color-text) !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: var(--md-print-color-text) !important;
+    text-fill-color: var(--md-print-color-text) !important;
+    font-size: var(--md-print-size-h1);
+  }
+
+  .hero-subtitle,
+  .page-subtitle,
+  .article-subtitle {
+    color: var(--md-print-color-text-secondary) !important;
+    font-size: var(--md-print-size-lg);
+  }
+
+  // Hide hero decorations
+  .breadcrumb,
+  .breadcrumbs,
+  .meta-info,
+  .hero-badge,
+  .hero-icon,
+  .hero-image,
+  .hero-illustration,
+  .hero-background-image {
+    display: none !important;
+  }
+
+  // ============================================================================
+  // SECTION 14: MD3 COMPONENT PRINT STYLES
+  // ============================================================================
+
+  // MD3 Buttons - hide all
+  .md3-button,
+  .md3-fab,
+  .md3-icon-button,
+  .md3-segmented-button,
+  [class*='md3-button'],
+  [class*='md3-btn'] {
+    display: none !important;
+  }
+
+  // MD3 Cards
+  .md3-card,
+  .md3-card-elevated,
+  .md3-card-filled,
+  .md3-card-outlined {
+    background: var(--md-print-color-bg) !important;
+    border: 1pt solid var(--md-print-color-border) !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  // MD3 Chips - simplify
+  .md3-chip,
+  [class*='md3-chip'] {
+    background: var(--md-print-color-bg-muted) !important;
+    border: 1pt solid var(--md-print-color-border-light) !important;
+    padding: 2pt 8pt;
+    border-radius: 0 !important;
+    display: inline-block;
+    margin: 2pt;
+    font-size: var(--md-print-size-sm);
+  }
+
+  // MD3 Glass effects - disable
+  .md3-glass,
+  [class*='md3-glass'] {
+    background: var(--md-print-color-bg) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1pt solid var(--md-print-color-border-light) !important;
+  }
+
+  // MD3 Gradients - disable
+  .md3-gradient,
+  .md3-text-gradient,
+  [class*='md3-gradient'] {
+    background: none !important;
+    color: var(--md-print-color-text) !important;
+    -webkit-text-fill-color: var(--md-print-color-text) !important;
+  }
+
+  // MD3 Elevation - remove
+  [class*='md3-elevation'],
+  .elevation-1,
+  .elevation-2,
+  .elevation-3,
+  .elevation-4,
+  .elevation-5 {
+    box-shadow: none !important;
+  }
+
+  // MD3 Skeletons - hide
+  .md3-skeleton,
+  .md3-shimmer,
+  [class*='md3-skeleton'] {
+    display: none !important;
+  }
+
+  // MD3 Ripple - remove
+  .md3-ripple,
+  [class*='ripple'] {
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
+
+  // MD3 State layers - remove
+  .md3-state-layer,
+  [class*='state-layer'] {
+    display: none !important;
+  }
+
+  // MD3 Lists
+  .md3-list,
+  .md3-list-item {
+    background: var(--md-print-color-bg) !important;
+    border: none !important;
+  }
+
+  .md3-list-item {
+    border-bottom: 1pt solid var(--md-print-color-border-light) !important;
+    padding: var(--md-print-spacing-sm) 0;
+
+    &:last-child {
+      border-bottom: none !important;
+    }
+  }
+
+  // MD3 Dialogs - hide
+  .md3-dialog,
+  .md3-bottom-sheet,
+  .md3-snackbar {
+    display: none !important;
+  }
+
+  // MD3 Navigation - hide
+  .md3-navigation,
+  .md3-navigation-bar,
+  .md3-navigation-rail,
+  .md3-navigation-drawer,
+  .md3-tabs,
+  .md3-tab-bar {
+    display: none !important;
+  }
+
+  // MD3 Progress - hide
+  .md3-progress,
+  .md3-circular-progress,
+  .md3-linear-progress {
+    display: none !important;
+  }
+
+  // ============================================================================
+  // SECTION 15: PAGE MARGINS AND HEADERS/FOOTERS
+  // ============================================================================
+
+  // Standard A4 page setup
+  @page {
+    size: A4 portrait;
+    margin: var(--md-print-margin-top) var(--md-print-margin-right) var(--md-print-margin-bottom) var(--md-print-margin-left);
+  }
+
+  // Landscape pages
+  @page landscape {
+    size: A4 landscape;
+  }
+
+  // First page - no page number
+  @page :first {
+    margin-top: 3cm;
+  }
+
+  // Left pages (even)
+  @page :left {
+    margin-left: 2.5cm;
+    margin-right: 2cm;
+  }
+
+  // Right pages (odd)
+  @page :right {
+    margin-left: 2cm;
+    margin-right: 2.5cm;
+  }
+
+  // Named page templates
+  @page cover {
+    margin: 0;
+  }
+
+  @page chapter {
+    margin-top: 4cm;
+  }
+
+  // Print header/footer - use CSS counters
+  .print-header {
+    position: running(header);
+    font-size: var(--md-print-size-sm);
+    color: var(--md-print-color-text-muted);
+    border-bottom: 0.5pt solid var(--md-print-color-border-light);
+    padding-bottom: var(--md-print-spacing-xs);
+  }
+
+  .print-footer {
+    position: running(footer);
+    font-size: var(--md-print-size-sm);
+    color: var(--md-print-color-text-muted);
+    border-top: 0.5pt solid var(--md-print-color-border-light);
+    padding-top: var(--md-print-spacing-xs);
+    text-align: center;
+  }
+
+  // Page counter styles
+  .page-number::before {
+    content: counter(page);
+  }
+
+  .page-total::before {
+    content: counter(pages);
+  }
+
+  // ============================================================================
+  // SECTION 16: ACCESSIBILITY FOR PRINT
+  // ============================================================================
+
+  // Hide screen-reader only content
+  .sr-only,
+  .visually-hidden,
+  .screen-reader-only,
+  .skip-link,
+  .skip-nav,
+  [aria-hidden='true'] {
+    display: none !important;
+  }
+
+  // Show abbreviation expansions
+  abbr[title]::after {
+    content: ' (' attr(title) ')';
+    font-size: var(--md-print-size-sm);
+    color: var(--md-print-color-text-muted);
+  }
+
+  // Show lang attribute for foreign text
+  [lang]:not([lang='tr']):not([lang=''])::after {
+    content: ' [' attr(lang) ']';
+    font-size: var(--md-print-size-sm);
+    color: var(--md-print-color-text-muted);
+    font-style: italic;
+  }
+
+  // Show time elements with datetime
+  time[datetime]::after {
+    content: ' (' attr(datetime) ')';
+    font-size: var(--md-print-size-sm);
+    color: var(--md-print-color-text-muted);
+  }
+
+  // ============================================================================
+  // SECTION 17: MATERIAL ICONS
+  // ============================================================================
+
+  // Hide decorative icons
+  .material-icons-rounded,
+  .material-symbols-outlined,
+  .material-symbols-rounded,
+  .mat-icon,
+  [class*='icon-'],
+  [class*='-icon'],
+  svg.icon,
+  i.icon {
+    display: none !important;
+  }
+
+  // Essential icons - show as text equivalent
+  .icon-print-visible {
+    display: inline !important;
+    font-family: var(--md-print-font-body) !important;
+    font-style: normal !important;
+  }
+
+  // Icon alternatives using data attributes
+  [data-print-icon]::before {
+    content: attr(data-print-icon) ' ';
+    font-family: var(--md-print-font-body);
+  }
+
+} // End @media print
+
+// ============================================================================
+// SECTION 18: PRINT UTILITY CLASSES
+// ============================================================================
+
+// Show only in print
+.print-only,
+.visible-print,
+.show-print {
+  display: none !important;
+
+  @media print {
+    display: block !important;
+  }
+}
+
+.print-only-inline {
+  display: none !important;
+
+  @media print {
+    display: inline !important;
+  }
+}
+
+.print-only-flex {
+  display: none !important;
+
+  @media print {
+    display: flex !important;
+  }
+}
+
+// Hide in print
+.no-print,
+.print-hide,
+.hidden-print,
+.hide-print {
+  @media print {
+    display: none !important;
+  }
+}
+
+// Page break utilities
+.print-break-before,
+.page-break-before {
+  @media print {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+}
+
+.print-break-after,
+.page-break-after {
+  @media print {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+}
+
+.print-no-break,
+.print-avoid-break,
+.page-break-avoid {
+  @media print {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
+
+// Layout utilities
+.print-full-width {
+  @media print {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+.print-half-width {
+  @media print {
+    width: 50% !important;
+    display: inline-block !important;
+    vertical-align: top !important;
+  }
+}
+
+.print-center {
+  @media print {
+    text-align: center !important;
+  }
+}
+
+.print-left {
+  @media print {
+    text-align: left !important;
+  }
+}
+
+.print-right {
+  @media print {
+    text-align: right !important;
+  }
+}
+
+// Color utilities
+.print-grayscale {
+  @media print {
+    filter: grayscale(100%) !important;
+  }
+}
+
+.print-color,
+.print-exact-color {
+  @media print {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+.print-bg-white {
+  @media print {
+    background: white !important;
+  }
+}
+
+.print-text-black {
+  @media print {
+    color: black !important;
+  }
+}
+
+// Typography utilities
+.print-text-sm {
+  @media print {
+    font-size: var(--md-print-size-sm) !important;
+  }
+}
+
+.print-text-lg {
+  @media print {
+    font-size: var(--md-print-size-lg) !important;
+  }
+}
+
+.print-font-serif {
+  @media print {
+    font-family: var(--md-print-font-body) !important;
+  }
+}
+
+.print-font-sans {
+  @media print {
+    font-family: var(--md-print-font-heading) !important;
+  }
+}
+
+// Visibility for specific elements
+.print-show-url {
+  @media print {
+    &[href]::after {
+      content: ' (' attr(href) ')' !important;
+      font-size: var(--md-print-size-sm);
+      color: var(--md-print-color-text-muted);
+    }
+  }
+}
+
+.print-hide-url {
+  @media print {
+    &::after {
+      content: none !important;
+    }
+  }
+}
+
+// ============================================================================
+// SECTION 19: PRINT MIXINS
+// ============================================================================
+
+// Mixin: Print hidden
+@mixin print-hidden {
+  @media print {
+    display: none !important;
+  }
+}
+
+// Mixin: Print visible
+@mixin print-visible {
+  display: none !important;
+
+  @media print {
+    display: block !important;
+  }
+}
+
+// Mixin: No page break
+@mixin print-no-break {
+  @media print {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
+
+// Mixin: Page break before
+@mixin print-break-before {
+  @media print {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+}
+
+// Mixin: Page break after
+@mixin print-break-after {
+  @media print {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+}
+
+// Mixin: Print card style
+@mixin print-card {
+  @media print {
+    background: var(--md-print-color-bg) !important;
+    border: 1pt solid var(--md-print-color-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
+}
+
+// Mixin: Print text reset
+@mixin print-text-reset {
+  @media print {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: var(--md-print-color-text) !important;
+    color: var(--md-print-color-text) !important;
+  }
+}
+
+// Mixin: Print section
+@mixin print-section {
+  @media print {
+    background: none !important;
+    padding: var(--md-print-spacing-lg) 0 !important;
+    margin: 0 !important;
+
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
+}
+
+// Mixin: Preserve colors in print
+@mixin print-exact-colors {
+  @media print {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+}
+
+// Mixin: Custom page margins
+@mixin print-margins($top: 2cm, $right: 2cm, $bottom: 2.5cm, $left: 2cm) {
+  @page {
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
+  }
+}
+
+// Mixin: Landscape page
+@mixin print-landscape {
+  @page {
+    size: A4 landscape;
+  }
+}
+
+// Mixin: Show URL after link
+@mixin print-show-url {
+  @media print {
+    &[href^='http']::after {
+      content: ' (' attr(href) ')';
+      font-size: var(--md-print-size-sm);
+      color: var(--md-print-color-text-muted);
+      word-wrap: break-word;
+    }
+  }
+}

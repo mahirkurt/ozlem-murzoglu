@@ -1,153 +1,137 @@
-<section class="resources-page">
-  <!-- Hero Section -->
-  <div class="resources-hero">
-    <div class="hero-background">
-      <div class="hero-shape shape-1"></div>
-      <div class="hero-shape shape-2"></div>
-      <div class="hero-shape shape-3"></div>
-    </div>
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="page-title">Ebeveyn Kaynak Merkezi</h1>
-        <p class="page-subtitle">
-          Çocuğunuzun sağlığı ve gelişimi için güvenilir, bilimsel kaynaklar
-        </p>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-number">220+</span>
-            <span class="stat-label">Bilimsel Kaynak</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">11</span>
-            <span class="stat-label">Kategori</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">AAP</span>
-            <span class="stat-label">Onaylı İçerik</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<app-page-header
+  [title]="'RESOURCES.PAGE_TITLE' | translate"
+  [subtitle]="'RESOURCES.SUBTITLE' | translate"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
 
-  <!-- Categories Grid -->
-  <div class="categories-section">
+<main class="resources-page page-content">
+  <section class="section resources-search">
     <div class="container">
-      <!-- Search -->
       <div class="search-bar">
-        <span class="material-icons">search</span>
-        <input #q type="text" placeholder="Kaynaklarda ara..." (input)="onSearch(q.value)" />
+        <span class="material-icons-rounded" aria-hidden="true">search</span>
+        <input
+          type="search"
+          [attr.aria-label]="'RESOURCES.SEARCH_PLACEHOLDER' | translate"
+          [placeholder]="'RESOURCES.SEARCH_PLACEHOLDER' | translate"
+          [value]="query"
+          (input)="onSearch($any($event.target).value)" />
+        <button
+          *ngIf="query"
+          type="button"
+          class="icon-button"
+          [attr.aria-label]="'RESOURCES.CLEAR_SEARCH' | translate"
+          (click)="clearSearch()">
+          <span class="material-icons-rounded" aria-hidden="true">close</span>
+        </button>
       </div>
-      <div class="search-results" *ngIf="query && results.length">
+
+      <div class="search-results" *ngIf="query">
         <div class="results-header">
-          <span class="material-icons">list_alt</span>
-          <span>{{ results.length }} sonuç</span>
+          <span class="material-icons-rounded" aria-hidden="true">list_alt</span>
+          <span *ngIf="results.length">
+            {{ 'RESOURCES.SEARCH_RESULTS_COUNT' | translate:{ count: results.length } }}
+          </span>
+          <span *ngIf="!results.length">{{ 'RESOURCES.NO_RESULTS' | translate }}</span>
         </div>
-        <div class="results-list">
+        <div class="results-list" *ngIf="results.length">
           <a *ngFor="let r of results" [routerLink]="r.path" class="result-item">
-            <span class="material-icons">description</span>
+            <span class="material-icons-rounded" aria-hidden="true">description</span>
             <span class="title">{{ r.title }}</span>
-            <span class="chip">{{ r.category }}</span>
+            <span class="chip" *ngIf="r.categoryKey">{{ r.categoryKey | translate }}</span>
           </a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section resources-categories">
+    <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Kaynak Kategorileri</h2>
-        <p class="section-description">
-          İhtiyacınıza uygun kategoriyi seçerek detaylı bilgilere ulaşabilirsiniz
-        </p>
+        <span class="section-label">{{ 'RESOURCES.ALL_RESOURCES' | translate }}</span>
+        <h2 class="section-title">{{ 'RESOURCES.SECTION_TITLE' | translate }}</h2>
+        <p class="section-description">{{ 'RESOURCES.SUBTITLE' | translate }}</p>
       </div>
 
       <div class="categories-grid">
-        <a *ngFor="let category of categories" 
-           [routerLink]="category.route"
-           class="category-card"
-           [ngClass]="getColorClass(category.color)">
+        <a
+          *ngFor="let category of categories"
+          [routerLink]="category.route"
+          class="category-card"
+          [ngClass]="getColorClass(category.color)">
           <div class="card-header">
             <div class="icon-wrapper">
-              <span class="material-icons">{{ category.icon }}</span>
+              <span class="material-icons-rounded" aria-hidden="true">{{ category.icon }}</span>
             </div>
             <div class="document-count">
               <span class="count">{{ category.documentCount }}</span>
-              <span class="label">Döküman</span>
+              <span class="label">{{ 'RESOURCES.DOCUMENT_COUNT' | translate }}</span>
             </div>
           </div>
           <div class="card-body">
-            <h3 class="category-title">{{ category.title }}</h3>
-            <p class="category-description">{{ category.description }}</p>
+            <h3 class="category-title">{{ category.titleKey | translate }}</h3>
+            <p class="category-description">{{ category.descriptionKey | translate }}</p>
           </div>
           <div class="card-footer">
             <span class="view-link">
-              <span>Kaynakları Görüntüle</span>
-              <span class="material-icons">arrow_forward</span>
-            </span>
+              <span>{{ 'RESOURCES.VIEW_ALL' | translate }}</span></span>
           </div>
         </a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Features Section -->
-  <div class="features-section">
+  <section class="section resources-features">
     <div class="container">
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">
-            <span class="material-icons">verified</span>
+            <span class="material-icons-rounded" aria-hidden="true">verified</span>
           </div>
-          <h3>Güvenilir Kaynaklar</h3>
-          <p>Amerikan Pediatri Akademisi ve DSÖ gibi uluslararası kuruluşların onayladığı içerikler</p>
+          <h3>{{ 'RESOURCES.FEATURE1_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES.FEATURE1_DESC' | translate }}</p>
         </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <span class="material-icons">translate</span>
-          </div>
-          <h3>Türkçe İçerik</h3>
-          <p>Tüm kaynaklar uzman hekimler tarafından Türkçe'ye çevrilmiş ve uyarlanmıştır</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <span class="material-icons">download</span>
-          </div>
-          <h3>İndirilebilir</h3>
-          <p>Tüm dökümanları PDF formatında indirebilir ve yazdırabilirsiniz</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <span class="material-icons">update</span>
-          </div>
-          <h3>Güncel Bilgiler</h3>
-          <p>En son bilimsel gelişmeler ışığında sürekli güncellenen içerikler</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Quick Links -->
-  <div class="quick-links-section">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-icons-rounded" aria-hidden="true">translate</span>
+          </div>
+          <h3>{{ 'RESOURCES.FEATURE2_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES.FEATURE2_DESC' | translate }}</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-icons-rounded" aria-hidden="true">download</span>
+          </div>
+          <h3>{{ 'RESOURCES.FEATURE3_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES.FEATURE3_DESC' | translate }}</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-icons-rounded" aria-hidden="true">update</span>
+          </div>
+          <h3>{{ 'RESOURCES.FEATURE4_TITLE' | translate }}</h3>
+          <p>{{ 'RESOURCES.FEATURE4_DESC' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section resources-quick-links" *ngIf="popularDocs.length">
     <div class="container">
-      <h2 class="section-title">Popüler Kaynaklar</h2>
+      <div class="section-header">
+        <span class="section-label">{{ 'RESOURCES.POPULAR_RESOURCES' | translate }}</span>
+        <h2 class="section-title">{{ 'RESOURCES.POPULAR_RESOURCES' | translate }}</h2>
+      </div>
       <div class="quick-links-grid">
-        <a routerLink="/bilgi-merkezi/asilar/hpv-a-s-bilgi-f-y" class="quick-link">
-          <span class="material-icons">description</span>
-          <span>HPV Aşısı Bilgi Föyü</span>
-        </a>
-        <a routerLink="/bilgi-merkezi/bright-futures-aile/1-ay-aile-in-bilgiler" class="quick-link">
-          <span class="material-icons">description</span>
-          <span>1. Ay - Aile İçin Bilgiler</span>
-        </a>
-        <a routerLink="/bilgi-merkezi/asilar/kkk-a-s-bilgi-f-y" class="quick-link">
-          <span class="material-icons">description</span>
-          <span>KKK Aşısı Bilgi Föyü</span>
-        </a>
-        <a routerLink="/bilgi-merkezi" class="quick-link">
-          <span class="material-icons">folder</span>
-          <span>Tüm Kaynaklar</span>
+        <a *ngFor="let doc of popularDocs" [routerLink]="doc.path" class="quick-link">
+          <span class="material-icons-rounded" aria-hidden="true">description</span>
+          <span>{{ doc.title }}</span>
         </a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

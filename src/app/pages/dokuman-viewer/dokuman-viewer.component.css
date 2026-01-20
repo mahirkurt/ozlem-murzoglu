@@ -93,7 +93,7 @@
   color: white;
 }
 
-.document-icon-large .material-icons {
+.document-icon-large .material-icons-rounded {
   font-size: 40px;
 }
 
@@ -190,7 +190,7 @@
   border-color: var(--outline-variant);
 }
 
-.action-btn .material-icons {
+.action-btn .material-icons-rounded {
   font-size: 18px;
 }
 
@@ -254,7 +254,7 @@
   cursor: not-allowed;
 }
 
-.zoom-btn .material-icons {
+.zoom-btn .material-icons-rounded {
   font-size: 18px;
 }
 
@@ -327,7 +327,7 @@
   justify-content: center;
 }
 
-.fallback-icon .material-icons {
+.fallback-icon .material-icons-rounded {
   font-size: 40px;
   color: var(--on-error-container);
 }
@@ -393,7 +393,7 @@
   flex-shrink: 0;
 }
 
-.notice-icon .material-icons {
+.notice-icon .material-icons-rounded {
   font-size: 24px;
 }
 
@@ -447,7 +447,7 @@
   justify-content: center;
 }
 
-.document-icon-preview .material-icons {
+.document-icon-preview .material-icons-rounded {
   font-size: 40px;
   color: var(--on-primary-container);
 }
@@ -573,7 +573,7 @@
   color: white;
 }
 
-.related-doc-icon .material-icons {
+.related-doc-icon .material-icons-rounded {
   font-size: 16px;
 }
 
@@ -629,7 +629,7 @@
   transform: translateX(4px);
 }
 
-.quick-action-btn .material-icons {
+.quick-action-btn .material-icons-rounded {
   font-size: 18px;
   color: var(--on-surface-variant);
 }
@@ -691,7 +691,7 @@
   justify-content: center;
 }
 
-.error-icon .material-icons {
+.error-icon .material-icons-rounded {
   font-size: 40px;
   color: var(--on-error-container);
 }

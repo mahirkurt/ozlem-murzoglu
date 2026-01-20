@@ -20,6 +20,9 @@ export const routes: Routes = [
   { path: 'sss', loadComponent: () => import('./pages/faq/faq').then(m => m.FaqComponent) },
   { path: 'saygiyla', loadComponent: () => import('./pages/saygiyla/saygiyla').then(m => m.SaygiylaComponent) },
   { path: 'kaynaklar', loadComponent: () => import('./pages/resources/resources.component').then(m => m.ResourcesComponent) },
+  { path: 'bilgi-merkezi', redirectTo: 'kaynaklar', pathMatch: 'full' },
+  { path: 'bilgi-merkezi/:category', redirectTo: 'kaynaklar/:category', pathMatch: 'full' },
+  { path: 'bilgi-merkezi/:category/:doc', redirectTo: 'kaynaklar/:category/:doc', pathMatch: 'full' },
   // Otomatik üretilen kategori ve döküman rotaları
   ...resourceRoutes,
   { path: 'iletisim', loadComponent: () => import('./pages/contact/contact').then(m => m.ContactComponent) },

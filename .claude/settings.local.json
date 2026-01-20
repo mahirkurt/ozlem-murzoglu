@@ -135,7 +135,8 @@
       "Bash(start chrome https://dr-murzoglu.web.app/en/sss)",
       "Bash(start chrome https://dr-murzoglu.web.app/hizmetlerimiz/saglikli-uykular)",
       "Bash(start chrome https://ozlemmurzoglu.com/hizmetlerimiz/saglikli-uykular)",
-      "Bash(start chrome http://localhost:4200/hizmetlerimiz/saglikli-uykular)"
+      "Bash(start chrome http://localhost:4200/hizmetlerimiz/saglikli-uykular)",
+      "Bash(start chrome http://localhost:4202)"
     ],
     "deny": []
   }

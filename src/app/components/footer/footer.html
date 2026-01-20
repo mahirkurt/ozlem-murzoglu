@@ -51,7 +51,6 @@
           <ul class="footer-list">
             <li *ngFor="let link of quickLinks">
               <a [routerLink]="link.href" class="footer-link">
-                <span class="link-arrow">→</span>
                 {{ link.labelKey | translate }}
               </a>
             </li>
@@ -63,7 +62,6 @@
           <ul class="footer-list">
             <li *ngFor="let service of services">
               <a [routerLink]="service.href" class="footer-link">
-                <span class="link-arrow">→</span>
                 {{ service.labelKey | translate }}
               </a>
             </li>
@@ -77,7 +75,7 @@
             <!-- Address -->
             <a href="https://maps.app.goo.gl/T6NqV7g4LzakSesKA" target="_blank" class="contact-row">
               <div class="icon-box">
-                <span class="material-icons">location_on</span>
+                <span class="material-icons-rounded">location_on</span>
               </div>
               <div class="contact-text">
                 <span class="label">{{ 'FOOTER.ADDRESS' | translate }}</span>
@@ -88,7 +86,7 @@
             <!-- Phone -->
             <a [href]="'tel:' + contactInfo.phone" class="contact-row">
               <div class="icon-box">
-                <span class="material-icons">phone</span>
+                <span class="material-icons-rounded">phone</span>
               </div>
               <div class="contact-text">
                 <span class="label">{{ 'FOOTER.PHONE' | translate }}</span>
@@ -99,7 +97,7 @@
             <!-- Email -->
             <a [href]="'mailto:' + contactInfo.email" class="contact-row">
               <div class="icon-box">
-                <span class="material-icons">email</span>
+                <span class="material-icons-rounded">email</span>
               </div>
               <div class="contact-text">
                 <span class="label">{{ 'FOOTER.EMAIL' | translate }}</span>
@@ -115,10 +113,21 @@
         <div class="copyright">
           {{ 'FOOTER.COPYRIGHT' | translate }}
         </div>
-        <div class="legal-links">
-          <a *ngFor="let link of footerLinks" [routerLink]="link.href" class="legal-link">
-            {{ link.labelKey | translate }}
-          </a>
+        <div class="footer-controls">
+          <button
+            class="footer-theme-toggle"
+            (click)="toggleTheme()"
+            [attr.aria-label]="themeAriaLabel"
+            [attr.title]="themeAriaLabel">
+            <span class="material-icons-rounded" aria-hidden="true">
+              {{ themeIcon }}
+            </span>
+          </button>
+          <div class="legal-links">
+            <a *ngFor="let link of footerLinks" [routerLink]="link.href" class="legal-link">
+              {{ link.labelKey | translate }}
+            </a>
+          </div>
         </div>
       </div>
     </div>

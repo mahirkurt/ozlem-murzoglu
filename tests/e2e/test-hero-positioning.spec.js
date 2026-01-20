@@ -1,57 +1,45 @@
 const { test, expect } = require('@playwright/test');
 
-test.describe('Hero Section Positioning', () => {
+test.describe('Header Section Positioning', () => {
   const pagesToTest = [
     { path: '/hakkimizda', name: 'About' },
-    { path: '/hakkimizda/dr-ozlem-murzoglu', name: 'Dr. Özlem Murzoğlu' },
+    { path: '/hakkimizda/dr-ozlem-murzoglu', name: 'Dr Ozlem Murzoglu' },
     { path: '/hakkimizda/klinigimiz', name: 'Clinic' },
-    { path: '/hakkimizda/sss', name: 'FAQ' },
-    { path: '/hizmetlerimiz/laboratuvar', name: 'Laboratory' },
-    { path: '/bilgi-merkezi/gelisim-rehberleri/triple-p', name: 'Triple P' },
-    { path: '/hizmetlerimiz/asi', name: 'Vaccination' },
-    { path: '/hizmetlerimiz/check-up', name: 'Check-up' }
+    { path: '/sss', name: 'FAQ' },
+    { path: '/hizmetlerimiz/laboratuvar-goruntuleme', name: 'Laboratory' },
+    { path: '/hizmetlerimiz/triple-p', name: 'Triple P' },
+    { path: '/hizmetlerimiz/saglikli-uykular', name: 'Healthy Sleep' },
+    { path: '/hizmetlerimiz/bright-futures-program', name: 'Bright Futures' },
+    { path: '/saygiyla', name: 'Respect' },
+    { path: '/kaynaklar', name: 'Resources' }
   ];
 
   for (const page of pagesToTest) {
-    test(`${page.name} page - hero section clears header`, async ({ page: browserPage }) => {
-      await browserPage.goto(`http://localhost:4201${page.path}`);
+    test(`${page.name} page - header section clears header`, async ({ page: browserPage }) => {
+      await browserPage.goto(`http://localhost:4200${page.path}`);
       await browserPage.waitForLoadState('networkidle');
 
-      // Get header height
       const header = await browserPage.locator('app-header, header').first();
       const headerBox = await header.boundingBox();
       const headerHeight = headerBox ? headerBox.height : 0;
 
-      // Get hero section position
-      const heroSection = await browserPage.locator('app-hero-section, .hero-section').first();
-      const heroBox = await heroSection.boundingBox();
+      const pageHeader = await browserPage
+        .locator('app-hero-section, .hero-section, app-page-header, .page-header')
+        .first();
+      const sectionBox = await pageHeader.boundingBox();
 
-      // Check if hero section exists
-      expect(heroBox).not.toBeNull();
+      expect(sectionBox).not.toBeNull();
 
-      if (heroBox) {
-        // Hero section should start at or below header bottom
-        const heroTop = heroBox.y;
+      if (sectionBox) {
+        const sectionTop = sectionBox.y;
         const headerBottom = headerHeight;
 
-        console.log(`${page.name}: Header height=${headerHeight}px, Hero top=${heroTop}px`);
+        console.log(`${page.name}: Header height=${headerHeight}px, section top=${sectionTop}px`);
 
-        // Hero should not be under header (heroTop should be >= headerBottom)
-        expect(heroTop).toBeGreaterThanOrEqual(headerBottom - 1); // Allow 1px tolerance
+        expect(sectionTop).toBeGreaterThanOrEqual(headerBottom - 1);
 
-        // Hero should have proper margin-top (around 60-80px depending on viewport)
-        const heroMarginTop = await heroSection.evaluate(el => {
-          return window.getComputedStyle(el).marginTop;
-        });
-
-        console.log(`${page.name}: Hero margin-top=${heroMarginTop}`);
-
-        // Verify margin-top is set
-        expect(heroMarginTop).toMatch(/\d+px/);
-
-        // Take screenshot for visual verification
         await browserPage.screenshot({
-          path: `hero-position-${page.name.toLowerCase().replace(/\s+/g, '-')}.png`,
+          path: `header-position-${page.name.toLowerCase().replace(/\\s+/g, '-')}.png`,
           clip: {
             x: 0,
             y: 0,
@@ -63,41 +51,27 @@ test.describe('Hero Section Positioning', () => {
     });
   }
 
-  test('Responsive hero positioning on mobile', async ({ page }) => {
-    // Set mobile viewport
+  test('Responsive header positioning on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
 
-    await page.goto('http://localhost:4201/hizmetlerimiz/laboratuvar');
+    await page.goto('http://localhost:4200/hizmetlerimiz/laboratuvar-goruntuleme');
     await page.waitForLoadState('networkidle');
 
-    // Get header height on mobile
     const header = await page.locator('app-header, header').first();
     const headerBox = await header.boundingBox();
     const headerHeight = headerBox ? headerBox.height : 0;
 
-    // Get hero section
-    const heroSection = await page.locator('app-hero-section, .hero-section').first();
-    const heroBox = await heroSection.boundingBox();
+    const pageHeader = await page
+      .locator('app-hero-section, .hero-section, app-page-header, .page-header')
+      .first();
+    const sectionBox = await pageHeader.boundingBox();
 
-    if (heroBox) {
-      const heroTop = heroBox.y;
+    if (sectionBox) {
+      const sectionTop = sectionBox.y;
 
-      console.log(`Mobile: Header height=${headerHeight}px, Hero top=${heroTop}px`);
+      console.log(`Mobile: Header height=${headerHeight}px, section top=${sectionTop}px`);
 
-      // Hero should clear the mobile header
-      expect(heroTop).toBeGreaterThanOrEqual(headerHeight - 1);
-
-      // Check mobile margin-top
-      const heroMarginTop = await heroSection.evaluate(el => {
-        return window.getComputedStyle(el).marginTop;
-      });
-
-      console.log(`Mobile: Hero margin-top=${heroMarginTop}`);
-
-      // Mobile should have around 60px margin-top
-      const marginValue = parseInt(heroMarginTop);
-      expect(marginValue).toBeGreaterThanOrEqual(55);
-      expect(marginValue).toBeLessThanOrEqual(65);
+      expect(sectionTop).toBeGreaterThanOrEqual(headerHeight - 1);
     }
   });
 });

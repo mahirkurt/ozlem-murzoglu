@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>KUZEY AMERİKA PEDİATRİK GASTROENTEROLOJİ, HEPATOLOJİ VE BESLENME DERNEĞİ</p></td></tr><tr><td><p>BEBEKLER VE KÜÇÜK ÇOCUKLARDA </p><p><strong>SAĞLIKLI BESLENME</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Bebekleri ve küçük çocukları beslemek, ebeveynlerin en zorlu ve önemli rollerinden biridir. İlk aylar ve yıllar, çocuğunuz için bir ömür boyu iyi beslenme alışkanlıkları geliştirmek için en iyi zamandır. Aşağıda, çocuğunuzu doğumdan 4 yaşına kadar beslemek için genel öneriler yer almaktadır. Çocuğunuzun doktoru veya diyetisyeni, çocuğunuzun tıbbi durumu nedeniyle size özel beslenme talimatları verdiyse, onların tavsiyelerine ayrıca uymalısınız.</p></td></tr></table><table><tr><td><p><strong>Biberonla beslerken nelere dikkat etmeliyim?</strong></p></td></tr></table><p></p><ul><li>Doktorunuz önermediği sürece bebeğinizi beslerken asla biberon kullanmayınız. Doktorunuz aksini söylemedikçe bebeğinizin biberonuna anne sütü veya formül mama dışında herhangi bir şey koymayınız.</li><li>Bebeğinizi sağılmış anne sütü ile besliyorsanız, güvenli sağım ve saklama kurallarına uyduğunuzdan emin olunuz.</li><li>Bebeğinizi formül mamayla besliyorsanız, kutu etiketi üzerindeki talimatları dikkatlice okuyunuz ve mamayı belirtilen şekilde karıştırıp saklayınız.</li></ul><table><tr><td><p><strong>0 - 4 aylık bebeğimi nasıl beslemeliyim?</strong></p></td></tr></table><ul><li>Doğumdan 6 aya kadar anne sütü bebeğin ihtiyacı olan tek besindir. </li><li>Bebeğinizi tamamen anne sütü ile besliyorsanız, yaşamın ilk veya ikinci haftası içinde günlük 400 IU (uluslararası ünite) D3 vitaminine başlayın.</li><li>Yenidoğanların günde 8 - 12 kez beslenmesi gerekir. Bebeğinizin başını memeye çevirmesi, ellerini ağzına götürmesi, yumruklarını sıkması veya dudaklarını şapırdatması/büzmesi onun acıktığının işaretleridir.</li><li>Bebeğinizin her beslenmede ne kadar anne sütüne ihtiyacı olduğuna karar vermesine izin verin. Bebeğinizin başını memeden başka yöne çevirmesi, ağzını kapatması veya yumruklarını gevşetmesi onun doyduğuna dair işaretlerdir.</li><li>Bebeğiniz büyüdükçe her beslenme alacağı besin miktarı artacaktır.</li></ul><table><tr><td><p><strong>4 - 6 aylık bebeğime daha az süt verebilir miyim? Katı gıdalara ne zaman başlamalıyım?</strong></p></td></tr></table><ul><li>4 aylıktan itibaren anne sütü ile beslenme günde 5 - 6 defaya kadar düşürülebilir ve bebeğinizin her beslenmede aldığı miktar artmaya devam eder. Katı gıdalara başlamak için bebeğinizin 6 aylık olmasını beklemek en iyisidir. Ancak bebeğiniz gelişimsel olarak hazır olduğuna dair işaretler gösteriyorsa (siz yemek yerken sizin yiyeceğinize iştahla ilgi göstermesi, başını kontrol etmesi, destekli veya kendi başına oturması, nesneleri kavrayıp ağzına götürmesi gibi) 4 ila 6 aylıkken tek bileşenli püre haline getirilmiş yiyecekleri vermeyi düşünebilirsiniz. Bebeğiniz yiyecekleri yutamıyorsa, kaşıkla beslemeyi bırakın ve birkaç hafta sonra tekrar deneyin.</li><li>Demirle güçlendirilmiş bebek tahılları veya püre haline getirilmiş etler, emzirilen bebekler için mükemmel ilk gıda seçenekleridir. Anne sütü demir içermez ve bebeğinizin doğuştan sahip olduğu demir bu yaşlarda azalmaya başlar. Emzirilen bebeğinizin demir takviyesi alması gerekip gerekmediğini doktorunuza sorunuz.</li><li>Bebeğiniz komik surat ifadeleri takınabilir ve yeni yiyeceklerin tadını sevmiyormuş gibi davranabilir, ancak yeni tatlara alışırken bu davranışlar normaldir. Bebeğinizin yeni bir besini itiraz etmeden kabul etmesi için 10 defaya kadar denemek gerekebilir.</li><li>Her 3 - 5 günde bir herhangi bir besin grubuna ait tek bileşenli yeni bir yiyecek sunun. Nadiren de olsa, bebeğinizin bir gıdaya karşı alerjik bir reaksiyonu varsa bu yöntem, hangi yiyeceğin reaksiyona neden olduğunu bilmenizi sağlar.</li><li>Daha önceleri uzmanlar, bebekleri alerjik reaksiyonlara neden olma olasılığı en yüksek yiyeceklerle tanıştırmak için beklemeyi tavsiye etmişlerdir. Artık süt ürünleri (yoğurt, peynir ve süzme peynir gibi yumuşak veya sıvı formlarda), yumurta, balık, deniz ürünleri ve fıstık ezmesi gibi ürünleri bebeğinize sunmak için beklemeye gerek olmadığını biliyoruz. Erken başlangıç daha sonra gelişebilecek alerjileri önlemeye yardımcı olabilir. Bununla birlikte, bebeğinizde şiddetli egzama veya yumurta alerjisi varsa doktorunuzla konuşunuz.</li><li>12 aylıktan küçük hiçbir bebeğe bal vermeyiniz. Bal, botulizm adı verilen bir hastalığa neden olan ve bebeklerde ciddi sorunlara yol açabilen bakterileri içerebilir. </li></ul><table><tr><td><p><strong>6 - 8 aylık bebeğimi beslerken nelere dikkat etmeliyim?</strong></p></td></tr></table><ul><li>Bu yaş grubunda anne sütü, bebeğinizin ana beslenme kaynağı olmaya devam eder (günde 4 - 6 besleme).</li><li>Bebeğinizi mama sandalyesine oturtarak yaşına uygun yiyecekleri günde en az bir kez verin ve günde üç defaya kadar artırın.</li><li>Bebeğiniz birçok tek bileşenli püreyi denedikten sonra, bebeğinizi kısmen karışık yiyeceklerle besleyebilirsiniz.</li><li>İlave şeker içeren gıdalardan kaçının ve bebeğinizin yiyeceklerine tuz eklemeyin.</li><li>Besinleri önce püre, sonra ezilmiş, ardından da yumuşak yiyeceklere doğru basamak basamak ilerleyerek sunun (püre formda beslenme süresini çok uzatmamaya çalışın). Ancak boğulma tehlikesi nedeniyle aşağıdaki besinlerden 4 yaşına kadar kaçının:<ul><li>Patlamış mısır</li><li>Bütün kuruyemişler</li><li>Bütün üzümler (yarıya veya dörde bölünmelidir) ve üzüme benzer küresel besinler/meyveler</li><li>Kesilmemiş lifli etler (küçük dilimler/parçalar halinde kesilmelidir)</li></ul></li><li>Bebeğinize yemeklerle birlikte damlatmaz bir bardağa koyarak içme suyu verebilirsiniz. </li></ul><table><tr><td><p><strong>8 aydan büyük bebeğimi kaç öğün ve ara öğünle beslemeliyim?</strong></p></td></tr></table><p></p><table><tr><td><p><strong>8 - 10 Ay</strong></p></td></tr></table><ul><li>Anne sütü artık günde 3 - 5 defaya kadar düşülebilir.</li><li>Henüz yapmadıysanız parmak gıdalar (tahıl gevrekleri, ekmek, yumuşak krakerler, peynir, yumuşak meyveler), pişmiş erişte, pirinç ve sebzeler sunmaya başlayın.</li><li>Her öğünde bebeğinize kaşıkla yenilen bir şeyle birlikte parmak yiyecekler sunmayı düşünün, böylece her ikisiyle de pratik yapabilir.</li><li>Keşfetmesi ve oynaması için bebeğinize kaşık, çatal ve tabak gibi güvenli (kırılma ve yaralanma riski yaratmayan) mutfak gereçleri verin. </li></ul><table><tr><td><p><strong>10 - 12 Ay</strong></p></td></tr></table><ul><li>Bebeğinize günde 3 ana öğün ve 1 - 2 ara öğün sunun. Bununla birlikte 2 - 3 kez anne sütü verin.</li><li>Emzirme seanslarını yavaş yavaş azaltın. Bebeğinizin ilk doğum gününe kadar beslenmesinin çoğu sofralık yiyeceklerden gelmelidir.</li><li>Bebeğinizin ilk doğum gününe yakın, öğünlerde veya atıştırmalıklarda tam yağlı inek sütünü damlatmaz bir kapta sunmaya başlayın.</li></ul><table><tr><td><p><strong>Bebeğim artık yürümeye başlayan bir çocuk; onu beslemek hakkında neleri bilmeliyim?</strong></p></td></tr></table><p></p><ul><li>Her gün yaklaşık aynı saatlerde servis edilen 3 öğün yemek ve 2 ara öğün (atıştırmalık) sunun. Çocuklar öngörülebilir bir rutinden hoşlanırlar.</li><li>Ellerinizi yıkamadan ve yemek için oturmadan önce birkaç dakikalık sessiz zaman verin. Yemek sırasında televizyon ve evcil hayvan gibi dikkat dağıtıcı unsurları sınırlayın.</li><li>Planlanmış öğünler ve atıştırmalıklar arasında su verin.</li><li>Her öğünde veya ara öğünde çeşitli yiyecek grupları ekleyin (süt ürünleri, tahıllar, meyveler, sebzeler ve et veya et alternatifleri).</li><li>Yemekleri mümkün olduğunca sık bir aile olarak yemeye çalışın.</li><li>Meyve suyu sunuyorsanız, günde 120 ml saf meyve suyu ile sınırlandırın. Çocuğunuzun ihtiyacı olan tek içecek su ve süttür.</li><li>Çocuğunuzun yemeğini, kendilerini besleyebilmeleri için ısırık büyüklüğünde parçalara ayırarak sunun ve bağımsızlığını teşvik edin. </li><li>18 - 24 aylıkken çocuklar kaşık ve çatal kullanmada daha iyi hale gelirler ancak yine de ellerini kullanmayı tercih edebilirler. İlk başta ortalık epey dağınık olacak, bırakın olsun!</li><li>12 - 24 aylık çocukların iştahı öğünden öğüne ve günden güne büyük ölçüde değişir. Yukarıdaki ipuçlarını uygularsanız, çocuğunuz sağlıklı kalacak kadar beslenebilecektir. Bu yaş grubu çocuğunuzun kilo alması veya yemek yemesi ile ilgili endişeleriniz varsa, doktorunuzla konuşun.</li></ul><table><tr><td><p><strong>1 yaşından büyük çocuğuma ne sütü vermeliyim?</strong></p></td></tr></table><p></p><ul><li>Çocuğunuz anne sütü aldığı sürece ek bir süte ihtiyaç duymayacaktır. Anne sütü almıyorsa veya siz işteyken içebilmesi için ilk doğum gününde tam yağlı inek sütüne geçmeye başlayın. Bebeğiniz anne sütü ile beslenmiyorsa bu geçişi, az miktarda tam yağlı sütü formül mama ile karıştırarak ve zamanla mama miktarını azaltırken süt miktarını kademeli olarak artırarak yapabilirsiniz.</li><li>1 yaşından büyük çocuklar, ikinci yaş günlerine kadar tam yağlı süt (az yağlı süt değil) içmelidir. Yağ beyin gelişimi için önemlidir.</li><li>Sütü günde 2 - 3 bardakla sınırlayın. Çok fazla süt demir eksikliği anemisine yol açabilir ve kabızlığa katkıda bulunabilir.</li><li>Tam yağlı süte başlarken biraz mide rahatsızlığı olması normaldir. Bir veya iki günden uzun sürerse veya endişeleniyorsanız doktorunuzla konuşun.</li><li>Çocuğunuzun süt alerjisi veya intoleransı varsa, hayvansal kaynaklı olmayan tüm sütlerin aynı olmadığını unutmayın. Soya sütü, inek sütü ile benzer miktarda protein içerir ve genellikle iyi bir seçimdir. Tam yağlı sütün kalorisine yakın olan yulaf ve bezelye sütleri başka bir iyi seçimdir. Badem ve pirinç sütleri, yeni yürümeye başlayan çocukların çoğu için kalori açısından yetersizdir.</li></ul><table><tr><td><p><strong>1 yaşından büyük çocuğum çok seçici davranıyor; nasıl yönetmeliyim?</strong></p></td></tr></table><ul><li>Sağlıklı beslenmeye rol model olmak için çocuğunuzla birlikte sofraya oturun ve yemek yiyin.</li><li>Programlanmış öğünler ve ara öğünler arasında atıştırmaya veya su dışında içeceklere izin vermeyin. Bu, çocuğunuzun açlığın ve tokluğun nasıl bir his olduğunu öğrenmesini sağlar.</li><li><strong>Çocuğunuzu asla yemek yemeye zorlamayın!</strong> Yeni yürümeye başlayan çocuklar kendilerini baskı altında hissettiklerinde isyan edebilirler, çünkü bağımsızlığı öğrenmeye başlamışlardır. Sizin işiniz düzenli zamanlarda çeşitli ve sağlıklı yiyecekler sunmak; çocuğunuzun işi ise sunulan yiyeceklerin ne kadarını yiyip yemeyeceğine karar vermektir.</li><li>1 - 2 yaş arası çocukların yeni şeylerden ve deneyimlerden korkmasının normal olduğunu unutmayın. Tanıdık ve tercih edilen yiyeceklerin yanı sıra yeni veya daha az tercih edilen yiyecekler sunun, böylece yeni yiyecekleri deneyebilir ve en rahat ettikleri yiyecekleri yiyerek doyabilirler.</li><li>Bazı yiyecekleri bitirmek veya denemek için tatlıları ödül olarak kullanmaktan kaçının. Bu, çocuğunuzun tatlı yiyeceklere olan ilgisini artırabilir ve yiyecekleri "iyi" ve "kötü" olarak sınıflandırmasına yol açabilir. </li></ul><p><strong>1 - 2 YAŞ ÇOCUKLAR İÇİN YİYECEKLER VE ÖĞÜNLER TABLOSU</strong></p><table><tr><td><p><strong>Yemek Grubu</strong></p></td><td><p><strong>Porsiyon/Gün</strong></p></td><td><p><strong>Servis Miktarı</strong></p></td><td><p><strong>İpuçları</strong></p></td></tr><tr><td><p><strong>Meyveler</strong></p></td><td><p>2 - 3 </p></td><td><p>½ küçük meyve, ½ bardak doğranmış meyve</p></td><td><p>Meyve suyunu ve konserve meyveleri sınırlayın. </p></td></tr><tr><td><p><strong>Sebzeler</strong></p></td><td><p>2 - 3 </p></td><td><p>½ bardak</p></td><td><p>Tüm renklerde sebzeleri, özellikle de koyu yeşil ve turuncu olanları dahil edin. </p></td></tr><tr><td><p><strong>Tahıllar</strong></p></td><td><p>6</p></td><td><p>½ dilim ekmek, ½ fincan tahıl, <br />¼ bardak pirinç veya makarna</p></td><td><p>Tahılların en az yarısı tam buğday ekmeği, yulaf ezmesi ve çavdar gibi kepekli tahıllar olmalıdır.</p></td></tr><tr><td><p><strong>Etler ve Diğer Proteinler</strong></p></td><td><p>2</p></td><td><p>1 ila 3 yemek kaşığı büyüklüğünde sığır eti, kuzu eti, kümes hayvanları, balık veya tofu; 2 ila 4 yemek kaşığı fasulye veya mercimek; 1 yemek kaşığı fındık ezmesi; ½ büyük yumurta</p></td><td><p>Haftada iki kez somon gibi düşük cıva içerikli balıklar verin; pastırma ve sosis gibi işlenmiş etleri sınırlayın.</p></td></tr><tr><td><p><strong>Süt ve Süt Ürünleri</strong></p></td><td><p>6</p></td><td><p>½ su bardağı süt veya yoğurt; <br />15 gr peynir</p></td><td><p>Çocuğunuz 2 yaşına gelene kadar tam yağlı seçenekleri tercih edin.</p></td></tr><tr><td><p><strong>Yağlar</strong></p></td><td><p>3</p></td><td><p>1 çay kaşığı tereyağı veya sıvı yağ</p></td><td><p>Tereyağına ek olarak zeytinyağı ve avokado gibi bitki bazlı yağları ekleyin.</p></td></tr></table><table><tr><td><p>Referanslar: Contemporary Pediatrics, Vol. 21, No. 3; American Academy of Pediatrics; HealthyChildren.org; <a href="http://www.gikids.org">www.GIkids.org</a>; Clinical Handbook of Pediatric Gastroenterology, Second Edition</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Bu sitede verilen bilgiler yalnızca eğitim amaçlıdır ve tıbbi tavsiye niteliğinde değildir. Eğitimli bir tıbbi sağlayıcı tarafından yapılan bakımın yerine geçmez. GIKids, tıbbi, hemşirelik veya sağlık bakımı tavsiye veya hizmetlerinin sağlanması veya uygulanması ile ilgilenmez. Bir hastalık hakkında tavsiye almak için lütfen bir doktora danışın. Kuzey Amerika Pediatrik Gastroenteroloji, Hepatoloji ve Beslenme Derneği (NASPGHAN) tarafından kurulmuştur. © 2019 GI KIDS &amp; NASPGHAN</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/genel-bilgiler/Bebekler%20ve%20K%C3%BC%C3%A7%C3%BCk%20%C3%87ocuklarda%20Sa%C4%9Fl%C4%B1kl%C4%B1%20Beslenme.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

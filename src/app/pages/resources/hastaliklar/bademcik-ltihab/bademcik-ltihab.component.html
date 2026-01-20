@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/hastaliklar" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>UZM.DR. ÖZLEM MURZOĞLU - ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ</p></td></tr><tr><td><p>ÇOCUKLARDA</p><p><strong>BADEMCİK İLTİHABI</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Tonsillit ya da farenjit olarak da adlandırılan bademcik iltihabı, boğazın yan duvarlarında bulunan ve ağızdan da görülebilen lenf bezleri olan bademciklerin iltihaplanması anlamına gelir. Tipik olarak bademcik iltihabı aniden (akut) gelişir. Bazı hastalar tekrarlayan akut bademcik iltihabı atakları yaşarken, bazılarında süregiden (kronik) bademcik iltihabı gelişebilir. Bademcik iltihabına virüsler veya bakteriler neden olur.</p></td></tr></table><table><tr><td><p>Bademcik iltihabı belirtileri nelerdir?</p></td></tr></table><p></p><p>Sık görülen belirtiler arasında ateş, boğaz ağrısı ve şişmiş lenf düğümleri bulunur, ancak hangi belirtilerin ortaya çıkabileceğini bademcik iltihabının türü belirler.</p><table><tr><td><p><strong>Akut Bademcik İltihabı</strong></p></td></tr></table><p>Akut (ani gelişen) bademcik iltihabı çoğunlukla çocuklarda görülür, ancak iki yaşından küçüklerde nispeten daha nadirdir. Akut bademcik iltihabı belirtileri şunları içerir:</p><ul><li>Ateş</li><li>Boğaz ağrısı</li><li>Ağız kokusu</li><li>Yutma güçlüğü (disfaji denir)</li><li>Ağrılı yutma (odinofaji denir)</li><li>Vücuttan su kaybı (dehidrasyon denir)</li><li>Boyunda hassas lenf düğümleri</li><li>Ağızdan nefes alma, horlama veya uyku apnesi</li><li>Yorgunluk, uyuşukluk ve halsizlik</li><li>Bademciklerde beyaz lekeler, irin ve/veya kızarıklık</li></ul><p>Vücutta ince kırmızı bir döküntü varsa hastada eş zamanlı "kızıl" gelişmiş olabilir. Bu belirtiler genellikle üç ila dört gün içinde geçer, ancak tedaviyle bile iki haftaya kadar sürebilir. </p><p>Akut bademcik iltihabı yaşayan hastalardan bazıları, belirtilerin tedavi bittikten kısa bir süre sonra geri geldiği, tekrarlayan bademcik iltihabı yaşayabilir.</p><table><tr><td><p><strong>Kronik Bademcik İltihabı</strong></p></td></tr></table><p>Kronik (süregiden) bademcik iltihabının belirtileri şunlardır:</p><ul><li>Kronik boğaz ağrısı</li><li>Ağız kokusu</li><li>Bademcik taşları (bademciklerde biriken artık maddeler)</li><li>Boyunda sürekli hassas lenf düğümleri varlığı</li></ul><table><tr><td><p><strong>Bademcik Çevresi Apsesi</strong></p></td></tr></table><p>Bademcik çevresi (peritonsiller) apsesi, bademcik çevresinde bir apse veya irin cebinin geliştiği ciddi bir bademcik iltihabı türüdür. Genellikle ergenlerde ve yetişkinlerde görülür, ancak bazen çocuklarda da ortaya çıkabilir. Bademcik çevresi apsesinin belirtileri şunlardır:</p><ul><li>Ateş</li><li>Şiddetli boğaz ağrısı</li><li>Salya artışı</li><li>Ağzı açmada zorluk (trismus denir)</li><li>Boğuk ses </li><li>Bir bademciğin diğerinden daha büyük görünmesi</li></ul><table><tr><td><p>Bademcik iltihabı neden oluşur?</p></td></tr></table><p>Akut bademcik iltihabı vakalarının yüzde 70 kadarı genellikle virüs (adenovirüsler, influenza virüsleri, parainfluenza virüsleri, enterovirüsler gibi) kaynaklıdır. Epstein-Barr virüsünün (EBV) sebep olabileceği enfeksiyöz mononükleoz (öpücük hastalığı olarak da bilir) hastalığı da çocuklar ve genç yetişkinlerde bademcik iltihabına neden olabilir. Uçuk (herpes simpleks) virüsü, sitomegalovirüs ve kızamık virüsü de bademcik iltihabı yapabilir.</p><p>Bademcik iltihabı vakalarının yüzde 15 ila 30'una bakteriler neden olur. Grup A beta-hemolitik streptokok (beta mikrobu), bademcik iltihabına neden olabilen en yaygın bakteridir. Beta enfeksiyonu, hasta bir kişi öksürdüğünde veya hapşırdığında etrafa yaydıkları havada asılı damlacıkların solunması veya paylaşılan yiyecek - içecekler yoluyla bulaşır. Hastalar, hastalığın erken dönemlerinde daha bulaştırıcı olur.</p><table><tr><td><p>Bademcik iltihabı nasıl tedavi edilir?</p></td></tr></table><p></p><p>Bademcik iltihabı belirtileri olan hastalar bir doktor tarafından muayene edilmelidir. Hastalığın virüs veya bakteri kaynaklı olup olmadığını ayırt etmek için, doktor bademciklerden pamuklu bir çubuk ile sürüntü alır (hızlı beta testi). Bununla birlikte, bu testle yanlış negatif sonuçlar ortaya çıkabilir. Bu nedenle doktorlar, hızlı beta testi negatif olan ancak aynı zamanda beta enfeksiyonu belirtileri gösteren hastalardan boğaz kültürü de alır. Beta testi pozitif olan ancak bademcik iltihabı belirtileri göstemeyen hastalar, muhtemelen beta taşıyıcılarıdır.</p><p>Virüslerin neden olduğu bademcik iltihabı genellikle ek tedavi olmaksızın iyileşir. Sıvı alımı ve ağrı kontrolü önemlidir; şiddetli vakalarda, özellikle hastanın susuz kalması veya hava yolu tıkanıklığı olması durumunda hastaneye yatış gerekebilir.</p><p>Bakterilerin neden olduğu bademcik iltihabı ise daha hızlı iyileşmesine yardımcı olmak ve romatizmal ateş gibi istenmeyen sonuçları önlemek amacıyla antibiyotiklerle tedavi edilir. Bademcik iltihabını tedavi etmek için kullanılan antibiyotikler arasında penisilinler, sefalosporinler, makrolidler ve klindamisin bulunur.</p><p>Doktorunuz tarafından belirlenen bazı durumlarda bademciklerin alınması için ameliyat önerilebilir. Tipik olarak, bir yılda yedi bademcik iltihabı atağı veya iki yıl üst üste yılda beş atak veya üç yıl üst üste yılda üç atak geçiren çocuklar bademcik çıkarılması ameliyatı (tonsillektomi) için aday kabul edilir. Bir hastanın bademcik çevresi (peritonsiller) apsesi varsa, apseyi boşaltmak için de ameliyat gerekebilir. </p><table><tr><td><p>Doktoruma hangi soruları sormalıyım?</p></td></tr></table><ul><li>Bademcik iltihabının yaygın belirtileri nelerdir?</li><li>Çocuğumun beta taşıyıcısı olup olmadığını nasıl anlarım?</li><li>Bademcik iltihabından şüphelenilen bir çocukta hangi testler yapılır?</li><li>Beta enfeksiyonu geçirdikten sonra çocuğum okula ve aktivitelere ne zaman dönebilir?</li><li>Tüm bademcik iltihabı vakaları antibiyotik tedavisi gerektirir mi?</li><li>Bademcik iltihabı tedavisi için ameliyat ne zaman gereklidir? </li></ul><table><tr><td><p>Amerikan Kulak-Burun-Boğaz ve Baş Boyun Cerrahisi Hastalıkları Akademisi'nin materyallerinden uyarlanmıştır. </p><p>Daha fazla bilgi için <a href="https://www.enthealth.org/conditions/tonsillitis/">https://www.enthealth.org/conditions/tonsillitis/</a> adresine gidin.</p></td></tr></table><table><tr><td><p> </p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Bu broşür Amerikan Kulak-Burun-Boğaz ve Baş Boyun Cerrahisi Hastalıkları Akademisi (American Academy of Otolaryngology-Head and Neck Surgery Foundation) tarafından hastalara yönelik hazırlanan bilgi kaynaklarından tercüme edilmiştir.</p><p>© 2022 - Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/hastaliklar/Bademcik%20%C4%B0ltihab%C4%B1.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

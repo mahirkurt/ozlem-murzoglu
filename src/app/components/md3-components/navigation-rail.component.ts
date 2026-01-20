@@ -23,14 +23,14 @@ export interface NavigationRailItem {
       <!-- FAB (Optional) -->
       <div class="rail-fab" *ngIf="showFab">
         <button class="md3-fab md3-fab-primary" (click)="fabClick.emit()">
-          <span class="material-icons">{{ fabIcon }}</span>
+          <span class="material-icons-rounded">{{ fabIcon }}</span>
         </button>
       </div>
 
       <!-- Menu Button (Optional) -->
       <div class="rail-menu" *ngIf="showMenu">
         <button class="md3-icon-button" (click)="toggleExpanded()">
-          <span class="material-icons">menu</span>
+          <span class="material-icons-rounded">menu</span>
         </button>
       </div>
 
@@ -47,7 +47,7 @@ export interface NavigationRailItem {
         >
           <div class="item-indicator" [@indicatorAnimation]></div>
 
-          <span class="item-icon material-icons" [attr.data-badge]="item.badge">
+          <span class="item-icon material-icons-rounded" [attr.data-badge]="item.badge">
             {{ item.icon }}
           </span>
 
@@ -66,7 +66,7 @@ export interface NavigationRailItem {
           [title]="!isExpanded() ? item.label : ''"
           (click)="bottomItemClick.emit(item)"
         >
-          <span class="item-icon material-icons">{{ item.icon }}</span>
+          <span class="item-icon material-icons-rounded">{{ item.icon }}</span>
 
           <span class="item-label" *ngIf="isExpanded()">
             {{ item.label }}

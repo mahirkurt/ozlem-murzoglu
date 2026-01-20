@@ -18,7 +18,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       <!-- Leading Section -->
       <div class="leading-section">
         <button class="md3-icon-button" (click)="navigationClick.emit()" *ngIf="showNavigation">
-          <span class="material-icons">{{ navigationIcon }}</span>
+          <span class="material-icons-rounded">{{ navigationIcon }}</span>
         </button>
       </div>
 
@@ -44,7 +44,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
           *ngFor="let action of trailingActions"
           (click)="actionClick.emit(action)"
         >
-          <span class="material-icons">{{ action.icon }}</span>
+          <span class="material-icons-rounded">{{ action.icon }}</span>
         </button>
       </div>
     </div>

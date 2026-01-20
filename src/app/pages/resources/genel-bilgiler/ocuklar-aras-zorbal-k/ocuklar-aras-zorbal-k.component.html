@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/genel-bilgiler" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>AMERİKAN PEDİATRİ AKADEMİSİ</p></td></tr><tr><td><p><strong>ÇOCUKLAR ARASI ZORBALIK</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Zorbalık, bir çocuğun başka bir çocuğa tekrar tekrar saldırmasıdır. Genellikle zorbalığa uğrayan çocuklar ya daha zayıf ya da daha küçüktürler, ayrıca utangaçtırlar ve genellikle kendilerini çaresiz hissederler. Engelliler ve diğer özel sağlık bakımı ihtiyaçları olan çocukların zorbalığa uğrama riski daha yüksektir. Zorbalık, güç dengesizliği olduğunda ortaya çıkar. Bazen çocuklar birbirleriyle tartışırlar veya davranışlarında bazı kötü seçimler yaparlar; ki bu zorbalık değildir.</p><p>Siber zorbalık, sosyal medya siteleri, sohbet odaları veya anlık mesajlaşma uygulamaları gibi araçlar kullanılarak elektronik olarak gerçekleşir. Siber zorbalık, gece veya gündüz herhangi bir zamanda olabilir ve geleneksel zorbalıktan çok daha fazla insan tarafından görülebilir. Siber zorbalık yapan çocuğun yaptıklarını geri almak veya saklamak çok zordur.</p></td></tr></table><table><tr><td><p><strong>Zorbalık Hakkında Bazı Gerçekler</strong></p></td></tr></table><p></p><ul><li>Hem kızlar hem de erkekler zorba olabilir.</li><li>Bir çocuk aynı zamanda hem zorba hem de mağdur olabilir.</li><li>Zorbalar, ağlayan, sinirlenen veya onlara kolayca teslim olan çocukları hedef alır.</li></ul><p><strong>3 tür zorbalık vardır:</strong></p><ul><li>Fiziksel-vurmak, tekmelemek, itmek, boğulmak, yumruk atmak</li><li>Sözlü-tehdit, alay etme, alay etme, nefret söylemi (Buna elektronik mesajlaşma da dahil olabilir)</li><li>Sosyal-kurbanları faaliyetlerden dışlamak veya onlar hakkında söylentiler başlatmak</li></ul><p><strong>Zorbalık şu koşullarda daha kolay gerçekleşebilir:</strong></p><ul><li>Okulda, öğretmenler neler olup bittiğini görmek için orada yokken,</li><li>Yetişkinler çocukları okulda, oyun alanında veya mahallede izlemiyorken,</li><li>Sosyal ağlar ve anında mesajlaşma gibi elektronik yöntemlerle iletişim kurarken.</li></ul><p><strong>Zorbaların ve mağdurların özellikleri:</strong></p><ul><li>Genel olarak, zorbalığa uğrayan çocuklar aşağıdaki risk faktörlerinden bir veya daha fazlasına sahiptir:<ul><li>Aşırı kilolu veya zayıf olanlar, gözlük takanlar veya farklı giysiler giyinenler, okulda yeni olanlar veya çocukların "havalı" olarak nitelendirdiği şeylere sahip olmayanlar (genel olarak akranlarından farklı olarak görülenler)</li><li>Zayıf veya kendilerini savunamayacak durumda olanlar.</li><li>Diğerlerinden daha az popüler olan ve az sayıda arkadaş sahibi olanlar.</li><li>Başkalarıyla iyi geçinemeyen, sinir bozucu veya kışkırtıcı olarak görülen veya dikkat çekmek için başkalarını kışkırttığı düşünülenler.</li></ul></li><li>Başkalarına zorbalık yapanların, zorbalık yaptıklarından daha güçlü veya daha büyük olmaları gerekmez. Çoğu zaman, bu çocuklar davranışlarını değiştirmek ve davranışlarını etkileyebilecek diğer zorlukları yönetebilmek için desteğe ihtiyaç duyarlar. Zorbalık yapan çocuklar aşağıdaki özelliklerden birden fazlasına sahip olabilir:<ul><li>Agresiftirler veya kolayca hüsrana uğrarlar.</li><li>Daha az ebeveyn etkileşimi içindedirler.</li><li>Sorunlu bir ev ortamında yaşarlar.</li><li>Başkaları hakkında kötü şeyler düşünürler.</li><li>Kurallara uymakta güçlük çekerler.</li><li>Şiddete olumlu açıdan bakarlar.</li><li>Başkalarına zorbalık yapan arkadaşlara sahiptirler.</li></ul></li></ul><table><tr><td><p><strong>Zorbalığın Potansiyel Sonuçları</strong></p></td></tr></table><p>Siber zorbalık da dahil olmak üzere zorbalığa maruz kalan çocuklar, yetişkinliğe kadar varabilen uzun vadeli sonuçlar yaşayabilir. Zorbalığın hem zorba hem de mağdur için sonuçları olabilir.</p><ul><li>Bu çocukların madde kullanma ve bağımlılık riski daha yüksektir.</li><li>Okulda başarısız olma olasılıkları daha yüksektir.</li><li>Tıbbi komplikasyonlar yaşayabilirler.</li><li>Depresyon veya diğer zihinsel sağlık sorunları açısından risk altındadırlar.</li></ul><table><tr><td><p>Çocuğunuzla zorbalık hakkında konuşun.</p></td></tr></table><p>Çocuğunuzun zorbalığa uğradığını, zorbalık mağduru olduğunu veya zorbalığa seyirci kaldığını düşünmeseniz bile, sadece bu soruları sorarak çocuğunuzun korunmasına yardımcı olacaksınız:</p><ul><li>Okulda işler nasıl gidiyor?</li><li>Sınıfındaki diğer çocuklar hakkında ne düşünüyorsun?</li><li>Kötü davranışa uğrayan veya başkalarına kötü davranan çocuklar var mı?</li><li>Öğle yemeği saatleri nasıl geçiyor?</li><li>Sosyal medyada veya dijital ortamlarda kötü veya tuhaf şeyler yayınlayan çocuklar var mı?</li></ul><table><tr><td><p>Çocuğunuzun zorbalığa karşı direnmesine yardımcı olun.</p></td></tr></table><p></p><p>Çocuğunuzun tüm zorbalıklardan kaçınmasına her zaman yardımcı olamazsınız, ancak zor durumlarla başa çıkması için başa çıkma becerileri geliştirmesine yardımcı olabilirsiniz. Çocuğunuzla zaman geçirin, ona sevgi gösterin, onu teşvik edin ve başkalarına karşı iyi davranışlar geliştirmesi için rol model olun. Çocuğunuzla zor durumlar hakkında konuşun, böylece sorunları konusunda size güvenebileceğini bilsin.</p><table><tr><td><p>Çocuğunuz zorbalığa uğradığında...</p></td></tr></table><p></p><p>Çocuğunuzun zorbalığa uğradığını öğrenmek üzücü olabilir. Onun yanında olduğunuzu ve onu dinlemeye hazır olduğunuzu bilmesini sağlayın. İşte yapabileceğiniz bazı şeyler:</p><ul><li>Çocuğunuzun nasıl tepki vereceğini öğrenmesine yardımcı olun. Örneğin, "Bu bir kez daha olursa ne yapabileceğini ve ne söyleyebileceğini konuşalım".</li><li>Çocuğunuza bunu nasıl yapacağını öğretin:<ul><li>"Zorbanın gözünün içine bak."</li><li>"Dik dur ve sakin ol."</li><li>"Uzaklaş."</li><li>"Elektronik mesajlara cevap verme ve istenmeyen mesaj gönderenlerle iletişimi kes."</li><li>"Anne babana veya öğretmenine zorbalık içeren metinleri, gönderileri veya e-postaları göster."</li></ul></li><li>Çocuğunuza şu cümleleri kesin bir sesle nasıl söyleyeceğini öğretin:<ul><li>"Yaptığın şey hoşuma gitmedi."</li><li>"Lütfen benimle böyle konuşma."</li><li>"Bunu neden söyledin ki?"</li></ul></li></ul><p>Birçok çocuk için bu beceriler doğuştan gelmez. Bu, yeni bir dil öğrenmek gibidir - çok fazla pratik yapılması gerekir. Pratik yapın ki, o anın hararetinde bu beceriler çocuğunuza doğal olarak gelsin.</p><ul><li><strong>Çocuğunuza ne zaman ve nasıl yardım isteyeceğini öğretin.</strong> Zorbalık olduğunda çocuğunuz bir yetişkinden yardım istemekten korkmamalıdır. Bazı çocuklar zorbalığa uğramaktan utandıkları için, ebeveynlerin çocuklarına zorbalığa uğramanın onların suçu olmadığını anlatması gerekir.</li><li><strong>Çocuğunuzu diğer çocuklarla arkadaş olması için teşvik edin.</strong> Okul içinde ve dışında, çocuğunuzun katılabileceği yetişkinler gözetiminde birçok faaliyet vardır. Çocuğunuzun arkadaşlarını evinize davet edin.</li><li><strong>Çocuğunuzun ilgisini çeken etkinlikleri destekleyin.</strong> Takım sporları, müzik grupları veya sosyal kulüpler gibi etkinliklere katılarak çocuğunuz yeni yetenekler ve sosyal beceriler geliştirecektir. Çocuklar başkalarıyla kurdukları ilişkilerde kendilerini iyi hissettiklerinde, zorbalığa uğrama olasılıkları daha düşüktür.</li><li><strong>Okul yetkililerini sorunlara karşı uyarın ve çözümler üzerinde onlarla birlikte çalışın.</strong> Zorbalık genellikle sınıf dışında meydana geldiğinden, çocuğunuzun öğretmenlerinin yanı sıra okul müdürü, rehberlik öğretmeni ve idareciler ile de konuşun. Siber zorbalık da dahil olmak üzere tüm zorbalıkları çocuğunuzun okuluna bildirin. Zorbalığın ne zaman ve nerede meydana geldiğini bildiğinizde, siz ve çocuğunuz bu tekrar olursa ne yapacağınızı daha iyi planlayabilirsiniz. </li></ul><table><tr><td><p><strong>Çocuğunuz zorbalık yapıyorsa...</strong></p></td></tr></table><p></p><p>Hiçbir ebeveyn, çocuğunun başka bir çocuğa zorbalık yapacağını düşünmek istemez; ancak bu gerçekleşebilir ve ebeveynler bu durumda gereken karşılığı vermeye hazır olmalıdır. Çocuğunuzun birine zorbalık yaptığını biliyorsanız, bunu çok ciddiye alın.</p><table><tr><td><p>Şimdi çocuğunuzun davranışlarını değiştirmek için harekete geçme zamanıdır.</p></td></tr></table><p>Uzun vadede zorbalar sorun yaşamaya devam eder. Bu sorunlar genellikle daha da kötüleşir. Zorbalığın devam etmesine izin verilirse, bu çocuklar genellikle iş ve aile yaşamlarında çok daha az başarılı olan ve hatta kanunlarla başları belaya giren yetişkinler haline gelirler.</p><ul><li>Çocuğunuzun zorbalığın ne olduğunu ve neden bir sorun olduğunu anlamasına yardımcı olun. Çocuğunuzun zorbalığın diğer çocukları nasıl incittiğini anlamasına yardımcı olun. Çocuğunuzun eylemlerinin iyi ve kötü sonuçlarına dair gerçek örnekler verin.</li><li>Çocuğunuzun saldırgan veya incitici davranışlarına kesin ve tutarlı sınırlar koyun. Çocuğunuzun zorbalığın asla uygun olmadığını bildiğinden emin olun.</li><li>Olumlu bir rol model olun. Çocukların istediklerini elde etmek için yeni ve yapıcı yollar geliştirmeleri mümkündür. Tüm çocuklar başkalarına saygılı davranmayı öğrenebilir.</li><li>Ayrıcalıkların kaybedilmesi gibi etkili, ancak fiziksel cezalandırma içermeyen disiplin yöntemleri kullanın. Çocuğunuz disipline ihtiyaç duyduğunda, davranışın neden yanlış olduğunu ve çocuğunuzun bunu nasıl değiştirebileceğini açıklayın.</li><li>Çocuğunuzun zorbalık uyguladığı çocukların velileri, okul müdürü ve öğretmenleri ile zorbalığı durdurmanın pozitif yollarını tartışın.</li><li>Çocuğunuzu yakından gözlemleyerek bireysel beceri ve ilgi alanlarını geliştirmesine yardımcı olun. Çok fazla "zamanı" olan çocukların kendilerini kötü durumlarda bulma olasılığı daha yüksektir.</li><li>Çevrimiçi geçirdikleri zamanı denetleyin ve hangi siteleri ziyaret ettiklerini izleyin. Sosyal medya sitelerinde sizinle arkadaş olmalarını ve şifrelerini sizinle paylaşmalarını isteyin.</li><li>Yardım isteyin. Davranışı değiştirmekte zorlanıyorsanız, bir öğretmen, danışman veya çocuk doktoru gibi bir uzmana başvurun.</li></ul><table><tr><td><p><strong>Çocuğunuz zorbalığa tanık oluyorsa...</strong></p></td></tr></table><p></p><p>Çoğu çocuk ne zorbalık yapar ne de zorbalığa uğrar; ancak zorbalığa tanık olabilir. Zorbalığı durdurmak için çocuğunuzun yapabileceği şeyler vardır:</p><ul><li>Zorbalığın izleyici bulmasına izin vermeyebilirler. Genellikle zorbalık yapanlar, buna tanık olanlardan gördükleri ilgiden cesaret alırlar. Çocuklar, bunu desteklemeyerek zorbalığın durdurulmasına yardımcı olabilir.</li><li>İyi davranışlar için örnek oluşturabilirler.</li><li>Zorbalığa uğrayan çocuğun kaçmasına yardım edebilirler.</li><li>Güvendiği yetişkinlere durum hakkında bilgi verebilirler. Bir yetişkinle konuşmak gevezelik etmek veya ispiyonculuk değildir. Başka bir çocuğa destek olmak için harekete geçmek bir cesaret ve güven eylemidir. Bunu kolaylaştırmak için arkadaşlarından da destek alabilirler.</li><li>Zorbalığa uğrayanlar ile arkadaş olabilirler. Çocuklar, zorbalığa uğramış birine ona sadece iyi davranarak da yardım edebilirler. Arkadaş canlısı olmak, zorbalığa uğrayanın yalnız olmadığını bilmesini sağlayarak çok yardımcı olabilir.</li></ul><p></p><p>Tüm çocuklar için güvenli bir ortam oluşturmak üzere toplumdaki herkesin birlikte çalışması önemlidir. Zorbalık karşıtı mesajlar ve politikalar oluşturmak için çocuk doktoru, okul yönetimi, yerel idareler ve sivil toplum örgütleriyle birlikte çalışabilirsiniz.</p><table><tr><td><p>Bright Futures: Guidelines for Health Supervision of Infants, Children, and Adolescents, <br />4.Baskı'dan uyarlanmıştır. Daha fazla bilgi için <strong>https://brightfutures.aap.org</strong> adresine gidin.</p></td></tr></table><table><tr><td><p></p></td><td><p>Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir. Orijinal broşür, Bright Futures Tools and Resource Kit, 2. Baskı'nın bir parçası olarak dahil edilmiştir. Kaynakların listelenmesi, Amerikan Pediatri Akademisi (AAP) tarafından onaylandığı anlamına gelmez. AAP, harici kaynakların içeriğinden sorumlu değildir. Bilgiler yayınlandığı tarihte günceldi. Amerikan Pediatri Akademisi (AAP), bu broşürde yapılan değişiklikleri incelemez veya onaylamaz ve hiçbir durumda bu değişikliklerden AAP sorumlu olmayacaktır. © 2019 Amerikan Pediatri Akademisi. Tüm hakları saklıdır.</p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>UZM.DR.</strong></p><p><strong>ÖZLEM</strong></p><p><strong>MURZOĞLU</strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A/30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:info&#64;ozlemmurzoglu.com">info&#64;ozlemmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/genel-bilgiler/%C3%87ocuklar%20Aras%C4%B1%20Zorbal%C4%B1k.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

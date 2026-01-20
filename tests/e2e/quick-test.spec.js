@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 test('Triple P page screenshot', async ({ page }) => {
-  await page.goto('http://localhost:4202/hizmetlerimiz/triple-p');
+  await page.goto('http://localhost:4200/hizmetlerimiz/triple-p');
   await page.waitForTimeout(3000);
 
   // Get page content

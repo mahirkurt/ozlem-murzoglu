@@ -24,7 +24,15 @@
     "SHARE_FACEBOOK": "Facebook'ta Paylaş",
     "SHARE_LINKEDIN": "LinkedIn'de Paylaş",
     "COPY_LINK": "Bağlantıyı Kopyala",
+    "BREADCRUMB_NAV": "Sayfa yolu",
     "BOOK_APPOINTMENT": "Randevu Al",
+    "CALL": "Ara",
+    "THEME": {
+      "AUTO_DARK": "Tema: Otomatik (Koyu görünüm)",
+      "AUTO_LIGHT": "Tema: Otomatik (Açık görünüm)",
+      "DARK": "Tema: Koyu",
+      "LIGHT": "Tema: Açık"
+    },
     "MAKE_APPOINTMENT": "Randevu Al",
     "PRESENT": "Günümüz",
     "DOCTOR_NAME": "Uzm. Dr. Özlem Murzoğlu"
@@ -54,9 +62,13 @@
     "CLOSE_MENU": "Menüyü kapat"
   },
   "HOME": {
-    "HERO_TITLE": "Sosyal Pediatri ve Çocuk Gelişimi uzmanlıklarını şefkat ve sevgiyle bütünleştiren bütüncül hekimlik yaklaşımı",
+    "HERO_TITLE": "Sosyal pediatri ve çocuk gelişimi uzmanlıklarını <span class=\"hero-highlight\">şefkat</span> ve <span class=\"hero-highlight\">sevgiyle</span> bütünleştiren yeni nesil çocuk sağlığı hizmetleri",
     "HERO_SUBTITLE": "UZM.DR. ÖZLEM MURZOĞLU ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ",
-    "HERO_DESCRIPTION": "Modern tıbbın imkanlarıyla, sevgi dolu bir yaklaşımla",
+    "HERO_DESCRIPTION": "",
+    "HERO_MICROCOPY": "Randevu ve bilgi talepleriniz için size uygun zamanı kolayca planlayın.",
+    "HERO_TRUST_1": "Uzman hekim yaklaşımı",
+    "HERO_TRUST_2": "Kanıta dayalı takip",
+    "HERO_TRUST_3": "Aile odaklı iletişim",
     "CTA_APPOINTMENT": "Hemen Randevu Al",
     "CTA_LEARN_MORE": "Detaylı Bilgi"
   },
@@ -158,10 +170,10 @@
     "VALUES_TITLE": "Değerlerimiz",
     "VALUES_DESC": "Bilimsellik, şeffaflık, empati ve sürekli gelişim ilkelerimizle hareket ediyoruz.",
     "DR_PAGE": {
-      "HERO_TITLE": "Dr. Özlem Murzoğlu",
-      "HERO_SUBTITLE": "Çocuk Sağlığı ve Hastalıkları Uzmanı",
-      "HERO_MY_STORY": "Benim Hikayem",
-      "HERO_I_AM": "Ben Özlem Murzoğlu",
+      "HERO_TITLE": "Benim Hikayem",
+      "HERO_SUBTITLE": "Ben Özlem Murzoğlu",
+      "HERO_MY_STORY": "Dr. Özlem Murzoğlu",
+      "HERO_I_AM": "Çocuk Sağlığı ve Hastalıkları Uzmanı",
       "BADGE_PEDIATRICIAN": "Pediatri Uzmanı",
       "BADGE_SOCIAL_PEDIATRICS": "Sosyal Pediatri Doktorası",
       "BADGE_UNIVERSITY": "İstanbul Tıp Fakültesi",
@@ -176,7 +188,8 @@
       "ISTANBUL_UNIVERSITY_INSTITUTE": "İstanbul Üniversitesi Çocuk Sağlığı Enstitüsü",
       "SOCIAL_PEDIATRICS": "Sosyal Pediatri",
       "EXPERT_TEAM_DESIGN": "Uzman Ekip İle Tasarım",
-      "MY_STORY": "Benim Hikayem",
+      "MY_STORY": "Biyografi",
+      "BIOGRAPHY_TITLE": "Biyografi",
       "ROOTS_TITLE": "Köklerim",
       "ROOTS_TEXT": "Küçük ve kendine münhasır otantik bir Karadeniz şehrinde Temel Fıkralarını yaşayarak büyüdüm. Okul öncesi en iyi arkadaşlarım olan annem ve dedemle ağaçlara, toprağa tutkumu paylaştım. Dört çocuklu bir ailenin tekne kazıntısı olarak sevgi dolu ablamın sabrını yıllarca çokça zorlayarak çok sevildim, çok sevdim.",
       "EDUCATION_JOURNEY": "Eğitim Yolculuğum",
@@ -195,7 +208,7 @@
       "NEW_BEGINNING_TEXT3": "Eşim, kızım, annem, geniş ailem, doyamadığım arkadaşlarımın destekleri ile yeni bir yolculuğa başlıyorum. Bundan sonra kendi kliniğimde çocuklarımı karşılacak ve onca yıllık çocuk tecrübeme rağmen her gün beni yeniden hayrete düşürmelerinin keyfini çıkaracağım."
     },
     "PRESENT": "Halen",
-    "PHILOSOPHY_QUOTE": "\"Her çocuk biriciktir ve kendi hızında, sevgi dolu bir ortamda yeşermeyi hak eder.\"",
+    "PHILOSOPHY_QUOTE": "Sosyal Pediatri ve Çocuk Gelişimi alanındaki uzmanlığımı, sadece klinik verilerle değil; şefkat, sevgi ve derin bir anlayışla harmanlıyorum. Çünkü inanıyorum ki; gerçek iyileşme, çocuğu ve aileyi bir bütün olarak kucakladığınızda başlar.",
     "SIGNATURE": "Dr. Özlem Murzoğlu"
   },
   "SERVICES": {
@@ -920,6 +933,7 @@
     "JOURNEY_BANNER_BTN": "Yolculuğa Başla",
     "POPULAR_RESOURCES": "Popüler Kaynaklar",
     "ALL_RESOURCES": "Tüm Kaynaklar",
+    "CATEGORY_SUBTITLE": "Bu kategorideki tüm kaynaklar",
     "FEATURE1_TITLE": "Güvenilir Kaynaklar",
     "FEATURE1_DESC": "Amerikan Pediatri Akademisi ve DSÖ gibi uluslararası kuruluşların onayladığı içerikler",
     "FEATURE2_TITLE": "Türkçe İçerik",
@@ -930,7 +944,9 @@
     "FEATURE4_DESC": "En son bilimsel gelişmeler ışığında sürekli güncellenen içerikler",
     "CATEGORIES": {
       "BRIGHT_FUTURES_FAMILY": "Bright Futures (Aile)",
+      "BRIGHT_FUTURES_FAMILY_DESC": "Amerikan Pediatri Akademisi tarafından hazırlanan, çocuğunuzun her yaş dönemine özel aile rehberleri",
       "BRIGHT_FUTURES_CHILD": "Bright Futures (Çocuk)",
+      "BRIGHT_FUTURES_CHILD_DESC": "Çocuklar için hazırlanmış, yaşa uygun gelişim ve sağlık bilgileri",
       "VACCINES": "Aşılar",
       "VACCINES_DESC": "Aşılar hakkında detaylı bilgiler, takvimler ve sıkça sorulan sorular",
       "PREGNANCY": "Gebelik Dönemi",
@@ -1235,7 +1251,6 @@
   },
   "APPROACH": {
     "TITLE": "Değerlerimiz",
-
     "SUBTITLE": "Çocuğunuzun Sağlığı İçin Bütüncül Bakım",
     "SECTION_DESC": "Her çocuğun fiziksel, zihinsel ve duygusal gelişimini bir bütün olarak ele alıyor; bilimsel takibi şefkatli bir yaklaşımla harmanlıyoruz.",
     "COMPREHENSIVE_TITLE": "Kapsamlı Yaklaşım",
@@ -1279,7 +1294,8 @@
     "DATE_1_MONTH": "1 ay önce",
     "DATE_3_WEEKS": "3 hafta önce",
     "DATE_2_WEEKS": "2 hafta önce",
-    "DATE_1_WEEK": "1 hafta önce"
+    "DATE_1_WEEK": "1 hafta önce",
+    "LABEL": "[TR] Label"
   },
   "CLINIC": {
     "HERO": {
@@ -1381,13 +1397,13 @@
     "BIO_PARAGRAPH_1": "İstanbul Üniversitesi İstanbul Tıp Fakültesi'nden mezun olan Dr. Özlem Murzoğlu, pediatri uzmanlık eğitimini Marmara Üniversitesi Tıp Fakültesi Çocuk Sağlığı ve Hastalıkları Anabilim Dalı'nda tamamlamıştır.",
     "BIO_PARAGRAPH_2": "Aynı kurumda Sosyal Pediatri alanında doktora derecesini alan Dr. Murzoğlu, eş zamanlı olarak Çocuk Gelişimi lisans eğitimini de tamamlayarak, çocuk sağlığına bütüncül bir yaklaşım geliştirmiştir.",
     "BIO_PARAGRAPH_3": "Bright Futures® Sağlıklı Çocuk İzlemi, uyku danışmanlığı ve Triple P® Pozitif Ebeveynlik Programı konularında uzmanlaşan Dr. Murzoğlu, Ataşehir'deki kliniğinde ailelere kapsamlı pediatri hizmetleri sunmaktadır.",
-    "MEDICAL_EDUCATION": "Tıp Eğitimi",
+    "MEDICAL_EDUCATION": "TIP EĞİTİMİ",
     "MEDICAL_SCHOOL": "İstanbul Üniversitesi İstanbul Tıp Fakültesi",
-    "SPECIALIZATION": "Uzmanlık",
+    "SPECIALIZATION": "UZMANLIK",
     "SPECIALIZATION_SCHOOL": "Marmara Üniversitesi Çocuk Sağlığı ve Hastalıkları",
-    "DOCTORATE": "Doktora",
+    "DOCTORATE": "DOKTORA",
     "DOCTORATE_FIELD": "Sosyal Pediatri",
-    "BACHELOR": "Lisans",
+    "BACHELOR": "LİSANS",
     "BACHELOR_FIELD": "Çocuk Gelişimi",
     "EXPERIENCE_TITLE": "Mesleki Deneyim",
     "EDUCATION_TITLE": "Eğitim",
@@ -2182,7 +2198,6 @@
       "SUBTITLE": "Çocuk sağlığı hakkında güncel bilgiler",
       "COMING_SOON_DESC": "Makaleler bölümü yakında sizlerle olacak."
     }
-
   },
   "CLINIC_DESIGN": {
     "TITLE": "Kliniğimiz",
@@ -2249,7 +2264,6 @@
       "APPOINTMENT_BUTTON": "Randevu Al"
     }
   },
-
   "KLINIK_TASARIMI": {
     "TITLE": "Klinik Tasarımı",
     "SUBTITLE": "Çocuklar için özel olarak tasarlanmış, güvenli ve eğitici bir ortam",
@@ -2485,5 +2499,18 @@
     "DESCRIPTION": "Randevu oluşturmak veya merak ettikleriniz için bize ulaşın.",
     "APPOINTMENT": "Randevu Al",
     "WHATSAPP": "WhatsApp"
+  },
+  "DR_OZLEM": {
+    "NAME": "[TR] Name",
+    "SUBTITLE": "[TR] Subtitle",
+    "YEARS_EXPERIENCE": "[TR] Years Experience",
+    "BRIGHT_FUTURES_CERTIFIED": "[TR] Bright Futures Certified",
+    "TRIPLE_P_TRAINER": "[TR] Triple P Trainer",
+    "GREETING": "[TR] Greeting",
+    "QUOTE": "[TR] Quote",
+    "EDUCATION_TITLE": "[TR] Education Title",
+    "EXPERIENCE_TITLE": "[TR] Experience Title",
+    "SPECIALTIES_TITLE": "[TR] Specialties Title",
+    "MEMBERSHIPS_TITLE": "[TR] Memberships Title"
   }
 }

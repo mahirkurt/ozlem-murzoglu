@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 test.describe('Translation Check', () => {
-  const baseUrl = 'http://localhost:4201';
+  const baseUrl = 'http://localhost:4200';
   
   test('Check header translations', async ({ page }) => {
     console.log('Navigating to homepage...');

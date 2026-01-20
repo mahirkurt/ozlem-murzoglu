@@ -1,12 +1,15 @@
 /* Hero Section - Using Global Styles */
 /* Local hero styles removed - now using global hero classes from src/styles.css */
 
-/* Badge Section */
-.badge-section {
-  padding: 2rem 0;
-  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1) 0%, rgba(79, 70, 229, 0.1) 100%);
-  border-bottom: 1px solid #e0e0e0;
+/* Badge Row */
+.saygiyla-badge-row {
+  padding: var(--md-sys-spacing-6) 0 var(--md-sys-spacing-10);
   text-align: center;
+}
+
+.saygiyla-badge-row .container {
+  display: flex;
+  justify-content: center;
 }
 
 .hero-badge {
@@ -341,15 +344,7 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-description {
-    font-size: 1rem;
-  }
-  
+
   .card-header {
     flex-direction: column;
     text-align: center;

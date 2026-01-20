@@ -10,7 +10,7 @@
       <div *ngFor="let service of services" class="service-card service-card--{{ service.color }}">
         <a [routerLink]="service.href" class="service-link">
           <div class="service-icon-wrapper">
-            <span class="material-icons service-icon">{{ service.icon }}</span>
+            <span class="material-icons-rounded service-icon">{{ service.icon }}</span>
           </div>
           <div class="service-content">
             <h3 class="service-title">{{ service.titleKey | translate }}</h3>
@@ -18,9 +18,6 @@
           </div>
           <div class="card-footer">
             <span class="read-more-text">{{ 'COMMON.READ_MORE' | translate }}</span>
-            <div class="service-arrow">
-              <span class="material-icons">arrow_forward</span>
-            </div>
           </div>
         </a>
       </div>
@@ -29,7 +26,6 @@
     <div class="section-cta">
       <a routerLink="/hizmetlerimiz" class="cta-button">
         <span>{{ 'SERVICES.VIEW_ALL' | translate }}</span>
-        <span class="material-icons">arrow_forward</span>
       </a>
     </div>
   </div>

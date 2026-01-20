@@ -51,7 +51,7 @@ async function testHomePage(page) {
   
   // Ana sayfayı yükle
   const startTime = performance.now();
-  await page.goto('http://localhost:4201', { waitUntil: 'networkidle2' });
+  await page.goto('http://localhost:4200', { waitUntil: 'networkidle2' });
   const loadTime = performance.now() - startTime;
   
   log(`Sayfa yükleme süresi: ${(loadTime/1000).toFixed(2)}s`);
@@ -84,7 +84,7 @@ async function testHomePage(page) {
   logTestResult('WhatsApp butonu mevcut', whatsappExists, 'WhatsApp butonu bulunamadı');
   
   // Randevu butonu kontrolü
-  const appointmentBtnExists = await waitForElement(page, '.appointment-btn, .btn-appointment, button[class*="appointment"], a[href*="randevu"]');
+  const appointmentBtnExists = await waitForElement(page, '.appointment-btn, .btn-appointment, button[class*="appointment"], a[href*="iletisim"]');
   logTestResult('Randevu butonu mevcut', appointmentBtnExists, 'Randevu butonu bulunamadı');
 }
 
@@ -94,14 +94,14 @@ async function testNavigation(page) {
   const routes = [
     { path: '/hakkimizda', name: 'Hakkımızda' },
     { path: '/hizmetlerimiz', name: 'Hizmetlerimiz' },
-    { path: '/bilgi-merkezi', name: 'Bilgi Merkezi' },
+    { path: '/kaynaklar', name: 'Bilgi Merkezi' },
     { path: '/iletisim', name: 'İletişim' },
-    { path: '/randevu', name: 'Randevu' }
+    { path: '/iletisim', name: 'Randevu' }
   ];
   
   for (const route of routes) {
     try {
-      await page.goto(`http://localhost:4201${route.path}`, { waitUntil: 'networkidle2', timeout: 10000 });
+      await page.goto(`http://localhost:4200${route.path}`, { waitUntil: 'networkidle2', timeout: 10000 });
       const title = await page.title();
       logTestResult(`${route.name} sayfası yüklendi`, true);
       
@@ -131,7 +131,7 @@ async function testResponsive(page) {
   
   for (const viewport of viewports) {
     await page.setViewport({ width: viewport.width, height: viewport.height });
-    await page.goto('http://localhost:4201', { waitUntil: 'networkidle2' });
+    await page.goto('http://localhost:4200', { waitUntil: 'networkidle2' });
     
     // Mobil menü kontrolü
     if (viewport.name === 'Mobile') {
@@ -199,7 +199,7 @@ async function testForms(page) {
   
   // Randevu sayfasına git
   try {
-    await page.goto('http://localhost:4201/randevu', { waitUntil: 'networkidle2' });
+    await page.goto('http://localhost:4200/iletisim', { waitUntil: 'networkidle2' });
     
     // Form elemanları kontrolü
     const formExists = await waitForElement(page, 'form, .appointment-form, .contact-form');
@@ -253,7 +253,7 @@ async function testPerformance(page) {
   log('\n=== PERFORMANS TESTLERİ ===', 'header');
   
   // Ana sayfaya git
-  await page.goto('http://localhost:4201', { waitUntil: 'networkidle2' });
+  await page.goto('http://localhost:4200', { waitUntil: 'networkidle2' });
   
   // Performance metrics
   const metrics = await page.evaluate(() => {
@@ -320,7 +320,7 @@ async function testPerformance(page) {
 async function testAccessibility(page) {
   log('\n=== ERİŞİLEBİLİRLİK TESTLERİ ===', 'header');
   
-  await page.goto('http://localhost:4201', { waitUntil: 'networkidle2' });
+  await page.goto('http://localhost:4200', { waitUntil: 'networkidle2' });
   
   const accessibilityIssues = await page.evaluate(() => {
     const issues = [];
@@ -387,7 +387,7 @@ async function testAccessibility(page) {
 async function testSEO(page) {
   log('\n=== SEO TESTLERİ ===', 'header');
   
-  await page.goto('http://localhost:4201', { waitUntil: 'networkidle2' });
+  await page.goto('http://localhost:4200', { waitUntil: 'networkidle2' });
   
   const seoData = await page.evaluate(() => {
     const data = {};

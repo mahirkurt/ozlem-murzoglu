@@ -1,87 +1,52 @@
-<div class="resource-page">
-  <!-- Hero Section with Gradient -->
-  <div class="resource-hero dynamic-gradient">
-    <div class="hero-pattern"></div>
-    <div class="gradient-overlay"></div>
+<app-page-header
+  [title]="resource?.title || ''"
+  [subtitle]="resource?.description || ''"
+  [breadcrumbs]="breadcrumbs">
+</app-page-header>
+
+<main class="resource-page">
+  <section class="resource-content">
     <div class="container">
-      <nav class="breadcrumb">
-        <a routerLink="/bilgi-merkezi" class="breadcrumb-link">
-          <span class="material-icons">folder</span>
-          <span>Bilgi Merkezi</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <a routerLink="/kaynaklar/gelisim-rehberleri" class="breadcrumb-link">
-          <span>{{ category }}</span>
-        </a>
-        <span class="material-icons separator">chevron_right</span>
-        <span class="current">{{ title }}</span>
-      </nav>
-      
-      <div class="hero-content">
-        <h1 class="page-title">{{ title }}</h1>
-        <div class="meta-info">
-          <div class="meta-item">
-            <span class="material-icons">category</span>
-            <span>{{ category }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="material-icons">description</span>
-            <span>Bilgi Dökümanı</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Content Section -->
-  <div class="resource-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <!-- Table of Contents (auto) -->
+      <div class="resource-layout">
         <aside class="toc-sidebar" *ngIf="toc.length">
           <div class="toc-header">
-            <span class="material-icons">list</span>
-            <h3>İçindekiler</h3>
+            <span class="material-icons-rounded" aria-hidden="true">list</span>
+            <h3>{{ 'RESOURCES.TABLE_OF_CONTENTS' | translate }}</h3>
           </div>
           <nav class="toc-nav">
-            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{'level-3': item.level === 3}">
-              <span class="dot"></span>
+            <a *ngFor="let item of toc" class="toc-link" [attr.href]="'#' + item.id" [ngClass]="{ 'level-3': item.level === 3 }">
+              <span class="dot" aria-hidden="true"></span>
               <span class="label">{{ item.text }}</span>
             </a>
           </nav>
         </aside>
-        
-        <!-- Main Content -->
+
         <article class="content-card">
-          <div class="content-body" #contentRoot>
-            <table><tr><td colspan="2"><p>UZM.DR. ÖZLEM MURZOĞLU - ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ</p></td></tr><tr><td><p>GELİŞİM BASAMAKLARI:</p><p><strong>4 YAŞ ÇOCUĞUNUZ</strong></p></td><td><p></p></td></tr></table><table><tr><td><p>Çocuğunuzun gelişim sürecinde bazı önemli kilometre taşları vardır. Çocuğunuzun nasıl oynadığı, öğrendiği, konuştuğu, hareket ettiği ve gelişimi hakkında önemli ipuçları sunar. Bebeğinizin 4 yaşa kadar ulaştığı noktaları kontrol edin. Doktorunuzla bu basamakları ve bundan sonra neler beklenebileceğini konuşun.</p></td></tr></table><p><br /><br /></p><table><tr><td><p><a id="_heading=h.gjdgxs"></a></p></td><td><p>Çocuklar bu dönemde neler yapabilir?</p></td></tr></table><table><tr><td></td><td><p>Sosyal &amp; Duygusal Gelişim Basamakları</p></td></tr></table><ul><li>Oyun sırasında başka bir role girebilir (öğretmen, süper kahraman, köpek)</li><li>Diğer çocuklarla oynamaya gidip gidemeyeceğini sorar, örneğin "Işık ile oynayabilir miyim?"</li><li>İncinmiş veya ağlayan birini rahatlatmak için ona sarılıp teselli olmaya çalışır.</li><li>Tehlikeden kaçınır, örneğin oyun alanında yüksekten atlamaz.</li><li>"Yardımcı" olmayı sever. Sürekli "Ben de yardım edebilir miyim?" modundadır.</li><li>Davranışını bulunduğu yere göre değiştirir (hastane, kütüphane, oyun alanı). Nerede nasıl giyineceğini (pijama ile kreşe gidilmeyeceği gibi), nerede yerin temizi olup olmadığını vs. ayırt eder.</li></ul><table><tr><td></td><td><p>Dil &amp; İletişim Gelişim Basamakları</p></td></tr></table><p></p><ul><li>Dört veya daha fazla kelimeden oluşan cümleler söyler</li><li>Bir şarkıdan, hikâyeden veya tekerlemeden birkaç kelime söyler</li><li>Gün içinde olan en az bir şeyden bahseder, örneğin "Top oynadım."</li><li>"Bir palto ne işe yarar?" veya "Bir boya kalemi ne işe yarar?" gibi basit soruları yanıtlayabilir.</li></ul><table><tr><td></td><td><p>Kognitif Gelişim Basamakları</p><p>(Öğrenme, Düşünme, Problem Çözme)</p></td></tr></table><ul><li>Birkaç nesnenin rengini söyleyebilir.</li><li>Bilinen bir hikâyede bundan sonra ne olacağını söyleyebilir.</li><li>Üç veya daha fazla vücut parçası olan bir insan resmi çizebilir.</li></ul><table><tr><td></td><td><p>Hareket &amp; Fiziksel Gelişim Basamakları</p></td></tr></table><ul><li>Yetişkin gözetiminde kendine yemek servisi yapar veya su dökebilir.</li><li>Çoğu zaman büyük bir topu yakalayabilir.</li><li>Bazı düğmeleri açar</li><li>Parmakları ve baş parmağı arasında kalem veya boya kalemi tutabilir (yumruğuyla değil).</li></ul><table><tr><td></td><td><p>Doktorunuzla Paylaşılması Gereken Diğer Önemli Hususlar</p></td></tr></table><ul><li>Sizin ve çocuğunuzun birlikte yaptığı şeyler nelerdir?</li><li>Çocuğunuzun yapmaktan hoşlandığı şeyler nelerdir?</li><li>Çocuğunuzun sizi endişelendiren yaptığı veya yapmadığı bir şey var mı?</li><li>Çocuğunuz önceden sahip olduğu becerileri kaybetti mi?</li><li>Çocuğunuzun herhangi bir özel sağlık bakımına ihtiyacı var mı veya erken mi doğdu?</li></ul><table><tr><td colspan="2"><p>Çocuğunuzun gelişimi hakkında endişeli misiniz?</p></td></tr><tr><td colspan="2"></td></tr><tr><td><p><strong>Çocuğunuzu en iyi siz tanırsınız.</strong> Çocuğunuz bir veya daha fazla gelişim basamağına ulaşamıyorsa, önceden sahip olduğu becerileri kaybetmişse veya başka endişeleriniz varsa erkenden harekete geçin. </p><p>Çocuğunuzun doktoruyla konuşun, endişelerinizi paylaşın ve gelişimsel tarama hakkında bilgi alın.</p></td><td><p></p></td></tr></table><p><a id="_heading=h.30j0zll"></a></p><table><tr><td><p>Konu uzmanlarına ve verilerin gözden geçirilmesine ve gelişimsel dönüm noktalarının seçilmesine katkıda bulunan diğer kişilere, özellikle de Paul H. Lipkin, MD, Michelle M. Macias, MD, Julie F. Pajek, PhD, Judith S. Shaw, EdH,MPH, RN, Karnesha Slaughter, MPH, Jane K. Squires, PhD, Toni M. Whitaker, MD, Lisa D. Wiggins, PhD ve Jennifer M. Zubler, MD.'ye özel teşekkürler. Amerikan Hastalık Kontrol ve Önleme Merkezleri (CDC) Ulusal Doğum Kusurları ve Gelişimsel Engelliler Merkezi tarafından hazırlanmıştır. Bu broşürde yer alan bilgiler, çocuk doktorunuzun tıbbi bakım ve tavsiyelerinin yerine kullanılmamalıdır. Çocuk doktorunuzun bireysel gerçeklere ve koşullara dayalı olarak önerebileceği tedavide farklılıklar olabilir.</p><p><strong>© 2023 Amerikan Hastalık Kontrol ve Önleme Merkezleri (CDC) - Tüm hakları saklıdır.</strong></p></td></tr></table><table><tr><td></td></tr></table><table><tr><td><p><strong></strong></p></td><td><p><strong>Barbaros Mah. Ak Zambak Sok. No: 3</strong></p><p><strong>Uphill Towers A-30 Ataşehir İstanbul</strong></p><p>0 216 688 44 83 - 0 546 688 44 83</p><p><a href="mailto:klinik&#64;drmurzoglu.com">klinik&#64;drmurzoglu.com</a></p><p><a href="http://www.ozlemmurzoglu.com">www.ozlemmurzoglu.com</a> </p></td><td><p></p></td></tr></table>
-          </div>
+          <div class="content-body" #contentRoot [innerHTML]="contentHtml"></div>
         </article>
       </div>
-    </div>
-    
-    <!-- Action Bar -->
-    <div class="action-bar-wrapper">
-      <div class="container">
-        <div class="action-bar">
+
+      <div class="action-bar">
         <div class="action-group">
-          <button class="action-btn btn-secondary" onclick="window.print()">
-            <span class="material-icons">print</span>
-            <span>Yazdır</span>
+          <button class="action-btn btn-secondary" type="button" (click)="printPage()">
+            <span class="material-icons-rounded" aria-hidden="true">print</span>
+            <span>{{ 'COMMON.PRINT' | translate }}</span>
           </button>
-          <button class="action-btn btn-secondary" onclick="navigator.share && navigator.share({title: this.title, url: window.location.href})">
-            <span class="material-icons">share</span>
-            <span>Paylaş</span>
+          <button class="action-btn btn-secondary" type="button" (click)="sharePage()">
+            <span class="material-icons-rounded" aria-hidden="true">share</span>
+            <span>{{ 'COMMON.SHARE' | translate }}</span>
           </button>
         </div>
-        <a href="/documents/gelisim-rehberleri/Geli%C5%9Fim%20Basamaklar%C4%B1%20-%204.%20Ya%C5%9F%20.docx" 
-           download 
+        <a *ngIf="resource?.downloadUrl"
+           [href]="resource?.downloadUrl"
+           download
            class="action-btn btn-primary">
-          <span class="material-icons">download</span>
-          <span>Orijinal Dökümanı İndir</span>
+          <span class="material-icons-rounded" aria-hidden="true">download</span>
+          <span>{{ 'RESOURCES.DOWNLOAD_ORIGINAL' | translate }}</span>
         </a>
       </div>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+<app-contact-cta></app-contact-cta>

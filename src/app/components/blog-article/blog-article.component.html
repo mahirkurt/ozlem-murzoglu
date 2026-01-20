@@ -13,9 +13,7 @@
     <div class="container">
       <!-- Breadcrumb -->
       <nav class="breadcrumb">
-        <a routerLink="/blog">
-          <span class="material-icons">arrow_back</span>
-          Blog'a Dön
+        <a routerLink="/blog">Blog'a Dön
         </a>
       </nav>
 
@@ -25,15 +23,15 @@
         <div class="meta-divider"></div>
         <div class="meta-info">
           <span class="article-date">
-            <span class="material-icons">calendar_today</span>
+            <span class="material-icons-rounded">calendar_today</span>
             {{article.date}}
           </span>
           <span class="article-read-time">
-            <span class="material-icons">schedule</span>
+            <span class="material-icons-rounded">schedule</span>
             {{article.readTime}} dk okuma
           </span>
           <span class="article-author">
-            <span class="material-icons">person</span>
+            <span class="material-icons-rounded">person</span>
             {{article.author}}
           </span>
         </div>
@@ -50,25 +48,25 @@
         <div class="social-share">
           <span class="share-label">Paylaş:</span>
           <button (click)="shareArticle('whatsapp')" class="share-btn whatsapp" title="WhatsApp'ta Paylaş">
-            <span class="material-icons">chat</span>
+            <span class="material-icons-rounded">chat</span>
           </button>
           <button (click)="shareArticle('twitter')" class="share-btn twitter" title="Twitter'da Paylaş">
-            <span class="material-icons">share</span>
+            <span class="material-icons-rounded">share</span>
           </button>
           <button (click)="shareArticle('facebook')" class="share-btn facebook" title="Facebook'ta Paylaş">
-            <span class="material-icons">facebook</span>
+            <span class="material-icons-rounded">facebook</span>
           </button>
           <button (click)="shareArticle('linkedin')" class="share-btn linkedin" title="LinkedIn'de Paylaş">
-            <span class="material-icons">business</span>
+            <span class="material-icons-rounded">business</span>
           </button>
           <button (click)="copyLink()" class="share-btn copy" title="Bağlantıyı Kopyala">
-            <span class="material-icons">link</span>
+            <span class="material-icons-rounded">link</span>
           </button>
         </div>
         
         <div class="article-tools">
           <button (click)="printArticle()" class="tool-btn" title="Yazdır">
-            <span class="material-icons">print</span>
+            <span class="material-icons-rounded">print</span>
           </button>
         </div>
       </div>
@@ -79,7 +77,7 @@
       <div class="illustration-wrapper" [attr.data-theme]="isDark ? 'dark' : 'light'" [attr.data-article]="article.slug">
         <!-- Simple icon-based illustration -->
         <div class="simple-illustration">
-          <span class="material-icons article-icon">{{getArticleIcon(article.slug)}}</span>
+          <span class="material-icons-rounded article-icon">{{getArticleIcon(article.slug)}}</span>
           <div class="illustration-bg"></div>
         </div>
       </div>
@@ -104,7 +102,7 @@
         <!-- Article Navigation -->
         <div class="article-navigation">
           <button (click)="scrollToTop()" class="scroll-top-btn">
-            <span class="material-icons">keyboard_arrow_up</span>
+            <span class="material-icons-rounded">keyboard_arrow_up</span>
             <span>Başa Dön</span>
           </button>
         </div>
@@ -139,9 +137,7 @@
   <!-- Back to Blog -->
   <section class="back-to-blog">
     <div class="container">
-      <a routerLink="/blog" class="back-btn">
-        <span class="material-icons">arrow_back</span>
-        <span>Tüm Makalelere Dön</span>
+      <a routerLink="/blog" class="back-btn"><span>Tüm Makalelere Dön</span>
       </a>
     </div>
   </section>

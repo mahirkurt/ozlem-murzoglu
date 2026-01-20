@@ -1,0 +1,1522 @@
+// ============================================================================
+// _effects.scss - MD3 Visual Effects System
+// MD3 Expressive 2025 - Advanced Visual Effects & Glassmorphism
+// Referenced in: MD3-STYLES-GUIDE.md Part XIV, XV, XVI, XVII
+// ============================================================================
+// Comprehensive effects including glassmorphism, gradients, overlays,
+// shimmer animations, blur effects, glow effects, and more.
+// ============================================================================
+
+// ============================================================================
+// SECTION 1: GLASSMORPHISM TOKENS
+// ============================================================================
+
+:root {
+  // ---------------------------------------------------------------------
+  // 1.1 Glass Blur Levels
+  // ---------------------------------------------------------------------
+  --md-sys-glass-blur-xs: 4px;
+  --md-sys-glass-blur-sm: 8px;
+  --md-sys-glass-blur: 12px;
+  --md-sys-glass-blur-md: 16px;
+  --md-sys-glass-blur-lg: 24px;
+  --md-sys-glass-blur-xl: 32px;
+  --md-sys-glass-blur-heavy: 40px;
+  --md-sys-glass-blur-extreme: 64px;
+
+  // ---------------------------------------------------------------------
+  // 1.2 Glass Surface Colors (with alpha)
+  // ---------------------------------------------------------------------
+  --md-sys-color-glass-surface: oklch(from var(--md-sys-color-surface) l c h / 0.72);
+  --md-sys-color-glass-surface-dim: oklch(from var(--md-sys-color-surface-dim) l c h / 0.80);
+  --md-sys-color-glass-surface-bright: oklch(from var(--md-sys-color-surface-bright) l c h / 0.65);
+  --md-sys-color-glass-surface-container: oklch(from var(--md-sys-color-surface-container) l c h / 0.75);
+  --md-sys-color-glass-primary: oklch(from var(--md-sys-color-primary) l c h / 0.12);
+  --md-sys-color-glass-secondary: oklch(from var(--md-sys-color-secondary) l c h / 0.10);
+  --md-sys-color-glass-tertiary: oklch(from var(--md-sys-color-tertiary) l c h / 0.10);
+
+  // ---------------------------------------------------------------------
+  // 1.3 Glass Border Colors
+  // ---------------------------------------------------------------------
+  --md-sys-color-glass-border: oklch(from var(--md-sys-color-outline) l c h / 0.12);
+  --md-sys-color-glass-border-strong: oklch(from var(--md-sys-color-outline) l c h / 0.24);
+  --md-sys-color-glass-border-primary: oklch(from var(--md-sys-color-primary) l c h / 0.20);
+
+  // ---------------------------------------------------------------------
+  // 1.4 Glass Gradient Overlays
+  // ---------------------------------------------------------------------
+  --md-sys-glass-gradient-light: linear-gradient(
+    135deg,
+    oklch(100% 0 0 / 0.15) 0%,
+    oklch(100% 0 0 / 0.05) 50%,
+    oklch(100% 0 0 / 0.10) 100%
+  );
+  --md-sys-glass-gradient-subtle: linear-gradient(
+    180deg,
+    oklch(100% 0 0 / 0.08) 0%,
+    oklch(100% 0 0 / 0) 100%
+  );
+
+  // ---------------------------------------------------------------------
+  // 1.5 Noise Texture
+  // ---------------------------------------------------------------------
+  --md-sys-glass-noise-opacity: 0.03;
+  --md-sys-glass-noise-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+// Dark mode glass adjustments
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-glass-surface: oklch(from var(--md-sys-color-surface) l c h / 0.65);
+    --md-sys-color-glass-surface-dim: oklch(from var(--md-sys-color-surface-dim) l c h / 0.70);
+    --md-sys-color-glass-surface-bright: oklch(from var(--md-sys-color-surface-bright) l c h / 0.60);
+    --md-sys-color-glass-border: oklch(from var(--md-sys-color-outline) l c h / 0.18);
+    --md-sys-color-glass-border-strong: oklch(from var(--md-sys-color-outline) l c h / 0.30);
+
+    --md-sys-glass-gradient-light: linear-gradient(
+      135deg,
+      oklch(100% 0 0 / 0.08) 0%,
+      oklch(100% 0 0 / 0.02) 50%,
+      oklch(100% 0 0 / 0.05) 100%
+    );
+    --md-sys-glass-noise-opacity: 0.05;
+  }
+}
+
+// ============================================================================
+// SECTION 2: GLASSMORPHISM CLASSES
+// ============================================================================
+
+// ---------------------------------------------------------------------
+// 2.1 Base Glass Effect
+// ---------------------------------------------------------------------
+.md3-glass {
+  background: var(--md-sys-color-glass-surface);
+  backdrop-filter: blur(var(--md-sys-glass-blur));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur));
+  border: 1px solid var(--md-sys-color-glass-border);
+
+  // Fallback for no backdrop-filter support
+  @supports not (backdrop-filter: blur(1px)) {
+    background: var(--md-sys-color-surface-container);
+  }
+}
+
+// ---------------------------------------------------------------------
+// 2.2 Glass Blur Variants
+// ---------------------------------------------------------------------
+.md3-glass-blur-xs {
+  backdrop-filter: blur(var(--md-sys-glass-blur-xs));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-xs));
+}
+
+.md3-glass-blur-sm {
+  backdrop-filter: blur(var(--md-sys-glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-sm));
+}
+
+.md3-glass-blur-md {
+  backdrop-filter: blur(var(--md-sys-glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-md));
+}
+
+.md3-glass-blur-lg {
+  backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-lg));
+}
+
+.md3-glass-blur-xl {
+  backdrop-filter: blur(var(--md-sys-glass-blur-xl));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-xl));
+}
+
+.md3-glass-blur-heavy {
+  backdrop-filter: blur(var(--md-sys-glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-heavy));
+}
+
+.md3-glass-blur-extreme {
+  backdrop-filter: blur(var(--md-sys-glass-blur-extreme));
+  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-extreme));
+}
+
+// ---------------------------------------------------------------------
+// 2.3 Glass Surface Variants
+// ---------------------------------------------------------------------
+.md3-glass-dim {
+  background: var(--md-sys-color-glass-surface-dim);
+}
+
+.md3-glass-bright {
+  background: var(--md-sys-color-glass-surface-bright);
+}
+
+.md3-glass-container {
+  background: var(--md-sys-color-glass-surface-container);
+}
+
+// Color-tinted glass
+.md3-glass-primary {
+  background: var(--md-sys-color-glass-primary);
+}
+
+.md3-glass-secondary {
+  background: var(--md-sys-color-glass-secondary);
+}
+
+.md3-glass-tertiary {
+  background: var(--md-sys-color-glass-tertiary);
+}
+
+// ---------------------------------------------------------------------
+// 2.4 Glass with Gradient Overlay
+// ---------------------------------------------------------------------
+.md3-glass-gradient {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--md-sys-glass-gradient-light);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+.md3-glass-gradient-subtle {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--md-sys-glass-gradient-subtle);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+// ---------------------------------------------------------------------
+// 2.5 Glass with Noise Texture
+// ---------------------------------------------------------------------
+.md3-glass-noise {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--md-sys-glass-noise-url);
+    background-repeat: repeat;
+    opacity: var(--md-sys-glass-noise-opacity);
+    border-radius: inherit;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+}
+
+// Complete glass with gradient + noise
+.md3-glass-complete {
+  @extend .md3-glass;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--md-sys-glass-gradient-light);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--md-sys-glass-noise-url);
+    background-repeat: repeat;
+    opacity: var(--md-sys-glass-noise-opacity);
+    border-radius: inherit;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+}
+
+// ---------------------------------------------------------------------
+// 2.6 Glass Border Variants
+// ---------------------------------------------------------------------
+.md3-glass-border-strong {
+  border-color: var(--md-sys-color-glass-border-strong);
+}
+
+.md3-glass-border-primary {
+  border-color: var(--md-sys-color-glass-border-primary);
+}
+
+.md3-glass-border-none {
+  border: none;
+}
+
+// ============================================================================
+// SECTION 3: GRADIENT TOKENS
+// ============================================================================
+
+:root {
+  // ---------------------------------------------------------------------
+  // 3.1 Brand Gradients
+  // ---------------------------------------------------------------------
+  --md-sys-gradient-primary: linear-gradient(
+    135deg,
+    var(--md-sys-color-primary) 0%,
+    var(--md-sys-color-primary-container) 100%
+  );
+
+  --md-sys-gradient-secondary: linear-gradient(
+    135deg,
+    var(--md-sys-color-secondary) 0%,
+    var(--md-sys-color-secondary-container) 100%
+  );
+
+  --md-sys-gradient-tertiary: linear-gradient(
+    135deg,
+    var(--md-sys-color-tertiary) 0%,
+    var(--md-sys-color-tertiary-container) 100%
+  );
+
+  // ---------------------------------------------------------------------
+  // 3.2 Aurora/Ambient Gradients
+  // ---------------------------------------------------------------------
+  --md-sys-gradient-aurora: linear-gradient(
+    135deg,
+    oklch(from var(--md-sys-color-primary) calc(l + 0.1) calc(c * 0.5) h / 0.15) 0%,
+    oklch(from var(--md-sys-color-tertiary) calc(l + 0.1) calc(c * 0.5) h / 0.10) 50%,
+    oklch(from var(--md-sys-color-secondary) calc(l + 0.1) calc(c * 0.5) h / 0.12) 100%
+  );
+
+  --md-sys-gradient-aurora-strong: linear-gradient(
+    135deg,
+    oklch(from var(--md-sys-color-primary) calc(l + 0.05) calc(c * 0.7) h / 0.25) 0%,
+    oklch(from var(--md-sys-color-tertiary) calc(l + 0.05) calc(c * 0.7) h / 0.18) 50%,
+    oklch(from var(--md-sys-color-secondary) calc(l + 0.05) calc(c * 0.7) h / 0.20) 100%
+  );
+
+  // ---------------------------------------------------------------------
+  // 3.3 Mesh Gradients (CSS approximation)
+  // ---------------------------------------------------------------------
+  --md-sys-gradient-mesh:
+    radial-gradient(
+      ellipse 80% 50% at 20% 30%,
+      oklch(from var(--md-sys-color-primary) l calc(c * 0.4) h / 0.15) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 60% at 80% 20%,
+      oklch(from var(--md-sys-color-tertiary) l calc(c * 0.4) h / 0.12) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 70% 70% at 50% 80%,
+      oklch(from var(--md-sys-color-secondary) l calc(c * 0.4) h / 0.10) 0%,
+      transparent 70%
+    );
+
+  // ---------------------------------------------------------------------
+  // 3.4 Surface Gradients
+  // ---------------------------------------------------------------------
+  --md-sys-gradient-surface-up: linear-gradient(
+    to bottom,
+    var(--md-sys-color-surface-container-low) 0%,
+    var(--md-sys-color-surface) 100%
+  );
+
+  --md-sys-gradient-surface-down: linear-gradient(
+    to bottom,
+    var(--md-sys-color-surface) 0%,
+    var(--md-sys-color-surface-container-low) 100%
+  );
+
+  // ---------------------------------------------------------------------
+  // 3.5 Text Gradients
+  // ---------------------------------------------------------------------
+  --md-sys-gradient-text-primary: linear-gradient(
+    135deg,
+    var(--md-sys-color-primary) 0%,
+    var(--md-sys-color-tertiary) 100%
+  );
+
+  --md-sys-gradient-text-warm: linear-gradient(
+    135deg,
+    oklch(65% 0.18 30) 0%,
+    oklch(55% 0.20 350) 100%
+  );
+
+  // ---------------------------------------------------------------------
+  // 3.6 Scrim Gradients
+  // ---------------------------------------------------------------------
+  --md-sys-gradient-scrim-top: linear-gradient(
+    to bottom,
+    var(--md-sys-color-scrim) 0%,
+    transparent 100%
+  );
+
+  --md-sys-gradient-scrim-bottom: linear-gradient(
+    to top,
+    var(--md-sys-color-scrim) 0%,
+    transparent 100%
+  );
+}
+
+// Dark mode gradient adjustments
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-gradient-aurora: linear-gradient(
+      135deg,
+      oklch(from var(--md-sys-color-primary) calc(l - 0.15) calc(c * 0.4) h / 0.20) 0%,
+      oklch(from var(--md-sys-color-tertiary) calc(l - 0.15) calc(c * 0.4) h / 0.15) 50%,
+      oklch(from var(--md-sys-color-secondary) calc(l - 0.15) calc(c * 0.4) h / 0.18) 100%
+    );
+    --md-sys-gradient-aurora-strong: linear-gradient(
+      135deg,
+      oklch(from var(--md-sys-color-primary) calc(l - 0.12) calc(c * 0.7) h / 0.30) 0%,
+      oklch(from var(--md-sys-color-tertiary) calc(l - 0.12) calc(c * 0.7) h / 0.24) 50%,
+      oklch(from var(--md-sys-color-secondary) calc(l - 0.12) calc(c * 0.7) h / 0.28) 100%
+    );
+  }
+}
+
+:root[data-theme='dark'],
+:root.dark-theme {
+  --md-sys-gradient-aurora: linear-gradient(
+    135deg,
+    oklch(from var(--md-sys-color-primary) calc(l - 0.15) calc(c * 0.4) h / 0.20) 0%,
+    oklch(from var(--md-sys-color-tertiary) calc(l - 0.15) calc(c * 0.4) h / 0.15) 50%,
+    oklch(from var(--md-sys-color-secondary) calc(l - 0.15) calc(c * 0.4) h / 0.18) 100%
+  );
+  --md-sys-gradient-aurora-strong: linear-gradient(
+    135deg,
+    oklch(from var(--md-sys-color-primary) calc(l - 0.12) calc(c * 0.7) h / 0.30) 0%,
+    oklch(from var(--md-sys-color-tertiary) calc(l - 0.12) calc(c * 0.7) h / 0.24) 50%,
+    oklch(from var(--md-sys-color-secondary) calc(l - 0.12) calc(c * 0.7) h / 0.28) 100%
+  );
+}
+
+// ============================================================================
+// SECTION 4: GRADIENT CLASSES
+// ============================================================================
+
+// ---------------------------------------------------------------------
+// 4.1 Background Gradients
+// ---------------------------------------------------------------------
+.md3-gradient-primary {
+  background: var(--md-sys-gradient-primary);
+}
+
+.md3-gradient-secondary {
+  background: var(--md-sys-gradient-secondary);
+}
+
+.md3-gradient-tertiary {
+  background: var(--md-sys-gradient-tertiary);
+}
+
+.md3-gradient-aurora {
+  background: var(--md-sys-gradient-aurora);
+}
+
+.md3-gradient-aurora-strong {
+  background: var(--md-sys-gradient-aurora-strong);
+}
+
+.md3-gradient-mesh {
+  background: var(--md-sys-gradient-mesh);
+}
+
+.md3-gradient-surface-up {
+  background: var(--md-sys-gradient-surface-up);
+}
+
+.md3-gradient-surface-down {
+  background: var(--md-sys-gradient-surface-down);
+}
+
+// ---------------------------------------------------------------------
+// 4.2 Text Gradients
+// ---------------------------------------------------------------------
+.md3-text-gradient {
+  background: var(--md-sys-gradient-text-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.md3-text-gradient-warm {
+  background: var(--md-sys-gradient-text-warm);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+// Custom text gradient
+.md3-text-gradient-custom {
+  --gradient-start: var(--md-sys-color-primary);
+  --gradient-end: var(--md-sys-color-tertiary);
+  --gradient-angle: 135deg;
+
+  background: linear-gradient(var(--gradient-angle), var(--gradient-start), var(--gradient-end));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+// ---------------------------------------------------------------------
+// 4.3 Scrim/Overlay Gradients
+// ---------------------------------------------------------------------
+.md3-scrim-top {
+  background: var(--md-sys-gradient-scrim-top);
+}
+
+.md3-scrim-bottom {
+  background: var(--md-sys-gradient-scrim-bottom);
+}
+
+.md3-scrim-radial {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    var(--md-sys-color-scrim) 100%
+  );
+}
+
+// ============================================================================
+// SECTION 5: GLOW EFFECTS
+// ============================================================================
+
+:root {
+  // ---------------------------------------------------------------------
+  // 5.1 Glow Colors
+  // ---------------------------------------------------------------------
+  --md-sys-glow-primary: oklch(from var(--md-sys-color-primary) l c h / 0.4);
+  --md-sys-glow-secondary: oklch(from var(--md-sys-color-secondary) l c h / 0.35);
+  --md-sys-glow-tertiary: oklch(from var(--md-sys-color-tertiary) l c h / 0.35);
+  --md-sys-glow-error: oklch(from var(--md-sys-color-error) l c h / 0.4);
+  --md-sys-glow-success: oklch(65% 0.18 145 / 0.4);
+
+  // ---------------------------------------------------------------------
+  // 5.2 Glow Intensities
+  // ---------------------------------------------------------------------
+  --md-sys-glow-sm: 0 0 8px;
+  --md-sys-glow-md: 0 0 16px;
+  --md-sys-glow-lg: 0 0 24px;
+  --md-sys-glow-xl: 0 0 40px;
+  --md-sys-glow-2xl: 0 0 60px;
+}
+
+// Dark mode - more visible glows
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-glow-primary: oklch(from var(--md-sys-color-primary) l c h / 0.5);
+    --md-sys-glow-secondary: oklch(from var(--md-sys-color-secondary) l c h / 0.45);
+    --md-sys-glow-tertiary: oklch(from var(--md-sys-color-tertiary) l c h / 0.45);
+  }
+}
+
+// ---------------------------------------------------------------------
+// 5.3 Glow Classes
+// ---------------------------------------------------------------------
+.md3-glow-primary {
+  box-shadow: var(--md-sys-glow-md) var(--md-sys-glow-primary);
+}
+
+.md3-glow-primary-sm {
+  box-shadow: var(--md-sys-glow-sm) var(--md-sys-glow-primary);
+}
+
+.md3-glow-primary-lg {
+  box-shadow: var(--md-sys-glow-lg) var(--md-sys-glow-primary);
+}
+
+.md3-glow-primary-xl {
+  box-shadow: var(--md-sys-glow-xl) var(--md-sys-glow-primary);
+}
+
+.md3-glow-secondary {
+  box-shadow: var(--md-sys-glow-md) var(--md-sys-glow-secondary);
+}
+
+.md3-glow-tertiary {
+  box-shadow: var(--md-sys-glow-md) var(--md-sys-glow-tertiary);
+}
+
+.md3-glow-error {
+  box-shadow: var(--md-sys-glow-md) var(--md-sys-glow-error);
+}
+
+.md3-glow-success {
+  box-shadow: var(--md-sys-glow-md) var(--md-sys-glow-success);
+}
+
+// Interactive glow (on hover)
+.md3-glow-hover {
+  transition: box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    box-shadow: var(--md-sys-glow-lg) var(--md-sys-glow-primary);
+  }
+}
+
+// Pulsing glow animation
+.md3-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: var(--md-sys-glow-sm) var(--md-sys-glow-primary);
+  }
+  50% {
+    box-shadow: var(--md-sys-glow-lg) var(--md-sys-glow-primary);
+  }
+}
+
+// ============================================================================
+// SECTION 6: SHIMMER & SKELETON EFFECTS
+// ============================================================================
+
+:root {
+  // ---------------------------------------------------------------------
+  // 6.1 Shimmer Tokens
+  // ---------------------------------------------------------------------
+  --md-sys-shimmer-base: var(--md-sys-color-surface-container);
+  --md-sys-shimmer-highlight: var(--md-sys-color-surface-container-high);
+  --md-sys-shimmer-duration: 1.5s;
+  --md-sys-shimmer-angle: 90deg;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-shimmer-base: var(--md-sys-color-surface-container-high);
+    --md-sys-shimmer-highlight: var(--md-sys-color-surface-container-highest);
+  }
+}
+
+// ---------------------------------------------------------------------
+// 6.2 Shimmer Animation
+// ---------------------------------------------------------------------
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.md3-shimmer {
+  background: linear-gradient(
+    var(--md-sys-shimmer-angle),
+    var(--md-sys-shimmer-base) 0%,
+    var(--md-sys-shimmer-base) 40%,
+    var(--md-sys-shimmer-highlight) 50%,
+    var(--md-sys-shimmer-base) 60%,
+    var(--md-sys-shimmer-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer var(--md-sys-shimmer-duration) ease-in-out infinite;
+}
+
+// ---------------------------------------------------------------------
+// 6.3 Skeleton Shapes
+// ---------------------------------------------------------------------
+.md3-skeleton {
+  background: linear-gradient(
+    var(--md-sys-shimmer-angle),
+    var(--md-sys-shimmer-base) 0%,
+    var(--md-sys-shimmer-base) 40%,
+    var(--md-sys-shimmer-highlight) 50%,
+    var(--md-sys-shimmer-base) 60%,
+    var(--md-sys-shimmer-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer var(--md-sys-shimmer-duration) ease-in-out infinite;
+  border-radius: var(--md-sys-shape-corner-sm);
+}
+
+.md3-skeleton-text {
+  height: 1em;
+  width: 100%;
+  background: linear-gradient(
+    var(--md-sys-shimmer-angle),
+    var(--md-sys-shimmer-base) 0%,
+    var(--md-sys-shimmer-base) 40%,
+    var(--md-sys-shimmer-highlight) 50%,
+    var(--md-sys-shimmer-base) 60%,
+    var(--md-sys-shimmer-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer var(--md-sys-shimmer-duration) ease-in-out infinite;
+  border-radius: var(--md-sys-shape-corner-sm);
+
+  &.md3-skeleton-text-sm {
+    width: 60%;
+  }
+
+  &.md3-skeleton-text-md {
+    width: 80%;
+  }
+
+  &.md3-skeleton-text-lg {
+    width: 100%;
+  }
+}
+
+.md3-skeleton-heading {
+  height: 1.5em;
+  width: 40%;
+  background: linear-gradient(
+    var(--md-sys-shimmer-angle),
+    var(--md-sys-shimmer-base) 0%,
+    var(--md-sys-shimmer-base) 40%,
+    var(--md-sys-shimmer-highlight) 50%,
+    var(--md-sys-shimmer-base) 60%,
+    var(--md-sys-shimmer-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer var(--md-sys-shimmer-duration) ease-in-out infinite;
+  border-radius: var(--md-sys-shape-corner-sm);
+}
+
+.md3-skeleton-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--md-sys-shape-corner-full);
+  flex-shrink: 0;
+  background: linear-gradient(
+    var(--md-sys-shimmer-angle),
+    var(--md-sys-shimmer-base) 0%,
+    var(--md-sys-shimmer-base) 40%,
+    var(--md-sys-shimmer-highlight) 50%,
+    var(--md-sys-shimmer-base) 60%,
+    var(--md-sys-shimmer-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer var(--md-sys-shimmer-duration) ease-in-out infinite;
+}
+
+.md3-skeleton-avatar-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.md3-skeleton-avatar-lg {
+  width: 64px;
+  height: 64px;
+}
+
+.md3-skeleton-image {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: var(--md-sys-shape-corner-md);
+  background: linear-gradient(
+    var(--md-sys-shimmer-angle),
+    var(--md-sys-shimmer-base) 0%,
+    var(--md-sys-shimmer-base) 40%,
+    var(--md-sys-shimmer-highlight) 50%,
+    var(--md-sys-shimmer-base) 60%,
+    var(--md-sys-shimmer-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer var(--md-sys-shimmer-duration) ease-in-out infinite;
+}
+
+.md3-skeleton-button {
+  height: 40px;
+  width: 100px;
+  border-radius: var(--md-sys-shape-corner-full);
+  background: linear-gradient(
+    var(--md-sys-shimmer-angle),
+    var(--md-sys-shimmer-base) 0%,
+    var(--md-sys-shimmer-base) 40%,
+    var(--md-sys-shimmer-highlight) 50%,
+    var(--md-sys-shimmer-base) 60%,
+    var(--md-sys-shimmer-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer var(--md-sys-shimmer-duration) ease-in-out infinite;
+}
+
+.md3-skeleton-card {
+  border-radius: var(--md-sys-shape-corner-lg);
+  padding: var(--md-sys-spacing-4);
+  background: linear-gradient(
+    var(--md-sys-shimmer-angle),
+    var(--md-sys-shimmer-base) 0%,
+    var(--md-sys-shimmer-base) 40%,
+    var(--md-sys-shimmer-highlight) 50%,
+    var(--md-sys-shimmer-base) 60%,
+    var(--md-sys-shimmer-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer var(--md-sys-shimmer-duration) ease-in-out infinite;
+}
+
+// ============================================================================
+// SECTION 7: BLUR EFFECTS (Non-glass)
+// ============================================================================
+
+// ---------------------------------------------------------------------
+// 7.1 Element Blur
+// ---------------------------------------------------------------------
+.md3-blur-xs {
+  filter: blur(var(--md-sys-glass-blur-xs));
+}
+
+.md3-blur-sm {
+  filter: blur(var(--md-sys-glass-blur-sm));
+}
+
+.md3-blur {
+  filter: blur(var(--md-sys-glass-blur));
+}
+
+.md3-blur-md {
+  filter: blur(var(--md-sys-glass-blur-md));
+}
+
+.md3-blur-lg {
+  filter: blur(var(--md-sys-glass-blur-lg));
+}
+
+.md3-blur-xl {
+  filter: blur(var(--md-sys-glass-blur-xl));
+}
+
+// ---------------------------------------------------------------------
+// 7.2 Blur on Scroll/State
+// ---------------------------------------------------------------------
+.md3-blur-on-scroll {
+  transition: filter var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
+
+  &.scrolled {
+    filter: blur(var(--md-sys-glass-blur-sm));
+  }
+}
+
+// ============================================================================
+// SECTION 8: OVERLAY EFFECTS
+// ============================================================================
+
+// ---------------------------------------------------------------------
+// 8.1 Scrim Overlay
+// ---------------------------------------------------------------------
+.md3-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--md-sys-color-scrim);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard),
+              visibility var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
+
+  &.open,
+  &.active {
+    opacity: 0.32;
+    visibility: visible;
+  }
+}
+
+// Darker overlay
+.md3-overlay-dark {
+  &.open,
+  &.active {
+    opacity: 0.56;
+  }
+}
+
+// Light overlay for dark backgrounds
+.md3-overlay-light {
+  background-color: oklch(100% 0 0);
+
+  &.open,
+  &.active {
+    opacity: 0.12;
+  }
+}
+
+// ---------------------------------------------------------------------
+// 8.2 Image Overlays
+// ---------------------------------------------------------------------
+.md3-image-overlay {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 50%,
+      oklch(0% 0 0 / 0.6) 100%
+    );
+    pointer-events: none;
+  }
+}
+
+.md3-image-overlay-full {
+  &::after {
+    background: oklch(0% 0 0 / 0.4);
+  }
+}
+
+.md3-image-overlay-gradient-top {
+  &::after {
+    background: linear-gradient(
+      to bottom,
+      oklch(0% 0 0 / 0.6) 0%,
+      transparent 50%,
+      transparent 100%
+    );
+  }
+}
+
+// Color overlay
+.md3-image-overlay-primary {
+  &::after {
+    background: oklch(from var(--md-sys-color-primary) l c h / 0.4);
+  }
+}
+
+// ============================================================================
+// SECTION 9: FILTER EFFECTS
+// ============================================================================
+
+// ---------------------------------------------------------------------
+// 9.1 Brightness
+// ---------------------------------------------------------------------
+.md3-brightness-50 {
+  filter: brightness(0.5);
+}
+
+.md3-brightness-75 {
+  filter: brightness(0.75);
+}
+
+.md3-brightness-90 {
+  filter: brightness(0.9);
+}
+
+.md3-brightness-110 {
+  filter: brightness(1.1);
+}
+
+.md3-brightness-125 {
+  filter: brightness(1.25);
+}
+
+// ---------------------------------------------------------------------
+// 9.2 Contrast
+// ---------------------------------------------------------------------
+.md3-contrast-50 {
+  filter: contrast(0.5);
+}
+
+.md3-contrast-75 {
+  filter: contrast(0.75);
+}
+
+.md3-contrast-125 {
+  filter: contrast(1.25);
+}
+
+// ---------------------------------------------------------------------
+// 9.3 Saturation
+// ---------------------------------------------------------------------
+.md3-saturate-0 {
+  filter: saturate(0);
+}
+
+.md3-saturate-50 {
+  filter: saturate(0.5);
+}
+
+.md3-saturate-150 {
+  filter: saturate(1.5);
+}
+
+.md3-saturate-200 {
+  filter: saturate(2);
+}
+
+// ---------------------------------------------------------------------
+// 9.4 Grayscale
+// ---------------------------------------------------------------------
+.md3-grayscale {
+  filter: grayscale(1);
+}
+
+.md3-grayscale-50 {
+  filter: grayscale(0.5);
+}
+
+// Grayscale on hover (reveal color)
+.md3-grayscale-hover {
+  filter: grayscale(1);
+  transition: filter var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    filter: grayscale(0);
+  }
+}
+
+// ---------------------------------------------------------------------
+// 9.5 Sepia
+// ---------------------------------------------------------------------
+.md3-sepia {
+  filter: sepia(1);
+}
+
+.md3-sepia-50 {
+  filter: sepia(0.5);
+}
+
+// ---------------------------------------------------------------------
+// 9.6 Invert (for dark mode images)
+// ---------------------------------------------------------------------
+.md3-invert {
+  filter: invert(1);
+}
+
+.md3-invert-dark {
+  @media (prefers-color-scheme: dark) {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
+// ============================================================================
+// SECTION 10: DROP SHADOW EFFECTS
+// ============================================================================
+
+.md3-drop-shadow-sm {
+  filter: drop-shadow(0 1px 2px oklch(0% 0 0 / 0.1));
+}
+
+.md3-drop-shadow {
+  filter: drop-shadow(0 2px 4px oklch(0% 0 0 / 0.15));
+}
+
+.md3-drop-shadow-md {
+  filter: drop-shadow(0 4px 8px oklch(0% 0 0 / 0.15));
+}
+
+.md3-drop-shadow-lg {
+  filter: drop-shadow(0 8px 16px oklch(0% 0 0 / 0.2));
+}
+
+.md3-drop-shadow-xl {
+  filter: drop-shadow(0 16px 32px oklch(0% 0 0 / 0.25));
+}
+
+// Colored drop shadows
+.md3-drop-shadow-primary {
+  filter: drop-shadow(0 4px 12px var(--md-sys-glow-primary));
+}
+
+.md3-drop-shadow-tertiary {
+  filter: drop-shadow(0 4px 12px var(--md-sys-glow-tertiary));
+}
+
+// ============================================================================
+// SECTION 11: ANIMATED BACKGROUND EFFECTS
+// ============================================================================
+
+// ---------------------------------------------------------------------
+// 11.1 Gradient Animation
+// ---------------------------------------------------------------------
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.md3-animated-gradient {
+  background: linear-gradient(
+    -45deg,
+    var(--md-sys-color-primary-container),
+    var(--md-sys-color-secondary-container),
+    var(--md-sys-color-tertiary-container),
+    var(--md-sys-color-surface-container)
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+.md3-animated-gradient-fast {
+  animation-duration: 5s;
+}
+
+.md3-animated-gradient-slow {
+  animation-duration: 30s;
+}
+
+// ---------------------------------------------------------------------
+// 11.2 Aurora Background
+// ---------------------------------------------------------------------
+@keyframes aurora-shift {
+  0%, 100% {
+    background-position: 0% 50%, 100% 50%, 50% 100%;
+  }
+  25% {
+    background-position: 100% 0%, 0% 100%, 50% 0%;
+  }
+  50% {
+    background-position: 100% 100%, 100% 0%, 0% 50%;
+  }
+  75% {
+    background-position: 0% 100%, 50% 50%, 100% 100%;
+  }
+}
+
+.md3-aurora-bg {
+  background: var(--md-sys-gradient-mesh);
+  background-size: 200% 200%, 200% 200%, 200% 200%;
+  animation: aurora-shift 20s ease-in-out infinite;
+}
+
+// ---------------------------------------------------------------------
+// 11.3 Floating Particles (CSS-only approximation)
+// ---------------------------------------------------------------------
+@keyframes float-particle {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.md3-particles {
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--md-sys-color-primary);
+    opacity: 0.3;
+    animation: float-particle 15s linear infinite;
+  }
+
+  &::before {
+    left: 20%;
+    bottom: -20px;
+    animation-delay: 0s;
+  }
+
+  &::after {
+    left: 70%;
+    bottom: -20px;
+    animation-delay: 5s;
+  }
+}
+
+// ============================================================================
+// SECTION 12: SPECIAL EFFECTS
+// ============================================================================
+
+// ---------------------------------------------------------------------
+// 12.1 Frosted Edge Effect
+// ---------------------------------------------------------------------
+.md3-frosted-edge {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(
+      to bottom,
+      var(--md-sys-color-surface) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.md3-frosted-edge-bottom {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(
+      to top,
+      var(--md-sys-color-surface) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+// ---------------------------------------------------------------------
+// 12.2 Vignette Effect
+// ---------------------------------------------------------------------
+.md3-vignette {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      oklch(0% 0 0 / 0.3) 100%
+    );
+    pointer-events: none;
+  }
+}
+
+.md3-vignette-strong {
+  &::after {
+    background: radial-gradient(
+      ellipse at center,
+      transparent 30%,
+      oklch(0% 0 0 / 0.5) 100%
+    );
+  }
+}
+
+// ---------------------------------------------------------------------
+// 12.3 Light Leak Effect
+// ---------------------------------------------------------------------
+.md3-light-leak {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -20%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(
+      circle,
+      oklch(from var(--md-sys-color-tertiary) calc(l + 0.2) calc(c * 0.6) h / 0.15) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+// ---------------------------------------------------------------------
+// 12.4 Highlight Shine Effect
+// ---------------------------------------------------------------------
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.md3-shine {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(100% 0 0 / 0.2),
+      transparent
+    );
+    animation: shine 3s ease-in-out infinite;
+  }
+}
+
+.md3-shine-on-hover {
+  &::after {
+    animation: none;
+  }
+
+  &:hover::after {
+    animation: shine 0.8s ease-in-out;
+  }
+}
+
+// ============================================================================
+// SECTION 13: EFFECT MIXINS
+// ============================================================================
+
+// Glassmorphism mixin
+@mixin glass($blur: var(--md-sys-glass-blur), $opacity: 0.72) {
+  background: oklch(from var(--md-sys-color-surface) l c h / #{$opacity});
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid var(--md-sys-color-glass-border);
+}
+
+// Glassmorphism with color tint
+@mixin glass-tinted($color: var(--md-sys-color-primary), $blur: var(--md-sys-glass-blur), $opacity: 0.12) {
+  background: oklch(from #{$color} l c h / #{$opacity});
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid oklch(from #{$color} l c h / 0.2);
+}
+
+// Glow effect mixin
+@mixin glow($color: var(--md-sys-color-primary), $intensity: md) {
+  $size: var(--md-sys-glow-md);
+
+  @if $intensity == sm {
+    $size: var(--md-sys-glow-sm);
+  } @else if $intensity == lg {
+    $size: var(--md-sys-glow-lg);
+  } @else if $intensity == xl {
+    $size: var(--md-sys-glow-xl);
+  }
+
+  box-shadow: $size oklch(from #{$color} l c h / 0.4);
+}
+
+// Interactive glow mixin
+@mixin glow-interactive($color: var(--md-sys-color-primary)) {
+  transition: box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    box-shadow: var(--md-sys-glow-md) oklch(from #{$color} l c h / 0.4);
+  }
+
+  &:active {
+    box-shadow: var(--md-sys-glow-lg) oklch(from #{$color} l c h / 0.5);
+  }
+}
+
+// Shimmer/skeleton mixin
+@mixin shimmer($duration: 1.5s) {
+  background: linear-gradient(
+    90deg,
+    var(--md-sys-shimmer-base) 0%,
+    var(--md-sys-shimmer-base) 40%,
+    var(--md-sys-shimmer-highlight) 50%,
+    var(--md-sys-shimmer-base) 60%,
+    var(--md-sys-shimmer-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer $duration ease-in-out infinite;
+}
+
+// Text gradient mixin
+@mixin text-gradient($start: var(--md-sys-color-primary), $end: var(--md-sys-color-tertiary), $angle: 135deg) {
+  background: linear-gradient($angle, $start, $end);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+// Image overlay mixin
+@mixin image-overlay($direction: to bottom, $opacity: 0.6) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      $direction,
+      transparent 0%,
+      transparent 40%,
+      oklch(0% 0 0 / #{$opacity}) 100%
+    );
+    pointer-events: none;
+  }
+}
+
+// Aurora background mixin
+@mixin aurora-bg($animate: true, $duration: 20s) {
+  background: var(--md-sys-gradient-mesh);
+
+  @if $animate {
+    background-size: 200% 200%, 200% 200%, 200% 200%;
+    animation: aurora-shift $duration ease-in-out infinite;
+  }
+}
+
+// ============================================================================
+// SECTION 14: REDUCED MOTION
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .md3-shimmer,
+  .md3-skeleton,
+  .md3-skeleton-text,
+  .md3-skeleton-avatar,
+  .md3-skeleton-image,
+  .md3-skeleton-button,
+  .md3-skeleton-card,
+  .md3-skeleton-heading {
+    animation: none;
+    background: var(--md-sys-shimmer-base);
+  }
+
+  .md3-glow-pulse {
+    animation: none;
+  }
+
+  .md3-animated-gradient,
+  .md3-aurora-bg {
+    animation: none;
+  }
+
+  .md3-shine,
+  .md3-shine-on-hover {
+    &::after {
+      animation: none;
+      display: none;
+    }
+  }
+
+  .md3-particles {
+    &::before,
+    &::after {
+      animation: none;
+      display: none;
+    }
+  }
+}
+
+// ============================================================================
+// SECTION 15: PRINT STYLES
+// ============================================================================
+
+@media print {
+  .md3-glass,
+  .md3-glass-blur-xs,
+  .md3-glass-blur-sm,
+  .md3-glass-blur-md,
+  .md3-glass-blur-lg,
+  .md3-glass-blur-xl,
+  .md3-glass-blur-heavy,
+  .md3-glass-blur-extreme {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: var(--md-sys-color-surface) !important;
+    border-color: var(--md-sys-color-outline) !important;
+  }
+
+  .md3-shimmer,
+  .md3-skeleton,
+  .md3-skeleton-text,
+  .md3-skeleton-avatar,
+  .md3-skeleton-image,
+  .md3-skeleton-button,
+  .md3-skeleton-card,
+  .md3-skeleton-heading {
+    display: none !important;
+  }
+
+  .md3-glow-primary,
+  .md3-glow-secondary,
+  .md3-glow-tertiary,
+  .md3-glow-error,
+  .md3-glow-success {
+    box-shadow: none !important;
+  }
+
+  .md3-text-gradient,
+  .md3-text-gradient-warm,
+  .md3-text-gradient-custom {
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+    color: inherit !important;
+  }
+
+  .md3-overlay,
+  .md3-scrim-top,
+  .md3-scrim-bottom,
+  .md3-scrim-radial {
+    display: none !important;
+  }
+
+  .md3-blur,
+  .md3-blur-xs,
+  .md3-blur-sm,
+  .md3-blur-md,
+  .md3-blur-lg,
+  .md3-blur-xl {
+    filter: none !important;
+  }
+}
+
+// ============================================================================
+// SECTION 16: HIGH CONTRAST MODE
+// ============================================================================
+
+@media (prefers-contrast: more) {
+  .md3-glass,
+  [class*="md3-glass-"] {
+    background: var(--md-sys-color-surface);
+    border-width: 2px;
+    border-color: var(--md-sys-color-outline);
+  }
+
+  .md3-text-gradient,
+  .md3-text-gradient-warm,
+  .md3-text-gradient-custom {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--md-sys-color-on-surface);
+  }
+
+  .md3-shimmer,
+  .md3-skeleton {
+    background: var(--md-sys-color-surface-container);
+    border: 2px solid var(--md-sys-color-outline);
+    animation: none;
+  }
+
+  .md3-glow-primary,
+  .md3-glow-secondary,
+  .md3-glow-tertiary {
+    box-shadow: none;
+    outline: 3px solid currentColor;
+  }
+}

@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 test('Triple P logo and translations check', async ({ page }) => {
-  await page.goto('http://localhost:4202/hizmetlerimiz/triple-p');
+  await page.goto('http://localhost:4200/hizmetlerimiz/triple-p');
   await page.waitForTimeout(3000);
 
   // Check logo visibility

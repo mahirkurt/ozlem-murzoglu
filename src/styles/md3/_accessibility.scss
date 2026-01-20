@@ -1,0 +1,862 @@
+// ============================================================================
+// MD3 Accessibility System
+// Version: 5.0.0 (MD3 Expressive 2025)
+//
+// Comprehensive accessibility utilities following WCAG 2.2 guidelines.
+// Provides focus management, screen reader utilities, and inclusive design.
+// ============================================================================
+
+// ============================================================================
+// TABLE OF CONTENTS
+// ============================================================================
+// 1. Accessibility CSS Variables
+// 2. Focus Management
+// 3. Screen Reader Utilities
+// 4. Skip Links
+// 5. Touch Target Sizes
+// 6. Color Contrast Utilities
+// 7. Motion & Animation
+// 8. High Contrast Mode
+// 9. Forced Colors Mode
+// 10. Keyboard Navigation
+// 11. ARIA Utilities
+// 12. Form Accessibility
+// 13. Image & Media Accessibility
+// 14. Table Accessibility
+// 15. Link Accessibility
+// 16. Accessibility Mixins
+// ============================================================================
+
+// ============================================================================
+// 1. ACCESSIBILITY CSS VARIABLES
+// ============================================================================
+
+:root {
+  // Focus ring properties
+  --md-a11y-focus-ring-width: 3px;
+  --md-a11y-focus-ring-offset: 2px;
+  --md-a11y-focus-ring-color: var(--md-sys-color-primary);
+  --md-a11y-focus-ring-color-error: var(--md-sys-color-error);
+  --md-a11y-focus-ring-style: solid;
+
+  // Touch target minimum sizes (WCAG 2.2 Level AAA: 44px, Level AA: 24px)
+  --md-a11y-touch-target-min: 48px;
+  --md-a11y-touch-target-spacing: 8px;
+
+  // Text sizing
+  --md-a11y-min-font-size: 16px;
+  --md-a11y-min-line-height: 1.5;
+
+  // Timing
+  --md-a11y-reduced-motion-duration: 0.01ms;
+
+  // High contrast colors
+  --md-a11y-high-contrast-text: #000000;
+  --md-a11y-high-contrast-bg: #ffffff;
+  --md-a11y-high-contrast-link: #0000ee;
+  --md-a11y-high-contrast-link-visited: #551a8b;
+  --md-a11y-high-contrast-border: #000000;
+}
+
+// Dark mode high contrast
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-a11y-high-contrast-text: #ffffff;
+    --md-a11y-high-contrast-bg: #000000;
+    --md-a11y-high-contrast-link: #9999ff;
+    --md-a11y-high-contrast-link-visited: #d4a5ff;
+    --md-a11y-high-contrast-border: #ffffff;
+  }
+}
+
+// ============================================================================
+// 2. FOCUS MANAGEMENT
+// ============================================================================
+
+// Default focus-visible styles
+:focus-visible {
+  outline: var(--md-a11y-focus-ring-width) var(--md-a11y-focus-ring-style) var(--md-a11y-focus-ring-color);
+  outline-offset: var(--md-a11y-focus-ring-offset);
+}
+
+// Remove default focus for mouse users
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Focus ring utility classes
+.focus-ring {
+  &:focus-visible {
+    outline: var(--md-a11y-focus-ring-width) var(--md-a11y-focus-ring-style) var(--md-a11y-focus-ring-color);
+    outline-offset: var(--md-a11y-focus-ring-offset);
+  }
+}
+
+.focus-ring-inset {
+  &:focus-visible {
+    outline: var(--md-a11y-focus-ring-width) var(--md-a11y-focus-ring-style) var(--md-a11y-focus-ring-color);
+    outline-offset: calc(var(--md-a11y-focus-ring-offset) * -1);
+  }
+}
+
+.focus-ring-error {
+  &:focus-visible {
+    outline-color: var(--md-a11y-focus-ring-color-error);
+  }
+}
+
+// Focus within for parent elements
+.focus-within-ring {
+  &:focus-within {
+    outline: var(--md-a11y-focus-ring-width) var(--md-a11y-focus-ring-style) var(--md-a11y-focus-ring-color);
+    outline-offset: var(--md-a11y-focus-ring-offset);
+  }
+}
+
+// No focus ring (use sparingly)
+.no-focus-ring {
+  &:focus,
+  &:focus-visible {
+    outline: none !important;
+  }
+}
+
+// ============================================================================
+// 3. SCREEN READER UTILITIES
+// ============================================================================
+
+// Visually hidden but accessible to screen readers
+.sr-only,
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Visually hidden, but becomes visible on focus (for skip links)
+.sr-only-focusable,
+.visually-hidden-focusable {
+  @extend .sr-only;
+
+  &:focus,
+  &:focus-visible,
+  &:active {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: inherit !important;
+    margin: inherit !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+  }
+}
+
+// Hide from screen readers but keep visible
+.aria-hidden {
+  speak: never;
+}
+
+// Screen reader only text (for additional context)
+.sr-text {
+  @extend .sr-only;
+}
+
+// ============================================================================
+// 4. SKIP LINKS
+// ============================================================================
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 16px 24px;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: var(--md-sys-shape-corner-medium, 12px);
+  box-shadow: var(--md-sys-elevation-level3);
+  transition: top 0.2s ease-out;
+
+  &:focus,
+  &:focus-visible {
+    top: 16px;
+    outline: var(--md-a11y-focus-ring-width) var(--md-a11y-focus-ring-style) var(--md-sys-color-outline);
+    outline-offset: var(--md-a11y-focus-ring-offset);
+  }
+}
+
+// Multiple skip links container
+.skip-links {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  pointer-events: none;
+
+  .skip-link {
+    position: static;
+    transform: translateY(-200%);
+    pointer-events: auto;
+
+    &:focus,
+    &:focus-visible {
+      transform: translateY(0);
+    }
+  }
+}
+
+// ============================================================================
+// 5. TOUCH TARGET SIZES
+// ============================================================================
+
+// Minimum touch target (WCAG 2.5.5 - Target Size Enhanced)
+.touch-target {
+  min-width: var(--md-a11y-touch-target-min);
+  min-height: var(--md-a11y-touch-target-min);
+}
+
+// Touch target with padding expansion
+.touch-target-expand {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: var(--md-a11y-touch-target-min);
+    min-height: var(--md-a11y-touch-target-min);
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Ensure minimum spacing between targets
+.touch-target-spacing {
+  margin: calc(var(--md-a11y-touch-target-spacing) / 2);
+}
+
+// Touch target size variants
+.touch-target-sm {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.touch-target-lg {
+  min-width: 56px;
+  min-height: 56px;
+}
+
+// ============================================================================
+// 6. COLOR CONTRAST UTILITIES
+// ============================================================================
+
+// High contrast text
+.text-high-contrast {
+  color: var(--md-a11y-high-contrast-text) !important;
+}
+
+// Ensure readable text on any background
+.text-readable {
+  text-shadow:
+    0 0 2px var(--md-sys-color-surface),
+    0 0 4px var(--md-sys-color-surface);
+}
+
+// Contrast border for images on similar backgrounds
+.contrast-border {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  @media (prefers-color-scheme: dark) {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// ============================================================================
+// 7. MOTION & ANIMATION
+// ============================================================================
+
+// Reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: var(--md-a11y-reduced-motion-duration) !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: var(--md-a11y-reduced-motion-duration) !important;
+    scroll-behavior: auto !important;
+  }
+
+  // Preserve essential animations
+  .motion-essential {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+}
+
+// Motion safe class (only animate if no preference)
+.motion-safe {
+  @media (prefers-reduced-motion: no-preference) {
+    animation-duration: var(--md-sys-motion-duration-medium);
+    transition-duration: var(--md-sys-motion-duration-medium);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+// Pause animation on hover/focus for users who need it
+.pausable-animation {
+  &:hover,
+  &:focus-within {
+    animation-play-state: paused;
+  }
+}
+
+// ============================================================================
+// 8. HIGH CONTRAST MODE
+// ============================================================================
+
+@media (prefers-contrast: more) {
+  :root {
+    // Increase border widths
+    --md-sys-state-outline-width: 2px;
+
+    // Stronger shadows
+    --md-sys-elevation-level1: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --md-sys-elevation-level2: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  // Ensure all text meets contrast requirements
+  body {
+    color: var(--md-a11y-high-contrast-text);
+  }
+
+  // Add borders to elements that rely on color alone
+  .high-contrast-border {
+    border: 2px solid var(--md-a11y-high-contrast-border) !important;
+  }
+
+  // Increase focus visibility
+  :focus-visible {
+    outline-width: 4px !important;
+    outline-offset: 3px !important;
+  }
+
+  // Buttons with visible borders
+  button,
+  .btn,
+  [role="button"] {
+    border: 2px solid currentColor !important;
+  }
+
+  // Links with underlines
+  a:not(.btn) {
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+  }
+}
+
+// Low contrast preference
+@media (prefers-contrast: less) {
+  :root {
+    // Softer colors
+    --md-sys-color-on-surface: rgba(0, 0, 0, 0.7);
+    --md-sys-color-outline: rgba(0, 0, 0, 0.3);
+  }
+}
+
+// ============================================================================
+// 9. FORCED COLORS MODE (Windows High Contrast)
+// ============================================================================
+
+@media (forced-colors: active) {
+  // Use system colors
+  :root {
+    --md-sys-color-primary: LinkText;
+    --md-sys-color-on-primary: Canvas;
+    --md-sys-color-surface: Canvas;
+    --md-sys-color-on-surface: CanvasText;
+    --md-sys-color-outline: CanvasText;
+  }
+
+  // Ensure borders are visible
+  *:focus-visible {
+    outline: 3px solid Highlight !important;
+    outline-offset: 2px !important;
+  }
+
+  // Buttons
+  button,
+  .btn,
+  [role="button"] {
+    border: 2px solid ButtonText !important;
+    background: ButtonFace !important;
+    color: ButtonText !important;
+
+    &:hover {
+      background: Highlight !important;
+      color: HighlightText !important;
+    }
+
+    &:disabled {
+      border-color: GrayText !important;
+      color: GrayText !important;
+    }
+  }
+
+  // Links
+  a {
+    color: LinkText !important;
+
+    &:visited {
+      color: VisitedText !important;
+    }
+  }
+
+  // Form elements
+  input,
+  textarea,
+  select {
+    border: 2px solid CanvasText !important;
+    background: Field !important;
+    color: FieldText !important;
+  }
+
+  // Remove decorative backgrounds/shadows
+  .decorative,
+  .gradient-bg,
+  .glassmorphism {
+    background: Canvas !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  // SVG icons
+  svg {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+  }
+}
+
+// ============================================================================
+// 10. KEYBOARD NAVIGATION
+// ============================================================================
+
+// Keyboard-only focus styles
+.keyboard-focus {
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: var(--md-a11y-focus-ring-width) var(--md-a11y-focus-ring-style) var(--md-a11y-focus-ring-color);
+    outline-offset: var(--md-a11y-focus-ring-offset);
+  }
+}
+
+// Focus trap container (for modals/dialogs)
+.focus-trap {
+  // Sentinel elements for focus trapping (added via JS)
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+// Tab order indicator (development/debugging)
+.show-tab-order {
+  [tabindex],
+  a[href],
+  button:not([disabled]),
+  input:not([disabled]),
+  select:not([disabled]),
+  textarea:not([disabled]) {
+    position: relative;
+
+    &::before {
+      content: attr(tabindex);
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 16px;
+      height: 16px;
+      background: red;
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      z-index: 9999;
+    }
+  }
+}
+
+// ============================================================================
+// 11. ARIA UTILITIES
+// ============================================================================
+
+// Live regions
+.live-polite {
+  // Announce changes politely (after current speech)
+}
+
+.live-assertive {
+  // Announce changes immediately
+}
+
+.live-off {
+  // Don't announce changes
+}
+
+// Aria expanded states
+[aria-expanded="false"] {
+  .expand-icon {
+    transform: rotate(0deg);
+  }
+}
+
+[aria-expanded="true"] {
+  .expand-icon {
+    transform: rotate(180deg);
+  }
+}
+
+// Aria selected states
+[aria-selected="true"] {
+  // Custom selected styling
+}
+
+// Aria current (navigation)
+[aria-current="page"] {
+  font-weight: 600;
+}
+
+// Aria invalid (form validation)
+[aria-invalid="true"] {
+  border-color: var(--md-sys-color-error) !important;
+
+  &:focus-visible {
+    outline-color: var(--md-sys-color-error);
+  }
+}
+
+// Aria busy (loading states)
+[aria-busy="true"] {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+// Aria disabled
+[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+// ============================================================================
+// 12. FORM ACCESSIBILITY
+// ============================================================================
+
+// Ensure labels are always visible
+.form-label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+// Required field indicator
+.required-indicator {
+  color: var(--md-sys-color-error);
+  margin-left: 4px;
+
+  &::before {
+    content: '*';
+  }
+}
+
+// Help text styling
+.form-help-text {
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: 4px;
+}
+
+// Error message styling
+.form-error-text {
+  font-size: 14px;
+  color: var(--md-sys-color-error);
+  margin-top: 4px;
+
+  &::before {
+    content: '⚠ ';
+  }
+}
+
+// Success message styling
+.form-success-text {
+  font-size: 14px;
+  color: var(--md-sys-color-primary);
+  margin-top: 4px;
+
+  &::before {
+    content: '✓ ';
+  }
+}
+
+// Fieldset and legend accessibility
+fieldset {
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-sys-shape-corner-medium, 12px);
+  padding: 16px;
+  margin: 0 0 24px 0;
+
+  legend {
+    padding: 0 8px;
+    font-weight: 600;
+  }
+}
+
+// ============================================================================
+// 13. IMAGE & MEDIA ACCESSIBILITY
+// ============================================================================
+
+// Images with required alt text indicator (dev mode)
+.dev-mode img:not([alt]) {
+  outline: 4px solid red !important;
+  outline-offset: 2px;
+
+  &::after {
+    content: 'Missing alt text!';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: red;
+    color: white;
+    padding: 4px;
+    font-size: 12px;
+  }
+}
+
+// Decorative image (empty alt)
+img[alt=""] {
+  // Ensure it's truly decorative
+}
+
+// Video/audio controls
+.media-controls {
+  min-height: var(--md-a11y-touch-target-min);
+
+  button {
+    min-width: var(--md-a11y-touch-target-min);
+    min-height: var(--md-a11y-touch-target-min);
+  }
+}
+
+// Captions container
+.captions {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+// ============================================================================
+// 14. TABLE ACCESSIBILITY
+// ============================================================================
+
+// Accessible table
+.table-accessible {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    font-weight: 600;
+    padding: 12px;
+    border-bottom: 2px solid var(--md-sys-color-outline);
+  }
+
+  td {
+    padding: 12px;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  }
+
+  // Row hover
+  tbody tr:hover {
+    background: var(--md-sys-color-surface-variant);
+  }
+
+  // Focus within row
+  tbody tr:focus-within {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: -2px;
+  }
+
+  // Caption
+  caption {
+    text-align: left;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+}
+
+// Responsive table wrapper
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &:focus {
+    outline: 2px solid var(--md-sys-color-primary);
+  }
+}
+
+// ============================================================================
+// 15. LINK ACCESSIBILITY
+// ============================================================================
+
+// Links with external indicator
+a[target="_blank"] {
+  // Screen reader text
+  .sr-external-link {
+    @extend .sr-only;
+
+    &::before {
+      content: ' (opens in new tab)';
+    }
+  }
+}
+
+// Link that looks like button but is a link
+.link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--md-a11y-touch-target-min);
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: var(--md-sys-shape-corner-full, 100px);
+
+  &:focus-visible {
+    outline: var(--md-a11y-focus-ring-width) var(--md-a11y-focus-ring-style) var(--md-a11y-focus-ring-color);
+    outline-offset: var(--md-a11y-focus-ring-offset);
+  }
+}
+
+// ============================================================================
+// 16. ACCESSIBILITY MIXINS
+// ============================================================================
+
+// Focus ring mixin
+@mixin focus-ring($color: var(--md-a11y-focus-ring-color), $width: var(--md-a11y-focus-ring-width), $offset: var(--md-a11y-focus-ring-offset)) {
+  &:focus-visible {
+    outline: $width solid $color;
+    outline-offset: $offset;
+  }
+}
+
+// Screen reader only mixin
+@mixin sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Touch target mixin
+@mixin touch-target($size: var(--md-a11y-touch-target-min)) {
+  min-width: $size;
+  min-height: $size;
+}
+
+// High contrast mixin
+@mixin high-contrast {
+  @media (prefers-contrast: more) {
+    @content;
+  }
+}
+
+// Forced colors mixin
+@mixin forced-colors {
+  @media (forced-colors: active) {
+    @content;
+  }
+}
+
+// Reduced motion mixin
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// Keyboard focus only mixin
+@mixin keyboard-focus-only {
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    @content;
+  }
+}
+
+// Accessible hide mixin (animated)
+@mixin accessible-hide($duration: 0.2s) {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility $duration, opacity $duration;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+// Accessible show mixin (animated)
+@mixin accessible-show($duration: 0.2s) {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility $duration, opacity $duration;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

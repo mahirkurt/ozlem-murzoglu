@@ -71,6 +71,8 @@ node_modules/
 *.log
 *_log.txt
 audit*.txt
+.env
+nul
 
 # Debug/test scripts (root'ta)
 /test-*.js
@@ -81,3 +83,8 @@ audit*.txt
 
 # Config dizini (hassas dosyalar)
 config/dr-murzoglu-firebase-adminsdkjson.json
+
+# Agent rules (explicitly allowed)
+!.agent/
+!.agent/rules/
+!.agent/rules/*

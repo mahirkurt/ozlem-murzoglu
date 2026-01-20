@@ -1,16 +1,784 @@
+// ==========================================================================
+// MD3 EXPRESSIVE - SHAPE SYSTEM
+// ==========================================================================
+// Material Design 3 Expressive Shape Token System
+// Implements: Corner Radius, Asymmetric Shapes, Shape Morphing, Cut Corners
+// Philosophy: Shapes convey hierarchy, personality, and attention
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// SECTION 1: CORE SHAPE TOKENS
+// --------------------------------------------------------------------------
+
 :root {
-  /* Corner radius values */
+  // =======================================================================
+  // 1.1 Corner Radius Scale
+  // =======================================================================
+  // Progressive scale from sharp (geometric) to full (friendly)
+
+  // None - Sharp corners, geometric, utility
   --md-sys-shape-corner-none: 0;
+
+  // Extra Small (4px) - Subtle softening, utility elements
   --md-sys-shape-corner-extra-small: 4px;
-  --md-sys-shape-corner-extra-small-top: 4px 4px 0 0;
+
+  // Small (8px) - Text fields, menus, utility
   --md-sys-shape-corner-small: 8px;
+
+  // Medium (12px) - Standard cards, containers (DEFAULT)
   --md-sys-shape-corner-medium: 12px;
+
+  // Large (16px) - FAB, dialogs, important cards
   --md-sys-shape-corner-large: 16px;
-  --md-sys-shape-corner-large-end: 0 16px 16px 0;
-  --md-sys-shape-corner-large-top: 16px 16px 0 0;
+
+  // Extra Large (28px) - Hero cards, modals, special moments
   --md-sys-shape-corner-extra-large: 28px;
-  --md-sys-shape-corner-extra-large-top: 28px 28px 0 0;
-  --md-sys-shape-corner-extra-large-start: 28px 0 0 28px;
-  --md-sys-shape-corner-extra-large-end: 0 28px 28px 0;
+
+  // Full (9999px) - Pills, buttons, avatars, most friendly
   --md-sys-shape-corner-full: 9999px;
+
+  // =======================================================================
+  // 1.2 Asymmetric Shape Tokens - Top
+  // =======================================================================
+  // Top corners rounded, bottom flat
+
+  --md-sys-shape-corner-extra-small-top: 4px 4px 0 0;
+  --md-sys-shape-corner-small-top: 8px 8px 0 0;
+  --md-sys-shape-corner-medium-top: 12px 12px 0 0;
+  --md-sys-shape-corner-large-top: 16px 16px 0 0;
+  --md-sys-shape-corner-extra-large-top: 28px 28px 0 0;
+
+  // =======================================================================
+  // 1.3 Asymmetric Shape Tokens - Bottom
+  // =======================================================================
+  // Bottom corners rounded, top flat
+
+  --md-sys-shape-corner-extra-small-bottom: 0 0 4px 4px;
+  --md-sys-shape-corner-small-bottom: 0 0 8px 8px;
+  --md-sys-shape-corner-medium-bottom: 0 0 12px 12px;
+  --md-sys-shape-corner-large-bottom: 0 0 16px 16px;
+  --md-sys-shape-corner-extra-large-bottom: 0 0 28px 28px;
+
+  // =======================================================================
+  // 1.4 Asymmetric Shape Tokens - Start (Left in LTR)
+  // =======================================================================
+  // Left corners rounded, right flat
+
+  --md-sys-shape-corner-extra-small-start: 4px 0 0 4px;
+  --md-sys-shape-corner-small-start: 8px 0 0 8px;
+  --md-sys-shape-corner-medium-start: 12px 0 0 12px;
+  --md-sys-shape-corner-large-start: 16px 0 0 16px;
+  --md-sys-shape-corner-extra-large-start: 28px 0 0 28px;
+
+  // =======================================================================
+  // 1.5 Asymmetric Shape Tokens - End (Right in LTR)
+  // =======================================================================
+  // Right corners rounded, left flat
+
+  --md-sys-shape-corner-extra-small-end: 0 4px 4px 0;
+  --md-sys-shape-corner-small-end: 0 8px 8px 0;
+  --md-sys-shape-corner-medium-end: 0 12px 12px 0;
+  --md-sys-shape-corner-large-end: 0 16px 16px 0;
+  --md-sys-shape-corner-extra-large-end: 0 28px 28px 0;
+
+  // =======================================================================
+  // 1.6 Diagonal Asymmetric Shapes
+  // =======================================================================
+  // Creative diagonal patterns
+
+  // Top-left and bottom-right
+  --md-sys-shape-corner-diagonal-tl-br-sm: 8px 0 8px 0;
+  --md-sys-shape-corner-diagonal-tl-br-md: 12px 0 12px 0;
+  --md-sys-shape-corner-diagonal-tl-br-lg: 16px 0 16px 0;
+  --md-sys-shape-corner-diagonal-tl-br-xl: 28px 0 28px 0;
+
+  // Top-right and bottom-left
+  --md-sys-shape-corner-diagonal-tr-bl-sm: 0 8px 0 8px;
+  --md-sys-shape-corner-diagonal-tr-bl-md: 0 12px 0 12px;
+  --md-sys-shape-corner-diagonal-tr-bl-lg: 0 16px 0 16px;
+  --md-sys-shape-corner-diagonal-tr-bl-xl: 0 28px 0 28px;
+
+  // =======================================================================
+  // 1.7 Mixed Radius Shapes
+  // =======================================================================
+  // Different radii for different corners
+
+  // Ticket shape (one corner extra large)
+  --md-sys-shape-corner-ticket: 8px 28px 28px 8px;
+  --md-sys-shape-corner-ticket-alt: 28px 8px 8px 28px;
+
+  // Leaf shape
+  --md-sys-shape-corner-leaf: 28px 4px 28px 4px;
+  --md-sys-shape-corner-leaf-alt: 4px 28px 4px 28px;
+
+  // Blob-like (organic)
+  --md-sys-shape-corner-blob: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+// --------------------------------------------------------------------------
+// SECTION 2: COMPONENT-SPECIFIC SHAPES
+// --------------------------------------------------------------------------
+
+:root {
+  // =======================================================================
+  // 2.1 Button Shapes
+  // =======================================================================
+
+  --md-sys-shape-button-filled: var(--md-sys-shape-corner-full);
+  --md-sys-shape-button-outlined: var(--md-sys-shape-corner-full);
+  --md-sys-shape-button-tonal: var(--md-sys-shape-corner-full);
+  --md-sys-shape-button-elevated: var(--md-sys-shape-corner-full);
+  --md-sys-shape-button-text: var(--md-sys-shape-corner-small);
+
+  // Icon buttons
+  --md-sys-shape-icon-button: var(--md-sys-shape-corner-full);
+  --md-sys-shape-icon-button-filled: var(--md-sys-shape-corner-full);
+  --md-sys-shape-icon-button-standard: var(--md-sys-shape-corner-full);
+
+  // =======================================================================
+  // 2.2 FAB Shapes
+  // =======================================================================
+
+  --md-sys-shape-fab-small: var(--md-sys-shape-corner-medium);
+  --md-sys-shape-fab: var(--md-sys-shape-corner-large);
+  --md-sys-shape-fab-large: var(--md-sys-shape-corner-extra-large);
+  --md-sys-shape-fab-extended: var(--md-sys-shape-corner-large);
+
+  // =======================================================================
+  // 2.3 Card Shapes
+  // =======================================================================
+
+  --md-sys-shape-card: var(--md-sys-shape-corner-medium);
+  --md-sys-shape-card-elevated: var(--md-sys-shape-corner-medium);
+  --md-sys-shape-card-filled: var(--md-sys-shape-corner-medium);
+  --md-sys-shape-card-outlined: var(--md-sys-shape-corner-medium);
+  --md-sys-shape-card-hero: var(--md-sys-shape-corner-extra-large);
+
+  // =======================================================================
+  // 2.4 Dialog & Sheet Shapes
+  // =======================================================================
+
+  --md-sys-shape-dialog: var(--md-sys-shape-corner-extra-large);
+  --md-sys-shape-bottom-sheet: var(--md-sys-shape-corner-extra-large-top);
+  --md-sys-shape-side-sheet: var(--md-sys-shape-corner-none);
+  --md-sys-shape-modal: var(--md-sys-shape-corner-extra-large);
+
+  // =======================================================================
+  // 2.5 Input Shapes
+  // =======================================================================
+
+  --md-sys-shape-text-field: var(--md-sys-shape-corner-extra-small);
+  --md-sys-shape-text-field-filled: var(--md-sys-shape-corner-extra-small-top);
+  --md-sys-shape-text-field-outlined: var(--md-sys-shape-corner-extra-small);
+  --md-sys-shape-search-bar: var(--md-sys-shape-corner-full);
+  --md-sys-shape-search-view: var(--md-sys-shape-corner-extra-large);
+
+  // =======================================================================
+  // 2.6 Chip & Badge Shapes
+  // =======================================================================
+
+  --md-sys-shape-chip: var(--md-sys-shape-corner-small);
+  --md-sys-shape-chip-assist: var(--md-sys-shape-corner-small);
+  --md-sys-shape-chip-filter: var(--md-sys-shape-corner-small);
+  --md-sys-shape-chip-input: var(--md-sys-shape-corner-small);
+  --md-sys-shape-chip-suggestion: var(--md-sys-shape-corner-small);
+  --md-sys-shape-badge: var(--md-sys-shape-corner-full);
+
+  // =======================================================================
+  // 2.7 Navigation Shapes
+  // =======================================================================
+
+  --md-sys-shape-nav-bar: var(--md-sys-shape-corner-none);
+  --md-sys-shape-nav-bar-item: var(--md-sys-shape-corner-full);
+  --md-sys-shape-nav-drawer: var(--md-sys-shape-corner-none);
+  --md-sys-shape-nav-drawer-item: var(--md-sys-shape-corner-full);
+  --md-sys-shape-nav-rail: var(--md-sys-shape-corner-none);
+  --md-sys-shape-nav-rail-item: var(--md-sys-shape-corner-full);
+  --md-sys-shape-tab: var(--md-sys-shape-corner-full);
+
+  // =======================================================================
+  // 2.8 Menu & List Shapes
+  // =======================================================================
+
+  --md-sys-shape-menu: var(--md-sys-shape-corner-extra-small);
+  --md-sys-shape-menu-item: var(--md-sys-shape-corner-none);
+  --md-sys-shape-list-item: var(--md-sys-shape-corner-none);
+  --md-sys-shape-dropdown: var(--md-sys-shape-corner-extra-small);
+
+  // =======================================================================
+  // 2.9 Misc Component Shapes
+  // =======================================================================
+
+  --md-sys-shape-avatar: var(--md-sys-shape-corner-full);
+  --md-sys-shape-avatar-square: var(--md-sys-shape-corner-medium);
+  --md-sys-shape-tooltip: var(--md-sys-shape-corner-extra-small);
+  --md-sys-shape-snackbar: var(--md-sys-shape-corner-extra-small);
+  --md-sys-shape-progress-indicator: var(--md-sys-shape-corner-full);
+  --md-sys-shape-slider-handle: var(--md-sys-shape-corner-full);
+  --md-sys-shape-switch-track: var(--md-sys-shape-corner-full);
+  --md-sys-shape-switch-handle: var(--md-sys-shape-corner-full);
+}
+
+// --------------------------------------------------------------------------
+// SECTION 3: SHAPE UTILITY CLASSES
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 3.1 Standard Radius Classes
+// =======================================================================
+
+.rounded-none { border-radius: var(--md-sys-shape-corner-none); }
+.rounded-xs { border-radius: var(--md-sys-shape-corner-extra-small); }
+.rounded-sm { border-radius: var(--md-sys-shape-corner-small); }
+.rounded-md { border-radius: var(--md-sys-shape-corner-medium); }
+.rounded-lg { border-radius: var(--md-sys-shape-corner-large); }
+.rounded-xl { border-radius: var(--md-sys-shape-corner-extra-large); }
+.rounded-full { border-radius: var(--md-sys-shape-corner-full); }
+
+// MD3 naming convention aliases
+.shape-none { border-radius: var(--md-sys-shape-corner-none); }
+.shape-extra-small { border-radius: var(--md-sys-shape-corner-extra-small); }
+.shape-small { border-radius: var(--md-sys-shape-corner-small); }
+.shape-medium { border-radius: var(--md-sys-shape-corner-medium); }
+.shape-large { border-radius: var(--md-sys-shape-corner-large); }
+.shape-extra-large { border-radius: var(--md-sys-shape-corner-extra-large); }
+.shape-full { border-radius: var(--md-sys-shape-corner-full); }
+
+// =======================================================================
+// 3.2 Asymmetric Top Classes
+// =======================================================================
+
+.rounded-t-none { border-radius: 0 0 inherit inherit; }
+.rounded-t-xs { border-radius: var(--md-sys-shape-corner-extra-small-top); }
+.rounded-t-sm { border-radius: var(--md-sys-shape-corner-small-top); }
+.rounded-t-md { border-radius: var(--md-sys-shape-corner-medium-top); }
+.rounded-t-lg { border-radius: var(--md-sys-shape-corner-large-top); }
+.rounded-t-xl { border-radius: var(--md-sys-shape-corner-extra-large-top); }
+
+// =======================================================================
+// 3.3 Asymmetric Bottom Classes
+// =======================================================================
+
+.rounded-b-none { border-radius: inherit inherit 0 0; }
+.rounded-b-xs { border-radius: var(--md-sys-shape-corner-extra-small-bottom); }
+.rounded-b-sm { border-radius: var(--md-sys-shape-corner-small-bottom); }
+.rounded-b-md { border-radius: var(--md-sys-shape-corner-medium-bottom); }
+.rounded-b-lg { border-radius: var(--md-sys-shape-corner-large-bottom); }
+.rounded-b-xl { border-radius: var(--md-sys-shape-corner-extra-large-bottom); }
+
+// =======================================================================
+// 3.4 Asymmetric Start (Left) Classes
+// =======================================================================
+
+.rounded-s-none { border-radius: 0 inherit inherit 0; }
+.rounded-s-xs { border-radius: var(--md-sys-shape-corner-extra-small-start); }
+.rounded-s-sm { border-radius: var(--md-sys-shape-corner-small-start); }
+.rounded-s-md { border-radius: var(--md-sys-shape-corner-medium-start); }
+.rounded-s-lg { border-radius: var(--md-sys-shape-corner-large-start); }
+.rounded-s-xl { border-radius: var(--md-sys-shape-corner-extra-large-start); }
+
+// =======================================================================
+// 3.5 Asymmetric End (Right) Classes
+// =======================================================================
+
+.rounded-e-none { border-radius: inherit 0 0 inherit; }
+.rounded-e-xs { border-radius: var(--md-sys-shape-corner-extra-small-end); }
+.rounded-e-sm { border-radius: var(--md-sys-shape-corner-small-end); }
+.rounded-e-md { border-radius: var(--md-sys-shape-corner-medium-end); }
+.rounded-e-lg { border-radius: var(--md-sys-shape-corner-large-end); }
+.rounded-e-xl { border-radius: var(--md-sys-shape-corner-extra-large-end); }
+
+// =======================================================================
+// 3.6 Individual Corner Classes
+// =======================================================================
+
+// Top-left
+.rounded-tl-none { border-top-left-radius: 0; }
+.rounded-tl-xs { border-top-left-radius: var(--md-sys-shape-corner-extra-small); }
+.rounded-tl-sm { border-top-left-radius: var(--md-sys-shape-corner-small); }
+.rounded-tl-md { border-top-left-radius: var(--md-sys-shape-corner-medium); }
+.rounded-tl-lg { border-top-left-radius: var(--md-sys-shape-corner-large); }
+.rounded-tl-xl { border-top-left-radius: var(--md-sys-shape-corner-extra-large); }
+.rounded-tl-full { border-top-left-radius: var(--md-sys-shape-corner-full); }
+
+// Top-right
+.rounded-tr-none { border-top-right-radius: 0; }
+.rounded-tr-xs { border-top-right-radius: var(--md-sys-shape-corner-extra-small); }
+.rounded-tr-sm { border-top-right-radius: var(--md-sys-shape-corner-small); }
+.rounded-tr-md { border-top-right-radius: var(--md-sys-shape-corner-medium); }
+.rounded-tr-lg { border-top-right-radius: var(--md-sys-shape-corner-large); }
+.rounded-tr-xl { border-top-right-radius: var(--md-sys-shape-corner-extra-large); }
+.rounded-tr-full { border-top-right-radius: var(--md-sys-shape-corner-full); }
+
+// Bottom-left
+.rounded-bl-none { border-bottom-left-radius: 0; }
+.rounded-bl-xs { border-bottom-left-radius: var(--md-sys-shape-corner-extra-small); }
+.rounded-bl-sm { border-bottom-left-radius: var(--md-sys-shape-corner-small); }
+.rounded-bl-md { border-bottom-left-radius: var(--md-sys-shape-corner-medium); }
+.rounded-bl-lg { border-bottom-left-radius: var(--md-sys-shape-corner-large); }
+.rounded-bl-xl { border-bottom-left-radius: var(--md-sys-shape-corner-extra-large); }
+.rounded-bl-full { border-bottom-left-radius: var(--md-sys-shape-corner-full); }
+
+// Bottom-right
+.rounded-br-none { border-bottom-right-radius: 0; }
+.rounded-br-xs { border-bottom-right-radius: var(--md-sys-shape-corner-extra-small); }
+.rounded-br-sm { border-bottom-right-radius: var(--md-sys-shape-corner-small); }
+.rounded-br-md { border-bottom-right-radius: var(--md-sys-shape-corner-medium); }
+.rounded-br-lg { border-bottom-right-radius: var(--md-sys-shape-corner-large); }
+.rounded-br-xl { border-bottom-right-radius: var(--md-sys-shape-corner-extra-large); }
+.rounded-br-full { border-bottom-right-radius: var(--md-sys-shape-corner-full); }
+
+// =======================================================================
+// 3.7 Creative Shape Classes
+// =======================================================================
+
+.shape-ticket { border-radius: var(--md-sys-shape-corner-ticket); }
+.shape-ticket-alt { border-radius: var(--md-sys-shape-corner-ticket-alt); }
+.shape-leaf { border-radius: var(--md-sys-shape-corner-leaf); }
+.shape-leaf-alt { border-radius: var(--md-sys-shape-corner-leaf-alt); }
+.shape-blob { border-radius: var(--md-sys-shape-corner-blob); }
+
+.shape-diagonal-1 { border-radius: var(--md-sys-shape-corner-diagonal-tl-br-lg); }
+.shape-diagonal-2 { border-radius: var(--md-sys-shape-corner-diagonal-tr-bl-lg); }
+
+// --------------------------------------------------------------------------
+// SECTION 4: SHAPE MORPHING (INTERACTIVE SHAPES)
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 4.1 Hover Shape Morphing
+// =======================================================================
+
+.shape-morph-hover {
+  transition: border-radius var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-standard);
+
+  &:hover {
+    border-radius: var(--md-sys-shape-corner-extra-large);
+  }
+}
+
+.shape-morph-hover-full {
+  transition: border-radius var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-standard);
+
+  &:hover {
+    border-radius: var(--md-sys-shape-corner-full);
+  }
+}
+
+.shape-morph-hover-sharp {
+  border-radius: var(--md-sys-shape-corner-full);
+  transition: border-radius var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-standard);
+
+  &:hover {
+    border-radius: var(--md-sys-shape-corner-medium);
+  }
+}
+
+// =======================================================================
+// 4.2 Active State Shape Morphing
+// =======================================================================
+
+.shape-morph-active {
+  transition: border-radius var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+
+  &:active {
+    border-radius: var(--md-sys-shape-corner-large);
+  }
+}
+
+// =======================================================================
+// 4.3 Focus State Shape Morphing
+// =======================================================================
+
+.shape-morph-focus {
+  transition: border-radius var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:focus-visible {
+    border-radius: var(--md-sys-shape-corner-extra-large);
+  }
+}
+
+// =======================================================================
+// 4.4 Expressive Button Morphing
+// =======================================================================
+
+.md3-button-expressive {
+  border-radius: var(--md-sys-shape-corner-full);
+  transition:
+    border-radius var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-standard),
+    transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-standard),
+    box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  &:hover {
+    border-radius: var(--md-sys-shape-corner-extra-large);
+    transform: scale(1.02);
+  }
+
+  &:active {
+    border-radius: var(--md-sys-shape-corner-large);
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    border-radius: var(--md-sys-shape-corner-medium);
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 5: CLIPPING & MASKING
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 5.1 Clip Path Shapes
+// =======================================================================
+
+.clip-circle {
+  clip-path: circle(50%);
+}
+
+.clip-ellipse {
+  clip-path: ellipse(50% 40% at 50% 50%);
+}
+
+.clip-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.clip-triangle-up {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.clip-triangle-down {
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+}
+
+.clip-diamond {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.clip-pentagon {
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+.clip-hexagon {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.clip-octagon {
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+// =======================================================================
+// 5.2 Decorative Clip Paths
+// =======================================================================
+
+.clip-wave-top {
+  clip-path: polygon(
+    0% 100%,
+    0% 20%,
+    10% 25%,
+    20% 20%,
+    30% 25%,
+    40% 20%,
+    50% 25%,
+    60% 20%,
+    70% 25%,
+    80% 20%,
+    90% 25%,
+    100% 20%,
+    100% 100%
+  );
+}
+
+.clip-wave-bottom {
+  clip-path: polygon(
+    0% 0%,
+    0% 80%,
+    10% 75%,
+    20% 80%,
+    30% 75%,
+    40% 80%,
+    50% 75%,
+    60% 80%,
+    70% 75%,
+    80% 80%,
+    90% 75%,
+    100% 80%,
+    100% 0%
+  );
+}
+
+.clip-slant-down {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), 0 100%);
+}
+
+.clip-slant-up {
+  clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
+}
+
+.clip-arrow-right {
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+
+.clip-arrow-left {
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
+
+// =======================================================================
+// 5.3 Notched Corners
+// =======================================================================
+
+.clip-notch-tr {
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+}
+
+.clip-notch-tl {
+  clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);
+}
+
+.clip-notch-br {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+.clip-notch-bl {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+}
+
+// --------------------------------------------------------------------------
+// SECTION 6: SHAPE MIXINS
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 6.1 Apply Shape Mixin
+// =======================================================================
+
+@mixin shape($size: medium) {
+  @if $size == none {
+    border-radius: var(--md-sys-shape-corner-none);
+  } @else if $size == extra-small or $size == xs {
+    border-radius: var(--md-sys-shape-corner-extra-small);
+  } @else if $size == small or $size == sm {
+    border-radius: var(--md-sys-shape-corner-small);
+  } @else if $size == medium or $size == md {
+    border-radius: var(--md-sys-shape-corner-medium);
+  } @else if $size == large or $size == lg {
+    border-radius: var(--md-sys-shape-corner-large);
+  } @else if $size == extra-large or $size == xl {
+    border-radius: var(--md-sys-shape-corner-extra-large);
+  } @else if $size == full {
+    border-radius: var(--md-sys-shape-corner-full);
+  }
+}
+
+// =======================================================================
+// 6.2 Asymmetric Shape Mixin
+// =======================================================================
+
+@mixin shape-asymmetric($direction: top, $size: large) {
+  $radius: 16px;
+
+  @if $size == extra-small or $size == xs {
+    $radius: 4px;
+  } @else if $size == small or $size == sm {
+    $radius: 8px;
+  } @else if $size == medium or $size == md {
+    $radius: 12px;
+  } @else if $size == large or $size == lg {
+    $radius: 16px;
+  } @else if $size == extra-large or $size == xl {
+    $radius: 28px;
+  }
+
+  @if $direction == top {
+    border-radius: $radius $radius 0 0;
+  } @else if $direction == bottom {
+    border-radius: 0 0 $radius $radius;
+  } @else if $direction == start or $direction == left {
+    border-radius: $radius 0 0 $radius;
+  } @else if $direction == end or $direction == right {
+    border-radius: 0 $radius $radius 0;
+  }
+}
+
+// =======================================================================
+// 6.3 Shape Morphing Mixin
+// =======================================================================
+
+@mixin shape-morphing($from: full, $to: large, $duration: medium2) {
+  @include shape($from);
+
+  transition: border-radius var(--md-sys-motion-duration-#{$duration}) var(--md-sys-motion-easing-expressive-standard);
+
+  &:hover {
+    @include shape($to);
+  }
+}
+
+// =======================================================================
+// 6.4 Card Shape Mixin
+// =======================================================================
+
+@mixin card-shape($type: elevated) {
+  @if $type == elevated or $type == filled or $type == outlined {
+    border-radius: var(--md-sys-shape-card);
+  } @else if $type == hero {
+    border-radius: var(--md-sys-shape-card-hero);
+  }
+}
+
+// =======================================================================
+// 6.5 Interactive Shape Mixin
+// =======================================================================
+
+@mixin shape-interactive($base: medium, $hover: large, $active: small) {
+  @include shape($base);
+
+  transition:
+    border-radius var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-standard),
+    transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-standard);
+
+  &:hover {
+    @include shape($hover);
+  }
+
+  &:active {
+    @include shape($active);
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 7: ASPECT RATIO SHAPES
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 7.1 Aspect Ratio Classes
+// =======================================================================
+
+.aspect-square { aspect-ratio: 1 / 1; }
+.aspect-video { aspect-ratio: 16 / 9; }
+.aspect-wide { aspect-ratio: 21 / 9; }
+.aspect-portrait { aspect-ratio: 3 / 4; }
+.aspect-golden { aspect-ratio: 1.618 / 1; }
+.aspect-4-3 { aspect-ratio: 4 / 3; }
+.aspect-3-2 { aspect-ratio: 3 / 2; }
+.aspect-2-1 { aspect-ratio: 2 / 1; }
+
+// =======================================================================
+// 7.2 Circle and Oval
+// =======================================================================
+
+.shape-circle {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.shape-oval {
+  aspect-ratio: 2 / 1;
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.shape-pill {
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+// --------------------------------------------------------------------------
+// SECTION 8: DECORATIVE SHAPES
+// --------------------------------------------------------------------------
+
+// =======================================================================
+// 8.1 Ribbon Shape
+// =======================================================================
+
+.shape-ribbon {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0 30px 30px 0;
+    border-color: transparent var(--md-sys-color-primary) transparent transparent;
+  }
+}
+
+// =======================================================================
+// 8.2 Corner Badge
+// =======================================================================
+
+.shape-corner-badge {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: attr(data-badge);
+    position: absolute;
+    top: 12px;
+    right: -30px;
+    width: 100px;
+    text-align: center;
+    transform: rotate(45deg);
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    font-size: 12px;
+    padding: 4px 0;
+  }
+}
+
+// =======================================================================
+// 8.3 Folded Corner
+// =======================================================================
+
+.shape-folded-corner {
+  position: relative;
+  border-radius: var(--md-sys-shape-corner-medium);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 24px 24px 0;
+    border-color: var(--md-sys-color-surface) var(--md-sys-color-surface) var(--md-sys-color-surface-container-high) var(--md-sys-color-surface);
+    border-top-right-radius: var(--md-sys-shape-corner-medium);
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 9: ACCESSIBILITY
+// --------------------------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  // Disable shape morphing animations
+  .shape-morph-hover,
+  .shape-morph-hover-full,
+  .shape-morph-hover-sharp,
+  .shape-morph-active,
+  .shape-morph-focus,
+  .md3-button-expressive {
+    transition: none;
+  }
+}
+
+// --------------------------------------------------------------------------
+// SECTION 10: RTL SUPPORT
+// --------------------------------------------------------------------------
+
+[dir="rtl"] {
+  // Flip start/end shapes for RTL
+  .rounded-s-xs { border-radius: var(--md-sys-shape-corner-extra-small-end); }
+  .rounded-s-sm { border-radius: var(--md-sys-shape-corner-small-end); }
+  .rounded-s-md { border-radius: var(--md-sys-shape-corner-medium-end); }
+  .rounded-s-lg { border-radius: var(--md-sys-shape-corner-large-end); }
+  .rounded-s-xl { border-radius: var(--md-sys-shape-corner-extra-large-end); }
+
+  .rounded-e-xs { border-radius: var(--md-sys-shape-corner-extra-small-start); }
+  .rounded-e-sm { border-radius: var(--md-sys-shape-corner-small-start); }
+  .rounded-e-md { border-radius: var(--md-sys-shape-corner-medium-start); }
+  .rounded-e-lg { border-radius: var(--md-sys-shape-corner-large-start); }
+  .rounded-e-xl { border-radius: var(--md-sys-shape-corner-extra-large-start); }
 }

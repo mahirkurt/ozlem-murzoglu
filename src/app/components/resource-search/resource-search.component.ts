@@ -16,7 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
         [placeholder]="'RESOURCES.SEARCH_PLACEHOLDER' | translate"
         class="search-input"
       />
-      <span class="material-icons search-icon">search</span>
+      <span class="material-icons-rounded search-icon">search</span>
     </div>
   `,
   styles: [`
