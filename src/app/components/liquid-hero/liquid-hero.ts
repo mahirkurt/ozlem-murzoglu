@@ -10,6 +10,11 @@ import { TranslateModule } from '@ngx-translate/core';
   encapsulation: ViewEncapsulation.None,
   template: `
     <section class="liquid-visual-root hero-container homepage-hero">
+      <div class="hero-floats" aria-hidden="true">
+        <div class="hero-float hero-float--1"></div>
+        <div class="hero-float hero-float--2"></div>
+        <div class="hero-float hero-float--3"></div>
+      </div>
       <div class="liquid-hero__content">
         <div class="liquid-hero__layout">
           <p class="hero-supertitle">{{ 'HOME.HERO_SUBTITLE' | translate }}</p>
