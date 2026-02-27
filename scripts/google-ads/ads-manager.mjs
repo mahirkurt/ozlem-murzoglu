@@ -370,14 +370,14 @@ async function cmdKeywordAdd(customer, adGroupId, keyword, matchType = 'PHRASE')
     BROAD: enums.KeywordMatchType.BROAD,
   }[matchType.toUpperCase()] || enums.KeywordMatchType.PHRASE;
 
-  await customer.adGroupCriteria.create({
+  const [result] = await customer.adGroupCriteria.create([{
     ad_group: `customers/${CONFIG.customer_id}/adGroups/${adGroupId}`,
     keyword: {
       text: keyword,
       match_type: matchTypeEnum,
     },
     status: enums.AdGroupCriterionStatus.ENABLED,
-  });
+  }]);
 
   console.log(`\nAnahtar kelime eklendi: "${keyword}" (${matchType}) -> adGroup ${adGroupId}`);
 }
@@ -536,7 +536,7 @@ async function cmdConversionCreate(customer, name, category, value) {
     'OTHER': enums.ConversionActionCategory.DEFAULT,
   }[category] || enums.ConversionActionCategory.DEFAULT;
 
-  const result = await customer.conversionActions.create({
+  const [result] = await customer.conversionActions.create([{
     name: name,
     category: categoryEnum,
     type: enums.ConversionActionType.WEBPAGE,
@@ -550,7 +550,7 @@ async function cmdConversionCreate(customer, name, category, value) {
     attribution_model_settings: {
       attribution_model: enums.AttributionModel.GOOGLE_ADS_LAST_CLICK,
     },
-  });
+  }]);
 
   console.log(`\nDonusum aksiyonu olusturuldu: "${name}"`);
   console.log(`  Kategori: ${category}`);
@@ -594,12 +594,12 @@ async function cmdCampaignCreate(customer, name, channelType, dailyBudgetTL, bid
 
   // Step 1: Create budget
   const budgetMicros = Math.round(parseFloat(dailyBudgetTL) * 1_000_000);
-  const budgetResult = await customer.campaignBudgets.create({
+  const [budgetResult] = await customer.campaignBudgets.create([{
     name: `${name} - Butce`,
     amount_micros: budgetMicros,
     delivery_method: enums.BudgetDeliveryMethod.STANDARD,
     explicitly_shared: false,
-  });
+  }]);
 
   // Step 2: Create campaign
   const channelEnum = channelType === 'PERFORMANCE_MAX'
@@ -630,7 +630,7 @@ async function cmdCampaignCreate(customer, name, channelType, dailyBudgetTL, bid
     };
   }
 
-  const campaignResult = await customer.campaigns.create(campaignData);
+  const [campaignResult] = await customer.campaigns.create([campaignData]);
 
   console.log(`\nKampanya olusturuldu: "${name}"`);
   console.log(`  Kanal: ${channelType}`);
@@ -650,13 +650,13 @@ async function cmdAdGroupCreate(customer, campaignId, name, cpcBidTL) {
 
   const cpcMicros = cpcBidTL ? Math.round(parseFloat(cpcBidTL) * 1_000_000) : 5_000_000; // default 5 TL
 
-  const result = await customer.adGroups.create({
+  const [result] = await customer.adGroups.create([{
     campaign: `customers/${CONFIG.customer_id}/campaigns/${campaignId}`,
     name: name,
     status: enums.AdGroupStatus.ENABLED,
     type: enums.AdGroupType.SEARCH_STANDARD,
     cpc_bid_micros: cpcMicros,
-  });
+  }]);
 
   console.log(`\nReklam grubu olusturuldu: "${name}"`);
   console.log(`  Kampanya: ${campaignId}`);
@@ -683,7 +683,7 @@ async function cmdAdCreate(customer, adGroupId, headlines, descriptions, finalUr
     text: d.trim(),
   }));
 
-  const result = await customer.ads.create({
+  const [result] = await customer.adGroupAds.create([{
     ad_group: `customers/${CONFIG.customer_id}/adGroups/${adGroupId}`,
     status: enums.AdGroupAdStatus.ENABLED,
     ad: {
@@ -693,7 +693,7 @@ async function cmdAdCreate(customer, adGroupId, headlines, descriptions, finalUr
       },
       final_urls: [finalUrl || 'https://ozlemmurzoglu.com'],
     },
-  });
+  }]);
 
   console.log(`\nReklam olusturuldu: ${headlinesList.length} baslik, ${descList.length} aciklama`);
   console.log(`  Reklam Grubu: ${adGroupId}`);
@@ -719,11 +719,11 @@ async function cmdKeywordBulkAdd(customer, adGroupId, keywordsStr, matchType = '
   let added = 0;
   for (const kw of keywords) {
     try {
-      await customer.adGroupCriteria.create({
+      await customer.adGroupCriteria.create([{
         ad_group: `customers/${CONFIG.customer_id}/adGroups/${adGroupId}`,
         keyword: { text: kw, match_type: matchTypeEnum },
         status: enums.AdGroupCriterionStatus.ENABLED,
-      });
+      }]);
       added++;
       console.log(`  + "${kw}" (${matchType})`);
     } catch (e) {
@@ -745,11 +745,11 @@ async function cmdNegativeAdd(customer, campaignId, keywordsStr) {
   let added = 0;
   for (const kw of keywords) {
     try {
-      await customer.campaignCriteria.create({
+      await customer.campaignCriteria.create([{
         campaign: `customers/${CONFIG.customer_id}/campaigns/${campaignId}`,
         keyword: { text: kw, match_type: enums.KeywordMatchType.BROAD },
         negative: true,
-      });
+      }]);
       added++;
       console.log(`  - "${kw}"`);
     } catch (e) {
@@ -775,7 +775,7 @@ async function cmdExtensionSitelinks(customer, campaignId) {
 
   for (const sl of sitelinks) {
     try {
-      const assetResult = await customer.assets.create({
+      const [assetResult] = await customer.assets.create([{
         type: enums.AssetType.SITELINK,
         sitelink_asset: {
           link_text: sl.text,
@@ -783,14 +783,14 @@ async function cmdExtensionSitelinks(customer, campaignId) {
           description2: sl.description2,
         },
         final_urls: [sl.finalUrl],
-      });
+      }]);
 
       // Link asset to campaign
-      await customer.campaignAssets.create({
+      await customer.campaignAssets.create([{
         campaign: `customers/${CONFIG.customer_id}/campaigns/${campaignId}`,
         asset: assetResult,
         field_type: enums.AssetFieldType.SITELINK,
-      });
+      }]);
 
       console.log(`  + Sitelink: "${sl.text}" -> ${sl.finalUrl}`);
     } catch (e) {
@@ -806,20 +806,20 @@ async function cmdExtensionCall(customer, campaignId) {
   }
 
   try {
-    const assetResult = await customer.assets.create({
+    const [assetResult] = await customer.assets.create([{
       type: enums.AssetType.CALL,
       call_asset: {
         country_code: 'TR',
         phone_number: '+902166884483',
         call_conversion_reporting_state: enums.CallConversionReportingState.USE_RESOURCE_LEVEL_CALL_CONVERSION_ACTION,
       },
-    });
+    }]);
 
-    await customer.campaignAssets.create({
+    await customer.campaignAssets.create([{
       campaign: `customers/${CONFIG.customer_id}/campaigns/${campaignId}`,
       asset: assetResult,
       field_type: enums.AssetFieldType.CALL,
-    });
+    }]);
 
     console.log('  + Arama uzantisi: +90 216 688 44 83');
   } catch (e) {
@@ -842,16 +842,16 @@ async function cmdExtensionCallouts(customer, campaignId) {
 
   for (const text of callouts) {
     try {
-      const assetResult = await customer.assets.create({
+      const [assetResult] = await customer.assets.create([{
         type: enums.AssetType.CALLOUT,
         callout_asset: { callout_text: text },
-      });
+      }]);
 
-      await customer.campaignAssets.create({
+      await customer.campaignAssets.create([{
         campaign: `customers/${CONFIG.customer_id}/campaigns/${campaignId}`,
         asset: assetResult,
         field_type: enums.AssetFieldType.CALLOUT,
-      });
+      }]);
 
       console.log(`  + Aciklama: "${text}"`);
     } catch (e) {
