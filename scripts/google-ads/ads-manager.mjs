@@ -69,7 +69,7 @@ function loadTokens() {
   return JSON.parse(readFileSync(tokenFile, 'utf-8'));
 }
 
-function getClient() {
+function getApiInstance() {
   const creds = loadCredentials();
   const tokens = loadTokens();
 
@@ -79,12 +79,26 @@ function getClient() {
     developer_token: CONFIG.developer_token,
   });
 
+  return { client, tokens };
+}
+
+function getClient(customerId) {
+  const { client, tokens } = getApiInstance();
+
   const opts = {
-    customer_id: CONFIG.customer_id,
+    customer_id: customerId || CONFIG.customer_id,
     refresh_token: tokens.refresh_token,
   };
   if (CONFIG.login_customer_id) opts.login_customer_id = CONFIG.login_customer_id;
   return client.Customer(opts);
+}
+
+function getManagerClient() {
+  const { client, tokens } = getApiInstance();
+  return client.Customer({
+    customer_id: CONFIG.login_customer_id,
+    refresh_token: tokens.refresh_token,
+  });
 }
 
 // --- Formatting helpers ---
@@ -1080,6 +1094,40 @@ function parseArgs() {
   return { command, opts };
 }
 
+// --- Test Account Management ---
+
+async function cmdCreateTestAccount(manager) {
+  console.log('\n=== Test Hesabi Olusturuluyor ===');
+  console.log('  Manager hesabi: ' + CONFIG.login_customer_id);
+
+  try {
+    const result = await manager.customerClients.create([{
+      customer_client: {
+        descriptive_name: 'Dr. Murzoglu - Test Hesabi',
+        currency_code: 'TRY',
+        time_zone: 'Europe/Istanbul',
+      },
+    }]);
+
+    const testId = result[0].split('/').pop();
+    console.log(`\n  Test hesabi olusturuldu!`);
+    console.log(`  Test Hesap ID: ${testId}`);
+    console.log(`\n  Kullanim:`);
+    console.log(`  node ads-manager.mjs setup:full --budget=5000 --test=${testId}`);
+    return testId;
+  } catch (e) {
+    // customerClients.create may not be available, try alternative
+    console.error('  API ile test hesabi olusturulamadi:', e.message);
+    console.log('\n  Manuel olusturma adimlari:');
+    console.log('  1. https://ads.google.com adresine gidin');
+    console.log('  2. Manager hesabiniza (7672524542) girin');
+    console.log('  3. Ayarlar > Alt hesap ayarlari > Test hesabi olustur');
+    console.log('  4. Para birimi: TRY, Zaman dilimi: Istanbul secin');
+    console.log('  5. Olusturulan test hesap ID\'sini kopyalayin');
+    console.log('  6. Calistirin: node ads-manager.mjs setup:full --budget=5000 --test=TEST_HESAP_ID');
+  }
+}
+
 // --- Main ---
 async function main() {
   const { command, opts } = parseArgs();
@@ -1089,7 +1137,19 @@ async function main() {
     return;
   }
 
-  const customer = getClient();
+  // Test account creation uses manager client
+  if (command === 'test:create') {
+    const manager = getManagerClient();
+    await cmdCreateTestAccount(manager);
+    return;
+  }
+
+  // Use test account if --test flag is provided
+  const targetCustomerId = opts.test || CONFIG.customer_id;
+  if (opts.test) {
+    console.log(`\n  [TEST MODU] Hedef hesap: ${opts.test}\n`);
+  }
+  const customer = getClient(targetCustomerId);
 
   try {
     switch (command) {
