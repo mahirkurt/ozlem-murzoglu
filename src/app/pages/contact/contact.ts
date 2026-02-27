@@ -64,6 +64,15 @@ export class ContactComponent {
       return;
     }
     
+    // Track form submission as conversion event
+    if (typeof window !== 'undefined' && (window as any).dataLayer) {
+      (window as any).dataLayer.push({
+        event: 'form_submission',
+        form_name: 'contact_form',
+        conversion_type: 'lead'
+      });
+    }
+
     console.log('Form submitted:', this.formData);
     // Form gönderme işlemi burada yapılacak
     alert('Mesajınız alındı. En kısa sürede size dönüş yapacağız.');
