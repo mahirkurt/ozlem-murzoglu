@@ -39,10 +39,11 @@ import { CommonModule } from '@angular/common';
             </div>
           </a>
 
-          <a 
-            href="https://wa.me/905334985949?text=Merhaba,%20randevu%20almak%20istiyorum" 
-            target="_blank" 
+          <a
+            href="https://wa.me/905334985949?text=Merhaba,%20randevu%20almak%20istiyorum"
+            target="_blank"
             class="widget-action whatsapp"
+            data-track="whatsapp_click" data-track-category="conversion" data-track-label="appointment_widget"
             (click)="trackAction('whatsapp')"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -54,9 +55,10 @@ import { CommonModule } from '@angular/common';
             </div>
           </a>
 
-          <a 
-            href="tel:+902165761190" 
+          <a
+            href="tel:+902165761190"
             class="widget-action phone"
+            data-track="phone_click" data-track-category="conversion" data-track-label="appointment_widget"
             (click)="trackAction('phone')"
           >
             <span class="material-icons-rounded">phone</span>

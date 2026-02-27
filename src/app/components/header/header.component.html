@@ -3,25 +3,20 @@
   <!-- Utility Row (Floating above the island) -->
   <div class="utility-row">
     <div class="container utility-content">
-      <div class="contact-group">
-        <a [href]="'tel:' + contactInfo.phone" class="utility-link">
-          <span class="material-icons-rounded" aria-hidden="true">phone</span>
-          <span>{{ contactInfo.phone }}</span>
-        </a>
-        <span class="dot" aria-hidden="true">•</span>
-        <a href="https://api.whatsapp.com/send?phone=905466884483" target="_blank" class="utility-link whatsapp">
-          <span>WhatsApp</span>
-        </a>
-        <span class="dot" aria-hidden="true">•</span>
-        <div class="location-display">
-          <span class="material-icons-rounded" aria-hidden="true">location_on</span>
-          <span>{{ contactInfo.address }}</span>
-        </div>
-      </div>
-      
-      <a href="https://saglikpetegim.com" target="_blank" class="portal-link-text">
-        {{ 'HEADER.HEALTH_PORTAL' | translate }}
+      <a [href]="'tel:' + contactInfo.phone" class="utility-link" data-track="phone_click" data-track-category="conversion" data-track-label="header">
+        <span class="material-icons-rounded" aria-hidden="true">phone</span>
+        <span>{{ contactInfo.phone }}</span>
       </a>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <a href="https://api.whatsapp.com/send?phone=905466884483" target="_blank" class="utility-link whatsapp" data-track="whatsapp_click" data-track-category="conversion" data-track-label="header">
+        <span class="material-icons-rounded" aria-hidden="true">chat</span>
+        <span>WhatsApp</span>
+      </a>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <div class="utility-link location-display">
+        <span class="material-icons-rounded" aria-hidden="true">location_on</span>
+        <span>{{ contactInfo.address }}</span>
+      </div>
     </div>
   </div>
 
