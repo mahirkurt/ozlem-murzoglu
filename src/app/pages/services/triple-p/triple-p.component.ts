@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { HeroSectionComponent } from '../../../components/shared/hero-section/hero-section.component';
+import { ContactCtaComponent } from '../../../components/contact-cta/contact-cta.component';
 
 @Component({
   selector: 'app-triple-p',
   standalone: true,
-  imports: [RouterLink, TranslateModule, CommonModule, HeroSectionComponent],
+  imports: [RouterLink, TranslateModule, CommonModule, HeroSectionComponent, ContactCtaComponent],
   templateUrl: './triple-p.component.html',
   styleUrl: './triple-p.component.css'
 })

@@ -5,6 +5,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { IllustrationComponent } from '../../shared/components/illustration/illustration.component';
 import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
+import { ContactCtaComponent } from '../../components/contact-cta/contact-cta.component';
 
 interface Service {
   id: string;
@@ -19,7 +20,7 @@ interface Service {
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslateModule, ScrollRevealDirective, IllustrationComponent, HeroSectionComponent],
+  imports: [CommonModule, RouterModule, TranslateModule, ScrollRevealDirective, IllustrationComponent, HeroSectionComponent, ContactCtaComponent],
   templateUrl: './services.html',
   styleUrl: './services.css'
 })
