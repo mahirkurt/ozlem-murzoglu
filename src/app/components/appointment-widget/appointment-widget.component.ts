@@ -40,7 +40,7 @@ import { CommonModule } from '@angular/common';
           </a>
 
           <a
-            href="https://wa.me/905334985949?text=Merhaba,%20randevu%20almak%20istiyorum"
+            href="https://wa.me/905466884483?text=Merhaba,%20randevu%20almak%20istiyorum"
             target="_blank"
             class="widget-action whatsapp"
             data-track="whatsapp_click" data-track-category="conversion" data-track-label="appointment_widget"
@@ -56,14 +56,14 @@ import { CommonModule } from '@angular/common';
           </a>
 
           <a
-            href="tel:+902165761190"
+            href="tel:+902166884483"
             class="widget-action phone"
             data-track="phone_click" data-track-category="conversion" data-track-label="appointment_widget"
             (click)="trackAction('phone')"
           >
             <span class="material-icons-rounded">phone</span>
             <div>
-              <strong>0216 576 11 90</strong>
+              <strong>0216 688 44 83</strong>
               <small>Telefon ile randevu</small>
             </div>
           </a>

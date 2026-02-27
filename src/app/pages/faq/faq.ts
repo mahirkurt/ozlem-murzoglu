@@ -19,8 +19,9 @@ interface FAQ {
 })
 export class FaqComponent {
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'S.S.S.' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_ABOUT', link: '/hakkimizda' },
+    { label: 'HEADER.NAV_FAQ' }
   ];
 
   selectedCategory = 'all';

@@ -1,29 +1,33 @@
-<section class="hero-section md3-page-header" [attr.data-theme]="colorTheme">
-  <div class="hero-background">
-    <div class="hexagon-grid">
-      <div class="hexagon" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]"></div>
-    </div>
-    <div class="gradient-overlay"></div>
+<section class="hero-section" [attr.data-theme]="colorTheme">
+  <div class="hero-section__ambient" aria-hidden="true"></div>
+  <div class="hero-section__blobs" aria-hidden="true">
+    <div class="hero-section__blob hero-section__blob--1"></div>
+    <div class="hero-section__blob hero-section__blob--2"></div>
   </div>
-  
-  <div class="hero-content">
-    <div class="container">
-      <nav class="breadcrumbs md3-page-breadcrumbs" *ngIf="breadcrumbs && breadcrumbs.length > 0" [attr.aria-label]="'COMMON.BREADCRUMB_NAV' | translate">
-        <ol>
-          <li *ngFor="let crumb of breadcrumbs; let last = last">
-            <ng-container *ngIf="crumb.link && !last; else currentBreadcrumb">
-              <a [routerLink]="crumb.link" class="md3-breadcrumb-link">{{ crumb.label | translate }}</a>
-              <span class="material-icons-rounded separator md3-breadcrumb-separator" aria-hidden="true">chevron_right</span>
-            </ng-container>
-            <ng-template #currentBreadcrumb>
-              <span class="md3-breadcrumb-current" aria-current="page">{{ crumb.label | translate }}</span>
-            </ng-template>
-          </li>
-        </ol>
-      </nav>
-      
-      <h1 class="hero-title md3-page-header-title">{{ title | translate }}</h1>
-      <p class="hero-subtitle md3-page-header-subtitle" *ngIf="subtitle">{{ subtitle | translate }}</p>
-    </div>
+  <div class="hero-section__noise" aria-hidden="true"></div>
+
+  <div class="hero-section__content">
+    <nav class="hero-section__breadcrumb"
+         *ngIf="breadcrumbs && breadcrumbs.length > 0"
+         [attr.aria-label]="'COMMON.BREADCRUMB_NAV' | translate">
+      <ol>
+        <li *ngFor="let crumb of breadcrumbs; let last = last">
+          <ng-container *ngIf="crumb.link && !last; else currentCrumb">
+            <a [routerLink]="crumb.link" class="hero-section__crumb-link">
+              {{ crumb.label | translate }}
+            </a>
+            <span class="hero-section__crumb-sep material-icons-rounded" aria-hidden="true">chevron_right</span>
+          </ng-container>
+          <ng-template #currentCrumb>
+            <span class="hero-section__crumb-current" [attr.aria-current]="last ? 'page' : null">
+              {{ crumb.label | translate }}
+            </span>
+          </ng-template>
+        </li>
+      </ol>
+    </nav>
+
+    <h1 class="hero-section__title">{{ title | translate }}</h1>
+    <p class="hero-section__subtitle" *ngIf="subtitle">{{ subtitle | translate }}</p>
   </div>
 </section>

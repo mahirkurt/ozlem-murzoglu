@@ -46,6 +46,11 @@
     var(--md-sys-color-on-primary-container) 22%,
     transparent
   );
+  --hero-button-secondary-border-hover: color-mix(
+    in oklch,
+    var(--md-sys-color-on-primary-container) 28%,
+    transparent
+  );
   --hero-button-secondary-hover-bg: var(--md-sys-color-surface-container-high);
   --hero-button-secondary-hover-text: var(--md-sys-color-on-surface);
   --liquid-hero-ambient:
@@ -259,10 +264,10 @@
 
 .liquid-visual-root .hero-title {
   font-family: var(--md-sys-typescale-display-large-font) !important;
-  font-size: calc(var(--md-sys-typescale-display-large-size) * 1.06) !important;
-  line-height: 1.05 !important;
-  font-weight: 650 !important;
-  letter-spacing: -0.02em !important;
+  font-size: var(--md-sys-typescale-display-large-size) !important;
+  line-height: var(--md-sys-typescale-display-large-line-height) !important;
+  font-weight: var(--md-sys-typescale-display-large-weight) !important;
+  letter-spacing: var(--md-sys-typescale-display-large-tracking) !important;
   color: var(--md-sys-hero-text-primary) !important;
   text-shadow: 0 18px 48px var(--md-sys-hero-text-shadow);
   text-wrap: balance;
@@ -281,7 +286,7 @@
 .hero-title .hero-highlight {
   position: relative;
   display: inline-block;
-  padding: 0 0.18em 0.02em;
+  padding: 0 var(--md-sys-spacing-1) var(--md-sys-spacing-0-5);
   white-space: nowrap;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
@@ -292,9 +297,9 @@
 .hero-title .hero-highlight::after {
   content: '';
   position: absolute;
-  left: -0.14em;
-  right: -0.12em;
-  border-radius: 0.55em;
+  left: calc(-1 * var(--md-sys-spacing-0-5));
+  right: calc(-1 * var(--md-sys-spacing-0-5));
+  border-radius: var(--md-sys-shape-corner-large);
   background: linear-gradient(
     110deg,
     transparent 0%,
@@ -307,8 +312,8 @@
 }
 
 .hero-title .hero-highlight::before {
-  top: 58%;
-  bottom: 6%;
+  top: 60%;
+  bottom: var(--md-sys-spacing-0-5);
   opacity: 0.86;
   filter: saturate(1.25) blur(0.4px);
   box-shadow: 0 0.5em 0.9em var(--hero-highlight-glow);
@@ -316,8 +321,8 @@
 }
 
 .hero-title .hero-highlight::after {
-  top: 63%;
-  bottom: 8%;
+  top: 64%;
+  bottom: var(--md-sys-spacing-1);
   opacity: 0.55;
   filter: saturate(1.15) blur(0.8px);
   transform: rotate(0.8deg);
@@ -372,7 +377,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--md-sys-spacing-0);
-  padding: calc(var(--md-sys-spacing-1) * 1.1) var(--md-sys-spacing-4);
+  padding: var(--md-sys-spacing-1) var(--md-sys-spacing-4);
   border-radius: var(--md-sys-shape-corner-full);
   background: color-mix(in oklch, var(--md-sys-color-primary-container) 28%, transparent);
   border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 18%, transparent);
@@ -445,12 +450,20 @@
 .hero-button--secondary:hover {
   background-color: var(--hero-button-secondary-hover-bg);
   color: var(--hero-button-secondary-hover-text);
-  border-color: oklch(from var(--hero-button-secondary-border) l c h / 0.12);
+  border-color: var(--hero-button-secondary-border-hover);
   box-shadow: 0 12px 24px oklch(from var(--md-sys-color-shadow) l c h / 0.16);
 }
 
 .hero-button--secondary:active {
   transform: scale(0.98);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .hero-trust__item {
+    backdrop-filter: none;
+    background: var(--md-sys-color-surface-container-high);
+    border-color: color-mix(in oklch, var(--md-sys-color-outline) 30%, transparent);
+  }
 }
 
 @include no-reduced-motion {
@@ -475,6 +488,7 @@
   .liquid-hero__layout > * {
     animation: none;
     transform: none;
+    transition: none;
   }
 
   .hero-floats {
@@ -484,6 +498,13 @@
 
   .hero-float {
     animation: none;
+  }
+
+  .hero-button,
+  .hero-button--primary,
+  .hero-button--secondary {
+    transition: none;
+    transform: none;
   }
 }
 

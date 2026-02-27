@@ -35,11 +35,11 @@ export class SeoService {
   private translate = inject(TranslateService);
 
   private readonly defaultSeo: SeoData = {
-    title: 'Dr. Özlem Murzoğlu - Çocuk Sağlığı ve Hastalıkları Uzmanı',
+    title: 'Ataşehir Çocuk Doktoru - Dr. Özlem Murzoğlu | Çocuk Sağlığı ve Hastalıkları Uzmanı',
     description:
-      "Ankara'da çocuk sağlığı ve hastalıkları uzmanı Dr. Özlem Murzoğlu. Bright Futures programı, Triple P ebeveyn desteği, SOS Feeding ve uyku danışmanlığı hizmetleri.",
+      "Ataşehir çocuk doktoru Dr. Özlem Murzoğlu - İstanbul Ataşehir'de çocuk sağlığı ve hastalıkları uzmanı. Bright Futures programı, Triple P ebeveyn desteği, beslenme ve uyku danışmanlığı hizmetleri. Randevu: 0216 688 44 83",
     keywords:
-      'çocuk doktoru, pediatri, ankara çocuk doktoru, bright futures, triple p, sos feeding, uyku danışmanlığı, aşı, bebek bakımı',
+      'ataşehir çocuk doktoru, çocuk doktoru ataşehir, istanbul çocuk doktoru, pediatri uzmanı ataşehir, Dr. Özlem Murzoğlu, bebek doktoru ataşehir, bright futures, triple p, uyku danışmanlığı, aşı',
     ogType: 'website',
     ogImage: 'https://ozlemmurzoglu.com/assets/images/og-image.jpg',
     twitterCard: 'summary_large_image',
@@ -217,9 +217,10 @@ export class SeoService {
   setPageSeo(pageName: string): void {
     const pageSeoMap: Record<string, SeoData> = {
       home: {
-        title: 'Dr. Özlem Murzoğlu - Çocuk Sağlığı ve Hastalıkları Uzmanı',
+        title: 'Ataşehir Çocuk Doktoru - Dr. Özlem Murzoğlu | Çocuk Sağlığı ve Hastalıkları Uzmanı',
         description:
-          "Ankara'da çocuk sağlığı uzmanı Dr. Özlem Murzoğlu. Modern pediatri yaklaşımı ile bebeğinizin ve çocuğunuzun sağlıklı gelişimi için yanınızdayız.",
+          "Ataşehir çocuk doktoru Dr. Özlem Murzoğlu - İstanbul Ataşehir'de çocuk sağlığı ve hastalıkları uzmanı. Modern pediatri yaklaşımı ile bebeğinizin ve çocuğunuzun sağlıklı gelişimi için yanınızdayız. Randevu: 0216 688 44 83",
+        keywords: 'ataşehir çocuk doktoru, çocuk doktoru ataşehir, istanbul çocuk doktoru, Dr. Özlem Murzoğlu, pediatri uzmanı ataşehir, bebek doktoru ataşehir',
         jsonLd: this.getHomePageSchema(),
       },
       about: {
@@ -350,17 +351,29 @@ export class SeoService {
     return {
       '@context': 'https://schema.org',
       '@type': 'MedicalClinic',
+      '@id': `${this.baseUrl}/#clinic`,
       name: 'Dr. Özlem Murzoğlu Kliniği',
-      description: 'Çocuk Sağlığı ve Hastalıkları Uzmanı',
+      alternateName: 'Ataşehir Çocuk Doktoru - Dr. Özlem Murzoğlu',
+      description: "Ataşehir İstanbul'da çocuk sağlığı ve hastalıkları kliniği. Bright Futures gelişim takibi, Triple P ebeveyn desteği, beslenme ve uyku danışmanlığı.",
       url: this.baseUrl,
-      telephone: '+90 312 241 99 78',
+      telephone: '+902166884483',
+      email: 'klinik@drmurzoglu.com',
+      image: `${this.baseUrl}/images/dr_murzoglu.jpg`,
+      logo: `${this.baseUrl}/logos/OM-Icon-Color.svg`,
+      medicalSpecialty: 'Pediatrics',
+      priceRange: '$$',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Kızılırmak Mah. 1450. Sok. No:13/30',
-        addressLocality: 'Çankaya',
-        addressRegion: 'Ankara',
-        postalCode: '06510',
+        streetAddress: 'Barbaros Mah. Ak Zambak Sok. No:3, Uphill Towers A Blok Daire 30',
+        addressLocality: 'Ataşehir',
+        addressRegion: 'İstanbul',
+        postalCode: '34746',
         addressCountry: 'TR',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 40.9884,
+        longitude: 29.1303,
       },
       openingHoursSpecification: [
         {
@@ -376,8 +389,20 @@ export class SeoService {
           closes: '14:00',
         },
       ],
-      medicalSpecialty: 'Pediatrics',
-      priceRange: '$$',
+      sameAs: [
+        'https://www.facebook.com/dr.murzoglu',
+        'https://instagram.com/dr.ozlemmurzoglu',
+        'https://x.com/ozlemmurzoglu',
+        'https://www.linkedin.com/in/ozlemmurzoglu',
+        'https://www.youtube.com/@ozlemmurzoglu',
+      ],
+      areaServed: [
+        { '@type': 'City', name: 'Ataşehir' },
+        { '@type': 'City', name: 'Kadıköy' },
+        { '@type': 'City', name: 'Ümraniye' },
+        { '@type': 'City', name: 'Maltepe' },
+        { '@type': 'City', name: 'İstanbul' },
+      ],
     };
   }
 
@@ -439,15 +464,16 @@ export class SeoService {
       '@type': 'ContactPage',
       mainEntity: {
         '@type': 'MedicalClinic',
+        '@id': `${this.baseUrl}/#clinic`,
         name: 'Dr. Özlem Murzoğlu Kliniği',
-        telephone: '+90 312 241 99 78',
-        email: 'info@ozlemmurzoglu.com',
+        telephone: '+902166884483',
+        email: 'klinik@drmurzoglu.com',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Kızılırmak Mah. 1450. Sok. No:13/30',
-          addressLocality: 'Çankaya',
-          addressRegion: 'Ankara',
-          postalCode: '06510',
+          streetAddress: 'Barbaros Mah. Ak Zambak Sok. No:3, Uphill Towers A Blok Daire 30',
+          addressLocality: 'Ataşehir',
+          addressRegion: 'İstanbul',
+          postalCode: '34746',
           addressCountry: 'TR',
         },
       },

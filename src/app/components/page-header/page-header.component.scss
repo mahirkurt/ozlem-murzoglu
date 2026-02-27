@@ -7,13 +7,15 @@
 .page-header {
   --page-header-ambient-opacity: var(--md-sys-state-dragged-opacity);
   --page-header-bg: var(--app-hero-bg);
-  --md3-page-header-title-size: clamp(2.05rem, 1.8vw + 1.2rem, 2.95rem);
-  --md3-page-header-title-line-height: 1.08;
-  --md3-page-header-title-tracking: -0.015em;
-  --md3-page-header-subtitle-size: clamp(1rem, 0.6vw + 0.85rem, 1.28rem);
-  --md3-page-header-subtitle-line-height: 1.6;
-  --md3-page-header-subtitle-tracking: 0.2px;
-  --md3-page-header-subtitle-max-width: 58ch;
+  --md3-page-header-title-size: clamp(2.3rem, 2.1vw + 1.25rem, 3.25rem);
+  --md3-page-header-title-line-height: 1.06;
+  --md3-page-header-title-tracking: -0.018em;
+  --md3-page-header-subtitle-size: clamp(0.96rem, 0.44vw + 0.84rem, 1.12rem);
+  --md3-page-header-subtitle-weight: 430;
+  --md3-page-header-subtitle-line-height: 1.45;
+  --md3-page-header-subtitle-tracking: 0.08px;
+  --md3-page-header-subtitle-max-width: 48ch;
+  --md3-page-header-content-max-width: min(88vw, 72rem);
   --page-header-ambient:
     radial-gradient(
       ellipse 90% 65% at 20% 30%,
@@ -42,7 +44,7 @@
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  padding: var(--md-sys-spacing-40) 0 var(--md-sys-spacing-20);
+  padding: calc(var(--header-height-desktop) + var(--md-sys-spacing-18)) 0 var(--md-sys-spacing-18);
   background: var(--page-header-bg);
   background-size: var(--app-hero-bg-size);
   background-position: var(--app-hero-bg-position);
@@ -52,7 +54,7 @@
 
   @include bp-below-medium {
     min-height: var(--md-sys-spacing-hero-min-height-mobile);
-    padding: var(--md-sys-spacing-28) 0 var(--md-sys-spacing-16);
+    padding: calc(var(--header-height-mobile) + var(--md-sys-spacing-14)) 0 var(--md-sys-spacing-14);
   }
 }
 
@@ -85,6 +87,8 @@
 .container {
   @include content-width('wide');
   @include container-padding;
+  width: min(100%, var(--md3-page-header-content-max-width));
+  margin-inline: auto;
   position: relative;
   z-index: var(--md-layout-z-sticky);
 }
@@ -95,11 +99,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--md-sys-spacing-8);
+  gap: var(--md-sys-spacing-5);
 }
 
 @include bp-below-medium {
   .header-content {
-    gap: var(--md-sys-spacing-6);
+    gap: var(--md-sys-spacing-4);
   }
 }

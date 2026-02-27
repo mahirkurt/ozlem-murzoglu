@@ -18,11 +18,12 @@
 /* HERO SECTION BASE                             */
 /* ============================================== */
 /* Apply to ALL hero sections including component-based ones */
-.hero-section:not(.homepage-hero),
-app-hero-section .hero-section {
+/* Hero sections extend behind fixed header — no margin-top.
+   Each component uses padding-top to clear the header.
+   NOTE: app-hero-section .hero-section excluded — component manages its own styles. */
+.hero-section:not(.homepage-hero):not(app-hero-section .hero-section) {
   position: relative;
-  padding: var(--hero-padding-y) 0;
-  margin-top: var(--header-height-desktop, 108px);
+  padding: calc(var(--header-height-desktop, 108px) + var(--hero-padding-y)) 0 var(--hero-padding-y);
   min-height: var(--hero-min-height);
   display: flex;
   align-items: center;
@@ -33,7 +34,6 @@ app-hero-section .hero-section {
   background-position: var(--app-hero-bg-position) !important;
   background-attachment: var(--app-hero-bg-attachment) !important;
   background-repeat: no-repeat !important;
-  animation: none !important;
 }
 
 /* Apply to all hero variations except homepage */
@@ -42,8 +42,7 @@ app-hero-section .hero-section {
 .service-hero,
 section[class*='hero']:not(.hero-content):not(.homepage-hero) {
   position: relative;
-  padding: var(--hero-padding-y) 0;
-  margin-top: var(--header-height-desktop, 108px);
+  padding: calc(var(--header-height-desktop, 108px) + var(--hero-padding-y)) 0 var(--hero-padding-y);
   min-height: var(--hero-min-height);
   display: flex;
   align-items: center;
@@ -54,7 +53,6 @@ section[class*='hero']:not(.hero-content):not(.homepage-hero) {
   background-position: var(--app-hero-bg-position) !important;
   background-attachment: var(--app-hero-bg-attachment) !important;
   background-repeat: no-repeat !important;
-  animation: none !important;
 }
 
 /* ============================================== */
@@ -561,15 +559,13 @@ h1.hero-title,
     --hero-min-height: 208px; /* %35 azaltıldı */
   }
 
-  .hero-section:not(.homepage-hero),
-  app-hero-section .hero-section,
+  .hero-section:not(.homepage-hero):not(app-hero-section .hero-section),
   .resource-hero,
   .page-hero,
   .service-hero,
   section[class*='hero']:not(.hero-content):not(.homepage-hero) {
-    padding: var(--hero-padding-y) 0;
+    padding: calc(var(--header-height-mobile, 80px) + var(--hero-padding-y)) 0 var(--hero-padding-y);
     min-height: var(--hero-min-height);
-    margin-top: var(--header-height-mobile, 80px);
   }
 
   .breadcrumb {

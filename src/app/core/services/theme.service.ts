@@ -280,11 +280,17 @@ export class ThemeService {
 
     switch (level) {
       case 'medium':
+        root.setProperty('--md-sys-state-hover-opacity', '0.12');
+        root.setProperty('--md-sys-state-focus-opacity', '0.16');
+        root.setProperty('--md-sys-state-pressed-opacity', '0.16');
         root.setProperty('--md-sys-state-opacity-hover', '0.12');
         root.setProperty('--md-sys-state-opacity-focus', '0.16');
         root.setProperty('--md-sys-state-opacity-pressed', '0.16');
         break;
       case 'high':
+        root.setProperty('--md-sys-state-hover-opacity', '0.16');
+        root.setProperty('--md-sys-state-focus-opacity', '0.20');
+        root.setProperty('--md-sys-state-pressed-opacity', '0.20');
         root.setProperty('--md-sys-state-opacity-hover', '0.16');
         root.setProperty('--md-sys-state-opacity-focus', '0.20');
         root.setProperty('--md-sys-state-opacity-pressed', '0.20');
@@ -299,6 +305,9 @@ export class ThemeService {
         break;
       default:
         // Standard contrast (default values)
+        root.setProperty('--md-sys-state-hover-opacity', '0.08');
+        root.setProperty('--md-sys-state-focus-opacity', '0.12');
+        root.setProperty('--md-sys-state-pressed-opacity', '0.12');
         root.setProperty('--md-sys-state-opacity-hover', '0.08');
         root.setProperty('--md-sys-state-opacity-focus', '0.12');
         root.setProperty('--md-sys-state-opacity-pressed', '0.12');
