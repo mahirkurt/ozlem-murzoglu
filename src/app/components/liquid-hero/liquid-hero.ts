@@ -68,8 +68,8 @@ import { TranslateModule } from '@ngx-translate/core';
                 d="M190 340 C210 330, 245 320, 270 300"
                 fill="none" stroke-width="2" stroke-linecap="round"/>
 
-              <!-- Branch 6: Tertiary coral, upper-far-left -->
-              <path class="growth-tree__branch growth-tree__branch--tertiary-alt"
+              <!-- Branch 6: Primary container, upper-far-left -->
+              <path class="growth-tree__branch growth-tree__branch--primary-container"
                 d="M197 160 C175 140, 145 125, 120 110"
                 fill="none" stroke-width="2" stroke-linecap="round"/>
 
@@ -82,9 +82,10 @@ import { TranslateModule } from '@ngx-translate/core';
               <circle class="growth-tree__leaf growth-tree__leaf--secondary" cx="100" cy="190" r="8"/>
               <circle class="growth-tree__leaf growth-tree__leaf--secondary" cx="130" cy="205" r="6"/>
 
-              <!-- Tertiary branch leaves -->
+              <!-- Tertiary branch leaf -->
               <circle class="growth-tree__leaf growth-tree__leaf--tertiary" cx="300" cy="240" r="7"/>
-              <circle class="growth-tree__leaf growth-tree__leaf--tertiary" cx="120" cy="110" r="7"/>
+              <!-- Primary-container branch leaf -->
+              <circle class="growth-tree__leaf growth-tree__leaf--primary-container" cx="120" cy="110" r="7"/>
 
               <!-- Success branch leaves -->
               <circle class="growth-tree__leaf growth-tree__leaf--success" cx="90" cy="280" r="8"/>
