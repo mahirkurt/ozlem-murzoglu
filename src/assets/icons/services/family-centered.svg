@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
+     fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+  <!-- Left hand - cupping shape -->
+  <path d="M6 28 C6 24, 8 20, 12 18 C14 17, 16 18, 17 20 L19 24 C19.5 25, 20 25.5, 21 25" />
+  <!-- Left fingers -->
+  <path d="M12 18 C11 16, 12 14, 14 14 C15 14, 16 15, 16 17" />
+  <path d="M15 16 C15 14, 16 12.5, 17.5 13 C18.5 13.5, 18.5 15, 18 17" />
+  <!-- Right hand - cupping shape -->
+  <path d="M42 28 C42 24, 40 20, 36 18 C34 17, 32 18, 31 20 L29 24 C28.5 25, 28 25.5, 27 25" />
+  <!-- Right fingers -->
+  <path d="M36 18 C37 16, 36 14, 34 14 C33 14, 32 15, 32 17" />
+  <path d="M33 16 C33 14, 32 12.5, 30.5 13 C29.5 13.5, 29.5 15, 30 17" />
+  <!-- Hands meeting at bottom -->
+  <path d="M6 28 C6 34, 10 38, 16 40 C20 41, 24 42, 24 42 C24 42, 28 41, 32 40 C38 38, 42 34, 42 28" />
+  <!-- Heart cradled in hands -->
+  <path d="M18 24 C18 20, 21 18, 24 21 C27 18, 30 20, 30 24 C30 29, 24 34, 24 34 C24 34, 18 29, 18 24Z" />
+  <!-- Accent: heart fill -->
+  <path class="accent" d="M19.5 24.5 C19.5 21.5, 22 19.5, 24 22 C26 19.5, 28.5 21.5, 28.5 24.5 C28.5 28.5, 24 32, 24 32 C24 32, 19.5 28.5, 19.5 24.5Z"
+        fill="currentColor" stroke="none" opacity="0.25" />
+</svg>

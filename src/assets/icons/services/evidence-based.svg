@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
+     fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+  <!-- Open book - left page -->
+  <path d="M24 14 C22 13, 16 12, 8 13 C7 13.2, 6 14, 6 15 L6 36 C6 37, 7 37.5, 8 37.5 C16 37, 22 37.5, 24 39" />
+  <!-- Open book - right page -->
+  <path d="M24 14 C26 13, 32 12, 40 13 C41 13.2, 42 14, 42 15 L42 36 C42 37, 41 37.5, 40 37.5 C32 37, 26 37.5, 24 39" />
+  <!-- Book spine -->
+  <line x1="24" y1="14" x2="24" y2="39" />
+  <!-- Text lines on left page -->
+  <line x1="10" y1="18" x2="20" y2="18" stroke-width="1" opacity="0.4" />
+  <line x1="10" y1="22" x2="19" y2="22" stroke-width="1" opacity="0.4" />
+  <line x1="10" y1="26" x2="20" y2="26" stroke-width="1" opacity="0.4" />
+  <line x1="10" y1="30" x2="18" y2="30" stroke-width="1" opacity="0.4" />
+  <!-- Text lines on right page -->
+  <line x1="28" y1="18" x2="38" y2="18" stroke-width="1" opacity="0.4" />
+  <line x1="28" y1="22" x2="37" y2="22" stroke-width="1" opacity="0.4" />
+  <line x1="28" y1="26" x2="38" y2="26" stroke-width="1" opacity="0.4" />
+  <line x1="28" y1="30" x2="36" y2="30" stroke-width="1" opacity="0.4" />
+  <!-- Checkmark above the book -->
+  <path d="M19 8 L23 12 L33 4" stroke-width="2.5" />
+  <!-- Accent: checkmark glow -->
+  <circle class="accent" cx="26" cy="8" r="5"
+          fill="currentColor" stroke="none" opacity="0.15" />
+</svg>

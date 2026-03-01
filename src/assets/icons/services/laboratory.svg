@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
+     fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+  <!-- Microscope eyepiece tube (top) -->
+  <path d="M18 6 L18 12 C18 13, 19 14, 20 14 L24 14 C25 14, 26 13, 26 12 L26 6" />
+  <!-- Eyepiece top cap -->
+  <line x1="16" y1="6" x2="28" y2="6" />
+  <!-- Microscope body (angled tube) -->
+  <path d="M22 14 L22 18 C22 19, 22 20, 21 21 L16 30" />
+  <path d="M22 18 C23 19, 24 20, 24 22 L28 30" />
+  <!-- Objective/lens area -->
+  <circle cx="22" cy="32" r="3" />
+  <!-- Stage plate -->
+  <line x1="14" y1="35" x2="30" y2="35" stroke-width="1.5" />
+  <!-- Arm of microscope -->
+  <path d="M28 14 C32 16, 34 20, 34 26 L34 38" />
+  <!-- Base -->
+  <path d="M14 40 C14 38, 16 38, 22 38 L34 38 C36 38, 38 38, 38 40" />
+  <line x1="12" y1="40" x2="40" y2="40" />
+  <!-- Focus knob -->
+  <circle cx="34" cy="28" r="2" stroke-width="1.5" />
+  <!-- Accent: heart on eyepiece -->
+  <path class="accent" d="M20 8 C20 7.2, 20.8 6.5, 21.5 7.2 C22.2 6.5, 23 7.2, 23 8 C23 9, 21.5 10.5, 21.5 10.5 C21.5 10.5, 20 9, 20 8Z"
+        fill="currentColor" stroke="none" opacity="0.35" />
+</svg>

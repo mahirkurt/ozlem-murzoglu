@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
+     fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+  <!-- Soft circular connecting line -->
+  <circle cx="24" cy="24" r="14" stroke-dasharray="4 3" opacity="0.4" />
+  <!-- Parent 1 (left) - head -->
+  <circle cx="13" cy="16" r="3.5" />
+  <!-- Parent 1 - body hint -->
+  <path d="M10 21 C9 24, 10 27, 13 28 C14 28.5, 15 28, 16 27" />
+  <!-- Parent 2 (right) - head -->
+  <circle cx="35" cy="16" r="3.5" />
+  <!-- Parent 2 - body hint -->
+  <path d="M38 21 C39 24, 38 27, 35 28 C34 28.5, 33 28, 32 27" />
+  <!-- Child (bottom center) - head -->
+  <circle cx="24" cy="33" r="3" />
+  <!-- Child - body hint -->
+  <path d="M21 37 C21 39, 22.5 40, 24 40 C25.5 40, 27 39, 27 37" />
+  <!-- Connecting arms/lines parent to child -->
+  <path d="M15 26 C18 30, 20 32, 21 33" />
+  <path d="M33 26 C30 30, 28 32, 27 33" />
+  <!-- Accent: center circle -->
+  <circle class="accent" cx="24" cy="24" r="3"
+          fill="currentColor" stroke="none" opacity="0.25" />
+</svg>
