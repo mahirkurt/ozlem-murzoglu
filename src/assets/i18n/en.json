@@ -69,7 +69,11 @@
     "HERO_TRUST_2": "Evidence-based follow-up",
     "HERO_TRUST_3": "Family-centered communication",
     "CTA_APPOINTMENT": "Book Appointment",
-    "CTA_LEARN_MORE": "Learn More"
+    "CTA_LEARN_MORE": "Learn More",
+    "HERO_OVERLINE": "SOCIAL PEDIATRICS & CHILD HEALTH CLINIC",
+    "HERO_BADGE_BRIGHT": "Bright Futures\u00ae Certified",
+    "HERO_BADGE_TRIPLE_P": "Triple P\u00ae Licensed",
+    "HERO_BADGE_SOCIAL_PED": "Social Pediatrics PhD"
   },
   "ABOUT": {
     "PAGE_TITLE": "About Me",
@@ -1555,7 +1559,7 @@
     "KVKK_RIGHT_8": "Objecting to adverse results arising from analysis exclusively through automated systems",
     "KVKK_RIGHT_9": "Requesting compensation for damages due to unlawful processing",
     "KVKK_APPLICATION_TITLE": "Application Method",
-    "KVKK_APPLICATION_TEXT": "In accordance with Article 13 of KVKK, you can submit your request to use your above rights in writing or via registered electronic mail (KEP) address, signed with secure electronic signature, or using the email address you previously notified to our clinic at info@drozlemmurzoglu.com.",
+    "KVKK_APPLICATION_TEXT": "In accordance with Article 13 of KVKK, you can submit your request to use your above rights in writing or via registered electronic mail (KEP) address, signed with secure electronic signature, or using the email address you previously notified to our clinic at klinik@drmurzoglu.com.",
     "KVKK_APPLICATION_INFO": "Your application will be evaluated and concluded within 30 days at the latest. The application is free of charge, but a fee may be charged if the transaction requires additional costs.",
     "KVKK_CONTACT_TEXT": "You can contact us for detailed information about your rights under KVKK and application processes:"
   },
@@ -2405,5 +2409,17 @@
       "MINUTES": "{{count}} minutes ago",
       "JUST_NOW": "Just now"
     }
+  },
+  "HOME_GOOGLE_REVIEWS": {
+    "LABEL": "Google Business Profile",
+    "TITLE": "Families share their experience",
+    "SUBTITLE": "Transparent and trustworthy feedback powered by Google ratings and reviews",
+    "RATING_ARIA": "Average rating: {{rating}} / 5",
+    "REVIEW_COUNT": "{{count}} reviews",
+    "VIEW_ALL": "View all reviews on Google",
+    "VIEW_PROFILE": "Open our Google profile",
+    "NO_TEXT": "This rating does not include written feedback.",
+    "LOADING": "Loading Google reviews...",
+    "EMPTY": "There are no reviews to display right now."
   }
 }
