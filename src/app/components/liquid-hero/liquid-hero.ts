@@ -42,15 +42,15 @@ import { TranslateModule } from '@ngx-translate/core';
         </div>
         <div class="hero-badges">
           <div class="hero-badge">
-            <span class="hero-badge__icon">&#9733;</span>
+            <span class="hero-badge__icon" aria-hidden="true">&#9733;</span>
             <span>{{ 'HOME.HERO_BADGE_BRIGHT' | translate }}</span>
           </div>
           <div class="hero-badge">
-            <span class="hero-badge__icon">&#9733;</span>
+            <span class="hero-badge__icon" aria-hidden="true">&#9733;</span>
             <span>{{ 'HOME.HERO_BADGE_TRIPLE_P' | translate }}</span>
           </div>
           <div class="hero-badge">
-            <span class="hero-badge__icon">&#9733;</span>
+            <span class="hero-badge__icon" aria-hidden="true">&#9733;</span>
             <span>{{ 'HOME.HERO_BADGE_SOCIAL_PED' | translate }}</span>
           </div>
         </div>

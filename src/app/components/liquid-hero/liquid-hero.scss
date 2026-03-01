@@ -221,11 +221,11 @@
   position: absolute;
   bottom: 10%;
   left: 15%;
-  width: 400px;
-  height: 300px;
+  width: var(--hero-ambient-glow-size, 400px);
+  height: var(--hero-ambient-glow-size, 300px);
   background: radial-gradient(ellipse, var(--md-sys-color-secondary) 0%, transparent 70%);
   opacity: 0.08;
-  filter: blur(60px);
+  filter: blur(var(--hero-ambient-glow-blur, 60px));
   pointer-events: none;
   z-index: 0;
 }
@@ -379,38 +379,6 @@
   max-width: min(90vw, 54ch);
 }
 
-.hero-trust {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--md-sys-spacing-2);
-  margin-top: var(--md-sys-spacing-4);
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  backdrop-filter: none;
-}
-
-.hero-trust__item {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--md-sys-spacing-0);
-  padding: var(--md-sys-spacing-1) var(--md-sys-spacing-4);
-  border-radius: var(--md-sys-shape-corner-full);
-  background: color-mix(in oklch, var(--md-sys-color-primary-container) 28%, transparent);
-  border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 18%, transparent);
-  box-shadow: 0 8px 18px oklch(from var(--md-sys-color-shadow) l c h / 0.08);
-  color: var(--md-sys-hero-text-primary);
-  font-family: var(--md-sys-typescale-label-medium-font);
-  font-size: var(--md-sys-typescale-label-medium-size);
-  line-height: var(--md-sys-typescale-label-medium-line-height);
-  letter-spacing: var(--md-sys-typescale-label-medium-tracking);
-  font-weight: 600;
-  backdrop-filter: blur(6px);
-}
-
 // ── Hero text column (left) ──
 .hero-text-column {
   display: flex;
@@ -426,7 +394,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 300px;
+  min-height: var(--hero-art-min-height, 300px);
   z-index: 1;
 }
 
@@ -533,12 +501,6 @@
 }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .hero-trust__item {
-    backdrop-filter: none;
-    background: var(--md-sys-color-surface-container-high);
-    border-color: color-mix(in oklch, var(--md-sys-color-outline) 30%, transparent);
-  }
-
   .hero-badge {
     backdrop-filter: none;
     background: var(--md-sys-color-surface-container);
@@ -648,22 +610,6 @@
 
   .hero-microcopy {
     text-align: center;
-  }
-
-  .hero-trust {
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-  }
-
-  .hero-trust__item {
-    padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
-    border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 16%, transparent);
-    background: color-mix(in oklch, var(--md-sys-color-primary-container) 40%, transparent);
-    box-shadow: 0 10px 20px oklch(from var(--md-sys-color-shadow) l c h / 0.12);
   }
 
   .hero-badges {
