@@ -69,7 +69,19 @@
     "HERO_OVERLINE": "SOCIAL PEDIATRICS & CHILD HEALTH CLINIC",
     "HERO_BADGE_BRIGHT": "Bright Futures\u00ae Certified",
     "HERO_BADGE_TRIPLE_P": "Triple P\u00ae Licensed",
-    "HERO_BADGE_SOCIAL_PED": "Social Pediatrics PhD"
+    "HERO_BADGE_SOCIAL_PED": "Social Pediatrics PhD",
+    "WHY_SP_TITLE": "Why Social Pediatrics?",
+    "WHY_SP_EVIDENCE_TITLE": "Evidence-Based Medicine",
+    "WHY_SP_EVIDENCE_DESC": "An approach supported by international guidelines and current research.",
+    "WHY_SP_FAMILY_TITLE": "Family-Centered Care",
+    "WHY_SP_FAMILY_DESC": "A perspective that evaluates the child's health within the integrity of the family.",
+    "WHY_SP_GROWTH_TITLE": "Development-Focused Approach",
+    "WHY_SP_GROWTH_DESC": "Holistic follow-up that encompasses social and emotional development beyond physical health.",
+    "STATS_TITLE": "By the Numbers",
+    "STATS_YEARS": "Years Experience",
+    "STATS_FAMILIES": "Families Followed",
+    "STATS_CERTS": "Certifications",
+    "STATS_AAP": "AAP Aligned"
   },
   "ABOUT": {
     "PAGE_TITLE": "About Me",

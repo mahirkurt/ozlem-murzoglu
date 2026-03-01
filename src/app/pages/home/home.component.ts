@@ -5,6 +5,9 @@ import { ServicesSectionComponent } from '../../components/services-section/serv
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { DoctorBioComponent } from '../../components/doctor-bio/doctor-bio';
 import { ContactCtaComponent } from '../../components/contact-cta/contact-cta.component';
+import { WhySocialPediatricsComponent } from '../../components/why-social-pediatrics/why-social-pediatrics.component';
+import { StatsSectionComponent } from '../../components/stats-section/stats-section.component';
+import { GoogleBusinessReviewsComponent } from '../../components/google-business-reviews/google-business-reviews.component';
 import { SeoService } from '../../services/seo.service';
 
 
@@ -17,7 +20,10 @@ import { SeoService } from '../../services/seo.service';
     ServicesSectionComponent,
     ScrollRevealDirective,
     DoctorBioComponent,
-    ContactCtaComponent
+    ContactCtaComponent,
+    WhySocialPediatricsComponent,
+    StatsSectionComponent,
+    GoogleBusinessReviewsComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

@@ -1,0 +1,16 @@
+<section class="stats-section" aria-labelledby="stats-title">
+  <div class="stats-section__container">
+    <h2 id="stats-title" class="stats-section__title">{{ 'HOME.STATS_TITLE' | translate }}</h2>
+
+    <div class="stats-section__grid">
+      @for (stat of stats; track stat.labelKey) {
+        <div class="stats-section__card">
+          <span class="stats-section__value" #statValue>
+            {{ stat.isText ? stat.textValue : '0' }}
+          </span>
+          <span class="stats-section__label">{{ stat.labelKey | translate }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

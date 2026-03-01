@@ -70,7 +70,19 @@
     "HERO_OVERLINE": "SOSYAL PEDİATRİ & ÇOCUK SAĞLIĞI KLİNİĞİ",
     "HERO_BADGE_BRIGHT": "Bright Futures\u00ae Sertifikalı",
     "HERO_BADGE_TRIPLE_P": "Triple P\u00ae Lisanslı",
-    "HERO_BADGE_SOCIAL_PED": "Sosyal Pediatri Doktora"
+    "HERO_BADGE_SOCIAL_PED": "Sosyal Pediatri Doktora",
+    "WHY_SP_TITLE": "Neden Sosyal Pediatri?",
+    "WHY_SP_EVIDENCE_TITLE": "Kanıta Dayalı Tıp",
+    "WHY_SP_EVIDENCE_DESC": "Uluslararası kılavuzlar ve güncel araştırmalarla desteklenen yaklaşım.",
+    "WHY_SP_FAMILY_TITLE": "Aile Merkezli Bakım",
+    "WHY_SP_FAMILY_DESC": "Çocuğun sağlığını ailenin bütünlüğü içinde değerlendiren bakış açısı.",
+    "WHY_SP_GROWTH_TITLE": "Gelişim Odaklı Yaklaşım",
+    "WHY_SP_GROWTH_DESC": "Fiziksel sağlığın ötesinde, sosyal ve duygusal gelişimi de kapsayan bütüncül takip.",
+    "STATS_TITLE": "Sayılarla Biz",
+    "STATS_YEARS": "Yıl Deneyim",
+    "STATS_FAMILIES": "Aile Takibi",
+    "STATS_CERTS": "Sertifikasyon",
+    "STATS_AAP": "AAP Uyumlu"
   },
   "ABOUT": {
     "PAGE_TITLE": "Hakkımızda",
