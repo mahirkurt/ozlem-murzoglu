@@ -398,6 +398,80 @@
   z-index: 1;
 }
 
+// ── Growth Tree illustration ──
+.growth-tree {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  transform-origin: bottom center;
+}
+
+// Trunk: primary teal
+.growth-tree__trunk {
+  stroke: var(--md-sys-color-primary);
+}
+
+// Branch color variants
+.growth-tree__branch--primary {
+  stroke: var(--md-sys-color-primary);
+}
+
+.growth-tree__branch--secondary {
+  stroke: var(--md-sys-color-secondary);
+}
+
+.growth-tree__branch--tertiary,
+.growth-tree__branch--tertiary-alt {
+  stroke: var(--md-sys-color-tertiary);
+}
+
+.growth-tree__branch--success {
+  stroke: var(--md-sys-color-success);
+}
+
+.growth-tree__branch--info {
+  stroke: var(--md-sys-color-info);
+}
+
+// Leaf node color variants
+.growth-tree__leaf--primary {
+  fill: var(--md-sys-color-primary);
+}
+
+.growth-tree__leaf--secondary {
+  fill: var(--md-sys-color-secondary);
+}
+
+.growth-tree__leaf--tertiary {
+  fill: var(--md-sys-color-tertiary);
+}
+
+.growth-tree__leaf--success {
+  fill: var(--md-sys-color-success);
+}
+
+.growth-tree__leaf--info {
+  fill: var(--md-sys-color-info);
+}
+
+// ── Growth tree keyframes ──
+@keyframes tree-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(1.5deg); }
+}
+
+@keyframes leaf-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+// ── Tablet scaling (840-1200px) ──
+@include bp-expanded-only {
+  .growth-tree {
+    max-width: 80%;
+  }
+}
+
 // ── Accreditation badges ──
 .hero-badges {
   display: flex;
@@ -525,6 +599,30 @@
       var(--md-sys-motion-easing-emphasized-decelerate) 300ms both;
   }
 
+  // Growth tree sway animation
+  .growth-tree {
+    animation: tree-sway 9s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  // Leaf breathing animations with staggered delays
+  .growth-tree__leaf {
+    animation: leaf-breathe 3.5s ease-in-out infinite;
+  }
+
+  // nth-of-type targets <circle> elements within the SVG
+  .growth-tree__leaf:nth-of-type(1)  { animation-delay: 0s; }
+  .growth-tree__leaf:nth-of-type(2)  { animation-delay: 0.5s; }
+  .growth-tree__leaf:nth-of-type(3)  { animation-delay: 1s; }
+  .growth-tree__leaf:nth-of-type(4)  { animation-delay: 1.5s; }
+  .growth-tree__leaf:nth-of-type(5)  { animation-delay: 2s; }
+  .growth-tree__leaf:nth-of-type(6)  { animation-delay: 2.5s; }
+  .growth-tree__leaf:nth-of-type(7)  { animation-delay: 0.3s; }
+  .growth-tree__leaf:nth-of-type(8)  { animation-delay: 0.8s; }
+  .growth-tree__leaf:nth-of-type(9)  { animation-delay: 1.3s; }
+  .growth-tree__leaf:nth-of-type(10) { animation-delay: 1.8s; }
+  .growth-tree__leaf:nth-of-type(11) { animation-delay: 2.3s; }
+
   .hero-badges {
     animation: liquid-hero-rise var(--md-sys-motion-duration-long2)
       var(--md-sys-motion-easing-emphasized-decelerate) 620ms both;
@@ -551,6 +649,12 @@
 
   .hero-float {
     animation: none;
+  }
+
+  .growth-tree,
+  .growth-tree__leaf {
+    animation: none !important;
+    will-change: auto;
   }
 
   .hero-button,
