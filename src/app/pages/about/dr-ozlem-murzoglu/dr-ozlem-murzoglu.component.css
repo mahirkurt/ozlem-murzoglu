@@ -52,7 +52,7 @@
   width: 100%;
   max-width: 100%;
   border-radius: var(--md-sys-shape-corner-large);
-  border: 1px solid var(--md-sys-color-outline-variant);
+  border: 2px solid var(--md-sys-color-primary);
   box-shadow: var(--md-sys-elevation-level2);
   margin-bottom: 0;
   transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
@@ -79,13 +79,21 @@
   background: color-mix(in oklch, var(--md-sys-color-primary) 8%, transparent);
   border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 20%, transparent);
   border-radius: var(--md-sys-shape-corner-full);
-  padding: 8px 16px;
+  padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
   font-family: var(--md-sys-typescale-label-large-font);
   font-size: var(--md-sys-typescale-label-large-size);
   font-weight: var(--md-sys-typescale-label-large-weight);
   color: var(--md-sys-color-on-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: background var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
               transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .credential-item {
+    background: color-mix(in oklch, var(--md-sys-color-primary) 15%, var(--md-sys-color-surface-container));
+  }
 }
 
 .credential-item:hover {
@@ -181,7 +189,7 @@
   font-size: var(--md-sys-typescale-label-large-size);
   font-weight: var(--md-sys-typescale-label-large-weight);
   color: var(--md-sys-color-primary);
-  margin-bottom: 4px;
+  margin-bottom: var(--md-sys-spacing-1);
 }
 
 h3.timeline-title {
@@ -190,7 +198,7 @@ h3.timeline-title {
   line-height: var(--md-sys-typescale-title-large-line-height);
   font-weight: var(--md-sys-typescale-title-large-weight);
   color: var(--md-sys-color-on-surface);
-  margin: 0 0 8px 0;
+  margin: 0 0 var(--md-sys-spacing-2) 0;
 }
 
 .timeline-text {
@@ -198,7 +206,7 @@ h3.timeline-title {
   font-size: var(--md-sys-typescale-body-large-size);
   line-height: var(--md-sys-typescale-body-large-line-height);
   color: var(--md-sys-color-on-surface-variant);
-  margin: 0 0 8px 0;
+  margin: 0 0 var(--md-sys-spacing-2) 0;
 }
 
 .timeline-text:last-child {
@@ -228,7 +236,7 @@ h3.timeline-title {
   font-size: var(--md-sys-typescale-body-large-size);
   line-height: var(--md-sys-typescale-body-large-line-height);
   color: var(--md-sys-color-on-surface);
-  margin: 0 0 16px 0;
+  margin: 0 0 var(--md-sys-spacing-4) 0;
 }
 
 .philosophy-author {
@@ -295,7 +303,7 @@ h3.timeline-title {
   }
 
   .timeline-item::before {
-    left: calc(-28px + 0px);
+    left: -28px;
     width: 10px;
     height: 10px;
   }
