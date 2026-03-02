@@ -80,7 +80,7 @@
 .cta-blob--1 {
   width: clamp(180px, 22vw, 320px);
   aspect-ratio: 1.15;
-  background: color-mix(in oklch, var(--md-sys-color-on-tertiary) 18%, transparent);
+  background: color-mix(in oklch, var(--md-sys-color-on-tertiary) 24%, transparent);
   top: -18%;
   left: -6%;
   animation: _cta-blob-a 20s var(--md-sys-motion-easing-standard) infinite;
@@ -89,7 +89,7 @@
 .cta-blob--2 {
   width: clamp(140px, 16vw, 260px);
   aspect-ratio: 0.9;
-  background: color-mix(in oklch, var(--md-sys-color-tertiary-container) 28%, transparent);
+  background: color-mix(in oklch, var(--md-sys-color-tertiary-container) 36%, transparent);
   bottom: -14%;
   right: -4%;
   animation: _cta-blob-b 24s var(--md-sys-motion-easing-standard) infinite;

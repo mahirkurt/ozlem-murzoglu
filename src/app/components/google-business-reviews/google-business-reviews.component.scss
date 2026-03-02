@@ -4,7 +4,7 @@
   position: relative;
   overflow: hidden;
   padding: var(--md-sys-spacing-section-vertical) 0;
-  background: var(--md-sys-color-surface);
+  background: var(--md-sys-color-surface-container);
 
   --home-reviews-accent-primary: color-mix(
     in oklch,
@@ -226,6 +226,7 @@
 }
 
 .review-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-4);
@@ -236,6 +237,20 @@
   border: 1px solid color-mix(in oklch, var(--md-sys-color-outline-variant) 52%, transparent);
   box-shadow: var(--md-sys-elevation-level1);
   @include state-layer-on-surface;
+
+  // Decorative teal-tinted quote mark
+  &::before {
+    content: '\201C'; // Left double quotation mark
+    position: absolute;
+    top: var(--md-sys-spacing-2);
+    right: var(--md-sys-spacing-3);
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--md-sys-color-primary);
+    opacity: 0.08;
+    pointer-events: none;
+    font-family: Georgia, serif;
+  }
 }
 
 .review-header {
