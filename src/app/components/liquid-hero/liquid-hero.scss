@@ -268,19 +268,6 @@
   z-index: 0;
 }
 
-.hero-supertitle {
-  font-family: var(--md-sys-typescale-overline-font);
-  font-size: calc(var(--md-sys-typescale-overline-size) * 1.1);
-  line-height: var(--md-sys-typescale-overline-line-height);
-  font-weight: var(--md-sys-typescale-overline-weight);
-  letter-spacing: var(--md-sys-typescale-overline-tracking);
-  text-transform: uppercase;
-  color: var(--md-sys-hero-text-primary);
-  background-color: transparent;
-  padding: 0;
-  border-radius: 0;
-  margin: var(--md-sys-spacing-0);
-}
 
 .liquid-visual-root .hero-title {
   font-family: var(--md-sys-typescale-display-large-font) !important;
@@ -368,16 +355,6 @@
   margin-top: var(--md-sys-spacing-4);
 }
 
-.hero-microcopy {
-  font-family: var(--md-sys-typescale-body-small-font);
-  font-size: var(--md-sys-typescale-body-small-size);
-  line-height: var(--md-sys-typescale-body-small-line-height);
-  letter-spacing: var(--md-sys-typescale-body-small-tracking);
-  color: var(--hero-microcopy-color);
-  font-weight: 500;
-  margin: var(--md-sys-spacing-2) 0 0;
-  max-width: min(90vw, 54ch);
-}
 
 // ── Hero text column (left) ──
 .hero-text-column {
@@ -472,6 +449,18 @@
   50% { transform: scale(1.08); opacity: 1; }
 }
 
+@keyframes butterfly-flutter {
+  0%, 100% { transform: translate(280px, 140px) rotate(-15deg) scale(1); }
+  25% { transform: translate(270px, 130px) rotate(-10deg) scale(1.05); }
+  50% { transform: translate(285px, 125px) rotate(-20deg) scale(0.95); }
+  75% { transform: translate(275px, 135px) rotate(-12deg) scale(1.02); }
+}
+
+@keyframes blossom-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.06); }
+}
+
 // ── Tablet scaling (840-1200px) ──
 @include bp-expanded-only {
   .growth-tree {
@@ -479,39 +468,21 @@
   }
 }
 
-// ── Accreditation badges ──
-.hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--md-sys-spacing-3);
-  margin-top: var(--md-sys-spacing-6);
-  padding-bottom: var(--md-sys-spacing-4);
-  position: relative;
-  z-index: 1;
+// ── Growth tree blossoms ──
+.growth-tree__blossom--tertiary circle {
+  fill: var(--md-sys-color-tertiary);
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--md-sys-spacing-2);
-  padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
-  border-radius: var(--md-sys-shape-corner-large);
-  background: color-mix(in oklch, var(--md-sys-color-surface) 60%, transparent);
-  border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 14%, transparent);
-  box-shadow: 0 4px 12px oklch(from var(--md-sys-color-shadow) l c h / 0.06);
-  backdrop-filter: blur(12px);
-  color: var(--md-sys-hero-text-primary);
-  font-family: var(--md-sys-typescale-label-medium-font);
-  font-size: var(--md-sys-typescale-label-medium-size);
-  line-height: var(--md-sys-typescale-label-medium-line-height);
-  letter-spacing: var(--md-sys-typescale-label-medium-tracking);
-  font-weight: 600;
+.growth-tree__blossom--secondary circle {
+  fill: var(--md-sys-color-secondary);
 }
 
-.hero-badge__icon {
-  font-size: var(--md-sys-typescale-body-small-size);
+.growth-tree__butterfly {
   color: var(--md-sys-color-tertiary);
+}
+
+.growth-tree__sparkle {
+  color: var(--md-sys-color-secondary);
 }
 
 .hero-button {
@@ -581,13 +552,6 @@
   transform: scale(0.98);
 }
 
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .hero-badge {
-    backdrop-filter: none;
-    background: var(--md-sys-color-surface-container);
-    border-color: color-mix(in oklch, var(--md-sys-color-outline) 24%, transparent);
-  }
-}
 
 @include no-reduced-motion {
   .hero-text-column > * {
@@ -630,10 +594,17 @@
   .growth-tree__leaf:nth-of-type(10) { animation-delay: 1.8s; }
   .growth-tree__leaf:nth-of-type(11) { animation-delay: 2.3s; }
 
-  .hero-badges {
-    animation: liquid-hero-rise var(--md-sys-motion-duration-long2)
-      var(--md-sys-motion-easing-emphasized-decelerate) 620ms both;
+  .growth-tree__butterfly {
+    animation: butterfly-flutter 8s ease-in-out infinite;
+    transform-origin: center;
   }
+
+  .growth-tree__blossom {
+    animation: blossom-glow 4s ease-in-out infinite;
+  }
+
+  .growth-tree__blossom:nth-of-type(2) { animation-delay: 1.3s; }
+  .growth-tree__blossom:nth-of-type(3) { animation-delay: 2.6s; }
 
   .hero-floats {
     animation: hero-floats-reveal 1.4s var(--md-sys-motion-easing-emphasized-decelerate) 350ms both;
@@ -642,8 +613,7 @@
 
 @include reduced-motion {
   .hero-text-column > *,
-  .hero-art-container,
-  .hero-badges {
+  .hero-art-container {
     animation: none;
     transform: none;
     transition: none;
@@ -719,14 +689,6 @@
     width: 100%;
   }
 
-  .hero-microcopy {
-    text-align: center;
-  }
-
-  .hero-badges {
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
 @include bp-expanded {
