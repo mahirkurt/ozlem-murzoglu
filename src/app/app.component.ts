@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { trigger, transition, style, animate, query, group } from '@angular/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { Footer } from './components/footer/footer';
-import { CustomCursorComponent } from './components/custom-cursor/custom-cursor';
 import { FloatingActionsComponent } from './components/floating-actions/floating-actions';
 import { WhatsAppButtonComponent } from './components/whatsapp-button/whatsapp-button';
 import { ThemeService } from './services/theme.service';
@@ -79,10 +78,6 @@ export class AppComponent {
       return null;
     }
     return this.outlet?.activatedRouteData?.['animation'];
-  }
-
-  ngOnInit() {
-    // Language initialization is handled in constructor
   }
 
   private updateDocumentLang(locale: string) {
