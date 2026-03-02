@@ -7,17 +7,178 @@
     </div>
 
     <div class="services-grid">
-      <div *ngFor="let service of services" class="service-card service-card--{{ service.color }}">
+      <!-- Bright Futures -->
+      <div *ngIf="services[0] as service"
+           class="service-card"
+           [attr.data-service-color]="service.color">
         <a [routerLink]="service.href" class="service-link">
-          <div class="service-icon-wrapper">
-            <span class="material-icons-rounded service-icon">{{ service.icon }}</span>
+          <div class="service-icon-wrapper" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
+              <circle cx="18" cy="10" r="4" />
+              <path d="M14 16 C10 20, 9 28, 12 34 C13 36, 15 37, 18 37" />
+              <path d="M22 16 C24 19, 25 22, 25 26" />
+              <path d="M14 22 C14 26, 16 29, 22 30 C25 30, 27 28, 27 25" />
+              <path d="M18 24 C19 22, 22 21, 24 22 C26 23, 26 26, 24 27 C22 28, 19 27, 18 25" />
+              <circle cx="24" cy="23" r="2.5" />
+              <path d="M16 28 C18 31, 22 32, 25 30" />
+              <path class="accent" d="M33 12 C33 10, 35 8, 37 10 C39 8, 41 10, 41 12 C41 15, 37 18, 37 18 C37 18, 33 15, 33 12Z" fill="currentColor" stroke="none" opacity="0.3" />
+            </svg>
           </div>
           <div class="service-content">
             <h3 class="service-title">{{ service.titleKey | translate }}</h3>
+            <hr class="service-divider" />
             <p class="service-description">{{ service.descriptionKey | translate }}</p>
           </div>
           <div class="card-footer">
-            <span class="read-more-text">{{ 'COMMON.READ_MORE' | translate }}</span>
+            <span class="details-link">{{ 'COMMON.DETAILS' | translate }} &rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Triple P -->
+      <div *ngIf="services[1] as service"
+           class="service-card"
+           [attr.data-service-color]="service.color">
+        <a [routerLink]="service.href" class="service-link">
+          <div class="service-icon-wrapper" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
+              <circle cx="24" cy="24" r="14" stroke-dasharray="4 3" opacity="0.4" />
+              <circle cx="13" cy="16" r="3.5" />
+              <path d="M10 21 C9 24, 10 27, 13 28 C14 28.5, 15 28, 16 27" />
+              <circle cx="35" cy="16" r="3.5" />
+              <path d="M38 21 C39 24, 38 27, 35 28 C34 28.5, 33 28, 32 27" />
+              <circle cx="24" cy="33" r="3" />
+              <path d="M21 37 C21 39, 22.5 40, 24 40 C25.5 40, 27 39, 27 37" />
+              <path d="M15 26 C18 30, 20 32, 21 33" />
+              <path d="M33 26 C30 30, 28 32, 27 33" />
+              <circle class="accent" cx="24" cy="24" r="3" fill="currentColor" stroke="none" opacity="0.25" />
+            </svg>
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">{{ service.titleKey | translate }}</h3>
+            <hr class="service-divider" />
+            <p class="service-description">{{ service.descriptionKey | translate }}</p>
+          </div>
+          <div class="card-footer">
+            <span class="details-link">{{ 'COMMON.DETAILS' | translate }} &rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Sleep -->
+      <div *ngIf="services[2] as service"
+           class="service-card"
+           [attr.data-service-color]="service.color">
+        <a [routerLink]="service.href" class="service-link">
+          <div class="service-icon-wrapper" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
+              <path d="M20 8 C12 10, 8 18, 10 26 C12 34, 20 38, 28 36 C22 34, 18 28, 18 22 C18 16, 20 11, 24 8 C22.5 7.5, 21 7.8, 20 8Z" />
+              <path class="accent" d="M34 10 L35.5 13 L34 16 L32.5 13Z" fill="currentColor" stroke="none" opacity="0.35" />
+              <path class="accent" d="M38 20 L39.2 22.5 L38 25 L36.8 22.5Z" fill="currentColor" stroke="none" opacity="0.25" />
+              <path class="accent" d="M32 17 L33 19 L32 21 L31 19Z" fill="currentColor" stroke="none" opacity="0.3" />
+              <line x1="34" y1="8" x2="34" y2="6" opacity="0.5" />
+              <line x1="36.5" y1="10" x2="38" y2="9" opacity="0.5" />
+              <line x1="40" y1="20" x2="42" y2="19.5" opacity="0.4" />
+              <path d="M10 38 C10 36, 14 34, 18 35 C20 33, 24 33, 26 35 C28 34, 32 34, 34 36 C36 37, 36 39, 34 40 L10 40 C8 39, 8 37, 10 38Z" opacity="0.5" />
+            </svg>
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">{{ service.titleKey | translate }}</h3>
+            <hr class="service-divider" />
+            <p class="service-description">{{ service.descriptionKey | translate }}</p>
+          </div>
+          <div class="card-footer">
+            <span class="details-link">{{ 'COMMON.DETAILS' | translate }} &rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Lab -->
+      <div *ngIf="services[3] as service"
+           class="service-card"
+           [attr.data-service-color]="service.color">
+        <a [routerLink]="service.href" class="service-link">
+          <div class="service-icon-wrapper" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
+              <path d="M18 6 L18 12 C18 13, 19 14, 20 14 L24 14 C25 14, 26 13, 26 12 L26 6" />
+              <line x1="16" y1="6" x2="28" y2="6" />
+              <path d="M22 14 L22 18 C22 19, 22 20, 21 21 L16 30" />
+              <path d="M22 18 C23 19, 24 20, 24 22 L28 30" />
+              <circle cx="22" cy="32" r="3" />
+              <line x1="14" y1="35" x2="30" y2="35" stroke-width="1.5" />
+              <path d="M28 14 C32 16, 34 20, 34 26 L34 38" />
+              <path d="M14 40 C14 38, 16 38, 22 38 L34 38 C36 38, 38 38, 38 40" />
+              <line x1="12" y1="40" x2="40" y2="40" />
+              <circle cx="34" cy="28" r="2" stroke-width="1.5" />
+              <path class="accent" d="M20 8 C20 7.2, 20.8 6.5, 21.5 7.2 C22.2 6.5, 23 7.2, 23 8 C23 9, 21.5 10.5, 21.5 10.5 C21.5 10.5, 20 9, 20 8Z" fill="currentColor" stroke="none" opacity="0.35" />
+            </svg>
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">{{ service.titleKey | translate }}</h3>
+            <hr class="service-divider" />
+            <p class="service-description">{{ service.descriptionKey | translate }}</p>
+          </div>
+          <div class="card-footer">
+            <span class="details-link">{{ 'COMMON.DETAILS' | translate }} &rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Vaccination -->
+      <div *ngIf="services[4] as service"
+           class="service-card"
+           [attr.data-service-color]="service.color">
+        <a [routerLink]="service.href" class="service-link">
+          <div class="service-icon-wrapper" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
+              <path d="M24 6 C18 6, 10 8, 8 10 C8 22, 10 30, 16 36 C20 40, 24 42, 24 42 C24 42, 28 40, 32 36 C38 30, 40 22, 40 10 C38 8, 30 6, 24 6Z" />
+              <path class="accent" d="M24 10 C20 10, 14 11.5, 12 13 C12 22, 13.5 28, 18 33 C21 36, 24 38, 24 38 C24 38, 27 36, 30 33 C34.5 28, 36 22, 36 13 C34 11.5, 28 10, 24 10Z" fill="currentColor" stroke="none" opacity="0.12" />
+              <path d="M24 18 C24 18, 20 24, 20 27 C20 29.5, 21.8 31, 24 31 C26.2 31, 28 29.5, 28 27 C28 24, 24 18, 24 18Z" />
+              <circle cx="22.5" cy="25.5" r="1" fill="currentColor" stroke="none" opacity="0.2" />
+              <line x1="24" y1="13" x2="24" y2="17" stroke-width="1.5" />
+              <line x1="22" y1="15" x2="26" y2="15" stroke-width="1.5" />
+            </svg>
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">{{ service.titleKey | translate }}</h3>
+            <hr class="service-divider" />
+            <p class="service-description">{{ service.descriptionKey | translate }}</p>
+          </div>
+          <div class="card-footer">
+            <span class="details-link">{{ 'COMMON.DETAILS' | translate }} &rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Development -->
+      <div *ngIf="services[5] as service"
+           class="service-card"
+           [attr.data-service-color]="service.color">
+        <a [routerLink]="service.href" class="service-link">
+          <div class="service-icon-wrapper" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
+              <path d="M10 40 L10 10 C10 9, 10.5 8, 12 8 L16 8 C17.5 8, 18 9, 18 10 L18 40" />
+              <line x1="10" y1="14" x2="13" y2="14" stroke-width="1.5" />
+              <line x1="10" y1="19" x2="14" y2="19" stroke-width="1.5" />
+              <line x1="10" y1="24" x2="13" y2="24" stroke-width="1.5" />
+              <line x1="10" y1="29" x2="14" y2="29" stroke-width="1.5" />
+              <line x1="10" y1="34" x2="13" y2="34" stroke-width="1.5" />
+              <line x1="8" y1="40" x2="20" y2="40" />
+              <path d="M28 38 C28 34, 27 28, 28 22 C29 16, 31 12, 34 8" />
+              <path d="M30 12 L34 8 L37 13" />
+              <circle cx="28" cy="34" r="1" fill="currentColor" stroke="none" opacity="0.2" />
+              <circle cx="28" cy="28" r="1.2" fill="currentColor" stroke="none" opacity="0.25" />
+              <circle cx="29" cy="22" r="1.4" fill="currentColor" stroke="none" opacity="0.3" />
+              <circle class="accent" cx="34" cy="8" r="3" fill="currentColor" stroke="none" opacity="0.25" />
+            </svg>
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">{{ service.titleKey | translate }}</h3>
+            <hr class="service-divider" />
+            <p class="service-description">{{ service.descriptionKey | translate }}</p>
+          </div>
+          <div class="card-footer">
+            <span class="details-link">{{ 'COMMON.DETAILS' | translate }} &rarr;</span>
           </div>
         </a>
       </div>

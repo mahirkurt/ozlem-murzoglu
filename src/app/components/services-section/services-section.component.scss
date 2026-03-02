@@ -1,5 +1,5 @@
-/* Services Section - MD3 Aurora Refactor */
-@import 'styles/md3/index';
+/* Services Section - MD3 Color-Coded Strip Cards */
+@use 'styles/md3/index' as *;
 
 .services-section {
   padding: var(--md-sys-spacing-section-vertical) 0;
@@ -17,11 +17,10 @@
     var(--md-sys-color-tertiary) 12%,
     transparent
   );
-  --services-card-icon-shadow: oklch(from var(--md-sys-color-shadow) l c h / 0.12);
   --services-cta-shadow: oklch(from var(--md-sys-color-shadow) l c h / 0.16);
   --services-ambient-blur-primary: calc(var(--md-sys-glass-blur-xl) * 2);
   --services-ambient-blur-tertiary: calc(var(--md-sys-glass-blur-xl) * 1.5);
-  
+
   /* Aurora Background Flow */
   &::before {
     content: '';
@@ -68,8 +67,8 @@
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--md-sys-spacing-6); // Compact gap 32px -> 24px
-  margin-bottom: var(--md-sys-spacing-12); // Reduced 64px -> 48px
+  gap: var(--md-sys-spacing-6);
+  margin-bottom: var(--md-sys-spacing-12);
 }
 
 @include bp-below-expanded {
@@ -84,113 +83,96 @@
   }
 }
 
+/* Service Card - Left Color Strip Design */
 .service-card {
   position: relative;
   height: 100%;
-  border-radius: var(--md-sys-shape-corner-extra-large); // Reduced radius 32px -> 24px for compactness
-  @include card-states;
-  
-  // ... gradients/glass styles stay ...
-  background: linear-gradient(
-    145deg, 
-    var(--md-sys-color-glass-surface-bright), 
-    var(--md-sys-color-glass-surface)
-  );
-  
-  backdrop-filter: blur(var(--md-sys-glass-blur-md));
-  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-md));
-  border: 1px solid var(--md-sys-color-glass-border);
-  
-  box-shadow: 
-    0 10px 30px oklch(from var(--md-sys-color-shadow) l c h / 0.05),
-    0 0 0 1px oklch(from var(--md-sys-color-surface) l c h / 0.5) inset;
-    
-    transition:
-      transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
-      box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
-      border-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
-      background var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  border-left: 3px solid var(--service-accent-color, var(--md-sys-color-primary));
+  background: var(--md-sys-color-surface-container-lowest);
+  border-radius: 0 var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-large) 0;
   overflow: hidden;
-  
-  // ... vars ...
-  --card-theme: var(--md-sys-color-primary);
-  --card-on-theme: var(--md-sys-color-on-primary);
+  transition:
+    border-left-width var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+    transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+    box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+
+  box-shadow:
+    0 2px 8px oklch(from var(--md-sys-color-shadow) l c h / 0.06),
+    0 0 0 1px oklch(from var(--md-sys-color-outline-variant) l c h / 0.12);
 
   &:hover {
-    transform: translateY(calc(-1 * var(--md-sys-spacing-2)));
-    background: linear-gradient(
-      145deg,
-      var(--md-sys-color-glass-surface-bright),
-      oklch(from var(--card-theme) l c h / 0.15)
-    );
-    border-color: var(--card-theme);
-    box-shadow:
-      0 16px 32px oklch(from var(--card-theme) l c h / 0.15), // Reduced shadow
-      0 0 0 2px oklch(from var(--card-theme) l c h / 0.1) inset;
-
-    .service-icon-wrapper {
-      transform: scale(1.1) rotate(-5deg);
-      box-shadow: 0 8px 24px oklch(from var(--card-theme) l c h / 0.3);
-    }
+    border-left-width: 6px;
+    transform: translateY(-4px);
+    box-shadow: var(--md-sys-elevation-level2);
   }
 
   &:active {
-    transform: translateY(calc(-1 * var(--md-sys-spacing-1)));
+    transform: translateY(-2px);
+  }
+
+  /* Color strip assignments via data attribute */
+  &[data-service-color="primary"] {
+    --service-accent-color: var(--md-sys-color-primary);
+  }
+
+  &[data-service-color="secondary"] {
+    --service-accent-color: var(--md-sys-color-secondary);
+  }
+
+  &[data-service-color="tertiary"] {
+    --service-accent-color: var(--md-sys-color-tertiary);
+  }
+
+  &[data-service-color="success"] {
+    --service-accent-color: var(--md-sys-color-success);
+  }
+
+  &[data-service-color="info"] {
+    --service-accent-color: var(--md-sys-color-info);
   }
 }
 
 .service-link {
   display: flex;
   flex-direction: column;
-  padding: var(--md-sys-spacing-8) var(--md-sys-spacing-6); // Compact padding 32px 24px
+  padding: var(--md-sys-spacing-8) var(--md-sys-spacing-6);
   text-decoration: none;
   color: inherit;
-  gap: var(--md-sys-spacing-4); // Reduced gap 20px -> 16px
+  gap: var(--md-sys-spacing-4);
   height: 100%;
   @include state-layer-on-surface;
-}
 
-  .service-link:focus-visible {
+  &:focus-visible {
     outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
     outline-offset: var(--md-sys-state-focus-ring-offset);
-    border-radius: var(--md-sys-shape-corner-extra-large);
+    border-radius: 0 var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-large) 0;
   }
+}
 
+/* SVG Icon Wrapper */
 .service-icon-wrapper {
   flex-shrink: 0;
-  width: var(--md-sys-spacing-16); // Compact icon 80px -> 64px
-  height: var(--md-sys-spacing-16);
-  border-radius: var(--md-sys-shape-corner-large); // Compact radius
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--card-theme);
-  color: var(--card-on-theme);
-  box-shadow: 0 6px 16px var(--services-card-icon-shadow);
-    transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
-                box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
-  
-  .material-icons-rounded {
-    font-size: var(--md-icon-size-lg);
+  width: 48px;
+  height: 48px;
+  color: var(--service-accent-color, var(--md-sys-color-primary));
+}
+
+.service-icon-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  .accent {
+    color: var(--service-accent-color, var(--md-sys-color-primary));
   }
 }
 
-// ... color variants ...
-.service-card--secondary {
-  --card-theme: var(--md-sys-color-secondary);
-  --card-on-theme: var(--md-sys-color-on-secondary);
-}
-
-.service-card--tertiary {
-  --card-theme: var(--md-sys-color-tertiary);
-  --card-on-theme: var(--md-sys-color-on-tertiary);
-}
-
+/* Content Area */
 .service-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--md-sys-spacing-3); // Reduced gap 16px -> 12px
+  gap: var(--md-sys-spacing-3);
 }
 
 .service-title {
@@ -201,7 +183,19 @@
   letter-spacing: var(--md-sys-typescale-headline-small-tracking);
   color: var(--md-sys-color-on-surface);
   margin: 0;
-  transition: color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+}
+
+/* Teal Mini Divider */
+.service-divider {
+  width: 40px;
+  height: 2px;
+  border: none;
+  margin: 0;
+  background: linear-gradient(
+    to right,
+    var(--md-sys-color-primary),
+    transparent
+  );
 }
 
 .service-description {
@@ -214,20 +208,25 @@
   line-height: var(--md-sys-typescale-body-medium-line-height);
 }
 
+/* Card Footer - Coral Detail Link */
 .card-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin-top: auto;
-  padding-top: var(--md-sys-spacing-5); // Reduced top padding
+  padding-top: var(--md-sys-spacing-5);
 }
 
-.read-more-text {
+.details-link {
   font-family: var(--md-sys-typescale-label-large-font);
-  font-size: var(--md-sys-typescale-label-medium-size); // Smaller
-  font-weight: 700;
-  color: var(--md-sys-color-on-surface);
-  opacity: 1;
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: 600;
+  color: var(--md-sys-color-tertiary);
+  transition: color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  .service-card:hover & {
+    color: color-mix(in oklch, var(--md-sys-color-tertiary) 80%, var(--md-sys-color-shadow));
+  }
 }
 
 /* CTA Section */
@@ -254,7 +253,7 @@
   box-shadow: 0 8px 24px var(--services-cta-shadow);
   @include state-layer;
   @include ripple-effect(currentColor);
-  
+
   &:hover {
     transform: translateY(calc(-1 * var(--md-sys-spacing-1)));
     box-shadow: var(--md-sys-elevation-level3);
@@ -270,16 +269,13 @@
     outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
     outline-offset: var(--md-sys-state-focus-ring-offset);
   }
-  
-  .material-icons-rounded {
-    font-size: var(--md-icon-size-md);
-  }
 }
 
+/* Reduced Motion */
 @include reduced-motion {
   .service-card,
   .section-cta .cta-button,
-  .service-icon-wrapper {
+  .details-link {
     transition: none;
   }
 
@@ -291,10 +287,9 @@
   }
 }
 
+/* Fallback for older browsers without backdrop-filter */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .service-card {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
     background: var(--md-sys-color-surface-container);
   }
 }
