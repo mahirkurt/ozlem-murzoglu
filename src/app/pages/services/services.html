@@ -203,28 +203,5 @@
     </div>
   </div>
 
-  <!-- CTA Section with Global Styles -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <!-- Title -->
-        <h3 class="cta-title">{{ 'SERVICES.CTA.TITLE' | translate }}</h3>
-
-        <!-- Description -->
-        <p class="cta-description">{{ 'SERVICES.CTA.SUBTITLE' | translate }}</p>
-
-        <!-- CTA Buttons -->
-        <div class="cta-buttons">
-          <a routerLink="/iletisim" class="btn-primary">
-            <span class="material-icons-rounded" aria-hidden="true">event_available</span>
-            <span>{{ 'SERVICES.CTA.APPOINTMENT_BUTTON' | translate }}</span>
-          </a>
-          <a href="https://wa.me/905322376958" target="_blank" class="btn-secondary">
-            <span class="material-icons-rounded" aria-hidden="true">chat</span>
-            <span>WhatsApp</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <app-contact-cta></app-contact-cta>
 </section>

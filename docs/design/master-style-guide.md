@@ -1,10 +1,168 @@
 # Dr. Ozlem Murzoglu Pediatri Klinigi
 # Material Design 3 Expressive - Tasarim Anayasasi
 
-> **Version**: 5.0 (Final Production Edition)
-> **Date**: December 2025
-> **Philosophy**: Emotion-Driven Design, Spring Physics, Dynamic Theming, Perceptual Color Science
-> **Status**: Production Ready
+> **Version**: 6.0 (Bilimsel Sicaklik Edition)
+> **Date**: March 2026
+> **Philosophy**: Scientific Warmth — Akademik Derinlik + Ebeveyn Empatisi Dualitesi
+> **Design Identity**: "Bilimsel Sicaklik" (Scientific Warmth)
+> **Status**: Production Ready — Design Transformation In Progress
+> **Brand Integrity Rule**: Dr. Ozlem Murzoglu marka varliklari (logo, isim, renk tohumu, tipografi) degistirilemez; sadece sistemik uyum, hiyerarsi ve erisilebilirlik optimize edilir.
+
+---
+
+# KISIM 0: TASARIM KIMLIGI — "BILIMSEL SICAKLIK"
+
+## Bolum 0: Bilimsel Sicaklik Vizyonu
+
+### 0.1 Neden "Bilimsel Sicaklik"?
+
+Sosyal pediatri, Turkiye'de benzersiz bir alan. "Bilimsel Sicaklik" yaklasimi, her tasarim kararinda iki soruyu ayni anda yanitlar:
+
+1. **"Bu bilimsel olarak guvenilir mi?"** — Yapisal gridler, ince cizgiler, data gosterimleri, akreditasyon rozetleri
+2. **"Bu sicak ve samimi mi?"** — Organik formlar, yumusak gradientler, illustratif ikonlar, kisisel dil
+
+Bu dualite, klinigi hem Cleveland Clinic'in otoritesinden hem Great Ormond Street'in sicakligindan ayirir.
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                  "BILIMSEL SICAKLIK" DUALITESI                       │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│   BILIMSEL KATMAN              SICAKLIK KATMANI                     │
+│   ────────────────             ──────────────────                   │
+│   Yapisal grid'ler             Organik formlar                      │
+│   Ince cizgiler                Yumusak gradientler                  │
+│   Data gosterimleri            Illustratif ikonlar                  │
+│   Akreditasyon rozetleri       Kisisel dil                          │
+│   Dot-grid pattern overlay     Amber ambient glow                   │
+│   Blockquote sol cizgi         Sicak krem arka planlar              │
+│   Timeline kronolojisi         Samimi doktor hikayesi               │
+│   Sayi sayaclari               Ebeveyn geribildirimleri             │
+│                                                                      │
+│                     ▼ BIRLESIM NOKTASI ▼                            │
+│              ┌─────────────────────────────────┐                    │
+│              │   Sosyal Pediatri Farki          │                    │
+│              │   "Bilimle sekillenen,           │                    │
+│              │    sevgiyle buyuyen cocuklar"     │                    │
+│              └─────────────────────────────────┘                    │
+│                                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### 0.2 Renk Kullanim Stratejisi
+
+Mevcut OKLCH paleti korunur. Kullaniim oranlari koklu sekilde degisir:
+
+| Renk | Eski Oran | Yeni Oran | Rol |
+|------|-----------|-----------|-----|
+| Teal (Primary) | %90 | %45 | Header, footer, gradient arka planlar, bilimsel ogeler |
+| Amber (Secondary) | %2 | %20 | Basari gostergeleri, sertifika rozetleri, sicaklik aksanlari |
+| Coral (Tertiary) | %5 | %15 | CTA butonlari, vurgu kelimeleri, emosyonel anlar |
+| Neutral | %3 | %20 | Icerik alanlari, kart arka planlari, nefes alani |
+
+**Kural:** Her sayfa bolumunde en az 2 farkli renk ailesi kullanilmali. Tek renkle domine edilen bolum olmamali.
+
+### 0.3 Ikon Sistemi: Iki Katmanli Yaklasim
+
+| Katman | Amac | Stil | Aralik |
+|--------|------|------|--------|
+| **UI/Navigasyon** | Menu, ok, ayar, arama | Material Icons Rounded (mevcut) | Tum UI'da |
+| **Icerik/Hizmet** | Hizmet ikonlari, deger onerisi | Ozel SVG illustrasyon | Anasayfa, hizmet sayfalari |
+
+**SVG Hizmet Ikon Tablosu:**
+
+| Hizmet | Ikon Tanimi | Accent Renk | Boyut |
+|--------|-------------|-------------|-------|
+| Bright Futures | Anne + bebek silueti | Teal | 48/64px |
+| Triple P | Aile cemberi | Amber | 48/64px |
+| Uyku Programi | Uyuyan ay + yildizlar | Indigo | 48/64px |
+| Asilama | Kalkan + asi | Yesil (success) | 48/64px |
+| Gelisim Degerlendirmesi | Buyume cizelgesi | Coral | 48/64px |
+| Laboratuvar | Mikroskop + kalp | Mavi (info) | 48/64px |
+
+**SVG Stil Kurallari:**
+- Tek stroke genisligi (2px)
+- Teal ana renk + hizmet-spesifik accent
+- Organik, hafifce el cizimi hissiyati (mukemmel geometri degil)
+- Hover: subtle bounce veya pulse animasyonu
+- `prefers-reduced-motion` varsa statik
+
+### 0.4 Kart Tasarimi: "Bilimsel Sicaklik" Karti
+
+Mevcut generic kart yerine, sol kenarda renk seritli, hizmet-spesifik kartlar:
+
+```
+┌─────────────────────────────────┐
+│▌                                │  ← Sol kenarda 3px renk serit
+│▌  [SVG Ikon]                    │     (her hizmet farkli renk)
+│▌                                │
+│▌  Baslik (Figtree SemiBold)     │
+│▌  ─────── teal mini cizgi       │
+│▌  Aciklama metni                │
+│▌  (DM Sans, muted color)       │
+│▌                                │
+│▌  Detaylar →                    │  ← Coral renk link
+│▌                                │
+└─────────────────────────────────┘
+  Hover: Sol serit genisler (3px → 6px)
+         + kart hafif yukari kalkar (translateY -4px)
+         + golge derinlesir
+```
+
+**Renk Serit Atamasi:**
+- Bright Futures: `--md-sys-color-primary` (Teal)
+- Triple P: `--md-sys-color-secondary` (Amber)
+- Uyku: `--md-sys-color-info` (Indigo)
+- Asi: `--md-sys-color-success` (Yesil)
+- Gelisim: `--md-sys-color-tertiary` (Coral)
+- Laboratuvar: `--md-sys-color-info` (Mavi)
+
+### 0.5 Tipografi Ifadesi: Dualite Kurallari
+
+**"Bilimsel" Ifade (Basliklar):**
+- Font: Figtree, weight: 700, letter-spacing: -0.02em
+- Anahtar terimler: `font-style: italic` ile vurgu
+- Alt basliklarda: ince teal gradient alt cizgi
+
+**"Sicaklik" Ifadesi (Icerik):**
+- Doktor alintilari: DM Sans italic, body-large boyut
+- Ebeveyn testimonial'lari: Amber tinted background
+- CTA metinleri: Figtree semibold, coral renk
+
+**Yeni Tipografi Ogeleri:**
+- `blockquote`: Sol 3px teal dikey cizgi + krem arka plan
+- Stat sayilari: Figtree weight 800, display-medium boyut, teal renk
+- Akreditasyon isimleri: font-variant small-caps efekti, letter-spacing: 0.05em
+
+### 0.6 Sayfa Bolum Ritmi
+
+Monotonlugu kirmak icin her bolum farkli arka plan tonu kullanir:
+
+| Bolum | Zemin | Hissiyat |
+|-------|-------|----------|
+| Hero | Teal gradient | Etkileyici, cesur |
+| Neden Sosyal Pediatri | Beyaz + teal dikey cizgi | Bilimsel, temiz |
+| Dr. Ozlem | Surface-container-low (krem) | Sicak, kisisel |
+| Hizmetler | Beyaz | Organize, taranabilir |
+| Sayilarla Biz | Teal gradient | Guvenilir, etkileyici |
+| Geri Bildirimler | Surface-container (acik gri) | Gercek, samimi |
+| Contact CTA | Coral gradient | Aksiyona cagri |
+
+Bu **beyaz → krem → beyaz → teal → gri → coral** ritmi, sayfayi okurken dogal bir nefes alip verme hissi yaratir.
+
+### 0.7 Mikro-Etkilesim Katmanlari
+
+| Etkilesim | Uygulama | Detay |
+|-----------|----------|-------|
+| Scroll Reveal | Staggered fade-in-up | Her bolumde elemanlar 100ms arayla belirir |
+| Kart Hover | Lift + serit genisleme | `translateY(-4px)` + border-left genisler |
+| Buton Hover | Scale + glow | `scale(1.02)` + box-shadow tertiary glow |
+| Link Hover | Underline animation | Alt cizgi soldan saga cizilir (width 0→100%) |
+| Sayi Sayaci | countUp animasyonu | "Sayilarla Biz" rakamlari scroll'da 0→hedef |
+| Hero Agac | Subtle sway | Dallar ruzgar etkisi (transform-origin + animation) |
+| Sayfa Gecisi | Route fade | Cikis: 150ms fade-out, Giris: 200ms fade-in-up (8px) |
+
+Tum animasyonlar `@media (prefers-reduced-motion: reduce)` ile devre disi kalir.
 
 ---
 
@@ -257,6 +415,44 @@ $logo-clearspace: 1.5rem; // ~24px at base
 ❌ Logo elemanlarini ayirma veya yeniden duzenleme
 ```
 
+### 4.5 Marka Harmonizasyon Protokolu (Degistirmeden Kusursuz Uyum)
+
+Bu sistemde marka **yeniden tasarlanmaz**; marka, MD3 Expressive altyapisi icinde
+olculu ve tutarli bicimde **orkestre edilir**.
+
+| Sabit Marka Varligi (Degismez) | Harmonizasyon Kolu (Optimize Edilir) |
+|-------------------------------|---------------------------------------|
+| Logo geometri ve oranlari | Konum, clear-space disiplini, zemin kontrasti |
+| Teal / Amber / Coral tohum renkleri | Tonal dagilim, surface esitlenmesi, aksan yogunlugu |
+| Figtree + DM Sans | Typescale ritmi, optik boyut, agirlik gecisleri |
+| Kurumsal guven dili | Mikro-duygular, hareket tonu, etkileşim geri bildirimi |
+
+#### 4.5.1 Kurumsal Renk Dagilim Orani (70/20/10)
+
+```scss
+:root {
+  --brand-composition-primary: 70%;   // Teal tabanli semantic roller
+  --brand-composition-secondary: 20%; // Amber destekleyici vurgu
+  --brand-composition-tertiary: 10%;  // Coral dikkat ceken CTA/odak
+}
+```
+
+#### 4.5.2 Marka Ifade Imzasi (Signature Stack)
+
+```text
+Renk imzasi   : Teal guven + Amber enerji + Coral sefkat
+Sekil imzasi  : Full/Large radius agirlikli yumusak geometri
+Tipografi     : Figtree (ifade) + DM Sans (okunabilirlik)
+Hareket tonu  : Kontrollu yay fiziği (canli ama klinik ciddiyeti bozmayan)
+```
+
+#### 4.5.3 Klinik Baglamda Harmoni Kurallari
+
+- Hero alanlarinda ifade guclu olabilir; bilgi yogun bolumlerde tonal sadelik korunur.
+- Glass efekt yalnizca odak panellerde kullanilir; uzun metin bloklari opak surface kullanir.
+- Bir viewport icinde en fazla 1 "prime" (primary) CTA ve 1 "supporting" CTA gorunur.
+- Ayni anda en fazla 3 dikkat odagi (renk, hareket, boyut) aktif olur.
+
 ---
 
 ## Bolum 5: Algisal Renk Bilimi
@@ -339,12 +535,14 @@ Koyu ◄────────────────────────
 --md-sys-color-primary-rgb: 0, 137, 150;
 ```
 
-**Kullanim Alanlari:**
-- Primary butonlar
+**Kullanim Alanlari (Bilimsel Sicaklik v6.0):**
+- Primary butonlar ve header/footer gradient'leri
 - Linkler ve interaktif ogeler
 - Focus state'leri
-- Marka vurgulari
-- Baslik gradiyanları
+- Marka vurgulari ve baslik gradiyanlari
+- "Bilimsel" katman ogeleri: dot-grid overlay, timeline cizgileri, blockquote bordur
+- Stat sayac rakamlari ve akreditasyon rozet cerceveleri
+- **Kullanim orani hedef: %45** (onceki: %90)
 
 ### 6.2 Secondary - Amber (Sari/Bal)
 
@@ -361,11 +559,14 @@ Koyu ◄────────────────────────
 --md-sys-color-secondary-rgb: 255, 193, 7;
 ```
 
-**Kullanim Alanlari:**
-- Tonal butonlar
-- Chip ve badge'ler
-- Onemli bilgi vurgulari
-- Ikonografi aksanlari
+**Kullanim Alanlari (Bilimsel Sicaklik v6.0):**
+- Tonal butonlar ve chip/badge'ler
+- **Sertifika ve akreditasyon rozetleri** (Bright Futures, Triple P)
+- **"Sicaklik" aksanlari**: doktor bolumu arka plan, credential pill'ler
+- Ikonografi aksanlari (hizmet ikonlarinda accent renk)
+- Basari gostergeleri ve "Sayilarla Biz" bolumunde vurgu
+- Ebeveyn testimonial arka plan tinti
+- **Kullanim orani hedef: %20** (onceki: %2)
 
 ### 6.3 Tertiary - Coral (Mercan)
 
@@ -382,11 +583,14 @@ Koyu ◄────────────────────────
 --md-sys-color-tertiary-rgb: 255, 111, 97;
 ```
 
-**Kullanim Alanlari:**
-- Call-to-action butonlari
-- Onemli uyarilar
-- Secili/aktif durumlar
-- Ilgi cekici ogeler
+**Kullanim Alanlari (Bilimsel Sicaklik v6.0):**
+- **Tum CTA butonlari** (randevu al, iletisim)
+- **Vurgu kelimeleri**: hero'da "sevgiyle", "sefkat" gibi duygusal kelimeler
+- Contact CTA bolumu gradient arka plan
+- Kart "Detaylar →" linkleri
+- Emosyonel anlarda dikkat cekici aksanlar
+- Timeline'da onemli donum noktalari
+- **Kullanim orani hedef: %15** (onceki: %5)
 
 ### 6.4 Semantic Colors (Anlam Tasiyan Renkler)
 
@@ -633,6 +837,69 @@ color-mix(in oklch, var(--md-sys-color-primary), black 20%)
 }
 ```
 
+### 8.5 Gamut-Aware Progressive Enhancement
+
+Wide-gamut destekleyen tarayicilarda OKLCH native kullanilir; desteklemeyen ortamlarda
+RGB fallback devreye girer. Bu yaklasim marka tonlarini bozmadan tutarlilik saglar.
+
+```scss
+:root {
+  // Varsayilan fallback (legacy)
+  --md-sys-color-primary-fallback: rgb(var(--md-sys-color-primary-rgb));
+  --md-sys-color-secondary-fallback: rgb(var(--md-sys-color-secondary-rgb));
+  --md-sys-color-tertiary-fallback: rgb(var(--md-sys-color-tertiary-rgb));
+}
+
+@supports (color: oklch(50% 0.1 200)) {
+  :root {
+    --md-sys-color-primary-effective: var(--md-sys-color-primary);
+    --md-sys-color-secondary-effective: var(--md-sys-color-secondary);
+    --md-sys-color-tertiary-effective: var(--md-sys-color-tertiary);
+  }
+}
+
+@supports not (color: oklch(50% 0.1 200)) {
+  :root {
+    --md-sys-color-primary-effective: var(--md-sys-color-primary-fallback);
+    --md-sys-color-secondary-effective: var(--md-sys-color-secondary-fallback);
+    --md-sys-color-tertiary-effective: var(--md-sys-color-tertiary-fallback);
+  }
+}
+```
+
+### 8.6 Tonal Pairing Matrisi (Brand-Safe)
+
+| Konteks | Arka Plan | Icerik/Metin | Aksiyon |
+|---------|-----------|--------------|---------|
+| Kritik bilgi karti | `surface-container-high` | `on-surface` | `primary` |
+| Sicak duyuru | `tertiary-container` | `on-tertiary-container` | `tertiary` |
+| Teknik veri alanı | `surface` | `on-surface-variant` | `secondary` |
+| Cam panel (hero) | `glass-surface` + scrim | `on-surface` | `primary` |
+
+### 8.7 Glass Yogunluk Seviyeleri (Sinirli ve Kontrollu)
+
+```scss
+:root {
+  --md-sys-glass-opacity-subtle: 82%;
+  --md-sys-glass-opacity-medium: 72%;
+  --md-sys-glass-opacity-strong: 60%; // Sadece ozel odak anlarinda
+}
+
+.glass-surface--subtle {
+  background: color-mix(in oklch, var(--md-sys-color-surface) var(--md-sys-glass-opacity-subtle), transparent);
+}
+
+.glass-surface--medium {
+  background: color-mix(in oklch, var(--md-sys-color-surface-container) var(--md-sys-glass-opacity-medium), transparent);
+}
+
+.glass-surface--strong {
+  background: color-mix(in oklch, var(--md-sys-color-surface-container-high) var(--md-sys-glass-opacity-strong), transparent);
+}
+```
+
+> Not: "strong" seviye sadece hero, ozel kampanya veya tek seferlik odak anlarinda kullanilir.
+
 ---
 
 # KISIM III: TIPOGRAFI SISTEMI
@@ -817,6 +1084,35 @@ Butonlar, etiketler, kucuk UI elemanlari.
   font-variation-settings: 'opsz' 32;
 }
 ```
+
+### 10.9 Tipografik Orkestrasyon (Kurumsal Akis)
+
+Tipografi yalnizca okunurluk araci degil, klinik guven tonunun da tasiyicisidir.
+
+| Katman | Font | Rol | Onerilen agirlik |
+|--------|------|-----|------------------|
+| Hero / Mesaj | Figtree | Duygusal bag kurma | 600-700 |
+| Bilgi Basliklari | Figtree | Hiyerarsi kurma | 500-600 |
+| Govde Metin | DM Sans | Uzun okuma, netlik | 400-500 |
+| Form / Label | DM Sans | Operasyonel hiz | 500-600 |
+
+#### 10.9.1 Optik Boyut Disiplini
+
+```scss
+.reading-zone {
+  font-variation-settings: 'opsz' 18, 'wght' 430;
+}
+
+.dense-ui-zone {
+  font-variation-settings: 'opsz' 14, 'wght' 500;
+}
+```
+
+#### 10.9.2 Marka Ses Tonu Icin Satir Uzunlugu Kurali
+
+- Bilgi metinleri: 55-75 karakter/satir
+- Form aciklamalari: 35-55 karakter/satir
+- Hero sloganlari: 20-40 karakter/satir
 
 ---
 
@@ -1151,6 +1447,42 @@ En onemli anlar, buyuk layout degisiklikleri, modaller.
 .stagger-container > *:nth-child(10) { animation-delay: 450ms; }
 ```
 
+### 14.4 Motion Choreography ve Dikkat Butcesi
+
+Expressive hareket, dikkat dagitmadan yonlendirme yapmalidir. Klinik baglamda
+"hizli ama sakince" ilkesi uygulanir.
+
+#### 14.4.1 Dikkat Butcesi
+
+| Kural | Ust Sinir | Not |
+|-------|-----------|-----|
+| Eszamanli hareketli odak | 3 | Daha fazlasi bilissel yuk olusturur |
+| Hero bouncy gecis | 1 ana hareket | Yardimci ogeler standard easing kullanir |
+| Uzun sureli animasyon | 1-2 oge | Arka plan hareketi minimal tutulur |
+
+#### 14.4.2 Sayfa Acilis Koreografisi
+
+```text
+T0     : Surface ve ana baslik fade-in
+T+80ms : Hero gorseli reveal
+T+140ms: Primary CTA spring-decelerate ile giris
+T+190ms: Supporting CTA + micro-icon hareketi
+```
+
+#### 14.4.3 Hareket Tokenlariyla Dizi Yonetimi
+
+```scss
+:root {
+  --md-sys-motion-stagger-step: 45ms;
+  --md-sys-motion-sequence-hero-total: 220ms;
+}
+
+.sequence-hero > * {
+  animation: staggeredEntry var(--md-sys-motion-duration-medium3)
+    var(--md-sys-motion-easing-expressive-decelerate) both;
+}
+```
+
 ---
 
 # KISIM VI: IKONOGRAFI VE ILLUSTRASYON
@@ -1258,6 +1590,38 @@ En onemli anlar, buyuk layout degisiklikleri, modaller.
 | **Flat** | Aciklayici, egitime yonelik | Hizmet sayfalar |
 | **Isometric** | Veri gorsellestirme | Dashboard, istatistikler |
 | **Character** | Cocuk odakli sayfalar | Ebeveyn rehberleri |
+| **SVG Hizmet Ikonu (v6.0)** | Hizmet kartlari ve deger onerisi | Anasayfa, hizmet sayfalari |
+
+### 16.1.1 SVG Hizmet Ikonu Stil Kurallari (v6.0)
+
+"Bilimsel Sicaklik" kimliginin gorsel temsilcileri olan SVG ikonlar su kurallara uyar:
+
+```
+STIL KURALLARI:
+├── Stroke: 2px sabit genislik (tum ikonlarda tutarli)
+├── Ana renk: var(--md-sys-color-primary) — teal outline
+├── Accent renk: Hizmet-spesifik (bkz. KISIM 0, Bolum 0.3)
+├── Kose stili: round (linecap ve linejoin)
+├── Hissiyat: Organik, hafifce el cizimi (mukemmel geometri DEGIL)
+├── Boyut: 48x48 (kart icinde), 64x64 (feature/hero icinde)
+├── ViewBox: 0 0 48 48 (veya 0 0 64 64)
+├── Fill: Sadece accent renk icin, ana form'da yok (outline only)
+└── Animasyon: Hover'da subtle bounce (scale 1→1.05→1)
+```
+
+**Ikon Envanter Tablosu:**
+
+| Hizmet | SVG Dosya | Ikon Tanimi | Accent |
+|--------|-----------|-------------|--------|
+| Bright Futures | `bright-futures.svg` | Anne elinde bebek silueti | Teal |
+| Triple P | `triple-p.svg` | Uc kisilik aile cemberi | Amber |
+| Uyku Programi | `sleep-program.svg` | Hilal ay + 3 yildiz | Indigo |
+| Asilama | `vaccination.svg` | Kalkan + igne damla | Yesil |
+| Gelisim Degerlendirmesi | `development.svg` | Yukari ok + cetvel | Coral |
+| Laboratuvar | `laboratory.svg` | Mikroskop + kalp | Mavi |
+| Kanita Dayali Tip | `evidence-based.svg` | Acik kitap + onay | Teal |
+| Aile Merkezli Bakim | `family-centered.svg` | Eller + kalp | Amber |
+| Gelisim Odakli | `growth-focused.svg` | Fide + gunes | Coral |
 
 ### 16.2 Illustrasyon Renk Paleti
 
@@ -1451,17 +1815,17 @@ YUKSEK VURGU ──────────────────────�
 | Elevated | `surface-container-low` | level1→level2 | - | Varsayilan |
 | Filled | `surface-container-highest` | level0 | - | Gruplu icerik |
 | Outlined | `surface` | level0 | `outline-variant` | Minimal |
+| **Service (v6.0)** | `surface` | level1→level2 | Sol kenarda 3px renk serit | **Hizmet kartlari** |
 
 ### 19.2 Kart Yapisi
 
+**Standart Kart (mevcut):**
+
 ```html
 <article class="md3-card md3-card-elevated">
-  <!-- Medya alani -->
   <div class="md3-card-media">
     <img src="..." alt="..." loading="lazy" />
   </div>
-
-  <!-- Header (opsiyonel) -->
   <header class="md3-card-header">
     <img class="md3-card-avatar" src="..." alt="..." />
     <div class="md3-card-header-text">
@@ -1471,8 +1835,6 @@ YUKSEK VURGU ──────────────────────�
     </div>
     <button class="md3-icon-button">more_vert</button>
   </header>
-
-  <!-- Icerik -->
   <div class="md3-card-content">
     <h3 class="md3-card-headline">Headline</h3>
     <p class="md3-card-subhead">Subhead</p>
@@ -1480,13 +1842,78 @@ YUKSEK VURGU ──────────────────────�
       Supporting text that provides more detail...
     </p>
   </div>
-
-  <!-- Eylemler -->
   <footer class="md3-card-actions">
     <button class="md3-button-text">Action 1</button>
     <button class="md3-button-filled">Action 2</button>
   </footer>
 </article>
+```
+
+### 19.3 Hizmet Karti — "Bilimsel Sicaklik" Varyanti (v6.0)
+
+```html
+<article class="md3-card md3-card-service" data-service-color="primary">
+  <div class="md3-card-service-icon">
+    <!-- SVG illustratif ikon -->
+    <svg>...</svg>
+  </div>
+  <div class="md3-card-content">
+    <h3 class="md3-card-headline">Bright Futures®</h3>
+    <hr class="md3-card-divider" />
+    <p class="md3-card-supporting-text">
+      AAP onayili cocuk sagligi takip programi...
+    </p>
+  </div>
+  <footer class="md3-card-actions">
+    <a class="md3-card-detail-link" routerLink="/hizmetlerimiz/bright-futures">
+      Detaylar →
+    </a>
+  </footer>
+</article>
+```
+
+```scss
+// Hizmet Karti SCSS
+.md3-card-service {
+  position: relative;
+  border-left: 3px solid var(--service-accent-color, var(--md-sys-color-primary));
+  transition:
+    border-left-width var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+    transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+    box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+
+  &:hover {
+    border-left-width: 6px;
+    transform: translateY(-4px);
+    box-shadow: var(--md-sys-elevation-level2);
+  }
+
+  // Renk serit atamalari
+  &[data-service-color="primary"]   { --service-accent-color: var(--md-sys-color-primary); }
+  &[data-service-color="secondary"] { --service-accent-color: var(--md-sys-color-secondary); }
+  &[data-service-color="tertiary"]  { --service-accent-color: var(--md-sys-color-tertiary); }
+  &[data-service-color="success"]   { --service-accent-color: var(--md-sys-color-success); }
+  &[data-service-color="info"]      { --service-accent-color: var(--md-sys-color-info); }
+
+  .md3-card-divider {
+    border: none;
+    height: 2px;
+    width: 40px;
+    background: linear-gradient(to right, var(--md-sys-color-primary), transparent);
+    margin: var(--md-sys-spacing-2) 0;
+  }
+
+  .md3-card-detail-link {
+    color: var(--md-sys-color-tertiary);
+    font-family: var(--md-sys-typescale-label-large-font);
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
 ```
 
 ---
@@ -2076,6 +2503,30 @@ YUKSEK VURGU ──────────────────────�
 </div>
 ```
 
+### 27.3 Klinik Form Deneyimi - Mikro Duygu Protokolu
+
+Form, ebeveyn endisesini azaltan bir etkileşim akisi sunmalidir:
+
+| Asama | Hedef Duygu | UI Davranisi |
+|-------|-------------|--------------|
+| Bos alan | Guven | Acik etiket + sade placeholder |
+| Odak | Kontrol | Net focus ring + sakin tonal vurgu |
+| Hata | Destek | Cozume yonlendiren metin + ikon |
+| Basari | Rahatlama | Gecikmesiz pozitif geri bildirim |
+
+```scss
+.md3-text-field-error .md3-text-field-supporting-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--md-sys-color-error);
+}
+
+.md3-text-field-success .md3-text-field-supporting-text {
+  color: var(--md-sys-color-success);
+}
+```
+
 ---
 
 # KISIM VIII: LAYOUT VE RESPONSIVE
@@ -2218,6 +2669,38 @@ section,
   }
 }
 ```
+
+### 28.6 Container Query ve Yogunluk Adaptasyonu
+
+Responsive yalnizca viewport'a degil, bilesenin kendi kapsayicisina da tepki vermelidir.
+
+```scss
+.adaptive-card-grid {
+  container-type: inline-size;
+}
+
+@container (min-width: 720px) {
+  .adaptive-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-lg);
+  }
+}
+
+@container (min-width: 1080px) {
+  .adaptive-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-xl);
+  }
+}
+```
+
+#### 28.6.1 Adaptif Yogunluk Seviyeleri
+
+| Seviye | Hedef | Uygulama |
+|--------|-------|----------|
+| Comfortable | Bilgi odakli sayfalar | Daha genis padding, daha az oge yogunlugu |
+| Default | Genel kullanim | Dengeli spacing ve tip olcegi |
+| Compact | Veri agir alanlar | Daha sik grid, daha kucuk destek metin |
 
 ---
 
@@ -2462,6 +2945,29 @@ Ornek:
 }
 ```
 
+### 33.3 Glass Uzerinde Erisebilirlik Guvenceleri
+
+Translucent yuzeylerde okunurluk kaybi riskini azaltmak icin:
+
+- Uzun metinlerde minimum `surface` karisimi %72 tutulur.
+- Glass panel arkasinda hareketli gorsel varsa ek scrim uygulanir.
+- Metinler icin minimum 4.5:1 kontrast, ikon/ayraclar icin minimum 3:1 korunur.
+
+```scss
+.glass-text-safe {
+  background: color-mix(in oklch, var(--md-sys-color-surface) 78%, transparent);
+  color: var(--md-sys-color-on-surface);
+}
+
+.glass-text-safe::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: color-mix(in oklch, var(--md-sys-color-scrim) 8%, transparent);
+  pointer-events: none;
+}
+```
+
 ---
 
 # KISIM X: UYGULAMA REHBERI
@@ -2531,6 +3037,28 @@ Ornek:
 - [ ] Screen reader yardımcı metinleri
 - [ ] ARIA attributeleri dogru
 - [ ] Klavye navigasyonu calisiyor
+```
+
+### 34.4 Advanced Harmonization & Governance Checklist
+
+```markdown
+### Marka Butunlugu
+- [ ] Logo clear-space tum breakpoint'lerde korunuyor
+- [ ] Marka renk tohumu degerleri degistirilmemis
+- [ ] Figtree/DM Sans rollerinde sapma yok
+- [ ] 70/20/10 renk dagilimi ana sayfalarda dogrulandi
+
+### Teknik Sertlestirme
+- [ ] Cam yuzeyler yalnizca odak panel/sheet/card varyantlarinda
+- [ ] `@supports` ile blur fallback tanimli
+- [ ] Token disi hardcoded border-radius YOK
+- [ ] Component state layer davranislari tutarli
+
+### Performans ve Kalite Kapilari
+- [ ] Hero disinda ayni anda 2'den fazla blur katmani YOK
+- [ ] LCP alaninda gereksiz animasyon YOK
+- [ ] Tasarim token diff kontrolu yapildi
+- [ ] Görsel regresyon (light/dark/high-contrast) tamamlandi
 ```
 
 ---
@@ -2626,6 +3154,26 @@ src/
     └── styles/                    # Legacy (migrate ediliyor)
 ```
 
+## Bolum 36.1: Kurumsal Tasarim Yonetisimi (Operational Model)
+
+Bu kilavuzun kurumsal surekliligi icin asagidaki denetim dongusu uygulanir:
+
+1. **Token Degisikligi Oncesi**: Renk/sekil/motion degisiklik istegi marka butunlugu kontrolunden gecer.
+2. **Bilesen Seviye Uygulama**: Degisiklik once sandbox veya tek bir referans sayfada test edilir.
+3. **Erisilebilirlik Dogrulama**: Kontrast, odak, klavye akisi, reduced motion kontrol edilir.
+4. **Performans Gecidi**: Blur katmani, animasyon suresi ve layout shift etkileri olculur.
+5. **Yayin Onayi**: Ancak tum kapilar gecildiginde genis olcekli yayina alinır.
+
+### 36.1.1 Tasarim Kalite Kapilari
+
+| Kapi | Basari Kriteri |
+|------|----------------|
+| Token Tutarliligi | Yeni degerler semantic rol disina cikmiyor |
+| Marka Butunlugu | Logo/font/ana palet degisimsiz |
+| Erisebilirlik | WCAG AA minumumunu sagliyor |
+| Performans | Duyusal zenginlik korunurken akicilik bozulmuyor |
+| Dokumantasyon | Degisiklik kaydi ve quick reference guncel |
+
 ---
 
 # KISIM XI: KAYNAKLAR
@@ -2668,6 +3216,43 @@ src/
 
 # KISIM XII: DEGISIKLIK KAYDI
 
+## Version 6.0 (Bilimsel Sicaklik Edition) - March 2026
+
+### Yeni Eklenenler
+- **KISIM 0: Tasarim Kimligi — "Bilimsel Sicaklik"**: Sosyal pediatri farkini yansitan cesur tasarim donusumu vizyonu
+- **Renk Kullanim Stratejisi**: Teal %90→%45, Amber %2→%20, Coral %5→%15 oranlarinda yeniden dengeleme
+- **Iki Katmanli Ikon Sistemi**: UI navigasyon (Material Icons) + icerik/hizmet (ozel SVG illustrasyon)
+- **SVG Hizmet Ikon Tablosu**: 9 ozel hizmet ikonu tanimi, stil kurallari ve accent renk atamalari
+- **Hizmet Karti Varyanti**: Sol kenarda renk seritli, hover'da genisleyen "Bilimsel Sicaklik" kart tipi
+- **Sayfa Bolum Ritmi**: Beyaz→krem→beyaz→teal→gri→coral arka plan ritim kurallari
+- **Mikro-Etkilesim Katmanlari**: Scroll reveal, kart hover, link underline, sayi sayaci, sayfa gecis animasyonlari
+- **Tipografi Ifade Kurallari**: Bilimsel (yapisal, tight) vs sicaklik (organik, italic) dualitesi
+
+### Guncellemeler
+- Ust meta bolumu v6.0 "Bilimsel Sicaklik Edition" olarak guncellendi
+- Bolum 6 renk kullanim alanlari yeni oranlar ve roller ile guncellendi
+- Bolum 16 illustrasyon sistemi SVG hizmet ikonu alt bolumu ile genisletildi
+- Bolum 19 kart sistemi "Bilimsel Sicaklik" hizmet karti varyanti ile genisletildi
+
+---
+
+## Version 5.1 (Advanced Harmonization Edition) - February 2026
+
+### Yeni Eklenenler
+- **Marka Harmonizasyon Protokolu**: Degistirmeden butunlestirme modeli
+- **Gamut-Aware Renk Yonetimi**: Progressive enhancement + fallback stratejisi
+- **Tipografik Orkestrasyon**: Marka ses tonu ve optik boyut disiplini
+- **Motion Choreography**: Dikkat butcesi ve zamanlama dizisi
+- **Klinik Form Mikro-Duygu Protokolu**: Form etkileşimlerinde guven odakli akis
+- **Container Query Adaptasyonu**: Bilesen tabanli responsive yogunluk
+- **Glass Erisebilirlik Guvenceleri**: Cam yuzeylerde okunurluk sertlestirmesi
+- **Advanced Governance Checklist**: Marka + teknik + performans kalite kapilari
+
+### Guncellemeler
+- Ust meta bolumleri 5.1 surum bilgisiyle guncellendi
+- Uygulama rehberi operasyonal tasarim yonetimi ile guclendirildi
+- Degisiklik kaydi kurumsal denetim modelini kapsayacak sekilde genisletildi
+
 ## Version 5.0 (Final Production Edition) - December 2025
 
 ### Yeni Eklenenler
@@ -2690,8 +3275,8 @@ src/
 ---
 
 **Document Maintained By**: Development Team
-**Last Updated**: December 2025
-**Next Review**: Q1 2026
+**Last Updated**: March 2026
+**Next Review**: Q2 2026
 
 ---
 

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
+     fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ruler/measuring scale (left side, vertical) -->
+  <path d="M10 40 L10 10 C10 9, 10.5 8, 12 8 L16 8 C17.5 8, 18 9, 18 10 L18 40" />
+  <!-- Ruler tick marks -->
+  <line x1="10" y1="14" x2="13" y2="14" stroke-width="1.5" />
+  <line x1="10" y1="19" x2="14" y2="19" stroke-width="1.5" />
+  <line x1="10" y1="24" x2="13" y2="24" stroke-width="1.5" />
+  <line x1="10" y1="29" x2="14" y2="29" stroke-width="1.5" />
+  <line x1="10" y1="34" x2="13" y2="34" stroke-width="1.5" />
+  <!-- Base line -->
+  <line x1="8" y1="40" x2="20" y2="40" />
+  <!-- Upward arrow emerging from ruler area -->
+  <path d="M28 38 C28 34, 27 28, 28 22 C29 16, 31 12, 34 8" />
+  <!-- Arrow head -->
+  <path d="M30 12 L34 8 L37 13" />
+  <!-- Small growth dots along the curve -->
+  <circle cx="28" cy="34" r="1" fill="currentColor" stroke="none" opacity="0.2" />
+  <circle cx="28" cy="28" r="1.2" fill="currentColor" stroke="none" opacity="0.25" />
+  <circle cx="29" cy="22" r="1.4" fill="currentColor" stroke="none" opacity="0.3" />
+  <!-- Accent: arrow tip glow -->
+  <circle class="accent" cx="34" cy="8" r="3"
+          fill="currentColor" stroke="none" opacity="0.25" />
+</svg>

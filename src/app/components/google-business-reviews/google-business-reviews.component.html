@@ -1,0 +1,96 @@
+<section class="google-business-reviews" aria-labelledby="home-google-reviews-title">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">{{ 'HOME_GOOGLE_REVIEWS.LABEL' | translate }}</span>
+      <h2 id="home-google-reviews-title" class="section-title">{{ 'HOME_GOOGLE_REVIEWS.TITLE' | translate }}</h2>
+      <p class="section-subtitle">{{ 'HOME_GOOGLE_REVIEWS.SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="reviews-surface md3-glass-noise">
+      <aside class="summary-card" [attr.aria-busy]="loading">
+        <div class="summary-top">
+          <p class="rating-value">{{ reviewCount > 0 ? (averageRating | number: '1.1-1') : '—' }}</p>
+
+          <div class="rating-meta">
+            <div class="stars" [attr.aria-label]="'HOME_GOOGLE_REVIEWS.RATING_ARIA' | translate:{ rating: (averageRating | number: '1.1-1') }">
+              <span class="sr-only">{{ 'HOME_GOOGLE_REVIEWS.RATING_ARIA' | translate:{ rating: (averageRating | number: '1.1-1') } }}</span>
+              <ng-container *ngFor="let filled of asFiveStarArray(averageRating)">
+                <span class="material-icons-rounded star-icon" [class.star-icon--filled]="filled" aria-hidden="true">
+                  {{ filled ? 'star' : 'star_border' }}
+                </span>
+              </ng-container>
+            </div>
+
+            <p class="review-count">{{ 'HOME_GOOGLE_REVIEWS.REVIEW_COUNT' | translate:{ count: reviewCount } }}</p>
+          </div>
+        </div>
+
+        <div class="rating-bar" role="img" [attr.aria-label]="'HOME_GOOGLE_REVIEWS.RATING_ARIA' | translate:{ rating: (averageRating | number: '1.1-1') }">
+          <span class="rating-bar-fill" [style.width.%]="getRatingPercent()"></span>
+        </div>
+
+        <a
+          [href]="googleBusinessProfileUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="profile-link"
+          data-track="google_business_click"
+          data-track-category="engagement"
+          data-track-label="home_reviews_summary">
+          <span class="material-icons-rounded" aria-hidden="true">open_in_new</span>
+          <span>{{ 'HOME_GOOGLE_REVIEWS.VIEW_ALL' | translate }}</span>
+        </a>
+      </aside>
+
+      <div class="reviews-list" *ngIf="!loading && reviews.length > 0; else reviewsFallback">
+        <article class="review-card" *ngFor="let review of reviews">
+          <header class="review-header">
+            <div class="review-avatar" aria-hidden="true">{{ getAuthorInitials(review.author_name) }}</div>
+
+            <div class="review-meta">
+              <h3 class="review-author">{{ review.author_name }}</h3>
+              <p class="review-time">{{ getRelativeTime(review) }}</p>
+            </div>
+
+            <div class="review-rating" [attr.aria-label]="review.rating + ' / 5'">
+              <ng-container *ngFor="let filled of asFiveStarArray(review.rating)">
+                <span class="material-icons-rounded star-icon star-icon--small" [class.star-icon--filled]="filled" aria-hidden="true">
+                  {{ filled ? 'star' : 'star_border' }}
+                </span>
+              </ng-container>
+            </div>
+          </header>
+
+          <p class="review-text" *ngIf="review.text; else noReviewText">{{ review.text }}</p>
+          <ng-template #noReviewText>
+            <p class="review-text review-text--empty">{{ 'HOME_GOOGLE_REVIEWS.NO_TEXT' | translate }}</p>
+          </ng-template>
+        </article>
+      </div>
+
+      <ng-template #reviewsFallback>
+        <div class="reviews-empty">
+          <span class="material-icons-rounded empty-icon" aria-hidden="true">
+            {{ loading ? 'hourglass_top' : 'rate_review' }}
+          </span>
+
+          <p>{{ (loading ? 'HOME_GOOGLE_REVIEWS.LOADING' : 'HOME_GOOGLE_REVIEWS.EMPTY') | translate }}</p>
+
+          <a
+            *ngIf="!loading"
+            [href]="googleBusinessProfileUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="profile-link profile-link--secondary"
+            data-track="google_business_click"
+            data-track-category="engagement"
+            data-track-label="home_reviews_empty">
+            <span class="material-icons-rounded" aria-hidden="true">open_in_new</span>
+            <span>{{ 'HOME_GOOGLE_REVIEWS.VIEW_PROFILE' | translate }}</span>
+          </a>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>
+

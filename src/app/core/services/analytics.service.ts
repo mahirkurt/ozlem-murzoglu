@@ -1,4 +1,4 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, isDevMode } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -111,7 +111,7 @@ export class AnalyticsService {
       // Load GA4 script dynamically
       const script = document.createElement('script');
       script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX`;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=G-FJW4LXJ4T8`;
       document.head.appendChild(script);
 
       (window as any).dataLayer = (window as any).dataLayer || [];
@@ -119,7 +119,7 @@ export class AnalyticsService {
         (window as any).dataLayer.push(arguments);
       };
       this.gtag('js', new Date());
-      this.gtag('config', 'G-XXXXXXXXXX', {
+      this.gtag('config', 'G-FJW4LXJ4T8', {
         send_page_view: false,
         custom_map: this.config.customDimensions,
       });
@@ -128,22 +128,25 @@ export class AnalyticsService {
 
   /**
    * Initialize Microsoft Clarity for heatmaps
+   * NOTE: Disabled until a real Clarity project ID is configured.
    */
   private initializeClarity(): void {
-    if (!this.clarity && this.config.enableHeatmap) {
-      (function (c: any, l: any, a: any, r: any, i: any, t: any, y: any) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
-          };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = 'https://www.clarity.ms/tag/' + i;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, 'clarity', 'script', 'CLARITY_PROJECT_ID');
-    }
+    // Clarity initialization disabled — no project ID configured yet.
+    // To enable, replace 'YOUR_CLARITY_PROJECT_ID' with a real ID and uncomment:
+    // if (!this.clarity && this.config.enableHeatmap) {
+    //   (function (c: any, l: any, a: any, r: any, i: any, t: any, y: any) {
+    //     c[a] =
+    //       c[a] ||
+    //       function () {
+    //         (c[a].q = c[a].q || []).push(arguments);
+    //       };
+    //     t = l.createElement(r);
+    //     t.async = 1;
+    //     t.src = 'https://www.clarity.ms/tag/' + i;
+    //     y = l.getElementsByTagName(r)[0];
+    //     y.parentNode.insertBefore(t, y);
+    //   })(window, document, 'clarity', 'script', 'YOUR_CLARITY_PROJECT_ID');
+    // }
   }
 
   /**
@@ -382,8 +385,8 @@ export class AnalyticsService {
     }
 
     // Console log in development
-    if (!environment.production) {
-      console.log('📊 Analytics Event:', event);
+    if (isDevMode()) {
+      console.log('Analytics Event:', event);
     }
   }
 
@@ -444,7 +447,7 @@ export class AnalyticsService {
     // GA4 conversion
     if (this.gtag) {
       this.gtag('event', 'conversion', {
-        send_to: 'G-XXXXXXXXXX',
+        send_to: 'G-FJW4LXJ4T8',
         value: value,
         currency: 'TRY',
       });
@@ -638,6 +641,3 @@ export class AnalyticsService {
     this.maxScrollDepth = 0;
   }
 }
-
-// Environment placeholder
-const environment = { production: false };

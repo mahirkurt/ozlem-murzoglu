@@ -35,7 +35,8 @@
     },
     "MAKE_APPOINTMENT": "Randevu Al",
     "PRESENT": "Günümüz",
-    "DOCTOR_NAME": "Uzm. Dr. Özlem Murzoğlu"
+    "DOCTOR_NAME": "Uzm. Dr. Özlem Murzoğlu",
+    "DETAILS": "Detaylar"
   },
   "HEADER": {
     "BRAND_NAME": "Dr. Özlem Murzoğlu",
@@ -63,14 +64,26 @@
   },
   "HOME": {
     "HERO_TITLE": "Sosyal pediatri ve çocuk gelişimi uzmanlıklarını <span class=\"hero-highlight\">şefkat</span> ve <span class=\"hero-highlight\">sevgiyle</span> bütünleştiren yeni nesil çocuk sağlığı hizmetleri",
-    "HERO_SUBTITLE": "UZM.DR. ÖZLEM MURZOĞLU ÇOCUK SAĞLIĞI VE HASTALIKLARI KLİNİĞİ",
     "HERO_DESCRIPTION": "",
     "HERO_MICROCOPY": "Randevu ve bilgi talepleriniz için size uygun zamanı kolayca planlayın.",
-    "HERO_TRUST_1": "Uzman hekim yaklaşımı",
-    "HERO_TRUST_2": "Kanıta dayalı takip",
-    "HERO_TRUST_3": "Aile odaklı iletişim",
     "CTA_APPOINTMENT": "Hemen Randevu Al",
-    "CTA_LEARN_MORE": "Detaylı Bilgi"
+    "CTA_LEARN_MORE": "Detaylı Bilgi",
+    "HERO_OVERLINE": "SOSYAL PEDİATRİ & ÇOCUK SAĞLIĞI KLİNİĞİ",
+    "HERO_BADGE_BRIGHT": "Bright Futures\u00ae Sertifikalı",
+    "HERO_BADGE_TRIPLE_P": "Triple P\u00ae Lisanslı",
+    "HERO_BADGE_SOCIAL_PED": "Sosyal Pediatri Doktora",
+    "WHY_SP_TITLE": "Neden Sosyal Pediatri?",
+    "WHY_SP_EVIDENCE_TITLE": "Kanıta Dayalı Tıp",
+    "WHY_SP_EVIDENCE_DESC": "Uluslararası kılavuzlar ve güncel araştırmalarla desteklenen yaklaşım.",
+    "WHY_SP_FAMILY_TITLE": "Aile Merkezli Bakım",
+    "WHY_SP_FAMILY_DESC": "Çocuğun sağlığını ailenin bütünlüğü içinde değerlendiren bakış açısı.",
+    "WHY_SP_GROWTH_TITLE": "Gelişim Odaklı Yaklaşım",
+    "WHY_SP_GROWTH_DESC": "Fiziksel sağlığın ötesinde, sosyal ve duygusal gelişimi de kapsayan bütüncül takip.",
+    "STATS_TITLE": "Sayılarla Biz",
+    "STATS_YEARS": "Yıl Deneyim",
+    "STATS_FAMILIES": "Aile Takibi",
+    "STATS_CERTS": "Sertifikasyon",
+    "STATS_AAP": "AAP Uyumlu"
   },
   "ABOUT": {
     "PAGE_TITLE": "Hakkımızda",
@@ -205,7 +218,15 @@
       "NEW_BEGINNING": "Yeni Başlangıç",
       "NEW_BEGINNING_TEXT": "Hayran olduğum bir hocamın dediği gibi \"İyi doktor olmak için yeterince hasta ve doğru kitaplar yeter\" tecrübesini doğrulama fırsatım olan işim-okulum Marmara Üniversitesi Pendik Eğitim ve Araştırma Hastanesi'nden Temmuz 2022'de ayrıldım.",
       "NEW_BEGINNING_TEXT2": "Artık kanıta dayalı, bilimsel veriler ışığında pediatri hekimliği yapacak imkanlar, süre ve yakınlık ile çalışma zamanı gelmişti.",
-      "NEW_BEGINNING_TEXT3": "Eşim, kızım, annem, geniş ailem, doyamadığım arkadaşlarımın destekleri ile yeni bir yolculuğa başlıyorum. Bundan sonra kendi kliniğimde çocuklarımı karşılacak ve onca yıllık çocuk tecrübeme rağmen her gün beni yeniden hayrete düşürmelerinin keyfini çıkaracağım."
+      "NEW_BEGINNING_TEXT3": "Eşim, kızım, annem, geniş ailem, doyamadığım arkadaşlarımın destekleri ile yeni bir yolculuğa başlıyorum. Bundan sonra kendi kliniğimde çocuklarımı karşılacak ve onca yıllık çocuk tecrübeme rağmen her gün beni yeniden hayrete düşürmelerinin keyfini çıkaracağım.",
+      "INTRO_WARM": "Merhaba! Ben Dr. Özlem Murzoğlu. 15 yılı aşkın pediatri deneyimimle, İstanbul Ataşehir'de çocuklarınızın sağlığı için bilimsel ve sevgi dolu bir yaklaşımla hizmet veriyorum.",
+      "TIMELINE_TITLE": "Yolculuğum",
+      "TIMELINE_ROOTS_YEAR": "Çocukluk",
+      "TIMELINE_EDUCATION_YEAR": "2007",
+      "TIMELINE_FAMILY_YEAR": "2008",
+      "TIMELINE_PEDIATRICS_YEAR": "2011",
+      "TIMELINE_HEALTHY_CHILD_YEAR": "2014",
+      "TIMELINE_NEW_BEGINNING_YEAR": "2022"
     },
     "PRESENT": "Halen",
     "PHILOSOPHY_QUOTE": "Sosyal Pediatri ve Çocuk Gelişimi alanındaki uzmanlığımı, sadece klinik verilerle değil; şefkat, sevgi ve derin bir anlayışla harmanlıyorum. Çünkü inanıyorum ki; gerçek iyileşme, çocuğu ve aileyi bir bütün olarak kucakladığınızda başlar.",
@@ -1614,7 +1635,7 @@
     "KVKK_RIGHT_8": "Münhasıran otomatik sistemler ile analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme",
     "KVKK_RIGHT_9": "Kanuna aykırı işlenmesi sebebiyle zarara uğramanız halinde zararın giderilmesini talep etme",
     "KVKK_APPLICATION_TITLE": "Başvuru Yöntemi",
-    "KVKK_APPLICATION_TEXT": "KVKK'nın 13. maddesi uyarınca, yukarıdaki haklarınızı kullanmak için talebinizi yazılı olarak veya kayıtlı elektronik posta (KEP) adresi, güvenli elektronik imza ile imzalanmış olarak veya kliniğimize daha önce bildirdiğiniz e-posta adresinizi kullanarak info&#64;drozlemmurzoglu.com adresine iletebilirsiniz.",
+    "KVKK_APPLICATION_TEXT": "KVKK'nın 13. maddesi uyarınca, yukarıdaki haklarınızı kullanmak için talebinizi yazılı olarak veya kayıtlı elektronik posta (KEP) adresi, güvenli elektronik imza ile imzalanmış olarak veya kliniğimize daha önce bildirdiğiniz e-posta adresinizi kullanarak klinik&#64;drmurzoglu.com adresine iletebilirsiniz.",
     "KVKK_APPLICATION_INFO": "Başvurunuz en geç 30 gün içinde değerlendirilerek sonuçlandırılacaktır. Başvuru ücretsizdir, ancak işlemin ayrıca bir maliyet gerektirmesi halinde ücret talep edilebilir.",
     "KVKK_CONTACT_TEXT": "KVKK kapsamındaki haklarınız ve başvuru süreçleri hakkında detaylı bilgi için bizimle iletişime geçebilirsiniz:"
   },
@@ -1884,42 +1905,6 @@
       "CTA_DESC": "Çocuğunuzun sağlığı için güvenilir tanı hizmetleri",
       "CTA_BUTTON": "Randevu Al",
       "CTA_CALL": "Hemen Ara"
-    },
-    "DR_PAGE": {
-      "MY_STORY": "Benim Hikayem",
-      "ROOTS_TITLE": "Köklerim",
-      "ROOTS_TEXT": "Küçük ve kendine münhasır otantik bir Karadeniz şehrinde Temel Fıkralarını yaşayarak büyüdüm. Okul öncesi en iyi arkadaşlarım olan annem ve dedemle ağaçlara, toprağa tutkumu paylaştım. Dört çocuklu bir ailenin tekne kazıntısı olarak sevgi dolu ablamın sabrını yıllarca çokça zorlayarak çok sevildim, çok sevdim.",
-      "EDUCATION_JOURNEY": "Eğitim Yolculuğum",
-      "EDUCATION_TEXT": "İlkokula kaydımı üniversite öğrencisi olan ablam, ilkokulda dershane kaydımı ise yine üniversite öğrencisi olan abim yaptırdı. Canım babamın tarif ettiği becerikli çocuk olarak sonraki tüm kayıtlarımı kendim halledebildim. Eğitim hayatımın bana verdiği en büyük değerler olan bir çok arkadaşımla Rize Anadolu Lisesi'nde tanıştım. Yine çok sevdim, çok sevildim.",
-      "EDUCATION_TEXT2": "2007'de \"Hasta odaya girip sandalyeye oturana kadar tanısı hakkında bir fikriniz yoksa bu işi bırakın\" diyen duayen hocalarımın var ettiği <strong>İstanbul Tıp Fakültesi</strong>'nden mezun oldum.",
-      "FAMILY_TITLE": "Aile",
-      "FAMILY_TEXT": "Bir süre ilaç sektöründe çalıştım. Bu sırada nesillerdir süren aile geleneğimize uyarak çoktan aşık olmuştum. Feminist babaannemin çocukluğum boyunca aşılamaya çalıştığı evlilik karşıtlığına rağmen; 2008 yılında on iki yaşından bu yana tanıdığım, canım sevgilim Mahir ile evlendim.",
-      "PEDIATRICS_JOURNEY": "Pediatri Yolculuğum",
-      "PEDIATRICS_TEXT": "Tüm profesyonel muhakemelerden uzak bir temellendirme ile sadece çocukları çok sevdiğim için 2011'de <strong>Marmara Üniversitesi</strong>'nde Pediatri ihtisasına başladım. Üniversite yaklaşımı ile Eğitim Araştırma Hastanesi sayısında/çeşitliliğinde hasta bakılan bu kurumda çok yoruldum, çok şey öğrendim.",
-      "PEDIATRICS_TEXT2": "İhtisasımı bitirdikten sonra kısa bir mecburi hizmet macerası nedeniyle ayrıldığım Marmara Üniversitesi Pendik Eğitim ve Araştırma Hastanesi'e dönerek pediatri uzmanı olarak çalışmaya başladım. Acil servis, çocuk poliklinikleri ve tüm servislerde çalıştığım toplam 11 yıl boyunca, başka hiç bir yerde olamayacak kadar çok vaka ve zorlukla büyük bir mesleki tatmin yaşadım.",
-      "HEALTHY_CHILD": "Sağlıklı Çocuk Hekimliği",
-      "HEALTHY_CHILD_TEXT": "O zamana kadar hasta çocuklarla pratiği fazlaca olan bir hekimken; 2014'te kızımın doğacak olması beni büyük bir merakla \"Sağlıklı Çocuk Hekimliği\" konusuna itti. Doyamadığım alan okumalarımı akademik olarak güçlendirme niyetiyle 2019 yılında Marmara Üniversitesi'nde <strong>Sosyal Pediatri Doktora Programı</strong>na başladım. 2021 yılında doktora yeterliliğimi verdim ve tez sürecim ile akademik hayatıma devam ediyorum. 2023'te ise İstanbul Üniversitesi <strong>Çocuk Gelişimi</strong> bölümü lisans programından mezun oldum.",
-      "NEW_BEGINNING": "Yeni Başlangıç",
-      "NEW_BEGINNING_TEXT": "Hayran olduğum bir hocamın dediği gibi \"İyi doktor olmak için yeterince hasta ve doğru kitaplar yeter\" tecrübesini doğrulama fırsatım olan işim-okulum Marmara Üniversitesi Pendik Eğitim ve Araştırma Hastanesi'nden Temmuz 2022'de ayrıldım.",
-      "NEW_BEGINNING_TEXT2": "Artık kanıta dayalı, bilimsel veriler ışığında pediatri hekimliği yapacak imkanlar, süre ve yakınlık ile çalışma zamanı gelmişti.",
-      "NEW_BEGINNING_TEXT3": "Eşim, kızım, annem, geniş ailem, doyamadığım arkadaşlarımın destekleri ile yeni bir yolculuğa başlıyorum. Bundan sonra kendi kliniğimde çocuklarımı karşılacak ve onca yıllık çocuk tecrübeme rağmen her gün beni yeniden hayrete düşürmelerinin keyfini çıkaracağım.",
-      "SERVICE_AREAS": "Hizmet Alanlarım",
-      "SERVICE_1": "Sağlıklı Çocuk Takibi",
-      "SERVICE_1_DESC": "Düzenli gelişim kontrolü ve izlem",
-      "SERVICE_2": "Aşılama",
-      "SERVICE_2_DESC": "Ulusal ve özel aşı takvimi uygulaması",
-      "SERVICE_3": "Çocukluk Çağı Hastalıkları",
-      "SERVICE_3_DESC": "Tanı, tedavi ve takip",
-      "SERVICE_4": "Emzirme Danışmanlığı",
-      "SERVICE_4_DESC": "Anne sütü ve emzirme desteği",
-      "SERVICE_5": "Uyku Danışmanlığı",
-      "SERVICE_5_DESC": "Sağlıklı uyku düzeni oluşturma",
-      "SERVICE_6": "Beslenme Danışmanlığı",
-      "SERVICE_6_DESC": "Yaşa uygun sağlıklı beslenme",
-      "SERVICE_7": "Gelişim Takibi",
-      "SERVICE_7_DESC": "Fiziksel ve zihinsel gelişim kontrolü",
-      "SERVICE_8": "Davranış Danışmanlığı",
-      "SERVICE_8_DESC": "Davranış sorunları ve çözümleri"
     },
     "DOCUMENTS": {
       "CATEGORIES": {
@@ -2492,6 +2477,18 @@
       "MINUTES": "{{count}} dakika önce",
       "JUST_NOW": "Az önce"
     }
+  },
+  "HOME_GOOGLE_REVIEWS": {
+    "LABEL": "Google İşletme Profili",
+    "TITLE": "Ailelerimizin deneyimleri",
+    "SUBTITLE": "Google yorumları ve puanlamalarıyla şeffaf, güvenilir geri bildirimler",
+    "RATING_ARIA": "Ortalama puan: {{rating}} / 5",
+    "REVIEW_COUNT": "{{count}} değerlendirme",
+    "VIEW_ALL": "Tüm yorumları Google'da gör",
+    "VIEW_PROFILE": "Google profilimizi aç",
+    "NO_TEXT": "Bu değerlendirmede metin bulunmuyor.",
+    "LOADING": "Google yorumları yükleniyor...",
+    "EMPTY": "Şu anda gösterilecek yorum bulunamadı."
   },
   "CONTACT_CTA": {
     "LABEL": "İletişim",

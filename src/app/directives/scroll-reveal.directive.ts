@@ -12,29 +12,53 @@ export class ScrollRevealDirective implements OnInit {
   constructor(private el: ElementRef) {}
   
   ngOnInit() {
-    const element = this.el.nativeElement;
+    const element = this.el.nativeElement as HTMLElement;
+    const hasWindow = typeof window !== 'undefined';
+
+    if (!hasWindow) {
+      element.style.opacity = '1';
+      element.style.transform = 'none';
+      element.style.transition = 'none';
+      return;
+    }
+
+    const transitionEasing = 'var(--md-sys-motion-easing-standard, cubic-bezier(0.4, 0, 0.2, 1))';
+    const revealOffset = 'var(--md-sys-spacing-12)';
+    const prefersReducedMotion =
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      element.style.opacity = '1';
+      element.style.transform = 'none';
+      element.style.transition = 'none';
+      return;
+    }
 
     // Check if IntersectionObserver is supported
     if (!('IntersectionObserver' in window)) {
       // Fallback: just show the content immediately
       element.style.opacity = '1';
+      element.style.transform = 'none';
       return;
     }
 
     // Set initial styles
     element.style.opacity = '0';
-    element.style.transition = `all ${this.scrollDuration}ms cubic-bezier(0.4, 0, 0.2, 1) ${this.scrollDelay}ms`;
+    element.style.transition =
+      `opacity ${this.scrollDuration}ms ${transitionEasing} ${this.scrollDelay}ms, ` +
+      `transform ${this.scrollDuration}ms ${transitionEasing} ${this.scrollDelay}ms`;
 
     // Set initial transform based on animation type
     switch(this.scrollReveal) {
       case 'fade-up':
-        element.style.transform = 'translateY(50px)';
+        element.style.transform = `translateY(${revealOffset})`;
         break;
       case 'fade-left':
-        element.style.transform = 'translateX(50px)';
+        element.style.transform = `translateX(${revealOffset})`;
         break;
       case 'fade-right':
-        element.style.transform = 'translateX(-50px)';
+        element.style.transform = `translateX(calc(-1 * ${revealOffset}))`;
         break;
       case 'zoom-in':
         element.style.transform = 'scale(0.8)';
@@ -45,10 +69,11 @@ export class ScrollRevealDirective implements OnInit {
     }
 
     // Fallback: Show content after a maximum wait time
+    const fallbackTimeoutMs = Math.max(1200, this.scrollDuration + this.scrollDelay + 300);
     const fallbackTimeout = setTimeout(() => {
       element.style.opacity = '1';
       element.style.transform = 'none';
-    }, 2000 + this.scrollDelay); // Show after 2 seconds + delay
+    }, fallbackTimeoutMs);
 
     // Create Intersection Observer
     const observer = new IntersectionObserver(

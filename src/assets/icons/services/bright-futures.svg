@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
+     fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+  <!-- Mother's head -->
+  <circle cx="18" cy="10" r="4" />
+  <!-- Mother's body, nurturing curved posture -->
+  <path d="M14 16 C10 20, 9 28, 12 34 C13 36, 15 37, 18 37" />
+  <path d="M22 16 C24 19, 25 22, 25 26" />
+  <!-- Mother's arms cradling -->
+  <path d="M14 22 C14 26, 16 29, 22 30 C25 30, 27 28, 27 25" />
+  <!-- Baby form (small curved bundle) -->
+  <path d="M18 24 C19 22, 22 21, 24 22 C26 23, 26 26, 24 27 C22 28, 19 27, 18 25" />
+  <!-- Baby's head -->
+  <circle cx="24" cy="23" r="2.5" />
+  <!-- Soft wrap/blanket line -->
+  <path d="M16 28 C18 31, 22 32, 25 30" />
+  <!-- Accent: small heart -->
+  <path class="accent" d="M33 12 C33 10, 35 8, 37 10 C39 8, 41 10, 41 12 C41 15, 37 18, 37 18 C37 18, 33 15, 33 12Z"
+        fill="currentColor" stroke="none" opacity="0.3" />
+</svg>

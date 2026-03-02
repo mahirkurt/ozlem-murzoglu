@@ -36,10 +36,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       labelKey: 'HEADER.NAV_ABOUT',
       href: '/hakkimizda',
       children: [
-        { labelKey: 'HEADER.NAV_ABOUT_US', href: '/hakkimizda' },
         { labelKey: 'HEADER.NAV_DR_OZLEM', href: '/hakkimizda/dr-ozlem-murzoglu' },
         { labelKey: 'HEADER.NAV_CLINIC', href: '/hakkimizda/klinigimiz' },
-        { labelKey: 'HEADER.NAV_FAQ', href: '/sss' }
+        { labelKey: 'HEADER.NAV_FAQ', href: '/hakkimizda/sss' }
       ]
     },
     {

@@ -16,6 +16,52 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+// ============================================================================
+// Global Typography Expression — "Bilimsel Sıcaklık" v6.0
+// ============================================================================
+
+// Scientific blockquote style
+blockquote:not([class]),
+.scientific-quote {
+  border-left: 3px solid var(--md-sys-color-primary);
+  background: var(--md-sys-color-surface-container-low);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  color: var(--md-sys-color-on-surface);
+  margin: var(--spacing-md) 0;
+}
+
+// Link hover underline animation (excludes buttons, nav links, card links)
+a:not(.md3-button):not(.nav-link):not(.hero-button):not(.btn-primary):not(.btn-secondary):not(.service-link):not(.profile-link):not(.details-link):not(.cta-button):not([class*="card"]):not([routerLink]) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--md-sys-color-primary);
+    transition: width var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// Reduced motion for link animation
+@media (prefers-reduced-motion: reduce) {
+  a::after {
+    transition: none !important;
+  }
+}
+
 /* MD3 Header Band Global Utilities */
 .material-icons-rounded {
   font-family: 'Material Icons Round';

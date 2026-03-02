@@ -1,5 +1,5 @@
 <app-header [locale]="locale" (localeChange)="onLocaleChange($event)"></app-header>
-<main>
+<main [@routeAnimation]="getRouteAnimationData()">
   <router-outlet></router-outlet>
 </main>
 <app-footer></app-footer>

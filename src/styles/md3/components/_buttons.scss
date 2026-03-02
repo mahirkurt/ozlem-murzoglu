@@ -71,9 +71,9 @@
   color: var(--md-sys-color-on-primary);
   
   &:hover {
-    box-shadow: var(--md-sys-elevation-level1);
+    box-shadow: var(--md-sys-elevation-level1), 0 0 12px color-mix(in oklch, var(--md-sys-color-primary) 15%, transparent);
   }
-  
+
   &:active {
     box-shadow: var(--md-sys-elevation-level0);
   }
@@ -100,6 +100,10 @@
   @extend .md3-button;
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-level1), 0 0 12px color-mix(in oklch, var(--md-sys-color-secondary) 12%, transparent);
+  }
 }
 
 // Outlined button

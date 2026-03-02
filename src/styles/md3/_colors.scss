@@ -166,6 +166,13 @@
   --color-brand-whatsapp: #25D366;
   --color-brand-google: #EA4335;
 
+  // MD3-prefixed aliases (used throughout components)
+  --md-sys-color-brand-instagram: var(--color-brand-instagram);
+  --md-sys-color-brand-facebook: var(--color-brand-facebook);
+  --md-sys-color-brand-whatsapp: var(--color-brand-whatsapp);
+  --md-sys-color-brand-whatsapp-dark: #1DAA5A;
+  --md-sys-color-brand-google: var(--color-brand-google);
+
 
   // ===========================================================================
   // SECTION 3: SURFACE SYSTEM (Tonal Elevation)

@@ -18,7 +18,7 @@ export const SEO_CONFIG = {
 
   // Google Search Console Verification
   // Get from: https://search.google.com/search-console > Settings > Ownership verification
-  GOOGLE_SITE_VERIFICATION: 'YOUR_GOOGLE_VERIFICATION_CODE', // Replace with your verification code
+  GOOGLE_SITE_VERIFICATION: 'TP9GrCvnVS2J0xqyxU1_UAJxCPs08SNz8idvoPoH1pI',
 
   // Domain Configuration
   DOMAIN: 'https://ozlemmurzoglu.com',

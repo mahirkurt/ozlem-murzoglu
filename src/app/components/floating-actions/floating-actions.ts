@@ -15,9 +15,10 @@ import { TranslateModule } from '@ngx-translate/core';
       
       <!-- Action Buttons -->
       <div class="fab-actions">
-        <a href="https://wa.me/905462378400" 
-           target="_blank" 
+        <a href="https://wa.me/905466884483"
+           target="_blank"
            class="fab-action whatsapp"
+           data-track="whatsapp_click" data-track-category="conversion" data-track-label="floating_actions"
            [style.transform]="isExpanded ? 'scale(1) translateY(0)' : 'scale(0) translateY(20px)'"
            [style.transition-delay]="isExpanded ? '0.1s' : '0s'">
           <svg viewBox="0 0 24 24" width="24" height="24">
@@ -26,8 +27,9 @@ import { TranslateModule } from '@ngx-translate/core';
           <span class="tooltip">{{ 'HEADER.WHATSAPP' | translate }}</span>
         </a>
         
-        <a href="tel:+902222378400" 
+        <a href="tel:+902166884483"
            class="fab-action phone"
+           data-track="phone_click" data-track-category="conversion" data-track-label="floating_actions"
            [style.transform]="isExpanded ? 'scale(1) translateY(0)' : 'scale(0) translateY(20px)'"
            [style.transition-delay]="isExpanded ? '0.2s' : '0s'">
           <span class="material-icons-rounded">phone</span>

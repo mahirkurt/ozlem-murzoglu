@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
+     fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+  <!-- Crescent moon - organic, slightly imperfect curve -->
+  <path d="M20 8 C12 10, 8 18, 10 26 C12 34, 20 38, 28 36 C22 34, 18 28, 18 22 C18 16, 20 11, 24 8 C22.5 7.5, 21 7.8, 20 8Z" />
+  <!-- Star 1 (top right) -->
+  <path class="accent" d="M34 10 L35.5 13 L34 16 L32.5 13Z"
+        fill="currentColor" stroke="none" opacity="0.35" />
+  <!-- Star 2 (right) -->
+  <path class="accent" d="M38 20 L39.2 22.5 L38 25 L36.8 22.5Z"
+        fill="currentColor" stroke="none" opacity="0.25" />
+  <!-- Star 3 (middle right) -->
+  <path class="accent" d="M32 17 L33 19 L32 21 L31 19Z"
+        fill="currentColor" stroke="none" opacity="0.3" />
+  <!-- Soft twinkle lines around stars -->
+  <line x1="34" y1="8" x2="34" y2="6" opacity="0.5" />
+  <line x1="36.5" y1="10" x2="38" y2="9" opacity="0.5" />
+  <line x1="40" y1="20" x2="42" y2="19.5" opacity="0.4" />
+  <!-- Gentle cloud/pillow shape at bottom -->
+  <path d="M10 38 C10 36, 14 34, 18 35 C20 33, 24 33, 26 35 C28 34, 32 34, 34 36 C36 37, 36 39, 34 40 L10 40 C8 39, 8 37, 10 38Z" opacity="0.5" />
+</svg>

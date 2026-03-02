@@ -12,15 +12,22 @@
   border-top: none;
   box-shadow: none;
 
-  /* Darker/Tinted Background for Contrast - Increased transparency for more visibility */
-  background: var(--md-sys-color-surface-container); 
+  /* Warmer/Lighter Background for "Bilimsel Sıcaklık" color balance */
+  background: var(--md-sys-color-surface-container-low);
   overflow: hidden;
+
+  --doctor-bio-photo-max-width: calc(var(--md-sys-spacing-28) * 4);
+  --doctor-bio-photo-lift: var(--md-sys-spacing-1);
+  --doctor-bio-photo-scale-hover: 1.06;
+  --doctor-bio-qualification-gap: var(--md-sys-spacing-6);
+  --doctor-bio-action-height: var(--md-sys-touch-target-expanded);
+  --doctor-bio-grid-gap-mobile: var(--md-sys-spacing-12);
 
   /* AURORA BACKGROUND - Adjusted for colored base */
   background-image: 
-    radial-gradient(at 0% 50%, rgba(var(--md-sys-color-primary-rgb), 0.08) 0px, transparent 60%),
-    radial-gradient(at 90% 10%, rgba(var(--md-sys-color-secondary-rgb), 0.08) 0px, transparent 60%),
-    radial-gradient(at 50% 90%, rgba(var(--md-sys-color-tertiary-rgb), 0.05) 0px, transparent 60%);
+    radial-gradient(at 0% 50%, color-mix(in oklch, var(--md-sys-color-primary) 8%, transparent) 0px, transparent 60%),
+    radial-gradient(at 90% 10%, color-mix(in oklch, var(--md-sys-color-secondary) 14%, transparent) 0px, transparent 60%),
+    radial-gradient(at 50% 90%, color-mix(in oklch, var(--md-sys-color-tertiary) 5%, transparent) 0px, transparent 60%);
 }
 
 .container {
@@ -54,35 +61,35 @@
 .photo-card {
   position: relative;
   width: 100%;
-  max-width: 450px;
+  max-width: var(--doctor-bio-photo-max-width);
 }
 
-.photo-frame {
-  position: relative;
-  border-radius: var(--md-sys-shape-corner-extra-large); /* Soft Organic Shape */
-  overflow: hidden;
-  background: var(--md-sys-color-surface);
+  .photo-frame {
+    position: relative;
+    border-radius: var(--md-sys-shape-corner-extra-large); /* Soft Organic Shape */
+    overflow: hidden;
+    background: var(--md-sys-color-surface);
   box-shadow: 
     0 24px 48px oklch(from var(--md-sys-color-shadow) l c h / 0.1),
     0 0 0 var(--md-sys-spacing-2) oklch(from var(--md-sys-color-surface) l c h / 0.5); /* Outer Translucent Ring */
     
-  transition: transform 0.5s ease;
-}
+    transition: transform var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized);
+  }
 
-.doctor-photo {
-  width: 100%;
-  height: auto;
-  display: block;
-  transform: scale(1.02); /* Slight zoom */
-  transition: transform 5s ease;
-}
+  .doctor-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1.02); /* Slight zoom */
+    transition: transform var(--md-sys-motion-duration-extra-long2) var(--md-sys-motion-easing-standard);
+  }
 
 .photo-frame:hover {
-  transform: translateY(-5px);
+  transform: translateY(calc(-1 * var(--doctor-bio-photo-lift)));
 }
 
 .photo-frame:hover .doctor-photo {
-  transform: scale(1.08);
+  transform: scale(var(--doctor-bio-photo-scale-hover));
 }
 
 /* Floating Stats Removed */
@@ -116,7 +123,7 @@
 .bio-description p {
   font-family: var(--md-sys-typescale-body-large-font);
   font-size: var(--md-sys-typescale-body-large-size);
-  line-height: 1.7;
+  line-height: calc(var(--md-sys-typescale-body-large-line-height) + var(--md-sys-spacing-1));
   color: var(--md-sys-color-on-surface-variant);
   margin-bottom: var(--md-sys-spacing-6);
 }
@@ -125,39 +132,43 @@
 .qualifications-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: var(--doctor-bio-qualification-gap);
   margin-bottom: var(--md-sys-spacing-12);
 }
 
-.qualification-card {
-  display: flex;
-  align-items: center;
-  gap: var(--md-sys-spacing-4);
-  padding: var(--md-sys-spacing-4);
-  border-radius: var(--md-sys-shape-corner-extra-large);
+  .qualification-card {
+    display: flex;
+    align-items: center;
+    gap: var(--md-sys-spacing-4);
+    padding: var(--md-sys-spacing-4);
+    border-radius: var(--md-sys-shape-corner-extra-large);
   
-  /* Subtle Surface */
-  background: rgba(var(--md-sys-color-primary-rgb), 0.03);
+  /* Subtle amber tint for "Bilimsel Sıcaklık" warmth */
+  background: color-mix(in oklch, var(--md-sys-color-secondary) 5%, transparent);
   border: 1px solid transparent;
-  transition: all 0.3s ease;
-}
+    transition:
+      background-color var(--md-sys-transition-standard),
+      border-color var(--md-sys-transition-standard),
+      box-shadow var(--md-sys-transition-standard),
+      transform var(--md-sys-transition-standard);
+  }
 
 .qualification-card:hover {
   background: var(--md-sys-color-surface);
   box-shadow: 0 8px 20px oklch(from var(--md-sys-color-shadow) l c h / 0.05);
-  border-color: rgba(var(--md-sys-color-primary-rgb), 0.2);
+  border-color: color-mix(in oklch, var(--md-sys-color-secondary) 30%, transparent);
   transform: translateY(-2px);
 }
 
 .qual-icon {
-  width: 48px;
-  height: 48px;
+  width: var(--md-sys-touch-target-min);
+  height: var(--md-sys-touch-target-min);
   border-radius: var(--md-sys-shape-corner-large);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--md-sys-color-on-primary);
-  font-size: 24px; // Icon standard
+  font-size: var(--md-icon-size-md);
   background: var(--md-sys-color-primary); /* Default */
   flex-shrink: 0;
 }
@@ -198,42 +209,52 @@
   gap: var(--md-sys-spacing-4);
 }
 
-.btn-primary, .btn-secondary {
-  height: 56px;
-  padding: 0 var(--md-sys-spacing-8);
-  border-radius: var(--md-sys-shape-corner-full);
-  font-weight: 700;
-  font-size: var(--md-sys-typescale-label-large-size);
+  .btn-primary, .btn-secondary {
+    min-height: var(--doctor-bio-action-height);
+    padding: 0 var(--md-sys-spacing-8);
+    border-radius: var(--md-sys-shape-corner-full);
+    font-weight: 700;
+    font-size: var(--md-sys-typescale-label-large-size);
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--md-sys-spacing-2);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
+    justify-content: center;
+    gap: var(--md-sys-spacing-2);
+    text-decoration: none;
+    transition: all var(--md-sys-transition-emphasized);
+    cursor: pointer;
+  }
 
 .btn-primary {
   background: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
-  box-shadow: 0 8px 20px rgba(var(--md-sys-color-primary-rgb), 0.3);
+  box-shadow: 0 8px 20px oklch(from var(--md-sys-color-primary) l c h / 0.3);
+  @include state-layer(var(--md-sys-color-on-primary));
+  @include ripple-effect(var(--md-sys-color-on-primary));
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(var(--md-sys-color-primary-rgb), 0.4);
+  box-shadow: 0 12px 28px oklch(from var(--md-sys-color-primary) l c h / 0.4);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--md-sys-color-primary);
-  border: 2px solid rgba(var(--md-sys-color-primary-rgb), 0.2);
+  border: var(--md-sys-spacing-0-5) solid color-mix(in oklch, var(--md-sys-color-primary) 20%, transparent);
+  @include state-layer(var(--md-sys-color-primary));
+  @include ripple-effect(var(--md-sys-color-primary));
 }
 
-.btn-secondary:hover {
-  border-color: var(--md-sys-color-primary);
-  background: rgba(var(--md-sys-color-primary-rgb), 0.05);
-}
+  .btn-secondary:hover {
+    border-color: var(--md-sys-color-primary);
+    background: color-mix(in oklch, var(--md-sys-color-primary) 5%, transparent);
+  }
+
+  .btn-primary:focus-visible,
+  .btn-secondary:focus-visible {
+    outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
+    outline-offset: var(--md-sys-state-focus-ring-offset);
+  }
 
 /* DECORATION BLOBS (AURORA) */
 .bg-decoration {
@@ -245,7 +266,7 @@
   .bio-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 48px;
+    gap: var(--doctor-bio-grid-gap-mobile);
   }
   
   .photo-column {
@@ -259,7 +280,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 32px;
+    margin-top: var(--md-sys-spacing-8);
     width: 100%;
   }
   
@@ -283,5 +304,26 @@
   
   .btn-primary, .btn-secondary {
     width: 100%;
+  }
+}
+
+@include reduced-motion {
+  .photo-frame,
+  .doctor-photo,
+  .qualification-card,
+  .btn-primary,
+  .btn-secondary {
+    transition: none;
+  }
+
+  .photo-frame:hover,
+  .qualification-card:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none;
+  }
+
+  .photo-frame:hover .doctor-photo {
+    transform: none;
   }
 }
