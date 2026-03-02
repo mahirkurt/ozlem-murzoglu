@@ -168,7 +168,15 @@
       "NEW_BEGINNING": "New Beginning",
       "NEW_BEGINNING_TEXT": "As an admired professor of mine said, 'To be a good doctor, enough patients and the right books are sufficient.' In July 2022, I left my work-school Marmara University Pendik Training and Research Hospital, where I had the opportunity to verify this experience.",
       "NEW_BEGINNING_TEXT2": "It was time to practice pediatrics with evidence-based, scientific data, with the facilities, time, and proximity to do so.",
-      "NEW_BEGINNING_TEXT3": "I am starting a new journey with the support of my husband, daughter, mother, extended family, and my dear friends. From now on, I will welcome my children in my own clinic and enjoy being amazed by them every day despite my years of experience with children."
+      "NEW_BEGINNING_TEXT3": "I am starting a new journey with the support of my husband, daughter, mother, extended family, and my dear friends. From now on, I will welcome my children in my own clinic and enjoy being amazed by them every day despite my years of experience with children.",
+      "INTRO_WARM": "Hello! I'm Dr. Özlem Murzoğlu. With over 15 years of pediatric experience, I provide scientific and compassionate care for your children in Ataşehir, Istanbul.",
+      "TIMELINE_TITLE": "My Journey",
+      "TIMELINE_ROOTS_YEAR": "Childhood",
+      "TIMELINE_EDUCATION_YEAR": "2007",
+      "TIMELINE_FAMILY_YEAR": "2008",
+      "TIMELINE_PEDIATRICS_YEAR": "2011",
+      "TIMELINE_HEALTHY_CHILD_YEAR": "2014",
+      "TIMELINE_NEW_BEGINNING_YEAR": "2022"
     },
     "AUG": "Aug",
     "PRESENT": "Present",
@@ -220,7 +228,8 @@
     "LEARN_MORE_CTA": "Click to learn more about Dr. Ozlem Murzoglu",
     "CONSULTATION_CTA_TITLE": "Book a Consultation",
     "CONSULTATION_CTA_DESC": "With 15+ years of experience, I'm here for your child's health, development, and education. Book an appointment today.",
-    "PHILOSOPHY_QUOTE": "I blend my expertise in Social Pediatrics and Child Development not only with clinical data, but also with compassion, love, and deep understanding. Because I believe true healing begins when you embrace the child and family as a whole."
+    "PHILOSOPHY_QUOTE": "I blend my expertise in Social Pediatrics and Child Development not only with clinical data, but also with compassion, love, and deep understanding. Because I believe true healing begins when you embrace the child and family as a whole.",
+    "SIGNATURE": "Dr. Özlem Murzoğlu"
   },
   "SERVICES": {
     "PAGE_TITLE": "Our Services",
@@ -1857,6 +1866,14 @@
       "NEW_BEGINNING_TEXT": "As a professor I admire said, 'Enough patients and the right books are enough to be a good doctor' - I left Marmara University Pendik Training and Research Hospital, my work-school where I had the opportunity to confirm this experience, in July 2022.",
       "NEW_BEGINNING_TEXT2": "It was time to practice pediatrics with evidence-based, scientific data, with the facilities, time, and proximity to do so.",
       "NEW_BEGINNING_TEXT3": "I am starting a new journey with the support of my husband, daughter, mother, extended family, and my dear friends. From now on, I will welcome my children in my own clinic and enjoy being amazed by them every day despite my years of experience with children.",
+      "INTRO_WARM": "Hello! I'm Dr. Özlem Murzoğlu. With over 15 years of pediatric experience, I provide scientific and compassionate care for your children in Ataşehir, Istanbul.",
+      "TIMELINE_TITLE": "My Journey",
+      "TIMELINE_ROOTS_YEAR": "Childhood",
+      "TIMELINE_EDUCATION_YEAR": "2007",
+      "TIMELINE_FAMILY_YEAR": "2008",
+      "TIMELINE_PEDIATRICS_YEAR": "2011",
+      "TIMELINE_HEALTHY_CHILD_YEAR": "2014",
+      "TIMELINE_NEW_BEGINNING_YEAR": "2022",
       "SERVICE_AREAS": "My Service Areas",
       "SERVICE_1": "Healthy Child Follow-up",
       "SERVICE_1_DESC": "Regular development control and monitoring",
