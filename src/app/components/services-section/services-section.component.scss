@@ -152,8 +152,8 @@
 /* SVG Icon Wrapper */
 .service-icon-wrapper {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: var(--md-sys-touch-target-min);
+  height: var(--md-sys-touch-target-min);
   color: var(--service-accent-color, var(--md-sys-color-primary));
 }
 
@@ -199,7 +199,7 @@
 }
 
 .service-description {
-  font-family: var(--md-sys-typescale-body-large-font);
+  font-family: var(--md-sys-typescale-body-medium-font);
   font-size: var(--md-sys-typescale-body-medium-size);
   font-weight: var(--md-sys-typescale-body-medium-weight);
   letter-spacing: var(--md-sys-typescale-body-medium-tracking);
@@ -287,9 +287,3 @@
   }
 }
 
-/* Fallback for older browsers without backdrop-filter */
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .service-card {
-    background: var(--md-sys-color-surface-container);
-  }
-}

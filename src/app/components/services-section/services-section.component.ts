@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -14,13 +13,11 @@ interface Service {
 @Component({
   selector: 'app-services-section',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslateModule],
+  imports: [RouterModule, TranslateModule],
   templateUrl: './services-section.component.html',
   styleUrl: './services-section.component.scss'
 })
 export class ServicesSectionComponent {
-  @Input() locale: string = 'tr';
-
   services: Service[] = [
     {
       key: 'bright-futures',

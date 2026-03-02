@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LiquidHeroComponent } from '../../components/liquid-hero/liquid-hero';
 import { ServicesSectionComponent } from '../../components/services-section/services-section.component';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
@@ -15,7 +14,6 @@ import { SeoService } from '../../services/seo.service';
   selector: 'app-home',
   standalone: true,
   imports: [
-    TranslateModule,
     LiquidHeroComponent,
     ServicesSectionComponent,
     ScrollRevealDirective,
@@ -29,15 +27,7 @@ import { SeoService } from '../../services/seo.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-  private translate = inject(TranslateService);
   private seo = inject(SeoService);
-  locale = 'tr';
-
-  constructor() {
-    this.translate.onLangChange.subscribe((event) => {
-      this.locale = event.lang;
-    });
-  }
 
   ngOnInit(): void {
     this.seo.updateTags({
