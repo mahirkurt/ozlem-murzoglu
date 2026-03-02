@@ -1,7 +1,7 @@
 /* Contact Page Styles */
 .contact-page {
   min-height: 100vh;
-  background: #f8fafb;
+  background: var(--md-sys-color-surface-container-lowest);
 }
 
 /* Container */
@@ -17,7 +17,7 @@
 /* Contact Content */
 .contact-content {
   padding: var(--md-sys-spacing-20) 0;
-  background: white;
+  background: var(--md-sys-color-surface);
 }
 
 .content-header {
@@ -50,9 +50,10 @@
 
 /* Contact Form */
 .contact-form-wrapper {
-  background: #f8fafb;
+  background: var(--md-sys-color-surface-container-lowest);
   border-radius: var(--md-sys-shape-corner-extra-large);
   padding: 2.5rem;
+  transition: box-shadow 0.3s ease;
 }
 
 .contact-form {
@@ -81,30 +82,36 @@
 }
 
 .required {
-  color: #EE6123;
+  color: var(--md-sys-color-tertiary);
 }
 
 .form-group input,
 .form-group textarea {
   padding: 0.875rem 1rem;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--md-sys-color-outline-variant);
   border-radius: var(--md-sys-shape-corner-medium);
   font-family: var(--md-sys-typescale-font-plain);
   font-size: 1rem;
   transition: all 0.3s ease;
-  background: white;
+  background: var(--md-sys-color-surface);
+}
+
+.form-group:focus-within {
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--md-sys-color-primary) 20%, transparent);
+  border-radius: var(--md-sys-shape-corner-medium);
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
+.form-group textarea:focus,
+.form-group select:focus {
   border-color: var(--md-sys-color-primary);
-  box-shadow: 0 0 0 3px rgba(var(--md-sys-color-primary-rgb), 0.1);
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in oklch, var(--md-sys-color-primary) 15%, transparent);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #999;
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 .form-group textarea {
@@ -119,7 +126,7 @@
   gap: 0.75rem;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary) 100%);
-  color: white;
+  color: var(--md-sys-color-on-primary);
   border: none;
   border-radius: 50px;
   font-family: var(--md-sys-typescale-font-plain);
@@ -132,7 +139,7 @@
 
 .submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(var(--md-sys-color-primary-rgb), 0.3);
+  box-shadow: 0 10px 30px color-mix(in oklch, var(--md-sys-color-primary) 30%, transparent);
 }
 
 .submit-btn:disabled {
@@ -149,10 +156,11 @@
 
 /* Info Cards */
 .info-card {
-  background: white;
+  background: var(--md-sys-color-surface);
   border-radius: var(--md-sys-shape-corner-large);
   padding: 2rem;
-  box-shadow: 0 10px 30px rgba(var(--md-sys-color-shadow), 0.08);
+  box-shadow: 0 10px 30px oklch(from var(--md-sys-color-shadow) l c h / 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-title {
@@ -176,7 +184,7 @@
 .info-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, rgba(var(--md-sys-color-primary-rgb), 0.1) 0%, rgba(10, 147, 150, 0.1) 100%);
+  background: linear-gradient(135deg, color-mix(in oklch, var(--md-sys-color-primary) 10%, transparent) 0%, color-mix(in oklch, var(--md-sys-color-primary) 10%, transparent) 100%);
   border-radius: var(--md-sys-shape-corner-medium);
   display: flex;
   align-items: center;
@@ -227,8 +235,11 @@
   display: flex;
   justify-content: space-between;
   padding: 0.75rem;
-  background: #f8fafb;
+  padding-left: 12px;
+  background: var(--md-sys-color-surface-container-lowest);
   border-radius: var(--md-sys-shape-corner-medium);
+  border-left: 3px solid var(--md-sys-color-secondary);
+  transition: background 0.3s ease;
 }
 
 .day {
@@ -262,30 +273,30 @@
 }
 
 .action-btn.primary {
-  background: linear-gradient(135deg, #EE6123 0%, var(--md-sys-color-secondary) 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--md-sys-color-tertiary) 0%, var(--md-sys-color-secondary) 100%);
+  color: var(--md-sys-color-on-primary);
 }
 
 .action-btn.primary:hover {
   transform: translateX(4px);
-  box-shadow: 0 5px 20px rgba(238, 97, 35, 0.3);
+  box-shadow: 0 5px 20px color-mix(in oklch, var(--md-sys-color-tertiary) 30%, transparent);
 }
 
 .action-btn.secondary {
-  background: #f8fafb;
+  background: var(--md-sys-color-surface-container-lowest);
   color: var(--md-sys-color-primary);
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--md-sys-color-outline-variant);
 }
 
 .action-btn.secondary:hover {
-  background: white;
+  background: var(--md-sys-color-surface);
   border-color: var(--md-sys-color-primary);
 }
 
 /* Transportation & Location Section - MD3 Design */
 .transportation-location-section {
   padding: var(--md-sys-spacing-20) 0;
-  background: linear-gradient(135deg, #f8fafb 0%, #f0f9ff 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-surface-container-lowest) 0%, var(--md-sys-color-surface-container-low) 100%);
 }
 
 .section-layout {
@@ -328,18 +339,18 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: white;
+  background: var(--md-sys-color-surface);
   border-radius: var(--md-sys-shape-corner-large);
   padding: 1.25rem;
-  box-shadow: 0 2px 12px rgba(var(--md-sys-color-shadow), 0.08);
-  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.08);
+  box-shadow: 0 2px 12px oklch(from var(--md-sys-color-shadow) l c h / 0.08);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 8%, transparent);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .transport-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(var(--md-sys-color-shadow), 0.12);
-  border-color: rgba(var(--md-sys-color-primary-rgb), 0.2);
+  box-shadow: 0 4px 20px oklch(from var(--md-sys-color-shadow) l c h / 0.12);
+  border-color: color-mix(in oklch, var(--md-sys-color-primary) 20%, transparent);
 }
 
 .transport-icon-wrapper {
@@ -350,8 +361,8 @@
 .metro-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--md-sys-color-error) 0%, var(--md-sys-color-error) 100%);
+  color: var(--md-sys-color-on-error);
   border-radius: var(--md-sys-shape-corner-full);
   display: flex;
   align-items: center;
@@ -359,7 +370,7 @@
   font-family: var(--md-sys-typescale-font-brand);
   font-weight: 700;
   font-size: 1.25rem;
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--md-sys-color-error) 30%, transparent);
 }
 
 /* Bus Icon */
@@ -369,32 +380,32 @@
   padding: var(--md-sys-spacing-3);
   background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary) 100%);
   border-radius: var(--md-sys-shape-corner-medium);
-  color: white;
+  color: var(--md-sys-color-on-primary);
 }
 
 .transport-details h4 {
   font-family: var(--md-sys-typescale-font-brand);
   font-size: 1.125rem;
   font-weight: 600;
-  color: #1F2937;
+  color: var(--md-sys-color-on-surface);
   margin: 0 0 0.25rem 0;
 }
 
 .transport-details p {
   font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.9rem;
-  color: #6B7280;
+  color: var(--md-sys-color-on-surface-variant);
   margin: 0;
   line-height: 1.5;
 }
 
 /* Parking Compact */
 .parking-compact {
-  background: white;
+  background: var(--md-sys-color-surface);
   border-radius: var(--md-sys-shape-corner-large);
   padding: 2rem;
-  box-shadow: 0 4px 16px rgba(var(--md-sys-color-shadow), 0.08);
-  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.06);
+  box-shadow: 0 4px 16px oklch(from var(--md-sys-color-shadow) l c h / 0.08);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 6%, transparent);
 }
 
 .parking-list {
@@ -405,7 +416,7 @@
 
 .parking-item {
   padding: 1.25rem;
-  background: #f8fafb;
+  background: var(--md-sys-color-surface-container-lowest);
   border-radius: var(--md-sys-shape-corner-medium);
   border-left: 4px solid var(--md-sys-color-primary);
 }
@@ -421,15 +432,15 @@
   font-family: var(--md-sys-typescale-font-brand);
   font-size: 1rem;
   font-weight: 600;
-  color: #1F2937;
+  color: var(--md-sys-color-on-surface);
   margin: 0;
 }
 
 .parking-badge {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--md-sys-color-success) 0%, var(--md-sys-color-success) 100%);
+  color: var(--md-sys-color-on-success);
   border-radius: var(--md-sys-shape-corner-large);
   font-family: var(--md-sys-typescale-font-plain);
   font-weight: 600;
@@ -439,7 +450,7 @@
 .parking-desc {
   font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.9rem;
-  color: #6B7280;
+  color: var(--md-sys-color-on-surface-variant);
   margin: 0;
   line-height: 1.5;
 }
@@ -447,11 +458,11 @@
 
 /* Direction Links */
 .direction-links {
-  background: white;
+  background: var(--md-sys-color-surface);
   border-radius: var(--md-sys-shape-corner-large);
   padding: 2rem;
-  box-shadow: 0 4px 16px rgba(var(--md-sys-color-shadow), 0.08);
-  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.06);
+  box-shadow: 0 4px 16px oklch(from var(--md-sys-color-shadow) l c h / 0.08);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 6%, transparent);
 }
 
 .map-buttons {
@@ -474,25 +485,26 @@
 }
 
 .map-btn.google {
-  background: #4285F4;
-  color: white;
+  background: var(--md-sys-color-info);
+  color: var(--md-sys-color-on-info);
 }
 
 .map-btn.google:hover {
-  background: #357AE8;
+  background: var(--md-sys-color-info);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--md-sys-color-info) 30%, transparent);
+  filter: brightness(0.95);
 }
 
 .map-btn.apple {
-  background: #000;
-  color: white;
+  background: var(--md-sys-color-on-surface);
+  color: var(--md-sys-color-surface);
 }
 
 .map-btn.apple:hover {
   background: var(--md-sys-color-on-surface);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(var(--md-sys-color-shadow), 0.3);
+  box-shadow: 0 4px 12px oklch(from var(--md-sys-color-shadow) l c h / 0.3);
 }
 
 /* Location Panel */
@@ -504,21 +516,21 @@
 
 /* Map Container Compact */
 .map-container-compact {
-  background: white;
+  background: var(--md-sys-color-surface);
   border-radius: var(--md-sys-shape-corner-large);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(var(--md-sys-color-shadow), 0.08);
-  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.06);
+  box-shadow: 0 4px 20px oklch(from var(--md-sys-color-shadow) l c h / 0.08);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 6%, transparent);
 }
 
 /* WhatsApp QR Compact */
 .whatsapp-qr-compact {
-  background: white;
+  background: var(--md-sys-color-surface);
   border-radius: var(--md-sys-shape-corner-large);
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 4px 16px rgba(var(--md-sys-color-shadow), 0.08);
-  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.06);
+  box-shadow: 0 4px 16px oklch(from var(--md-sys-color-shadow) l c h / 0.08);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 6%, transparent);
 }
 
 .qr-header {
@@ -536,7 +548,7 @@
 .qr-header span {
   font-family: var(--md-sys-typescale-font-brand);
   font-weight: 600;
-  color: #1F2937;
+  color: var(--md-sys-color-on-surface);
   font-size: 1.125rem;
 }
 
@@ -549,13 +561,13 @@
 
 .qr-code img {
   border-radius: var(--md-sys-shape-corner-medium);
-  box-shadow: 0 2px 8px rgba(var(--md-sys-color-shadow), 0.1);
+  box-shadow: 0 2px 8px oklch(from var(--md-sys-color-shadow) l c h / 0.1);
 }
 
 .qr-text {
   font-family: var(--md-sys-typescale-font-plain);
   font-size: 0.85rem;
-  color: #6B7280;
+  color: var(--md-sys-color-on-surface-variant);
   margin: 0;
   max-width: 200px;
   line-height: 1.4;
@@ -640,5 +652,29 @@
   
   .bus-icon {
     padding: var(--md-sys-spacing-2);
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .contact-form-wrapper,
+  .info-card,
+  .hours-card,
+  .transport-item,
+  .action-btn,
+  .map-btn,
+  .submit-btn {
+    transition: none;
+  }
+
+  .service-card:hover,
+  .info-card:hover,
+  .transport-item:hover,
+  .submit-btn:hover:not(:disabled),
+  .map-btn.google:hover,
+  .map-btn.apple:hover,
+  .action-btn.primary:hover {
+    transform: none;
   }
 }
