@@ -43,7 +43,7 @@ export class WhoBuyumeEgrileriCategoryComponent implements OnInit {
     this.http.get<ResourceIndex>('/assets/resources/resources-index.json').subscribe({
       next: (index) => {
         const category = index.categories[this.categorySlug];
-        this.categoryTitle = category?.title || 'WHO Büyüme Eğrileri';
+        this.categoryTitle = category?.title || this.translate.instant('RESOURCES.CATEGORIES.WHO_GROWTH');
         this.docs = category?.documents || [];
         this.breadcrumbs = [
           { translateKey: 'RESOURCES.HOME_BREADCRUMB', url: '/' },

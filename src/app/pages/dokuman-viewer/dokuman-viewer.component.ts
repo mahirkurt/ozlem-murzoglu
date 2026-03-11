@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DocumentService, Document, DocumentCategory } from '../../services/document.service';
@@ -10,7 +11,7 @@ import { DocumentService, Document, DocumentCategory } from '../../services/docu
 @Component({
   selector: 'app-dokuman-viewer',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './dokuman-viewer.component.html',
   styleUrls: ['./dokuman-viewer.component.css']
 })
@@ -29,12 +30,14 @@ export class DokumanViewerComponent implements OnInit, OnDestroy {
   Math = Math; // Expose Math to template
   
   private destroy$ = new Subject<void>();
+  private readonly fullscreenChangeHandler = () => this.onFullscreenChange();
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private documentService: DocumentService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +48,7 @@ export class DokumanViewerComponent implements OnInit, OnDestroy {
     
     // Listen for fullscreen changes
     if (typeof document !== 'undefined') {
-      document.addEventListener('fullscreenchange', this.onFullscreenChange.bind(this));
+      document.addEventListener('fullscreenchange', this.fullscreenChangeHandler);
     }
     
     this.route.paramMap
@@ -60,7 +63,7 @@ export class DokumanViewerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (typeof document !== 'undefined') {
-      document.removeEventListener('fullscreenchange', this.onFullscreenChange.bind(this));
+      document.removeEventListener('fullscreenchange', this.fullscreenChangeHandler);
     }
     this.destroy$.next();
     this.destroy$.complete();
@@ -74,7 +77,7 @@ export class DokumanViewerComponent implements OnInit, OnDestroy {
       this.loadRelatedDocuments();
       this.error = null;
     } else {
-      this.error = 'Aradığınız dokuman bulunamadı veya kaldırılmış olabilir.';
+      this.error = this.translate.instant('FAVORITES.ERRORS.DOCUMENT_NOT_FOUND_DESC');
     }
   }
 

@@ -1,60 +1,28 @@
 /* Document Viewer Container */
 .document-viewer-container {
   min-height: 100vh;
-  background: var(--surface);
+  background: var(--md-sys-color-surface);
   padding-top: 80px;
 }
 
-/* Breadcrumb */
-.breadcrumb {
+/* Breadcrumb shell (visual token styles come from global .md3-page-breadcrumbs) */
+.breadcrumbs {
+  display: flex;
+  justify-content: center;
   padding: 1.5rem 3rem;
-  background: var(--surface-container-low);
-  border-bottom: 1px solid var(--outline-variant);
-}
-
-.breadcrumb-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  max-width: 1600px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
-.breadcrumb-item {
-  display: flex;
-  align-items: center;
-}
-
-.breadcrumb-link {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.breadcrumb-link:hover {
-  color: var(--primary-variant, var(--primary));
-  text-decoration: underline;
-}
-
-.breadcrumb-item.current span {
-  color: var(--on-surface);
-  font-weight: 600;
-}
-
-.breadcrumb-separator {
-  margin: 0 0.5rem;
-  color: var(--on-surface-variant);
+  background: var(--md-sys-color-surface-container-low);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
 }
 
 /* Document Header */
 .document-header {
   padding: 3rem;
-  background: linear-gradient(135deg, var(--primary-container) 0%, var(--surface) 100%);
-  border-bottom: 1px solid var(--outline-variant);
+  background: linear-gradient(
+    135deg,
+    var(--md-sys-color-primary-container) 0%,
+    var(--md-sys-color-surface-container-low) 100%
+  );
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
 }
 
 .header-content {
@@ -84,13 +52,13 @@
 }
 
 .document-icon-large.pdf {
-  background: #DC2626;
-  color: white;
+  background: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
 }
 
 .document-icon-large.docx {
-  background: #2563EB;
-  color: white;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
 }
 
 .document-icon-large .material-icons-rounded {
@@ -104,14 +72,14 @@
 .document-title {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--on-surface);
+  color: var(--md-sys-color-on-surface);
   margin: 0 0 0.75rem 0;
   line-height: 1.3;
 }
 
 .document-description {
   font-size: 1rem;
-  color: var(--on-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
   line-height: 1.6;
   margin: 0 0 1rem 0;
 }
@@ -130,22 +98,22 @@
 
 .meta-label {
   font-size: 0.875rem;
-  color: var(--on-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
   font-weight: 500;
 }
 
 .meta-value {
   font-size: 0.875rem;
-  color: var(--on-surface);
+  color: var(--md-sys-color-on-surface);
   font-weight: 600;
 }
 
 .meta-value.file-type.pdf {
-  color: #DC2626;
+  color: var(--md-sys-color-error);
 }
 
 .meta-value.file-type.docx {
-  color: #2563EB;
+  color: var(--md-sys-color-secondary);
 }
 
 .document-actions {
@@ -162,32 +130,37 @@
   border-radius: var(--md-sys-shape-corner-extra-large);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    background-color var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease),
+    border-color var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease),
+    color var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease),
+    transform var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease),
+    box-shadow var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease);
   border: none;
   font-size: 0.875rem;
   white-space: nowrap;
 }
 
 .action-btn.primary {
-  background: var(--primary);
-  color: var(--on-primary);
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
 }
 
 .action-btn.primary:hover {
-  background: var(--primary-variant, var(--primary));
+  background: color-mix(in srgb, var(--md-sys-color-primary) 88%, var(--md-sys-color-on-primary));
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .action-btn.secondary {
-  background: var(--surface);
-  color: var(--on-surface);
-  border: 1px solid var(--outline);
+  background: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid var(--md-sys-color-outline);
 }
 
 .action-btn.secondary:hover {
-  background: var(--surface-variant);
-  border-color: var(--outline-variant);
+  background: var(--md-sys-color-surface-container-high);
+  border-color: var(--md-sys-color-outline-variant);
 }
 
 .action-btn .material-icons-rounded {
@@ -210,17 +183,17 @@
 
 /* Document Viewer */
 .document-viewer {
-  background: var(--surface);
+  background: var(--md-sys-color-surface-container-low);
   border-radius: var(--md-sys-shape-corner-large);
   overflow: hidden;
-  border: 1px solid var(--outline-variant);
+  border: 1px solid var(--md-sys-color-outline-variant);
 }
 
 /* PDF Viewer */
 .viewer-controls {
   padding: 1rem;
-  background: var(--surface-container);
-  border-bottom: 1px solid var(--outline-variant);
+  background: var(--md-sys-color-surface-container);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -236,17 +209,19 @@
 
 .zoom-btn {
   background: none;
-  border: 1px solid var(--outline);
+  border: 1px solid var(--md-sys-color-outline);
   border-radius: var(--md-sys-shape-corner-small);
   padding: 0.5rem;
   cursor: pointer;
-  color: var(--on-surface);
-  transition: all 0.2s ease;
+  color: var(--md-sys-color-on-surface);
+  transition:
+    background-color var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease),
+    border-color var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease);
 }
 
 .zoom-btn:hover:not(:disabled) {
-  background: var(--surface-variant);
-  border-color: var(--outline-variant);
+  background: var(--md-sys-color-surface-container-high);
+  border-color: var(--md-sys-color-outline-variant);
 }
 
 .zoom-btn:disabled {
@@ -261,19 +236,19 @@
 .zoom-level {
   padding: 0.5rem 1rem;
   font-weight: 600;
-  color: var(--on-surface);
+  color: var(--md-sys-color-on-surface);
   min-width: 60px;
   text-align: center;
 }
 
 .fullscreen-control .fullscreen-btn {
-  background: var(--primary-container);
-  color: var(--on-primary-container);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
   border: none;
   border-radius: var(--md-sys-shape-corner-small);
   padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -282,7 +257,7 @@
 }
 
 .fullscreen-btn:hover {
-  background: var(--primary-container-hover, var(--primary-container));
+  background: color-mix(in srgb, var(--md-sys-color-primary-container) 86%, var(--md-sys-color-on-primary-container));
 }
 
 .pdf-embed-container {
@@ -292,7 +267,7 @@
   overflow: auto;
   background: var(--md-sys-color-surface-container);
   border-radius: var(--md-sys-shape-corner-medium);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .pdf-embed {
@@ -320,7 +295,7 @@
   width: 80px;
   height: 80px;
   margin: 0 auto 1.5rem;
-  background: var(--error-container);
+  background: var(--md-sys-color-error-container);
   border-radius: var(--md-sys-shape-corner-full);
   display: flex;
   align-items: center;
@@ -329,26 +304,26 @@
 
 .fallback-icon .material-icons-rounded {
   font-size: 40px;
-  color: var(--on-error-container);
+  color: var(--md-sys-color-on-error-container);
 }
 
 .fallback-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--on-surface);
+  color: var(--md-sys-color-on-surface);
   margin: 0 0 1rem 0;
 }
 
 .fallback-description {
   font-size: 1rem;
-  color: var(--on-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
   line-height: 1.6;
   margin: 0 0 2rem 0;
 }
 
 .fallback-download-btn {
-  background: var(--primary);
-  color: var(--on-primary);
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
   border: none;
   border-radius: var(--md-sys-shape-corner-extra-large);
   padding: 0.75rem 2rem;
@@ -358,11 +333,14 @@
   align-items: center;
   gap: 0.5rem;
   margin: 0 auto;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease),
+    box-shadow var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease);
 }
 
 .fallback-download-btn:hover {
-  background: var(--primary-variant, var(--primary));
+  background: color-mix(in srgb, var(--md-sys-color-primary) 88%, var(--md-sys-color-on-primary));
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 /* DOCX Viewer */
@@ -371,8 +349,8 @@
 }
 
 .docx-preview-notice {
-  background: var(--warning-container);
-  color: var(--on-warning-container);
+  background: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-on-tertiary-container);
   border-radius: var(--md-sys-shape-corner-medium);
   padding: 1.5rem;
   margin-bottom: 2rem;
@@ -410,8 +388,8 @@
 }
 
 .notice-download-btn {
-  background: var(--on-warning-container);
-  color: var(--warning-container);
+  background: var(--md-sys-color-on-tertiary-container);
+  color: var(--md-sys-color-tertiary-container);
   border: none;
   border-radius: var(--md-sys-shape-corner-large);
   padding: 0.5rem 1rem;
@@ -422,15 +400,18 @@
   gap: 0.5rem;
   font-size: 0.875rem;
   white-space: nowrap;
-  transition: opacity 0.2s ease;
+  transition:
+    opacity var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease),
+    box-shadow var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease);
 }
 
 .notice-download-btn:hover {
-  opacity: 0.8;
+  opacity: 0.9;
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .docx-preview-placeholder {
-  background: var(--surface-variant);
+  background: var(--md-sys-color-surface-container-high);
   border-radius: var(--md-sys-shape-corner-medium);
   padding: 3rem 2rem;
   text-align: center;
@@ -440,7 +421,7 @@
   width: 80px;
   height: 80px;
   margin: 0 auto 1.5rem;
-  background: var(--primary-container);
+  background: var(--md-sys-color-primary-container);
   border-radius: var(--md-sys-shape-corner-large);
   display: flex;
   align-items: center;
@@ -449,19 +430,19 @@
 
 .document-icon-preview .material-icons-rounded {
   font-size: 40px;
-  color: var(--on-primary-container);
+  color: var(--md-sys-color-on-primary-container);
 }
 
 .preview-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--on-surface);
+  color: var(--md-sys-color-on-surface);
   margin: 0 0 1rem 0;
 }
 
 .preview-description {
   font-size: 1rem;
-  color: var(--on-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
   line-height: 1.6;
   margin: 0 0 1.5rem 0;
 }
@@ -475,8 +456,8 @@
 
 .info-item {
   font-size: 0.875rem;
-  color: var(--on-surface-variant);
-  background: var(--surface);
+  color: var(--md-sys-color-on-surface-variant);
+  background: var(--md-sys-color-surface-container-low);
   padding: 0.25rem 0.75rem;
   border-radius: var(--md-sys-shape-corner-medium);
 }
@@ -489,17 +470,17 @@
 }
 
 .sidebar-section {
-  background: var(--surface);
-  border: 1px solid var(--outline-variant);
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
   border-radius: var(--md-sys-shape-corner-large);
   padding: 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .sidebar-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--on-surface);
+  color: var(--md-sys-color-on-surface);
   margin: 0 0 1rem 0;
 }
 
@@ -517,7 +498,7 @@
 
 .info-label {
   font-size: 0.75rem;
-  color: var(--on-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -525,7 +506,7 @@
 
 .info-value {
   font-size: 0.875rem;
-  color: var(--on-surface);
+  color: var(--md-sys-color-on-surface);
   font-weight: 500;
   word-break: break-word;
 }
@@ -542,14 +523,21 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem;
-  background: var(--surface-variant);
+  background: var(--md-sys-color-surface-container);
   border-radius: var(--md-sys-shape-corner-medium);
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    background-color var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease),
+    border-color var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease),
+    transform var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease);
+  width: 100%;
+  text-align: left;
 }
 
 .related-doc-item:hover {
-  background: var(--surface-container-low);
+  background: var(--md-sys-color-surface-container-high);
+  border-color: var(--md-sys-color-outline-variant);
   transform: translateX(4px);
 }
 
@@ -564,13 +552,13 @@
 }
 
 .related-doc-icon.pdf {
-  background: #DC2626;
-  color: white;
+  background: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
 }
 
 .related-doc-icon.docx {
-  background: #2563EB;
-  color: white;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
 }
 
 .related-doc-icon .material-icons-rounded {
@@ -585,7 +573,7 @@
 .related-doc-title {
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--on-surface);
+  color: var(--md-sys-color-on-surface);
   margin: 0 0 0.25rem 0;
   line-height: 1.3;
   display: -webkit-box;
@@ -596,7 +584,7 @@
 
 .related-doc-type {
   font-size: 0.75rem;
-  color: var(--on-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
   margin: 0;
 }
 
@@ -612,12 +600,14 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 1rem;
-  background: var(--surface-variant);
+  background: var(--md-sys-color-surface-container);
   border: none;
   border-radius: var(--md-sys-shape-corner-medium);
   cursor: pointer;
-  transition: all 0.3s ease;
-  color: var(--on-surface);
+  transition:
+    background-color var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease),
+    transform var(--md-sys-motion-duration-short4, 180ms) var(--md-sys-motion-easing-standard, ease);
+  color: var(--md-sys-color-on-surface);
   font-size: 0.875rem;
   font-weight: 500;
   text-align: left;
@@ -625,13 +615,13 @@
 }
 
 .quick-action-btn:hover {
-  background: var(--surface-container-low);
+  background: var(--md-sys-color-surface-container-high);
   transform: translateX(4px);
 }
 
 .quick-action-btn .material-icons-rounded {
   font-size: 18px;
-  color: var(--on-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 /* Loading State */
@@ -649,8 +639,8 @@
 .spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid var(--outline-variant);
-  border-top: 3px solid var(--primary);
+  border: 3px solid var(--md-sys-color-outline-variant);
+  border-top: 3px solid var(--md-sys-color-primary);
   border-radius: var(--md-sys-shape-corner-full);
   animation: spin 1s linear infinite;
   margin: 0 auto 1rem;
@@ -662,7 +652,7 @@
 }
 
 .loading-text {
-  color: var(--on-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
   font-size: 0.875rem;
 }
 
@@ -684,7 +674,7 @@
   width: 80px;
   height: 80px;
   margin: 0 auto 2rem;
-  background: var(--error-container);
+  background: var(--md-sys-color-error-container);
   border-radius: var(--md-sys-shape-corner-full);
   display: flex;
   align-items: center;
@@ -693,19 +683,19 @@
 
 .error-icon .material-icons-rounded {
   font-size: 40px;
-  color: var(--on-error-container);
+  color: var(--md-sys-color-on-error-container);
 }
 
 .error-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--on-surface);
+  color: var(--md-sys-color-on-surface);
   margin: 0 0 1rem 0;
 }
 
 .error-description {
   font-size: 1rem;
-  color: var(--on-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
   line-height: 1.6;
   margin: 0 0 2rem 0;
 }
@@ -730,23 +720,23 @@
 }
 
 .error-btn.primary {
-  background: var(--primary);
-  color: var(--on-primary);
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
 }
 
 .error-btn.primary:hover {
-  background: var(--primary-variant, var(--primary));
+  background: color-mix(in srgb, var(--md-sys-color-primary) 88%, var(--md-sys-color-on-primary));
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 /* Fullscreen styles */
 .pdf-embed-container:fullscreen {
-  background: black;
+  background: var(--md-sys-color-surface-container-high);
 }
 
 .pdf-embed-container:fullscreen .pdf-embed {
-  background: white;
+  background: var(--md-sys-color-surface);
 }
 
 /* Responsive Design */
@@ -778,7 +768,7 @@
 }
 
 @media (max-width: 768px) {
-  .breadcrumb,
+  .breadcrumbs,
   .document-header,
   .document-content {
     padding-left: 1rem;
@@ -838,26 +828,52 @@
   }
 }
 
-/* Dark theme adaptations */
-@media (prefers-color-scheme: dark) {
-  .pdf-embed-container {
-    background: #2d2d2d;
-  }
-  
-  .action-btn.primary:hover,
-  .error-btn.primary:hover,
-  .fallback-download-btn:hover {
-    box-shadow: 0 4px 12px rgba(255,255,255,0.1);
-  }
-}
-
 /* Focus states for accessibility */
-.breadcrumb-link:focus-visible,
+.md3-breadcrumb-link:focus-visible,
 .action-btn:focus-visible,
 .zoom-btn:focus-visible,
 .fullscreen-btn:focus-visible,
 .related-doc-item:focus-visible,
 .quick-action-btn:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+  outline: var(--md-sys-state-focus-ring-width, 3px) solid var(--md-sys-color-primary);
+  outline-offset: var(--md-sys-state-focus-ring-offset, 2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action-btn,
+  .zoom-btn,
+  .fullscreen-btn,
+  .fallback-download-btn,
+  .notice-download-btn,
+  .related-doc-item,
+  .quick-action-btn,
+  .error-btn,
+  .pdf-embed {
+    transition-duration: 0ms !important;
+  }
+
+  .action-btn.primary:hover,
+  .error-btn.primary:hover,
+  .related-doc-item:hover,
+  .quick-action-btn:hover {
+    transform: none;
+  }
+
+  .spinner {
+    animation: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .action-btn,
+  .zoom-btn,
+  .fullscreen-btn,
+  .fallback-download-btn,
+  .notice-download-btn,
+  .related-doc-item,
+  .quick-action-btn,
+  .error-btn {
+    forced-color-adjust: auto;
+    border: 1px solid ButtonText;
+  }
 }

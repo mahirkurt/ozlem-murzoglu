@@ -43,7 +43,7 @@ export class AsilarCategoryComponent implements OnInit {
     this.http.get<ResourceIndex>('/assets/resources/resources-index.json').subscribe({
       next: (index) => {
         const category = index.categories[this.categorySlug];
-        this.categoryTitle = category?.title || 'Aşılar';
+        this.categoryTitle = category?.title || this.translate.instant('RESOURCES.CATEGORIES.VACCINES');
         this.docs = category?.documents || [];
         this.breadcrumbs = [
           { translateKey: 'RESOURCES.HOME_BREADCRUMB', url: '/' },

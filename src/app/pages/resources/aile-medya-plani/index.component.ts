@@ -43,7 +43,7 @@ export class AileMedyaPlaniCategoryComponent implements OnInit {
     this.http.get<ResourceIndex>('/assets/resources/resources-index.json').subscribe({
       next: (index) => {
         const category = index.categories[this.categorySlug];
-        this.categoryTitle = category?.title || 'Aile Medya Planı';
+        this.categoryTitle = category?.title || this.translate.instant('RESOURCES.CATEGORIES.MEDIA_PLAN');
         this.docs = category?.documents || [];
         this.breadcrumbs = [
           { translateKey: 'RESOURCES.HOME_BREADCRUMB', url: '/' },
