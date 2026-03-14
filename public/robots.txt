@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://saglikpetegim.com/sitemap.xml
+Sitemap: https://ozlemmurzoglu.com/sitemap.xml
 
 # Disallow admin pages
 Disallow: /admin/

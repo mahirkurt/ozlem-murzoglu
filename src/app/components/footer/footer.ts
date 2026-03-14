@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ThemeService } from '../../services/theme.service';
+import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
 
 interface SocialLink {
   platform: string;
@@ -22,16 +23,18 @@ export class Footer {
   currentYear = new Date().getFullYear();
   
   contactInfo = {
-    phone: '+90 216 688 44 83',
-    mobile: '+90 546 688 44 83',
-    whatsapp: '+90 546 688 44 83',
-    email: 'klinik@drmurzoglu.com',
+    phone: CONTACT_CONFIG.phone.display,
+    phoneHref: CONTACT_CONFIG.phone.telHref,
+    mobile: CONTACT_CONFIG.mobile.display,
+    whatsapp: CONTACT_CONFIG.mobile.display,
+    email: CONTACT_CONFIG.email.value,
+    emailHref: CONTACT_CONFIG.email.mailtoHref,
     address: {
-      street: 'Barbaros Mah. Ak Zambak Sok. No:3',
-      building: 'Uphill Towers, A Blok - Daire 30',
-      district: 'Ataşehir',
-      city: 'İstanbul',
-      zipCode: '34746'
+      street: CONTACT_CONFIG.address.street,
+      building: CONTACT_CONFIG.address.building,
+      district: CONTACT_CONFIG.address.district,
+      city: CONTACT_CONFIG.address.city,
+      zipCode: CONTACT_CONFIG.address.postalCode,
     }
   };
 
@@ -41,8 +44,8 @@ export class Footer {
     { platform: 'twitter', url: 'https://x.com/ozlemmurzoglu' },
     { platform: 'linkedin', url: 'https://www.linkedin.com/in/ozlemmurzoglu/' },
     { platform: 'youtube', url: 'https://www.youtube.com/@ozlemmurzoglu' },
-    { platform: 'google', url: 'https://maps.app.goo.gl/T6NqV7g4LzakSesKA' },
-    { platform: 'whatsapp', url: 'https://api.whatsapp.com/send?phone=905466884483&text=Merhaba%2C%20WhatsApp%20bilgilerinizi%20web%20sitenizden%20ald%C4%B1m.' }
+    { platform: 'google', url: CONTACT_CONFIG.mapsUrl },
+    { platform: 'whatsapp', url: CONTACT_HELPERS.getWhatsAppApiUrl('Merhaba, WhatsApp bilgilerinizi web sitenizden aldım.') }
   ];
 
   quickLinks = [

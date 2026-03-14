@@ -102,7 +102,7 @@
     rgba(10, 147, 150, 0.08) 0%,
     rgba(255, 193, 7, 0.08) 100%);
   border: 2px solid var(--md3-sys-color-primary);
-  box-shadow: 0 4px 20px rgba(10, 147, 150, 0.15);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 .combined-approach-card .md3-icon-container {
@@ -216,7 +216,7 @@
   width: 72px;
   height: 72px;
   background: white;
-  box-shadow: 0 8px 24px rgba(10, 147, 150, 0.15);
+  box-shadow: var(--md-sys-elevation-level3);
   position: relative;
   z-index: 1;
   transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-emphasized);
@@ -224,7 +224,7 @@
 
 .science-section .md3-card:hover .md3-icon-container {
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 12px 32px rgba(10, 147, 150, 0.25);
+  box-shadow: var(--md-sys-elevation-level4);
 }
 
 .science-section .md3-icon-container .material-icons-rounded {
@@ -305,7 +305,7 @@
 .md3-package-card .md3-button-outlined:hover {
   background-color: rgba(37, 211, 102, 0.08);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 .md3-package-card .md3-button-filled {
@@ -316,7 +316,7 @@
 .md3-package-card .md3-button-filled:hover {
   background-color: #20BA5A;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+  box-shadow: var(--md-sys-elevation-level3);
 }
 
 /* ==================================================== */
@@ -332,12 +332,12 @@
 }
 
 .md3-timeline-marker {
-  box-shadow: 0 4px 12px rgba(10, 147, 150, 0.3);
+  box-shadow: var(--md-sys-elevation-level2);
   transition: all var(--md3-sys-motion-duration-medium2) var(--md3-sys-motion-easing-emphasized);
 }
 
 .md3-timeline-item:hover .md3-timeline-marker {
-  box-shadow: 0 8px 20px rgba(10, 147, 150, 0.4);
+  box-shadow: var(--md-sys-elevation-level3);
   transform: scale(1.1);
 }
 
@@ -410,7 +410,7 @@
 
 .md3-accordion-item:hover {
   border-left-color: var(--md3-sys-color-primary);
-  box-shadow: 0 4px 12px rgba(10, 147, 150, 0.15);
+  box-shadow: var(--md-sys-elevation-level2);
   background: linear-gradient(135deg,
     rgba(255, 255, 255, 1) 0%,
     rgba(10, 147, 150, 0.04) 100%);
@@ -418,7 +418,7 @@
 
 .md3-accordion-item.active {
   border-left-color: var(--md3-sys-color-primary);
-  box-shadow: 0 6px 20px rgba(10, 147, 150, 0.2);
+  box-shadow: var(--md-sys-elevation-level3);
   background: linear-gradient(135deg,
     rgba(255, 255, 255, 1) 0%,
     rgba(255, 193, 7, 0.05) 100%);
@@ -436,7 +436,7 @@
 .md3-faq-item:hover {
   border-left-color: #FFC107;
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(255, 193, 7, 0.2);
+  box-shadow: var(--md-sys-elevation-level3);
   background: linear-gradient(135deg,
     rgba(255, 255, 255, 1) 0%,
     rgba(255, 193, 7, 0.06) 100%);
@@ -453,7 +453,7 @@
 
 .md3-package-card:hover {
   border-top-color: var(--md3-sys-color-primary);
-  box-shadow: 0 8px 24px rgba(10, 147, 150, 0.15);
+  box-shadow: var(--md-sys-elevation-level3);
 }
 
 .md3-package-featured {
@@ -461,7 +461,13 @@
   background: linear-gradient(135deg,
     rgba(10, 147, 150, 0.06) 0%,
     rgba(255, 193, 7, 0.04) 100%);
-  box-shadow: 0 4px 16px rgba(10, 147, 150, 0.12);
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.md3-package-card .md3-button:focus-visible,
+.md3-accordion-header:focus-visible {
+  outline: var(--md-sys-state-focus-ring-width, 3px) solid var(--md-sys-state-focus-ring-color, var(--md-sys-color-primary));
+  outline-offset: var(--md-sys-state-focus-ring-offset, 2px);
 }
 
 /* Card Content Fade-in */
@@ -512,6 +518,42 @@
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .science-section .md3-card-media::before,
+  .intro-section .md3-card,
+  .science-section .md3-card,
+  .approaches-section .md3-card,
+  .md3-section-header {
+    animation: none !important;
+  }
+
+  .science-section .md3-icon-container,
+  .md3-package-card .md3-button,
+  .md3-timeline-item,
+  .md3-timeline-marker,
+  .md3-timeline-content,
+  .md3-accordion-item,
+  .md3-faq-item,
+  .md3-package-card {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+
+  .science-section .md3-card:hover .md3-icon-container,
+  .md3-package-card .md3-button:hover,
+  .md3-timeline-item:hover,
+  .md3-timeline-item:hover .md3-timeline-marker,
+  .md3-faq-item:hover,
+  .md3-package-card:hover,
+  .md3-accordion-item:hover {
+    transform: none !important;
+  }
 }
 
 /* ==================================================== */

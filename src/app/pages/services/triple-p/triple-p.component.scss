@@ -6,7 +6,7 @@
 
 .triple-p-page {
   min-height: 100vh;
-  background: linear-gradient(180deg, var(--md-sys-color-surface) 0%, #F8FAFB 100%);
+  background: linear-gradient(180deg, var(--md-sys-color-surface) 0%, var(--md-sys-color-surface-container-low) 100%);
 }
 
 /* Container */
@@ -146,10 +146,10 @@
 
 .purple-badge {
   background: rgba(124, 77, 255, 0.12);
-  color: #7C4DFF;
+  color: var(--md-sys-color-tertiary);
 
   .material-icons-rounded {
-    color: #7C4DFF;
+    color: var(--md-sys-color-tertiary);
   }
 }
 
@@ -204,7 +204,7 @@
 
     .material-icons-rounded {
       font-size: 24px;
-      color: #2E7D32;
+      color: var(--md-sys-color-tertiary);
     }
   }
 
@@ -255,7 +255,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level3);
   }
 
   .stat-icon {
@@ -302,7 +302,7 @@
 
 .stat-card[data-theme="success"] .stat-icon {
   background: rgba(46, 125, 50, 0.12);
-  .material-icons-rounded { color: #2E7D32; }
+  .material-icons-rounded { color: var(--md-sys-color-tertiary); }
 }
 
 /* =====================================================
@@ -357,7 +357,7 @@
   background: rgba(46, 125, 50, 0.08);
   border-radius: 100px;
   font-size: 0.9rem;
-  color: #2E7D32;
+  color: var(--md-sys-color-tertiary);
 
   .material-icons-rounded {
     font-size: 18px;
@@ -391,7 +391,7 @@
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level4);
   }
 
   .principle-number {
@@ -457,7 +457,7 @@
 
 .service-card[data-theme="success"] .service-icon {
   background: rgba(46, 125, 50, 0.12);
-  .material-icons-rounded { color: #2E7D32; }
+  .material-icons-rounded { color: var(--md-sys-color-tertiary); }
 }
 
 .service-card:hover .service-icon {
@@ -465,7 +465,7 @@
 }
 
 .service-card.highlight {
-  background: linear-gradient(135deg, rgba(var(--md-sys-color-primary-rgb), 0.08), rgba(var(--md-sys-color-inverse-primary-rgb), 0.04));
+  background: linear-gradient(135deg, rgba(var(--md-sys-color-primary-rgb), 0.08), rgba(var(--md-sys-color-primary-rgb), 0.04));
 }
 
 /* =====================================================
@@ -490,7 +490,7 @@
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level4);
   }
 
   .benefit-icon {
@@ -530,7 +530,7 @@
 
       .material-icons-rounded {
         font-size: 18px;
-        color: #2E7D32;
+        color: var(--md-sys-color-tertiary);
         flex-shrink: 0;
         margin-top: 2px;
       }
@@ -574,7 +574,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level3);
   }
 
   .timeline-number {
@@ -621,7 +621,7 @@
 
 .timeline-item[data-theme="success"] .timeline-number {
   background: rgba(46, 125, 50, 0.12);
-  color: #2E7D32;
+  color: var(--md-sys-color-tertiary);
 }
 
 /* =====================================================
@@ -645,7 +645,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level3);
   }
 
   .special-icon {
@@ -679,7 +679,7 @@
 
   .special-icon[data-theme="success"] {
     background: rgba(46, 125, 50, 0.12);
-    .material-icons-rounded { color: #2E7D32; }
+    .material-icons-rounded { color: var(--md-sys-color-tertiary); }
   }
 
   h4 {
@@ -788,7 +788,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level3);
   }
 
   .session-number {
@@ -835,7 +835,7 @@
 
 .session-card[data-theme="success"] .session-number {
   background: rgba(46, 125, 50, 0.12);
-  color: #2E7D32;
+  color: var(--md-sys-color-tertiary);
 }
 
 .info-card {
@@ -920,7 +920,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level3);
   }
 
   .card-header {
@@ -962,7 +962,7 @@
 }
 
 .validation-card[data-theme="success"] .card-header .material-icons-rounded {
-  color: #2E7D32;
+  color: var(--md-sys-color-tertiary);
 }
 
 .outcome-stats {
@@ -1022,7 +1022,7 @@
 
   .material-icons-rounded {
     font-size: 20px;
-    color: #2E7D32;
+    color: var(--md-sys-color-tertiary);
   }
 }
 
@@ -1060,7 +1060,7 @@
 
   .success-icon {
     font-size: 22px;
-    color: #2E7D32;
+    color: var(--md-sys-color-tertiary);
     flex-shrink: 0;
   }
 
@@ -1182,7 +1182,7 @@
 
   &:hover {
     transform: translateX(4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level2);
   }
 
   &.highlighted {
@@ -1231,22 +1231,22 @@
 
     &.low {
       background: rgba(46, 125, 50, 0.12);
-      color: #2E7D32;
+      color: var(--md-sys-color-tertiary);
     }
 
     &.medium {
       background: rgba(255, 152, 0, 0.12);
-      color: #F57C00;
+      color: var(--md-sys-color-secondary);
     }
 
     &.high {
       background: rgba(25, 118, 210, 0.12);
-      color: #1976D2;
+      color: var(--md-sys-color-primary);
     }
 
     &.very-high {
       background: rgba(156, 39, 176, 0.12);
-      color: #9C27B0;
+      color: var(--md-sys-color-error);
     }
   }
 
@@ -1340,7 +1340,7 @@
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level4);
   }
 
   .seminar-icon {
@@ -1454,7 +1454,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level3);
   }
 
   .turkey-card-header {
@@ -1492,7 +1492,7 @@
   h5 {
     font-size: 0.95rem;
     font-weight: 700;
-    color: #2E7D32;
+    color: var(--md-sys-color-tertiary);
     margin-bottom: 12px;
   }
 
@@ -1515,7 +1515,7 @@
 
       .material-icons-rounded {
         font-size: 18px;
-        color: #2E7D32;
+        color: var(--md-sys-color-tertiary);
       }
     }
   }

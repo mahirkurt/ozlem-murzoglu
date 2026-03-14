@@ -133,10 +133,7 @@ const CATEGORY_CONFIG: ResourceCategoryConfig[] = [
 export class ResourcesComponent implements OnInit {
   query = '';
   results: { title: string; path: string; categoryKey: string }[] = [];
-  categories: ResourceCategory[] = CATEGORY_CONFIG.map((config) => ({
-    ...config,
-    documentCount: 0
-  }));
+  categories: ResourceCategory[] = [];
   popularDocs: ResourceDoc[] = [];
   breadcrumbs: Breadcrumb[] = [
     { translateKey: 'RESOURCES.HOME_BREADCRUMB', url: '/' },
@@ -206,10 +203,12 @@ export class ResourcesComponent implements OnInit {
 
   private refreshCategories(): void {
     if (!this.index) return;
-    this.categories = CATEGORY_CONFIG.map((config) => ({
-      ...config,
-      documentCount: this.index?.categories[config.id]?.documents.length || 0
-    }));
+    this.categories = CATEGORY_CONFIG
+      .map((config) => ({
+        ...config,
+        documentCount: this.index?.categories[config.id]?.documents.length || 0
+      }))
+      .filter((category) => category.documentCount > 0);
   }
 
   private buildPopularDocs(): void {

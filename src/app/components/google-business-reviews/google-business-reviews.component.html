@@ -1,4 +1,4 @@
-<section class="google-business-reviews" aria-labelledby="home-google-reviews-title">
+<section class="google-business-reviews" aria-labelledby="home-google-reviews-title" *ngIf="hasData || loading">
   <div class="container">
     <div class="section-header">
       <span class="section-label">{{ 'HOME_GOOGLE_REVIEWS.LABEL' | translate }}</span>
@@ -6,10 +6,10 @@
       <p class="section-subtitle">{{ 'HOME_GOOGLE_REVIEWS.SUBTITLE' | translate }}</p>
     </div>
 
-    <div class="reviews-surface md3-glass-noise">
-      <aside class="summary-card" [attr.aria-busy]="loading">
+    <div class="reviews-surface md3-glass-noise" *ngIf="!loading; else loadingState">
+      <aside class="summary-card">
         <div class="summary-top">
-          <p class="rating-value">{{ reviewCount > 0 ? (averageRating | number: '1.1-1') : '—' }}</p>
+          <p class="rating-value">{{ averageRating | number: '1.1-1' }}</p>
 
           <div class="rating-meta">
             <div class="stars" [attr.aria-label]="'HOME_GOOGLE_REVIEWS.RATING_ARIA' | translate:{ rating: (averageRating | number: '1.1-1') }">
@@ -42,8 +42,43 @@
         </a>
       </aside>
 
-      <div class="reviews-list" *ngIf="!loading && reviews.length > 0; else reviewsFallback">
-        <article class="review-card" *ngFor="let review of reviews">
+      <section
+        class="reviews-carousel"
+        *ngIf="reviews.length > 0; else reviewsFallback"
+        role="region"
+        [attr.aria-roledescription]="'carousel'"
+        [attr.aria-label]="'HOME_GOOGLE_REVIEWS.CAROUSEL_ARIA' | translate"
+        [attr.aria-live]="isAutoRotateEnabled ? 'off' : 'polite'"
+        (keydown)="onCarouselKeydown($event)"
+        (mouseenter)="onCarouselMouseEnter()"
+        (mouseleave)="onCarouselMouseLeave()"
+        (focusin)="onCarouselFocusIn()"
+        (focusout)="onCarouselFocusOut($event)">
+        <div class="carousel-topbar" *ngIf="hasMultipleReviews">
+          <p class="carousel-status">
+            {{ 'HOME_GOOGLE_REVIEWS.CAROUSEL_STATUS' | translate:{ index: activeIndex + 1, total: reviews.length } }}
+          </p>
+
+          <div class="carousel-nav-group" role="group" [attr.aria-label]="'HOME_GOOGLE_REVIEWS.CAROUSEL_ARIA' | translate">
+            <button
+              type="button"
+              class="carousel-nav"
+              (click)="showPreviousReview()"
+              [attr.aria-label]="'HOME_GOOGLE_REVIEWS.PREV_ARIA' | translate">
+              <span class="material-icons-rounded" aria-hidden="true">chevron_left</span>
+            </button>
+
+            <button
+              type="button"
+              class="carousel-nav"
+              (click)="showNextReview()"
+              [attr.aria-label]="'HOME_GOOGLE_REVIEWS.NEXT_ARIA' | translate">
+              <span class="material-icons-rounded" aria-hidden="true">chevron_right</span>
+            </button>
+          </div>
+        </div>
+
+        <article class="review-card" *ngIf="activeReview as review">
           <header class="review-header">
             <div class="review-avatar" aria-hidden="true">{{ getAuthorInitials(review.author_name) }}</div>
 
@@ -66,31 +101,58 @@
             <p class="review-text review-text--empty">{{ 'HOME_GOOGLE_REVIEWS.NO_TEXT' | translate }}</p>
           </ng-template>
         </article>
-      </div>
 
-      <ng-template #reviewsFallback>
-        <div class="reviews-empty">
-          <span class="material-icons-rounded empty-icon" aria-hidden="true">
-            {{ loading ? 'hourglass_top' : 'rate_review' }}
-          </span>
+        <div class="carousel-footer" *ngIf="hasMultipleReviews">
+          <div class="carousel-indicators" role="group" [attr.aria-label]="'HOME_GOOGLE_REVIEWS.CAROUSEL_ARIA' | translate">
+            <button
+              *ngFor="let review of reviews; let index = index; trackBy: trackByReview"
+              type="button"
+              class="carousel-indicator"
+              [class.carousel-indicator--active]="index === activeIndex"
+              [attr.aria-current]="index === activeIndex ? 'true' : null"
+              [attr.aria-label]="'HOME_GOOGLE_REVIEWS.GO_TO_REVIEW' | translate:{ index: index + 1, total: reviews.length }"
+              (click)="goToReview(index)">
+            </button>
+          </div>
 
-          <p>{{ (loading ? 'HOME_GOOGLE_REVIEWS.LOADING' : 'HOME_GOOGLE_REVIEWS.EMPTY') | translate }}</p>
-
-          <a
-            *ngIf="!loading"
-            [href]="googleBusinessProfileUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="profile-link profile-link--secondary"
-            data-track="google_business_click"
-            data-track-category="engagement"
-            data-track-label="home_reviews_empty">
-            <span class="material-icons-rounded" aria-hidden="true">open_in_new</span>
-            <span>{{ 'HOME_GOOGLE_REVIEWS.VIEW_PROFILE' | translate }}</span>
-          </a>
+          <button
+            type="button"
+            class="auto-rotate-toggle"
+            [attr.aria-pressed]="isAutoRotateEnabled"
+            (click)="toggleAutoRotate()">
+            <span class="material-icons-rounded" aria-hidden="true">{{ isAutoRotateEnabled ? 'pause' : 'play_arrow' }}</span>
+            <span>{{ (isAutoRotateEnabled ? 'HOME_GOOGLE_REVIEWS.AUTO_ROTATE_PAUSE' : 'HOME_GOOGLE_REVIEWS.AUTO_ROTATE_RESUME') | translate }}</span>
+          </button>
         </div>
-      </ng-template>
+      </section>
     </div>
+
+    <ng-template #reviewsFallback>
+      <div class="reviews-empty">
+        <span class="material-icons-rounded empty-icon" aria-hidden="true">rate_review</span>
+        <p>{{ 'HOME_GOOGLE_REVIEWS.EMPTY' | translate }}</p>
+
+        <a
+          [href]="googleBusinessProfileUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="profile-link profile-link--secondary"
+          data-track="google_business_click"
+          data-track-category="engagement"
+          data-track-label="home_reviews_empty">
+          <span class="material-icons-rounded" aria-hidden="true">open_in_new</span>
+          <span>{{ 'HOME_GOOGLE_REVIEWS.VIEW_PROFILE' | translate }}</span>
+        </a>
+      </div>
+    </ng-template>
+
+    <ng-template #loadingState>
+      <div class="reviews-surface md3-glass-noise">
+        <div class="reviews-empty">
+          <span class="material-icons-rounded empty-icon" aria-hidden="true">hourglass_top</span>
+          <p>{{ 'HOME_GOOGLE_REVIEWS.LOADING' | translate }}</p>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </section>
-

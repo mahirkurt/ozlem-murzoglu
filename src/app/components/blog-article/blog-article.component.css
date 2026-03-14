@@ -48,27 +48,13 @@
   padding: 0 2rem;
 }
 
-/* Breadcrumb */
-.breadcrumb {
+/* Breadcrumb shell (visual token styles come from global .md3-page-breadcrumbs) */
+.breadcrumbs {
   margin-bottom: 1.5rem;
 }
 
-.breadcrumb a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.breadcrumbs .md3-breadcrumb-link {
   color: var(--md-sys-color-on-primary-container);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-  padding: 0.5rem 1rem;
-  border-radius: var(--md-sys-shape-corner-large);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-}
-
-.breadcrumb a:hover {
-  background: rgba(255, 255, 255, 0.2);
 }
 
 /* Article Meta */
@@ -602,7 +588,7 @@
   .article-actions,
   .related-articles,
   .back-to-blog,
-  .breadcrumb {
+  .breadcrumbs {
     display: none !important;
   }
 

@@ -14,6 +14,12 @@
   --hero-text-muted: rgba(255, 255, 255, 0.6);
 }
 
+:root {
+  --md-sys-hero-text-primary: var(--hero-text-primary);
+  --md-sys-hero-text-secondary: var(--hero-text-secondary);
+  --md-sys-hero-text-muted: var(--hero-text-muted);
+}
+
 /* ============================================== */
 /* HERO SECTION BASE                             */
 /* ============================================== */
@@ -269,123 +275,8 @@ section[class*='hero']:not(.hero-content):not(.homepage-hero) {
   .page-hero,
   .service-hero,
   section[class*='hero']:not(.hero-content):not(.homepage-hero)
-) .breadcrumb,
-:where(
-  .hero-section,
-  app-hero-section .hero-section,
-  .resource-hero,
-  .page-hero,
-  .service-hero,
-  section[class*='hero']:not(.hero-content):not(.homepage-hero)
-) nav.breadcrumb {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+) .md3-page-breadcrumbs {
   margin-bottom: 2rem;
-  padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
-  border-radius: var(--md-sys-shape-corner-full);
-  background: linear-gradient(
-    135deg,
-    var(--md-sys-color-glass-surface-bright) 0%,
-    var(--md-sys-color-glass-surface) 100%
-  );
-  border: 1px solid var(--md-sys-color-glass-border);
-  box-shadow: var(--md-sys-elevation-level1);
-  backdrop-filter: blur(var(--md-sys-glass-blur)) saturate(1.2);
-  -webkit-backdrop-filter: blur(var(--md-sys-glass-blur)) saturate(1.2);
-  font-family: var(--md-sys-typescale-label-large-font);
-  font-size: var(--md-sys-typescale-label-large-size);
-  font-weight: var(--md-sys-typescale-label-large-weight);
-  line-height: var(--md-sys-typescale-label-large-line-height);
-  letter-spacing: var(--md-sys-typescale-label-large-tracking);
-  flex-wrap: wrap;
-}
-
-:where(
-  .hero-section,
-  app-hero-section .hero-section,
-  .resource-hero,
-  .page-hero,
-  .service-hero,
-  section[class*='hero']:not(.hero-content):not(.homepage-hero)
-) .breadcrumb a,
-:where(
-  .hero-section,
-  app-hero-section .hero-section,
-  .resource-hero,
-  .page-hero,
-  .service-hero,
-  section[class*='hero']:not(.hero-content):not(.homepage-hero)
-) .breadcrumb-link {
-  color: var(--md-sys-hero-text-secondary) !important;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-}
-
-:where(
-  .hero-section,
-  app-hero-section .hero-section,
-  .resource-hero,
-  .page-hero,
-  .service-hero,
-  section[class*='hero']:not(.hero-content):not(.homepage-hero)
-) .breadcrumb a:hover,
-:where(
-  .hero-section,
-  app-hero-section .hero-section,
-  .resource-hero,
-  .page-hero,
-  .service-hero,
-  section[class*='hero']:not(.hero-content):not(.homepage-hero)
-) .breadcrumb-link:hover {
-  color: var(--md-sys-hero-text-primary) !important;
-  background: color-mix(in oklch, var(--md-sys-color-primary) 20%, transparent);
-  border-radius: var(--md-sys-shape-corner-full);
-  transform: translateX(2px);
-}
-
-:where(
-  .hero-section,
-  app-hero-section .hero-section,
-  .resource-hero,
-  .page-hero,
-  .service-hero,
-  section[class*='hero']:not(.hero-content):not(.homepage-hero)
-) .breadcrumb .material-icons-rounded,
-:where(
-  .hero-section,
-  app-hero-section .hero-section,
-  .resource-hero,
-  .page-hero,
-  .service-hero,
-  section[class*='hero']:not(.hero-content):not(.homepage-hero)
-) .breadcrumb .separator {
-  color: var(--md-sys-hero-text-muted) !important;
-  font-size: 1.125rem;
-  margin: 0 0.25rem;
-}
-
-:where(
-  .hero-section,
-  app-hero-section .hero-section,
-  .resource-hero,
-  .page-hero,
-  .service-hero,
-  section[class*='hero']:not(.hero-content):not(.homepage-hero)
-) .breadcrumb span:last-child:not(.material-icons-rounded),
-:where(
-  .hero-section,
-  app-hero-section .hero-section,
-  .resource-hero,
-  .page-hero,
-  .service-hero,
-  section[class*='hero']:not(.hero-content):not(.homepage-hero)
-) .breadcrumb .current {
-  color: var(--md-sys-hero-text-primary) !important;
-  font-weight: 600;
 }
 
 /* ============================================== */
@@ -393,8 +284,7 @@ section[class*='hero']:not(.hero-content):not(.homepage-hero) {
 /* ============================================== */
 .hero-title,
 .page-title,
-h1.hero-title,
-.hero-section h1 {
+h1.hero-title {
   font-family: var(--md-sys-typescale-display-medium-font) !important;
   font-size: var(--md3-page-header-title-size, clamp(2.2rem, 2vw + 1.4rem, 3.2rem)) !important;
   font-weight: var(--md3-page-header-title-weight, var(--md-sys-typescale-display-medium-weight)) !important;
@@ -409,8 +299,7 @@ h1.hero-title,
 /* SUBTITLE                                      */
 /* ============================================== */
 .hero-subtitle,
-.page-subtitle,
-.hero-section p.hero-subtitle {
+.page-subtitle {
   font-family: var(--md-sys-typescale-headline-small-font) !important;
   font-size: var(--md3-page-header-subtitle-size, clamp(1.05rem, 0.7vw + 0.9rem, 1.4rem)) !important;
   font-weight: var(--md3-page-header-subtitle-weight, var(--md-sys-typescale-headline-small-weight)) !important;
@@ -530,7 +419,6 @@ h1.hero-title,
   animation-fill-mode: both;
 }
 
-.breadcrumb,
 .md3-page-breadcrumbs {
   animation-delay: 0.1s;
 }
@@ -550,6 +438,12 @@ h1.hero-title,
   animation-delay: 0.5s;
 }
 
+.hero-section__content > *,
+.hero-section__title,
+.hero-section__subtitle {
+  animation: none;
+}
+
 /* ============================================== */
 /* RESPONSIVE DESIGN                             */
 /* ============================================== */
@@ -566,11 +460,6 @@ h1.hero-title,
   section[class*='hero']:not(.hero-content):not(.homepage-hero) {
     padding: calc(var(--header-height-mobile, 80px) + var(--hero-padding-y)) 0 var(--hero-padding-y);
     min-height: var(--hero-min-height);
-  }
-
-  .breadcrumb {
-    font-size: 0.875rem;
-    margin-bottom: 1.5rem;
   }
 
   .md3-page-breadcrumbs {
@@ -626,11 +515,6 @@ h1.hero-title,
     padding: 0 1.25rem;
   }
 
-  .breadcrumb {
-    font-size: 0.8125rem;
-    gap: 0.5rem;
-  }
-
   .hero-badge img,
   .program-logo {
     width: 120px;
@@ -672,6 +556,13 @@ section[class*='hero']:not(.hero-content) {
   animation: none;
   -webkit-animation: none;
   z-index: 0;
+}
+
+app-hero-section .hero-section::before,
+app-hero-section .hero-section > * {
+  content: none;
+  position: revert;
+  z-index: auto;
 }
 
 .hero-section > * {

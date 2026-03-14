@@ -1,17 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { BlogService, BlogArticle } from '../../services/blog.service';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-blog-article',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './blog-article.component.html',
   styleUrl: './blog-article.component.css'
 })
 export class BlogArticleComponent implements OnInit {
+  private readonly categoryKeyMap: Record<string, string> = {
+    'Bebek Bakımı': 'BABY_CARE',
+    'Çocuk Psikolojisi': 'CHILD_PSYCHOLOGY',
+    'Çocuk Gelişimi': 'CHILD_DEVELOPMENT',
+    Ergenlik: 'ADOLESCENCE',
+    Güvenlik: 'SAFETY',
+    'Diş Sağlığı': 'DENTAL_HEALTH',
+    BABY_CARE: 'BABY_CARE',
+    CHILD_PSYCHOLOGY: 'CHILD_PSYCHOLOGY',
+    CHILD_DEVELOPMENT: 'CHILD_DEVELOPMENT',
+    ADOLESCENCE: 'ADOLESCENCE',
+    SAFETY: 'SAFETY',
+    DENTAL_HEALTH: 'DENTAL_HEALTH',
+  };
+
   article: BlogArticle | undefined;
   relatedArticles: BlogArticle[] = [];
   isLoading = true;
@@ -136,5 +152,10 @@ export class BlogArticleComponent implements OnInit {
       'pisikler': 'healing'
     };
     return iconMap[slug] || 'medical_services';
+  }
+
+  getCategoryLabelKey(category: string): string {
+    const mappedCategory = this.categoryKeyMap[category] ?? category;
+    return `FAVORITES.BLOG.CATEGORIES.${mappedCategory}`;
   }
 }

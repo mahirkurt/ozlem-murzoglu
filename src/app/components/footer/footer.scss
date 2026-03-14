@@ -1,4 +1,4 @@
-@import 'styles/md3/index';
+@use 'styles/md3/index' as *;
 
 // ==========================================================================
 // FOOTER — Deep Teal Theme
@@ -127,16 +127,16 @@
   justify-content: center;
   color: var(--md-sys-color-on-primary);
   transition:
-    transform 0.3s var(--md-sys-motion-easing-expressive-standard),
-    background 0.3s var(--md-sys-motion-easing-standard),
-    color 0.3s var(--md-sys-motion-easing-standard),
-    box-shadow 0.3s var(--md-sys-motion-easing-standard);
+    transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-standard),
+    background var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard),
+    color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard),
+    box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
   border: 1px solid color-mix(in srgb, var(--md-sys-color-on-primary) 10%, transparent);
 
   svg {
     width: 18px;
     height: 18px;
-    transition: transform 0.3s var(--md-sys-motion-easing-expressive-standard);
+    transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-standard);
   }
 
   &:hover {
@@ -210,8 +210,8 @@
   position: relative;
   padding-bottom: 2px;
   transition:
-    color 0.2s var(--md-sys-motion-easing-standard),
-    transform 0.2s var(--md-sys-motion-easing-standard);
+    color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+    transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
 
   &::after {
     content: '';
@@ -221,7 +221,7 @@
     width: 0;
     height: 1px;
     background: var(--md-sys-color-on-primary);
-    transition: width 0.3s var(--md-sys-motion-easing-emphasized);
+    transition: width var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
   }
 
   &:hover {
@@ -265,7 +265,7 @@
   border-radius: var(--md-sys-shape-corner-large);
   padding: var(--md-sys-spacing-2);
   margin: calc(-1 * var(--md-sys-spacing-2));
-  transition: background 0.2s var(--md-sys-motion-easing-standard);
+  transition: background var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
 
   .icon-box {
     width: 40px;
@@ -277,9 +277,9 @@
     justify-content: center;
     flex-shrink: 0;
     transition:
-      background 0.3s var(--md-sys-motion-easing-standard),
-      transform 0.3s var(--md-sys-motion-easing-expressive-standard),
-      box-shadow 0.3s var(--md-sys-motion-easing-standard);
+      background var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard),
+      transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-standard),
+      box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
 
     .material-icons-rounded {
       font-size: 20px;
@@ -303,7 +303,7 @@
       font-size: var(--md-sys-typescale-label-large-size);
       color: color-mix(in srgb, var(--md-sys-color-on-primary) 90%, transparent);
       line-height: 1.4;
-      transition: color 0.2s ease;
+      transition: color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
     }
   }
 
@@ -387,9 +387,9 @@
   font-weight: 600;
   cursor: pointer;
   transition:
-    background 0.2s var(--md-sys-motion-easing-standard),
-    color 0.2s var(--md-sys-motion-easing-standard),
-    transform 0.2s var(--md-sys-motion-easing-expressive-standard);
+    background var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+    color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+    transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-expressive-standard);
 
   .material-icons-rounded {
     font-size: 18px;
@@ -421,7 +421,7 @@
     color: color-mix(in srgb, var(--md-sys-color-on-primary) 50%, transparent);
     text-decoration: none;
     position: relative;
-    transition: color 0.2s;
+    transition: color var(--md-sys-motion-duration-short4);
 
     &::after {
       content: '';
@@ -431,7 +431,7 @@
       width: 0;
       height: 1px;
       background: var(--md-sys-color-on-primary);
-      transition: width 0.3s var(--md-sys-motion-easing-emphasized);
+      transition: width var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
     }
 
     &:hover {

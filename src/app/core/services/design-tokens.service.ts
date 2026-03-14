@@ -104,15 +104,15 @@ export class DesignTokensService {
   private getDefaultTokens(): DesignTokens {
     return {
       colors: {
-        primary: this.generateColorScale('var(--md-sys-color-primary)', 'teal'),
-        secondary: this.generateColorScale('var(--md-sys-color-secondary)', 'amber'),
-        tertiary: this.generateColorScale('var(--md-sys-color-tertiary)', 'coral'),
+        primary: this.generateColorScale('#008996', 'teal'),
+        secondary: this.generateColorScale('#ffc107', 'amber'),
+        tertiary: this.generateColorScale('#ff6f61', 'coral'),
         neutral: this.generateColorScale('#7B7B7B', 'grey'),
         semantic: [
           { name: 'success', value: 'var(--md-sys-color-success)', description: 'Success state' },
-          { name: 'warning', value: '#FF9800', description: 'Warning state' },
+          { name: 'warning', value: 'var(--md-sys-color-warning)', description: 'Warning state' },
           { name: 'error', value: 'var(--md-sys-color-error)', description: 'Error state' },
-          { name: 'info', value: '#2196F3', description: 'Info state' },
+          { name: 'info', value: 'var(--md-sys-color-info)', description: 'Info state' },
         ],
       },
       typography: {
@@ -279,7 +279,7 @@ export class DesignTokensService {
       },
       {
         name: 'elevation-1',
-        value: '0 1px 2px 0 rgba(var(--md-sys-color-shadow), 0.05)',
+        value: 'var(--md-sys-elevation-level1)',
         x: 0,
         y: 1,
         blur: 2,
@@ -289,7 +289,7 @@ export class DesignTokensService {
       },
       {
         name: 'elevation-2',
-        value: '0 1px 3px 0 rgba(var(--md-sys-color-shadow), 0.1), 0 1px 2px 0 rgba(var(--md-sys-color-shadow), 0.06)',
+        value: 'var(--md-sys-elevation-level2)',
         x: 0,
         y: 1,
         blur: 3,
@@ -299,7 +299,7 @@ export class DesignTokensService {
       },
       {
         name: 'elevation-3',
-        value: '0 4px 6px -1px rgba(var(--md-sys-color-shadow), 0.1), 0 2px 4px -1px rgba(var(--md-sys-color-shadow), 0.06)',
+        value: 'var(--md-sys-elevation-level3)',
         x: 0,
         y: 4,
         blur: 6,
@@ -309,7 +309,7 @@ export class DesignTokensService {
       },
       {
         name: 'elevation-4',
-        value: '0 10px 15px -3px rgba(var(--md-sys-color-shadow), 0.1), 0 4px 6px -2px rgba(var(--md-sys-color-shadow), 0.05)',
+        value: 'var(--md-sys-elevation-level4)',
         x: 0,
         y: 10,
         blur: 15,
@@ -319,7 +319,7 @@ export class DesignTokensService {
       },
       {
         name: 'elevation-5',
-        value: '0 20px 25px -5px rgba(var(--md-sys-color-shadow), 0.1), 0 10px 10px -5px rgba(var(--md-sys-color-shadow), 0.04)',
+        value: 'var(--md-sys-elevation-level5)',
         x: 0,
         y: 20,
         blur: 25,
@@ -673,20 +673,86 @@ export class DesignTokensService {
   }
 
   private hexToHsl(hex: string): string {
-    // Convert hex to HSL
-    // Implementation here
-    return '';
+    const rgb = this.hexToRgb(hex);
+    if (!rgb) return '';
+
+    const [rRaw, gRaw, bRaw] = rgb.split(',').map((v) => Number(v.trim()));
+    const r = rRaw / 255;
+    const g = gRaw / 255;
+    const b = bRaw / 255;
+
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const delta = max - min;
+
+    let h = 0;
+    const l = (max + min) / 2;
+    let s = 0;
+
+    if (delta !== 0) {
+      s = delta / (1 - Math.abs(2 * l - 1));
+
+      switch (max) {
+        case r:
+          h = 60 * (((g - b) / delta) % 6);
+          break;
+        case g:
+          h = 60 * ((b - r) / delta + 2);
+          break;
+        default:
+          h = 60 * ((r - g) / delta + 4);
+          break;
+      }
+    }
+
+    if (h < 0) h += 360;
+
+    return `${Math.round(h)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%`;
   }
 
   private adjustColorBrightness(color: string, level: number): string {
-    // Adjust color brightness based on level
-    // Implementation here
-    return color;
+    // Keep non-hex inputs unchanged (e.g. CSS vars)
+    if (!color.startsWith('#')) return color;
+
+    const rgb = this.hexToRgb(color);
+    if (!rgb) return color;
+
+    const [r, g, b] = rgb.split(',').map((v) => Number(v.trim()));
+
+    // 50..900 scale -> factor 1.30..0.55
+    const factor = 1.30 - ((level - 50) / (900 - 50)) * 0.75;
+
+    const toHex = (value: number) =>
+      Math.max(0, Math.min(255, Math.round(value * factor)))
+        .toString(16)
+        .padStart(2, '0');
+
+    return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
   }
 
   private calculateContrast(color: string): { onLight: number; onDark: number } {
-    // Calculate WCAG contrast ratios
-    return { onLight: 4.5, onDark: 4.5 };
+    const rgb = this.hexToRgb(color);
+    if (!rgb) {
+      return { onLight: 4.5, onDark: 4.5 };
+    }
+
+    const [r8, g8, b8] = rgb.split(',').map((v) => Number(v.trim()));
+    const srgb = [r8, g8, b8].map((v) => v / 255);
+    const linear = srgb.map((c) => (c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)));
+
+    const luminance = 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2];
+
+    const contrastWith = (bgL: number) => {
+      const lighter = Math.max(luminance, bgL);
+      const darker = Math.min(luminance, bgL);
+      return Number(((lighter + 0.05) / (darker + 0.05)).toFixed(2));
+    };
+
+    // onLight: token on white; onDark: token on near-black
+    return {
+      onLight: contrastWith(1),
+      onDark: contrastWith(0),
+    };
   }
 
   /**

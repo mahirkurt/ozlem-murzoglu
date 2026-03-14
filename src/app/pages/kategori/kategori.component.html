@@ -1,15 +1,13 @@
 <div class="category-container" *ngIf="category">
   <!-- Breadcrumb -->
-  <nav class="breadcrumb">
-    <ol class="breadcrumb-list">
-      <li class="breadcrumb-item">
-        <a routerLink="/kaynaklar" class="breadcrumb-link">Kaynaklar</a>
+  <nav class="breadcrumbs md3-page-breadcrumbs" aria-label="Sayfa yolu">
+    <ol>
+      <li>
+        <a routerLink="/kaynaklar" class="breadcrumb-link md3-breadcrumb-link">Kaynaklar</a>
+        <span class="material-icons-rounded separator md3-breadcrumb-separator" aria-hidden="true">chevron_right</span>
       </li>
-      <li class="breadcrumb-separator">
-        <span class="material-icons-rounded">chevron_right</span>
-      </li>
-      <li class="breadcrumb-item current">
-        <span>{{category.title}}</span>
+      <li>
+        <span class="breadcrumb-current md3-breadcrumb-current" aria-current="page">{{ category.title }}</span>
       </li>
     </ol>
   </nav>

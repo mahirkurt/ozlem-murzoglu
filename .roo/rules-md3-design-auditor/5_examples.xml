@@ -1,0 +1,168 @@
+<complete_examples>
+  <example name="constitutional_brand_safe_refinement">
+    <scenario>
+      Ana sayfada cam yüzeyli kartlar modern görünse de marka tonu ve okunurlukta dalgalanma var.
+    </scenario>
+    <user_request>
+      Glassmorphism etkisini koruyarak kurumsal kimlik ve MD3 uyumunu güçlendir.
+    </user_request>
+    <workflow>
+      <step number="1">
+        <description>Belge zincirine göre sorun haritası çıkar</description>
+        <approach>`docs/design/master-style-guide.md` ve ilgili modüler dokümanlardan glass erişilebilirlik, marka bütünlüğü ve kalite kapılarını eşle.</approach>
+        <expected_outcome>Çelişen alanlar + ilgili anayasa maddeleri</expected_outcome>
+      </step>
+      <step number="2">
+        <description>Token ve yüzey parametrelerini kontrollü revize et</description>
+        <approach>Blur/kontrast/sınır değerlerini token semantiğini bozmadan güncelle; okunurluğu güçlendir.</approach>
+      </step>
+      <step number="3">
+        <description>Marka ve erişilebilirlik kalite kapılarını doğrula</description>
+        <approach>Logo/typography kilitlerini koruyarak kontrast, focus ve motion güvenlik kontrollerini tamamla.</approach>
+      </step>
+    </workflow>
+    <completion>
+      Trend estetik korunarak marka bütünlüğü, MD3 uyumu ve okunurluk birlikte iyileştirildi.
+    </completion>
+    <key_takeaways>
+      <takeaway>Trend etkiler anayasa odaklı sınırlarla güvenli hale getirilebilir.</takeaway>
+      <takeaway>Estetik kalite artışı, token disiplini ve erişilebilirlikle birlikte yürütülmelidir.</takeaway>
+    </key_takeaways>
+  </example>
+
+  <example name="state_layer_alignment">
+    <scenario>
+      Buton ve çip bileşenlerinde hover/pressed durumlarının görünürlüğü yetersiz.
+    </scenario>
+    <user_request>
+      MD3 durum katmanlarını netleştir ve bileşenleri uyumlu hale getir.
+    </user_request>
+    <workflow>
+      <step number="1">
+        <description>Durum katmanı eksiklerini anayasa ve MD3 ekseninde tespit et</description>
+        <approach>İlgili bileşen stillerini incele, mevcut opaklık/renk değerlerini token semantiğiyle karşılaştır.</approach>
+        <expected_outcome>Eksik veya tutarsız durumlar listesi</expected_outcome>
+      </step>
+      <step number="2">
+        <description>Token bazlı durum katmanlarını uygula</description>
+        <approach>Durum opaklıklarını ve yüzey renklerini MD3 tokenlarıyla hizala.</approach>
+      </step>
+      <step number="3">
+        <description>Görsel + erişilebilirlik doğrulaması</description>
+        <approach>Örnek ekranlarda durum geçişlerini, focus görünürlüğünü, kontrast eşiklerini ve reduced-motion davranışını doğrula.</approach>
+      </step>
+    </workflow>
+    <completion>
+      Durum katmanları MD3 ve anayasa beklentilerine hizalandı; bileşen davranışları tutarlı hale geldi.
+    </completion>
+    <key_takeaways>
+      <takeaway>Durum katmanı görünürlüğü etkileşim kalitesini artırır.</takeaway>
+      <takeaway>Token tabanlı yaklaşım tutarlılığı korur.</takeaway>
+    </key_takeaways>
+  </example>
+
+  <example name="typography_and_spacing_harmony">
+    <scenario>
+      Başlıklar çok baskın, gövde metni ise zayıf; boşluk ritmi düzensiz.
+    </scenario>
+    <user_request>
+      Tipografi ve boşluk ritmini MD3 ölçeklerine göre düzenle.
+    </user_request>
+    <workflow>
+      <step number="1">
+        <description>Tipografi ölçeği ve boşluk sistemini anayasa odağında değerlendir</description>
+        <approach>Başlık/gövde kullanımını, kurumsal tipografi ilkeleri ve görsel ritim hedefleriyle karşılaştır.</approach>
+        <expected_outcome>Hiyerarşi ve ritim sorunları listesi</expected_outcome>
+      </step>
+      <step number="2">
+        <description>MD3 ölçeğine göre iyileştirme uygula</description>
+        <approach>Tipografiyi tokenlarla hizala, boşlukları düzenli ritme oturt.</approach>
+      </step>
+      <step number="3">
+        <description>Okunabilirlik ve görsel denge kontrolü</description>
+        <approach>Farklı ekran boyutlarında dengeyi doğrula.</approach>
+      </step>
+    </workflow>
+    <completion>
+      Tipografik hiyerarşi dengelendi, boşluk ritmi MD3 ile uyumlu hale geldi.
+    </completion>
+    <key_takeaways>
+      <takeaway>Hiyerarşi netliği içerik algısını iyileştirir.</takeaway>
+      <takeaway>Düzenli boşluk ritmi görsel kaliteyi artırır.</takeaway>
+    </key_takeaways>
+  </example>
+
+  <example name="five_phase_compliance_audit">
+    <scenario>
+      Büyük bir frontend yüzeyinde token, bileşen, erişilebilirlik ve dark mode tutarlılığı parçalı biçimde bozulmuş.
+    </scenario>
+    <user_request>
+      Tüm yüzeyi sistematik denetle, bulguları önceliklendir ve uygulanabilir bir iyileştirme planı çıkar.
+    </user_request>
+    <workflow>
+      <step number="1">
+        <description>Faz 1A/1B: Token çekirdeği denetimi</description>
+        <approach>Renk/tipografi/spacing/shape/motion/elevation ihlallerini token semantiği ile karşılaştır.</approach>
+        <expected_outcome>Kritik ve yüksek token ihlalleri listesi</expected_outcome>
+      </step>
+      <step number="2">
+        <description>Faz 2: Bileşen ve sayfa yapısı denetimi</description>
+        <approach>Sayfa başlığı disiplini, CTA kapanışı, ikon standardı, i18n görünür metin tutarlılığını doğrula.</approach>
+      </step>
+      <step number="3">
+        <description>Faz 3A: Erişilebilirlik ve dark mode denetimi</description>
+        <approach>Focus-visible, touch-target, reduced-motion, no-pure-black ve surface hiyerarşisini doğrula.</approach>
+      </step>
+      <step number="4">
+        <description>Faz 3B: Görsel doğrulama ve eylem planı</description>
+        <approach>Bulguları severity modeline göre sırala; kritik/yüksek kapanış planını netleştir.</approach>
+      </step>
+      <step number="5">
+        <description>Compliance matrix eşlemesi</description>
+        <approach>Açık aksiyonları doküman matrisiyle eşleştir; kapanan maddeleri kanıtlarıyla işaretle.</approach>
+      </step>
+    </workflow>
+    <completion>
+      Faz bazlı denetim tamamlandı; kritik ve yüksek bulgular için anayasa bağlı iyileştirme planı oluşturuldu.
+    </completion>
+    <key_takeaways>
+      <takeaway>Fazlı model, büyük yüzeylerde kapsam kaybını önler.</takeaway>
+      <takeaway>Severity-temelli planlama, iyileştirmeyi uygulanabilir ve izlenebilir yapar.</takeaway>
+    </key_takeaways>
+  </example>
+
+  <example name="md2_shadow_cleanup_wave">
+    <scenario>
+      Servis sayfalarında hardcoded gölge ve renk kalıntıları nedeniyle MD3 token uyumu parçalı durumda.
+    </scenario>
+    <user_request>
+      MD2 gölge kalıntılarını temizleyip yüzeyleri MD3 tokenlarına hizala.
+    </user_request>
+    <workflow>
+      <step number="1">
+        <description>MD2 kalıntılarını envanterle</description>
+        <approach>Hardcoded shadow ve role-bypass renk kullanımını dosya bazında sınıflandır.</approach>
+        <expected_outcome>Kritik/yüksek/orta öncelikli temizlik listesi</expected_outcome>
+      </step>
+      <step number="2">
+        <description>Tonal-first dönüşümü uygula</description>
+        <approach>Derinlik gerekmeyen yüzeylerde shadow kaldır; tonal surface hiyerarşisine geçir.</approach>
+      </step>
+      <step number="3">
+        <description>Level-token-only kuralını uygula</description>
+        <approach>Derinlik gereken alanlarda yalnız `--md-sys-elevation-level0..5` kullan; legacy köprüyü yeni yüzeye taşımama.</approach>
+      </step>
+      <step number="4">
+        <description>Doğrulama ve matrix güncellemesi</description>
+        <approach>Hex/raw shadow kalıntısı, state-layer uyumu ve erişilebilirlik kontrollerini doğrula; sonuçları compliance matrix ile eşleştir.</approach>
+      </step>
+    </workflow>
+    <completion>
+      MD2 kalıntıları temizlendi; yüzey davranışı tonal-first ve level-token-only kuralına hizalandı.
+    </completion>
+    <key_takeaways>
+      <takeaway>Shadow temizliği yalnız görsel değil yönetişim iyileştirmesidir.</takeaway>
+      <takeaway>Matrix eşlemesi ilerlemeyi ölçülebilir hale getirir.</takeaway>
+    </key_takeaways>
+  </example>
+</complete_examples>

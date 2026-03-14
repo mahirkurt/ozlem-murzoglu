@@ -18,7 +18,7 @@
           <span class="material-icons-rounded">calendar_today</span>
           {{ 'CONTACT_CTA.APPOINTMENT' | translate }}
         </a>
-        <a href="https://wa.me/905466884483" target="_blank" class="btn-secondary" data-track="whatsapp_click" data-track-category="conversion" data-track-label="cta_section">
+        <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-track="whatsapp_click" data-track-category="conversion" data-track-label="cta_section">
           <span class="material-icons-rounded">chat</span>
           {{ 'CONTACT_CTA.WHATSAPP' | translate }}
         </a>

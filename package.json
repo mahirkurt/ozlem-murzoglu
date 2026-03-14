@@ -14,7 +14,10 @@
     "i18n:sync": "node tools/i18n-auto-sync.js",
     "i18n:validate": "node scripts/validate-translations.js",
     "i18n:clean": "node scripts/clean-unused-translations.js",
-    "i18n:check": "npm run i18n:sync && npm run i18n:validate"
+    "i18n:check": "npm run i18n:sync && npm run i18n:validate",
+    "skill:validate:ga4-seo-ozlem": "python3 ${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py skills/optimize-ga4-seo-ozlem",
+    "skill:package:ga4-seo-ozlem": "python3 scripts/skills/package-skill.py --skill-dir skills/optimize-ga4-seo-ozlem --output dist/skills/optimize-ga4-seo-ozlem.skill --validate",
+    "skill:autopilot:ga4-seo-ozlem": "bash skills/optimize-ga4-seo-ozlem/scripts/run-autopilot"
   },
   "private": true,
   "dependencies": {

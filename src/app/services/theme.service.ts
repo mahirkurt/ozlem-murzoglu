@@ -121,11 +121,12 @@ export class ThemeService {
       '--color-neutral-900': 'var(--md-sys-color-on-surface)',
       '--glass-bg': 'var(--md-sys-color-glass-surface, rgba(255, 255, 255, 0.7))',
       '--glass-border': 'var(--md-sys-color-glass-border, rgba(255, 255, 255, 0.18))',
-      '--shadow-xs': 'var(--md-sys-elevation-level1)',
+      '--shadow-xs': 'var(--md-sys-elevation-level0)',
       '--shadow-sm': 'var(--md-sys-elevation-level1)',
       '--shadow-md': 'var(--md-sys-elevation-level2)',
       '--shadow-lg': 'var(--md-sys-elevation-level3)',
       '--shadow-xl': 'var(--md-sys-elevation-level4)',
+      '--shadow-2xl': 'var(--md-sys-elevation-level5)',
     };
 
     Object.entries(mappings).forEach(([prop, value]) => {

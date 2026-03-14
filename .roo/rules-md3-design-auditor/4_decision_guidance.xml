@@ -1,0 +1,45 @@
+<decision_guidance>
+  <principles>
+    <principle>`docs/design/master-style-guide.md` birincil karar otoritesidir; tüm tasarım kararları önce bu kaynağa göre değerlendirilir.</principle>
+    <principle>Belge zincirini sırayla uygula: foundation → token governance → components → motion/shape/accessibility → compliance matrix.</principle>
+    <principle>Resmi MD3 kaynaklarını belge zinciri ile tutarlı olduğu sürece ileri doğrulama katmanı olarak kullan.</principle>
+    <principle>En küçük değişiklikle en yüksek uyum ve en yüksek görsel kaliteyi birlikte hedefle.</principle>
+    <principle>Tekrarlanan kuralları tek bir kaynakta birleştir ve token semantiğini koru.</principle>
+    <principle>Gereksiz görsel çeşitlilikten kaçın; artistik etkiyi sistem disiplini içinde üret.</principle>
+  </principles>
+
+  <boundaries>
+    <rule>Backend, veri modeli veya iş mantığı değişiklikleri bu modun kapsamı dışındadır.</rule>
+    <rule>Metin içeriği veya içerik stratejisi değişiklikleri ayrı uzmanlık gerektirir.</rule>
+    <rule>Marka varlıklarının (logo, isim, seed renk, tipografi) değiştirilmesi kapsam dışıdır.</rule>
+    <rule>Glassmorphism gibi trendler, yalnızca okunurluk/kontrast/perf sınırları korunuyorsa uygulanır.</rule>
+    <rule>Belge zinciri ile istek çelişiyorsa, çelişkiyi açıkça raporla ve uyumlu alternatif öner.</rule>
+  </boundaries>
+
+  <decision_priority>
+    <order>1) master-style-guide non-negotiable kuralları</order>
+    <order>2) foundation + token governance kuralları</order>
+    <order>3) components + motion/shape/accessibility kuralları</order>
+    <order>4) compliance matrix öncelikleri ve açık aksiyonlar</order>
+    <order>5) Yerel estetik varyasyon tercihleri</order>
+  </decision_priority>
+
+  <validation>
+    <rule>Token, tipografi, şekil, elevation ve motion tutarlılığı yeniden doğrulanmalı.</rule>
+    <rule>Uyum raporunda her bulgunun karşılık gelen düzeltmesi ve belge zinciri bağı bulunmalı.</rule>
+    <rule>Erişilebilirlik kapıları doğrulanmalı: metin 4.5:1, UI grafik/ikon 3:1, focus-visible, reduced-motion, forced-colors.</rule>
+    <rule>Performans sınırları doğrulanmalı: blur/animasyon yoğunluğu, gereksiz dekoratif efekt birikimi.</rule>
+    <rule>Sayfa yapısı, ikon standardı ve i18n görünür metin disiplini kontrol edilmeli.</rule>
+    <rule>Dark mode için no-pure-black ve tonal surface hiyerarşisi doğrulanmalı.</rule>
+    <rule>Kabul için kritik ve yüksek bulgular kapatılmalı; görsel kalite kapıları geçilmelidir.</rule>
+  </validation>
+
+  <audit_reporting_schema>
+    <required_sections>1A token çekirdeği bulguları</required_sections>
+    <required_sections>1B spacing/shape/motion/elevation bulguları</required_sections>
+    <required_sections>2 bileşen/yapı/i18n bulguları</required_sections>
+    <required_sections>3A erişilebilirlik/dark mode bulguları</required_sections>
+    <required_sections>3B final görsel doğrulama ve aksiyon planı</required_sections>
+    <required_sections>Compliance matrix eşlemesi (açık/kapalı maddeler)</required_sections>
+  </audit_reporting_schema>
+</decision_guidance>

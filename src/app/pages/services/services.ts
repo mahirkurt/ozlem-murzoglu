@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { IllustrationComponent } from '../../shared/components/illustration/illustration.component';
 import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
@@ -13,7 +13,7 @@ interface Service {
   subtitleKey: string;
   descriptionKey: string;
   icon: string;
-  features: string[];
+  featureKeys: string[];
   color: string;
 }
 
@@ -25,123 +25,121 @@ interface Service {
   styleUrl: './services.css'
 })
 export class ServicesComponent {
-  private translate = inject(TranslateService);
-  
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Hizmetlerimiz' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_SERVICES' }
   ];
   services: Service[] = [
     {
       id: 'laboratuvar-goruntuleme',
       titleKey: 'SERVICES.SERVICE_LAB.TITLE',
-      subtitleKey: 'Tanı Hizmetleri',
+      subtitleKey: 'SERVICES.SERVICE_LAB.HERO_SUBTITLE',
       descriptionKey: 'SERVICES.SERVICE_LAB.DESC',
       icon: 'biotech',
       color: 'primary',
-      features: [
-        'Biyokimya testleri',
-        'Mikrobiyoloji tetkikleri',
-        'COVID-19 ve enfeksiyon testleri',
-        'MR, BT, Ultrasonografi',
-        'Dijital röntgen',
-        'Sigorta provizyon işlemleri'
+      featureKeys: [
+        'SERVICES.CARD_FEATURES.LAB.BIOCHEMISTRY_TESTS',
+        'SERVICES.CARD_FEATURES.LAB.MICROBIOLOGY_TESTS',
+        'SERVICES.CARD_FEATURES.LAB.INFECTION_TESTS',
+        'SERVICES.CARD_FEATURES.LAB.MRI_CT_ULTRASOUND',
+        'SERVICES.CARD_FEATURES.LAB.DIGITAL_XRAY',
+        'SERVICES.CARD_FEATURES.LAB.INSURANCE_PROVISION'
       ]
     },
     {
       id: 'triple-p',
       titleKey: 'SERVICES.SERVICE_TRIPLE_P.TITLE',
-      subtitleKey: 'Olumlu Ebeveynlik Programı',
+      subtitleKey: 'SERVICES.SERVICE_TRIPLE_P.HERO_SUBTITLE',
       descriptionKey: 'SERVICES.SERVICE_TRIPLE_P.DESC',
       icon: 'family_restroom',
       color: 'secondary',
-      features: [
-        '35+ yıllık deneyim',
-        '20+ dilde hizmet',
-        '830+ akademik makale',
-        'Grup eğitim programları',
-        'Davranış yönetimi teknikleri',
-        'Pozitif disiplin stratejileri'
+      featureKeys: [
+        'SERVICES.CARD_FEATURES.TRIPLE_P.YEARS_EXPERIENCE',
+        'SERVICES.CARD_FEATURES.TRIPLE_P.MULTI_LANGUAGE',
+        'SERVICES.CARD_FEATURES.TRIPLE_P.ACADEMIC_PUBLICATIONS',
+        'SERVICES.CARD_FEATURES.TRIPLE_P.GROUP_TRAININGS',
+        'SERVICES.CARD_FEATURES.TRIPLE_P.BEHAVIOR_MANAGEMENT',
+        'SERVICES.CARD_FEATURES.TRIPLE_P.POSITIVE_DISCIPLINE'
       ]
     },
     {
       id: 'saglikli-uykular',
       titleKey: 'SERVICES.SERVICE_SLEEP.TITLE',
-      subtitleKey: 'Uyku Eğitimi ve Danışmanlığı',
+      subtitleKey: 'SERVICES.SERVICE_SLEEP.HERO_SUBTITLE',
       descriptionKey: 'SERVICES.SERVICE_SLEEP.DESC',
       icon: 'bedtime',
       color: 'tertiary',
-      features: [
-        'Ön değerlendirme ve muayene',
-        'Kişiselleştirilmiş uyku planı',
-        '2 haftalık yoğun takip',
-        'Uyku günlüğü desteği',
-        'WhatsApp destek hattı',
-        'Mezuniyet sonrası takip'
+      featureKeys: [
+        'SERVICES.CARD_FEATURES.SLEEP.PRE_ASSESSMENT',
+        'SERVICES.CARD_FEATURES.SLEEP.PERSONAL_SLEEP_PLAN',
+        'SERVICES.CARD_FEATURES.SLEEP.INTENSIVE_FOLLOWUP',
+        'SERVICES.CARD_FEATURES.SLEEP.SLEEP_DIARY_SUPPORT',
+        'SERVICES.CARD_FEATURES.SLEEP.WHATSAPP_SUPPORT_LINE',
+        'SERVICES.CARD_FEATURES.SLEEP.POST_PROGRAM_FOLLOWUP'
       ]
     },
     {
       id: 'bright-futures-program',
       titleKey: 'SERVICES.SERVICE_BRIGHT_FUTURES.TITLE',
-      subtitleKey: 'Amerikan Pediatri Akademisi Sağlıklı Çocuk İzlemi',
+      subtitleKey: 'SERVICES.SERVICE_BRIGHT_FUTURES.HERO_SUBTITLE',
       descriptionKey: 'SERVICES.SERVICE_BRIGHT_FUTURES.DESC',
       icon: 'star',
       color: 'primary',
-      features: [
-        'Ziyaret öncesi hazırlık formları',
-        'Minimum 1 saatlik muayene',
-        'Yaşa özel bilgilendirme',
-        'Gelişimsel tarama testleri',
-        'Aile merkezli bakım',
-        'Kanıta dayalı yaklaşım'
+      featureKeys: [
+        'SERVICES.CARD_FEATURES.BRIGHT_FUTURES.PRE_VISIT_FORMS',
+        'SERVICES.CARD_FEATURES.BRIGHT_FUTURES.MIN_ONE_HOUR_EXAM',
+        'SERVICES.CARD_FEATURES.BRIGHT_FUTURES.AGE_SPECIFIC_GUIDANCE',
+        'SERVICES.CARD_FEATURES.BRIGHT_FUTURES.DEVELOPMENTAL_SCREENING',
+        'SERVICES.CARD_FEATURES.BRIGHT_FUTURES.FAMILY_CENTERED_CARE',
+        'SERVICES.CARD_FEATURES.BRIGHT_FUTURES.EVIDENCE_BASED'
       ]
     },
     {
       id: 'sos-feeding',
       titleKey: 'SERVICES.SERVICE_SOS_FEEDING.TITLE',
-      subtitleKey: 'Beslenme Terapisi Programı',
+      subtitleKey: 'SERVICES.SERVICE_SOS_FEEDING.DESC',
       descriptionKey: 'SERVICES.SERVICE_SOS_FEEDING.DESC',
       icon: 'restaurant',
       color: 'primary',
-      features: [
-        'Seçici yeme davranışı tedavisi',
-        'Duyusal entegrasyon yaklaşımı',
-        'Aile merkezli terapi',
-        'Oyun tabanlı öğrenme',
-        'Kanıta dayalı yöntemler',
-        'Uluslararası sertifika'
+      featureKeys: [
+        'SERVICES.CARD_FEATURES.SOS_FEEDING.PICKY_EATING_TREATMENT',
+        'SERVICES.CARD_FEATURES.SOS_FEEDING.SENSORY_INTEGRATION',
+        'SERVICES.CARD_FEATURES.SOS_FEEDING.FAMILY_THERAPY',
+        'SERVICES.CARD_FEATURES.SOS_FEEDING.PLAY_BASED_LEARNING',
+        'SERVICES.CARD_FEATURES.SOS_FEEDING.EVIDENCE_BASED_METHODS',
+        'SERVICES.CARD_FEATURES.SOS_FEEDING.INTERNATIONAL_CERTIFICATION'
       ]
     },
     {
       id: 'asi-takibi',
       titleKey: 'SERVICES.SERVICE_VACCINATION.TITLE',
-      subtitleKey: 'Ulusal Aşı Takvimi',
+      subtitleKey: 'SERVICES.SERVICE_VACCINATION.DESC',
       descriptionKey: 'SERVICES.SERVICE_VACCINATION.DESC',
       icon: 'vaccines',
       color: 'secondary',
-      features: [
-        'Ulusal aşı takvimi takibi',
-        'Özel aşı uygulamaları',
-        'Aşı sonrası takip',
-        'Aşı bilgilendirme',
-        'Dijital aşı kartı',
-        'Hatırlatma servisi'
+      featureKeys: [
+        'SERVICES.CARD_FEATURES.VACCINATION.NATIONAL_SCHEDULE',
+        'SERVICES.CARD_FEATURES.VACCINATION.PRIVATE_VACCINES',
+        'SERVICES.CARD_FEATURES.VACCINATION.POST_VACCINE_FOLLOWUP',
+        'SERVICES.CARD_FEATURES.VACCINATION.VACCINE_INFORMATION',
+        'SERVICES.CARD_FEATURES.VACCINATION.DIGITAL_VACCINE_CARD',
+        'SERVICES.CARD_FEATURES.VACCINATION.REMINDER_SERVICE'
       ]
     },
     {
       id: 'gelisim-takibi',
       titleKey: 'SERVICES.SERVICE_GROWTH.TITLE',
-      subtitleKey: 'Periyodik Kontroller',
+      subtitleKey: 'SERVICES.SERVICE_GROWTH.DESC',
       descriptionKey: 'SERVICES.SERVICE_GROWTH.DESC',
       icon: 'trending_up',
       color: 'tertiary',
-      features: [
-        'Boy-kilo takibi',
-        'Baş çevresi ölçümü',
-        'Gelişimsel kilometre taşları',
-        'Denver II gelişim testi',
-        'Büyüme eğrisi analizi',
-        'Erken müdahale programları'
+      featureKeys: [
+        'SERVICES.CARD_FEATURES.GROWTH.HEIGHT_WEIGHT_TRACKING',
+        'SERVICES.CARD_FEATURES.GROWTH.HEAD_CIRCUMFERENCE',
+        'SERVICES.CARD_FEATURES.GROWTH.MILESTONES',
+        'SERVICES.CARD_FEATURES.GROWTH.DENVER_II',
+        'SERVICES.CARD_FEATURES.GROWTH.GROWTH_CURVE_ANALYSIS',
+        'SERVICES.CARD_FEATURES.GROWTH.EARLY_INTERVENTION'
       ]
     }
   ];

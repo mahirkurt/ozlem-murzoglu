@@ -35,11 +35,11 @@ export class SeoService {
   private translate = inject(TranslateService);
 
   private readonly defaultSeo: SeoData = {
-    title: 'Ataşehir Çocuk Doktoru - Dr. Özlem Murzoğlu | Çocuk Sağlığı ve Hastalıkları Uzmanı',
+    title: 'Çocuk Doktoru Ataşehir | Uzm. Dr. Özlem Murzoğlu',
     description:
-      "Ataşehir çocuk doktoru Dr. Özlem Murzoğlu - İstanbul Ataşehir'de çocuk sağlığı ve hastalıkları uzmanı. Bright Futures programı, Triple P ebeveyn desteği, beslenme ve uyku danışmanlığı hizmetleri. Randevu: 0216 688 44 83",
+      'Ataşehir çocuk doktoru Uzm. Dr. Özlem Murzoğlu. Aşı takibi, gelişim kontrolü, uyku danışmanlığı ve 7 uzmanlık alanında hizmet. Randevu: 0216 688 44 83',
     keywords:
-      'ataşehir çocuk doktoru, çocuk doktoru ataşehir, istanbul çocuk doktoru, pediatri uzmanı ataşehir, Dr. Özlem Murzoğlu, bebek doktoru ataşehir, bright futures, triple p, uyku danışmanlığı, aşı',
+      'çocuk doktoru ataşehir, ataşehir çocuk doktoru, pediatrist ataşehir, bebek doktoru ataşehir, Dr. Özlem Murzoğlu, çocuk sağlığı uzmanı ataşehir',
     ogType: 'website',
     ogImage: 'https://ozlemmurzoglu.com/assets/images/og-image.jpg',
     twitterCard: 'summary_large_image',
@@ -217,51 +217,63 @@ export class SeoService {
   setPageSeo(pageName: string): void {
     const pageSeoMap: Record<string, SeoData> = {
       home: {
-        title: 'Ataşehir Çocuk Doktoru - Dr. Özlem Murzoğlu | Çocuk Sağlığı ve Hastalıkları Uzmanı',
+        title: 'Çocuk Doktoru Ataşehir | Uzm. Dr. Özlem Murzoğlu',
         description:
-          "Ataşehir çocuk doktoru Dr. Özlem Murzoğlu - İstanbul Ataşehir'de çocuk sağlığı ve hastalıkları uzmanı. Modern pediatri yaklaşımı ile bebeğinizin ve çocuğunuzun sağlıklı gelişimi için yanınızdayız. Randevu: 0216 688 44 83",
-        keywords: 'ataşehir çocuk doktoru, çocuk doktoru ataşehir, istanbul çocuk doktoru, Dr. Özlem Murzoğlu, pediatri uzmanı ataşehir, bebek doktoru ataşehir',
+          'Ataşehir çocuk doktoru Uzm. Dr. Özlem Murzoğlu. Aşı takibi, gelişim kontrolü, uyku danışmanlığı ve 7 uzmanlık alanında hizmet. Randevu: 0216 688 44 83',
+        keywords: 'çocuk doktoru ataşehir, ataşehir çocuk doktoru, pediatrist ataşehir, bebek doktoru ataşehir, Dr. Özlem Murzoğlu, çocuk sağlığı uzmanı ataşehir',
         jsonLd: this.getHomePageSchema(),
       },
       about: {
-        title: 'Hakkımızda - Dr. Özlem Murzoğlu',
+        title: 'Dr. Özlem Murzoğlu | Sosyal Pediatri Uzmanı Ataşehir',
         description:
-          'Dr. Özlem Murzoğlu hakkında detaylı bilgi. Eğitim, deneyim ve uzmanlık alanları.',
+          'Uzm. Dr. Özlem Murzoğlu - Sosyal pediatri alanında uzman çocuk doktoru. Bright Futures sertifikalı, AAP standartlarında hizmet. Ataşehir Uphill Towers.',
         ogType: 'profile',
       },
       services: {
-        title: 'Hizmetlerimiz - Dr. Özlem Murzoğlu',
+        title: 'Çocuk Sağlığı Hizmetleri Ataşehir | 7 Uzmanlık Alanı',
         description:
-          'Bright Futures programı, Triple P ebeveyn desteği, SOS Feeding, uyku danışmanlığı ve laboratuvar hizmetleri.',
+          'Aşı takibi, Bright Futures gelişim programı, uyku danışmanlığı, beslenme terapisi, Triple P ebeveynlik ve laboratuvar hizmetleri. Hemen randevu alın.',
         jsonLd: this.getServicesSchema(),
       },
       contact: {
-        title: 'İletişim - Dr. Özlem Murzoğlu',
-        description: 'Dr. Özlem Murzoğlu kliniği iletişim bilgileri, adres ve randevu alma.',
+        title: 'İletişim ve Randevu | Dr. Özlem Murzoğlu Ataşehir',
+        description: 'Ataşehir Uphill Towers\'da çocuk doktoru randevusu alın. Telefon: 0216 688 44 83. WhatsApp ile hızlı randevu.',
         jsonLd: this.getContactSchema(),
       },
       resources: {
-        title: 'Kaynaklar - Dr. Özlem Murzoğlu',
+        title: 'Ebeveyn Kaynakları | Dr. Özlem Murzoğlu',
         description:
-          'Ebeveynler için faydalı kaynaklar, gelişim rehberleri, aşı bilgileri ve sağlık önerileri.',
+          'Çocuk sağlığı, gelişim rehberleri, aşı takvimi ve beslenme önerileri. Uzman pediatrist tavsiyesiyle güvenilir bilgi.',
       },
       'bright-futures': {
-        title: 'Bright Futures Programı - Dr. Özlem Murzoğlu',
+        title: 'Bright Futures Gelişim Takibi Ataşehir | Dr. Özlem Murzoğlu',
         description:
-          'AAP Bright Futures programı ile çocuğunuzun gelişimini yakından takip edin. Yaşa özel gelişim değerlendirmeleri.',
+          'AAP standartlarında Bright Futures gelişim takip programı. Yaşa özel değerlendirmeler ve kişisel gelişim planı. Ataşehir\'de uzman pediatrist.',
         jsonLd: this.getServiceSchema('Bright Futures'),
       },
       'triple-p': {
-        title: 'Triple P Pozitif Ebeveynlik - Dr. Özlem Murzoğlu',
+        title: 'Triple P Ebeveynlik Programı İstanbul | Dr. Özlem Murzoğlu',
         description:
-          'Triple P Pozitif Ebeveynlik Programı ile ebeveynlik becerilerinizi geliştirin.',
+          'Triple P Pozitif Ebeveynlik Programı ile çocuğunuzun davranışlarını anlayın. Sertifikalı uzman desteği, Ataşehir.',
         jsonLd: this.getServiceSchema('Triple P'),
       },
       'sos-feeding': {
-        title: 'SOS Feeding Beslenme Danışmanlığı - Dr. Özlem Murzoğlu',
+        title: 'Çocuk Beslenme Terapisi | SOS Feeding Ataşehir',
         description:
-          'SOS Feeding yaklaşımı ile yemek yeme sorunlarının çözümü. Seçici yeme davranışı tedavisi.',
+          'Çocuğunuz yemek yemiyor mu? SOS Feeding ile duyusal entegrasyon yaklaşımıyla oyun temelli beslenme terapisi. Uzm. Dr. Özlem Murzoğlu.',
         jsonLd: this.getServiceSchema('SOS Feeding'),
+      },
+      'saglikli-uykular': {
+        title: 'Bebek Uyku Danışmanlığı İstanbul | Sağlıklı Uykular',
+        description:
+          'Bebeğiniz uyumakta zorlanıyor mu? Sağlıklı Uykular programı ile kişisel uyku planı ve uzman takibi. Ataşehir\'de pediatrist desteği.',
+        jsonLd: this.getServiceSchema('Sağlıklı Uykular'),
+      },
+      'laboratuvar-goruntuleme': {
+        title: 'Çocuk Laboratuvar ve Görüntüleme Ataşehir | Dr. Özlem Murzoğlu',
+        description:
+          'Çocuklara özel kan tahlili, idrar testi, görüntüleme ve alerji testleri. Ataşehir\'de pediatri kliniğinde hızlı sonuç.',
+        jsonLd: this.getServiceSchema('Laboratuvar ve Görüntüleme'),
       },
     };
 

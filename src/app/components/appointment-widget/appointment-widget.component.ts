@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
 
 @Component({
   selector: 'app-appointment-widget',
@@ -40,8 +41,9 @@ import { CommonModule } from '@angular/common';
           </a>
 
           <a
-            href="https://wa.me/905466884483?text=Merhaba,%20randevu%20almak%20istiyorum"
+            [href]="whatsappUrl"
             target="_blank"
+            rel="noopener noreferrer"
             class="widget-action whatsapp"
             data-track="whatsapp_click" data-track-category="conversion" data-track-label="appointment_widget"
             (click)="trackAction('whatsapp')"
@@ -56,14 +58,14 @@ import { CommonModule } from '@angular/common';
           </a>
 
           <a
-            href="tel:+902166884483"
+            [href]="phoneUrl"
             class="widget-action phone"
             data-track="phone_click" data-track-category="conversion" data-track-label="appointment_widget"
             (click)="trackAction('phone')"
           >
             <span class="material-icons-rounded">phone</span>
             <div>
-              <strong>0216 688 44 83</strong>
+              <strong>{{ phoneDisplay }}</strong>
               <small>Telefon ile randevu</small>
             </div>
           </a>
@@ -317,6 +319,9 @@ import { CommonModule } from '@angular/common';
 })
 export class AppointmentWidgetComponent {
   isExpanded = false;
+  readonly whatsappUrl = CONTACT_HELPERS.getWhatsAppUrl('Merhaba, randevu almak istiyorum.');
+  readonly phoneUrl = CONTACT_CONFIG.phone.telHref;
+  readonly phoneDisplay = CONTACT_CONFIG.phone.display;
 
   toggleWidget() {
     this.isExpanded = !this.isExpanded;

@@ -1,0 +1,136 @@
+<workflow_instructions>
+  <mode_overview>
+    Bu mod, MD3 görsel kalite denetimini ve hedefli rafinman uygulamalarını
+    doküman-merkezli bir yönetişim modeliyle yürütür.
+    Amaç; estetik kaliteyi artırırken token bütünlüğünü, erişilebilirliği ve sistem tutarlılığını korumaktır.
+  </mode_overview>
+
+  <authoritative_stack>
+    <primary_source>docs/design/master-style-guide.md</primary_source>
+    <supporting_sources>
+      <source>docs/design/md3-foundation-principles.md</source>
+      <source>docs/design/md3-token-governance.md</source>
+      <source>docs/design/md3-components-patterns.md</source>
+      <source>docs/design/md3-motion-shape-accessibility.md</source>
+      <source>docs/design/md3-agent-workflows.md</source>
+      <source>docs/design/md3-compliance-matrix.md</source>
+    </supporting_sources>
+    <rule>UI değişikliği öncesi belge sırası: foundation → token governance → components → motion/shape/accessibility → compliance matrix.</rule>
+    <rule>Marka varlıkları (logo, isim, seed renk, tipografi) değiştirilmez; yalnızca sistemik uyum ve kalite optimize edilir.</rule>
+    <rule>Non-negotiable kurallar ihlal edilmez: semantic role-first, tonal surface önceliği, state-layer-first geri bildirim, kontrollü glass kullanımı.</rule>
+  </authoritative_stack>
+
+  <initialization_steps>
+    <step number="1">
+      <action>Kapsamı ve hedef yüzeyleri netleştir</action>
+      <details>
+        Etkilenen bileşen/sayfa, platform kapsamı, görsel kalite hedefi,
+        erişilebilirlik beklentileri ve teslim çıktıları belirlenir.
+      </details>
+      <outputs>
+        <output>Kapsam ve öncelik listesi</output>
+        <output>Başarı ölçütleri</output>
+      </outputs>
+    </step>
+
+    <step number="2">
+      <action>Belge tabanlı kontrol matrisi oluştur</action>
+      <details>
+        İstek; ilgili MD3 ilkelerine, token kurallarına, bileşen kalıplarına,
+        motion/a11y gereksinimlerine ve compliance matrix maddelerine haritalanır.
+      </details>
+      <outputs>
+        <output>Kural → uygulama hedefi eşlemesi</output>
+      </outputs>
+    </step>
+
+    <step number="3">
+      <action>Mevcut durum envanterini çıkar</action>
+      <details>
+        Token dışı değerler, hardcoded shadow/renk kalıntıları, state-layer eksikleri,
+        kontrast ve odak görünürlüğü riskleri başlangıç bulgusu olarak toplanır.
+      </details>
+      <outputs>
+        <output>Baseline bulgu listesi</output>
+      </outputs>
+    </step>
+
+    <step number="4">
+      <action>Uygulanacak akışı seç</action>
+      <details>
+        İstek tipine göre Workflow A (bileşen görsel güncellemesi),
+        Workflow B (yeni token önerisi) veya Workflow C (MD2→MD3 shadow temizliği) seçilir.
+      </details>
+    </step>
+  </initialization_steps>
+
+  <main_workflow>
+    <phase name="workflow_a_component_visual_update">
+      <description>Bileşen/sayfa görsel güncellemesini md3-agent-workflows sırasıyla yürüt</description>
+      <steps>
+        <step>Etkilenen bileşeni veya sayfa yüzeyini belirle.</step>
+        <step>Token ihtiyacını md3-token-governance kurallarıyla doğrula.</step>
+        <step>Bileşen anatomisini md3-components-patterns ile hizala.</step>
+        <step>State layer, kontrast, focus-visible, reduced-motion ve high-contrast kontrollerini tamamla.</step>
+        <step>Bulguyu ve sonucu md3-compliance-matrix ile ilişkilendir.</step>
+      </steps>
+      <deliverables>
+        <deliverable>Kural referanslı görsel güncelleme özeti</deliverable>
+        <deliverable>Severity seviyeli bulgu/çözüm tablosu</deliverable>
+      </deliverables>
+    </phase>
+
+    <phase name="workflow_b_new_token_proposal">
+      <description>Mevcut token seti yetersiz kaldığında güvenli token genişletme akışı uygula</description>
+      <steps>
+        <step>Mevcut tokenlarla çözümün neden yetersiz kaldığını kanıtla.</step>
+        <step>Yeni token adını semantic role-first yaklaşımıyla tanımla.</step>
+        <step>Light/dark/high-contrast etkilerini ve geriye uyumluluk etkisini belgele.</step>
+        <step>Yeni tokenın kullanım sınırlarını ve doğrulama kriterlerini netleştir.</step>
+      </steps>
+      <deliverables>
+        <deliverable>Token öneri notu (gerekçe, kapsam, risk)</deliverable>
+        <deliverable>Uygulama sonrası doğrulama kontrol listesi</deliverable>
+      </deliverables>
+    </phase>
+
+    <phase name="workflow_c_md2_to_md3_shadow_cleanup">
+      <description>MD2 gölge dilini MD3 uyumlu yüzey/elevation modeline dönüştür</description>
+      <steps>
+        <step>Hardcoded shadow satırlarını ve legacy gölge kalıplarını tespit et.</step>
+        <step>Derinlik gerekmeyen yerlerde tonal surface hiyerarşisine geç.</step>
+        <step>Derinlik gerekiyorsa yalnızca MD3 elevation level tokenlarını kullan.</step>
+        <step>Legacy --shadow-* köprüsünü yalnızca backward compatibility sınırında koru.</step>
+        <step>Temizlik sonrası compliance matrix öncelik maddeleriyle ilerlemeyi işaretle.</step>
+      </steps>
+      <deliverables>
+        <deliverable>MD2→MD3 shadow temizliği bulgu raporu</deliverable>
+        <deliverable>Kalan riskler ve sonraki dalga planı</deliverable>
+      </deliverables>
+    </phase>
+
+    <phase name="final_validation_and_reporting">
+      <description>Çıktıları kalite kapılarıyla doğrula ve ölçülebilir kapanış raporu üret</description>
+      <steps>
+        <step>Non-negotiable kuralların tamamını tekrar doğrula.</step>
+        <step>Token bütünlüğü: hardcoded hex/shadow ve token-bypass kalıntılarını kapat.</step>
+        <step>A11y kapıları: metin kontrastı 4.5:1, UI grafik/ikon kontrastı 3:1, touch target 48px, focus-visible, reduced-motion, forced-colors.</step>
+        <step>Dark mode yüzey hiyerarşisini ve no-pure-black yaklaşımını doğrula.</step>
+        <step>Cam/blur kullanımında okunurluk ve performans güvenliğini doğrula.</step>
+        <step>Sonuçları compliance matrix ve kanıt dosyalarıyla ilişkilendir.</step>
+      </steps>
+      <deliverables>
+        <deliverable>Kritik/high/medium/low öncelikli uyum raporu</deliverable>
+        <deliverable>Düzeltme planı + doğrulama kanıtları + kapanış özeti</deliverable>
+      </deliverables>
+    </phase>
+  </main_workflow>
+
+  <completion_criteria>
+    <criterion>Belge zinciriyle çelişen tasarım kararları temizlenmiş</criterion>
+    <criterion>Semantic token-first yaklaşımı sistem genelinde korunmuş</criterion>
+    <criterion>MD2 shadow kalıntıları tonal surface/elevation kurallarıyla hizalanmış</criterion>
+    <criterion>Erişilebilirlik ve performans kalite kapıları doğrulanmış</criterion>
+    <criterion>Compliance matrix referanslı, izlenebilir ve önceliklendirilmiş rapor üretilmiş</criterion>
+  </completion_criteria>
+</workflow_instructions>

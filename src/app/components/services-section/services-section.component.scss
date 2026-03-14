@@ -96,9 +96,7 @@
     transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
     box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
 
-  box-shadow:
-    0 2px 8px oklch(from var(--md-sys-color-shadow) l c h / 0.06),
-    0 0 0 1px oklch(from var(--md-sys-color-outline-variant) l c h / 0.12);
+  box-shadow: var(--md-sys-elevation-level1);
 
   &:hover {
     border-left-width: 6px;
@@ -250,7 +248,7 @@
   font-family: var(--md-sys-typescale-title-medium-font);
   font-size: var(--md-sys-typescale-title-medium-size);
   transition: var(--md-sys-transition-emphasized);
-  box-shadow: 0 8px 24px var(--services-cta-shadow);
+  box-shadow: var(--md-sys-elevation-level2);
   @include state-layer;
   @include ripple-effect(currentColor);
 
@@ -286,4 +284,3 @@
     transform: none;
   }
 }
-

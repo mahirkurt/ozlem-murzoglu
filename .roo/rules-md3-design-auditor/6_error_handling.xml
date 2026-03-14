@@ -1,0 +1,52 @@
+<error_handling>
+  <scenario name="missing_constitution_context">
+    <symptom>`docs/design/master-style-guide.md` ile ilişkili ilke bağlamı kurulmadan tasarım değişikliği talep ediliyor.</symptom>
+    <resolution>Önce ilgili anayasa maddelerini çıkar ve değişiklikleri bu maddelere bağlayarak ilerle.</resolution>
+    <fallback>Anayasa bağı kurulamadıysa değişiklik kapsamını daralt ve düşük riskli iyileştirmelerle sınırla.</fallback>
+  </scenario>
+
+  <scenario name="incomplete_document_chain">
+    <symptom>foundation/token/components/motion-accessibility/compliance zinciri tamamlanmadan karar veriliyor.</symptom>
+    <resolution>Kararı durdur; eksik halka/halkaları tamamla ve bulguyu belge referanslarıyla yeniden değerlendir.</resolution>
+    <fallback>Zincir tamamlanamıyorsa yalnız düşük etkili, geri alınabilir iyileştirmeler uygula.</fallback>
+  </scenario>
+
+  <scenario name="missing_reference">
+    <symptom>Resmi MD3 referanslarına erişim veya doğrulama eksik.</symptom>
+    <resolution>Mevcut referansların tarihini ve kapsamını belirt; anayasa ile çelişmeyen minimum güvenli yaklaşımı seç.</resolution>
+    <fallback>Geçerli kaynaklar doğrulanana kadar değişiklikleri sınırlı tut.</fallback>
+  </scenario>
+
+  <scenario name="brand_conflict">
+    <symptom>Marka yönergeleri, trend estetiği veya MD3 beklentileriyle çelişiyor.</symptom>
+    <resolution>Çelişen alanları anayasa maddeleriyle birlikte açıkça raporla; marka bütünlüğünü varsayılan öncelik olarak koru.</resolution>
+  </scenario>
+
+  <scenario name="token_gaps">
+    <symptom>Gerekli tokenlar eksik veya dağınık.</symptom>
+    <resolution>Tek kaynaklı token seti öner ve mevcut kullanımları bu sete hizala.</resolution>
+    <fallback>Yeni token gerekçesi kanıtlanamıyorsa mevcut tokenlarla çözülebilen en küçük değişiklike dön.</fallback>
+  </scenario>
+
+  <scenario name="trend_overreach">
+    <symptom>Glassmorphism veya benzeri efektler okunurluk, kontrast veya performans sınırlarını aşıyor.</symptom>
+    <resolution>Efekt yoğunluğunu düşür, kontrastı güçlendir, gerekli ise yalnızca vurgu bölgelerinde kullan.</resolution>
+    <fallback>Kalite kapıları geçilemiyorsa trend efektini geri al ve token-temelli nötr yüzeye dön.</fallback>
+  </scenario>
+
+  <scenario name="accessibility_failure">
+    <symptom>Kontrast, odak veya hareket tercihleri uyumsuz.</symptom>
+    <resolution>Öncelikle erişilebilirliği düzelt; görsel iyileştirmeleri ikinci plana al.</resolution>
+  </scenario>
+
+  <scenario name="shadow_cleanup_regression">
+    <symptom>MD2→MD3 shadow temizliği sonrası yüzey ayrımı veya etkileşim okunurluğu bozuluyor.</symptom>
+    <resolution>Tonal surface hiyerarşisini yeniden kur; derinlik gerekiyorsa yalnız level tokenlarıyla düşük yoğunluklu gölge kullan.</resolution>
+    <fallback>Regresyon kapanmıyorsa ilgili değişikliği geri al ve dalga kapsamını küçült.</fallback>
+  </scenario>
+
+  <scenario name="compliance_matrix_drift">
+    <symptom>Uygulanan değişiklikler compliance matrix açık maddeleriyle eşleşmiyor veya rapor izlenebilir değil.</symptom>
+    <resolution>Bulguları matrix maddelerine yeniden eşle; kapanan/açık maddeleri kanıtlarıyla güncelle.</resolution>
+  </scenario>
+</error_handling>

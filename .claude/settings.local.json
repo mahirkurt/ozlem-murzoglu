@@ -136,8 +136,19 @@
       "Bash(start chrome https://dr-murzoglu.web.app/hizmetlerimiz/saglikli-uykular)",
       "Bash(start chrome https://ozlemmurzoglu.com/hizmetlerimiz/saglikli-uykular)",
       "Bash(start chrome http://localhost:4200/hizmetlerimiz/saglikli-uykular)",
-      "Bash(start chrome http://localhost:4202)"
+      "Bash(start chrome http://localhost:4202)",
+      "Bash(wc -l /home/mahirkurt/projects/ozlem-murzoglu/scripts/google-ads/*.mjs)",
+      "Bash(xdg-open /tmp/google-ads-skill-review.html)",
+      "Bash(PYTHONPATH=/home/mahirkurt/.claude/plugins/cache/claude-plugins-official/skill-creator/205b6e0b3036/skills/skill-creator python3 scripts/package_skill.py /home/mahirkurt/.claude/skills/google-ads-manager)",
+      "Bash(PYTHONPATH=/home/mahirkurt/.claude/plugins/cache/claude-plugins-official/skill-creator/205b6e0b3036/skills/skill-creator python3 /home/mahirkurt/.claude/plugins/cache/claude-plugins-official/skill-creator/205b6e0b3036/skills/skill-creator/scripts/package_skill.py /home/mahirkurt/.claude/skills/google-ads-manager)"
     ],
-    "deny": []
+    "deny": [],
+    "additionalDirectories": [
+      "/home/mahirkurt/.claude/skills/google-ads-manager",
+      "/home/mahirkurt/.claude/skills/google-ads-manager-workspace/iteration-1/eval-0-asi-kampanyasi",
+      "/home/mahirkurt/.claude/skills/google-ads-manager-workspace/iteration-1/eval-1-performans-analizi",
+      "/home/mahirkurt/.claude/skills/google-ads-manager-workspace/iteration-1/eval-2-gbp-icerik",
+      "/home/mahirkurt/.claude/skills/google-ads-manager-workspace/iteration-1"
+    ]
   }
 }

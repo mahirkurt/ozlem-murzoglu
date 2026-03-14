@@ -1,16 +1,6 @@
-/* Privacy component styles */
-.container {
-  min-height: 60vh;
-}
+@import '../legal-md3.css';
 
-.bg-green-50 {
-  background-color: #f0fdf4;
-}
-
-.border-green-200 {
-  border-color: #bbf7d0;
-}
-
-.text-green-800 {
-  color: #166534;
+:host {
+  display: block;
+  --legal-accent-color: var(--md-sys-color-primary);
 }

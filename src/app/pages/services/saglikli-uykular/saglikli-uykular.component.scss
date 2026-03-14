@@ -126,13 +126,13 @@ section {
   -webkit-backdrop-filter: blur(40px);
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 24px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--md-sys-elevation-level2);
   padding: 32px;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level4);
   }
 }
 
@@ -241,7 +241,7 @@ section {
   background: white;
   border-radius: 24px;
   padding: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /*/ Moderate shadow for depth */
+  box-shadow: var(--md-sys-elevation-level2); /*/ Moderate shadow for depth */
   /* border removed as per user request, elevation is sufficient */
   display: flex;
   justify-content: center;
@@ -320,7 +320,7 @@ section {
   background: white;
   border-radius: 32px;
   padding: 24px 48px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--md-sys-elevation-level4);
   
   img {
     max-width: 320px;
@@ -358,7 +358,7 @@ section {
     height: 80px;
     background: white;
     border-radius: 24px;
-    box-shadow: 0 8px 24px rgba(var(--md-sys-color-tertiary-rgb), 0.2);
+    box-shadow: var(--md-sys-elevation-level3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -372,7 +372,7 @@ section {
   
   &:hover .icon-container {
     transform: scale(1.1);
-    box-shadow: 0 12px 32px rgba(var(--md-sys-color-tertiary-rgb), 0.3);
+    box-shadow: var(--md-sys-elevation-level4);
   }
   
   h3 {
@@ -603,7 +603,7 @@ section {
   background: rgba(255, 255, 255, 0.95); /*/ Neutral background as requested */
   border-radius: 28px;
   backdrop-filter: blur(20px);
-  box-shadow: 0 12px 40px rgba(255, 127, 80, 0.15); /*/ Coral shadow as requested */
+  box-shadow: var(--md-sys-elevation-level4); /*/ Coral shadow as requested */
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -621,7 +621,7 @@ section {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 8px 24px rgba(var(--md-sys-color-primary-rgb), 0.3);
+    box-shadow: var(--md-sys-elevation-level3);
     
     .material-icons-rounded {
       font-size: 40px;
@@ -771,7 +771,7 @@ section {
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: 0 8px 24px rgba(var(--md-sys-color-primary-rgb), 0.25);
+  box-shadow: var(--md-sys-elevation-level3);
   flex-shrink: 0;
   z-index: 1;
   
@@ -1072,7 +1072,7 @@ section {
     background: linear-gradient(135deg,
       rgba(var(--md-sys-color-primary-rgb), 0.08) 0%,
       rgba(var(--md-sys-color-secondary-rgb), 0.06) 100%);
-    box-shadow: 0 8px 32px rgba(var(--md-sys-color-primary-rgb), 0.15);
+    box-shadow: var(--md-sys-elevation-level4);
   }
 }
 
@@ -1147,7 +1147,7 @@ section {
       &:hover {
         background: rgba($color-whatsapp, 0.08);
         transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba($color-whatsapp, 0.25);
+        box-shadow: var(--md-sys-elevation-level3);
       }
     }
     
@@ -1159,9 +1159,43 @@ section {
       &:hover {
         background: $color-whatsapp-hover;
         transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba($color-whatsapp, 0.35);
+        box-shadow: var(--md-sys-elevation-level4);
       }
     }
+  }
+}
+
+.btn-whatsapp:focus-visible,
+.accordion-header:focus-visible {
+  outline: var(--md-sys-state-focus-ring-width, 3px) solid var(--md-sys-state-focus-ring-color, var(--md-sys-color-primary));
+  outline-offset: var(--md-sys-state-focus-ring-offset, 2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-card,
+  .science-card .icon-container,
+  .accordion-icon,
+  .accordion-content,
+  .btn-whatsapp,
+  .section-icon,
+  .feature-chip,
+  .process-icon-wrapper,
+  .imaging-icon,
+  .phase-badge,
+  .package-card {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+
+  .glass-card:hover,
+  .science-card:hover .icon-container,
+  .accordion-item:hover,
+  .btn-whatsapp:hover,
+  .package-card:hover,
+  .service-card:hover .service-icon,
+  .process-card:hover .process-icon-wrapper,
+  .imaging-card:hover .imaging-icon {
+    transform: none !important;
   }
 }
 

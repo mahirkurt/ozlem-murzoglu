@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { CONTACT_HELPERS } from '../../config/contact.config';
 
 @Component({
   selector: 'app-whatsapp-button',
@@ -8,7 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [CommonModule, TranslateModule],
   template: `
     <a
-      href="https://api.whatsapp.com/send?phone=905466884483&text=Merhaba%2C%20WhatsApp%20bilgilerinizi%20web%20sitenizden%20ald%C4%B1m."
+      [href]="whatsappUrl"
       target="_blank"
       rel="noopener noreferrer"
       class="whatsapp-floating"
@@ -126,4 +127,8 @@ import { TranslateModule } from '@ngx-translate/core';
     }
   `]
 })
-export class WhatsAppButtonComponent {}
+export class WhatsAppButtonComponent {
+  readonly whatsappUrl = CONTACT_HELPERS.getWhatsAppApiUrl(
+    'Merhaba, WhatsApp bilgilerinizi web sitenizden aldım.'
+  );
+}

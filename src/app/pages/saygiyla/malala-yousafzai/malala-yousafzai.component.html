@@ -2,7 +2,7 @@
   <!-- Hero Section -->
   <app-hero-section 
     [title]="'SAYGIYLA.PIONEERS.MALALA_YOUSAFZAI.NAME' | translate"
-    subtitle="Kurşunla Susturulamayan Ses"
+    [subtitle]="'SAYGIYLA.PIONEERS.MALALA_YOUSAFZAI.TITLE' | translate"
     [breadcrumbs]="breadcrumbs"
     colorTheme="purple">
   </app-hero-section>
@@ -234,7 +234,7 @@
           </a>
           <a href="https://wa.me/905466884483" target="_blank" class="btn-secondary">
             <span class="material-icons-rounded" aria-hidden="true">chat</span>
-            <span>WhatsApp</span>
+            <span>{{ 'HEADER.WHATSAPP' | translate }}</span>
           </a>
         </div>
       </div>

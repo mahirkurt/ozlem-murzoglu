@@ -1,0 +1,4 @@
+interface:
+  display_name: "GA4 SEO Autopilot Ozlem"
+  short_description: "GA4 + GSC + GTM SEO autopilot for ozlemmurzoglu.com"
+  default_prompt: "Use $optimize-ga4-seo-ozlem to run end-to-end GA4/GSC/GTM SEO automation for ozlemmurzoglu.com."

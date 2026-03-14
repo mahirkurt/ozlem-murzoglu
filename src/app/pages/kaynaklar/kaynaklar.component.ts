@@ -39,9 +39,9 @@ const fadeIn = trigger('fadeIn', [
 
 // Bölüm veri yapısı
 interface Section {
-  title: string;
-  subtitle?: string;
-  description?: string;
+  titleKey: string;
+  subtitleKey?: string;
+  descriptionKey?: string;
   icon: string;
   isAccent?: boolean;
   categories?: DocumentCategory[];
@@ -49,10 +49,10 @@ interface Section {
 }
 
 interface Panel {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   icon: string;
-  content: string;
+  contentKey: string;
   categoryId?: string;
   expanded?: boolean;
 }
@@ -112,79 +112,58 @@ export class KaynaklarComponent implements OnInit {
 
     this.sections = [
       {
-        title: 'Bright Futures - Aile Rehberleri',
-        subtitle: 'Her yaş için özel hazırlanmış aile bilgilendirme rehberleri',
-        description: 'Amerikan Pediatri Akademisi tarafından hazırlanan, çocuğunuzun her gelişim döneminde size yol gösterecek kapsamlı rehberler.',
+        titleKey: 'RESOURCES.SECTIONS.BRIGHT_FUTURES_FAMILY.TITLE',
+        subtitleKey: 'RESOURCES.SECTIONS.BRIGHT_FUTURES_FAMILY.SUBTITLE',
+        descriptionKey: 'RESOURCES.SECTIONS.BRIGHT_FUTURES_FAMILY.DESCRIPTION',
         icon: 'family_restroom',
         isAccent: true,
         categories: brightFuturesAile
       },
       {
-        title: 'Gelişimsel Kilometre Taşları',
-        subtitle: 'Çocuğunuzun gelişimini takip edin',
-        description: 'Her ay ve yaş için gelişimsel basamaklar, öneriler ve aktiviteler.',
+        titleKey: 'RESOURCES.SECTIONS.DEVELOPMENT_MILESTONES.TITLE',
+        subtitleKey: 'RESOURCES.SECTIONS.DEVELOPMENT_MILESTONES.SUBTITLE',
+        descriptionKey: 'RESOURCES.SECTIONS.DEVELOPMENT_MILESTONES.DESCRIPTION',
         icon: 'psychology',
         categories: gelisimRehberleri
       },
       {
-        title: 'Sağlık ve Hastalıklar',
-        subtitle: 'Koruyucu sağlık ve hastalık yönetimi',
+        titleKey: 'RESOURCES.SECTIONS.HEALTH_DISEASES.TITLE',
+        subtitleKey: 'RESOURCES.SECTIONS.HEALTH_DISEASES.SUBTITLE',
         icon: 'local_hospital',
         panels: [
           {
-            title: 'Aşılar ve Bağışıklama',
-            description: 'Aşı takvimi ve bilgilendirme föyleri',
+            titleKey: 'RESOURCES.SECTIONS.HEALTH_DISEASES.PANELS.VACCINES.TITLE',
+            descriptionKey: 'RESOURCES.SECTIONS.HEALTH_DISEASES.PANELS.VACCINES.DESCRIPTION',
             icon: 'medical_services',
-            content: `
-              <ul>
-                <li>HPV, KKK, KKKA aşı bilgi föyleri</li>
-                <li>Meningokok ve influenza aşıları</li>
-                <li>Rotavirüs aşısı hakkında bilgiler</li>
-                <li>Güncel aşı takvimi ve öneriler</li>
-              </ul>
-            `,
+            contentKey: 'RESOURCES.SECTIONS.HEALTH_DISEASES.PANELS.VACCINES.CONTENT',
             categoryId: 'asilar'
           },
           {
-            title: 'Sık Görülen Hastalıklar',
-            description: 'Tanı, tedavi ve korunma yöntemleri',
+            titleKey: 'RESOURCES.SECTIONS.HEALTH_DISEASES.PANELS.COMMON_DISEASES.TITLE',
+            descriptionKey: 'RESOURCES.SECTIONS.HEALTH_DISEASES.PANELS.COMMON_DISEASES.DESCRIPTION',
             icon: 'sick',
-            content: `
-              <ul>
-                <li>Ateş yönetimi ve müdahale</li>
-                <li>Orta kulak iltihabı</li>
-                <li>Astım ve alerji yönetimi</li>
-                <li>Egzama ve cilt sorunları</li>
-              </ul>
-            `,
+            contentKey: 'RESOURCES.SECTIONS.HEALTH_DISEASES.PANELS.COMMON_DISEASES.CONTENT',
             categoryId: 'hastaliklar'
           },
           {
-            title: 'Genel Sağlık Bilgileri',
-            description: 'Koruyucu sağlık ve güvenlik',
+            titleKey: 'RESOURCES.SECTIONS.HEALTH_DISEASES.PANELS.GENERAL_HEALTH.TITLE',
+            descriptionKey: 'RESOURCES.SECTIONS.HEALTH_DISEASES.PANELS.GENERAL_HEALTH.DESCRIPTION',
             icon: 'health_and_safety',
-            content: `
-              <ul>
-                <li>Güvenli uyku pratikleri</li>
-                <li>Emzirme rehberleri</li>
-                <li>Beslenme ve diş sağlığı</li>
-                <li>Ev ve oyuncak güvenliği</li>
-              </ul>
-            `,
+            contentKey: 'RESOURCES.SECTIONS.HEALTH_DISEASES.PANELS.GENERAL_HEALTH.CONTENT',
             categoryId: 'genel-bilgiler'
           }
         ]
       },
       {
-        title: 'Bright Futures - Çocuk ve Ergen',
-        subtitle: 'Çocuğunuza özel hazırlanmış bilgilendirme materyalleri',
-        description: 'Çocukların ve ergenlerin anlayabileceği dilde hazırlanmış sağlık ve gelişim bilgileri.',
+        titleKey: 'RESOURCES.SECTIONS.BRIGHT_FUTURES_CHILD.TITLE',
+        subtitleKey: 'RESOURCES.SECTIONS.BRIGHT_FUTURES_CHILD.SUBTITLE',
+        descriptionKey: 'RESOURCES.SECTIONS.BRIGHT_FUTURES_CHILD.DESCRIPTION',
         icon: 'child_care',
         categories: brightFuturesCocuk
       },
       {
-        title: 'Özel Konular ve Rehberler',
-        subtitle: 'Medya kullanımı, büyüme eğrileri ve daha fazlası',
+        titleKey: 'RESOURCES.SECTIONS.SPECIAL_TOPICS.TITLE',
+        subtitleKey: 'RESOURCES.SECTIONS.SPECIAL_TOPICS.SUBTITLE',
         icon: 'menu_book',
         categories: digerler
       }

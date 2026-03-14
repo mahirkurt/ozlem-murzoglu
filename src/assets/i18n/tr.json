@@ -64,14 +64,14 @@
   },
   "HOME": {
     "HERO_TITLE": "<span class=\"hero-highlight\">Bilim</span> ve <span class=\"hero-highlight\">sevgiyle</span> büyüyen sağlıklı çocuklar",
-    "HERO_DESCRIPTION": "",
     "HERO_MICROCOPY": "Randevu ve bilgi talepleriniz için size uygun zamanı kolayca planlayın.",
     "CTA_APPOINTMENT": "Hemen Randevu Al",
     "CTA_LEARN_MORE": "Detaylı Bilgi",
-    "HERO_OVERLINE": "SOSYAL PEDİATRİ & ÇOCUK SAĞLIĞI KLİNİĞİ",
-    "HERO_BADGE_BRIGHT": "Bright Futures\u00ae Sertifikalı",
-    "HERO_BADGE_TRIPLE_P": "Triple P\u00ae Lisanslı",
+    "HERO_OVERLINE": "Kanıta Dayalı Sosyal Pediatri",
+    "HERO_BADGE_BRIGHT": "Bright Futures® Sertifikalı",
+    "HERO_BADGE_TRIPLE_P": "Triple P® Lisanslı",
     "HERO_BADGE_SOCIAL_PED": "Sosyal Pediatri Doktora",
+    "WHY_SP_LABEL": "Yaklaşımımız",
     "WHY_SP_TITLE": "Neden Sosyal Pediatri?",
     "WHY_SP_EVIDENCE_TITLE": "Kanıta Dayalı Tıp",
     "WHY_SP_EVIDENCE_DESC": "Uluslararası kılavuzlar ve güncel araştırmalarla desteklenen yaklaşım.",
@@ -920,7 +920,77 @@
       "EXPERT_TEAM": "Uzman Kadro",
       "EXPERIENCED_STAFF": "Deneyimli teknisyen ve uzmanlar",
       "MODERN_EQUIPMENT": "Modern Cihazlar",
-      "LATEST_TECHNOLOGY": "Son teknoloji ekipmanlar"
+      "LATEST_TECHNOLOGY": "Son teknoloji ekipmanlar",
+      "BIRUNI_LOGO_ALT": "Biruni Laboratuvarları logosu",
+      "BIRUNI_TITLE": "Biruni Laboratuvarları",
+      "SONOMED_LOGO_ALT": "Sonomed Görüntüleme logosu",
+      "SONOMED_TITLE": "Sonomed Tıbbi Görüntüleme Merkezleri",
+      "SONOMED_BRANCH_LABEL": "Ataşehir Şubesi",
+      "SONOMED_ADDRESS_DETAIL": "Ataşehir, Ataşehir Bulvarı, Ata 2/3 Plaza Kat:3 No:30 Ataşehir/İstanbul",
+      "BADGE_MR_3_TESLA": "3 Tesla MR",
+      "BADGE_CT_128_SLICE": "128 Kesit BT",
+      "BADGE_USG_4D": "4D USG",
+      "BADGE_DIGITAL": "Dijital",
+      "BADGE_DOPPLER_ECHO": "Doppler EKO",
+      "BADGE_EXPERT_RADIOLOGIST": "Uzman Radyolog"
+    },
+    "CARD_FEATURES": {
+      "LAB": {
+        "BIOCHEMISTRY_TESTS": "Biyokimya testleri",
+        "MICROBIOLOGY_TESTS": "Mikrobiyoloji tetkikleri",
+        "INFECTION_TESTS": "COVID-19 ve enfeksiyon testleri",
+        "MRI_CT_ULTRASOUND": "MR, BT, Ultrasonografi",
+        "DIGITAL_XRAY": "Dijital röntgen",
+        "INSURANCE_PROVISION": "Sigorta provizyon işlemleri"
+      },
+      "TRIPLE_P": {
+        "YEARS_EXPERIENCE": "35+ yıllık deneyim",
+        "MULTI_LANGUAGE": "20+ dilde hizmet",
+        "ACADEMIC_PUBLICATIONS": "830+ akademik makale",
+        "GROUP_TRAININGS": "Grup eğitim programları",
+        "BEHAVIOR_MANAGEMENT": "Davranış yönetimi teknikleri",
+        "POSITIVE_DISCIPLINE": "Pozitif disiplin stratejileri"
+      },
+      "SLEEP": {
+        "PRE_ASSESSMENT": "Ön değerlendirme ve muayene",
+        "PERSONAL_SLEEP_PLAN": "Kişiselleştirilmiş uyku planı",
+        "INTENSIVE_FOLLOWUP": "2 haftalık yoğun takip",
+        "SLEEP_DIARY_SUPPORT": "Uyku günlüğü desteği",
+        "WHATSAPP_SUPPORT_LINE": "WhatsApp destek hattı",
+        "POST_PROGRAM_FOLLOWUP": "Mezuniyet sonrası takip"
+      },
+      "BRIGHT_FUTURES": {
+        "PRE_VISIT_FORMS": "Ziyaret öncesi hazırlık formları",
+        "MIN_ONE_HOUR_EXAM": "Minimum 1 saatlik muayene",
+        "AGE_SPECIFIC_GUIDANCE": "Yaşa özel bilgilendirme",
+        "DEVELOPMENTAL_SCREENING": "Gelişimsel tarama testleri",
+        "FAMILY_CENTERED_CARE": "Aile merkezli bakım",
+        "EVIDENCE_BASED": "Kanıta dayalı yaklaşım"
+      },
+      "SOS_FEEDING": {
+        "PICKY_EATING_TREATMENT": "Seçici yeme davranışı tedavisi",
+        "SENSORY_INTEGRATION": "Duyusal entegrasyon yaklaşımı",
+        "FAMILY_THERAPY": "Aile merkezli terapi",
+        "PLAY_BASED_LEARNING": "Oyun tabanlı öğrenme",
+        "EVIDENCE_BASED_METHODS": "Kanıta dayalı yöntemler",
+        "INTERNATIONAL_CERTIFICATION": "Uluslararası sertifika"
+      },
+      "VACCINATION": {
+        "NATIONAL_SCHEDULE": "Ulusal aşı takvimi takibi",
+        "PRIVATE_VACCINES": "Özel aşı uygulamaları",
+        "POST_VACCINE_FOLLOWUP": "Aşı sonrası takip",
+        "VACCINE_INFORMATION": "Aşı bilgilendirme",
+        "DIGITAL_VACCINE_CARD": "Dijital aşı kartı",
+        "REMINDER_SERVICE": "Hatırlatma servisi"
+      },
+      "GROWTH": {
+        "HEIGHT_WEIGHT_TRACKING": "Boy-kilo takibi",
+        "HEAD_CIRCUMFERENCE": "Baş çevresi ölçümü",
+        "MILESTONES": "Gelişimsel kilometre taşları",
+        "DENVER_II": "Denver II gelişim testi",
+        "GROWTH_CURVE_ANALYSIS": "Büyüme eğrisi analizi",
+        "EARLY_INTERVENTION": "Erken müdahale programları"
+      }
     },
     "CTA": {
       "TITLE": "Çocuğunuzun Sağlığı İçin İlk Adımı Atın",
@@ -1056,6 +1126,49 @@
         "content": "# Rotavirüs Aşısı\n\nBebekleri ve küçük çocukları rotavirüs gastroenteritine karşı korur.",
         "contentType": "markdown"
       }
+    },
+    "SEARCH": "Ara",
+    "SECTIONS": {
+      "BRIGHT_FUTURES_FAMILY": {
+        "TITLE": "Bright Futures - Aile Rehberleri",
+        "SUBTITLE": "Her yaş için özel hazırlanmış aile bilgilendirme rehberleri",
+        "DESCRIPTION": "Amerikan Pediatri Akademisi tarafından hazırlanan, çocuğunuzun her gelişim döneminde size yol gösterecek kapsamlı rehberler."
+      },
+      "DEVELOPMENT_MILESTONES": {
+        "TITLE": "Gelişimsel Kilometre Taşları",
+        "SUBTITLE": "Çocuğunuzun gelişimini takip edin",
+        "DESCRIPTION": "Her ay ve yaş için gelişimsel basamaklar, öneriler ve aktiviteler."
+      },
+      "HEALTH_DISEASES": {
+        "TITLE": "Sağlık ve Hastalıklar",
+        "SUBTITLE": "Koruyucu sağlık ve hastalık yönetimi",
+        "PANELS": {
+          "VACCINES": {
+            "TITLE": "Aşılar ve Bağışıklama",
+            "DESCRIPTION": "Aşı takvimi ve bilgilendirme föyleri",
+            "CONTENT": "<ul><li>HPV, KKK, KKKA aşı bilgi föyleri</li><li>Meningokok ve influenza aşıları</li><li>Rotavirüs aşısı hakkında bilgiler</li><li>Güncel aşı takvimi ve öneriler</li></ul>"
+          },
+          "COMMON_DISEASES": {
+            "TITLE": "Sık Görülen Hastalıklar",
+            "DESCRIPTION": "Tanı, tedavi ve korunma yöntemleri",
+            "CONTENT": "<ul><li>Ateş yönetimi ve müdahale</li><li>Orta kulak iltihabı</li><li>Astım ve alerji yönetimi</li><li>Egzama ve cilt sorunları</li></ul>"
+          },
+          "GENERAL_HEALTH": {
+            "TITLE": "Genel Sağlık Bilgileri",
+            "DESCRIPTION": "Koruyucu sağlık ve güvenlik",
+            "CONTENT": "<ul><li>Güvenli uyku pratikleri</li><li>Emzirme rehberleri</li><li>Beslenme ve diş sağlığı</li><li>Ev ve oyuncak güvenliği</li></ul>"
+          }
+        }
+      },
+      "BRIGHT_FUTURES_CHILD": {
+        "TITLE": "Bright Futures - Çocuk ve Ergen",
+        "SUBTITLE": "Çocuğunuza özel hazırlanmış bilgilendirme materyalleri",
+        "DESCRIPTION": "Çocukların ve ergenlerin anlayabileceği dilde hazırlanmış sağlık ve gelişim bilgileri."
+      },
+      "SPECIAL_TOPICS": {
+        "TITLE": "Özel Konular ve Rehberler",
+        "SUBTITLE": "Medya kullanımı, büyüme eğrileri ve daha fazlası"
+      }
     }
   },
   "CONTACT": {
@@ -1106,7 +1219,25 @@
     "CTA_SUBTITLE": "Kanıta dayalı, bilimsel veriler ışığında pediatri hekimliği",
     "TITLE": "İletişim",
     "PHONE": "Telefon",
-    "EMAIL": "E-posta"
+    "EMAIL": "E-posta",
+    "TRANSPORT_SECTION_TITLE": "Kliniğimize Ulaşım",
+    "METRO_TITLE": "Metro M4 Hattı",
+    "METRO_DESC": "Yenisahra - Kozyatağı istasyonlarından taksi/otobüs",
+    "BUS_TITLE": "Otobüs Durakları",
+    "BUS_DESC": "Ataşehir Bulvarı üzerindeki duraklardan 5 dk yürüme",
+    "PARKING_TITLE": "Otopark Seçenekleri",
+    "PARKING_VALET_TITLE": "Vale Hizmeti",
+    "PARKING_VALET_DESC": "Uphill Towers önündeki vale hizmetini kullanabilirsiniz (ücretlidir).",
+    "PARKING_BULVAR_TITLE": "Bulvar 216 AVM Otoparkı",
+    "PARKING_BULVAR_HIGHLIGHT": "0-3 Saat Ücretsiz",
+    "PARKING_BULVAR_DESC": "Hemen yandaki Bulvar 216 AVM otoparkını kullanabilirsiniz. İlk 3 saat ücretsizdir.",
+    "DIRECTIONS_TITLE": "Yol Tarifi",
+    "MAP_GOOGLE": "Google Maps",
+    "MAP_APPLE": "Apple Maps",
+    "MAP_IFRAME_TITLE": "Klinik konum haritası",
+    "WHATSAPP_LOCATION_TITLE": "WhatsApp Konum",
+    "WHATSAPP_QR_ALT": "WhatsApp QR Kodu",
+    "WHATSAPP_QR_TEXT": "QR kodu tarayarak konumu WhatsApp'ta paylaşın"
   },
   "FOOTER": {
     "ABOUT_TITLE": "Hakkımızda",
@@ -1208,7 +1339,9 @@
     "CLEAR_FILTERS": "Filtreleri Temizle",
     "FEATURED_ARTICLES": "Öne Çıkan Yazılar",
     "MIN_READ": "dk okuma",
-    "ALL_ARTICLES": "Tüm Yazılar"
+    "ALL_ARTICLES": "Tüm Yazılar",
+    "SEARCH_RESULTS": "Arama Sonuçları",
+    "CATEGORY_ARTICLES": "Kategori Yazıları"
   },
   "APPOINTMENT": {
     "TITLE": "Randevu Al",
@@ -1316,7 +1449,7 @@
     "DATE_3_WEEKS": "3 hafta önce",
     "DATE_2_WEEKS": "2 hafta önce",
     "DATE_1_WEEK": "1 hafta önce",
-    "LABEL": "[TR] Label"
+    "LABEL": "Google İşletme Profili"
   },
   "CLINIC": {
     "HERO": {
@@ -1443,7 +1576,8 @@
     "READ_MORE": "Devamını Oku",
     "CTA": {
       "TITLE": "Çocuğunuzun Sağlığı İçin İlk Adımı Atın",
-      "SUBTITLE": "Hemen randevu alın ve çocuğunuzun sağlıklı geleceği için birlikte çalışalım"
+      "SUBTITLE": "Hemen randevu alın ve çocuğunuzun sağlıklı geleceği için birlikte çalışalım",
+      "APPOINTMENT_BUTTON": "Book Appointment"
     }
   },
   "ERROR": {
@@ -1716,6 +1850,14 @@
         "9 ay",
         "12 ay"
       ],
+      "BABY_VISIT_1": "Yenidoğan",
+      "BABY_VISIT_2": "3-5 gün",
+      "BABY_VISIT_3": "1 ay",
+      "BABY_VISIT_4": "2 ay",
+      "BABY_VISIT_5": "4 ay",
+      "BABY_VISIT_6": "6 ay",
+      "BABY_VISIT_7": "9 ay",
+      "BABY_VISIT_8": "12 ay",
       "EARLY_CHILDHOOD": "Erken Çocukluk (1-4 yaş)",
       "EARLY_CHILDHOOD_VISITS": [
         "15 ay",
@@ -1725,6 +1867,12 @@
         "3 yaş",
         "4 yaş"
       ],
+      "EARLY_CHILDHOOD_VISIT_1": "15 ay",
+      "EARLY_CHILDHOOD_VISIT_2": "18 ay",
+      "EARLY_CHILDHOOD_VISIT_3": "2 yaş",
+      "EARLY_CHILDHOOD_VISIT_4": "2.5 yaş",
+      "EARLY_CHILDHOOD_VISIT_5": "3 yaş",
+      "EARLY_CHILDHOOD_VISIT_6": "4 yaş",
       "SCHOOL_AGE": "Okul Çağı (5-10 yaş)",
       "SCHOOL_AGE_VISITS": [
         "5 yaş",
@@ -1734,11 +1882,19 @@
         "9 yaş",
         "10 yaş"
       ],
+      "SCHOOL_AGE_VISIT_1": "5 yaş",
+      "SCHOOL_AGE_VISIT_2": "6 yaş",
+      "SCHOOL_AGE_VISIT_3": "7 yaş",
+      "SCHOOL_AGE_VISIT_4": "8 yaş",
+      "SCHOOL_AGE_VISIT_5": "9 yaş",
+      "SCHOOL_AGE_VISIT_6": "10 yaş",
       "ADOLESCENCE": "Ergenlik (11-21 yaş)",
       "ADOLESCENCE_VISITS": [
         "Yıllık kontroller",
         "11-21 yaş arası"
       ],
+      "ADOLESCENCE_VISIT_1": "Yıllık kontroller",
+      "ADOLESCENCE_VISIT_2": "11-21 yaş arası",
       "EXAM_NOTE": "Önemli Not",
       "EXAM_NOTE_DESC": "Her muayenede çocuğun yaşına uygun fizik muayene, büyüme-gelişim değerlendirmesi, aşılama ve tarama testleri yapılır. Aileye özel rehberlik materyalleri verilir.",
       "EACH_EXAM": "Her Muayenede",
@@ -1807,6 +1963,7 @@
       "PROBLEM_PREVENTION_DESC": "Potansiyel sorunların önlenmesi",
       "JOURNEY_TITLE": "Bright Futures Yolculuğu",
       "JOURNEY_SUBTITLE": "Doğumdan Ergenliğe Sağlıklı Büyüme Rehberi",
+      "LOGO_ALT": "Bright Futures logosu",
       "PHASE_BABY": "Bebek",
       "PHASE_BABY_RANGE": "0-12 ay",
       "PHASE_TODDLER": "Yürüme Çağı",
@@ -1817,6 +1974,19 @@
       "PHASE_SCHOOL_RANGE": "6-12 yaş",
       "PHASE_ADOLESCENT": "Ergenlik",
       "PHASE_ADOLESCENT_RANGE": "13-21 yaş",
+      "BABY_AGE_0_1": "0-1 ay",
+      "BABY_AGE_2_4": "2-4 ay",
+      "BABY_AGE_6": "6 ay",
+      "BABY_AGE_9_12": "9-12 ay",
+      "TODDLER_AGE_15_18": "15-18 ay",
+      "TODDLER_AGE_2": "2 yaş",
+      "PRESCHOOL_AGE_3_4": "3-4 yaş",
+      "PRESCHOOL_AGE_5": "5 yaş",
+      "SCHOOL_AGE_6_8": "6-8 yaş",
+      "SCHOOL_AGE_9_12": "9-12 yaş",
+      "ADOLESCENT_AGE_13_15": "13-15 yaş",
+      "ADOLESCENT_AGE_16_18": "16-18 yaş",
+      "ADOLESCENT_AGE_18_21": "18-21 yaş",
       "BABY_PHASE_TITLE": "Bebek Dönemi",
       "BABY_PHASE_DESC": "İlk bir yıldaki önemli kontroller ve gelişim aşamaları",
       "NEWBORN_PERIOD": "Yenidoğan ve İlk Ay",
@@ -2182,6 +2352,72 @@
       "TITLE": "Makaleler",
       "SUBTITLE": "Çocuk sağlığı hakkında güncel bilgiler",
       "COMING_SOON_DESC": "Makaleler bölümü yakında sizlerle olacak."
+    },
+    "CLINIC_DESIGN": {
+      "TITLE": "Our Clinic",
+      "SUBTITLE": "Modern, hygienic and child-friendly environment",
+      "INTRO_TITLE": "A Warm and Safe Environment",
+      "INTRO_TEXT": "We set out to create a warm environment that turns doctor visits into a positive experience for our little guests.",
+      "INTRO_DESC": "When designing the clinic, our main goal was to create an atmosphere that doesn't leave negative memories in children and won't cause fear of going to the doctor.",
+      "TEAM_TITLE": "Our Design Team",
+      "TEAM_CARD1_TITLE": "Modern Architectural Design",
+      "TEAM_DESC1": "Our clinic was designed with child psychology and modern architectural principles in mind. Every corner was carefully planned to make children feel safe and happy.",
+      "TEAM_CARD2_TITLE": "Color and Texture Harmony",
+      "TEAM_DESC2": "We created a calming atmosphere using pastel tones and natural textures. We added wall paintings and decorative elements that support children's imagination.",
+      "DESIGN_FEATURE_1": "Natural Lighting",
+      "DESIGN_FEATURE_1_DESC": "Large windows and natural light sources",
+      "DESIGN_FEATURE_2": "Ergonomic Design",
+      "DESIGN_FEATURE_2_DESC": "Child-sized furniture and equipment",
+      "DESIGN_FEATURE_3": "Safe Materials",
+      "DESIGN_FEATURE_3_DESC": "Antibacterial and eco-friendly materials",
+      "IMAGE_CLINIC_INTERIOR": "Clinic Interior View",
+      "IMAGE_PLAY_AREA": "Play Area",
+      "IMAGE_WAITING_AREA": "Waiting Room",
+      "GALLERY_TITLE": "Clinic Gallery",
+      "GALLERY_EXAM_ROOM": "Examination Room",
+      "GALLERY_PLAY_CORNER": "Play Corner",
+      "GALLERY_WAITING_AREA": "Waiting Area",
+      "GALLERY_NURSING_ROOM": "Nursing Room",
+      "GALLERY_CORRIDOR": "Corridor",
+      "GALLERY_GENERAL_VIEW": "General View",
+      "MONTESSORI_TITLE": "Montessori Principles",
+      "MONTESSORI_DESC": "In our clinic, we support children's desire to explore and learn, inspired by the Montessori educational philosophy.",
+      "MONTESSORI_BOOKS": "Educational Books",
+      "MONTESSORI_BOOKS_DESC": "Age-appropriate story and educational books",
+      "MONTESSORI_GAMES": "Brain Games",
+      "MONTESSORI_GAMES_DESC": "Wooden toys that support development",
+      "MONTESSORI_TOYS": "Educational Toys",
+      "MONTESSORI_TOYS_DESC": "Materials that develop motor skills",
+      "MONTESSORI_TEXT": "By supporting children's natural curiosity and exploration instincts, we transform clinic visits into <span class='color-yellow'>fun</span> and <span class='color-orange'>educational</span> experiences.",
+      "IMAGE_MONTESSORI_AREA": "Montessori Corner",
+      "IMAGE_EDUCATIONAL_TOYS": "Educational Toys",
+      "IMAGE_BOOK_CORNER": "Book Corner",
+      "SAFETY_TITLE": "Safety Measures",
+      "SAFETY_PHYSICAL": "Physical Safety",
+      "SAFETY_PHYSICAL_DESC": "Corner protectors, non-slip floors and safe furniture",
+      "SAFETY_ELECTRICAL": "Electrical Safety",
+      "SAFETY_ELECTRICAL_DESC": "Child locks and protected outlets",
+      "SAFETY_MONITORING": "24/7 Monitoring",
+      "SAFETY_MONITORING_DESC": "Security cameras and emergency systems",
+      "HYGIENE_TITLE": "Hygiene Standards",
+      "HYGIENE_DESC": "We apply the highest hygiene standards in our clinic.",
+      "HYGIENE_TEXT": "We provide a safe environment with regular disinfection, air purification systems and sterilization protocols.",
+      "HYGIENE_1": "Daily Cleaning",
+      "HYGIENE_1_DESC": "Disinfection after each patient",
+      "HYGIENE_2": "Air Quality",
+      "HYGIENE_2_DESC": "HEPA filtered ventilation systems",
+      "HYGIENE_3": "Sterilization",
+      "HYGIENE_3_DESC": "Sterilization of medical devices",
+      "HYGIENE_NOTE": "Special hygiene protocols are implemented as part of COVID-19 measures.",
+      "CTA_TITLE": "Schedule an Appointment for Your Child",
+      "CTA_SUBTITLE": "We are waiting for you in our modern and safe clinic",
+      "CTA_BUTTON": "Book Appointment",
+      "ALT_ENTRANCE": "Clinic Entrance"
+    },
+    "CLINIC": {
+      "ALT_ENVIRONMENT": "Clinic environment",
+      "ALT_WAITING_AREA": "Clinic Waiting Area",
+      "ALT_INTERIOR": "Clinic Interior"
     }
   },
   "CLINIC_DESIGN": {
@@ -2358,11 +2594,15 @@
       "TITLE": "Çocuğunuzun Sağlığı İçin İlk Adımı Atın",
       "SUBTITLE": "Hemen randevu alın ve çocuğunuzun sağlıklı geleceği için birlikte çalışalım",
       "APPOINTMENT_BUTTON": "Randevu Al"
-    }
+    },
+    "RELATED_PIONEERS_TITLE": "[TR] Related Pioneers Title",
+    "RELATED_PIONEERS_DESC": "[TR] Related Pioneers Desc",
+    "VIEW_ALL": "[TR] View All"
   },
   "SERVICE_SOS_FEEDING": {
     "TITLE": "SOS Feeding Programı",
     "SUBTITLE": "Beslenme Sorunlarına Bütüncül Yaklaşım",
+    "LOGO_ALT": "SOS Feeding program logosu",
     "WHAT_IS_TITLE": "SOS Feeding Nedir?",
     "WHAT_IS_DESC": "Sequential Oral Sensory (Ardışık Oral Duyusal) Beslenme Yaklaşımı",
     "WHAT_IS_DETAIL": "Çocukların yemek yeme becerilerini geliştirmek ve besin çeşitliliğini artırmak için geliştirilmiş, duyusal ve motor temelli, bilimsel kanıtlı bir programdır. Çocuğun yiyeceklerle güvenli bir ortamda, oyun yoluyla tanışmasını sağlar.",
@@ -2383,8 +2623,20 @@
     "PROBLEM_POINT_3": "Aç kalsa bile yemez",
     "PROBLEM_POINT_4": "Sosyal hayatı kısıtlar",
     "PROBLEM_POINT_5": "Büyüme/gelişme geriliği olabilir",
+    "BADGE_CERT_1_TITLE": "Hybrid SOS Approach to Feeding Training Course",
+    "BADGE_CERT_1_DATE": "2025",
+    "BADGE_CERT_1_LEVEL": "Feeding Terapisti",
+    "BADGE_CERT_2_TITLE": "SOS Approach to Feeding Advanced Course",
+    "BADGE_CERT_2_DATE": "2025",
+    "BADGE_CERT_2_LEVEL": "İleri Düzey Feeding Terapisti",
     "WHO_NEEDS_TITLE": "Kimler İçin Uygundur?",
     "WHO_NEEDS_DESC": "Beslenme güçlüğü yaşayan, yemek saatlerinde kriz yaşanan veya büyüme geriliği riski taşıyan çocuklar.",
+    "WARNING_TITLE": "Önemli Uyarı",
+    "WARNING_DESC": "Eğer çocuğunuz aşağıdaki durumlardan birini yaşıyorsa, profesyonel destek almanız önerilir:",
+    "WARNING_ITEM_1": "20'den az farklı yiyecek tüketiyor",
+    "WARNING_ITEM_2": "Bütün besin gruplarından yemiyor",
+    "WARNING_ITEM_3": "Yemek saatleri aile için stresli geçiyor",
+    "WARNING_ITEM_4": "Kilo alımı veya büyüme hızı yavaşladı",
     "PICKY_EATING_TITLE": "Seçici Yeme",
     "PICKY_EATING_DESC": "Belirli yiyecek gruplarını reddetme, sınırlı besin çeşitliliği.",
     "FOOD_REFUSAL_TITLE": "Yeme Reddi",
@@ -2454,6 +2706,16 @@
     "CERT_2_POINT_3": "Oral Motor",
     "CERT_2_POINT_4": "Duyusal Hassasiyet",
     "BENEFITS_TITLE": "Programın Faydaları",
+    "SUCCESS_TITLE": "Başarı Oranımız",
+    "SUCCESS_DESC_PREFIX": "SOS Feeding yaklaşımı ile takip ettiğimiz çocukların ",
+    "SUCCESS_DESC_HIGHLIGHT": "%85'inden fazlasında",
+    "SUCCESS_DESC_SUFFIX": " anlamlı iyileşmeler gözlemliyoruz:",
+    "SUCCESS_STAT_1_VALUE": "32+",
+    "SUCCESS_STAT_1_LABEL": "Adımlık Program",
+    "SUCCESS_STAT_2_VALUE": "%85",
+    "SUCCESS_STAT_2_LABEL": "Başarı Oranı",
+    "SUCCESS_STAT_3_VALUE": "500+",
+    "SUCCESS_STAT_3_LABEL": "Mutlu Aile",
     "BENEFIT_1_TITLE": "Besin Çeşitliliği",
     "BENEFIT_1_DESC": "Kabul edilen yiyecek sayısında artış",
     "BENEFIT_2_TITLE": "Stressiz Yemek",
@@ -2482,10 +2744,17 @@
     "LABEL": "Google İşletme Profili",
     "TITLE": "Ailelerimizin deneyimleri",
     "SUBTITLE": "Google yorumları ve puanlamalarıyla şeffaf, güvenilir geri bildirimler",
+    "CAROUSEL_ARIA": "Aile deneyim yorumları döngüsü",
+    "CAROUSEL_STATUS": "{{index}} / {{total}} yorum",
     "RATING_ARIA": "Ortalama puan: {{rating}} / 5",
     "REVIEW_COUNT": "{{count}} değerlendirme",
     "VIEW_ALL": "Tüm yorumları Google'da gör",
     "VIEW_PROFILE": "Google profilimizi aç",
+    "PREV_ARIA": "Önceki yorumu göster",
+    "NEXT_ARIA": "Sonraki yorumu göster",
+    "GO_TO_REVIEW": "{{total}} yorum içinde {{index}}. yoruma git",
+    "AUTO_ROTATE_PAUSE": "Otomatik dönüşü duraklat",
+    "AUTO_ROTATE_RESUME": "Otomatik dönüşü başlat",
     "NO_TEXT": "Bu değerlendirmede metin bulunmuyor.",
     "LOADING": "Google yorumları yükleniyor...",
     "EMPTY": "Şu anda gösterilecek yorum bulunamadı."
@@ -2509,5 +2778,15 @@
     "EXPERIENCE_TITLE": "[TR] Experience Title",
     "SPECIALTIES_TITLE": "[TR] Specialties Title",
     "MEMBERSHIPS_TITLE": "[TR] Memberships Title"
+  },
+  "DOCUMENT": {
+    "VIEWER": {
+      "BACK_TO_CATEGORY": "[TR] Back To Category"
+    },
+    "DOWNLOAD_PDF": "Download PDF",
+    "PRINT": "Print",
+    "TABLE_OF_CONTENTS": "Table of Contents",
+    "BACK_TO_LIST": "Back to List",
+    "CATEGORY": "Category"
   }
 }

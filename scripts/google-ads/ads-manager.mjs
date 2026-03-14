@@ -29,6 +29,9 @@
  *   extension:sitelinks  Sitelink uzantıları ekle
  *   extension:call     Arama uzantısı ekle
  *   extension:callouts Açıklama uzantıları ekle
+ *   asset:upload       Görsel asset yükle (logo/image)
+ *   asset:list         Görsel asset'leri listele
+ *   asset:link         Asset'i kampanyaya bağla
  *   setup:full         Tam strateji kurulumu (hepsini birden)
  *   account            Hesap bilgilerini göster
  *   help               Yardım
@@ -99,6 +102,17 @@ function getManagerClient() {
     customer_id: CONFIG.login_customer_id,
     refresh_token: tokens.refresh_token,
   });
+}
+
+// --- API helpers ---
+// google-ads-api create() may return: a string, an array of strings,
+// or an object with results/resource_names arrays
+function first(result) {
+  if (typeof result === 'string') return result;
+  if (Array.isArray(result)) return result[0];
+  if (result?.results) return result.results[0]?.resource_name || result.results[0];
+  if (result?.resource_names) return result.resource_names[0];
+  return result;
 }
 
 // --- Formatting helpers ---
@@ -215,7 +229,6 @@ async function cmdCampaignDetails(customer, campaignId) {
       campaign.id,
       campaign.name,
       campaign.status,
-      campaign.start_date,
       campaign.advertising_channel_type,
       campaign.bidding_strategy_type,
       campaign_budget.amount_micros,
@@ -242,7 +255,6 @@ async function cmdCampaignDetails(customer, campaignId) {
   console.log(`  Kanal:           ${c.campaign.advertising_channel_type}`);
   console.log(`  Teklif Stratejisi: ${c.campaign.bidding_strategy_type}`);
   console.log(`  Gunluk Butce:    ${formatMicros(c.campaign_budget?.amount_micros)} TL`);
-  console.log(`  Baslangic:       ${c.campaign.start_date}`);
   console.log(`\n  --- Performans (${startFmt} - ${endFmt}) ---`);
   console.log(`  Gosterim:        ${c.metrics.impressions}`);
   console.log(`  Tiklama:         ${c.metrics.clicks}`);
@@ -259,19 +271,56 @@ async function cmdCampaignSetStatus(customer, campaignId, status) {
     process.exit(1);
   }
 
-  await customer.campaignBudgets.update({
-    // We actually need to update the campaign, not budget
-  });
-
-  // Use mutate to update campaign status
   const statusEnum = status === 'ENABLED' ? enums.CampaignStatus.ENABLED : enums.CampaignStatus.PAUSED;
 
-  await customer.campaigns.update({
+  await customer.campaigns.update([{
     resource_name: `customers/${CONFIG.customer_id}/campaigns/${campaignId}`,
     status: statusEnum,
-  });
+  }]);
 
   console.log(`\nKampanya ${campaignId} durumu: ${status}`);
+}
+
+async function cmdCampaignSetBidding(customer, campaignId, strategy, maxCpc) {
+  if (!campaignId || !strategy) {
+    console.error('Kullanim: campaign:set-bidding --id=XXX --strategy=maximize_clicks|maximize_conversions [--max-cpc=15]');
+    process.exit(1);
+  }
+
+  const update = {
+    resource_name: `customers/${CONFIG.customer_id}/campaigns/${campaignId}`,
+  };
+
+  switch (strategy.toLowerCase()) {
+    case 'maximize_clicks':
+      update.target_spend = maxCpc
+        ? { cpc_bid_ceiling_micros: Math.round(parseFloat(maxCpc) * 1_000_000) }
+        : {};
+      break;
+    case 'maximize_conversions':
+      update.maximize_conversions = {};
+      break;
+    case 'manual_cpc':
+      update.manual_cpc = { enhanced_cpc_enabled: true };
+      break;
+    default:
+      console.error(`Bilinmeyen strateji: ${strategy}. Secenekler: maximize_clicks, maximize_conversions, manual_cpc`);
+      process.exit(1);
+  }
+
+  await customer.campaigns.update([update]);
+  console.log(`\nKampanya ${campaignId} teklif stratejisi: ${strategy.toUpperCase()}${maxCpc ? ` (max CPC: ${maxCpc} TL)` : ''}`);
+}
+
+async function cmdCampaignRemove(customer, campaignId) {
+  if (!campaignId) {
+    console.error('Kampanya ID gerekli: --id=XXXXXXX');
+    process.exit(1);
+  }
+
+  await customer.campaigns.remove([`customers/${CONFIG.customer_id}/campaigns/${campaignId}`]);
+
+  console.log(`\nKampanya ${campaignId} kaldirildi (REMOVED)`);
 }
 
 async function cmdAdGroups(customer, campaignId) {
@@ -345,6 +394,7 @@ async function cmdKeywords(customer, campaignId) {
       ad_group_criterion.keyword.match_type,
       ad_group_criterion.status,
       ad_group_criterion.criterion_id,
+      ad_group.id,
       ad_group.name,
       campaign.name,
       metrics.impressions,
@@ -360,7 +410,8 @@ async function cmdKeywords(customer, campaignId) {
   table(
     keywords.map(k => [
       k.ad_group_criterion.criterion_id,
-      k.campaign.name?.substring(0, 20),
+      k.ad_group.id,
+      k.ad_group.name?.substring(0, 15),
       k.ad_group_criterion.keyword.text,
       k.ad_group_criterion.keyword.match_type,
       formatStatus(k.ad_group_criterion.status),
@@ -368,7 +419,7 @@ async function cmdKeywords(customer, campaignId) {
       k.metrics.clicks,
       formatMicros(k.metrics.cost_micros) + ' TL',
     ]),
-    ['ID', 'Kampanya', 'Anahtar Kelime', 'Eslesme', 'Durum', 'Gosterim', 'Tiklama', 'Maliyet']
+    ['ID', 'AdGroup ID', 'Reklam Grubu', 'Anahtar Kelime', 'Eslesme', 'Durum', 'Gosterim', 'Tiklama', 'Maliyet']
   );
 }
 
@@ -384,14 +435,31 @@ async function cmdKeywordAdd(customer, adGroupId, keyword, matchType = 'PHRASE')
     BROAD: enums.KeywordMatchType.BROAD,
   }[matchType.toUpperCase()] || enums.KeywordMatchType.PHRASE;
 
-  const [result] = await customer.adGroupCriteria.create([{
-    ad_group: `customers/${CONFIG.customer_id}/adGroups/${adGroupId}`,
-    keyword: {
-      text: keyword,
-      match_type: matchTypeEnum,
-    },
-    status: enums.AdGroupCriterionStatus.ENABLED,
-  }]);
+  try {
+    // Try normal create first
+    first(await customer.adGroupCriteria.create([{
+      ad_group: `customers/${CONFIG.customer_id}/adGroups/${adGroupId}`,
+      keyword: { text: keyword, match_type: matchTypeEnum },
+      status: enums.AdGroupCriterionStatus.ENABLED,
+    }]));
+  } catch (e) {
+    // If policy violation and exemptible, retry with exemption
+    const policyKey = e.errors?.[0]?.details?.policy_violation_details?.key;
+    if (policyKey?.policy_name && e.errors?.[0]?.details?.policy_violation_details?.is_exemptible) {
+      await customer.mutateResources([{
+        entity: 'ad_group_criterion',
+        operation: 'create',
+        resource: {
+          ad_group: `customers/${CONFIG.customer_id}/adGroups/${adGroupId}`,
+          keyword: { text: keyword, match_type: matchTypeEnum },
+          status: enums.AdGroupCriterionStatus.ENABLED,
+        },
+        exempt_policy_violation_keys: [policyKey],
+      }]);
+    } else {
+      throw e;
+    }
+  }
 
   console.log(`\nAnahtar kelime eklendi: "${keyword}" (${matchType}) -> adGroup ${adGroupId}`);
 }
@@ -402,9 +470,9 @@ async function cmdKeywordRemove(customer, criterionId, adGroupId) {
     process.exit(1);
   }
 
-  await customer.adGroupCriteria.delete({
-    resource_name: `customers/${CONFIG.customer_id}/adGroups/${adGroupId}/criteria/${criterionId}`,
-  });
+  await customer.adGroupCriteria.remove([
+    `customers/${CONFIG.customer_id}/adGroupCriteria/${adGroupId}~${criterionId}`,
+  ]);
 
   console.log(`\nAnahtar kelime kaldirildi: criterion ${criterionId}`);
 }
@@ -444,10 +512,10 @@ async function cmdBudgetUpdate(customer, budgetId, amount) {
 
   const amountMicros = Math.round(parseFloat(amount) * 1_000_000);
 
-  await customer.campaignBudgets.update({
+  await customer.campaignBudgets.update([{
     resource_name: `customers/${CONFIG.customer_id}/campaignBudgets/${budgetId}`,
     amount_micros: amountMicros,
-  });
+  }]);
 
   console.log(`\nButce guncellendi: ${budgetId} -> ${amount} TL/gun`);
 }
@@ -550,7 +618,7 @@ async function cmdConversionCreate(customer, name, category, value) {
     'OTHER': enums.ConversionActionCategory.DEFAULT,
   }[category] || enums.ConversionActionCategory.DEFAULT;
 
-  const [result] = await customer.conversionActions.create([{
+  const result = first(await customer.conversionActions.create([{
     name: name,
     category: categoryEnum,
     type: enums.ConversionActionType.WEBPAGE,
@@ -564,7 +632,7 @@ async function cmdConversionCreate(customer, name, category, value) {
     attribution_model_settings: {
       attribution_model: enums.AttributionModel.GOOGLE_ADS_LAST_CLICK,
     },
-  }]);
+  }]));
 
   console.log(`\nDonusum aksiyonu olusturuldu: "${name}"`);
   console.log(`  Kategori: ${category}`);
@@ -608,12 +676,12 @@ async function cmdCampaignCreate(customer, name, channelType, dailyBudgetTL, bid
 
   // Step 1: Create budget
   const budgetMicros = Math.round(parseFloat(dailyBudgetTL) * 1_000_000);
-  const [budgetResult] = await customer.campaignBudgets.create([{
+  const budgetResult = first(await customer.campaignBudgets.create([{
     name: `${name} - Butce`,
     amount_micros: budgetMicros,
     delivery_method: enums.BudgetDeliveryMethod.STANDARD,
     explicitly_shared: false,
-  }]);
+  }]));
 
   // Step 2: Create campaign
   const channelEnum = channelType === 'PERFORMANCE_MAX'
@@ -625,7 +693,8 @@ async function cmdCampaignCreate(customer, name, channelType, dailyBudgetTL, bid
     status: enums.CampaignStatus.PAUSED, // Start paused for safety
     advertising_channel_type: channelEnum,
     campaign_budget: budgetResult,
-    start_date: new Date().toISOString().split('T')[0].replace(/-/g, ''),
+    // Required since Sept 2025 — EU Political Ads Regulation compliance
+    contains_eu_political_advertising: enums.EuPoliticalAdvertisingStatus.DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING,
   };
 
   // Add bidding strategy
@@ -644,7 +713,48 @@ async function cmdCampaignCreate(customer, name, channelType, dailyBudgetTL, bid
     };
   }
 
-  const [campaignResult] = await customer.campaigns.create([campaignData]);
+  let campaignResult;
+
+  if (channelType === 'PERFORMANCE_MAX') {
+    // PMax requires brand assets linked atomically via single mutate
+    const tempBizNameId = -1;
+    const tempCampaignId = -2;
+    const custPrefix = `customers/${CONFIG.customer_id}`;
+
+    const mutateOps = [
+      // 1. Create business name asset
+      { entity: 'asset', operation: 'create', resource: {
+        resource_name: `${custPrefix}/assets/${tempBizNameId}`,
+        name: `${name} - Business Name`,
+        text_asset: { text: 'Dr. Özlem Murzoğlu' },
+        type: enums.AssetType.BUSINESS_NAME,
+      }},
+      // 2. Create campaign
+      { entity: 'campaign', operation: 'create', resource: {
+        resource_name: `${custPrefix}/campaigns/${tempCampaignId}`,
+        ...campaignData,
+      }},
+      // 3. Link business name
+      { entity: 'campaign_asset', operation: 'create', resource: {
+        campaign: `${custPrefix}/campaigns/${tempCampaignId}`,
+        asset: `${custPrefix}/assets/${tempBizNameId}`,
+        field_type: enums.AssetFieldType.BUSINESS_NAME,
+      }},
+      // 4. Link square logo (OM-Square-Color 1620x1620)
+      { entity: 'campaign_asset', operation: 'create', resource: {
+        campaign: `${custPrefix}/campaigns/${tempCampaignId}`,
+        asset: `${custPrefix}/assets/284058340460`,
+        field_type: enums.AssetFieldType.LOGO,
+      }},
+    ];
+
+    const results = await customer.mutateResources(mutateOps);
+    campaignResult = results?.mutate_operation_responses?.[1]?.campaign_result?.resource_name ||
+                     `${custPrefix}/campaigns/unknown`;
+    console.log('  Brand Guidelines: business name + logo linked');
+  } else {
+    campaignResult = first(await customer.campaigns.create([campaignData]));
+  }
 
   console.log(`\nKampanya olusturuldu: "${name}"`);
   console.log(`  Kanal: ${channelType}`);
@@ -656,6 +766,116 @@ async function cmdCampaignCreate(customer, name, channelType, dailyBudgetTL, bid
   return campaignResult;
 }
 
+async function cmdAssetGroupCreate(customer, campaignId, name, finalUrl) {
+  if (!campaignId || !name) {
+    console.error('Kullanim: assetgroup:create --campaign=XXX --name="..." [--url=https://...]');
+    process.exit(1);
+  }
+
+  const custPrefix = `customers/${CONFIG.customer_id}`;
+  const campaignResource = `${custPrefix}/campaigns/${campaignId}`;
+  const url = finalUrl || 'https://ozlemmurzoglu.com';
+
+  // --- Step 1: Create text assets ---
+  console.log('  Text asset\'ler olusturuluyor...');
+
+  const headlines = [
+    'Ataşehir Çocuk Doktoru',
+    'Dr. Özlem Murzoğlu',
+    'Hemen Randevu Alın',
+    'Bright Futures Sertifikalı',
+    'Uzman Pediatrist Ataşehir',
+    '7 Uzmanlık Alanı',
+    'Pzt-Cum 09:00-18:00',
+  ];
+  const longHeadlines = [
+    'Uzm. Dr. Özlem Murzoğlu Ataşehir Sosyal Pediatri Kliniği',
+    'Çocuğunuzun Sağlığı İçin 7 Uzmanlık Alanında Hizmet',
+  ];
+  const descriptions = [
+    'Çocuğunuzun sağlığı güvende. Aşı takibi, gelişim kontrolü ve özel programlar.',
+    'Bright Futures gelişim takibi. 7 uzmanlık alanında hizmet. Randevu alın.',
+  ];
+
+  const headlineIds = [];
+  for (const h of headlines) {
+    const res = first(await customer.assets.create([{ text_asset: { text: h } }]));
+    headlineIds.push(res);
+    console.log(`    + headline: "${h}"`);
+  }
+  const longHeadlineIds = [];
+  for (const lh of longHeadlines) {
+    const res = first(await customer.assets.create([{ text_asset: { text: lh } }]));
+    longHeadlineIds.push(res);
+    console.log(`    + long headline: "${lh}"`);
+  }
+  const descriptionIds = [];
+  for (const d of descriptions) {
+    const res = first(await customer.assets.create([{ text_asset: { text: d } }]));
+    descriptionIds.push(res);
+    console.log(`    + description: "${d.substring(0, 40)}..."`);
+  }
+
+  // --- Step 2: Create asset group + link everything ---
+  console.log('  Asset group olusturuluyor...');
+
+  const tempAgId = -10;
+  const ops = [
+    // Create asset group
+    { entity: 'asset_group', operation: 'create', resource: {
+      resource_name: `${custPrefix}/assetGroups/${tempAgId}`,
+      campaign: campaignResource,
+      name: name,
+      final_urls: [url],
+      status: enums.AssetGroupStatus.ENABLED,
+    }},
+  ];
+
+  // Link headlines
+  for (const id of headlineIds) {
+    ops.push({ entity: 'asset_group_asset', operation: 'create', resource: {
+      asset_group: `${custPrefix}/assetGroups/${tempAgId}`,
+      asset: id,
+      field_type: enums.AssetFieldType.HEADLINE,
+    }});
+  }
+  // Link long headlines
+  for (const id of longHeadlineIds) {
+    ops.push({ entity: 'asset_group_asset', operation: 'create', resource: {
+      asset_group: `${custPrefix}/assetGroups/${tempAgId}`,
+      asset: id,
+      field_type: enums.AssetFieldType.LONG_HEADLINE,
+    }});
+  }
+  // Link descriptions
+  for (const id of descriptionIds) {
+    ops.push({ entity: 'asset_group_asset', operation: 'create', resource: {
+      asset_group: `${custPrefix}/assetGroups/${tempAgId}`,
+      asset: id,
+      field_type: enums.AssetFieldType.DESCRIPTION,
+    }});
+  }
+  // Link existing images (logo is already at campaign level via Brand Guidelines)
+  ops.push({ entity: 'asset_group_asset', operation: 'create', resource: {
+    asset_group: `${custPrefix}/assetGroups/${tempAgId}`,
+    asset: `${custPrefix}/assets/339653014637`, // OM-Comp landscape 1.91:1
+    field_type: enums.AssetFieldType.MARKETING_IMAGE,
+  }});
+  ops.push({ entity: 'asset_group_asset', operation: 'create', resource: {
+    asset_group: `${custPrefix}/assetGroups/${tempAgId}`,
+    asset: `${custPrefix}/assets/284058340460`, // OM-Square 1:1
+    field_type: enums.AssetFieldType.SQUARE_MARKETING_IMAGE,
+  }});
+
+  await customer.mutateResources(ops);
+
+  console.log(`\nAsset Group olusturuldu: "${name}"`);
+  console.log(`  Kampanya: ${campaignId}`);
+  console.log(`  Final URL: ${url}`);
+  console.log(`  Headlines: ${headlines.length}, Long: ${longHeadlines.length}, Desc: ${descriptions.length}`);
+  console.log(`  Images: 3 (landscape, square, logo)`);
+}
+
 async function cmdAdGroupCreate(customer, campaignId, name, cpcBidTL) {
   if (!campaignId || !name) {
     console.error('Kullanim: adgroup:create --campaign=XXX --name="..." [--cpc=5]');
@@ -664,13 +884,13 @@ async function cmdAdGroupCreate(customer, campaignId, name, cpcBidTL) {
 
   const cpcMicros = cpcBidTL ? Math.round(parseFloat(cpcBidTL) * 1_000_000) : 5_000_000; // default 5 TL
 
-  const [result] = await customer.adGroups.create([{
+  const result = first(await customer.adGroups.create([{
     campaign: `customers/${CONFIG.customer_id}/campaigns/${campaignId}`,
     name: name,
     status: enums.AdGroupStatus.ENABLED,
     type: enums.AdGroupType.SEARCH_STANDARD,
     cpc_bid_micros: cpcMicros,
-  }]);
+  }]));
 
   console.log(`\nReklam grubu olusturuldu: "${name}"`);
   console.log(`  Kampanya: ${campaignId}`);
@@ -697,7 +917,7 @@ async function cmdAdCreate(customer, adGroupId, headlines, descriptions, finalUr
     text: d.trim(),
   }));
 
-  const [result] = await customer.adGroupAds.create([{
+  const adData = {
     ad_group: `customers/${CONFIG.customer_id}/adGroups/${adGroupId}`,
     status: enums.AdGroupAdStatus.ENABLED,
     ad: {
@@ -707,7 +927,28 @@ async function cmdAdCreate(customer, adGroupId, headlines, descriptions, finalUr
       },
       final_urls: [finalUrl || 'https://ozlemmurzoglu.com'],
     },
-  }]);
+  };
+
+  let result;
+  try {
+    result = first(await customer.adGroupAds.create([adData]));
+  } catch (e) {
+    // Collect all exemptible policy keys and retry
+    const keys = (e.errors || [])
+      .filter(err => err.details?.policy_violation_details?.is_exemptible)
+      .map(err => err.details.policy_violation_details.key);
+    if (keys.length > 0) {
+      const res = await customer.mutateResources([{
+        entity: 'ad_group_ad',
+        operation: 'create',
+        resource: adData,
+        exempt_policy_violation_keys: keys,
+      }]);
+      result = res?.mutate_operation_responses?.[0]?.ad_group_ad_result?.resource_name || 'created';
+    } else {
+      throw e;
+    }
+  }
 
   console.log(`\nReklam olusturuldu: ${headlinesList.length} baslik, ${descList.length} aciklama`);
   console.log(`  Reklam Grubu: ${adGroupId}`);
@@ -789,7 +1030,7 @@ async function cmdExtensionSitelinks(customer, campaignId) {
 
   for (const sl of sitelinks) {
     try {
-      const [assetResult] = await customer.assets.create([{
+      const assetResult = first(await customer.assets.create([{
         type: enums.AssetType.SITELINK,
         sitelink_asset: {
           link_text: sl.text,
@@ -797,7 +1038,7 @@ async function cmdExtensionSitelinks(customer, campaignId) {
           description2: sl.description2,
         },
         final_urls: [sl.finalUrl],
-      }]);
+      }]));
 
       // Link asset to campaign
       await customer.campaignAssets.create([{
@@ -820,14 +1061,14 @@ async function cmdExtensionCall(customer, campaignId) {
   }
 
   try {
-    const [assetResult] = await customer.assets.create([{
+    const assetResult = first(await customer.assets.create([{
       type: enums.AssetType.CALL,
       call_asset: {
         country_code: 'TR',
         phone_number: '+902166884483',
         call_conversion_reporting_state: enums.CallConversionReportingState.USE_RESOURCE_LEVEL_CALL_CONVERSION_ACTION,
       },
-    }]);
+    }]));
 
     await customer.campaignAssets.create([{
       campaign: `customers/${CONFIG.customer_id}/campaigns/${campaignId}`,
@@ -856,10 +1097,10 @@ async function cmdExtensionCallouts(customer, campaignId) {
 
   for (const text of callouts) {
     try {
-      const [assetResult] = await customer.assets.create([{
+      const assetResult = first(await customer.assets.create([{
         type: enums.AssetType.CALLOUT,
         callout_asset: { callout_text: text },
-      }]);
+      }]));
 
       await customer.campaignAssets.create([{
         campaign: `customers/${CONFIG.customer_id}/campaigns/${campaignId}`,
@@ -871,6 +1112,126 @@ async function cmdExtensionCallouts(customer, campaignId) {
     } catch (e) {
       console.error(`  x Aciklama "${text}": ${e.message}`);
     }
+  }
+}
+
+// --- Asset (Image/Logo) Commands ---
+
+const ASSET_FIELD_MAP = {
+  'logo': enums.AssetFieldType.LOGO,
+  'landscape-logo': enums.AssetFieldType.LANDSCAPE_LOGO,
+  'marketing-image': enums.AssetFieldType.MARKETING_IMAGE,
+  'square-marketing-image': enums.AssetFieldType.SQUARE_MARKETING_IMAGE,
+  'business-logo': enums.AssetFieldType.BUSINESS_LOGO,
+  'ad-image': enums.AssetFieldType.AD_IMAGE,
+};
+
+async function cmdAssetUpload(customer, filePath, name) {
+  if (!filePath) {
+    console.error('Kullanim: asset:upload --file=<dosya-yolu> [--name=<asset-adi>]');
+    console.error('Ornek:  asset:upload --file=public/logos/OM-Square-Color.png --name="Kare Logo"');
+    process.exit(1);
+  }
+
+  const fullPath = resolve(PROJECT_ROOT, filePath);
+  if (!existsSync(fullPath)) {
+    console.error(`Dosya bulunamadi: ${fullPath}`);
+    process.exit(1);
+  }
+
+  const imageData = readFileSync(fullPath);
+  const assetName = name || filePath.split('/').pop().replace(/\.[^.]+$/, '');
+
+  console.log(`\n=== Gorsel Asset Yukleme ===`);
+  console.log(`  Dosya: ${filePath}`);
+  console.log(`  Boyut: ${(imageData.length / 1024).toFixed(1)} KB`);
+  console.log(`  Ad:    ${assetName}`);
+
+  try {
+    const assetResult = first(await customer.assets.create([{
+      type: enums.AssetType.IMAGE,
+      name: assetName,
+      image_asset: {
+        data: imageData.toString('base64'),
+      },
+    }]));
+
+    console.log(`  ✓ Asset yuklendi: ${assetResult}`);
+    return assetResult;
+  } catch (e) {
+    console.error(`  ✗ Yukleme hatasi: ${e.errors?.[0]?.message || e.message}`);
+    process.exit(1);
+  }
+}
+
+async function cmdAssetList(customer) {
+  const assets = await customer.query(`
+    SELECT
+      asset.id,
+      asset.name,
+      asset.type,
+      asset.image_asset.file_size,
+      asset.image_asset.full_size.width_pixels,
+      asset.image_asset.full_size.height_pixels,
+      asset.resource_name
+    FROM asset
+    WHERE asset.type = 'IMAGE'
+    ORDER BY asset.id
+  `);
+
+  console.log('\n=== Gorsel Asset\'ler ===\n');
+  if (assets.length === 0) {
+    console.log('  (Henuz gorsel asset yok)');
+    return;
+  }
+
+  table(
+    assets.map(a => [
+      a.asset.id,
+      a.asset.name || '(isimsiz)',
+      `${a.asset.image_asset?.full_size?.width_pixels || '?'}x${a.asset.image_asset?.full_size?.height_pixels || '?'}`,
+      a.asset.image_asset?.file_size ? `${(a.asset.image_asset.file_size / 1024).toFixed(1)} KB` : '?',
+      a.asset.resource_name,
+    ]),
+    ['ID', 'Ad', 'Boyut', 'Dosya', 'Resource']
+  );
+}
+
+async function cmdAssetLink(customer, campaignId, assetId, fieldType) {
+  if (!campaignId || !assetId || !fieldType) {
+    console.error('Kullanim: asset:link --campaign=<ID> --asset=<ID> --type=<tur>');
+    console.error('Turler: logo, landscape-logo, marketing-image, square-marketing-image, business-logo');
+    process.exit(1);
+  }
+
+  const field = ASSET_FIELD_MAP[fieldType];
+  if (!field) {
+    console.error(`Gecersiz tur: "${fieldType}". Gecerli turler: ${Object.keys(ASSET_FIELD_MAP).join(', ')}`);
+    process.exit(1);
+  }
+
+  try {
+    await customer.campaignAssets.create([{
+      campaign: `customers/${CONFIG.customer_id}/campaigns/${campaignId}`,
+      asset: `customers/${CONFIG.customer_id}/assets/${assetId}`,
+      field_type: field,
+    }]);
+
+    console.log(`  ✓ Asset #${assetId} -> Kampanya #${campaignId} (${fieldType})`);
+  } catch (e) {
+    console.error(`  ✗ Baglama hatasi: ${e.errors?.[0]?.message || e.message}`);
+  }
+}
+
+async function cmdAssetUploadAndLink(customer, filePath, name, campaignId, fieldType) {
+  const assetResource = await cmdAssetUpload(customer, filePath, name);
+
+  if (campaignId && fieldType) {
+    const assetId = assetResource.split('/').pop();
+    await cmdAssetLink(customer, campaignId, assetId, fieldType);
+  } else if (campaignId) {
+    console.log('\n  (!) --type belirtilmedi, asset kampanyaya baglanmadi.');
+    console.log('  Manuel baglamak icin: asset:link --campaign=... --asset=<ID> --type=logo');
   }
 }
 
@@ -886,9 +1247,10 @@ async function cmdSetupFull(customer, monthlyBudgetTL) {
 
   // --- STEP 1: Conversion Actions ---
   console.log('\n\u2501\u2501\u2501 1/6 Donusum Aksiyonlari \u2501\u2501\u2501');
-  await cmdConversionCreate(customer, 'Telefon Aramasi', 'PHONE_CALL', '150');
-  await cmdConversionCreate(customer, 'WhatsApp Mesaji', 'OTHER', '75');
-  await cmdConversionCreate(customer, 'Form Gonderimi', 'SUBMIT_LEAD_FORM', '100');
+  for (const [name, cat, val] of [['Telefon Aramasi','PHONE_CALL','150'],['WhatsApp Mesaji','OTHER','75'],['Form Gonderimi','SUBMIT_LEAD_FORM','100']]) {
+    try { await cmdConversionCreate(customer, name, cat, val); }
+    catch (e) { console.log(`  (!) ${name}: ${e.errors?.[0]?.message || e.message} — devam ediliyor`); }
+  }
 
   // --- STEP 2: Campaigns ---
   console.log('\n\u2501\u2501\u2501 2/6 Kampanyalar \u2501\u2501\u2501');
@@ -1060,6 +1422,15 @@ Uzantilar:
   extension:call --campaign=XXX        Arama uzantisi ekle
   extension:callouts --campaign=XXX    Aciklama uzantilari ekle
 
+Gorsel Asset'ler:
+  asset:upload --file=<yol> [--name=<ad>] [--campaign=XXX --type=<tur>]
+                                     Gorsel yukle (opsiyonel: kampanyaya bagla)
+  asset:list                         Yuklenmis gorsel asset'leri listele
+  asset:link --campaign=XXX --asset=XXX --type=<tur>
+                                     Asset'i kampanyaya bagla
+  Turler: logo, landscape-logo, marketing-image, square-marketing-image,
+          business-logo, ad-image
+
 Tam Kurulum:
   setup:full [--budget=5000]       Tam strateji kurulumu (3 kampanya, reklam gruplari,
                                    anahtar kelimeler, reklamlar, uzantilar - hepsi birden)
@@ -1075,6 +1446,9 @@ Ornekler:
   ads-manager.mjs campaign:create --name="Yeni Kampanya" --budget=100 --channel=SEARCH
   ads-manager.mjs keyword:bulk-add --adgroup=123 --keywords="cocuk doktoru;pediatrist" --match=PHRASE
   ads-manager.mjs setup:full --budget=5000
+  ads-manager.mjs asset:upload --file=public/logos/OM-Square-Color.png --name="Kare Logo"
+  ads-manager.mjs asset:link --campaign=123 --asset=456 --type=ad-image
+  ads-manager.mjs asset:list
 `);
 }
 
@@ -1084,10 +1458,18 @@ function parseArgs() {
   const command = args[0];
   const opts = {};
 
-  for (const arg of args.slice(1)) {
+  const restArgs = args.slice(1);
+  for (let i = 0; i < restArgs.length; i++) {
+    const arg = restArgs[i];
     const match = arg.match(/^--(\w[\w-]*)(?:=(.+))?$/);
     if (match) {
-      opts[match[1]] = match[2] ?? true;
+      if (match[2] !== undefined) {
+        opts[match[1]] = match[2];
+      } else if (i + 1 < restArgs.length && !restArgs[i + 1].startsWith('--')) {
+        opts[match[1]] = restArgs[++i];
+      } else {
+        opts[match[1]] = true;
+      }
     }
   }
 
@@ -1168,6 +1550,12 @@ async function main() {
       case 'campaign:pause':
         await cmdCampaignSetStatus(customer, opts.id, 'PAUSED');
         break;
+      case 'campaign:set-bidding':
+        await cmdCampaignSetBidding(customer, opts.id, opts.strategy, opts['max-cpc']);
+        break;
+      case 'campaign:remove':
+        await cmdCampaignRemove(customer, opts.id);
+        break;
       case 'adgroups':
         await cmdAdGroups(customer, opts.campaign);
         break;
@@ -1204,6 +1592,9 @@ async function main() {
       case 'campaign:create':
         await cmdCampaignCreate(customer, opts.name, opts.channel || 'SEARCH', opts.budget, opts.bidding || 'MAXIMIZE_CONVERSIONS');
         break;
+      case 'assetgroup:create':
+        await cmdAssetGroupCreate(customer, opts.campaign, opts.name, opts.url);
+        break;
       case 'adgroup:create':
         await cmdAdGroupCreate(customer, opts.campaign, opts.name, opts.cpc);
         break;
@@ -1224,6 +1615,15 @@ async function main() {
         break;
       case 'extension:callouts':
         await cmdExtensionCallouts(customer, opts.campaign);
+        break;
+      case 'asset:upload':
+        await cmdAssetUploadAndLink(customer, opts.file, opts.name, opts.campaign, opts.type);
+        break;
+      case 'asset:list':
+        await cmdAssetList(customer);
+        break;
+      case 'asset:link':
+        await cmdAssetLink(customer, opts.campaign, opts.asset, opts.type);
         break;
       case 'setup:full':
         await cmdSetupFull(customer, opts.budget);

@@ -1,7 +1,6 @@
 <app-header [locale]="locale" (localeChange)="onLocaleChange($event)"></app-header>
-<main [@routeAnimation]="getRouteAnimationData()">
+<main id="main-content" [@routeAnimation]="getRouteAnimationData()">
   <router-outlet></router-outlet>
 </main>
 <app-footer></app-footer>
 <app-floating-actions></app-floating-actions>
-<app-whatsapp-button></app-whatsapp-button>

@@ -1,16 +1,6 @@
-/* KVKK component styles */
-.container {
-  min-height: 60vh;
-}
+@import '../legal-md3.css';
 
-.bg-indigo-50 {
-  background-color: #eef2ff;
-}
-
-.border-indigo-200 {
-  border-color: #c7d2fe;
-}
-
-.text-indigo-800 {
-  color: #3730a3;
+:host {
+  display: block;
+  --legal-accent-color: var(--md-sys-color-secondary);
 }

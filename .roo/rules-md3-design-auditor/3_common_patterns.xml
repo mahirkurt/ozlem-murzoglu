@@ -1,0 +1,226 @@
+<common_patterns>
+  <pattern name="design_docs_chain_check">
+    <description>Her değişiklikte docs/design zincirinin ilgili halkalarıyla doğrulama yap.</description>
+    <example>
+      <code language="text"><![CDATA[
+Kontrol sırası:
+1) md3-foundation-principles
+2) md3-token-governance
+3) md3-components-patterns
+4) md3-motion-shape-accessibility
+5) md3-compliance-matrix
+
+Beklenen çıktı:
+- Her bulgu için en az bir doküman referansı
+- Çelişki varsa açık risk kaydı
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="constitutional_mapping">
+    <description>Her kritik görsel değişikliği tasarım anayasasındaki ilgili ilkeye bağla.</description>
+    <example>
+      <code language="text"><![CDATA[
+Değişiklik: Surface blur artırımı
+Anayasa bağı: Glass erişilebilirlik güvenceleri + performans kalite kapısı
+Karar: Blur yoğunluğu kontrollü tutulur, kontrast/okunurluk korunur
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="tokenized_color_system">
+    <description>Renkleri doğrudan değerler yerine semantic rol tokenlarıyla yönet.</description>
+    <example>
+      <code language="css"><![CDATA[
+:root {
+  --md-sys-color-primary: var(--md-ref-palette-primary40);
+  --md-sys-color-on-primary: var(--md-ref-palette-primary100);
+  --md-sys-color-surface: var(--md-ref-palette-neutral98);
+}
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="brand_safe_glassmorphism">
+    <description>Glassmorphism kullanımını marka uyumu, okunurluk ve performans sınırları içinde uygula.</description>
+    <example>
+      <code language="css"><![CDATA[
+.md3-glass-surface {
+  background: color-mix(in srgb, var(--md-sys-color-surface) 78%, transparent);
+  backdrop-filter: blur(10px) saturate(1.08);
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 46%, transparent);
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.md3-glass-surface .text,
+.md3-glass-surface .label {
+  color: var(--md-sys-color-on-surface);
+}
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="state_layer_first_interaction">
+    <description>Etkileşim geri bildirimini shadow ile değil state layer ile başlat.</description>
+    <example>
+      <code language="text"><![CDATA[
+Karar akışı:
+- Hover/pressed/focus sinyali gerekiyor mu? Önce state layer uygula.
+- Hâlâ derinlik ayrımı gerekiyorsa tonal surface farkı ekle.
+- Son adım olarak düşük yoğunluklu elevation tokenı kullan.
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="token_violation_scan_checklist">
+    <description>Token dışı değerleri denetim listesiyle yakala ve sistemsel düzeltme öner.</description>
+    <example>
+      <code language="text"><![CDATA[
+Tarama odakları:
+- Sabit renk değeri kullanımı (hex/rgb benzeri)
+- Sabit spacing/radius/typography/motion kullanımı
+- Sabit shadow/elevation değerleri
+- State-layer bypass eden yalnız shadow tabanlı etkileşim stilleri
+
+Beklenen çıktı:
+- İhlal sınıfı (critical/high/medium/low)
+- Anayasa bağı
+- Token tabanlı düzeltme önerisi
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="page_structure_compliance">
+    <description>Sayfa yapısı tutarlılığını denetle: başlık, ana içerik akışı, kapanış CTA.</description>
+    <example>
+      <code language="text"><![CDATA[
+Yapı kontrolü:
+- Alt sayfalarda sayfa başlığı standardı
+- Ana içerik katmanının düzenli section yapısı
+- Sayfa sonunda dönüşüm CTA tutarlılığı
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="iconography_discipline">
+    <description>İkon sistemini tek stile sabitle ve tutarsız ikon kaynaklarını dışla.</description>
+    <example>
+      <code language="text"><![CDATA[
+Kural:
+- Material Symbols Rounded standardı
+- Farklı ikon ailelerinin karışımı yok
+- Dekoratif ikonlarda erişilebilirlik nitelikleri korunur
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="focus_and_touch_accessibility">
+    <description>Odak görünürlüğü ve touch-target ergonomisini bileşen seviyesinde doğrula.</description>
+    <example>
+      <code language="css"><![CDATA[
+.md3-interactive:focus-visible {
+  outline: 3px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+.md3-touch-target {
+  min-width: 48px;
+  min-height: 48px;
+}
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="dark_mode_surface_hierarchy">
+    <description>Dark mode'da no-pure-black ilkesiyle tonal surface hiyerarşisini koru.</description>
+    <example>
+      <code language="text"><![CDATA[
+Doğrulama:
+- Saf siyah yüzey yok
+- Surface/container seviyeleri ayrışıyor
+- Metin kontrastı ve focus görünürlüğü korunuyor
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="state_layers">
+    <description>Hover/focus/pressed durumlarını durum katmanlarıyla belirt.</description>
+    <example>
+      <code language="css"><![CDATA[
+.md3-state-layer {
+  background-color: var(--md-sys-color-on-surface);
+  opacity: var(--md-sys-state-opacity-hover);
+}
+
+.md3-interactive:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="elevation_and_surface">
+    <description>Yüzeyleri elevation ve tonal yüzeylerle ayır.</description>
+    <example>
+      <code language="css"><![CDATA[
+.md3-surface {
+  background: var(--md-sys-color-surface-container);
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.md3-surface-emphasis {
+  background: var(--md-sys-color-surface-container-high);
+  box-shadow: var(--md-sys-elevation-level3);
+}
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="md2_shadow_cleanup_decision_tree">
+    <description>MD2 gölge kalıntılarını temizlerken tonal-first ve level-token-only yaklaşımını uygula.</description>
+    <example>
+      <code language="text"><![CDATA[
+Karar ağacı:
+1) Derinlik ihtiyacı yoksa shadow kaldır, tonal surface kullan.
+2) Derinlik gerekiyorsa yalnız --md-sys-elevation-level0..5 kullan.
+3) Legacy --shadow-* yalnız backward compatibility için korunur.
+4) Sonuç compliance matrix öncelik maddeleriyle ilişkilendirilir.
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="typography_scale">
+    <description>Tipografiyi MD3 ölçeğiyle hizala.</description>
+    <example>
+      <code language="css"><![CDATA[
+.md3-title {
+  font: var(--md-sys-typescale-title-large);
+}
+
+.md3-body {
+  font: var(--md-sys-typescale-body-medium);
+}
+      ]]></code>
+    </example>
+  </pattern>
+
+  <pattern name="motion_tokens">
+    <description>Hareket süreleri ve easing değerlerini tokenlar üzerinden yönet.</description>
+    <example>
+      <code language="css"><![CDATA[
+.md3-motion {
+  transition-duration: var(--md-sys-motion-duration-medium);
+  transition-timing-function: var(--md-sys-motion-easing-standard);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md3-motion {
+    transition-duration: 0ms;
+    animation-duration: 0ms;
+  }
+}
+      ]]></code>
+    </example>
+  </pattern>
+</common_patterns>

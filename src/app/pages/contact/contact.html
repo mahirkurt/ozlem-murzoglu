@@ -1,8 +1,8 @@
 <section class="contact-page">
   <!-- Hero Section -->
   <app-hero-section 
-    title="{{ 'CONTACT.TITLE' | translate }}"
-    subtitle="{{ 'CONTACT.SUBTITLE' | translate }}"
+    [title]="'CONTACT.TITLE'"
+    [subtitle]="'CONTACT.SUBTITLE'"
     [breadcrumbs]="breadcrumbs"
     colorTheme="blue">
   </app-hero-section>
@@ -11,9 +11,9 @@
   <div class="contact-content">
     <div class="container">
       <div class="content-header">
-        <h2 class="section-title">Bize Ulaşın</h2>
+        <h2 class="section-title">{{ 'CONTACT.GET_IN_TOUCH' | translate }}</h2>
         <p class="section-description">
-          Sorularınız için aşağıdaki formu doldurabilir veya doğrudan iletişim bilgilerimizden bize ulaşabilirsiniz.
+          {{ 'CONTACT.FORM_DESC' | translate }}
         </p>
       </div>
 
@@ -23,67 +23,67 @@
           <form name="contact_form" (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
             <div class="form-row">
               <div class="form-group">
-                <label for="name">Ad Soyad <span class="required">*</span></label>
+                <label for="name">{{ 'CONTACT.FORM_NAME' | translate }}</label>
                 <input 
                   type="text" 
                   id="name" 
                   name="name"
                   [(ngModel)]="formData.name" 
                   required
-                  placeholder="Adınız Soyadınız"
+                  [placeholder]="'CONTACT.FORM_NAME_PLACEHOLDER' | translate"
                 />
               </div>
               
               <div class="form-group">
-                <label for="phone">Telefon <span class="required">*</span></label>
+                <label for="phone">{{ 'CONTACT.FORM_PHONE' | translate }}</label>
                 <input 
                   type="tel" 
                   id="phone" 
                   name="phone"
                   [(ngModel)]="formData.phone" 
                   required
-                  placeholder="5XX XXX XX XX"
+                  [placeholder]="'CONTACT.FORM_PHONE_PLACEHOLDER' | translate"
                 />
               </div>
             </div>
             
             <div class="form-group">
-              <label for="email">E-posta <span class="required">*</span></label>
+              <label for="email">{{ 'CONTACT.FORM_EMAIL' | translate }}</label>
               <input 
                 type="email" 
                 id="email" 
                 name="email"
                 [(ngModel)]="formData.email" 
                 required
-                placeholder="ornek@email.com"
+                [placeholder]="'CONTACT.FORM_EMAIL_PLACEHOLDER' | translate"
               />
             </div>
             
             <div class="form-group">
-              <label for="subject">Konu</label>
+              <label for="subject">{{ 'CONTACT.FORM_SUBJECT' | translate }}</label>
               <input 
                 type="text" 
                 id="subject" 
                 name="subject"
                 [(ngModel)]="formData.subject"
-                placeholder="Mesajınızın konusu"
+                [placeholder]="'CONTACT.FORM_SUBJECT_PLACEHOLDER' | translate"
               />
             </div>
             
             <div class="form-group">
-              <label for="message">Mesajınız <span class="required">*</span></label>
+              <label for="message">{{ 'CONTACT.FORM_MESSAGE' | translate }}</label>
               <textarea 
                 id="message" 
                 name="message"
                 [(ngModel)]="formData.message" 
                 rows="5" 
                 required
-                placeholder="Mesajınızı buraya yazabilirsiniz..."
+                [placeholder]="'CONTACT.FORM_MESSAGE_PLACEHOLDER' | translate"
               ></textarea>
             </div>
             
             <button type="submit" class="submit-btn" [disabled]="!contactForm.form.valid">
-              <span>Gönder</span>
+              <span>{{ 'CONTACT.FORM_SUBMIT' | translate }}</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
               </svg>
@@ -95,7 +95,7 @@
         <div class="contact-info-wrapper">
           <!-- Contact Information Card -->
           <div class="info-card">
-            <h3 class="card-title">İletişim Bilgileri</h3>
+            <h3 class="card-title">{{ 'CONTACT.CONTACT_INFO_TITLE' | translate }}</h3>
             
             <div class="info-item">
               <div class="info-icon">
@@ -104,9 +104,9 @@
                 </svg>
               </div>
               <div class="info-content">
-                <h4>Telefon</h4>
-                <a href="tel:{{contactInfo.phone}}" class="info-link" data-track="phone_click" data-track-category="conversion" data-track-label="contact_clinic">{{contactInfo.phone}}</a>
-                <a href="tel:{{contactInfo.mobilePhone}}" class="info-link" data-track="phone_click" data-track-category="conversion" data-track-label="contact_mobile">{{contactInfo.mobilePhone}}</a>
+                <h4>{{ 'CONTACT.PHONE_TITLE' | translate }}</h4>
+                <a [href]="contactInfo.phoneHref" class="info-link" data-track="phone_click" data-track-category="conversion" data-track-label="contact_clinic">{{contactInfo.phone}}</a>
+                <a [href]="contactInfo.mobilePhoneHref" class="info-link" data-track="phone_click" data-track-category="conversion" data-track-label="contact_mobile">{{contactInfo.mobilePhone}}</a>
               </div>
             </div>
             
@@ -117,8 +117,8 @@
                 </svg>
               </div>
               <div class="info-content">
-                <h4>E-posta</h4>
-                <a href="mailto:{{contactInfo.email}}" class="info-link">{{contactInfo.email}}</a>
+                <h4>{{ 'CONTACT.EMAIL_TITLE' | translate }}</h4>
+                <a [href]="contactInfo.emailHref" class="info-link">{{contactInfo.email}}</a>
               </div>
             </div>
             
@@ -129,7 +129,7 @@
                 </svg>
               </div>
               <div class="info-content">
-                <h4>Adres</h4>
+                <h4>{{ 'CONTACT.ADDRESS_TITLE' | translate }}</h4>
                 <p class="address-text">
                   {{contactInfo.address.street}}<br>
                   {{contactInfo.address.building}}<br>
@@ -141,12 +141,12 @@
           
           <!-- Working Hours Card -->
           <div class="info-card">
-            <h3 class="card-title">Çalışma Saatleri</h3>
+            <h3 class="card-title">{{ 'CONTACT.HOURS_TITLE' | translate }}</h3>
             
             <div class="hours-list">
               <div *ngFor="let schedule of workingHours" class="hours-item">
-                <span class="day">{{ schedule.day }}</span>
-                <span class="time">{{ schedule.hours }}</span>
+                <span class="day">{{ schedule.dayKey | translate }}</span>
+                <span class="time">{{ schedule.hoursKey | translate }}</span>
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@
       <div class="section-layout">
         <!-- Transportation Info (Left Side) -->
         <div class="transport-content">
-          <h2 class="section-title">Kliniğimize Ulaşım</h2>
+          <h2 class="section-title">{{ 'CONTACT.TRANSPORT_SECTION_TITLE' | translate }}</h2>
           
           <!-- Compact Transport Options -->
           <div class="transport-compact">
@@ -171,8 +171,8 @@
                 <div class="metro-icon">M4</div>
               </div>
               <div class="transport-details">
-                <h4>Metro M4 Hattı</h4>
-                <p>Yenisahra - Kozyatağı istasyonlarından taksi/otobüs</p>
+                <h4>{{ 'CONTACT.METRO_TITLE' | translate }}</h4>
+                <p>{{ 'CONTACT.METRO_DESC' | translate }}</p>
               </div>
             </div>
             
@@ -184,8 +184,8 @@
                 </svg>
               </div>
               <div class="transport-details">
-                <h4>Otobüs Durakları</h4>
-                <p>Ataşehir Bulvarı üzerindeki duraklardan 5 dk yürüme</p>
+                <h4>{{ 'CONTACT.BUS_TITLE' | translate }}</h4>
+                <p>{{ 'CONTACT.BUS_DESC' | translate }}</p>
               </div>
             </div>
           </div>
@@ -196,15 +196,15 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="title-icon">
                 <path d="M6 3h12v12l-6 6-6-6V3z"/>
               </svg>
-              Otopark Seçenekleri
+              {{ 'CONTACT.PARKING_TITLE' | translate }}
             </h3>
             <div class="parking-list">
               <div *ngFor="let option of parkingOptions" class="parking-item">
                 <div class="parking-info">
-                  <h4 class="parking-name">{{ option.title }}</h4>
-                  <div *ngIf="option.highlight" class="parking-badge">{{ option.highlight }}</div>
+                  <h4 class="parking-name">{{ option.titleKey | translate }}</h4>
+                  <div *ngIf="option.highlightKey" class="parking-badge">{{ option.highlightKey | translate }}</div>
                 </div>
-                <p class="parking-desc">{{ option.description }}</p>
+                <p class="parking-desc">{{ option.descriptionKey | translate }}</p>
               </div>
             </div>
           </div>
@@ -215,20 +215,20 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="title-icon">
                 <path d="M21.71 11.29l-9-9a.996.996 0 00-1.41 0l-9 9A1.004 1.004 0 003 13h2v7c0 .55.45 1 1 1h3v-8h4v8h3c.55 0 1-.45 1-1v-7h2a1.001 1.001 0 00.71-1.71z"/>
               </svg>
-              Yol Tarifi
+              {{ 'CONTACT.DIRECTIONS_TITLE' | translate }}
             </h3>
             <div class="map-buttons">
-              <a href="https://maps.google.com/?q=40.9612,29.1015" target="_blank" rel="noopener noreferrer" class="map-btn google">
+              <a [href]="mapLinks.google" target="_blank" rel="noopener noreferrer" class="map-btn google">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
                 </svg>
-                Google Maps
+                {{ 'CONTACT.MAP_GOOGLE' | translate }}
               </a>
-              <a href="https://maps.apple.com/?ll=40.9612,29.1015" target="_blank" rel="noopener noreferrer" class="map-btn apple">
+              <a [href]="mapLinks.apple" target="_blank" rel="noopener noreferrer" class="map-btn apple">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
                 </svg>
-                Apple Maps
+                {{ 'CONTACT.MAP_APPLE' | translate }}
               </a>
             </div>
           </div>
@@ -239,10 +239,11 @@
           <!-- Map -->
           <div class="map-container-compact">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3013.0894674869866!2d29.0992652!3d40.9612195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac7d7d7d7d7d7%3A0x7d7d7d7d7d7d7d7d!2sBarbaros%20Mah.%20Ak%20Zambak%20Sok.%20No%3A3%2C%20Uphill%20Towers%20A-30%2C%20Ata%C5%9Fehir%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1683024000000"
+              [src]="mapEmbedUrl"
               width="100%" 
               height="280" 
-              style="border:0;" 
+              class="map-frame"
+              [attr.title]="'CONTACT.MAP_IFRAME_TITLE' | translate"
               allowfullscreen="" 
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade">
@@ -255,12 +256,12 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="whatsapp-icon">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.924 3.485"/>
               </svg>
-              <span>WhatsApp Konum</span>
+              <span>{{ 'CONTACT.WHATSAPP_LOCATION_TITLE' | translate }}</span>
             </div>
             <div class="qr-code">
               <!-- QR Code will be generated for WhatsApp location sharing -->
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/?text=Dr.%20Özlem%20Murzoğlu%20Kliniği%20-%20Barbaros%20Mah.%20Ak%20Zambak%20Sok.%20No:%203,%20Uphill%20Towers%20A-30,%20Ataşehir/İstanbul%20-%20Konum:%20https://maps.google.com/?q=40.9612,29.1015" alt="WhatsApp QR Code" />
-              <p class="qr-text">QR kodu tarayarak konumu WhatsApp'ta paylaşın</p>
+              <img [src]="whatsappQrUrl" [attr.alt]="'CONTACT.WHATSAPP_QR_ALT' | translate" loading="lazy" decoding="async" />
+              <p class="qr-text">{{ 'CONTACT.WHATSAPP_QR_TEXT' | translate }}</p>
             </div>
           </div>
         </div>

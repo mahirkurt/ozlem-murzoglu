@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
 
 @Component({
   selector: 'app-appointment-modal',
@@ -13,6 +14,9 @@ export class AppointmentModalComponent implements OnInit, OnDestroy, OnChanges {
   @Output() close = new EventEmitter<void>();
 
   isLoading = true;
+  readonly whatsappUrl = CONTACT_HELPERS.getWhatsAppApiUrl('Merhaba, randevu almak istiyorum.');
+  readonly phoneUrl = CONTACT_CONFIG.phone.telHref;
+  readonly phoneDisplay = CONTACT_CONFIG.phone.display;
 
   ngOnInit() {
     if (typeof document !== 'undefined') {

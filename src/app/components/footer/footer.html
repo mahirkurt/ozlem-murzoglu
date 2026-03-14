@@ -73,7 +73,7 @@
           <h4 class="footer-title">{{ 'FOOTER.CONTACT_INFO' | translate }}</h4>
           <div class="contact-card">
             <!-- Address -->
-            <a href="https://maps.app.goo.gl/T6NqV7g4LzakSesKA" target="_blank" class="contact-row">
+            <a [href]="socialLinks[5].url" target="_blank" rel="noopener noreferrer" class="contact-row">
               <div class="icon-box">
                 <span class="material-icons-rounded">location_on</span>
               </div>
@@ -84,7 +84,7 @@
             </a>
             
             <!-- Phone -->
-            <a [href]="'tel:' + contactInfo.phone" class="contact-row" data-track="phone_click" data-track-category="conversion" data-track-label="footer">
+            <a [href]="contactInfo.phoneHref" class="contact-row" data-track="phone_click" data-track-category="conversion" data-track-label="footer">
               <div class="icon-box">
                 <span class="material-icons-rounded">phone</span>
               </div>
@@ -95,7 +95,7 @@
             </a>
 
             <!-- Email -->
-            <a [href]="'mailto:' + contactInfo.email" class="contact-row">
+            <a [href]="contactInfo.emailHref" class="contact-row">
               <div class="icon-box">
                 <span class="material-icons-rounded">email</span>
               </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
 
 @Component({
   selector: 'app-floating-actions',
@@ -15,8 +16,9 @@ import { TranslateModule } from '@ngx-translate/core';
       
       <!-- Action Buttons -->
       <div class="fab-actions">
-        <a href="https://wa.me/905466884483"
+        <a [href]="whatsappUrl"
            target="_blank"
+           rel="noopener noreferrer"
            class="fab-action whatsapp"
            data-track="whatsapp_click" data-track-category="conversion" data-track-label="floating_actions"
            [style.transform]="isExpanded ? 'scale(1) translateY(0)' : 'scale(0) translateY(20px)'"
@@ -27,7 +29,7 @@ import { TranslateModule } from '@ngx-translate/core';
           <span class="tooltip">{{ 'HEADER.WHATSAPP' | translate }}</span>
         </a>
         
-        <a href="tel:+902166884483"
+        <a [href]="phoneUrl"
            class="fab-action phone"
            data-track="phone_click" data-track-category="conversion" data-track-label="floating_actions"
            [style.transform]="isExpanded ? 'scale(1) translateY(0)' : 'scale(0) translateY(20px)'"
@@ -247,6 +249,8 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class FloatingActionsComponent implements OnInit {
   isExpanded = false;
+  readonly whatsappUrl = CONTACT_HELPERS.getWhatsAppUrl();
+  readonly phoneUrl = CONTACT_CONFIG.phone.telHref;
   
   ngOnInit() {
     // Auto-pulse for attention after 3 seconds

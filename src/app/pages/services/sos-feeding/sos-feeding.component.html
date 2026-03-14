@@ -3,6 +3,7 @@
   <app-hero-section
     [title]="'SERVICE_SOS_FEEDING.TITLE' | translate"
     [subtitle]="'SERVICE_SOS_FEEDING.SUBTITLE' | translate"
+    [breadcrumbs]="breadcrumbs"
     colorTheme="yellow">
   </app-hero-section>
 
@@ -37,16 +38,20 @@
           </div>
         </div>
         <div class="intro-image">
-          <img src="assets/program_logos/SOS_Feeding.svg" alt="SOS Feeding Logo" class="sos-logo" loading="lazy">
+          <img
+            src="assets/program_logos/SOS_Feeding.svg"
+            [attr.alt]="'SERVICE_SOS_FEEDING.LOGO_ALT' | translate"
+            class="sos-logo"
+            loading="lazy">
           <div class="certification-badges">
             <div class="badge" *ngFor="let cert of certifications">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21V20H15V21A1,1 0 0,1 14,22H10A1,1 0 0,1 9,21Z"/>
               </svg>
               <div class="badge-content">
-                <h4>{{ cert.level }}</h4>
-                <p>{{ cert.title }}</p>
-                <span class="date">{{ cert.date }}</span>
+                <h4>{{ cert.levelKey | translate }}</h4>
+                <p>{{ cert.titleKey | translate }}</p>
+                <span class="date">{{ cert.dateKey | translate }}</span>
               </div>
             </div>
           </div>
@@ -96,15 +101,15 @@
       <div class="warning-card">
         <div class="warning-card-header">
           <span class="material-icons-rounded" aria-hidden="true">warning</span>
-          <h4>Önemli Uyarı</h4>
+          <h4>{{ 'SERVICE_SOS_FEEDING.WARNING_TITLE' | translate }}</h4>
         </div>
         <div class="warning-card-content">
-          <p>Eğer çocuğunuz aşağıdaki durumlardan birini yaşıyorsa, profesyonel destek almanız önerilir:</p>
+          <p>{{ 'SERVICE_SOS_FEEDING.WARNING_DESC' | translate }}</p>
           <ul>
-            <li>20'den az farklı yiyecek tüketiyor</li>
-            <li>Bütün besin gruplarından yemiyor</li>
-            <li>Yemek saatleri aile için stresli geçiyor</li>
-            <li>Kilo alımı veya büyüme hızı yavaşladı</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.WARNING_ITEM_1' | translate }}</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.WARNING_ITEM_2' | translate }}</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.WARNING_ITEM_3' | translate }}</li>
+            <li>{{ 'SERVICE_SOS_FEEDING.WARNING_ITEM_4' | translate }}</li>
           </ul>
         </div>
       </div>
@@ -274,22 +279,26 @@
       <div class="success-card">
         <div class="success-card-header">
           <span class="material-icons-rounded" aria-hidden="true">check_circle</span>
-          <h4>Başarı Oranımız</h4>
+          <h4>{{ 'SERVICE_SOS_FEEDING.SUCCESS_TITLE' | translate }}</h4>
         </div>
         <div class="success-card-content">
-          <p>SOS Feeding yaklaşımı ile tedavi ettiğimiz çocukların <strong>%85'inden fazlasında</strong> önemli iyileşmeler gözlemliyoruz:</p>
+          <p>
+            {{ 'SERVICE_SOS_FEEDING.SUCCESS_DESC_PREFIX' | translate }}
+            <strong>{{ 'SERVICE_SOS_FEEDING.SUCCESS_DESC_HIGHLIGHT' | translate }}</strong>
+            {{ 'SERVICE_SOS_FEEDING.SUCCESS_DESC_SUFFIX' | translate }}
+          </p>
           <div class="success-stats">
             <div class="stat-item">
-              <span class="stat-number">32+</span>
-              <span class="stat-label">Adımlık Program</span>
+              <span class="stat-number">{{ 'SERVICE_SOS_FEEDING.SUCCESS_STAT_1_VALUE' | translate }}</span>
+              <span class="stat-label">{{ 'SERVICE_SOS_FEEDING.SUCCESS_STAT_1_LABEL' | translate }}</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">%85</span>
-              <span class="stat-label">Başarı Oranı</span>
+              <span class="stat-number">{{ 'SERVICE_SOS_FEEDING.SUCCESS_STAT_2_VALUE' | translate }}</span>
+              <span class="stat-label">{{ 'SERVICE_SOS_FEEDING.SUCCESS_STAT_2_LABEL' | translate }}</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">500+</span>
-              <span class="stat-label">Mutlu Aile</span>
+              <span class="stat-number">{{ 'SERVICE_SOS_FEEDING.SUCCESS_STAT_3_VALUE' | translate }}</span>
+              <span class="stat-label">{{ 'SERVICE_SOS_FEEDING.SUCCESS_STAT_3_LABEL' | translate }}</span>
             </div>
           </div>
         </div>

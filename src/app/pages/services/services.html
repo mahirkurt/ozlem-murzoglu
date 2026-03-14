@@ -32,13 +32,13 @@
             
             <div class="service-card-body">
               <h3 class="service-title">{{ service.titleKey | translate }}</h3>
-              <p class="service-subtitle">{{service.subtitleKey}}</p>
+              <p class="service-subtitle">{{ service.subtitleKey | translate }}</p>
               <p class="service-description">{{ service.descriptionKey | translate }}</p>
               
               <div class="service-features">
-                <div *ngFor="let feature of service.features.slice(0, 3)" class="feature-item">
+                <div *ngFor="let featureKey of service.featureKeys.slice(0, 3)" class="feature-item">
                   <span class="material-icons-rounded">check_circle</span>
-                  <span>{{feature}}</span>
+                  <span>{{ featureKey | translate }}</span>
                 </div>
               </div>
               
@@ -68,12 +68,12 @@
             
             <div class="service-item-content">
               <h4 class="service-item-title">{{ service.titleKey | translate }}</h4>
-              <p class="service-item-subtitle">{{service.subtitleKey}}</p>
+              <p class="service-item-subtitle">{{ service.subtitleKey | translate }}</p>
               <p class="service-item-description">{{ service.descriptionKey | translate }}</p>
               
               <ul class="service-item-features">
-                <li *ngFor="let feature of service.features.slice(0, 4)">
-                  {{feature}}
+                <li *ngFor="let featureKey of service.featureKeys.slice(0, 4)">
+                  {{ featureKey | translate }}
                 </li>
               </ul>
             </div>
@@ -186,7 +186,7 @@
 
         <div class="benefits-image">
           <div class="image-wrapper">
-            <img src="/images/clinic-environment.jpg" alt="Klinik ortamı" />
+            <img src="/images/clinic-environment.jpg" [alt]="'FAVORITES.ALT_TEXTS.CLINIC_ENVIRONMENT' | translate" />
             <div class="image-overlay">
               <div class="stat-card">
                 <span class="stat-number">15+</span>

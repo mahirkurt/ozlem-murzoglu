@@ -116,17 +116,19 @@ section[class*="-page"] {
   padding-top: 48px; /* Consistent top padding for all page sections */
 }
 
-/* Global Hero Section Positioning - Single source of truth */
+/* If a page starts with a hero/header component, do not offset the page wrapper.
+   Hero components already include fixed-header clearance via internal padding-top. */
+section[class*='-page']:has(> app-hero-section),
+section[class*='-page']:has(> app-page-header) {
+  padding-top: 0;
+}
+
+/* Global Hero Section Positioning - Single source of truth
+   No outer margin-top: shared hero/page-header components already manage header offset internally. */
 app-hero-section {
   display: block;
   width: 100%;
   position: relative;
-  margin-top: var(--header-height-desktop) !important;
-}
-
-/* Standalone hero sections */
-.hero-section:not(.homepage-hero) {
-  margin-top: var(--header-height-desktop) !important;
 }
 
 /* Global Gradient Text Utility (Strict Teal) */
@@ -137,16 +139,6 @@ app-hero-section {
   background-clip: text;
   color: transparent; /* Fallback */
   display: inline-block;
-}
-
-@media (max-width: 768px) {
-  app-hero-section {
-    margin-top: var(--header-height-mobile) !important;
-  }
-
-  .hero-section:not(.homepage-hero) {
-    margin-top: var(--header-height-mobile) !important;
-  }
 }
 
 /* Z-Index Layer System - Clean and organized */
@@ -162,13 +154,20 @@ app-hero-section {
   --z-index-mobile-menu: 1040; /* Above header when active */
 }
 
-/* Main content area - normal flow */
+/* App layout — flexbox so footer always sits at page bottom */
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content area — grows to fill remaining space */
 main {
   position: relative;
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh;
+  flex: 1;
 }
 
 /* Fixed Header */
@@ -243,15 +242,28 @@ html {
   --color-secondary: var(--md-sys-color-secondary);
   --color-tertiary: var(--md-sys-color-tertiary);
 
-  /* Spacing System - Consistent spacing across the app */
-  /* Keeping these as they are not in MD3 guide explicit list */
-  --spacing-xs: 0.25rem;    /* 4px */
-  --spacing-sm: 0.5rem;      /* 8px */
-  --spacing-md: 1rem;        /* 16px */
-  --spacing-lg: 1.5rem;      /* 24px */
-  --spacing-xl: 2rem;        /* 32px */
-  --spacing-xxl: 3rem;       /* 48px */
-  --spacing-xxxl: 4rem;      /* 64px */
+  /* Spacing System - MD3 token aliases + legacy compatibility */
+  --spacing-0: var(--md-sys-spacing-0);
+  --spacing-1: var(--md-sys-spacing-1);
+  --spacing-2: var(--md-sys-spacing-2);
+  --spacing-3: var(--md-sys-spacing-3);
+  --spacing-4: var(--md-sys-spacing-4);
+  --spacing-5: var(--md-sys-spacing-5);
+  --spacing-6: var(--md-sys-spacing-6);
+  --spacing-7: var(--md-sys-spacing-7);
+  --spacing-8: var(--md-sys-spacing-8);
+  --spacing-9: var(--md-sys-spacing-9);
+  --spacing-10: var(--md-sys-spacing-10);
+  --spacing-11: var(--md-sys-spacing-11);
+  --spacing-12: var(--md-sys-spacing-12);
+
+  --spacing-xs: var(--md-sys-spacing-1);    /* 4px */
+  --spacing-sm: var(--md-sys-spacing-2);    /* 8px */
+  --spacing-md: var(--md-sys-spacing-4);    /* 16px */
+  --spacing-lg: var(--md-sys-spacing-6);    /* 24px */
+  --spacing-xl: var(--md-sys-spacing-8);    /* 32px */
+  --spacing-xxl: var(--md-sys-spacing-12);  /* 48px */
+  --spacing-xxxl: var(--md-sys-spacing-16); /* 64px */
 
   /* Header Heights - For consistent margin-top calculations */
   --header-height-desktop: 108px; /* Top bar (28px) + Main nav (80px) */
@@ -261,24 +273,29 @@ html {
   --app-hero-bg:
     radial-gradient(
       circle at 20% 14%,
-      color-mix(in oklch, var(--md-sys-color-primary) 40%, transparent) 0%,
+      color-mix(in oklch, var(--md-sys-color-primary) 72%, transparent) 0%,
       transparent 58%
     ),
     radial-gradient(
       circle at 78% 20%,
-      color-mix(in oklch, var(--md-sys-color-primary-container) 58%, transparent) 0%,
+      color-mix(in oklch, var(--md-sys-color-primary-container) 82%, transparent) 0%,
       transparent 62%
     ),
     linear-gradient(
       135deg,
-      color-mix(in oklch, var(--md-sys-color-primary) 92%, var(--md-sys-color-primary-container) 8%) 0%,
-      color-mix(in oklch, var(--md-sys-color-primary-container) 88%, var(--md-sys-color-primary) 12%) 100%
+      var(--md-sys-color-primary) 0%,
+      color-mix(in oklch, var(--md-sys-color-primary) 80%, var(--md-sys-color-primary-container) 20%) 100%
     );
   --app-hero-accent: var(--md-sys-color-primary);
   --app-hero-on: var(--md-sys-color-on-primary);
   --app-hero-bg-size: 100% 100vh;
   --app-hero-bg-position: center top;
   --app-hero-bg-attachment: fixed;
+
+  /* Non-home hero title standard (About baseline +25%, Figtree max weight) */
+  --md3-page-hero-title-size: clamp(3.6875rem, 3.5vw + 2.125rem, 5.3125rem);
+  --md3-page-hero-title-size-compact: clamp(2.9375rem, 10vw, 3.875rem);
+  --md3-page-hero-title-weight: var(--figtree-weight-max, 900);
 
   /* Transitions - GLOBAL EXPRESSIVE MOTION UPDATE */
   --transition-transform: transform var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-standard);
@@ -307,18 +324,18 @@ html {
   --app-hero-bg:
     radial-gradient(
       circle at 18% 14%,
-      color-mix(in oklch, var(--md-sys-color-primary) 34%, transparent) 0%,
+      color-mix(in oklch, var(--md-sys-color-primary) 60%, transparent) 0%,
       transparent 62%
     ),
     radial-gradient(
       circle at 82% 20%,
-      color-mix(in oklch, var(--md-sys-color-primary-container) 40%, transparent) 0%,
+      color-mix(in oklch, var(--md-sys-color-primary-container) 58%, transparent) 0%,
       transparent 64%
     ),
     linear-gradient(
       135deg,
-      color-mix(in oklch, var(--md-sys-color-primary) 78%, black 22%) 0%,
-      color-mix(in oklch, var(--md-sys-color-primary-container) 70%, black 30%) 100%
+      color-mix(in oklch, var(--md-sys-color-primary) 88%, black 12%) 0%,
+      color-mix(in oklch, var(--md-sys-color-primary) 70%, black 30%) 100%
     );
 }
 
@@ -353,6 +370,37 @@ html {
   );
   --app-hero-accent: var(--md-sys-color-tertiary);
   --app-hero-on: var(--md-sys-color-on-tertiary);
+}
+
+:root:has(.hero-section[data-theme='teal']) {
+  --app-hero-bg: linear-gradient(
+    135deg,
+    var(--md-sys-color-primary) 0%,
+    color-mix(in oklch, var(--md-sys-color-primary) 82%, var(--md-sys-color-primary-container) 18%) 52%,
+    var(--md-sys-color-primary-container) 100%
+  );
+  --app-hero-accent: var(--md-sys-color-primary);
+  --app-hero-on: var(--md-sys-color-on-primary);
+}
+
+:root:has(.hero-section[data-theme='green']) {
+  --app-hero-bg: linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--md-sys-color-primary-container) 84%, var(--md-sys-color-primary) 16%) 0%,
+    color-mix(in oklch, var(--md-sys-color-primary) 70%, var(--md-sys-color-primary-container) 30%) 100%
+  );
+  --app-hero-accent: var(--md-sys-color-primary);
+  --app-hero-on: var(--md-sys-color-on-primary);
+}
+
+:root:has(.hero-section[data-theme='orange']) {
+  --app-hero-bg: linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--md-sys-color-secondary) 88%, var(--md-sys-color-tertiary) 12%) 0%,
+    color-mix(in oklch, var(--md-sys-color-secondary-container) 86%, var(--md-sys-color-secondary) 14%) 100%
+  );
+  --app-hero-accent: var(--md-sys-color-secondary);
+  --app-hero-on: var(--md-sys-color-on-secondary);
 }
 
 body {
@@ -479,6 +527,11 @@ label {
     --app-hero-bg-attachment: scroll;
     --app-hero-bg-size: 100% 100%;
   }
+
+  section[class*='-page']:has(> app-hero-section),
+  section[class*='-page']:has(> app-page-header) {
+    padding-top: 0;
+  }
 }
 
 /* Typography Reset */
@@ -502,6 +555,7 @@ button:not([class*="md3-"]) {
   border: none;
   background: none;
   padding: 0;
+  border-radius: var(--radius-md);
 }
 
 img {

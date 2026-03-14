@@ -4,7 +4,6 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
 import { HeaderComponent } from './components/header/header.component';
 import { Footer } from './components/footer/footer';
 import { FloatingActionsComponent } from './components/floating-actions/floating-actions';
-import { WhatsAppButtonComponent } from './components/whatsapp-button/whatsapp-button';
 import { ThemeService } from './services/theme.service';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -27,7 +26,7 @@ export const routeAnimations = trigger('routeAnimation', [
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, Footer, FloatingActionsComponent, WhatsAppButtonComponent],
+  imports: [RouterOutlet, HeaderComponent, Footer, FloatingActionsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   animations: [routeAnimations]

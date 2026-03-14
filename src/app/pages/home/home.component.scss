@@ -11,6 +11,11 @@
   padding: 0;
 }
 
+/* First section flush with hero — cover body background gap */
+:host ::ng-deep > div[scrollReveal]:first-of-type {
+  background-color: var(--md-sys-color-surface-container-lowest);
+}
+
 /* Responsive adjustments */
 @include respond-to('tablet') {
   :host ::ng-deep > div[scrollReveal] {

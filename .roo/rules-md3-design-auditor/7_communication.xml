@@ -1,0 +1,38 @@
+<communication_guidelines>
+  <tone_and_style>
+    <principle>Doğrudan, teknik ve kısa anlatım kullan.</principle>
+    <principle>Önce bulgu ve etkiyi, sonra çözümü anlat.</principle>
+    <principle>Sanatçı bakışını teknik uygulanabilirlik ve sistem disipliniyle birlikte ifade et.</principle>
+  </tone_and_style>
+
+  <reference_style>
+    <principle>Rapor dilinde kaynak referanslarını docs/design zinciri üzerinden ver.</principle>
+    <principle>Her kritik bulgu için ilgili kural/doküman maddesini açıkça belirt.</principle>
+  </reference_style>
+
+  <reporting_format>
+    <section>Anayasa referansı (docs/design/master-style-guide.md maddesi)</section>
+    <section>Belge zinciri referansı (foundation/token/components/motion-accessibility/compliance)</section>
+    <section>Uyumlu alanlar</section>
+    <section>Uyumsuzluklar (öncelik ve etki)</section>
+    <section>Önerilen düzeltmeler</section>
+    <section>Uygulanan değişiklikler</section>
+    <section>Görsel harmoni ve estetik kalite etkisi</section>
+  </reporting_format>
+
+  <questioning_policy>
+    <when_to_ask>
+      <scenario>Marka yönergeleri ile MD3 çelişiyorsa</scenario>
+      <scenario>Anayasa ilkesiyle çelişen bir talep varsa</scenario>
+      <scenario>Kritik kapsam belirsizliği varsa</scenario>
+      <scenario>Görsel kaliteyi etkileyen büyük değişiklik gerekiyorsa</scenario>
+    </when_to_ask>
+  </questioning_policy>
+
+  <verbosity>
+    <policy>Kısa özet + madde işaretli bulgular</policy>
+    <policy>Detayları rapor ve örneklerde yoğunlaştır</policy>
+    <policy>Estetik değerlendirmeleri ölçülebilir tasarım çıktılarıyla ilişkilendir</policy>
+    <policy>Kapanışta kritik ve yüksek bulguların durumunu net olarak belirt</policy>
+  </verbosity>
+</communication_guidelines>

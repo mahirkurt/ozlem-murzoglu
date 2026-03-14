@@ -94,7 +94,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--md-sys-elevation-level4);
   }
 }
 
@@ -139,7 +139,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--md-sys-elevation-level3);
   transition: all 0.3s ease;
 
   img {
@@ -151,7 +151,7 @@
 
 .partner-card:hover .partner-logo-wrapper {
   transform: scale(1.05);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--md-sys-elevation-level4);
 }
 
 .partner-content {
@@ -222,11 +222,11 @@
 .btn-primary {
   background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-inverse-primary) 100%);
   color: white;
-  box-shadow: 0 8px 24px rgba(var(--md-sys-color-primary-rgb), 0.25);
+  box-shadow: var(--md-sys-elevation-level3);
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(var(--md-sys-color-primary-rgb), 0.35);
+    box-shadow: var(--md-sys-elevation-level4);
   }
 }
 
@@ -296,7 +296,7 @@
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level4);
   }
 
   h4 {
@@ -392,7 +392,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--md-sys-elevation-level3);
   }
 }
 
@@ -470,7 +470,7 @@
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--md-sys-elevation-level4);
   }
 
   h4 {
@@ -535,6 +535,42 @@
 
 .imaging-card:hover .imaging-icon {
   transform: scale(1.1);
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: var(--md-sys-state-focus-ring-width, 3px) solid var(--md-sys-state-focus-ring-color, var(--md-sys-color-primary));
+  outline-offset: var(--md-sys-state-focus-ring-offset, 2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-card,
+  .partner-card::before,
+  .partner-logo-wrapper,
+  .btn-primary,
+  .btn-secondary,
+  .service-card,
+  .service-icon,
+  .process-card,
+  .process-icon-wrapper,
+  .imaging-card,
+  .imaging-icon {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+
+  .partner-card:hover,
+  .partner-card:hover .partner-logo-wrapper,
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .service-card:hover,
+  .service-card:hover .service-icon,
+  .process-card:hover,
+  .process-card:hover .process-icon-wrapper,
+  .imaging-card:hover,
+  .imaging-card:hover .imaging-icon {
+    transform: none !important;
+  }
 }
 
 .tech-badge {

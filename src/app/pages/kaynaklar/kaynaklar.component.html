@@ -13,20 +13,20 @@
   <div class="info-card accent-card search-card" *ngIf="showSearch">
     <div class="md3-card__header">
       <span class="material-icons-rounded md3-card__avatar">search</span>
-      <h3 class="section-headline">Hızlı Arama</h3>
+      <h3 class="section-headline">{{ 'RESOURCES.SEARCH' | translate }}</h3>
     </div>
     <div class="md3-card__content">
       <div class="md3-text-field" appearance="outline" class="search-field">
-        <label class="md3-text-field__label">Dokümanlarda ara...</label>
+        <label class="md3-text-field__label">{{ 'RESOURCES.SEARCH_PLACEHOLDER' | translate }}</label>
         <input class="md3-text-field__input" 
                [(ngModel)]="searchQuery"
                (input)="onSearchChange($event)"
-               placeholder="Örn: aşı takvimi, uyku düzeni, emzirme">
+               [placeholder]="'RESOURCES.SEARCH_PLACEHOLDER' | translate">
         <span class="material-icons-rounded md3-text-field__icon md3-text-field__icon--trailing">search</span>
         <button class="md3-icon-button" matSuffix 
                 *ngIf="searchQuery" 
                 (click)="clearSearch()"
-                aria-label="Temizle">
+                [attr.aria-label]="'RESOURCES.CLEAR_SEARCH' | translate">
           <span class="material-icons-rounded">clear</span>
         </button>
       </div>
@@ -36,7 +36,7 @@
         <hr class="md3-divider"></hr>
         <h3 class="results-title">
           <span class="material-icons-rounded">check_circle</span>
-          {{ searchResults.length }} sonuç bulundu
+          {{ 'RESOURCES.SEARCH_RESULTS_COUNT' | translate:{ count: searchResults.length } }}
         </h3>
         <div class="md3-list">
           <div class="md3-list-item" *ngFor="let doc of searchResults" 
@@ -56,17 +56,17 @@
     <div class="stat-card">
       <span class="material-icons-rounded">folder_open</span>
       <div class="stat-number">{{ categories.length }}</div>
-      <div class="stat-label">Kategori</div>
+      <div class="stat-label">{{ 'RESOURCES.CATEGORY' | translate }}</div>
     </div>
     <div class="stat-card">
       <span class="material-icons-rounded">description</span>
       <div class="stat-number">{{ getTotalDocumentCount() }}</div>
-      <div class="stat-label">Doküman</div>
+      <div class="stat-label">{{ 'RESOURCES.DOCUMENT' | translate }}</div>
     </div>
     <div class="stat-card">
       <span class="material-icons-rounded">verified</span>
       <div class="stat-number">AAP</div>
-      <div class="stat-label">Onaylı</div>
+      <div class="stat-label">{{ 'RESOURCES.APPROVED' | translate }}</div>
     </div>
   </section>
 
@@ -80,11 +80,11 @@
               [@cardAnimation]="i">
       <div class="md3-card__header">
         <span class="material-icons-rounded md3-card__avatar">{{ section.icon }}</span>
-        <h3 class="section-headline">{{ section.title }}</h3>
-        <p class="md3-card__subtitle">{{ section.subtitle }}</p>
+        <h3 class="section-headline">{{ section.titleKey | translate }}</h3>
+        <p class="md3-card__subtitle" *ngIf="section.subtitleKey">{{ section.subtitleKey | translate }}</p>
       </div>
       <div-content class="body-text">
-        <p [innerHTML]="section.description"></p>
+        <p *ngIf="section.descriptionKey" [innerHTML]="section.descriptionKey | translate"></p>
         <div class="category-grid">
           <button class="md3-button md3-button-filled" 
                   *ngFor="let cat of section.categories"
@@ -105,11 +105,11 @@
               [@cardAnimation]="i">
       <div class="md3-card__header">
         <span class="material-icons-rounded md3-card__avatar">{{ section.icon }}</span>
-        <h3 class="section-headline">{{ section.title }}</h3>
-        <p class="md3-card__subtitle">{{ section.subtitle }}</p>
+        <h3 class="section-headline">{{ section.titleKey | translate }}</h3>
+        <p class="md3-card__subtitle" *ngIf="section.subtitleKey">{{ section.subtitleKey | translate }}</p>
       </div>
       <div-content class="body-text">
-        <p [innerHTML]="section.description"></p>
+        <p *ngIf="section.descriptionKey" [innerHTML]="section.descriptionKey | translate"></p>
         <div class="category-list">
           <div class="md3-list">
             <div class="md3-list-item" *ngFor="let cat of section.categories"
@@ -117,7 +117,7 @@
                            class="category-item">
               <span class="material-icons-rounded">{{ getQuickAccessIcon(cat.id) }}</span>
               <div matListItemTitle>{{ cat.title }}</div>
-              <div matListItemLine>{{ cat.documentCount }} doküman</div></div>
+              <div matListItemLine>{{ cat.documentCount }} {{ 'RESOURCES.DOCUMENT_COUNT' | translate }}</div></div>
           </div>
         </div>
       </div>
@@ -129,8 +129,8 @@
               [@cardAnimation]="i">
       <div class="md3-card__header">
         <span class="material-icons-rounded md3-card__avatar">{{ section.icon }}</span>
-        <h3 class="section-headline">{{ section.title }}</h3>
-        <p class="md3-card__subtitle">{{ section.subtitle }}</p>
+        <h3 class="section-headline">{{ section.titleKey | translate }}</h3>
+        <p class="md3-card__subtitle" *ngIf="section.subtitleKey">{{ section.subtitleKey | translate }}</p>
       </div>
       <div class="md3-card__content">
         <div class="md3-accordion">
@@ -140,18 +140,18 @@
             <summary class="md3-expansion-panel__header">
               <span class="md3-expansion-panel__title">
                 <span class="material-icons-rounded">{{ panel.icon }}</span>
-                {{ panel.title }}
+                {{ panel.titleKey | translate }}
               </span>
               <span class="md3-expansion-panel__description">
-                {{ panel.description }}
+                {{ panel.descriptionKey | translate }}
               </span>
             </summary>
-            <div class="panel-content" [innerHTML]="panel.content"></div>
+            <div class="panel-content" [innerHTML]="panel.contentKey | translate"></div>
             <div class="md3-expansion-panel__actions" *ngIf="panel.categoryId">
               <button class="md3-button" color="primary" 
                       (click)="navigateToCategory(panel.categoryId)">
                 <span class="material-icons-rounded">folder_open</span>
-                Kategoriye Git
+                {{ 'FAVORITES.VIEWER.BACK_TO_CATEGORY' | translate }}
               </button>
             </div>
           </details>
@@ -166,7 +166,7 @@
   <section class="popular-section" *ngIf="popularDocuments.length > 0">
     <h2 class="section-title">
       <span class="material-icons-rounded">star</span>
-      En Çok İndirilen Dokümanlar
+      {{ 'RESOURCES.MOST_DOWNLOADED' | translate }}
     </h2>
     <div class="popular-grid">
       <div *ngFor="let doc of popularDocuments" 
@@ -194,10 +194,7 @@
   <footer class="page-footer">
     <div class="footer-card">
       <span class="material-icons-rounded">info</span>
-      <p>
-        Tüm dokümanlar Amerikan Pediatri Akademisi (AAP) ve güvenilir sağlık kuruluşları tarafından hazırlanmıştır.
-        Bilgiler güncel tutulmaya çalışılmaktadır ancak her zaman doktorunuza danışmanız önerilir.
-      </p>
+      <p>{{ 'RESOURCES.DISCLAIMER' | translate }}</p>
     </div>
   </footer>
   </div>

@@ -1,16 +1,77 @@
 /* Appointment component styles */
-.container {
+
+.appointment-page {
   min-height: 60vh;
+  padding: var(--md-sys-spacing-16) var(--md-sys-spacing-4);
+  background: var(--md-sys-color-surface-container-lowest);
 }
 
-.bg-blue-50 {
-  background-color: #eff6ff;
+.appointment-empty-state {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.border-blue-200 {
-  border-color: #bfdbfe;
+.appointment-empty-state__inner {
+  padding: var(--md-sys-spacing-10);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
-.text-blue-800 {
-  color: #1e40af;
+.appointment-empty-state__title {
+  margin: 0 0 var(--md-sys-spacing-6);
+  color: var(--md-sys-color-on-surface);
+  font-family: var(--md-sys-typescale-font-brand);
+  font-size: var(--md-sys-typescale-headline-medium-size);
+  line-height: var(--md-sys-typescale-headline-medium-line-height);
+  font-weight: var(--md-sys-typescale-headline-medium-weight);
+}
+
+.appointment-empty-state__description {
+  margin: 0 0 var(--md-sys-spacing-8);
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: var(--md-sys-typescale-font-plain);
+  font-size: var(--md-sys-typescale-body-large-size);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+}
+
+.appointment-empty-state__notice {
+  border-radius: var(--md-sys-shape-corner-large);
+  padding: var(--md-sys-spacing-6);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 28%, transparent);
+}
+
+.appointment-empty-state__notice-text {
+  margin: 0;
+  font-family: var(--md-sys-typescale-font-plain);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+}
+
+@media (max-width: 768px) {
+  .appointment-page {
+    padding: var(--md-sys-spacing-12) var(--md-sys-spacing-4);
+  }
+
+  .appointment-empty-state__inner {
+    padding: var(--md-sys-spacing-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .appointment-empty-state__inner {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .appointment-empty-state__inner,
+  .appointment-empty-state__notice {
+    forced-color-adjust: auto;
+    border: 1px solid CanvasText;
+  }
 }

@@ -64,14 +64,12 @@
   max-width: var(--doctor-bio-photo-max-width);
 }
 
-  .photo-frame {
+.photo-frame {
     position: relative;
     border-radius: var(--md-sys-shape-corner-extra-large); /* Soft Organic Shape */
     overflow: hidden;
     background: var(--md-sys-color-surface);
-  box-shadow: 
-    0 24px 48px oklch(from var(--md-sys-color-shadow) l c h / 0.1),
-    0 0 0 var(--md-sys-spacing-2) oklch(from var(--md-sys-color-surface) l c h / 0.5); /* Outer Translucent Ring */
+  box-shadow: var(--md-sys-elevation-level2);
     
     transition: transform var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized);
   }
@@ -155,7 +153,7 @@
 
 .qualification-card:hover {
   background: var(--md-sys-color-surface);
-  box-shadow: 0 8px 20px oklch(from var(--md-sys-color-shadow) l c h / 0.05);
+  box-shadow: var(--md-sys-elevation-level1);
   border-color: color-mix(in oklch, var(--md-sys-color-secondary) 30%, transparent);
   transform: translateY(-2px);
 }
@@ -227,14 +225,14 @@
 .btn-primary {
   background: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
-  box-shadow: 0 8px 20px oklch(from var(--md-sys-color-primary) l c h / 0.3);
+  box-shadow: var(--md-sys-elevation-level2);
   @include state-layer(var(--md-sys-color-on-primary));
   @include ripple-effect(var(--md-sys-color-on-primary));
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px oklch(from var(--md-sys-color-primary) l c h / 0.4);
+  box-shadow: var(--md-sys-elevation-level3);
 }
 
 .btn-secondary {

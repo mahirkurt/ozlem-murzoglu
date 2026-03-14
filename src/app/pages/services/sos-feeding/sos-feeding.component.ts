@@ -17,9 +17,9 @@ export class SosFeedingComponent {
   locale = 'tr';
 
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Hizmetlerimiz', link: '/hizmetlerimiz' },
-    { label: 'SOS Feeding Programı' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_SERVICES', link: '/hizmetlerimiz' },
+    { label: 'SERVICE_SOS_FEEDING.TITLE' }
   ];
 
   constructor() {
@@ -34,15 +34,15 @@ export class SosFeedingComponent {
 
   certifications = [
     {
-      title: 'Hybrid SOS Approach to Feeding Training Course',
-      date: '2025',
-      level: 'Feeding Therapist',
+      titleKey: 'SERVICE_SOS_FEEDING.BADGE_CERT_1_TITLE',
+      dateKey: 'SERVICE_SOS_FEEDING.BADGE_CERT_1_DATE',
+      levelKey: 'SERVICE_SOS_FEEDING.BADGE_CERT_1_LEVEL',
       icon: 'restaurant',
     },
     {
-      title: 'SOS Approach to Feeding Advanced Course',
-      date: '2025',
-      level: 'Advanced Feeding Therapist',
+      titleKey: 'SERVICE_SOS_FEEDING.BADGE_CERT_2_TITLE',
+      dateKey: 'SERVICE_SOS_FEEDING.BADGE_CERT_2_DATE',
+      levelKey: 'SERVICE_SOS_FEEDING.BADGE_CERT_2_LEVEL',
       icon: 'dining',
     },
   ];

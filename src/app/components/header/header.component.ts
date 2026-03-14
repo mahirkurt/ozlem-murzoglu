@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppointmentModalComponent } from '../appointment-modal/appointment-modal.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ThemeService } from '../../services/theme.service';
+import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
 
 @Component({
   selector: 'app-header',
@@ -26,9 +27,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAppointmentModalOpen = false;
 
   contactInfo = {
-    phone: '+90 216 688 44 83',
-    email: 'klinik@drmurzoglu.com',
-    address: 'Ataşehir, İstanbul'
+    phone: CONTACT_CONFIG.phone.display,
+    phoneHref: CONTACT_CONFIG.phone.telHref,
+    email: CONTACT_CONFIG.email.value,
+    address: CONTACT_CONFIG.address.shortDisplay,
+    whatsappUrl: CONTACT_HELPERS.getWhatsAppApiUrl(),
   };
 
   navigation: any[] = [

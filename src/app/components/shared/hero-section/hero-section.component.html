@@ -7,19 +7,19 @@
   <div class="hero-section__noise" aria-hidden="true"></div>
 
   <div class="hero-section__content">
-    <nav class="hero-section__breadcrumb"
+    <nav class="hero-section__breadcrumb md3-page-breadcrumbs"
          *ngIf="breadcrumbs && breadcrumbs.length > 0"
          [attr.aria-label]="'COMMON.BREADCRUMB_NAV' | translate">
       <ol>
         <li *ngFor="let crumb of breadcrumbs; let last = last">
           <ng-container *ngIf="crumb.link && !last; else currentCrumb">
-            <a [routerLink]="crumb.link" class="hero-section__crumb-link">
+            <a [routerLink]="crumb.link" class="hero-section__crumb-link md3-breadcrumb-link">
               {{ crumb.label | translate }}
             </a>
-            <span class="hero-section__crumb-sep material-icons-rounded" aria-hidden="true">chevron_right</span>
+            <span class="hero-section__crumb-sep md3-breadcrumb-separator material-icons-rounded" aria-hidden="true">chevron_right</span>
           </ng-container>
           <ng-template #currentCrumb>
-            <span class="hero-section__crumb-current" [attr.aria-current]="last ? 'page' : null">
+            <span class="hero-section__crumb-current md3-breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
               {{ crumb.label | translate }}
             </span>
           </ng-template>

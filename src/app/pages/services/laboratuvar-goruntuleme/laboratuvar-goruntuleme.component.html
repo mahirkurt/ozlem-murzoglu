@@ -23,10 +23,10 @@
       <!-- Biruni Partner Card -->
       <div class="partner-showcase biruni-card">
         <div class="partner-logo">
-          <img src="/assets/program_logos/Biruni.png" alt="Biruni Laboratuvarları" />
+          <img src="/assets/program_logos/Biruni.png" [alt]="'SERVICES.SERVICE_LAB_IMAGING.BIRUNI_LOGO_ALT' | translate" />
         </div>
         <div class="partner-content">
-          <h3 >Biruni Laboratuvarları</h3>
+          <h3 >{{ 'SERVICES.SERVICE_LAB_IMAGING.BIRUNI_TITLE' | translate }}</h3>
           <p class="">{{ 'SERVICES.SERVICE_LAB_IMAGING.CORPORATE_PARTNER' | translate }}</p>
           <div class="partner-features">
             <div class="feature-item">
@@ -43,11 +43,11 @@
             </div>
           </div>
           <div class="partner-actions">
-            <a href="https://biruni.com.tr/" target="_blank" class="btn-primary">
+            <a href="https://biruni.com.tr/" target="_blank" rel="noopener noreferrer" class="btn-primary">
               <span class="material-icons-rounded" aria-hidden="true">open_in_new</span>
               <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ABOUT_BIRUNI' | translate }}</span>
             </a>
-            <a href="https://biruni.com.tr/sonuc" target="_blank" class="btn-secondary">
+            <a href="https://biruni.com.tr/sonuc" target="_blank" rel="noopener noreferrer" class="btn-secondary">
               <span class="material-icons-rounded" aria-hidden="true">assignment</span>
               <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ONLINE_RESULTS' | translate }}</span>
             </a>
@@ -145,11 +145,11 @@
       <!-- Sonomed Partner Card -->
       <div class="partner-showcase sonomed-card">
         <div class="partner-logo">
-          <img src="/assets/program_logos/Sonomed.png" alt="Sonomed Görüntüleme" />
+          <img src="/assets/program_logos/Sonomed.png" [alt]="'SERVICES.SERVICE_LAB_IMAGING.SONOMED_LOGO_ALT' | translate" />
         </div>
         <div class="partner-content">
-          <h3 >Sonomed Tıbbi Görüntüleme Merkezleri</h3>
-          <p class="">Ataşehir Şubesi - {{ 'SERVICES.SERVICE_LAB_IMAGING.NEAR_LOCATION' | translate }}</p>
+          <h3 >{{ 'SERVICES.SERVICE_LAB_IMAGING.SONOMED_TITLE' | translate }}</h3>
+          <p class="">{{ 'SERVICES.SERVICE_LAB_IMAGING.SONOMED_BRANCH_LABEL' | translate }} - {{ 'SERVICES.SERVICE_LAB_IMAGING.NEAR_LOCATION' | translate }}</p>
           
           <!-- Contact Information -->
           <div class="contact-grid">
@@ -157,7 +157,7 @@
               <span class="material-icons-rounded" aria-hidden="true">location_on</span>
               <div>
                 <strong >{{ 'SERVICES.SERVICE_LAB_IMAGING.ADDRESS' | translate }}:</strong>
-                <p >Ataşehir, Ataşehir Bulvarı, Ata 2/3 Plaza Kat:3 No:30 Ataşehir/İstanbul</p>
+                <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.SONOMED_ADDRESS_DETAIL' | translate }}</p>
               </div>
             </div>
             <div class="contact-item">
@@ -177,11 +177,11 @@
           </div>
 
           <div class="partner-actions">
-            <a href="https://maps.app.goo.gl/xyz" target="_blank" class="btn-primary">
+            <a href="https://maps.app.goo.gl/xyz" target="_blank" rel="noopener noreferrer" class="btn-primary">
               <span class="material-icons-rounded" aria-hidden="true">directions</span>
               <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.GET_DIRECTIONS' | translate }}</span>
             </a>
-            <a href="https://sonomed.com.tr/tr/sonomed-atasehir-subesi/" target="_blank" class="btn-secondary">
+            <a href="https://sonomed.com.tr/tr/sonomed-atasehir-subesi/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
               <span class="material-icons-rounded" aria-hidden="true">open_in_new</span>
               <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ABOUT_SONOMED' | translate }}</span>
             </a>
@@ -196,7 +196,7 @@
             <div class="imaging-icon primary-container">
               <span class="material-icons-rounded" aria-hidden="true">mri</span>
             </div>
-            <div class="tech-badge">3 Tesla MR</div>
+            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_MR_3_TESLA' | translate }}</div>
           </div>
           <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_IMAGING' | translate }}</h4>
           <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_DESC' | translate }}</p>
@@ -207,7 +207,7 @@
             <div class="imaging-icon secondary-container">
               <span class="material-icons-rounded" aria-hidden="true">desktop_windows</span>
             </div>
-            <div class="tech-badge">128 Kesit BT</div>
+            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_CT_128_SLICE' | translate }}</div>
           </div>
           <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_SCAN' | translate }}</h4>
           <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_DESC' | translate }}</p>
@@ -218,7 +218,7 @@
             <div class="imaging-icon tertiary-container">
               <span class="material-icons-rounded" aria-hidden="true">monitor_heart</span>
             </div>
-            <div class="tech-badge">4D USG</div>
+            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_USG_4D' | translate }}</div>
           </div>
           <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND' | translate }}</h4>
           <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND_DESC' | translate }}</p>
@@ -229,7 +229,7 @@
             <div class="imaging-icon primary-container">
               <span class="material-icons-rounded" aria-hidden="true">radiology</span>
             </div>
-            <div class="tech-badge">Dijital</div>
+            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_DIGITAL' | translate }}</div>
           </div>
           <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY' | translate }}</h4>
           <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY_DESC' | translate }}</p>
@@ -240,7 +240,7 @@
             <div class="imaging-icon secondary-container">
               <span class="material-icons-rounded" aria-hidden="true">favorite</span>
             </div>
-            <div class="tech-badge">Doppler EKO</div>
+            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_DOPPLER_ECHO' | translate }}</div>
           </div>
           <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.ECHO' | translate }}</h4>
           <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.ECHO_DESC' | translate }}</p>
@@ -251,7 +251,7 @@
             <div class="imaging-icon tertiary-container">
               <span class="material-icons-rounded" aria-hidden="true">analytics</span>
             </div>
-            <div class="tech-badge">Uzman Radyolog</div>
+            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_EXPERT_RADIOLOGIST' | translate }}</div>
           </div>
           <h4 >{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING' | translate }}</h4>
           <p >{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING_DESC' | translate }}</p>

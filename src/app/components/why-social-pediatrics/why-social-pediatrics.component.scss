@@ -2,91 +2,302 @@
 
 // ============================================================================
 // Why Social Pediatrics Section
-// White background with teal accent line, 3-column value proposition layout
+// Ambient aurora background, elevated cards with hover lift, icon containers
 // ============================================================================
 
 :host {
   display: block;
+  background-color: var(--md-sys-color-surface-container-lowest);
 }
 
 .why-sp {
   position: relative;
-  background-color: var(--md-sys-color-surface-container-lowest);
-  padding-block: var(--spacing-section-sm);
+  background-color: inherit;
+  padding: var(--md-sys-spacing-12) 0 var(--md-sys-spacing-section-vertical);
   padding-inline: var(--md-responsive-padding);
   overflow: hidden;
 
-  // Thin teal vertical accent line on left edge
-  &__accent-line {
+  --why-sp-panel-bg: linear-gradient(
+    160deg,
+    color-mix(
+      in oklch,
+      var(--md-sys-color-glass-surface-bright) 72%,
+      var(--md-sys-color-surface-container-low) 28%
+    ),
+    color-mix(
+      in oklch,
+      var(--md-sys-color-glass-surface) 72%,
+      var(--md-sys-color-surface-container-lowest) 28%
+    )
+  );
+  --why-sp-panel-border: color-mix(
+    in oklch,
+    var(--md-sys-color-glass-border) 72%,
+    var(--md-sys-color-outline) 28%
+  );
+  --why-sp-panel-shadow: var(--md-sys-elevation-level1);
+
+  // Ambient aurora glow (matches doctor-bio / services-section pattern)
+  &::before,
+  &::after {
+    content: '';
     position: absolute;
-    left: 0;
-    top: 20%;
-    height: 60%;
-    width: 3px;
-    background: var(--gradient-teal);
-    border-radius: 0 var(--radius-full) var(--radius-full) 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &::before {
+    width: 500px;
+    height: 500px;
+    top: -15%;
+    right: -8%;
+    background: radial-gradient(
+      ellipse at center,
+      color-mix(in oklch, var(--md-sys-color-primary) 10%, transparent),
+      transparent 70%
+    );
+    filter: blur(calc(var(--md-sys-glass-blur-xl) * 1.5));
+  }
+
+  &::after {
+    width: 400px;
+    height: 400px;
+    bottom: -10%;
+    left: -5%;
+    background: radial-gradient(
+      ellipse at center,
+      color-mix(in oklch, var(--md-sys-color-tertiary) 8%, transparent),
+      transparent 70%
+    );
+    filter: blur(calc(var(--md-sys-glass-blur-xl) * 1.2));
   }
 
   &__container {
+    position: relative;
+    z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
   }
 
-  &__title {
-    font-family: var(--md-sys-typescale-display-small-font);
-    font-size: var(--md-sys-typescale-display-small-size);
-    line-height: var(--md-sys-typescale-display-small-line-height);
-    font-weight: var(--md-sys-typescale-display-small-weight);
-    letter-spacing: var(--md-sys-typescale-display-small-tracking);
-    color: var(--md-sys-color-on-surface);
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
+  // Unified section header (same as services-section, google-reviews)
+  .section-header {
+    @include section-header-unified;
+    margin-block-end: clamp(
+      var(--md-sys-spacing-8),
+      4.5vw,
+      var(--md-sys-spacing-10)
+    );
   }
 
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+  &__panel {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(
+      var(--md-sys-spacing-5),
+      2.4vw,
+      var(--md-sys-spacing-7)
+    );
+    border-radius: var(--md-sys-shape-corner-extra-large);
+    border: 1px solid var(--why-sp-panel-border);
+    background: var(--why-sp-panel-bg);
+    backdrop-filter: blur(var(--md-sys-glass-blur-sm)) saturate(1.05);
+    -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-sm)) saturate(1.05);
+    box-shadow: var(--why-sp-panel-shadow);
 
-    @include bp-medium {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--spacing-xl);
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      block-size: min(110px, 24%);
+      pointer-events: none;
+      z-index: 0;
+      background: linear-gradient(
+        180deg,
+        color-mix(in oklch, var(--md-sys-color-primary) 10%, transparent),
+        transparent
+      );
+    }
+
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: var(--md-sys-color-surface-container-low);
     }
   }
 
+  &__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--md-sys-spacing-4);
+
+    @include bp-medium {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--md-sys-spacing-5);
+    }
+  }
+
+  // Card surface with tonal hierarchy + state layer first interaction
   &__card {
+    --why-sp-card-accent: var(--md-sys-color-primary);
+
+    @include state-layer-on-surface;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: var(--spacing-lg);
+    min-height: 100%;
+    padding: var(--md-sys-spacing-6) var(--md-sys-spacing-4);
+    background: color-mix(
+      in oklch,
+      var(--md-sys-color-surface-container-low) 88%,
+      var(--md-sys-color-surface) 12%
+    );
+    border: 1px solid color-mix(
+      in oklch,
+      var(--md-sys-color-outline-variant) 64%,
+      transparent
+    );
+    border-radius: var(--md-sys-shape-corner-large);
+    box-shadow: var(--md-sys-elevation-level0);
+    transition:
+      transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+      background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+      box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard),
+      border-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline: 0;
+      block-size: 3px;
+      border-radius: inherit;
+      background: linear-gradient(
+        90deg,
+        color-mix(in oklch, var(--why-sp-card-accent) 72%, transparent),
+        color-mix(in oklch, var(--why-sp-card-accent) 42%, transparent)
+      );
+      opacity: 0.92;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    &:hover {
+      transform: translateY(calc(-1 * var(--md-sys-spacing-1)));
+      background: var(--md-sys-color-surface-container);
+      box-shadow: var(--md-sys-elevation-level1);
+      border-color: color-mix(
+        in oklch,
+        var(--why-sp-card-accent) 34%,
+        transparent
+      );
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: var(--md-sys-elevation-level0);
+    }
+  }
+
+  &__card--evidence {
+    --why-sp-card-accent: var(--md-sys-color-primary);
+  }
+
+  &__card--family {
+    --why-sp-card-accent: var(--md-sys-color-tertiary);
+  }
+
+  &__card--growth {
+    --why-sp-card-accent: var(--md-sys-color-secondary);
+  }
+
+  // Icon container with colored background (matches doctor-bio qualification cards)
+  &__icon-wrap {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--md-sys-shape-corner-large);
+    margin-bottom: var(--md-sys-spacing-4);
+    border: 1px solid color-mix(
+      in oklch,
+      var(--md-sys-color-outline-variant) 58%,
+      transparent
+    );
+    transition:
+      transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+      background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+      border-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+    .why-sp__card:hover & {
+      transform: translateY(calc(-1 * var(--md-sys-spacing-1))) scale(1.03);
+      border-color: color-mix(
+        in oklch,
+        var(--why-sp-card-accent) 44%,
+        transparent
+      );
+    }
+  }
+
+  &__icon-wrap--evidence {
+    background: color-mix(
+      in oklch,
+      var(--md-sys-color-primary-container) 72%,
+      var(--md-sys-color-surface) 28%
+    );
+    color: var(--md-sys-color-on-primary-container);
+  }
+
+  &__icon-wrap--family {
+    background: color-mix(
+      in oklch,
+      var(--md-sys-color-tertiary-container) 72%,
+      var(--md-sys-color-surface) 28%
+    );
+    color: var(--md-sys-color-on-tertiary-container);
+  }
+
+  &__icon-wrap--growth {
+    background: color-mix(
+      in oklch,
+      var(--md-sys-color-secondary-container) 72%,
+      var(--md-sys-color-surface) 28%
+    );
+    color: var(--md-sys-color-on-secondary-container);
   }
 
   &__icon {
-    width: 56px;
-    height: 56px;
-    color: var(--md-sys-color-primary);
-    margin-bottom: var(--spacing-md);
+    width: 42px;
+    height: 42px;
     flex-shrink: 0;
 
     svg {
       width: 100%;
       height: 100%;
     }
-
-    .accent {
-      color: var(--md-sys-color-tertiary);
-    }
   }
 
   &__card-title {
-    font-family: var(--md-sys-typescale-title-large-font);
-    font-size: var(--md-sys-typescale-title-large-size);
-    line-height: var(--md-sys-typescale-title-large-line-height);
-    font-weight: var(--md-sys-typescale-title-large-weight);
-    letter-spacing: var(--md-sys-typescale-title-large-tracking);
+    font-family: var(--md-sys-typescale-title-medium-font);
+    font-size: var(--md-sys-typescale-title-medium-size);
+    line-height: var(--md-sys-typescale-title-medium-line-height);
+    font-weight: var(--md-sys-typescale-title-medium-weight);
+    letter-spacing: var(--md-sys-typescale-title-medium-tracking);
     color: var(--md-sys-color-on-surface);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--md-sys-spacing-2);
+    text-wrap: balance;
   }
 
   &__card-desc {
@@ -97,13 +308,101 @@
     letter-spacing: var(--md-sys-typescale-body-medium-tracking);
     color: var(--md-sys-color-on-surface-variant);
     margin: 0;
-    max-width: 36ch;
+    max-width: 34ch;
+    text-wrap: pretty;
   }
 }
 
-// Reduced motion: no decorative transitions
+@media (prefers-contrast: more) {
+  .why-sp {
+    &__panel {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: var(--md-sys-color-surface-container-low);
+      border-color: var(--md-sys-color-outline);
+    }
+
+    &__card {
+      border-color: var(--md-sys-color-outline);
+
+      &:hover {
+        border-color: var(--md-sys-color-primary);
+      }
+    }
+
+    &__card-desc {
+      color: var(--md-sys-color-on-surface);
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .why-sp {
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    &__panel {
+      background: Canvas;
+      border-color: CanvasText;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    &__card {
+      background: Canvas;
+      border-color: CanvasText;
+      forced-color-adjust: auto;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    &__icon-wrap {
+      background: Canvas;
+      border-color: CanvasText;
+      color: CanvasText;
+    }
+
+    &__card-title,
+    &__card-desc {
+      color: CanvasText;
+    }
+  }
+}
+
+// Reduced motion
 @include reduced-motion {
-  .why-sp__accent-line {
-    transition: none;
+  .why-sp {
+    &::before,
+    &::after {
+      filter: none;
+    }
+
+    &__panel,
+    &__card,
+    &__icon-wrap {
+      transition: none;
+    }
+
+    &__card {
+      &:hover,
+      &:active {
+        transform: none;
+        box-shadow: var(--md-sys-elevation-level0);
+      }
+    }
+
+    &__card:hover .why-sp__icon-wrap {
+      transform: none;
+    }
+
+    &__card::before {
+      transition: none;
+    }
   }
 }

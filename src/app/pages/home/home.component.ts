@@ -5,9 +5,8 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 import { DoctorBioComponent } from '../../components/doctor-bio/doctor-bio';
 import { ContactCtaComponent } from '../../components/contact-cta/contact-cta.component';
 import { WhySocialPediatricsComponent } from '../../components/why-social-pediatrics/why-social-pediatrics.component';
-import { StatsSectionComponent } from '../../components/stats-section/stats-section.component';
 import { GoogleBusinessReviewsComponent } from '../../components/google-business-reviews/google-business-reviews.component';
-import { SeoService } from '../../services/seo.service';
+import { SeoService } from '../../core/services/seo.service';
 
 
 @Component({
@@ -20,7 +19,6 @@ import { SeoService } from '../../services/seo.service';
     DoctorBioComponent,
     ContactCtaComponent,
     WhySocialPediatricsComponent,
-    StatsSectionComponent,
     GoogleBusinessReviewsComponent
   ],
   templateUrl: './home.component.html',
@@ -30,11 +28,6 @@ export class HomeComponent implements OnInit {
   private seo = inject(SeoService);
 
   ngOnInit(): void {
-    this.seo.updateTags({
-      title: 'Ataşehir Çocuk Doktoru - Dr. Özlem Murzoğlu | Çocuk Sağlığı ve Hastalıkları Uzmanı',
-      description: "Ataşehir çocuk doktoru Dr. Özlem Murzoğlu - İstanbul Ataşehir'de çocuk sağlığı ve hastalıkları uzmanı. Bebek ve çocuk sağlığı, aşılama, gelişim takibi, Bright Futures, Triple P. Randevu: 0216 688 44 83",
-      keywords: 'ataşehir çocuk doktoru, çocuk doktoru ataşehir, istanbul çocuk doktoru, pediatri uzmanı ataşehir, Dr. Özlem Murzoğlu, bebek doktoru ataşehir, çocuk hastalıkları uzmanı',
-      url: 'https://ozlemmurzoglu.com/',
-    });
+    this.seo.setPageSeo('home');
   }
 }

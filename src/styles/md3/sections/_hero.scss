@@ -50,8 +50,7 @@
 // ============================================================================
 
 // Apply to ALL hero sections including component-based ones
-.hero-section:not(.homepage-hero),
-app-hero-section .hero-section {
+.hero-section:not(.homepage-hero):not(app-hero-section .hero-section) {
   position: relative;
   padding: var(--md-sys-hero-padding-y) 0;
   margin-top: var(--header-height-desktop, 108px);
@@ -72,7 +71,7 @@ app-hero-section .hero-section {
 .resource-hero,
 .page-hero,
 .service-hero,
-section[class*='hero']:not(.hero-content):not(.homepage-hero) {
+section[class*='hero']:not(.hero-content):not(.homepage-hero):not(.home-page__hero):not(app-hero-section .hero-section) {
   position: relative;
   padding: var(--md-sys-hero-padding-y) 0;
   margin-top: var(--header-height-desktop, 108px);
@@ -351,7 +350,7 @@ section[class*='hero']:not(.hero-content):not(.homepage-hero) {
 .hero-title,
 .page-title,
 h1.hero-title,
-.hero-section h1 {
+.hero-section h1.hero-title {
   font-family: var(--md-sys-typescale-font-brand) !important;
   font-size: clamp(
     var(--md-sys-typescale-headline-medium-size),
@@ -557,12 +556,11 @@ h1.hero-title,
     --md-sys-hero-min-height: 208px;
   }
 
-  .hero-section:not(.homepage-hero),
-  app-hero-section .hero-section,
+  .hero-section:not(.homepage-hero):not(app-hero-section .hero-section),
   .resource-hero,
   .page-hero,
   .service-hero,
-  section[class*='hero']:not(.hero-content):not(.homepage-hero) {
+  section[class*='hero']:not(.hero-content):not(.homepage-hero):not(.home-page__hero):not(app-hero-section .hero-section) {
     padding: var(--md-sys-hero-padding-y) 0;
     min-height: var(--md-sys-hero-min-height);
     margin-top: var(--header-height-mobile, 80px);
@@ -686,12 +684,11 @@ section[class*='hero']:not(.hero-content) {
 // ============================================================================
 
 @media print {
-  .hero-section:not(.homepage-hero),
-  app-hero-section .hero-section,
+  .hero-section:not(.homepage-hero):not(app-hero-section .hero-section),
   .resource-hero,
   .page-hero,
   .service-hero,
-  section[class*='hero']:not(.hero-content):not(.homepage-hero) {
+  section[class*='hero']:not(.hero-content):not(.homepage-hero):not(.home-page__hero):not(app-hero-section .hero-section) {
     background: none !important;
     animation: none !important;
     min-height: auto;
@@ -709,7 +706,7 @@ section[class*='hero']:not(.hero-content) {
   .hero-title,
   .page-title,
   h1.hero-title,
-  .hero-section h1 {
+  .hero-section h1.hero-title {
     color: #000 !important;
     text-shadow: none !important;
   }

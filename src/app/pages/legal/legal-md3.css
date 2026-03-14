@@ -1,438 +1,216 @@
-/* Material Design 3 Legal Pages Styles */
+/* Shared MD3 legal page styles (privacy / terms / kvkk) */
 
-/* Container ve Layout */
-.legal-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-  animation: fadeIn 0.6s ease-out;
+:host {
+  --legal-accent-color: var(--md-sys-color-primary);
 }
 
-@media (min-width: 768px) {
-  .legal-container {
-    padding: 3rem 2rem;
-  }
+.legal-page {
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
 }
 
-/* MD3 Surface Cards */
-.md3-surface {
-  background: var(--md-sys-color-surface, var(--md-sys-color-surface));
-  border-radius: var(--md-sys-shape-corner-extra-large);
-  padding: 2rem;
-  box-shadow:
-    0 1px 3px 0 rgba(var(--md-sys-color-shadow), 0.1),
-    0 1px 2px -1px rgba(var(--md-sys-color-shadow), 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.legal-layout {
+  width: min(100%, 64rem);
+  margin-inline: auto;
+  padding: clamp(1.5rem, 1.3rem + 1vw, 3rem) clamp(1rem, 0.8rem + 1vw, 2rem)
+    clamp(2.75rem, 2.2rem + 1.4vw, 4rem);
 }
 
-.md3-surface:hover {
-  box-shadow:
-    0 4px 6px -1px rgba(var(--md-sys-color-shadow), 0.1),
-    0 2px 4px -2px rgba(var(--md-sys-color-shadow), 0.1);
+.legal-article {
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-extra-large, 1.75rem);
+  box-shadow: var(--md-sys-elevation-level1);
+  padding: clamp(1.25rem, 1rem + 1vw, 2.25rem);
 }
 
-.md3-surface-elevated {
-  background:
-    linear-gradient(0deg, rgba(103, 80, 164, 0.05), rgba(103, 80, 164, 0.05)),
-    var(--md-sys-color-surface, var(--md-sys-color-surface));
-  box-shadow:
-    0 2px 6px 2px rgba(var(--md-sys-color-shadow), 0.15),
-    0 1px 2px 0 rgba(var(--md-sys-color-shadow), 0.3);
-}
-
-/* Typography - MD3 Scale */
-.md3-display-large {
-  font-size: 3.5625rem;
-  line-height: 4rem;
-  font-weight: 400;
-  letter-spacing: -0.25px;
-}
-
-.md3-display-medium {
-  font-size: 2.8125rem;
-  line-height: 3.25rem;
-  font-weight: 400;
-}
-
-.md3-display-small {
-  font-size: 2.25rem;
-  line-height: 2.75rem;
-  font-weight: 400;
-}
-
-.md3-headline-large {
-  font-size: 2rem;
-  line-height: 2.5rem;
-  font-weight: 400;
-  color: var(--md-sys-color-on-surface, #1c1b1f);
-  margin-bottom: 1.5rem;
-}
-
-.md3-headline-medium {
-  font-size: 1.75rem;
-  line-height: 2.25rem;
-  font-weight: 400;
-  color: var(--md-sys-color-on-surface, #1c1b1f);
-  margin-bottom: 1.25rem;
-}
-
-.md3-headline-small {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 400;
-  color: var(--md-sys-color-on-surface, #1c1b1f);
-  margin-bottom: 1rem;
-}
-
-.md3-title-large {
-  font-size: 1.375rem;
-  line-height: 1.75rem;
-  font-weight: 400;
-  color: var(--md-sys-color-on-surface, #1c1b1f);
-  margin-bottom: 0.75rem;
-}
-
-.md3-title-medium {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 0.15px;
-  color: var(--md-sys-color-on-surface-variant, #49454f);
-}
-
-.md3-body-large {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  color: var(--md-sys-color-on-surface-variant, #49454f);
-}
-
-.md3-body-medium {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 400;
-  letter-spacing: 0.25px;
-  color: var(--md-sys-color-on-surface-variant, #49454f);
-}
-
-/* Info Banner */
-.md3-info-banner {
-  background:
-    linear-gradient(0deg, rgba(103, 80, 164, 0.08), rgba(103, 80, 164, 0.08)),
-    var(--md-sys-color-surface, var(--md-sys-color-surface));
-  border-radius: var(--md-sys-shape-corner-large);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  border-left: 4px solid var(--md-sys-color-primary, #6750a4);
-  animation: slideIn 0.5s ease-out;
-}
-
-.md3-info-banner .icon {
-  color: var(--md-sys-color-primary, #6750a4);
-  margin-right: 0.75rem;
-}
-
-/* Section Styling */
-.legal-section {
-  margin-bottom: 3rem;
-  opacity: 0;
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.legal-section:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.legal-section:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.legal-section:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.legal-section:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.legal-section:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-/* Lists with MD3 styling */
-.md3-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-}
-
-.md3-list-item {
-  position: relative;
-  padding: 1rem 1rem 1rem 3rem;
-  margin-bottom: 0.75rem;
-  background: var(--md-sys-color-surface-variant, #f4f4f4);
-  border-radius: var(--md-sys-shape-corner-medium);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.md3-list-item:hover {
-  background: var(--md-sys-color-surface-container-high, #ece6f0);
-  transform: translateX(4px);
-}
-
-.md3-list-item::before {
-  content: '';
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
-  background: var(--md-sys-color-primary, #6750a4);
-  border-radius: var(--md-sys-shape-corner-full);
-}
-
-/* Numbered List */
-.md3-numbered-list {
-  counter-reset: list-counter;
-}
-
-.md3-numbered-list .md3-list-item {
-  counter-increment: list-counter;
-}
-
-.md3-numbered-list .md3-list-item::before {
-  content: counter(list-counter);
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--md-sys-color-primary, #6750a4);
-  color: var(--md-sys-color-on-primary, var(--md-sys-color-surface));
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-/* Contact Card */
-.md3-contact-card {
-  background: linear-gradient(135deg, rgba(103, 80, 164, 0.05) 0%, rgba(103, 80, 164, 0.02) 100%);
-  border-radius: var(--md-sys-shape-corner-extra-large);
-  padding: 2rem;
-  border: 1px solid rgba(103, 80, 164, 0.1);
-  margin-top: 2rem;
-}
-
-.md3-contact-item {
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(var(--md-sys-color-shadow), 0.08);
-  transition: all 0.3s ease;
-}
-
-.md3-contact-item:last-child {
-  border-bottom: none;
-}
-
-.md3-contact-item:hover {
-  padding-left: 0.5rem;
-}
-
-.md3-contact-label {
-  font-weight: 500;
-  color: var(--md-sys-color-on-surface, #1c1b1f);
-  min-width: 100px;
-  margin-right: 1rem;
-}
-
-.md3-contact-value {
-  color: var(--md-sys-color-primary, #6750a4);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.md3-contact-value:hover {
-  color: var(--md-sys-color-primary-container, #4f378b);
-  text-decoration: underline;
-}
-
-/* Divider */
-.md3-divider {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(var(--md-sys-color-shadow), 0.12) 20%,
-    rgba(var(--md-sys-color-shadow), 0.12) 80%,
-    transparent
+.legal-updated-banner,
+.legal-notice-banner {
+  border-radius: var(--md-sys-shape-corner-large, 1rem);
+  border: 1px solid
+    color-mix(in srgb, var(--legal-accent-color) 34%, var(--md-sys-color-outline-variant));
+  border-inline-start: 4px solid var(--legal-accent-color);
+  background: color-mix(
+    in srgb,
+    var(--legal-accent-color) 12%,
+    var(--md-sys-color-surface-container)
   );
-  margin: 3rem 0;
+  color: var(--md-sys-color-on-surface);
+  padding: 1rem 1.125rem;
 }
 
-/* Chips/Tags */
-.md3-chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background: var(--md-sys-color-secondary-container, #e8def8);
-  color: var(--md-sys-color-on-secondary-container, #1d192b);
-  border-radius: var(--md-sys-shape-corner-small);
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  transition: all 0.3s ease;
+.legal-updated-banner {
+  margin-block-end: clamp(1.5rem, 1.2rem + 0.8vw, 2.25rem);
 }
 
-.md3-chip:hover {
-  background: var(--md-sys-color-secondary, #625b71);
-  color: var(--md-sys-color-on-secondary, var(--md-sys-color-surface));
+.legal-notice-banner {
+  margin-block-start: 1rem;
 }
 
-/* Accordion for FAQ-style content */
-.md3-accordion {
-  margin: 1rem 0;
+.legal-notice-banner--info {
+  border-color: color-mix(
+    in srgb,
+    var(--md-sys-color-secondary) 36%,
+    var(--md-sys-color-outline-variant)
+  );
+  border-inline-start-color: var(--md-sys-color-secondary);
+  background: color-mix(
+    in srgb,
+    var(--md-sys-color-secondary-container) 65%,
+    var(--md-sys-color-surface-container)
+  );
 }
 
-.md3-accordion-item {
-  background: var(--md-sys-color-surface, var(--md-sys-color-surface));
-  border-radius: var(--md-sys-shape-corner-large);
-  margin-bottom: 0.75rem;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(var(--md-sys-color-shadow), 0.12);
-  transition: all 0.3s ease;
+.legal-notice-banner--critical {
+  border-color: color-mix(in srgb, var(--md-sys-color-error) 40%, var(--md-sys-color-outline-variant));
+  border-inline-start-color: var(--md-sys-color-error);
+  background: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
 }
 
-.md3-accordion-item:hover {
-  box-shadow: 0 2px 6px rgba(var(--md-sys-color-shadow), 0.16);
+.legal-meta-text {
+  margin: 0;
+  color: var(--md-sys-color-on-surface-variant);
+  font: var(--md-sys-typescale-body-small, 500 0.875rem/1.25rem 'Inter', sans-serif);
 }
 
-.md3-accordion-header {
-  padding: 1.25rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--md-sys-color-surface-variant, #f4f4f4);
-  transition: all 0.3s ease;
+.legal-section + .legal-section {
+  margin-block-start: clamp(1.5rem, 1.2rem + 1vw, 2.5rem);
 }
 
-.md3-accordion-header:hover {
-  background: var(--md-sys-color-surface-container, #f0f0f0);
+.legal-section-title {
+  margin: 0 0 0.75rem;
+  color: var(--md-sys-color-on-surface);
+  font: var(--md-sys-typescale-headline-small, 600 1.5rem/2rem 'Inter', sans-serif);
 }
 
-.md3-accordion-content {
-  padding: 0 1.25rem;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease;
+.legal-subsection-title {
+  margin: 0;
+  color: var(--md-sys-color-on-surface);
+  font: var(--md-sys-typescale-title-large, 600 1.25rem/1.75rem 'Inter', sans-serif);
 }
 
-.md3-accordion-item.active .md3-accordion-content {
-  padding: 1.25rem;
-  max-height: 500px;
+.legal-text {
+  margin: 0;
+  color: var(--md-sys-color-on-surface-variant);
+  line-height: 1.65;
+  font: var(--md-sys-typescale-body-large, 400 1rem/1.5rem 'Inter', sans-serif);
 }
 
-.md3-accordion-icon {
-  transition: transform 0.3s ease;
+.legal-text--spaced {
+  margin-block-end: 0.875rem;
 }
 
-.md3-accordion-item.active .md3-accordion-icon {
-  transform: rotate(180deg);
+.legal-stack {
+  display: grid;
+  gap: 1rem;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.legal-list {
+  margin: 0;
+  padding-inline-start: 1.5rem;
+  display: grid;
+  gap: 0.5rem;
+  color: var(--md-sys-color-on-surface-variant);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.legal-list li {
+  line-height: 1.6;
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.legal-list li::marker {
+  color: var(--legal-accent-color);
 }
 
-/* Responsive adjustments */
+.legal-contact-card {
+  background: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-large, 1rem);
+  padding: clamp(1rem, 0.9rem + 0.6vw, 1.5rem);
+}
+
+.legal-contact-list {
+  display: grid;
+  gap: 0.625rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.legal-contact-list p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.legal-link {
+  color: var(--legal-accent-color);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+  text-underline-offset: 0.15em;
+  border-radius: var(--md-sys-shape-corner-small, 0.5rem);
+  padding-inline: 0.125rem;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    text-decoration-color 180ms ease;
+}
+
+.legal-link:hover {
+  background: color-mix(in srgb, var(--legal-accent-color) 14%, transparent);
+  text-decoration-color: currentColor;
+}
+
+.legal-link:focus-visible {
+  outline: var(--md-sys-state-focus-ring-width, 3px) solid var(--md-sys-color-primary);
+  outline-offset: var(--md-sys-state-focus-ring-offset, 2px);
+  background: color-mix(in srgb, var(--legal-accent-color) 18%, transparent);
+}
+
 @media (max-width: 768px) {
-  .md3-surface {
-    padding: 1.5rem;
-    border-radius: var(--md-sys-shape-corner-large);
+  .legal-layout {
+    padding-inline: 0.875rem;
   }
 
-  .md3-headline-large {
-    font-size: 1.75rem;
-    line-height: 2.25rem;
+  .legal-article {
+    border-radius: var(--md-sys-shape-corner-large, 1rem);
   }
 
-  .md3-headline-medium {
-    font-size: 1.5rem;
-    line-height: 2rem;
+  .legal-section-title {
+    font: var(--md-sys-typescale-title-large, 600 1.25rem/1.75rem 'Inter', sans-serif);
   }
 
-  .legal-container {
-    padding: 1.5rem 1rem;
-  }
-
-  .md3-contact-card {
-    padding: 1.5rem;
-  }
-
-  .md3-list-item {
-    padding: 0.875rem 0.875rem 0.875rem 2.5rem;
+  .legal-subsection-title {
+    font: var(--md-sys-typescale-title-medium, 600 1rem/1.5rem 'Inter', sans-serif);
   }
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .md3-surface {
-    background: #1c1b1f;
-    color: #e6e1e5;
+@media (prefers-reduced-motion: reduce) {
+  .legal-link {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .legal-article,
+  .legal-updated-banner,
+  .legal-notice-banner,
+  .legal-contact-card {
+    forced-color-adjust: auto;
+    background: Canvas;
+    color: CanvasText;
+    border: 1px solid CanvasText;
   }
 
-  .md3-surface-elevated {
-    background:
-      linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), #1c1b1f;
+  .legal-updated-banner,
+  .legal-notice-banner {
+    border-inline-start-width: 4px;
   }
 
-  .md3-info-banner {
-    background:
-      linear-gradient(0deg, rgba(208, 188, 255, 0.12), rgba(208, 188, 255, 0.12)), #1c1b1f;
-    border-left-color: #d0bcff;
+  .legal-link {
+    color: LinkText;
   }
 
-  .md3-list-item {
-    background: #2b2930;
-  }
-
-  .md3-list-item:hover {
-    background: #3c3840;
-  }
-
-  .md3-contact-card {
-    background: linear-gradient(
-      135deg,
-      rgba(208, 188, 255, 0.08) 0%,
-      rgba(208, 188, 255, 0.02) 100%
-    );
-    border-color: rgba(208, 188, 255, 0.2);
+  .legal-link:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
   }
 }

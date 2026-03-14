@@ -2,34 +2,35 @@
 :root {
   /* ThemeService ile birebir aynı isimler: */
   --color-primary: var(--md-sys-color-primary);
-  --color-primary-light: #0A8FA3;
-  --color-primary-dark: #003D4F;
-  --color-secondary: #94D2BD;
-  --color-secondary-light: #B8E6D3;
-  --color-secondary-dark: #6FAF99;
+  --color-primary-light: var(--md-sys-color-primary-container);
+  --color-primary-dark: var(--md-sys-color-on-primary-container);
+  --color-secondary: var(--md-sys-color-secondary);
+  --color-secondary-light: var(--md-sys-color-secondary-container);
+  --color-secondary-dark: var(--md-sys-color-on-secondary-container);
   --color-accent: var(--md-sys-color-tertiary);
-  --color-accent-light: #FF8B70;
-  --color-accent-dark: #D74A2B;
+  --color-accent-light: var(--md-sys-color-tertiary-container);
+  --color-accent-dark: var(--md-sys-color-on-tertiary-container);
 
-  --color-neutral-50:  var(--md-sys-color-surface-container-low);
-  --color-neutral-100: #E9ECEF;
-  --color-neutral-200: #DEE2E6;
-  --color-neutral-300: #CED4DA;
-  --color-neutral-400: #ADB5BD;
-  --color-neutral-500: #6C757D;
-  --color-neutral-600: #495057;
-  --color-neutral-700: #343A40;
-  --color-neutral-800: #212529;
-  --color-neutral-900: #0F1419;
+  --color-neutral-50: var(--md-sys-color-surface);
+  --color-neutral-100: var(--md-sys-color-surface-container-low);
+  --color-neutral-200: var(--md-sys-color-surface-container);
+  --color-neutral-300: var(--md-sys-color-surface-container-high);
+  --color-neutral-400: var(--md-sys-color-surface-container-highest);
+  --color-neutral-500: var(--md-sys-color-outline-variant);
+  --color-neutral-600: var(--md-sys-color-outline);
+  --color-neutral-700: var(--md-sys-color-on-surface-variant);
+  --color-neutral-800: var(--md-sys-color-on-surface);
+  --color-neutral-900: var(--md-sys-color-on-surface);
 
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-bg: var(--md-sys-color-glass-surface, color-mix(in oklch, var(--md-sys-color-surface) 72%, transparent));
+  --glass-border: var(--md-sys-color-glass-border, color-mix(in oklch, var(--md-sys-color-outline) 12%, transparent));
 
-  --shadow-xs: 0 1px 2px rgba(var(--md-sys-color-primary-rgb), 0.05);
-  --shadow-sm: 0 2px 4px rgba(var(--md-sys-color-primary-rgb), 0.06), 0 1px 2px rgba(var(--md-sys-color-primary-rgb), 0.04);
-  --shadow-md: 0 4px 6px rgba(var(--md-sys-color-primary-rgb), 0.07), 0 2px 4px rgba(var(--md-sys-color-primary-rgb), 0.04);
-  --shadow-lg: 0 10px 15px rgba(var(--md-sys-color-primary-rgb), 0.08), 0 4px 6px rgba(var(--md-sys-color-primary-rgb), 0.05);
-  --shadow-xl: 0 20px 25px rgba(var(--md-sys-color-primary-rgb), 0.1), 0 10px 10px rgba(var(--md-sys-color-primary-rgb), 0.04);
+  --shadow-xs: var(--md-sys-elevation-level0);
+  --shadow-sm: var(--md-sys-elevation-level1);
+  --shadow-md: var(--md-sys-elevation-level2);
+  --shadow-lg: var(--md-sys-elevation-level3);
+  --shadow-xl: var(--md-sys-elevation-level4);
+  --shadow-2xl: var(--md-sys-elevation-level5);
 }
 
 /* Root'a ThemeService class'ları geliyor: .light-theme / .dark-theme */

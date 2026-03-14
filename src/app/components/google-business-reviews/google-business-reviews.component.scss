@@ -82,8 +82,7 @@
   backdrop-filter: blur(var(--md-sys-glass-blur-md)) saturate(1.06);
   -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-md)) saturate(1.06);
   box-shadow:
-    var(--md-sys-elevation-level1),
-    0 14px 34px oklch(from var(--md-sys-color-shadow) l c h / 0.08);
+    var(--md-sys-elevation-level1);
 
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     backdrop-filter: none;
@@ -219,10 +218,59 @@
   min-width: min(100%, 260px);
 }
 
-.reviews-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.reviews-carousel {
+  display: flex;
+  flex-direction: column;
   gap: var(--md-sys-spacing-4);
+}
+
+.carousel-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--md-sys-spacing-3);
+}
+
+.carousel-status {
+  margin: 0;
+  font-family: var(--md-sys-typescale-label-medium-font);
+  font-size: var(--md-sys-typescale-label-medium-size);
+  font-weight: var(--md-sys-typescale-label-medium-weight);
+  line-height: var(--md-sys-typescale-label-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-label-medium-tracking);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.carousel-nav-group {
+  display: inline-flex;
+  gap: var(--md-sys-spacing-2);
+}
+
+.carousel-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--md-sys-touch-target-min);
+  height: var(--md-sys-touch-target-min);
+  border-radius: var(--md-sys-shape-corner-full);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-outline) 56%, transparent);
+  background: color-mix(in oklch, var(--md-sys-color-surface) 90%, transparent);
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  transition: var(--md-sys-transition-emphasized);
+
+  @include state-layer-on-surface;
+  @include ripple-effect(var(--md-sys-color-on-surface));
+
+  &:hover {
+    transform: translateY(calc(-1 * var(--md-sys-spacing-0-5)));
+    box-shadow: var(--md-sys-elevation-level1);
+  }
+
+  &:focus-visible {
+    outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
+    outline-offset: var(--md-sys-state-focus-ring-offset);
+  }
 }
 
 .review-card {
@@ -230,7 +278,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-4);
-  min-height: 100%;
+  min-height: clamp(280px, 34vw, 360px);
   padding: var(--md-sys-spacing-5);
   border-radius: var(--md-sys-shape-corner-large);
   background: color-mix(in oklch, var(--md-sys-color-surface) 88%, transparent);
@@ -310,7 +358,7 @@
   letter-spacing: var(--md-sys-typescale-body-medium-tracking);
   color: var(--md-sys-color-on-surface);
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-wrap: pretty;
@@ -347,6 +395,76 @@
   font-size: var(--md-icon-size-xl);
 }
 
+.carousel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--md-sys-spacing-3);
+  flex-wrap: wrap;
+}
+
+.carousel-indicators {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--md-sys-spacing-2);
+}
+
+.carousel-indicator {
+  width: var(--md-sys-spacing-3);
+  height: var(--md-sys-spacing-3);
+  border-radius: var(--md-sys-shape-corner-full);
+  border: none;
+  padding: 0;
+  background: color-mix(in oklch, var(--md-sys-color-outline-variant) 68%, transparent);
+  cursor: pointer;
+  transition: var(--md-sys-transition-standard);
+
+  @include state-layer-on-surface;
+
+  &:hover,
+  &.carousel-indicator--active {
+    background: var(--md-sys-color-primary);
+  }
+
+  &:focus-visible {
+    outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
+    outline-offset: var(--md-sys-state-focus-ring-offset);
+  }
+}
+
+.auto-rotate-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--md-sys-spacing-2);
+  min-height: var(--md-sys-touch-target-min);
+  padding: var(--md-sys-spacing-button-padding-y) var(--md-sys-spacing-button-padding-x);
+  border-radius: var(--md-sys-shape-button-outlined);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-outline) 60%, transparent);
+  background: color-mix(in oklch, var(--md-sys-color-secondary-container) 34%, transparent);
+  color: var(--md-sys-color-on-secondary-container);
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  cursor: pointer;
+  transition: var(--md-sys-transition-emphasized);
+
+  @include state-layer(var(--md-sys-color-on-secondary-container));
+  @include ripple-effect(var(--md-sys-color-on-secondary-container));
+
+  &:hover {
+    transform: translateY(calc(-1 * var(--md-sys-spacing-0-5)));
+    box-shadow: var(--md-sys-elevation-level1);
+  }
+
+  &:focus-visible {
+    outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
+    outline-offset: var(--md-sys-state-focus-ring-offset);
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -369,8 +487,8 @@
     gap: var(--md-sys-spacing-4);
   }
 
-  .reviews-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .review-card {
+    min-height: clamp(260px, 48vw, 340px);
   }
 }
 
@@ -388,18 +506,33 @@
     padding: var(--md-sys-spacing-4);
   }
 
-  .reviews-list {
-    grid-template-columns: 1fr;
+  .carousel-topbar,
+  .carousel-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .carousel-nav-group {
+    justify-content: flex-end;
+  }
+
+  .review-card {
+    min-height: 0;
   }
 }
 
 @include reduced-motion {
   .profile-link,
-  .rating-bar-fill {
+  .rating-bar-fill,
+  .carousel-nav,
+  .carousel-indicator,
+  .auto-rotate-toggle {
     transition: none;
   }
 
-  .profile-link:hover {
+  .profile-link:hover,
+  .carousel-nav:hover,
+  .auto-rotate-toggle:hover {
     transform: none;
   }
 }
@@ -417,4 +550,3 @@
     background: color-mix(in oklch, var(--md-sys-color-surface-container-low) 82%, transparent);
   }
 }
-

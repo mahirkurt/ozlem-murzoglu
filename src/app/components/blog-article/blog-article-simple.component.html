@@ -12,9 +12,16 @@
   <header class="article-header">
     <div class="container">
       <!-- Breadcrumb -->
-      <nav class="breadcrumb">
-        <a routerLink="/blog">Blog'a Dön
-        </a>
+      <nav class="breadcrumbs md3-page-breadcrumbs" aria-label="Sayfa yolu">
+        <ol>
+          <li>
+            <a routerLink="/blog" class="breadcrumb-link md3-breadcrumb-link">Blog</a>
+            <span class="material-icons-rounded separator md3-breadcrumb-separator" aria-hidden="true">chevron_right</span>
+          </li>
+          <li>
+            <span class="breadcrumb-current md3-breadcrumb-current" aria-current="page">{{ article.title }}</span>
+          </li>
+        </ol>
       </nav>
 
       <!-- Article Meta -->

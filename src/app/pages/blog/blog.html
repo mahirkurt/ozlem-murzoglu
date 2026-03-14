@@ -1,9 +1,10 @@
 <div class="blog-page">
   <!-- Hero Section -->
   <app-hero-section
-    titleKey="BLOG.TITLE"
-    subtitleKey="BLOG.SUBTITLE"
-    imageUrl="/assets/images/blog-hero.jpg"
+    title="BLOG.TITLE"
+    subtitle="BLOG.SUBTITLE"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="teal"
   ></app-hero-section>
 
   <div class="container">
@@ -34,7 +35,7 @@
           >
             <option value="">{{ 'BLOG.CATEGORY_FILTER' | translate }}</option>
             <option *ngFor="let category of categories" [value]="category">
-              {{ category }}
+              {{ getCategoryLabelKey(category) | translate }}
             </option>
           </select>
           <label class="md3-select__label" for="category-select">{{ 'BLOG.CATEGORY_FILTER' | translate }}</label>
@@ -51,7 +52,7 @@
     <section class="featured-section" *ngIf="!searchQuery && !selectedCategory">
       <h2>{{ 'BLOG.FEATURED_ARTICLES' | translate }}</h2>
       <div class="featured-grid">
-        <div
+        <a
           *ngFor="let article of featuredArticles$ | async; trackBy: trackByArticleId"
           class="md3-card featured-card"
           [routerLink]="['/blog', article.slug]"
@@ -76,10 +77,10 @@
             </div>
           </div>
           <div class="md3-card__actions">
-            <button class="md3-button md3-button-text">
-              {{ 'BLOG.READ_MORE' | translate }}</button>
+            <span class="md3-button md3-button-text" aria-hidden="true">
+              {{ 'BLOG.READ_MORE' | translate }}</span>
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -93,7 +94,7 @@
       <h2 *ngIf="!searchQuery && !selectedCategory">{{ 'BLOG.ALL_ARTICLES' | translate }}</h2>
 
       <div class="articles-grid">
-        <div
+        <a
           *ngFor="let article of articles$ | async; trackBy: trackByArticleId"
           class="article-card"
           [routerLink]="['/blog', article.slug]"
@@ -110,7 +111,7 @@
           <div class="md3-card__content">
             <p>{{ article.excerpt }}</p>
             <div class="article-meta">
-              <span class="category">{{ article.category }}</span>
+              <span class="category">{{ getCategoryLabelKey(article.category) | translate }}</span>
               <div class="md3-chip-group">
                 <span class="md3-chip md3-chip-filter" *ngFor="let tag of article.tags.slice(0, 2)">
                   {{ tag }}
@@ -119,10 +120,10 @@
             </div>
           </div>
           <div class="md3-card__actions">
-            <button class="md3-button md3-button-text">
-              {{ 'BLOG.READ_MORE' | translate }}</button>
+            <span class="md3-button md3-button-text" aria-hidden="true">
+              {{ 'BLOG.READ_MORE' | translate }}</span>
           </div>
-        </div>
+        </a>
       </div>
     </section>
   </div>

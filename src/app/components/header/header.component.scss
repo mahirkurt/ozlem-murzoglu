@@ -22,7 +22,7 @@
   flex-direction: column;
   align-items: center;
   pointer-events: none; /* Let clicks pass through empty areas */
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-standard);
 }
 
 /* =========================================
@@ -35,9 +35,9 @@
   justify-content: center;
   align-items: center;
   pointer-events: auto;
-  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: height var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard),
+              opacity var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard),
+              transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
   transform-origin: top center;
   opacity: 1;
   background: transparent;
@@ -80,7 +80,7 @@
   padding: 2px 0;
   background: none;
   border: none;
-  transition: color 0.2s, opacity 0.2s;
+  transition: color var(--md-sys-motion-duration-short4), opacity var(--md-sys-motion-duration-short4);
   white-space: nowrap;
   opacity: 0.88;
 }
@@ -124,14 +124,14 @@
   pointer-events: auto; /* Re-enable clicks */
   width: calc(100% - 48px); /* Floating with margins */
   max-width: 1200px;
-  background: var(--md-sys-color-surface-container-high);
+  background: color-mix(in oklch, var(--md-sys-color-primary) 18%, transparent);
   backdrop-filter: blur(12px) saturate(160%);
   -webkit-backdrop-filter: blur(12px) saturate(160%);
-  border: 1px solid var(--md-sys-color-outline-variant);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-on-primary) 15%, transparent);
   border-radius: var(--md-sys-shape-corner-extra-large); /* Fully rounded island */
   padding: var(--md-sys-spacing-2) var(--md-sys-spacing-6);
-  box-shadow: var(--md-sys-elevation-level2);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: none;
+  transition: all var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-standard);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -141,13 +141,34 @@
 .fresh-header-container.scrolled .glass-island {
   width: 100%; /* Expand to full width */
   max-width: 100%;
-  border-radius: 0 0 24px 24px; /* Rounded bottom corners only */
+  border-radius: 0 0 var(--md-sys-shape-corner-extra-large) var(--md-sys-shape-corner-extra-large);
   margin-top: 0;
   padding: var(--md-sys-spacing-2) var(--md-sys-spacing-8);
   background: var(--md-sys-color-surface-container-highest);
   border: 1px solid var(--md-sys-color-outline-variant);
   border-bottom: 1px solid var(--md-sys-color-outline-variant);
   box-shadow: var(--md-sys-elevation-level2);
+}
+
+/* Restore original colors in scrolled state */
+.fresh-header-container.scrolled .island-link {
+  color: var(--md-sys-color-on-surface);
+}
+.fresh-header-container.scrolled .island-link:hover,
+.fresh-header-container.scrolled .island-link.active {
+  background: var(--md-sys-state-surface-hover);
+  color: var(--md-sys-color-primary);
+}
+.fresh-header-container.scrolled .lang-toggle {
+  color: var(--md-sys-color-outline);
+}
+.fresh-header-container.scrolled .lang-toggle span.active {
+  color: var(--md-sys-color-primary);
+}
+.fresh-header-container.scrolled .theme-toggle {
+  border-color: color-mix(in oklch, var(--md-sys-color-primary) 18%, transparent);
+  background: color-mix(in oklch, var(--md-sys-color-surface) 75%, transparent);
+  color: var(--md-sys-color-primary);
 }
 
 .island-content {
@@ -161,7 +182,7 @@
 .island-logo img {
   height: var(--md-sys-spacing-12);
   width: auto;
-  transition: height 0.3s;
+  transition: height var(--md-sys-motion-duration-medium2);
 }
 
 .fresh-header-container.scrolled .island-logo img {
@@ -185,7 +206,7 @@
   align-items: center;
   gap: var(--md-sys-spacing-1);
   padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
-  color: var(--md-sys-color-on-surface);
+  color: var(--md-sys-color-on-primary);
   text-decoration: none;
   font-weight: 600;
   font-size: var(--md-sys-typescale-label-large-size);
@@ -196,8 +217,8 @@
 
 .island-link:hover,
 .island-link.active {
-  background: var(--md-sys-state-surface-hover);
-  color: var(--md-sys-color-primary);
+  background: color-mix(in oklch, var(--md-sys-color-on-primary) 12%, transparent);
+  color: var(--md-sys-color-on-primary);
 }
 
 .island-link:focus-visible {
@@ -207,7 +228,7 @@
 
 .dropdown-arrow {
   font-size: 18px; // Icon exception
-  transition: transform 0.2s;
+  transition: transform var(--md-sys-motion-duration-short4);
   opacity: 0.6;
 }
 
@@ -233,7 +254,7 @@
   box-shadow: 0 10px 40px -10px oklch(from var(--md-sys-color-shadow) l c h / 0.15);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
   border: 1px solid oklch(from var(--md-sys-color-shadow) l c h / 0.08);
 
   /* SAFE HOVER BRIDGE */
@@ -263,7 +284,7 @@
   text-decoration: none;
   font-size: var(--md-sys-typescale-label-large-size);
   border-radius: var(--md-sys-shape-corner-medium);
-  transition: background 0.2s;
+  transition: background var(--md-sys-motion-duration-short4);
 }
 
 .dropdown-item:hover {
@@ -289,7 +310,7 @@
   border: none;
   font-size: var(--md-sys-typescale-label-medium-size);
   font-weight: 600;
-  color: var(--md-sys-color-outline);
+  color: color-mix(in oklch, var(--md-sys-color-on-primary) 70%, transparent);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -298,7 +319,7 @@
 }
 
 .lang-toggle span.active {
-  color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
 }
 
 .lang-toggle:focus-visible {
@@ -319,11 +340,11 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--md-sys-shape-corner-full);
-  border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 18%, transparent);
-  background: color-mix(in oklch, var(--md-sys-color-surface) 75%, transparent);
-  color: var(--md-sys-color-primary);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-on-primary) 20%, transparent);
+  background: color-mix(in oklch, var(--md-sys-color-on-primary) 8%, transparent);
+  color: var(--md-sys-color-on-primary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
 
   .material-icons-rounded {
     font-size: 20px; // Icon size exception
@@ -360,7 +381,7 @@
   gap: var(--md-sys-spacing-2);
   cursor: pointer;
   box-shadow: 0 6px 16px oklch(from var(--md-sys-color-tertiary) l c h / 0.32); /* CTA glow */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
 }
 
 .island-cta:hover {
@@ -391,7 +412,7 @@
   justify-content: center;
   cursor: pointer;
   border-radius: 50%;
-  transition: background 0.2s;
+  transition: background var(--md-sys-motion-duration-short4);
 }
 
 .island-mobile-toggle:hover {

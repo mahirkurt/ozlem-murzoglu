@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
+import { CONTACT_HELPERS } from '../../config/contact.config';
 
 interface FAQ {
   question: string;
@@ -33,8 +34,7 @@ export class FaqComponent {
     { key: 'general', label: 'FAQ.CATEGORY_GENERAL' }
   ];
   
-  phoneNumber = '+90 216 688 44 83';
-  whatsappNumber = '+90 546 688 44 83';
+  readonly whatsappUrl = CONTACT_HELPERS.getWhatsAppUrl();
   
   constructor(private translate: TranslateService) {}
   
@@ -92,11 +92,6 @@ export class FaqComponent {
     {
       question: 'FAQ.Q11',
       answer: 'FAQ.A11',
-      category: 'general'
-    },
-    {
-      question: 'FAQ.Q12',
-      answer: 'FAQ.A12',
       category: 'general'
     }
   ];

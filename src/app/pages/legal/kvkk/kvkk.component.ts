@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { HeroSectionComponent } from '../../../components/shared/hero-section/hero-section.component';
+import { CONTACT_CONFIG } from '../../../config/contact.config';
 
 @Component({
   selector: 'app-kvkk',
@@ -12,11 +13,17 @@ import { HeroSectionComponent } from '../../../components/shared/hero-section/he
   styleUrl: './kvkk.component.css'
 })
 export class KvkkComponent {
-  private translate = inject(TranslateService);
+  readonly contactInfo = {
+    address: CONTACT_CONFIG.address.fullDisplay,
+    phoneDisplay: CONTACT_CONFIG.phone.display,
+    phoneHref: CONTACT_CONFIG.phone.telHref,
+    email: CONTACT_CONFIG.email.value,
+    emailHref: CONTACT_CONFIG.email.mailtoHref,
+  };
   
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Yasal' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'LEGAL.KVKK_TITLE' }
   ];
 
   lastUpdated = '01.01.2025';

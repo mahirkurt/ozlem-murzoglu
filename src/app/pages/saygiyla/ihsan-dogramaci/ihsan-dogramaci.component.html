@@ -2,7 +2,7 @@
   <!-- Hero Section -->
   <app-hero-section 
     [title]="'SAYGIYLA.PIONEERS.IHSAN_DOGRAMACI.NAME' | translate"
-    subtitle="Kurumlarla Geleceği İnşa Eden Adam"
+    [subtitle]="'SAYGIYLA.PIONEERS.IHSAN_DOGRAMACI.TITLE' | translate"
     [breadcrumbs]="breadcrumbs"
     colorTheme="purple">
   </app-hero-section>
@@ -207,10 +207,10 @@
   <div class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>İlham Veren Diğer İsimler</h2>
-        <p>Tıp ve bilim tarihinde iz bırakan diğer öncüleri keşfedin</p>
+        <h2>{{ 'SAYGIYLA.RELATED_PIONEERS_TITLE' | translate }}</h2>
+        <p>{{ 'SAYGIYLA.RELATED_PIONEERS_DESC' | translate }}</p>
         <a routerLink="/saygiyla" class="cta-button">
-          <span>Tümünü Görüntüle</span></a>
+          <span>{{ 'SAYGIYLA.VIEW_ALL' | translate }}</span></a>
       </div>
     </div>
   </div>

@@ -2,17 +2,13 @@
 
 .liquid-visual-root {
   --liquid-hero-ambient-opacity: var(--md-sys-state-dragged-opacity);
-  --md-sys-hero-text-primary: color-mix(
-    in oklch,
-    var(--md-sys-color-on-primary-container) 84%,
-    var(--md-sys-color-on-surface) 16%
-  );
+  --md-sys-hero-text-primary: var(--md-sys-color-on-primary);
   --md-sys-hero-text-secondary: color-mix(
     in oklch,
-    var(--md-sys-color-on-primary-container) 68%,
-    var(--md-sys-color-on-surface-variant) 32%
+    var(--md-sys-color-on-primary) 82%,
+    transparent
   );
-  --md-sys-hero-text-shadow: oklch(from var(--md-sys-color-shadow) l c h / 0.16);
+  --md-sys-hero-text-shadow: oklch(from var(--md-sys-color-shadow) l c h / 0.12);
   --hero-highlight-marker: color-mix(
     in oklch,
     var(--md-sys-color-tertiary) 68%,
@@ -53,6 +49,28 @@
   );
   --hero-button-secondary-hover-bg: var(--md-sys-color-surface-container-high);
   --hero-button-secondary-hover-text: var(--md-sys-color-on-surface);
+  --hero-content-panel-bg: color-mix(
+    in oklch,
+    var(--md-sys-color-surface-container-high) 82%,
+    transparent
+  );
+  --hero-content-panel-border: color-mix(
+    in oklch,
+    var(--md-sys-color-outline-variant) 52%,
+    transparent
+  );
+  --hero-content-panel-shadow: var(--md-sys-elevation-level1);
+  --hero-content-panel-blur: var(--md-sys-glass-blur-sm);
+  --hero-content-panel-padding-block: clamp(
+    var(--md-sys-spacing-6),
+    4vw,
+    var(--md-sys-spacing-10)
+  );
+  --hero-content-panel-padding-inline: clamp(
+    var(--md-sys-spacing-5),
+    3.5vw,
+    var(--md-sys-spacing-9)
+  );
   --liquid-hero-ambient:
     radial-gradient(
       ellipse 90% 65% at 20% 30%,
@@ -83,6 +101,7 @@
   box-sizing: border-box;
   overflow: hidden;
   background: var(--liquid-hero-bg);
+  background-color: var(--md-sys-color-surface-container-lowest);
   background-size: var(--app-hero-bg-size);
   background-position: var(--app-hero-bg-position);
   background-attachment: var(--app-hero-bg-attachment);
@@ -248,10 +267,11 @@
   @include container-padding;
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 0.7fr;
-  gap: var(--spacing-xl, var(--md-sys-spacing-hero-content-gap));
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(var(--md-sys-spacing-6), 4vw, var(--md-sys-spacing-10));
   align-items: center;
   text-align: left;
+  isolation: isolate;
 }
 
 .liquid-hero__layout::before {
@@ -268,6 +288,32 @@
   z-index: 0;
 }
 
+.liquid-visual-root .hero-supertitle {
+  font-family: var(--md-sys-typescale-overline-font);
+  font-size: var(--md-sys-typescale-overline-size);
+  line-height: var(--md-sys-typescale-overline-line-height);
+  font-weight: var(--md-sys-typescale-overline-weight);
+  letter-spacing: var(--md-sys-typescale-overline-tracking);
+  text-transform: uppercase;
+  color: var(--md-sys-hero-text-secondary);
+  margin: 0 0 var(--md-sys-spacing-3) 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-2);
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: var(--md-sys-spacing-6);
+    height: var(--md-sys-spacing-0-5);
+    background: linear-gradient(
+      to right,
+      var(--md-sys-color-tertiary),
+      color-mix(in oklch, var(--md-sys-color-tertiary) 40%, transparent)
+    );
+    border-radius: var(--md-sys-shape-corner-full);
+  }
+}
 
 .liquid-visual-root .hero-title {
   font-family: var(--md-sys-typescale-display-large-font) !important;
@@ -284,7 +330,7 @@
   margin: var(--md-sys-spacing-0);
   margin-bottom: var(--md-sys-spacing-hero-title-margin);
   padding-inline: 0;
-  max-width: none;
+  max-width: min(100%, var(--md-sys-spacing-text-max-width));
   hyphens: none;
   overflow-wrap: normal;
   word-break: normal;
@@ -323,7 +369,6 @@
   bottom: var(--md-sys-spacing-0-5);
   opacity: 0.86;
   filter: saturate(1.25) blur(0.4px);
-  box-shadow: 0 0.5em 0.9em var(--hero-highlight-glow);
   transform: rotate(-1.6deg);
 }
 
@@ -363,6 +408,8 @@
   gap: var(--md-sys-spacing-hero-content-gap);
   position: relative;
   z-index: 1;
+  max-width: var(--md-sys-spacing-content-max-width-narrow);
+  padding: var(--hero-content-panel-padding-block) 0;
 }
 
 // ── Hero art container (right, placeholder for Task 2) ──
@@ -371,94 +418,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: var(--hero-art-min-height, 300px);
+  min-height: var(--hero-art-min-height, var(--md-sys-spacing-hero-min-height-mobile));
   z-index: 1;
 }
+
 
 // ── Growth Tree illustration ──
 .growth-tree {
   width: 100%;
-  max-width: 400px;
+  max-width: 360px;
   height: auto;
   transform-origin: bottom center;
-}
-
-// Trunk: primary teal
-.growth-tree__trunk {
-  stroke: var(--md-sys-color-primary);
-}
-
-// Branch color variants
-.growth-tree__branch--primary {
-  stroke: var(--md-sys-color-primary);
-}
-
-.growth-tree__branch--secondary {
-  stroke: var(--md-sys-color-secondary);
-}
-
-.growth-tree__branch--tertiary {
-  stroke: var(--md-sys-color-tertiary);
-}
-
-.growth-tree__branch--primary-container {
-  stroke: var(--md-sys-color-primary-container);
-}
-
-.growth-tree__branch--success {
-  stroke: var(--md-sys-color-success);
-}
-
-.growth-tree__branch--info {
-  stroke: var(--md-sys-color-info);
-}
-
-// Leaf node color variants
-.growth-tree__leaf--primary {
-  fill: var(--md-sys-color-primary);
-}
-
-.growth-tree__leaf--secondary {
-  fill: var(--md-sys-color-secondary);
-}
-
-.growth-tree__leaf--tertiary {
-  fill: var(--md-sys-color-tertiary);
-}
-
-.growth-tree__leaf--success {
-  fill: var(--md-sys-color-success);
-}
-
-.growth-tree__leaf--info {
-  fill: var(--md-sys-color-info);
-}
-
-.growth-tree__leaf--primary-container {
-  fill: var(--md-sys-color-primary-container);
-}
-
-// ── Growth tree keyframes ──
-@keyframes tree-sway {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(1.5deg); }
-}
-
-@keyframes leaf-breathe {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.08); opacity: 1; }
-}
-
-@keyframes butterfly-flutter {
-  0%, 100% { transform: translate(280px, 140px) rotate(-15deg) scale(1); }
-  25% { transform: translate(270px, 130px) rotate(-10deg) scale(1.05); }
-  50% { transform: translate(285px, 125px) rotate(-20deg) scale(0.95); }
-  75% { transform: translate(275px, 135px) rotate(-12deg) scale(1.02); }
-}
-
-@keyframes blossom-glow {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.06); }
+  object-fit: contain;
 }
 
 // ── Tablet scaling (840-1200px) ──
@@ -468,25 +439,9 @@
   }
 }
 
-// ── Growth tree blossoms ──
-.growth-tree__blossom--tertiary circle {
-  fill: var(--md-sys-color-tertiary);
-}
-
-.growth-tree__blossom--secondary circle {
-  fill: var(--md-sys-color-secondary);
-}
-
-.growth-tree__butterfly {
-  color: var(--md-sys-color-tertiary);
-}
-
-.growth-tree__sparkle {
-  color: var(--md-sys-color-secondary);
-}
-
 .hero-button {
   position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -535,17 +490,17 @@
 }
 
 .hero-button--secondary {
-  background-color: var(--hero-button-secondary-bg);
-  color: var(--hero-button-secondary-text);
-  border-color: var(--hero-button-secondary-border);
-  box-shadow: 0 8px 18px oklch(from var(--md-sys-color-shadow) l c h / 0.12);
+  background-color: transparent;
+  color: var(--md-sys-color-on-primary);
+  border-color: color-mix(in oklch, var(--md-sys-color-on-primary) 50%, transparent);
+  box-shadow: none;
 }
 
 .hero-button--secondary:hover {
-  background-color: var(--hero-button-secondary-hover-bg);
-  color: var(--hero-button-secondary-hover-text);
-  border-color: var(--hero-button-secondary-border-hover);
-  box-shadow: 0 12px 24px oklch(from var(--md-sys-color-shadow) l c h / 0.16);
+  background-color: color-mix(in oklch, var(--md-sys-color-on-primary) 12%, transparent);
+  color: var(--md-sys-color-on-primary);
+  border-color: color-mix(in oklch, var(--md-sys-color-on-primary) 70%, transparent);
+  box-shadow: none;
 }
 
 .hero-button--secondary:active {
@@ -655,6 +610,53 @@
   }
 }
 
+@keyframes tree-sway {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(calc(-1 * var(--md-sys-spacing-1))) rotate(1deg);
+  }
+}
+
+@keyframes leaf-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.92;
+  }
+}
+
+@keyframes butterfly-flutter {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(var(--md-sys-spacing-0-5), calc(-1 * var(--md-sys-spacing-0-5))) rotate(2deg);
+  }
+  75% {
+    transform: translate(calc(-1 * var(--md-sys-spacing-0-5)), var(--md-sys-spacing-0-5)) rotate(-2deg);
+  }
+}
+
+@keyframes blossom-glow {
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
 @include bp-below-medium {
   .liquid-visual-root {
     min-height: var(--md-sys-spacing-hero-min-height-mobile);
@@ -674,6 +676,8 @@
 
   .hero-text-column {
     align-items: center;
+    width: 100%;
+    padding: var(--md-sys-spacing-6) var(--md-sys-spacing-4);
   }
 
   .hero-art-container {
@@ -697,13 +701,65 @@
   }
 }
 
+@include high-contrast {
+  .liquid-visual-root {
+    --md-sys-hero-text-shadow: oklch(from var(--md-sys-color-shadow) l c h / 0);
+  }
+
+  .hero-pattern-overlay,
+  .hero-ambient-glow {
+    opacity: 0;
+  }
+}
+
+@include forced-colors {
+  .liquid-visual-root {
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .hero-floats,
+  .hero-pattern-overlay,
+  .hero-ambient-glow,
+  .liquid-hero__layout::before,
+  .hero-title .hero-highlight::before,
+  .hero-title .hero-highlight::after {
+    display: none;
+  }
+
+  .hero-text-column {
+    background: transparent;
+  }
+
+  .hero-button {
+    background: ButtonFace;
+    color: ButtonText;
+    border-color: ButtonText;
+    box-shadow: none;
+  }
+
+  .hero-button:focus-visible {
+    outline-color: Highlight;
+  }
+}
+
 // ── Dark mode shared overrides (mixin to avoid duplication) ──
 @mixin hero-dark-overrides {
   --liquid-hero-ambient-opacity: var(--md-sys-state-hover-opacity);
   --liquid-hero-bg: var(--app-hero-bg);
   --md-sys-hero-text-primary: var(--md-sys-color-on-surface);
   --md-sys-hero-text-secondary: var(--md-sys-color-on-surface-variant);
-  --md-sys-hero-text-shadow: oklch(from var(--md-sys-color-shadow) l c h / 0.32);
+  --md-sys-hero-text-shadow: oklch(from var(--md-sys-color-shadow) l c h / 0.24);
+  --hero-content-panel-bg: color-mix(
+    in oklch,
+    var(--md-sys-color-surface-container-high) 76%,
+    transparent
+  );
+  --hero-content-panel-border: color-mix(
+    in oklch,
+    var(--md-sys-color-outline) 58%,
+    transparent
+  );
   --hero-title-halo: color-mix(
     in oklch,
     var(--md-sys-color-primary) 28%,

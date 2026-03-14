@@ -174,6 +174,17 @@ export class AnalyticsService {
         });
       }
 
+      // Google Ads conversion tracking for phone and WhatsApp clicks
+      const anchor = target.closest('a');
+      if (anchor) {
+        const href = anchor.getAttribute('href') || '';
+        if (href.startsWith('tel:')) {
+          this.trackPhoneConversion();
+        } else if (href.includes('wa.me') || href.includes('whatsapp')) {
+          this.trackWhatsAppConversion();
+        }
+      }
+
       // Heatmap data collection
       if (this.config.enableHeatmap) {
         this.collectHeatmapData(event, 'click');
@@ -189,9 +200,12 @@ export class AnalyticsService {
 
       this.trackEvent({
         category: 'form',
-        action: 'submit',
+        action: 'form_submit',
         label: formName,
       });
+
+      // Track as conversion
+      this.trackConversion('form_submit', 100);
     });
 
     // Scroll tracking
@@ -365,13 +379,23 @@ export class AnalyticsService {
     // Add to local storage
     this.events.update((e) => [...e, event]);
 
-    // Send to GA4
+    // Send to GA4 via gtag
     if (this.gtag) {
       this.gtag('event', event.action, {
         event_category: event.category,
         event_label: event.label,
         value: event.value,
         ...event.customDimensions,
+      });
+    }
+
+    // Push to GTM dataLayer for tag/trigger processing
+    if (typeof window !== 'undefined' && (window as any).dataLayer) {
+      (window as any).dataLayer.push({
+        event: event.action,
+        event_category: event.category,
+        event_label: event.label,
+        value: event.value,
       });
     }
 
@@ -452,6 +476,40 @@ export class AnalyticsService {
         currency: 'TRY',
       });
     }
+
+    // Google Ads conversion
+    if (this.gtag) {
+      this.gtag('event', 'conversion', {
+        send_to: 'AW-11023599948/57piCI7LpYYcEMySu4gp',
+        value: value || 100.0,
+        currency: 'TRY',
+      });
+    }
+
+    // Explicit dataLayer push for GTM conversion tracking
+    if (typeof window !== 'undefined' && (window as any).dataLayer) {
+      (window as any).dataLayer.push({
+        event: conversionType,
+        event_category: 'appointment',
+        event_label: conversionType,
+        conversion_value: value,
+        currency: 'TRY',
+      });
+    }
+  }
+
+  /**
+   * Track phone call conversion for Google Ads
+   */
+  public trackPhoneConversion(): void {
+    this.trackConversion('phone_click', 150);
+  }
+
+  /**
+   * Track WhatsApp click conversion for Google Ads
+   */
+  public trackWhatsAppConversion(): void {
+    this.trackConversion('whatsapp_click', 75);
   }
 
   /**

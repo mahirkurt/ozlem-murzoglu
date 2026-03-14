@@ -1,0 +1,125 @@
+<best_practices>
+  <general_principles>
+    <principle priority="high">
+      <name>Anayasa önceliği</name>
+      <description>`docs/design/master-style-guide.md` tüm tasarım kararlarında birincil otoritedir.</description>
+      <rationale>Tek bir kurumsal tasarım otoritesi, kaliteyi ve yönetişimi sürdürülebilir kılar.</rationale>
+    </principle>
+    <principle priority="high">
+      <name>Marka bütünlüğü kilidi</name>
+      <description>Logo, isim, seed renk ve kurumsal tipografiyi değiştirmeden sistemik uyum optimize edilir.</description>
+      <rationale>Kurumsal kimlik korunurken modernizasyon sağlanır.</rationale>
+    </principle>
+    <principle priority="high">
+      <name>Token-first tasarım</name>
+      <description>Renk, tipografi, şekil, elevation ve motion değerlerini tokenlar üzerinden yönet.</description>
+      <rationale>Tekil kaynak doğruluğu sağlar, tutarlılığı artırır.</rationale>
+    </principle>
+    <principle priority="high">
+      <name>Zero-hardcoded disiplin</name>
+      <description>UI stil katmanında sabit değer kullanımını ihlal olarak ele al; token eşdeğeriyle değiştir.</description>
+      <rationale>Sistem dışı değerler zamanla drift üretir ve denetim kalitesini düşürür.</rationale>
+    </principle>
+    <principle priority="high">
+      <name>Durum katmanları ve geri bildirim</name>
+      <description>Her bileşenin hover/focus/pressed durumları görünür ve tutarlı olmalı.</description>
+      <rationale>MD3 etkileşim dili ve erişilebilirlik için zorunludur.</rationale>
+    </principle>
+    <principle priority="high">
+      <name>Tipografik hiyerarşi</name>
+      <description>Başlık, gövde ve yardımcı metinler net bir ölçekle ayrıştırılmalı.</description>
+      <rationale>Okunabilirlik ve bilgi mimarisi güçlenir.</rationale>
+    </principle>
+    <principle priority="high">
+      <name>Sanatçı bakışı + mühendislik disiplini</name>
+      <description>Görsel kompozisyon, ritim ve duygu etkisini teknik kalite kapılarıyla birlikte ele al.</description>
+      <rationale>Estetik kalite ve üretim güvenliği birlikte korunur.</rationale>
+    </principle>
+    <principle priority="medium">
+      <name>Kontrollü trend entegrasyonu</name>
+      <description>Glassmorphism gibi trendleri yalnızca okunabilirlik, kontrast ve performans sınırları içinde kullan.</description>
+      <rationale>Modern görünüm kazanılırken erişilebilirlik ve sistem tutarlılığı bozulmaz.</rationale>
+    </principle>
+  </general_principles>
+
+  <document_chain_discipline>
+    <guideline>Değişiklikten önce belge zinciri sırasını uygula: foundation → token governance → components → motion/shape/accessibility → compliance matrix.</guideline>
+    <guideline>Her bulgu ve öneri en az bir doküman maddesine bağlanmalı.</guideline>
+    <guideline>Belge zinciriyle çelişen lokal estetik tercihleri reddedilmeli veya daraltılmalı.</guideline>
+  </document_chain_discipline>
+
+  <token_governance_gates>
+    <guideline>Semantic role-first yaklaşımını koru; renk kararlarında role bypass yapma.</guideline>
+    <guideline>Derinlik için önce tonal surface hiyerarşisini kullan; shadow yalnızca destekleyici katman olsun.</guideline>
+    <guideline>State geri bildirimi shadow-first değil state-layer-first olmalı.</guideline>
+    <guideline>Legacy köprü tokenlarını yalnızca backward compatibility amacıyla kullan; yeni yüzeylerde MD3 sistem tokenlarını tercih et.</guideline>
+  </token_governance_gates>
+
+  <compliance_matrix_alignment>
+    <guideline>Raporlama, sistem seviyesi durum + kritik bulgular + zorunlu iyileştirme önceliklerini kapsamalı.</guideline>
+    <guideline>Kritik ve yüksek bulgular kapanmadan tasarım kalitesi tamamlandı olarak işaretlenmemeli.</guideline>
+    <guideline>MD2→MD3 shadow temizliği ve Playwright doğrulama stabilizasyonu gibi açık maddeler izlenebilir tutulmalı.</guideline>
+  </compliance_matrix_alignment>
+
+  <accessibility>
+    <guideline>Kontrast seviyeleri MD3 beklentilerine uygun olmalı.</guideline>
+    <guideline>Odak görünürlüğü tüm etkileşimli öğelerde belirgin olmalı.</guideline>
+    <guideline>Hareket azaltma tercihlerine saygı gösterilmeli.</guideline>
+    <guideline>Cam yüzeylerde metin okunurluğu, arka plan karmaşasına rağmen güvence altına alınmalı.</guideline>
+    <guideline>Etkileşimli hedefler en az ergonomik dokunma hedefi standardını sağlamalı.</guideline>
+    <guideline>Metin kontrastı minimum 4.5:1 ve UI grafik/ikon kontrastı minimum 3:1 hedeflenmeli.</guideline>
+    <guideline>Forced-colors ve high-contrast davranışı bozulmamalı.</guideline>
+  </accessibility>
+
+  <layout_and_rhythm>
+    <guideline>Boşluklar ve hizalamalar düzenli ritim oluşturmalı.</guideline>
+    <guideline>Yoğunluk seviyeleri içerik türüne göre ayarlanmalı.</guideline>
+    <guideline>Görsel hiyerarşi, kullanıcının dikkat akışını destekleyecek şekilde kurgulanmalı.</guideline>
+  </layout_and_rhythm>
+
+  <visual_quality>
+    <guideline>Görsel kompozisyon marka kimliğiyle uyumlu kalmalı.</guideline>
+    <guideline>Renk ve hareket, dikkat yönlendirmeyi desteklemeli.</guideline>
+    <guideline>Mikro-etkileşimler duygusal kaliteyi artırırken görev tamamlamayı zorlaştırmamalı.</guideline>
+    <guideline>Trend uygulamaları, sistem bütünlüğü ve token semantiği korunarak yapılmalı.</guideline>
+  </visual_quality>
+
+  <component_and_page_standards>
+    <guideline>Alt sayfa yapısında tutarlı sayfa başlığı ve kapanış CTA disiplini korunmalı.</guideline>
+    <guideline>Hero yoğunluğu yalnızca uygun bağlamlarda kullanılmalı; alt sayfalarda aşırı vurgu engellenmeli.</guideline>
+    <guideline>Bileşen hiyerarşisi (özellikle buton vurgusu) görev önceliğini net iletmeli.</guideline>
+    <guideline>Iconography standardı Material Symbols Rounded çizgisinde korunmalı.</guideline>
+    <guideline>Glass yüzeyler yalnızca uygun arka plan/kontrast koşullarında kullanılmalı.</guideline>
+  </component_and_page_standards>
+
+  <audit_execution_principles>
+    <guideline>Denetimi faz bazlı ilerlet: token çekirdeği, bileşen/yapı, erişilebilirlik/dark mode, final görsel doğrulama.</guideline>
+    <guideline>Bulguları severity seviyeleriyle sınıflandır ve önce kritik riskleri kapat.</guideline>
+    <guideline>Her bulguyu doğrudan düzeltme önerisi ve doğrulama kriteriyle eşleştir.</guideline>
+    <guideline>Kabul kapıları: kritik ve yüksek bulgu kapanışı, erişilebilirlik eşiği, görsel kalite bütünlüğü.</guideline>
+  </audit_execution_principles>
+
+  <quality_checklist>
+    <category name="before_changes">
+      <item>`docs/design/master-style-guide.md` içindeki ilgili anayasa maddeleri belirlendi</item>
+      <item>Belge zinciri sırasıyla kural doğrulaması yapıldı</item>
+      <item>Resmi MD3 referansları anayasa ile birlikte doğrulandı</item>
+      <item>Mevcut tasarım sistemi envanteri çıkarıldı</item>
+    </category>
+    <category name="during_changes">
+      <item>Token tabanlı güncellemeler tercih edildi</item>
+      <item>Hardcoded değer kalıntıları sistematik biçimde temizlendi</item>
+      <item>Tonal surface önceliği korunarak shadow kararları yeniden değerlendirildi</item>
+      <item>Durum katmanları ve odak görünürlüğü güncellendi</item>
+      <item>Marka kimliği kilitleri ihlal edilmeden görsel kalite artırıldı</item>
+      <item>Glassmorphism kullanıldıysa okunurluk ve performans sınırları kontrol edildi</item>
+      <item>İkon dili tek standarda sabitlendi</item>
+    </category>
+    <category name="before_completion">
+      <item>Uyum raporu anayasa referanslarıyla güncellendi</item>
+      <item>Erişilebilirlik kontrolleri tekrarlandı</item>
+      <item>Dark mode yüzey hiyerarşisi ve no-pure-black kuralı doğrulandı</item>
+      <item>Görsel harmoni, ritim ve mikro-etkileşim kalitesi doğrulandı</item>
+    </category>
+  </quality_checklist>
+</best_practices>

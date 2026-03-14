@@ -22,6 +22,26 @@ import { HeroSectionComponent } from '../../components/shared/hero-section/hero-
   styleUrl: './blog.css',
 })
 export class BlogComponent implements OnInit, OnDestroy {
+  private readonly categoryKeyMap: Record<string, string> = {
+    'Bebek Bakımı': 'BABY_CARE',
+    'Çocuk Psikolojisi': 'CHILD_PSYCHOLOGY',
+    'Çocuk Gelişimi': 'CHILD_DEVELOPMENT',
+    Ergenlik: 'ADOLESCENCE',
+    Güvenlik: 'SAFETY',
+    'Diş Sağlığı': 'DENTAL_HEALTH',
+    BABY_CARE: 'BABY_CARE',
+    CHILD_PSYCHOLOGY: 'CHILD_PSYCHOLOGY',
+    CHILD_DEVELOPMENT: 'CHILD_DEVELOPMENT',
+    ADOLESCENCE: 'ADOLESCENCE',
+    SAFETY: 'SAFETY',
+    DENTAL_HEALTH: 'DENTAL_HEALTH',
+  };
+
+  breadcrumbs = [
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'BLOG.TITLE' }
+  ];
+
   articles$: Observable<BlogArticle[]> = new Observable();
   featuredArticles$: Observable<BlogArticle[]> = new Observable();
   categories: string[] = [];
@@ -71,5 +91,10 @@ export class BlogComponent implements OnInit, OnDestroy {
 
   trackByArticleId(index: number, article: BlogArticle): string {
     return article.id;
+  }
+
+  getCategoryLabelKey(category: string): string {
+    const mappedCategory = this.categoryKeyMap[category] ?? category;
+    return `FAVORITES.BLOG.CATEGORIES.${mappedCategory}`;
   }
 }

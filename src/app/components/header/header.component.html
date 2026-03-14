@@ -3,12 +3,12 @@
   <!-- Utility Row (Floating above the island) -->
   <div class="utility-row">
     <div class="container utility-content">
-      <a [href]="'tel:' + contactInfo.phone" class="utility-link" data-track="phone_click" data-track-category="conversion" data-track-label="header">
+      <a [href]="contactInfo.phoneHref" class="utility-link" data-track="phone_click" data-track-category="conversion" data-track-label="header">
         <span class="material-icons-rounded" aria-hidden="true">phone</span>
         <span>{{ contactInfo.phone }}</span>
       </a>
       <span class="utility-sep" aria-hidden="true"></span>
-      <a href="https://api.whatsapp.com/send?phone=905466884483" target="_blank" class="utility-link whatsapp" data-track="whatsapp_click" data-track-category="conversion" data-track-label="header">
+      <a [href]="contactInfo.whatsappUrl" target="_blank" rel="noopener noreferrer" class="utility-link whatsapp" data-track="whatsapp_click" data-track-category="conversion" data-track-label="header">
         <span class="material-icons-rounded" aria-hidden="true">chat</span>
         <span>WhatsApp</span>
       </a>

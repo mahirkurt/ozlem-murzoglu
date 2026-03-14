@@ -88,3 +88,16 @@ config/dr-murzoglu-firebase-adminsdkjson.json
 !.agent/
 !.agent/rules/
 !.agent/rules/*
+
+# Skill runtime artifacts
+/skills/*/runs/
+/skills/*/.tokens/
+/skills/*/scripts/__pycache__/
+
+# OAuth/local secrets
+/client_secret*.json
+/scripts/google-ads/*token*.json
+/.claude/settings.json
+
+# Generated reports
+/translation-validation-report.json

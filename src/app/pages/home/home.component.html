@@ -1,25 +1,25 @@
-<app-liquid-hero></app-liquid-hero>
+<main class="home-page">
+  <section class="home-page__hero">
+    <app-liquid-hero></app-liquid-hero>
+  </section>
 
-<div scrollReveal="fade-up" [scrollDelay]="100">
-  <app-why-social-pediatrics></app-why-social-pediatrics>
-</div>
+  <section class="home-page__section" scrollReveal="fade-up" [scrollDelay]="100">
+    <app-why-social-pediatrics></app-why-social-pediatrics>
+  </section>
 
-<div scrollReveal="fade-up" [scrollDelay]="150">
-  <app-doctor-bio></app-doctor-bio>
-</div>
+  <section class="home-page__section" scrollReveal="fade-up" [scrollDelay]="150">
+    <app-doctor-bio></app-doctor-bio>
+  </section>
 
-<div scrollReveal="fade-up" [scrollDelay]="200">
-  <app-services-section></app-services-section>
-</div>
+  <section class="home-page__section" scrollReveal="fade-up" [scrollDelay]="200">
+    <app-services-section></app-services-section>
+  </section>
 
-<div scrollReveal="fade-up" [scrollDelay]="250">
-  <app-stats-section></app-stats-section>
-</div>
+  <section class="home-page__section" scrollReveal="fade-up" [scrollDelay]="250">
+    <app-google-business-reviews></app-google-business-reviews>
+  </section>
 
-<div scrollReveal="fade-up" [scrollDelay]="300">
-  <app-google-business-reviews></app-google-business-reviews>
-</div>
-
-<div scrollReveal="fade-up" [scrollDelay]="350">
-  <app-contact-cta></app-contact-cta>
-</div>
+  <section class="home-page__section" scrollReveal="fade-up" [scrollDelay]="300">
+    <app-contact-cta></app-contact-cta>
+  </section>
+</main>

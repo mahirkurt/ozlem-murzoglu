@@ -1,19 +1,29 @@
-/* Home Page Styles - Simplified for stability */
-
 :host {
   display: block;
 }
 
-/* Remove all section spacing */
-:host ::ng-deep > div[scrollReveal] {
+.home-page {
+  display: grid;
+  gap: var(--md-sys-spacing-8);
+}
+
+.home-page__hero,
+.home-page__section {
   margin: 0;
   padding: 0;
 }
 
-/* Responsive adjustments */
+.home-page__hero {
+  display: block; /* Override generic hero flex+center that shrinks content */
+}
+
+.home-page__hero app-liquid-hero {
+  display: block;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
-  :host ::ng-deep > div[scrollReveal] {
-    margin: 0;
-    padding: 0;
+  .home-page {
+    gap: var(--md-sys-spacing-6);
   }
 }

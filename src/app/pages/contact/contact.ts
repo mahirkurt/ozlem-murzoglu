@@ -2,8 +2,10 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IllustrationComponent } from '../../shared/components/illustration/illustration.component';
 import { HeroSectionComponent } from '../../components/shared/hero-section/hero-section.component';
+import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
 
 @Component({
   selector: 'app-contact',
@@ -13,41 +15,62 @@ import { HeroSectionComponent } from '../../components/shared/hero-section/hero-
   styleUrl: './contact.css'
 })
 export class ContactComponent {
-  private translate = inject(TranslateService);
+  private readonly translate = inject(TranslateService);
+  private readonly sanitizer = inject(DomSanitizer);
   
-  breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'İletişim' }
+  readonly breadcrumbs = [
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_CONTACT' }
   ];
-  contactInfo = {
-    phone: '+90 216 688 44 83',
-    mobilePhone: '+90 546 688 44 83',
-    email: 'klinik@drmurzoglu.com',
+  readonly contactInfo = {
+    phone: CONTACT_CONFIG.phone.display,
+    phoneHref: CONTACT_CONFIG.phone.telHref,
+    mobilePhone: CONTACT_CONFIG.mobile.display,
+    mobilePhoneHref: CONTACT_CONFIG.mobile.telHref,
+    email: CONTACT_CONFIG.email.value,
+    emailHref: CONTACT_CONFIG.email.mailtoHref,
     address: {
-      street: 'Barbaros Mah. Ak Zambak Sok. No: 3',
-      building: 'Uphill Towers A-30',
-      district: 'Ataşehir',
-      city: 'İstanbul'
+      street: CONTACT_CONFIG.address.street,
+      building: CONTACT_CONFIG.address.building,
+      district: CONTACT_CONFIG.address.district,
+      city: CONTACT_CONFIG.address.city
     }
   };
 
-  workingHours = [
-    { dayKey: 'CONTACT.WEEKDAYS', hoursKey: 'CONTACT.WEEKDAYS_HOURS', day: 'Pazartesi - Cuma', hours: '09:00 - 18:00' },
-    { dayKey: 'CONTACT.SATURDAY', hoursKey: 'CONTACT.SATURDAY_HOURS', day: 'Cumartesi', hours: '09:00 - 14:00' },
-    { dayKey: 'CONTACT.SUNDAY', hoursKey: 'CONTACT.SUNDAY_HOURS', day: 'Pazar', hours: 'Kapalı' }
+  readonly mapLinks = {
+    google: CONTACT_CONFIG.mapsUrl,
+    apple: `https://maps.apple.com/?q=${encodeURIComponent(CONTACT_CONFIG.address.fullDisplay)}`,
+  };
+
+  readonly whatsappLocationMessage = `${CONTACT_CONFIG.address.fullDisplay} - ${CONTACT_CONFIG.mapsUrl}`;
+  readonly whatsappLocationUrl = CONTACT_HELPERS.getWhatsAppUrl(this.whatsappLocationMessage);
+  readonly whatsappQrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(this.whatsappLocationUrl)}`;
+  readonly mapEmbedUrl: SafeResourceUrl;
+
+  readonly workingHours = [
+    { dayKey: 'CONTACT.WEEKDAYS', hoursKey: 'CONTACT.WEEKDAYS_HOURS' },
+    { dayKey: 'CONTACT.SATURDAY', hoursKey: 'CONTACT.SATURDAY_HOURS' },
+    { dayKey: 'CONTACT.SUNDAY', hoursKey: 'CONTACT.SUNDAY_HOURS' }
   ];
 
-  parkingOptions = [
+  readonly parkingOptions = [
     {
-      title: 'Vale Hizmeti',
-      description: 'Uphill Towers önündeki vale hizmetini kullanabilirsiniz (ücretlidir).'
+      titleKey: 'CONTACT.PARKING_VALET_TITLE',
+      descriptionKey: 'CONTACT.PARKING_VALET_DESC'
     },
     {
-      title: 'Bulvar 216 AVM Otoparkı',
-      highlight: '0-3 Saat Ücretsiz',
-      description: 'Hemen yandaki Bulvar 216 AVM otoparkını kullanabilirsiniz. İlk 3 saat ücretsizdir.'
+      titleKey: 'CONTACT.PARKING_BULVAR_TITLE',
+      highlightKey: 'CONTACT.PARKING_BULVAR_HIGHLIGHT',
+      descriptionKey: 'CONTACT.PARKING_BULVAR_DESC'
     }
   ];
+
+  constructor() {
+    const encodedAddress = encodeURIComponent(CONTACT_CONFIG.address.fullDisplay);
+    this.mapEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://maps.google.com/maps?q=${encodedAddress}&z=15&output=embed`
+    );
+  }
 
 
   formData = {
@@ -75,21 +98,21 @@ export class ContactComponent {
 
     console.log('Form submitted:', this.formData);
     // Form gönderme işlemi burada yapılacak
-    alert('Mesajınız alındı. En kısa sürede size dönüş yapacağız.');
+    alert(this.translate.instant('CONTACT.FORM_SUCCESS'));
     this.resetForm();
   }
   
   validateForm(): boolean {
     // Name validation
     if (!this.formData.name || this.formData.name.trim().length < 3) {
-      alert('Lütfen geçerli bir ad soyad giriniz (en az 3 karakter).');
+      alert(this.translate.instant('CONTACT.VALIDATION.NAME'));
       return false;
     }
     
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!this.formData.email || !emailRegex.test(this.formData.email)) {
-      alert('Lütfen geçerli bir e-posta adresi giriniz.');
+      alert(this.translate.instant('CONTACT.VALIDATION.EMAIL'));
       return false;
     }
     
@@ -97,13 +120,13 @@ export class ContactComponent {
     const phoneRegex = /^(\+90|0)?[0-9]{10}$/;
     const cleanPhone = this.formData.phone.replace(/[\s()-]/g, '');
     if (!cleanPhone || !phoneRegex.test(cleanPhone)) {
-      alert('Lütfen geçerli bir telefon numarası giriniz.');
+      alert(this.translate.instant('CONTACT.VALIDATION.PHONE'));
       return false;
     }
     
     // Message validation
     if (!this.formData.message || this.formData.message.trim().length < 10) {
-      alert('Lütfen mesajınızı giriniz (en az 10 karakter).');
+      alert(this.translate.instant('CONTACT.VALIDATION.MESSAGE'));
       return false;
     }
     

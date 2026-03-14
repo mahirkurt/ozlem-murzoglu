@@ -499,28 +499,28 @@
   // ---------------------------------------------------------------------
   // 5.1 Glow Colors
   // ---------------------------------------------------------------------
-  --md-sys-glow-primary: oklch(from var(--md-sys-color-primary) l c h / 0.4);
-  --md-sys-glow-secondary: oklch(from var(--md-sys-color-secondary) l c h / 0.35);
-  --md-sys-glow-tertiary: oklch(from var(--md-sys-color-tertiary) l c h / 0.35);
-  --md-sys-glow-error: oklch(from var(--md-sys-color-error) l c h / 0.4);
-  --md-sys-glow-success: oklch(65% 0.18 145 / 0.4);
+  --md-sys-glow-primary: transparent;
+  --md-sys-glow-secondary: transparent;
+  --md-sys-glow-tertiary: transparent;
+  --md-sys-glow-error: transparent;
+  --md-sys-glow-success: transparent;
 
   // ---------------------------------------------------------------------
   // 5.2 Glow Intensities
   // ---------------------------------------------------------------------
-  --md-sys-glow-sm: 0 0 8px;
-  --md-sys-glow-md: 0 0 16px;
-  --md-sys-glow-lg: 0 0 24px;
-  --md-sys-glow-xl: 0 0 40px;
-  --md-sys-glow-2xl: 0 0 60px;
+  --md-sys-glow-sm: 0 0 0;
+  --md-sys-glow-md: 0 0 0;
+  --md-sys-glow-lg: 0 0 0;
+  --md-sys-glow-xl: 0 0 0;
+  --md-sys-glow-2xl: 0 0 0;
 }
 
 // Dark mode - more visible glows
 @media (prefers-color-scheme: dark) {
   :root {
-    --md-sys-glow-primary: oklch(from var(--md-sys-color-primary) l c h / 0.5);
-    --md-sys-glow-secondary: oklch(from var(--md-sys-color-secondary) l c h / 0.45);
-    --md-sys-glow-tertiary: oklch(from var(--md-sys-color-tertiary) l c h / 0.45);
+    --md-sys-glow-primary: transparent;
+    --md-sys-glow-secondary: transparent;
+    --md-sys-glow-tertiary: transparent;
   }
 }
 
@@ -528,35 +528,35 @@
 // 5.3 Glow Classes
 // ---------------------------------------------------------------------
 .md3-glow-primary {
-  box-shadow: var(--md-sys-glow-md) var(--md-sys-glow-primary);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .md3-glow-primary-sm {
-  box-shadow: var(--md-sys-glow-sm) var(--md-sys-glow-primary);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .md3-glow-primary-lg {
-  box-shadow: var(--md-sys-glow-lg) var(--md-sys-glow-primary);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 .md3-glow-primary-xl {
-  box-shadow: var(--md-sys-glow-xl) var(--md-sys-glow-primary);
+  box-shadow: var(--md-sys-elevation-level3);
 }
 
 .md3-glow-secondary {
-  box-shadow: var(--md-sys-glow-md) var(--md-sys-glow-secondary);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .md3-glow-tertiary {
-  box-shadow: var(--md-sys-glow-md) var(--md-sys-glow-tertiary);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .md3-glow-error {
-  box-shadow: var(--md-sys-glow-md) var(--md-sys-glow-error);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .md3-glow-success {
-  box-shadow: var(--md-sys-glow-md) var(--md-sys-glow-success);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 // Interactive glow (on hover)
@@ -564,7 +564,7 @@
   transition: box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
 
   &:hover {
-    box-shadow: var(--md-sys-glow-lg) var(--md-sys-glow-primary);
+    box-shadow: var(--md-sys-elevation-level2);
   }
 }
 
@@ -575,10 +575,10 @@
 
 @keyframes glow-pulse {
   0%, 100% {
-    box-shadow: var(--md-sys-glow-sm) var(--md-sys-glow-primary);
+    box-shadow: var(--md-sys-elevation-level1);
   }
   50% {
-    box-shadow: var(--md-sys-glow-lg) var(--md-sys-glow-primary);
+    box-shadow: var(--md-sys-elevation-level2);
   }
 }
 
@@ -1001,32 +1001,32 @@
 // ============================================================================
 
 .md3-drop-shadow-sm {
-  filter: drop-shadow(0 1px 2px oklch(0% 0 0 / 0.1));
+  filter: none;
 }
 
 .md3-drop-shadow {
-  filter: drop-shadow(0 2px 4px oklch(0% 0 0 / 0.15));
+  filter: none;
 }
 
 .md3-drop-shadow-md {
-  filter: drop-shadow(0 4px 8px oklch(0% 0 0 / 0.15));
+  filter: none;
 }
 
 .md3-drop-shadow-lg {
-  filter: drop-shadow(0 8px 16px oklch(0% 0 0 / 0.2));
+  filter: none;
 }
 
 .md3-drop-shadow-xl {
-  filter: drop-shadow(0 16px 32px oklch(0% 0 0 / 0.25));
+  filter: none;
 }
 
 // Colored drop shadows
 .md3-drop-shadow-primary {
-  filter: drop-shadow(0 4px 12px var(--md-sys-glow-primary));
+  filter: none;
 }
 
 .md3-drop-shadow-tertiary {
-  filter: drop-shadow(0 4px 12px var(--md-sys-glow-tertiary));
+  filter: none;
 }
 
 // ============================================================================
@@ -1303,17 +1303,17 @@
 
 // Glow effect mixin
 @mixin glow($color: var(--md-sys-color-primary), $intensity: md) {
-  $size: var(--md-sys-glow-md);
+  $level: var(--md-sys-elevation-level1);
 
   @if $intensity == sm {
-    $size: var(--md-sys-glow-sm);
+    $level: var(--md-sys-elevation-level1);
   } @else if $intensity == lg {
-    $size: var(--md-sys-glow-lg);
+    $level: var(--md-sys-elevation-level2);
   } @else if $intensity == xl {
-    $size: var(--md-sys-glow-xl);
+    $level: var(--md-sys-elevation-level3);
   }
 
-  box-shadow: $size oklch(from #{$color} l c h / 0.4);
+  box-shadow: $level;
 }
 
 // Interactive glow mixin
@@ -1321,11 +1321,11 @@
   transition: box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
 
   &:hover {
-    box-shadow: var(--md-sys-glow-md) oklch(from #{$color} l c h / 0.4);
+    box-shadow: var(--md-sys-elevation-level2);
   }
 
   &:active {
-    box-shadow: var(--md-sys-glow-lg) oklch(from #{$color} l c h / 0.5);
+    box-shadow: var(--md-sys-elevation-level3);
   }
 }
 

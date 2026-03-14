@@ -1,32 +1,32 @@
 /* Design System - Global Variables */
 :root {
   /* Extended Color Palette */
-  --color-primary: #005F73;
-  --color-primary-light: #0A8FA3;
-  --color-primary-dark: #003D4F;
+  --color-primary: var(--md-sys-color-primary);
+  --color-primary-light: var(--md-sys-color-primary-container);
+  --color-primary-dark: var(--md-sys-color-on-primary-container);
   
-  --color-secondary: #94D2BD;
-  --color-secondary-light: #B8E6D3;
-  --color-secondary-dark: #6FAF99;
+  --color-secondary: var(--md-sys-color-secondary);
+  --color-secondary-light: var(--md-sys-color-secondary-container);
+  --color-secondary-dark: var(--md-sys-color-on-secondary-container);
   
-  --color-accent: #EE6C4D;
-  --color-accent-light: #FF8B70;
-  --color-accent-dark: #D74A2B;
+  --color-accent: var(--md-sys-color-tertiary);
+  --color-accent-light: var(--md-sys-color-tertiary-container);
+  --color-accent-dark: var(--md-sys-color-on-tertiary-container);
   
-  --color-success: #0CAF60;
-  --color-success-light: #2BC880;
-  --color-success-dark: #078B47;
+  --color-success: var(--md-sys-color-success, oklch(69% 0.19 142));
+  --color-success-light: var(--md-sys-color-success-container, oklch(89% 0.06 142));
+  --color-success-dark: var(--md-sys-color-on-success-container, oklch(44% 0.1 142));
   
-  --color-neutral-50: #F8F9FA;
-  --color-neutral-100: #E9ECEF;
-  --color-neutral-200: #DEE2E6;
-  --color-neutral-300: #CED4DA;
-  --color-neutral-400: #ADB5BD;
-  --color-neutral-500: #6C757D;
-  --color-neutral-600: #495057;
-  --color-neutral-700: #343A40;
-  --color-neutral-800: #212529;
-  --color-neutral-900: #0F1419;
+  --color-neutral-50: var(--md-sys-color-surface);
+  --color-neutral-100: var(--md-sys-color-surface-container-low);
+  --color-neutral-200: var(--md-sys-color-surface-container);
+  --color-neutral-300: var(--md-sys-color-surface-container-high);
+  --color-neutral-400: var(--md-sys-color-surface-container-highest);
+  --color-neutral-500: var(--md-sys-color-outline-variant);
+  --color-neutral-600: var(--md-sys-color-outline);
+  --color-neutral-700: var(--md-sys-color-on-surface-variant);
+  --color-neutral-800: var(--md-sys-color-on-surface);
+  --color-neutral-900: var(--md-sys-color-on-surface);
   
   /* MD3 Spacing System - 4px base unit */
   --md-sys-spacing-1: 4px;
@@ -71,23 +71,21 @@
   --line-height-relaxed: 1.625;
   --line-height-loose: 1.75;
   
-  /* Shadows - Multi-layer */
-  --shadow-xs: 0 1px 2px rgba(0, 95, 115, 0.05);
-  --shadow-sm: 0 2px 4px rgba(0, 95, 115, 0.06), 0 1px 2px rgba(0, 95, 115, 0.04);
-  --shadow-md: 0 4px 6px rgba(0, 95, 115, 0.07), 0 2px 4px rgba(0, 95, 115, 0.04);
-  --shadow-lg: 0 10px 15px rgba(0, 95, 115, 0.08), 0 4px 6px rgba(0, 95, 115, 0.05);
-  --shadow-xl: 0 20px 25px rgba(0, 95, 115, 0.1), 0 10px 10px rgba(0, 95, 115, 0.04);
-  --shadow-2xl: 0 25px 50px rgba(0, 95, 115, 0.15), 0 10px 20px rgba(0, 95, 115, 0.08);
+  /* Shadows - MD3 elevation mapping */
+  --shadow-xs: var(--md-sys-elevation-level0);
+  --shadow-sm: var(--md-sys-elevation-level1);
+  --shadow-md: var(--md-sys-elevation-level2);
+  --shadow-lg: var(--md-sys-elevation-level3);
+  --shadow-xl: var(--md-sys-elevation-level4);
+  --shadow-2xl: var(--md-sys-elevation-level5);
   
   /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.18);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 95, 115, 0.1);
+  --glass-bg: var(--md-sys-color-glass-surface, color-mix(in oklch, var(--md-sys-color-surface) 72%, transparent));
+  --glass-border: var(--md-sys-color-glass-border, color-mix(in oklch, var(--md-sys-color-outline) 12%, transparent));
+  --glass-shadow: var(--md-sys-elevation-level1);
   --glass-blur: blur(10px);
   
-  /* Neumorphism */
-  --neu-shadow-light: 5px 5px 10px rgba(0, 95, 115, 0.1);
-  --neu-shadow-dark: -5px -5px 10px rgba(255, 255, 255, 0.8);
+  /* Legacy neumorphism aliases removed (MD3-only elevation system) */
   
   /* Animation Timing */
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -109,10 +107,8 @@
 /* Dark Mode Variables */
 @media (prefers-color-scheme: dark) {
   :root {
-    --glass-bg: rgba(0, 0, 0, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --neu-shadow-light: 5px 5px 10px rgba(0, 0, 0, 0.3);
-    --neu-shadow-dark: -5px -5px 10px rgba(255, 255, 255, 0.05);
+    --glass-bg: var(--md-sys-color-glass-surface, color-mix(in oklch, var(--md-sys-color-surface) 65%, transparent));
+    --glass-border: var(--md-sys-color-glass-border, color-mix(in oklch, var(--md-sys-color-outline) 18%, transparent));
   }
 }
 
@@ -184,18 +180,19 @@ html {
   box-shadow: var(--glass-shadow);
 }
 
-/* Neumorphism Card */
+/* Legacy alias: neumorphism card now mapped to MD3 tonal/elevation behavior */
 .neu-card {
-  background: var(--color-neutral-50);
-  border-radius: 20px;
-  box-shadow: var(--neu-shadow-dark), var(--neu-shadow-light);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--md-sys-elevation-level1);
   transition: all 0.3s var(--ease-in-out);
+  border-radius: var(--md-sys-shape-corner-large, 16px);
 }
 
 .neu-card:hover {
-  box-shadow: 
-    inset var(--neu-shadow-dark), 
-    inset var(--neu-shadow-light);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 /* Wave Effect Button */

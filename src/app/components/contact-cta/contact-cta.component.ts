@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { CONTACT_HELPERS } from '../../config/contact.config';
 
 @Component({
   selector: 'app-contact-cta',
@@ -11,5 +12,5 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrls: ['./contact-cta.scss']
 })
 export class ContactCtaComponent {
-  // Logic if needed, e.g. router navigation
+  readonly whatsappUrl = CONTACT_HELPERS.getWhatsAppUrl();
 }
