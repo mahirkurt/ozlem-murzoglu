@@ -10,8 +10,12 @@ import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
   template: `
     <div class="floating-actions" [class.expanded]="isExpanded">
       <!-- Main FAB Button -->
-      <button class="fab-main" (click)="toggleExpand()" [class.rotate]="isExpanded">
-        <span class="material-icons-rounded">{{isExpanded ? 'close' : 'support_agent'}}</span>
+      <button class="fab-main"
+              (click)="toggleExpand()"
+              [class.rotate]="isExpanded"
+              [attr.aria-expanded]="isExpanded"
+              [attr.aria-label]="isExpanded ? ('COMMON.CLOSE' | translate) : ('COMMON.CONTACT_OPTIONS' | translate)">
+        <span class="material-icons-rounded" aria-hidden="true">{{isExpanded ? 'close' : 'support_agent'}}</span>
       </button>
       
       <!-- Action Buttons -->
@@ -55,46 +59,55 @@ import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
   styles: [`
     .floating-actions {
       position: fixed;
-      bottom: calc(24px + env(safe-area-inset-bottom, 0px));
-      right: calc(24px + env(safe-area-inset-right, 0px));
+      bottom: calc(var(--md-sys-spacing-6) + env(safe-area-inset-bottom, 0px));
+      right: calc(var(--md-sys-spacing-6) + env(safe-area-inset-right, 0px));
       z-index: 1000;
     }
-    
+
     .fab-main {
       width: 64px;
       height: 64px;
       border-radius: var(--md-sys-shape-corner-full);
-      background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary) 100%);
+      background: var(--md-sys-color-primary);
       border: none;
-      color: white;
+      color: var(--md-sys-color-on-primary);
       cursor: pointer;
-      box-shadow: 0 6px 20px rgba(var(--md-sys-color-primary-rgb), 0.3);
+      box-shadow: var(--md-sys-elevation-level3);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition:
+        background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+        box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+        transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
       position: relative;
       z-index: 10;
     }
-    
+
     .fab-main:hover {
       transform: scale(1.1);
-      box-shadow: 0 8px 30px rgba(var(--md-sys-color-primary-rgb), 0.4);
+      box-shadow: var(--md-sys-elevation-level4);
     }
-    
+
+    .fab-main:focus-visible {
+      outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
+      outline-offset: var(--md-sys-state-focus-ring-offset);
+    }
+
     .fab-main.rotate {
-      background: linear-gradient(135deg, var(--md-sys-color-error) 0%, #E91E63 100%);
+      background: var(--md-sys-color-error);
+      color: var(--md-sys-color-on-error);
     }
-    
+
     .fab-main .material-icons-rounded {
       font-size: 28px;
-      transition: transform 0.3s ease;
+      transition: transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
     }
-    
+
     .fab-main.rotate .material-icons-rounded {
       transform: rotate(135deg);
     }
-    
+
     .fab-actions {
       position: absolute;
       bottom: 80px;
@@ -104,68 +117,78 @@ import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
       gap: var(--md-sys-spacing-4);
       align-items: flex-end;
     }
-    
+
     .fab-action {
       width: 48px;
       height: 48px;
       border-radius: var(--md-sys-shape-corner-full);
-      background: white;
-      box-shadow: 0 4px 12px rgba(var(--md-sys-color-shadow), 0.15);
+      background: var(--md-sys-color-surface-container-high);
+      color: var(--md-sys-color-on-surface);
+      box-shadow: var(--md-sys-elevation-level2);
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition:
+        background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+        box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+        transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
       position: relative;
     }
-    
+
     .fab-action:hover {
       transform: scale(1.1) translateY(0) !important;
-      box-shadow: 0 6px 20px rgba(var(--md-sys-color-shadow), 0.2);
+      box-shadow: var(--md-sys-elevation-level3);
     }
-    
+
+    .fab-action:focus-visible {
+      outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
+      outline-offset: var(--md-sys-state-focus-ring-offset);
+    }
+
     .fab-action.whatsapp {
       background: var(--md-sys-color-brand-whatsapp);
-      color: white;
+      color: var(--md-sys-color-on-primary);
     }
-    
+
     .fab-action.phone {
-      background: linear-gradient(135deg, var(--md-sys-color-secondary) 0%, #FFA726 100%);
-      color: white;
+      background: var(--md-sys-color-secondary);
+      color: var(--md-sys-color-on-secondary);
     }
-    
+
     .fab-action.appointment {
-      background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-primary) 100%);
-      color: white;
+      background: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
     }
-    
+
     .fab-action .material-icons-rounded {
       font-size: 24px;
     }
-    
+
     .fab-action svg {
       width: 24px;
       height: 24px;
     }
-    
+
     .tooltip {
       position: absolute;
       right: 60px;
-      background: rgba(var(--md-sys-color-shadow), 0.8);
-      color: white;
+      background: var(--md-sys-color-inverse-surface);
+      color: var(--md-sys-color-inverse-on-surface);
       padding: var(--md-sys-spacing-1) var(--md-sys-spacing-3);
-      border-radius: 6px;
-      font-size: 12px;
+      border-radius: var(--md-sys-shape-corner-small);
+      font-family: var(--md-sys-typescale-label-small-font);
+      font-size: var(--md-sys-typescale-label-small-size);
       white-space: nowrap;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
     }
-    
+
     .fab-action:hover .tooltip {
       opacity: 1;
     }
-    
+
     .pulse-ring {
       position: absolute;
       top: 50%;
@@ -173,16 +196,16 @@ import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
       transform: translate(-50%, -50%);
       width: 64px;
       height: 64px;
-      border: 2px solid rgba(var(--md-sys-color-primary-rgb), 0.3);
+      border: 2px solid color-mix(in oklch, var(--md-sys-color-primary) 30%, transparent);
       border-radius: var(--md-sys-shape-corner-full);
       animation: pulse-animation 2s infinite;
       z-index: 0;
     }
-    
+
     .pulse-ring:nth-child(2) {
       animation-delay: 0.5s;
     }
-    
+
     @keyframes pulse-animation {
       0% {
         transform: translate(-50%, -50%) scale(1);
@@ -193,18 +216,40 @@ import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
         opacity: 0;
       }
     }
-    
+
+    /* Reduced motion: disable all animations */
+    @media (prefers-reduced-motion: reduce) {
+      .fab-main,
+      .fab-action {
+        transition: none;
+      }
+
+      .fab-main:hover,
+      .fab-action:hover {
+        transform: none !important;
+      }
+
+      .fab-main .material-icons-rounded {
+        transition: none;
+      }
+
+      .pulse-ring {
+        animation: none;
+        display: none;
+      }
+    }
+
     @media (max-width: 768px) {
       .floating-actions {
-        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-        right: calc(16px + env(safe-area-inset-right, 0px));
+        bottom: calc(var(--md-sys-spacing-4) + env(safe-area-inset-bottom, 0px));
+        right: calc(var(--md-sys-spacing-4) + env(safe-area-inset-right, 0px));
       }
-      
+
       .fab-main {
         width: 56px;
         height: 56px;
       }
-      
+
       .fab-action {
         width: 44px;
         height: 44px;
@@ -213,8 +258,8 @@ import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
 
     @media (max-width: 600px) {
       .floating-actions {
-        bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-        right: calc(12px + env(safe-area-inset-right, 0px));
+        bottom: calc(var(--md-sys-spacing-3) + env(safe-area-inset-bottom, 0px));
+        right: calc(var(--md-sys-spacing-3) + env(safe-area-inset-right, 0px));
       }
 
       .fab-main {
@@ -243,6 +288,26 @@ import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
       .pulse-ring {
         width: 56px;
         height: 56px;
+      }
+    }
+
+    /* Forced colors (Windows High Contrast Mode) */
+    @media (forced-colors: active) {
+      .fab-main,
+      .fab-action {
+        background: ButtonFace;
+        color: ButtonText;
+        border: 1px solid ButtonText;
+        box-shadow: none;
+      }
+
+      .fab-main:focus-visible,
+      .fab-action:focus-visible {
+        outline-color: Highlight;
+      }
+
+      .pulse-ring {
+        display: none;
       }
     }
   `]

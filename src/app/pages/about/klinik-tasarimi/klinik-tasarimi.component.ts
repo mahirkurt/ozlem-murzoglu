@@ -13,8 +13,8 @@ import { HeroSectionComponent } from '../../../components/shared/hero-section/he
 })
 export class KlinikTasarimiComponent {
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Hakkımızda', link: '/hakkimizda' },
-    { label: 'Klinik Tasarımı' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_ABOUT', link: '/hakkimizda' },
+    { label: 'KLINIK_TASARIMI.TITLE' }
   ];
 }

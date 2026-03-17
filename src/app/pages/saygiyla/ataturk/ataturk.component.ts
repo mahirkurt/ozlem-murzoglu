@@ -12,79 +12,80 @@ import { HeroSectionComponent } from '../../../components/shared/hero-section/he
   styleUrl: './ataturk.component.css',
 })
 export class AtaturkComponent {
+  private readonly keyPrefix = 'SAYGIYLA.PIONEERS.ATATURK';
+
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Saygıyla', link: '/saygiyla' },
-    { label: 'Mustafa Kemal Atatürk' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_RESPECT', link: '/saygiyla' },
+    { label: `${this.keyPrefix}.NAME` }
   ];
   timeline = [
-    { year: '1881', event: "19 Mayıs - Selanik'te doğdu" },
-    { year: '1899', event: "İstanbul Harbiye Askeri İdadisi'nden mezun oldu" },
-    { year: '1905', event: "Harbiye Nezareti'nde Kurmay Yüzbaşı oldu" },
-    { year: '1915', event: 'Çanakkale Cephesi\'nde kahramanlık gösterdi' },
-    { year: '1919', event: "19 Mayıs - Samsun'a çıkarak Kurtuluş Savaşı'nı başlattı" },
-    { year: '1920', event: "23 Nisan - Türkiye Büyük Millet Meclisi'ni açtı" },
-    { year: '1923', event: "29 Ekim - Türkiye Cumhuriyeti'ni kurdu" },
-    { year: '1924', event: 'Halifeliği kaldırdı' },
-    { year: '1928', event: 'Harf Devrimi\'ni gerçekleştirdi' },
-    { year: '1934', event: '"Atatürk" soyadını aldı' },
-    { year: '1938', event: '10 Kasım - 57 yaşında vefat etti' },
+    { year: '1881', event: `${this.keyPrefix}.TIMELINE.ITEM_1` },
+    { year: '1899', event: `${this.keyPrefix}.TIMELINE.ITEM_2` },
+    { year: '1905', event: `${this.keyPrefix}.TIMELINE.ITEM_3` },
+    { year: '1915', event: `${this.keyPrefix}.TIMELINE.ITEM_4` },
+    { year: '1919', event: `${this.keyPrefix}.TIMELINE.ITEM_5` },
+    { year: '1920', event: `${this.keyPrefix}.TIMELINE.ITEM_6` },
+    { year: '1923', event: `${this.keyPrefix}.TIMELINE.ITEM_7` },
+    { year: '1924', event: `${this.keyPrefix}.TIMELINE.ITEM_8` },
+    { year: '1928', event: `${this.keyPrefix}.TIMELINE.ITEM_9` },
+    { year: '1934', event: `${this.keyPrefix}.TIMELINE.ITEM_10` },
+    { year: '1938', event: `${this.keyPrefix}.TIMELINE.ITEM_11` },
   ];
 
   contributions = [
     {
       icon: 'military_tech',
-      title: 'Kurtuluş Savaşı Lideri',
-      description:
-        "Türk milletinin bağımsızlık mücadelesini örgütleyerek zafere ulaştırdı.",
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.DESCRIPTION`,
     },
     {
       icon: 'account_balance',
-      title: 'Cumhuriyet\'in Kurucusu',
-      description: 'Modern, laik, demokratik Türkiye Cumhuriyeti\'ni kurdu.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.DESCRIPTION`,
     },
     {
       icon: 'school',
-      title: 'Eğitim Devrimcisi',
-      description: 'Harf Devrimi ile eğitimi halka yaydı, okuma-yazma seferberliği başlattı.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.DESCRIPTION`,
     },
     {
       icon: 'diversity_1',
-      title: 'Kadın Hakları Öncüsü',
-      description: "Kadınlara eşit haklar tanıyarak toplumsal dönüşümün liderliğini yaptı.",
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.DESCRIPTION`,
     },
   ];
 
   quotes = [
     {
-      text: 'Hayatta en hakiki mürşit ilimdir.',
-      context: 'Eğitim ve ilim üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_1.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_1.CONTEXT`,
     },
     {
-      text: 'Egemenlik kayıtsız şartsız milletindir.',
-      context: 'Demokrasi ve egemenlik üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_2.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_2.CONTEXT`,
     },
     {
-      text: 'Yurtta sulh, cihanda sulh.',
-      context: 'Barış ve diplomasi üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_3.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_3.CONTEXT`,
     },
     {
-      text: 'Ne mutlu Türküm diyene!',
-      context: 'Millî kimlik üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_4.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_4.CONTEXT`,
     },
     {
-      text: 'Geleceğin çocukları, tarihlerinizi yazarken...',
-      context: 'Gelecek nesillere mesaj',
+      text: `${this.keyPrefix}.QUOTES.ITEM_5.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_5.CONTEXT`,
     },
     {
-      text: 'Benim naçiz vücudum elbet bir gün toprak olacaktır, ancak Türkiye Cumhuriyeti ilelebet payidar kalacaktır.',
-      context: 'Cumhuriyet\'in sürekliliği üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_6.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_6.CONTEXT`,
     },
   ];
 
   books = [
-    { title: "Nutuk", year: '1927', genre: 'Tarihî Belge' },
-    { title: 'Geometri', year: '1937', genre: 'Ders Kitabı' },
-    { title: 'Vatandaş İçin Medeni Bilgiler', year: '1930', genre: 'Eğitim' },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_1.TITLE`, year: '1927', genre: `${this.keyPrefix}.BOOKS.ITEM_1.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_2.TITLE`, year: '1937', genre: `${this.keyPrefix}.BOOKS.ITEM_2.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_3.TITLE`, year: '1930', genre: `${this.keyPrefix}.BOOKS.ITEM_3.GENRE` },
   ];
 }

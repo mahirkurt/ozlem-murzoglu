@@ -12,77 +12,79 @@ import { HeroSectionComponent } from '../../../components/shared/hero-section/he
   styleUrl: './jonas-salk.component.css',
 })
 export class JonasSalkComponent {
+  private readonly keyPrefix = 'SAYGIYLA.PIONEERS.JONAS_SALK';
+
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Saygıyla', link: '/saygiyla' },
-    { label: 'Jonas Salk' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_RESPECT', link: '/saygiyla' },
+    { label: `${this.keyPrefix}.NAME` }
   ];
   timeline = [
-    { year: '1914', event: "28 Ekim - New York'ta Rus-Yahudi göçmen ailenin çocuğu olarak doğdu" },
-    { year: '1939', event: "New York Üniversitesi Tıp Fakültesi'nden mezun oldu" },
-    { year: '1942', event: 'Thomas Francis Jr. ile influenza aşısı üzerinde çalışmaya başladı' },
-    { year: '1947', event: "Pittsburgh Üniversitesi'nde kendi laboratuvarını kurdu" },
-    { year: '1952', event: 'İlk başarılı polio aşı denemelerini gerçekleştirdi' },
-    { year: '1953', event: 'Aşıyı kendi ailesi üzerinde denedi' },
-    { year: '1954', event: '2 milyon çocukla tarihin en büyük tıbbi deneyi başladı' },
-    { year: '1955', event: '12 Nisan - Polio aşısının başarısı dünyaya duyuruldu' },
-    { year: '1963', event: "La Jolla'da Salk Biyolojik Araştırmalar Enstitüsü'nü kurdu" },
-    { year: '1995', event: "23 Haziran - La Jolla, California'da 80 yaşında vefat etti" },
+    { year: '1914', event: `${this.keyPrefix}.TIMELINE.ITEM_1` },
+    { year: '1939', event: `${this.keyPrefix}.TIMELINE.ITEM_2` },
+    { year: '1942', event: `${this.keyPrefix}.TIMELINE.ITEM_3` },
+    { year: '1947', event: `${this.keyPrefix}.TIMELINE.ITEM_4` },
+    { year: '1952', event: `${this.keyPrefix}.TIMELINE.ITEM_5` },
+    { year: '1953', event: `${this.keyPrefix}.TIMELINE.ITEM_6` },
+    { year: '1954', event: `${this.keyPrefix}.TIMELINE.ITEM_7` },
+    { year: '1955', event: `${this.keyPrefix}.TIMELINE.ITEM_8` },
+    { year: '1963', event: `${this.keyPrefix}.TIMELINE.ITEM_9` },
+    { year: '1995', event: `${this.keyPrefix}.TIMELINE.ITEM_10` },
   ];
 
   contributions = [
     {
       icon: 'vaccines',
-      title: 'Polio Aşısı',
-      description: 'Milyonlarca çocuğu felçten koruyan ilk etkili polio aşısını geliştirdi.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.DESCRIPTION`,
     },
     {
       icon: 'public',
-      title: 'Patent Almama Kararı',
-      description: 'Aşıyı patentlemeyerek tüm insanlığın erişimine açık bıraktı.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.DESCRIPTION`,
     },
     {
       icon: 'biotech',
-      title: 'Salk Enstitüsü',
-      description: 'Biyolojik araştırmalar için öncü bir enstitü kurdu.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.DESCRIPTION`,
     },
     {
       icon: 'science',
-      title: 'AIDS Araştırmaları',
-      description: 'Hayatının son yıllarında AIDS aşısı üzerinde çalıştı.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.DESCRIPTION`,
     },
   ];
 
   quotes = [
     {
-      text: 'Peki, insanlara ait diyebilirim. Patenti yok. Güneşi patentleyebilir misiniz?',
-      context: "Edward R. Murrow'a verdiği röportajda",
+      text: `${this.keyPrefix}.QUOTES.ITEM_1.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_1.CONTEXT`,
     },
     {
-      text: 'En büyük ödül, insanlığa hizmet etmektir.',
-      context: 'Yaşam felsefesi üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_2.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_2.CONTEXT`,
     },
     {
-      text: 'Umut, hayal ve ısrar ile her şey mümkündür.',
-      context: 'Bilimsel araştırmalar hakkında',
+      text: `${this.keyPrefix}.QUOTES.ITEM_3.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_3.CONTEXT`,
     },
     {
-      text: 'İnsanların acısını dindirmek için bilimi bir araç olarak kullanmak.',
-      context: 'Tıp fakültesindeki hedefi',
+      text: `${this.keyPrefix}.QUOTES.ITEM_4.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_4.CONTEXT`,
     },
     {
-      text: 'Hastalıkları tek tek tedavi etmek yerine, onları tamamen ortadan kaldırmanın yollarını arıyorum.',
-      context: 'Araştırma vizyonu',
+      text: `${this.keyPrefix}.QUOTES.ITEM_5.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_5.CONTEXT`,
     },
     {
-      text: 'Bilimin amacı insanlığın hizmetinde olmaktır.',
-      context: 'Bilim anlayışı',
+      text: `${this.keyPrefix}.QUOTES.ITEM_6.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_6.CONTEXT`,
     },
   ];
 
   books = [
-    { title: "Man Unfolding", year: '1972', genre: 'Bilim Felsefesi' },
-    { title: 'Anatomy of Reality', year: '1983', genre: 'Bilim Felsefesi' },
-    { title: 'The Survival of the Wisest', year: '1973', genre: 'Toplumsal Görüş' },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_1.TITLE`, year: '1972', genre: `${this.keyPrefix}.BOOKS.ITEM_1.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_2.TITLE`, year: '1983', genre: `${this.keyPrefix}.BOOKS.ITEM_2.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_3.TITLE`, year: '1973', genre: `${this.keyPrefix}.BOOKS.ITEM_3.GENRE` },
   ];
 }

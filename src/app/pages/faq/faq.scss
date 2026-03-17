@@ -26,6 +26,13 @@
   transition: all var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-expressive-standard);
 }
 
+.search-box:focus-within {
+  border-color: var(--md-sys-color-primary);
+  box-shadow:
+    var(--md-sys-elevation-level2),
+    0 0 0 3px color-mix(in srgb, var(--md-sys-color-primary) 24%, transparent);
+}
+
 .search-box:hover {
   transform: translateY(-2px);
   box-shadow: var(--md-sys-elevation-level2);
@@ -47,8 +54,23 @@
   min-height: 48px; /* MD3 Touch Target */
 }
 
+.search-box input:focus-visible {
+  outline: 3px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+  border-radius: var(--md-sys-shape-corner-small);
+}
+
 .search-box input::placeholder {
   color: var(--md-sys-color-on-surface-variant);
+}
+
+.category-tab:focus-visible,
+.toggle-btn:focus-visible,
+.helpful-btn:focus-visible,
+.faq-page .cta-button-primary:focus-visible,
+.faq-page .cta-button-secondary:focus-visible {
+  outline: 3px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
 }
 
 /* FAQ Content */
@@ -355,6 +377,58 @@
   transform: translateY(-3px);
   background: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-box,
+  .category-tab,
+  .faq-item,
+  .faq-header,
+  .toggle-btn,
+  .toggle-btn .material-icons-rounded,
+  .faq-answer,
+  .helpful-btn,
+  .faq-page .cta-button-primary,
+  .faq-page .cta-button-secondary {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+
+  .search-box:hover,
+  .category-tab:hover,
+  .toggle-btn:hover,
+  .faq-page .cta-button-primary:hover,
+  .faq-page .cta-button-secondary:hover {
+    transform: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .search-box,
+  .faq-item,
+  .category-tab,
+  .helpful-btn,
+  .faq-page .cta-button-primary,
+  .faq-page .cta-button-secondary {
+    forced-color-adjust: auto;
+    border-color: ButtonText;
+  }
+
+  .search-box input {
+    background: Canvas;
+    color: CanvasText;
+    border: 1px solid ButtonText;
+  }
+
+  .search-box input:focus-visible,
+  .category-tab:focus-visible,
+  .toggle-btn:focus-visible,
+  .helpful-btn:focus-visible,
+  .faq-page .cta-button-primary:focus-visible,
+  .faq-page .cta-button-secondary:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
 }
 
 /* Responsive Design */

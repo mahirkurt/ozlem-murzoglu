@@ -92,7 +92,7 @@
   </header>
 
   <!-- Article Content -->
-  <main class="article-content">
+  <main class="article-content standard-page-main">
     <div class="container">
       <div class="content-wrapper">
         <!-- Article Body -->
@@ -100,7 +100,7 @@
 
         <!-- Article Tags -->
         <div class="article-tags" *ngIf="article.tags && article.tags.length">
-          <h4>{{ 'BLOG.CATEGORIES' | translate }}:</h4>
+          <h4>{{ 'BLOG.TAGS_LABEL' | translate }}:</h4>
           <div class="tags-list">
             <span *ngFor="let tag of article.tags" class="tag">{{tag}}</span>
           </div>
@@ -110,7 +110,7 @@
         <div class="article-navigation">
           <button (click)="scrollToTop()" class="scroll-top-btn">
             <span class="material-icons-rounded">keyboard_arrow_up</span>
-            <span>{{ 'COMMON.PREVIOUS' | translate }}</span>
+            <span>{{ 'BLOG.BACK_TO_TOP' | translate }}</span>
           </button>
         </div>
       </div>
@@ -120,7 +120,7 @@
   <!-- Related Articles -->
   <section class="related-articles" *ngIf="relatedArticles.length > 0">
     <div class="container">
-      <h2>{{ 'BLOG.RECENT_POSTS' | translate }}</h2>
+      <h2>{{ 'BLOG.RELATED_ARTICLES' | translate }}</h2>
       <div class="related-grid">
         <article *ngFor="let related of relatedArticles" class="related-card">
           <div class="related-image">

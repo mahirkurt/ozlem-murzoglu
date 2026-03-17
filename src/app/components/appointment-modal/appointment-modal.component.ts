@@ -1,11 +1,12 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, OnChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, OnChanges, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
 
 @Component({
   selector: 'app-appointment-modal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './appointment-modal.component.html',
   styleUrl: './appointment-modal.component.css'
 })
@@ -14,9 +15,13 @@ export class AppointmentModalComponent implements OnInit, OnDestroy, OnChanges {
   @Output() close = new EventEmitter<void>();
 
   isLoading = true;
-  readonly whatsappUrl = CONTACT_HELPERS.getWhatsAppApiUrl('Merhaba, randevu almak istiyorum.');
+  private readonly translate = inject(TranslateService);
   readonly phoneUrl = CONTACT_CONFIG.phone.telHref;
   readonly phoneDisplay = CONTACT_CONFIG.phone.display;
+
+  get whatsappUrl(): string {
+    return CONTACT_HELPERS.getWhatsAppApiUrl(this.translate.instant('APPOINTMENT.WHATSAPP_MESSAGE'));
+  }
 
   ngOnInit() {
     if (typeof document !== 'undefined') {

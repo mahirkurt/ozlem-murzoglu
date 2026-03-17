@@ -277,7 +277,7 @@ import { CommonModule } from '@angular/common';
 })
 export class IllustrationComponent {
   @Input() type: string = 'default';
-  @Input() title: string = 'İllüstrasyon';
+  @Input() title: string = '';
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   @Input() animated: boolean = false;
   @Input() glassEffect: boolean = false;

@@ -1,5 +1,6 @@
+<a class="skip-to-content" href="#main-content">{{ 'COMMON.SKIP_LINKS.MAIN_CONTENT' | translate }}</a>
 <header [ngClass]="{'fresh-header-container': true, 'scrolled': isScrolled}">
-  
+
   <!-- Utility Row (Floating above the island) -->
   <div class="utility-row">
     <div class="container utility-content">
@@ -10,7 +11,7 @@
       <span class="utility-sep" aria-hidden="true"></span>
       <a [href]="contactInfo.whatsappUrl" target="_blank" rel="noopener noreferrer" class="utility-link whatsapp" data-track="whatsapp_click" data-track-category="conversion" data-track-label="header">
         <span class="material-icons-rounded" aria-hidden="true">chat</span>
-        <span>WhatsApp</span>
+        <span>{{ 'HEADER.WHATSAPP' | translate }}</span>
       </a>
       <span class="utility-sep" aria-hidden="true"></span>
       <div class="utility-link location-display">
@@ -26,7 +27,10 @@
       
       <!-- Logo Section -->
       <a routerLink="/" class="island-logo">
-        <img [src]="isDarkMode ? '/logos/OM-Wide-White.svg' : '/logos/OM-Wide-Color.svg'" alt="Dr. Özlem Murzoğlu" class="logo-img" />
+        <img
+          [src]="isDarkMode ? '/logos/OM-Wide-White.svg' : '/logos/OM-Wide-Color.svg'"
+          [attr.alt]="'HEADER.BRAND_NAME' | translate"
+          class="logo-img" />
       </a>
 
       <!-- Main Navigation Links -->
@@ -53,7 +57,10 @@
       <!-- Island Actions -->
       <div class="island-actions">
         <!-- Minimal Language Switcher -->
-        <button class="lang-toggle" (click)="handleLanguageChange()">
+        <button
+          class="lang-toggle"
+          (click)="handleLanguageChange()"
+          [attr.aria-label]="'HEADER.CHANGE_LANGUAGE' | translate">
           <span [class.active]="locale === 'tr'">TR</span>
           <span class="divider">/</span>
           <span [class.active]="locale === 'en'">EN</span>
@@ -77,7 +84,11 @@
         </button>
 
         <!-- Mobile Toggle -->
-        <button class="island-mobile-toggle" (click)="toggleMobileMenu()">
+        <button
+          class="island-mobile-toggle"
+          (click)="toggleMobileMenu()"
+          [attr.aria-label]="'HEADER.TOGGLE_MENU' | translate"
+          data-a11y-menu-toggle="main">
           <span class="material-icons-rounded" aria-hidden="true">menu</span>
         </button>
       </div>
@@ -88,13 +99,19 @@
 </header>
 
 <!-- Mobile Menu Overlay -->
-<div [ngClass]="{'mobile-menu': true, 'active': isMobileMenuOpen}">
+<div [ngClass]="{'mobile-menu': true, 'active': isMobileMenuOpen}"
+     role="dialog"
+     [attr.aria-modal]="isMobileMenuOpen ? 'true' : null"
+     [attr.aria-label]="'HEADER.TOGGLE_MENU' | translate">
   <div class="mobile-menu-header">
-    <img [src]="isDarkMode ? '/logos/OM-Wide-White.svg' : '/logos/OM-Wide-Color.svg'" alt="Dr. Özlem Murzoğlu" />
+    <img
+      [src]="isDarkMode ? '/logos/OM-Wide-White.svg' : '/logos/OM-Wide-Color.svg'"
+      [attr.alt]="'HEADER.BRAND_NAME' | translate" />
     <button
       class="mobile-menu-close"
       (click)="toggleMobileMenu()"
-      aria-label="Close menu">
+      [attr.aria-label]="'HEADER.CLOSE_MENU' | translate"
+      data-a11y-close="true">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
         <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
       </svg>
@@ -121,7 +138,7 @@
       <button 
         [ngClass]="{'switch-button': true, 'en-active': locale === 'en', 'animating': isAnimating}"
         (click)="handleLanguageChange()"
-        aria-label="Change language">
+        [attr.aria-label]="'HEADER.CHANGE_LANGUAGE' | translate">
         <span class="switch-track">
           <span class="switch-thumb"></span>
         </span>

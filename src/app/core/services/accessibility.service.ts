@@ -1,6 +1,7 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
 
 /**
@@ -14,6 +15,7 @@ import { filter } from 'rxjs/operators';
 export class AccessibilityService {
   private document = inject(DOCUMENT);
   private router = inject(Router);
+  private translate = inject(TranslateService);
 
   // Accessibility state
   private screenReaderActive = signal(false);
@@ -22,13 +24,14 @@ export class AccessibilityService {
   private reducedMotion = signal(false);
   private fontSize = signal<'normal' | 'large' | 'extra-large'>('normal');
 
-  // Skip links
-  private skipLinks = [
-    { id: 'main-content', label: 'Ana içeriğe geç' },
-    { id: 'main-navigation', label: 'Ana menüye geç' },
-    { id: 'search', label: 'Arama alanına geç' },
-    { id: 'footer', label: 'Footer alanına geç' },
-  ];
+  private pageTitleKeyMap: Record<string, string> = {
+    '/': 'HEADER.NAV_HOME',
+    '/hizmetlerimiz': 'HEADER.NAV_SERVICES',
+    '/hakkimizda': 'HEADER.NAV_ABOUT',
+    '/iletisim': 'HEADER.NAV_CONTACT',
+    '/kaynaklar': 'HEADER.NAV_INFO_CENTER',
+    '/randevu': 'HEADER.NAV_APPOINTMENT',
+  };
 
   // Keyboard shortcuts
   private shortcuts = new Map<string, () => void>([
@@ -59,6 +62,7 @@ export class AccessibilityService {
     this.setupRouteAnnouncements();
     this.createSkipLinks();
     this.createLiveRegions();
+    this.translate.onLangChange.subscribe(() => this.refreshLocalizedAccessibility());
   }
 
   /**
@@ -67,10 +71,13 @@ export class AccessibilityService {
   private initializeAccessibility(): void {
     // Add accessibility attributes to body
     this.document.body.setAttribute('role', 'application');
-    this.document.body.setAttribute('aria-label', 'Dr. Özlem Murzoğlu Pediatri Kliniği');
+    this.document.body.setAttribute(
+      'aria-label',
+      this.translate.instant('ACCESSIBILITY.CLINIC_ARIA_LABEL')
+    );
 
     // Set language
-    this.document.documentElement.setAttribute('lang', 'tr');
+    this.document.documentElement.setAttribute('lang', this.translate.currentLang || 'tr');
 
     // Add landmark roles if missing
     this.ensureLandmarkRoles();
@@ -82,30 +89,38 @@ export class AccessibilityService {
   private ensureLandmarkRoles(): void {
     // Main content
     const main = this.document.querySelector('main');
-    if (main && !main.getAttribute('role')) {
-      main.setAttribute('role', 'main');
-      main.setAttribute('aria-label', 'Ana içerik');
+    if (main) {
+      if (!main.getAttribute('role')) {
+        main.setAttribute('role', 'main');
+      }
+      main.setAttribute('aria-label', this.translate.instant('ACCESSIBILITY.MAIN_CONTENT'));
     }
 
     // Navigation
     const nav = this.document.querySelector('nav');
-    if (nav && !nav.getAttribute('role')) {
-      nav.setAttribute('role', 'navigation');
-      nav.setAttribute('aria-label', 'Ana navigasyon');
+    if (nav) {
+      if (!nav.getAttribute('role')) {
+        nav.setAttribute('role', 'navigation');
+      }
+      nav.setAttribute('aria-label', this.translate.instant('ACCESSIBILITY.MAIN_NAVIGATION'));
     }
 
     // Header
     const header = this.document.querySelector('header');
-    if (header && !header.getAttribute('role')) {
-      header.setAttribute('role', 'banner');
-      header.setAttribute('aria-label', 'Site başlığı');
+    if (header) {
+      if (!header.getAttribute('role')) {
+        header.setAttribute('role', 'banner');
+      }
+      header.setAttribute('aria-label', this.translate.instant('ACCESSIBILITY.SITE_HEADER'));
     }
 
     // Footer
     const footer = this.document.querySelector('footer');
-    if (footer && !footer.getAttribute('role')) {
-      footer.setAttribute('role', 'contentinfo');
-      footer.setAttribute('aria-label', 'Site altbilgi');
+    if (footer) {
+      if (!footer.getAttribute('role')) {
+        footer.setAttribute('role', 'contentinfo');
+      }
+      footer.setAttribute('aria-label', this.translate.instant('ACCESSIBILITY.SITE_FOOTER'));
     }
   }
 
@@ -120,7 +135,9 @@ export class AccessibilityService {
       if (handler) {
         event.preventDefault();
         handler();
-        this.announceAction(`${key} kısayolu kullanıldı`);
+        this.announceAction(
+          this.translate.instant('ACCESSIBILITY.SHORTCUT_USED', { shortcut: key })
+        );
       }
     });
   }
@@ -207,28 +224,28 @@ export class AccessibilityService {
    * Get page title from URL
    */
   private getPageTitle(url: string): string {
-    const titles: Record<string, string> = {
-      '/': 'Ana Sayfa',
-      '/hizmetlerimiz': 'Hizmetlerimiz',
-      '/hakkimizda': 'Hakkımızda',
-      '/iletisim': 'İletişim',
-      '/kaynaklar': 'Kaynaklar',
-      '/randevu': 'Randevu Al',
-    };
-
-    return titles[url] || 'Sayfa';
+    const translationKey = this.pageTitleKeyMap[url];
+    return translationKey
+      ? this.translate.instant(translationKey)
+      : this.translate.instant('ACCESSIBILITY.PAGE_FALLBACK');
   }
 
   /**
    * Create skip links for keyboard navigation
    */
   private createSkipLinks(): void {
+    const existingContainer = this.document.querySelector('.skip-links');
+    existingContainer?.remove();
+
     const skipLinksContainer = this.document.createElement('div');
     skipLinksContainer.className = 'skip-links';
     skipLinksContainer.setAttribute('role', 'navigation');
-    skipLinksContainer.setAttribute('aria-label', 'Hızlı erişim linkleri');
+    skipLinksContainer.setAttribute(
+      'aria-label',
+      this.translate.instant('ACCESSIBILITY.SKIP_LINKS_NAV')
+    );
 
-    this.skipLinks.forEach((link) => {
+    this.getSkipLinks().forEach((link) => {
       const anchor = this.document.createElement('a');
       anchor.href = `#${link.id}`;
       anchor.className = 'skip-link';
@@ -251,7 +268,11 @@ export class AccessibilityService {
     if (element) {
       element.focus();
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      this.announceAction(`${elementId} alanına geçildi`);
+      this.announceAction(
+        this.translate.instant('ACCESSIBILITY.SKIP_LINK_ACTIVATED', {
+          target: this.getSkipLinkLabel(elementId),
+        })
+      );
     }
   }
 
@@ -305,7 +326,10 @@ export class AccessibilityService {
    * Announce page change
    */
   private announcePageChange(pageTitle: string): void {
-    this.announce(`${pageTitle} sayfası yüklendi`, 'polite');
+    this.announce(
+      this.translate.instant('ACCESSIBILITY.PAGE_LOADED', { pageTitle }),
+      'polite'
+    );
   }
 
   /**
@@ -319,7 +343,7 @@ export class AccessibilityService {
    * Update page title
    */
   private updatePageTitle(title: string): void {
-    this.document.title = `${title} - Dr. Özlem Murzoğlu`;
+    this.document.title = this.translate.instant('ACCESSIBILITY.DOCUMENT_TITLE', { title });
   }
 
   /**
@@ -344,7 +368,7 @@ export class AccessibilityService {
   }
 
   private toggleMainMenu(): void {
-    const menuButton = this.document.querySelector('[aria-label="Ana menüyü aç"]') as HTMLElement;
+    const menuButton = this.document.querySelector('[data-a11y-menu-toggle="main"]') as HTMLElement;
     if (menuButton) {
       menuButton.click();
     }
@@ -360,7 +384,7 @@ export class AccessibilityService {
   private closeAllModals(): void {
     const modals = this.document.querySelectorAll('[role="dialog"]');
     modals.forEach((modal) => {
-      const closeButton = modal.querySelector('[aria-label*="Kapat"]') as HTMLElement;
+      const closeButton = modal.querySelector('[data-a11y-close="true"]') as HTMLElement;
       if (closeButton) {
         closeButton.click();
       }
@@ -380,7 +404,7 @@ export class AccessibilityService {
       this.document.body.classList.remove('font-large');
       this.document.body.classList.add('font-extra-large');
     }
-    this.announceAction('Yazı boyutu büyütüldü');
+    this.announceAction(this.translate.instant('ACCESSIBILITY.FONT_SIZE_INCREASED'));
   }
 
   public decreaseFontSize(): void {
@@ -393,7 +417,7 @@ export class AccessibilityService {
       this.fontSize.set('normal');
       this.document.body.classList.remove('font-large');
     }
-    this.announceAction('Yazı boyutu küçültüldü');
+    this.announceAction(this.translate.instant('ACCESSIBILITY.FONT_SIZE_DECREASED'));
   }
 
   /**
@@ -404,7 +428,9 @@ export class AccessibilityService {
     this.highContrastMode.set(isActive);
     this.document.body.classList.toggle('high-contrast', isActive);
     this.announceAction(
-      isActive ? 'Yüksek kontrast modu açıldı' : 'Yüksek kontrast modu kapatıldı'
+      this.translate.instant(
+        isActive ? 'ACCESSIBILITY.HIGH_CONTRAST_ENABLED' : 'ACCESSIBILITY.HIGH_CONTRAST_DISABLED'
+      )
     );
   }
 
@@ -413,18 +439,47 @@ export class AccessibilityService {
    */
   public getKeyboardShortcuts(): Array<{ key: string; description: string }> {
     return [
-      { key: 'Alt+H', description: 'Ana sayfaya git' },
-      { key: 'Alt+S', description: 'Hizmetler sayfasına git' },
-      { key: 'Alt+A', description: 'Hakkımızda sayfasına git' },
-      { key: 'Alt+I', description: 'İletişim sayfasına git' },
-      { key: 'Alt+R', description: 'Kaynaklar sayfasına git' },
-      { key: 'Alt+M', description: 'Ana menüyü aç/kapat' },
-      { key: 'Alt+/', description: 'Arama alanına odaklan' },
-      { key: 'Alt++', description: 'Yazı boyutunu büyüt' },
-      { key: 'Alt+-', description: 'Yazı boyutunu küçült' },
-      { key: 'Alt+C', description: 'Yüksek kontrastı aç/kapat' },
-      { key: 'Escape', description: 'Tüm modalleri kapat' },
+      { key: 'Alt+H', description: this.translate.instant('ACCESSIBILITY.SHORTCUTS.GO_HOME') },
+      { key: 'Alt+S', description: this.translate.instant('ACCESSIBILITY.SHORTCUTS.GO_SERVICES') },
+      { key: 'Alt+A', description: this.translate.instant('ACCESSIBILITY.SHORTCUTS.GO_ABOUT') },
+      { key: 'Alt+I', description: this.translate.instant('ACCESSIBILITY.SHORTCUTS.GO_CONTACT') },
+      { key: 'Alt+R', description: this.translate.instant('ACCESSIBILITY.SHORTCUTS.GO_RESOURCES') },
+      { key: 'Alt+M', description: this.translate.instant('ACCESSIBILITY.SHORTCUTS.TOGGLE_MENU') },
+      { key: 'Alt+/', description: this.translate.instant('ACCESSIBILITY.SHORTCUTS.FOCUS_SEARCH') },
+      { key: 'Alt++', description: this.translate.instant('ACCESSIBILITY.SHORTCUTS.INCREASE_FONT') },
+      { key: 'Alt+-', description: this.translate.instant('ACCESSIBILITY.SHORTCUTS.DECREASE_FONT') },
+      {
+        key: 'Alt+C',
+        description: this.translate.instant('ACCESSIBILITY.SHORTCUTS.TOGGLE_HIGH_CONTRAST'),
+      },
+      { key: 'Escape', description: this.translate.instant('ACCESSIBILITY.SHORTCUTS.CLOSE_MODALS') },
     ];
+  }
+
+  private refreshLocalizedAccessibility(): void {
+    this.document.body.setAttribute(
+      'aria-label',
+      this.translate.instant('ACCESSIBILITY.CLINIC_ARIA_LABEL')
+    );
+    this.document.documentElement.setAttribute('lang', this.translate.currentLang || 'tr');
+    this.ensureLandmarkRoles();
+    this.createSkipLinks();
+  }
+
+  private getSkipLinks(): Array<{ id: string; label: string }> {
+    return [
+      { id: 'main-content', label: this.translate.instant('ACCESSIBILITY.SKIP_LINKS.MAIN_CONTENT') },
+      {
+        id: 'main-navigation',
+        label: this.translate.instant('ACCESSIBILITY.SKIP_LINKS.MAIN_NAVIGATION'),
+      },
+      { id: 'search', label: this.translate.instant('ACCESSIBILITY.SKIP_LINKS.SEARCH') },
+      { id: 'footer', label: this.translate.instant('ACCESSIBILITY.SKIP_LINKS.FOOTER') },
+    ];
+  }
+
+  private getSkipLinkLabel(id: string): string {
+    return this.getSkipLinks().find((link) => link.id === id)?.label || id;
   }
 
   /**

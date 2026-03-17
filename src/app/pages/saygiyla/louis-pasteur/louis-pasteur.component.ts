@@ -12,83 +12,83 @@ import { HeroSectionComponent } from '../../../components/shared/hero-section/he
   styleUrl: './louis-pasteur.component.css',
 })
 export class LouisPasteurComponent {
+  private readonly keyPrefix = 'SAYGIYLA.PIONEERS.LOUIS_PASTEUR';
+
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Saygıyla', link: '/saygiyla' },
-    { label: 'Louis Pasteur' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_RESPECT', link: '/saygiyla' },
+    { label: `${this.keyPrefix}.NAME` }
   ];
   timeline = [
-    { year: '1822', event: "27 Aralık - Dole, Fransa'da bir deri tabakçısının oğlu olarak doğdu" },
-    { year: '1847', event: "École Normale Supérieure'den kimya ve fizik doktorası aldı" },
-    { year: '1848', event: 'Kristallerin optik aktivitesi üzerine çığır açan keşfini yaptı' },
-    { year: '1857', event: "Lille Üniversitesi'nde Fen Fakültesi dekanı oldu" },
+    { year: '1822', event: `${this.keyPrefix}.TIMELINE.ITEM_1` },
+    { year: '1847', event: `${this.keyPrefix}.TIMELINE.ITEM_2` },
+    { year: '1848', event: `${this.keyPrefix}.TIMELINE.ITEM_3` },
+    { year: '1857', event: `${this.keyPrefix}.TIMELINE.ITEM_4` },
     {
       year: '1862',
-      event: 'Kendiliğinden oluşum teorisini çürüten kuğu boyunlu şişe deneyini gerçekleştirdi',
+      event: `${this.keyPrefix}.TIMELINE.ITEM_5`,
     },
-    { year: '1864', event: 'Pastörizasyon yöntemini geliştirdi' },
-    { year: '1865', event: 'İpekböceği hastalıklarını çözmeye başladı' },
-    { year: '1881', event: 'Şarbon aşısını başarıyla test etti' },
-    { year: '1885', event: "6 Temmuz - Joseph Meister'e kuduz aşısını uyguladı" },
-    { year: '1888', event: 'Pasteur Enstitüsü kuruldu' },
-    { year: '1895', event: '28 Eylül - Paris yakınlarında 72 yaşında vefat etti' },
+    { year: '1864', event: `${this.keyPrefix}.TIMELINE.ITEM_6` },
+    { year: '1865', event: `${this.keyPrefix}.TIMELINE.ITEM_7` },
+    { year: '1881', event: `${this.keyPrefix}.TIMELINE.ITEM_8` },
+    { year: '1885', event: `${this.keyPrefix}.TIMELINE.ITEM_9` },
+    { year: '1888', event: `${this.keyPrefix}.TIMELINE.ITEM_10` },
+    { year: '1895', event: `${this.keyPrefix}.TIMELINE.ITEM_11` },
   ];
 
   contributions = [
     {
       icon: 'science',
-      title: 'Mikrop Teorisi',
-      description:
-        'Hastalıkların mikroorganizmalardan kaynaklandığını kanıtlayarak modern tıbbın temelini attı.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.DESCRIPTION`,
     },
     {
       icon: 'vaccines',
-      title: 'Aşı Bilimi',
-      description:
-        'Zayıflatılmış mikroplarla aşı geliştirme yöntemini buldu ve kuduz aşısını keşfetti.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.DESCRIPTION`,
     },
     {
       icon: 'restaurant',
-      title: 'Pastörizasyon',
-      description: 'Gıdaları koruma yöntemiyle milyonlarca hayat kurtardı.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.DESCRIPTION`,
     },
     {
       icon: 'biotech',
-      title: 'Sterilizasyon',
-      description: 'Cerrahi aletlerin ve tıbbi malzemelerin sterilizasyonunun önemini gösterdi.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.DESCRIPTION`,
     },
   ];
 
   quotes = [
     {
-      text: 'Şans, hazırlıklı zihinleri tercih eder.',
-      context: 'Bilimsel keşifler üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_1.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_1.CONTEXT`,
     },
     {
-      text: 'Bilim, hiçbir ülkeye ait değildir, çünkü bilgi insanlığa aittir ve dünyayı aydınlatan meşaledir.',
-      context: 'Bilimin evrenselliği üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_2.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_2.CONTEXT`,
     },
     {
-      text: 'Çalışmaktan yorulmam, çünkü çalışmalarım meyvelerini veriyor.',
-      context: 'Araştırma tutkusu',
+      text: `${this.keyPrefix}.QUOTES.ITEM_3.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_3.CONTEXT`,
     },
     {
-      text: 'Hayat, hayattan gelir. Omne vivum ex vivo.',
-      context: 'Kendiliğinden oluşum teorisini çürütürken',
+      text: `${this.keyPrefix}.QUOTES.ITEM_4.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_4.CONTEXT`,
     },
     {
-      text: 'Bir damla su içinde, bir mikroskop altında, yaşam için savaşan varlıklar vardır.',
-      context: 'Mikroorganizmalar üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_5.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_5.CONTEXT`,
     },
     {
-      text: 'Bilimin sınırı yoktur, çünkü insan zihni sınırsızdır.',
-      context: 'Bilimsel ilerleme üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_6.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_6.CONTEXT`,
     },
   ];
 
   books = [
-    { title: 'Études sur le vin', year: '1866', genre: 'Bilimsel Araştırma' },
-    { title: 'Études sur la bière', year: '1876', genre: 'Bilimsel Araştırma' },
-    { title: 'Études sur la maladie des vers à soie', year: '1870', genre: 'Hastalık Araştırması' },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_1.TITLE`, year: '1866', genre: `${this.keyPrefix}.BOOKS.ITEM_1.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_2.TITLE`, year: '1876', genre: `${this.keyPrefix}.BOOKS.ITEM_2.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_3.TITLE`, year: '1870', genre: `${this.keyPrefix}.BOOKS.ITEM_3.GENRE` },
   ];
 }

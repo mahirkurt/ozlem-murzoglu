@@ -12,82 +12,83 @@ import { HeroSectionComponent } from '../../../components/shared/hero-section/he
   styleUrl: './turkan-saylan.component.css',
 })
 export class TurkanSaylanComponent {
+  private readonly keyPrefix = 'SAYGIYLA.PIONEERS.TURKAN_SAYLAN';
+
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Saygıyla', link: '/saygiyla' },
-    { label: 'Türkan Saylan' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_RESPECT', link: '/saygiyla' },
+    { label: `${this.keyPrefix}.NAME` }
   ];
   timeline = [
-    { year: '1935', event: "3 Mayıs - İstanbul'da doğdu" },
-    { year: '1963', event: "İstanbul Üniversitesi Tıp Fakültesi'nden mezun oldu" },
-    { year: '1968', event: 'Deri ve Zührevi Hastalıklar uzmanlığını tamamladı' },
-    { year: '1976', event: "İstanbul Üniversitesi'nde doçent oldu" },
-    { year: '1982', event: 'Profesör unvanını aldı' },
-    { year: '1988', event: "İstanbul Lepra Hastanesi'nin başhekimi oldu" },
-    { year: '1989', event: "Çağdaş Yaşamı Destekleme Derneği'ni (ÇYDD) kurdu" },
-    { year: '1991', event: 'Kardelenler projesi başladı' },
-    { year: '2009', event: 'Ergenekon davası kapsamında gözaltına alındı' },
-    { year: '2009', event: '18 Mayıs - 74 yaşında vefat etti' },
+    { year: '1935', event: `${this.keyPrefix}.TIMELINE.ITEM_1` },
+    { year: '1963', event: `${this.keyPrefix}.TIMELINE.ITEM_2` },
+    { year: '1968', event: `${this.keyPrefix}.TIMELINE.ITEM_3` },
+    { year: '1976', event: `${this.keyPrefix}.TIMELINE.ITEM_4` },
+    { year: '1982', event: `${this.keyPrefix}.TIMELINE.ITEM_5` },
+    { year: '1988', event: `${this.keyPrefix}.TIMELINE.ITEM_6` },
+    { year: '1989', event: `${this.keyPrefix}.TIMELINE.ITEM_7` },
+    { year: '1991', event: `${this.keyPrefix}.TIMELINE.ITEM_8` },
+    { year: '2009', event: `${this.keyPrefix}.TIMELINE.ITEM_9` },
+    { year: '2009', event: `${this.keyPrefix}.TIMELINE.ITEM_10` },
   ];
 
   contributions = [
     {
       icon: 'healing',
-      title: 'Lepra ile Mücadele',
-      description:
-        "Türkiye'de lepra hastalığının tedavisi ve toplumsal önyargılarla mücadelede öncü oldu.",
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.DESCRIPTION`,
     },
     {
       icon: 'school',
-      title: 'Kız Çocuklarının Eğitimi',
-      description: 'ÇYDD ve Kardelenler projesiyle binlerce kız çocuğunun eğitim almasını sağladı.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.DESCRIPTION`,
     },
     {
       icon: 'volunteer_activism',
-      title: 'Toplumsal Dönüşüm',
-      description: 'Eğitim yoluyla toplumsal kalkınma ve çağdaşlaşma için ömür boyu mücadele etti.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.DESCRIPTION`,
     },
     {
       icon: 'groups',
-      title: 'Sivil Toplum Öncüsü',
-      description: "Türkiye'nin en etkili sivil toplum örgütlerinden birini kurdu ve yönetti.",
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.DESCRIPTION`,
     },
   ];
 
   quotes = [
     {
-      text: 'Benim tek derdim, kız çocuklarımızın okuyabilmesi.',
-      context: 'Eğitim mücadelesi üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_1.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_1.CONTEXT`,
     },
     {
-      text: 'Bir ülkenin gelişmişlik düzeyi, kadınlarının statüsüyle ölçülür.',
-      context: 'Kadın hakları üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_2.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_2.CONTEXT`,
     },
     {
-      text: 'Eğitim, karanlıkları aydınlatan tek ışıktır.',
-      context: 'Eğitimin önemi üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_3.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_3.CONTEXT`,
     },
     {
-      text: 'Çocuklar bizim geleceğimiz, onlara yatırım yapmak en büyük görevimiz.',
-      context: 'Gelecek nesiller üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_4.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_4.CONTEXT`,
     },
     {
-      text: 'Bilim ve akıl, her şeyin üstündedir.',
-      context: 'Bilimsel düşünce üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_5.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_5.CONTEXT`,
     },
     {
-      text: 'Korkmayın, düşünün ve üretin.',
-      context: 'Gençlere mesajı',
+      text: `${this.keyPrefix}.QUOTES.ITEM_6.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_6.CONTEXT`,
     },
   ];
 
   books = [
-    { title: "Cumhuriyet'in Kızları", year: '2006', genre: 'Anı/Deneme' },
-    { title: 'Gözlerim Kapalı Uçtum', year: '2008', genre: 'Otobiyografi' },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_1.TITLE`, year: '2006', genre: `${this.keyPrefix}.BOOKS.ITEM_1.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_2.TITLE`, year: '2008', genre: `${this.keyPrefix}.BOOKS.ITEM_2.GENRE` },
     {
-      title: 'Türkan Saylan: Yaşamı ve Yapıtı',
+      title: `${this.keyPrefix}.BOOKS.ITEM_3.TITLE`,
       year: '2010',
-      genre: 'Biyografi (Ölümünden sonra)',
+      genre: `${this.keyPrefix}.BOOKS.ITEM_3.GENRE`,
     },
   ];
 }

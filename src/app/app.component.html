@@ -1,5 +1,11 @@
 <app-header [locale]="locale" (localeChange)="onLocaleChange($event)"></app-header>
-<main id="main-content" [@routeAnimation]="getRouteAnimationData()">
+<main
+  id="main-content"
+  [@routeAnimation]="getRouteAnimationData()"
+  [class.standard-page]="isNonHomeRoute"
+  [class.standard-page-main-host]="isNonHomeRoute"
+  [class.standard-page--expressive-minimum]="isNonHomeRoute && routeExpressionLevel === 'minimum'"
+  [class.standard-page--expressive-moderate]="isNonHomeRoute && routeExpressionLevel === 'moderate'">
   <router-outlet></router-outlet>
 </main>
 <app-footer></app-footer>

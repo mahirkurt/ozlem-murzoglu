@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, ElementRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AppointmentModalComponent } from '../appointment-modal/appointment-modal.component';
@@ -19,8 +19,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   
   private translate = inject(TranslateService);
   private themeService = inject(ThemeService);
-  
+  private el = inject(ElementRef);
+
   isMobileMenuOpen = false;
+  private focusTrapCleanup: (() => void) | null = null;
   isScrolled = false;
   activeDropdown: string | null = null;
   isAnimating = false;
@@ -51,7 +53,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
         { labelKey: 'SERVICES.SERVICE_LAB.TITLE', href: '/hizmetlerimiz/laboratuvar-goruntuleme' },
         { labelKey: 'SERVICES.SERVICE_TRIPLE_P.TITLE', href: '/hizmetlerimiz/triple-p' },
         { labelKey: 'SERVICES.SERVICE_SLEEP.TITLE', href: '/hizmetlerimiz/saglikli-uykular' },
-        { labelKey: 'SERVICES.SERVICE_BRIGHT_FUTURES.TITLE', href: '/hizmetlerimiz/bright-futures-program' }
+        { labelKey: 'SERVICES.SERVICE_BRIGHT_FUTURES.TITLE', href: '/hizmetlerimiz/bright-futures-program' },
+        { labelKey: 'SERVICES.SERVICE_SOS_FEEDING.TITLE', href: '/hizmetlerimiz/sos-feeding' }
       ]
     },
     {
@@ -59,22 +62,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
       href: '/kaynaklar',
       children: [
         { labelKey: 'RESOURCES.ALL_RESOURCES', href: '/kaynaklar' },
-        { labelKey: 'RESOURCES.CATEGORIES.VACCINES', href: '/bilgi-merkezi/asilar' },
-        { labelKey: 'RESOURCES.CATEGORIES.DEVELOPMENT', href: '/bilgi-merkezi/gelisim-rehberleri' },
-        { labelKey: 'RESOURCES.CATEGORIES.GENERAL_INFO', href: '/bilgi-merkezi/genel-bilgiler' },
-        { labelKey: 'RESOURCES.CATEGORIES.CDC_GROWTH', href: '/bilgi-merkezi/cdc-buyume-egrileri' },
-        { labelKey: 'RESOURCES.CATEGORIES.MEDIA_PLAN', href: '/bilgi-merkezi/aile-medya-plani' }
+        { labelKey: 'RESOURCES.CATEGORIES.VACCINES', href: '/kaynaklar/asilar' },
+        { labelKey: 'RESOURCES.CATEGORIES.DEVELOPMENT', href: '/kaynaklar/gelisim-rehberleri' },
+        { labelKey: 'RESOURCES.CATEGORIES.GENERAL_INFO', href: '/kaynaklar/genel-bilgiler' },
+        { labelKey: 'RESOURCES.CATEGORIES.MEDIA_PLAN', href: '/kaynaklar/aile-medya-plani' }
       ]
     },
     {
       labelKey: 'HEADER.NAV_RESPECT',
-      href: '/saygiyla',
-      children: [
-        { label: 'Mustafa Kemal Atatürk', href: '/saygiyla' },
-        { label: 'Prof. Dr. Albert Sabin', href: '/saygiyla' },
-        { label: 'Prof. Dr. İhsan Doğramacı', href: '/saygiyla' },
-        { label: 'Prof. Dr. Türkan Saylan', href: '/saygiyla' }
-      ]
+      href: '/saygiyla'
     },
     {
       labelKey: 'HEADER.NAV_CONTACT',
@@ -99,6 +95,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (typeof window !== 'undefined') {
       window.removeEventListener('scroll', this.handleScroll.bind(this));
     }
+    this.deactivateFocusTrap();
   }
 
   handleScroll() {
@@ -109,7 +106,61 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
     if (typeof document !== 'undefined') {
       document.body.style.overflow = this.isMobileMenuOpen ? 'hidden' : '';
+
+      if (this.isMobileMenuOpen) {
+        this.activateFocusTrap();
+      } else {
+        this.deactivateFocusTrap();
+      }
     }
+  }
+
+  private activateFocusTrap() {
+    const menu = this.el.nativeElement.querySelector('.mobile-menu');
+    if (!menu) return;
+
+    // Focus the close button after menu opens
+    requestAnimationFrame(() => {
+      const closeBtn = menu.querySelector('.mobile-menu-close') as HTMLElement;
+      closeBtn?.focus();
+    });
+
+    const onKeydown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        this.toggleMobileMenu();
+        // Return focus to the toggle button
+        const toggleBtn = this.el.nativeElement.querySelector('.island-mobile-toggle') as HTMLElement;
+        toggleBtn?.focus();
+        return;
+      }
+
+      if (e.key !== 'Tab') return;
+
+      const focusableEls = menu.querySelectorAll(
+        'a[href]:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      ) as NodeListOf<HTMLElement>;
+
+      if (focusableEls.length === 0) return;
+
+      const first = focusableEls[0];
+      const last = focusableEls[focusableEls.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKeydown);
+    this.focusTrapCleanup = () => document.removeEventListener('keydown', onKeydown);
+  }
+
+  private deactivateFocusTrap() {
+    this.focusTrapCleanup?.();
+    this.focusTrapCleanup = null;
   }
 
   setActiveDropdown(label: string | null) {

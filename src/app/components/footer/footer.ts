@@ -38,24 +38,30 @@ export class Footer {
     }
   };
 
-  socialLinks: SocialLink[] = [
-    { platform: 'instagram', url: 'https://instagram.com/dr.ozlemmurzoglu' },
-    { platform: 'facebook', url: 'https://www.facebook.com/dr.murzoglu/' },
-    { platform: 'twitter', url: 'https://x.com/ozlemmurzoglu' },
-    { platform: 'linkedin', url: 'https://www.linkedin.com/in/ozlemmurzoglu/' },
-    { platform: 'youtube', url: 'https://www.youtube.com/@ozlemmurzoglu' },
-    { platform: 'google', url: CONTACT_CONFIG.mapsUrl },
-    { platform: 'whatsapp', url: CONTACT_HELPERS.getWhatsAppApiUrl('Merhaba, WhatsApp bilgilerinizi web sitenizden aldım.') }
-  ];
+  get socialLinks(): SocialLink[] {
+    return [
+      { platform: 'instagram', url: 'https://instagram.com/dr.ozlemmurzoglu' },
+      { platform: 'facebook', url: 'https://www.facebook.com/dr.murzoglu/' },
+      { platform: 'twitter', url: 'https://x.com/ozlemmurzoglu' },
+      { platform: 'linkedin', url: 'https://www.linkedin.com/in/ozlemmurzoglu/' },
+      { platform: 'youtube', url: 'https://www.youtube.com/@ozlemmurzoglu' },
+      { platform: 'google', url: CONTACT_CONFIG.mapsUrl },
+      {
+        platform: 'whatsapp',
+        url: CONTACT_HELPERS.getWhatsAppApiUrl(this.translate.instant('CONTACT.WHATSAPP_PREFILL')),
+      },
+    ];
+  }
 
   quickLinks = [
     { labelKey: 'FOOTER.HOME', href: '/' },
     { labelKey: 'FOOTER.ABOUT', href: '/hakkimizda' },
     { labelKey: 'FOOTER.SERVICES', href: '/hizmetlerimiz' },
-    { labelKey: 'FOOTER.INFO_CENTER', href: '/bilgi-merkezi' },
-    { labelKey: 'FOOTER.FAQ', href: '/sss' },
+    { labelKey: 'FOOTER.INFO_CENTER', href: '/kaynaklar' },
+    { labelKey: 'FOOTER.FAQ', href: '/hakkimizda/sss' },
     { labelKey: 'FOOTER.CONTACT', href: '/iletisim' },
-    { labelKey: 'FOOTER.APPOINTMENT', href: '/randevu' }
+    { labelKey: 'FOOTER.APPOINTMENT', href: '/randevu' },
+    { labelKey: 'FOOTER.BLOG', href: '/blog' }
   ];
 
   services = [
@@ -63,8 +69,7 @@ export class Footer {
     { labelKey: 'FOOTER.TRIPLE_P', href: '/hizmetlerimiz/triple-p' },
     { labelKey: 'FOOTER.HEALTHY_SLEEP', href: '/hizmetlerimiz/saglikli-uykular' },
     { labelKey: 'FOOTER.LAB_IMAGING', href: '/hizmetlerimiz/laboratuvar-goruntuleme' },
-    { labelKey: 'FOOTER.VACCINATION', href: '/hizmetlerimiz/asi-takibi' },
-    { labelKey: 'FOOTER.DEVELOPMENT', href: '/hizmetlerimiz/gelisim-degerlendirmesi' }
+    { labelKey: 'FOOTER.SOS_FEEDING', href: '/hizmetlerimiz/sos-feeding' }
   ];
 
   footerLinks = [

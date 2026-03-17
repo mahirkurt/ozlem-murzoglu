@@ -12,70 +12,71 @@ import { HeroSectionComponent } from '../../../components/shared/hero-section/he
   styleUrl: './nils-rosen.component.css',
 })
 export class NilsRosenComponent {
+  private readonly keyPrefix = 'SAYGIYLA.PIONEERS.NILS_ROSEN';
+
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Saygıyla', link: '/saygiyla' },
-    { label: 'Nils Rosén' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_RESPECT', link: '/saygiyla' },
+    { label: `${this.keyPrefix}.NAME` }
   ];
   timeline = [
-    { year: '1884', event: "16 Temmuz - İsveç'in Växjö şehrinde doğdu" },
-    { year: '1909', event: "Karolinska Institute'den tıp doktoru olarak mezun oldu" },
-    { year: '1912', event: 'Pediatri alanında uzmanlık eğitimine başladı' },
-    { year: '1920', event: "Stockholm Çocuk Hastanesi'nde çalışmaya başladı" },
-    { year: '1928', event: 'Modern inkübatör sistemini geliştirdi' },
-    { year: '1935', event: 'Prematüre bebek bakımında devrim yaratacak araştırmaları yayınladı' },
-    { year: '1940', event: "Karolinska Institute'de pediatri profesörü oldu" },
-    { year: '1945', event: 'İkinci Dünya Savaşı sırasında çocuk sağlığı programları geliştirdi' },
-    { year: '1950', event: 'Emekli oldu ancak araştırmalarına devam etti' },
-    { year: '1963', event: '26 Şubat - 78 yaşında Stockholm\'de vefat etti' },
+    { year: '1884', event: `${this.keyPrefix}.TIMELINE.ITEM_1` },
+    { year: '1909', event: `${this.keyPrefix}.TIMELINE.ITEM_2` },
+    { year: '1912', event: `${this.keyPrefix}.TIMELINE.ITEM_3` },
+    { year: '1920', event: `${this.keyPrefix}.TIMELINE.ITEM_4` },
+    { year: '1928', event: `${this.keyPrefix}.TIMELINE.ITEM_5` },
+    { year: '1935', event: `${this.keyPrefix}.TIMELINE.ITEM_6` },
+    { year: '1940', event: `${this.keyPrefix}.TIMELINE.ITEM_7` },
+    { year: '1945', event: `${this.keyPrefix}.TIMELINE.ITEM_8` },
+    { year: '1950', event: `${this.keyPrefix}.TIMELINE.ITEM_9` },
+    { year: '1963', event: `${this.keyPrefix}.TIMELINE.ITEM_10` },
   ];
 
   contributions = [
     {
       icon: 'child_care',
-      title: 'Modern İnkübatör Geliştirme',
-      description:
-        'Prematüre bebeklerin yaşam şansını artıran modern inkübatör sistemini tasarlayarak neonatal tıp alanında devrim yaratttı.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.DESCRIPTION`,
     },
     {
       icon: 'thermostat',
-      title: 'Sıcaklık Kontrolü',
-      description: 'Bebeklerin vücut ısısını optimal düzeyde tutacak hassas sıcaklık kontrol sistemleri geliştirdi.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.DESCRIPTION`,
     },
     {
       icon: 'healing',
-      title: 'Neonatal Bakım',
-      description: 'Yenidoğan yoğun bakım ünitelerinin temellerini atarak binlerce bebeğin yaşamını kurtardı.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.DESCRIPTION`,
     },
     {
       icon: 'science',
-      title: 'Pediatrik Araştırmalar',
-      description: "İsveç'te çocuk sağlığı araştırmalarının gelişmesinde öncü rol oynadı.",
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.DESCRIPTION`,
     },
   ];
 
   quotes = [
     {
-      text: 'Prematüre bir bebek için her dakika değerlidir. Modern teknoloji onlara bu zamanı kazandırır.',
-      context: 'İnkübatör teknolojisi üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_1.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_1.CONTEXT`,
     },
     {
-      text: 'Tıbbın görevi, en savunmasız olanları korumaktır. Prematüre bebekler bunların en başında gelir.',
-      context: 'Neonatal tıp üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_2.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_2.CONTEXT`,
     },
     {
-      text: 'Bir bebeğin ilk nefesi, tüm insanlığın umududur.',
-      context: 'Çocuk sağlığı üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_3.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_3.CONTEXT`,
     },
     {
-      text: 'Bilim ve şefkat bir araya geldiğinde, mucizeler yaratılır.',
-      context: 'Tıbbi araştırmalar üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_4.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_4.CONTEXT`,
     },
   ];
 
   books = [
-    { title: 'Prematüre Bebek Bakımı', year: '1935', genre: 'Tıbbi Araştırma' },
-    { title: 'Modern İnkübatör Sistemleri', year: '1940', genre: 'Teknik El Kitabı' },
-    { title: 'Neonatal Tıptan Perspektifler', year: '1955', genre: 'Akademik Çalışma' },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_1.TITLE`, year: '1935', genre: `${this.keyPrefix}.BOOKS.ITEM_1.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_2.TITLE`, year: '1940', genre: `${this.keyPrefix}.BOOKS.ITEM_2.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_3.TITLE`, year: '1955', genre: `${this.keyPrefix}.BOOKS.ITEM_3.GENRE` },
   ];
 }

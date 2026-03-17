@@ -488,6 +488,7 @@ async function cmdBudget(customer) {
       campaign.name,
       campaign.status
     FROM campaign_budget
+    WHERE campaign_budget.status != 'REMOVED'
     ORDER BY campaign.name
   `);
 
@@ -518,6 +519,21 @@ async function cmdBudgetUpdate(customer, budgetId, amount) {
   }]);
 
   console.log(`\nButce guncellendi: ${budgetId} -> ${amount} TL/gun`);
+}
+
+async function cmdBudgetRemove(customer, budgetId) {
+  if (!budgetId) {
+    console.error('Kullanim: budget:remove --id=XXX');
+    process.exit(1);
+  }
+  try {
+    await customer.campaignBudgets.remove([
+      `customers/${CONFIG.customer_id}/campaignBudgets/${budgetId}`
+    ]);
+    console.log(`Butce kaldirildi: ${budgetId}`);
+  } catch (e) {
+    console.error(`Butce kaldirilamadi ${budgetId}: ${e.message}`);
+  }
 }
 
 async function cmdMetrics(customer, days = 30) {
@@ -1012,6 +1028,61 @@ async function cmdNegativeAdd(customer, campaignId, keywordsStr) {
     }
   }
   console.log(`\n${added}/${keywords.length} negatif kelime eklendi.`);
+}
+
+async function cmdNegativeList(customer, campaignId) {
+  if (!campaignId) {
+    console.error('Kullanim: negative:list --campaign=XXX');
+    process.exit(1);
+  }
+  const query = `
+    SELECT campaign_criterion.criterion_id, campaign_criterion.keyword.text, campaign_criterion.keyword.match_type
+    FROM campaign_criterion
+    WHERE campaign.id = ${campaignId}
+      AND campaign_criterion.negative = TRUE
+      AND campaign_criterion.type = 'KEYWORD'
+    ORDER BY campaign_criterion.keyword.text
+  `;
+  const rows = await customer.query(query);
+  console.log(`\n=== Negatif Anahtar Kelimeler (Kampanya ${campaignId}) ===\n`);
+  for (const row of rows) {
+    const cc = row.campaign_criterion;
+    console.log(`  [${cc.criterion_id}] ${cc.keyword.text} (${cc.keyword.match_type})`);
+  }
+  console.log(`\n  Toplam: ${rows.length} kayit`);
+}
+
+async function cmdNegativeRemove(customer, campaignId, keywordsStr) {
+  if (!campaignId || !keywordsStr) {
+    console.error('Kullanim: negative:remove --campaign=XXX --keywords="kw1;kw2;kw3"');
+    process.exit(1);
+  }
+  const toRemove = keywordsStr.split(';').map(k => k.trim().toLowerCase()).filter(Boolean);
+  // First, find criterion IDs for these keywords
+  const query = `
+    SELECT campaign_criterion.criterion_id, campaign_criterion.keyword.text
+    FROM campaign_criterion
+    WHERE campaign.id = ${campaignId}
+      AND campaign_criterion.negative = TRUE
+      AND campaign_criterion.type = 'KEYWORD'
+  `;
+  const rows = await customer.query(query);
+  let removed = 0;
+  for (const row of rows) {
+    const cc = row.campaign_criterion;
+    if (toRemove.includes(cc.keyword.text.toLowerCase())) {
+      try {
+        await customer.campaignCriteria.remove([
+          `customers/${CONFIG.customer_id}/campaignCriteria/${campaignId}~${cc.criterion_id}`
+        ]);
+        removed++;
+        console.log(`  - "${cc.keyword.text}" kaldirildi (ID: ${cc.criterion_id})`);
+      } catch (e) {
+        console.error(`  x "${cc.keyword.text}": ${e.message}`);
+      }
+    }
+  }
+  console.log(`\n${removed}/${toRemove.length} negatif kelime kaldirildi.`);
 }
 
 async function cmdExtensionSitelinks(customer, campaignId) {
@@ -1577,6 +1648,9 @@ async function main() {
       case 'budget:update':
         await cmdBudgetUpdate(customer, opts.id, opts.amount);
         break;
+      case 'budget:remove':
+        await cmdBudgetRemove(customer, opts.id);
+        break;
       case 'metrics':
         await cmdMetrics(customer, parseInt(opts.days) || 30);
         break;
@@ -1606,6 +1680,12 @@ async function main() {
         break;
       case 'negative:add':
         await cmdNegativeAdd(customer, opts.campaign, opts.keywords);
+        break;
+      case 'negative:list':
+        await cmdNegativeList(customer, opts.campaign);
+        break;
+      case 'negative:remove':
+        await cmdNegativeRemove(customer, opts.campaign, opts.keywords);
         break;
       case 'extension:sitelinks':
         await cmdExtensionSitelinks(customer, opts.campaign);

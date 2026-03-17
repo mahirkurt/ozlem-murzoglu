@@ -1,4 +1,4 @@
-<section class="pioneer-detail-page">
+<section class="pioneer-detail-page standard-page-main">
   <!-- Hero Section -->
   <app-hero-section 
     [title]="'SAYGIYLA.PIONEERS.ATATURK.NAME' | translate"
@@ -63,13 +63,13 @@
 
         <!-- Timeline -->
         <div class="timeline-container">
-          <h3>Yaşam Kronolojisi</h3>
+          <h3>{{ 'SAYGIYLA.PIONEERS.ATATURK.CONTENT.TEXT_A' | translate }}</h3>
           <div class="timeline">
             <div *ngFor="let item of timeline" class="timeline-item">
               <div class="timeline-year">{{ item.year }}</div>
               <div class="timeline-content">
                 <div class="timeline-dot"></div>
-                <p>{{ item.event }}</p>
+                <p>{{ item.event | translate }}</p>
               </div>
             </div>
           </div>
@@ -82,15 +82,15 @@
   <div class="books-section">
     <div class="container">
       <div class="section-header">
-        <h2>Önemli Eserleri</h2>
+        <h2>{{ 'SAYGIYLA.PIONEERS.ATATURK.CONTENT.TEXT_B' | translate }}</h2>
         <div class="section-divider"></div>
       </div>
 
       <div class="books-grid">
         <div *ngFor="let book of books" class="book-card">
           <div class="book-year">{{ book.year }}</div>
-          <h3>{{ book.title }}</h3>
-          <span class="book-genre">{{ book.genre }}</span>
+          <h3>{{ book.title | translate }}</h3>
+          <span class="book-genre">{{ book.genre | translate }}</span>
         </div>
       </div>
     </div>
@@ -100,7 +100,7 @@
   <div class="contributions-section">
     <div class="container">
       <div class="section-header">
-        <h2>Topluma Katkıları</h2>
+        <h2>{{ 'SAYGIYLA.PIONEERS.ATATURK.CONTENT.TEXT_C' | translate }}</h2>
         <div class="section-divider"></div>
       </div>
 
@@ -109,8 +109,8 @@
           <div class="contribution-icon">
             <span class="material-icons-rounded">{{ contribution.icon }}</span>
           </div>
-          <h3>{{ contribution.title }}</h3>
-          <p>{{ contribution.description }}</p>
+          <h3>{{ contribution.title | translate }}</h3>
+          <p>{{ contribution.description | translate }}</p>
         </div>
       </div>
     </div>
@@ -120,7 +120,7 @@
   <div class="quotes-section">
     <div class="container">
       <div class="section-header">
-        <h2>Unutulmaz Sözleri</h2>
+        <h2>{{ 'SAYGIYLA.PIONEERS.ATATURK.CONTENT.TEXT_D' | translate }}</h2>
         <div class="section-divider"></div>
       </div>
 
@@ -130,8 +130,8 @@
             <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
           </svg>
           <blockquote>
-            <p>{{ quote.text }}</p>
-            <cite>{{ quote.context }}</cite>
+            <p>{{ quote.text | translate }}</p>
+            <cite>{{ quote.context | translate }}</cite>
           </blockquote>
         </div>
       </div>

@@ -7,7 +7,7 @@
           <a routerLink="/" class="footer-brand">
             <img 
               src="/logos/OM-Wide-White.svg" 
-              alt="Dr. Özlem Murzoğlu" 
+              [attr.alt]="'HEADER.BRAND_NAME' | translate"
               class="footer-logo"
             />
           </a>
@@ -23,7 +23,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="social-orb"
-              [attr.aria-label]="social.platform"
+              [attr.aria-label]="('FOOTER.SOCIAL_LABEL' | translate) + ' ' + social.platform"
             >
               <svg [ngSwitch]="social.platform" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <!-- Instagram -->

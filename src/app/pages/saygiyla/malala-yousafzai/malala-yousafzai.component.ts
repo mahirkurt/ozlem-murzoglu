@@ -12,80 +12,82 @@ import { HeroSectionComponent } from '../../../components/shared/hero-section/he
   styleUrl: './malala-yousafzai.component.css',
 })
 export class MalalaYousafzaiComponent {
+  private readonly keyPrefix = 'SAYGIYLA.PIONEERS.MALALA_YOUSAFZAI';
+
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Saygıyla', link: '/saygiyla' },
-    { label: 'Malala Yousafzai' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_RESPECT', link: '/saygiyla' },
+    { label: `${this.keyPrefix}.NAME` }
   ];
   timeline = [
-    { year: '1997', event: "12 Temmuz - Pakistan'ın Swat Vadisi'nde doğdu" },
-    { year: '2008', event: "Taliban Swat Vadisi'ni ele geçirdi, kız okullarını kapatmaya başladı" },
-    { year: '2009', event: 'BBC Urdu için "Gül Makai" takma adıyla blog yazmaya başladı' },
-    { year: '2011', event: "Pakistan'ın ilk Ulusal Gençlik Barış Ödülü'nü kazandı" },
-    { year: '2012', event: 'New York Times belgeselinde yer aldı' },
-    { year: '2012', event: '9 Ekim - Taliban tarafından vuruldu' },
-    { year: '2013', event: "12 Temmuz - BM'de konuşma yaptı (Malala Günü)" },
-    { year: '2013', event: 'Otobiyografisi "Ben Malala" yayınlandı' },
-    { year: '2013', event: 'Malala Fonu kuruldu' },
-    { year: '2014', event: "Nobel Barış Ödülü'nü kazandı (en genç Nobel ödüllü)" },
-    { year: '2017', event: 'BM Barış Elçisi oldu' },
-    { year: '2020', event: "Oxford Üniversitesi'nden mezun oldu" },
-    { year: '2021', event: 'Asser Malik ile evlendi' },
+    { year: '1997', event: `${this.keyPrefix}.TIMELINE.ITEM_1` },
+    { year: '2008', event: `${this.keyPrefix}.TIMELINE.ITEM_2` },
+    { year: '2009', event: `${this.keyPrefix}.TIMELINE.ITEM_3` },
+    { year: '2011', event: `${this.keyPrefix}.TIMELINE.ITEM_4` },
+    { year: '2012', event: `${this.keyPrefix}.TIMELINE.ITEM_5` },
+    { year: '2012', event: `${this.keyPrefix}.TIMELINE.ITEM_6` },
+    { year: '2013', event: `${this.keyPrefix}.TIMELINE.ITEM_7` },
+    { year: '2013', event: `${this.keyPrefix}.TIMELINE.ITEM_8` },
+    { year: '2013', event: `${this.keyPrefix}.TIMELINE.ITEM_9` },
+    { year: '2014', event: `${this.keyPrefix}.TIMELINE.ITEM_10` },
+    { year: '2017', event: `${this.keyPrefix}.TIMELINE.ITEM_11` },
+    { year: '2020', event: `${this.keyPrefix}.TIMELINE.ITEM_12` },
+    { year: '2021', event: `${this.keyPrefix}.TIMELINE.ITEM_13` },
   ];
 
   contributions = [
     {
       icon: 'school',
-      title: 'Eğitim Savunucusu',
-      description: 'Kız çocuklarının eğitim hakkı için küresel bir ses oldu.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.DESCRIPTION`,
     },
     {
       icon: 'campaign',
-      title: 'Malala Fonu',
-      description: '12 yıllık ücretsiz, güvenli ve kaliteli eğitim için çalışan vakfı kurdu.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.DESCRIPTION`,
     },
     {
       icon: 'public',
-      title: 'Küresel Aktivist',
-      description: 'Dünya liderleriyle görüşerek eğitim politikalarını etkiledi.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.DESCRIPTION`,
     },
     {
       icon: 'auto_stories',
-      title: 'Yazar ve Konuşmacı',
-      description: 'Kitapları ve konuşmalarıyla milyonlara ilham verdi.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.DESCRIPTION`,
     },
   ];
 
   quotes = [
     {
-      text: 'Bir çocuk, bir öğretmen, bir kitap ve bir kalem dünyayı değiştirebilir.',
-      context: 'BM konuşması, 2013',
+      text: `${this.keyPrefix}.QUOTES.ITEM_1.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_1.CONTEXT`,
     },
     {
-      text: 'Eğitim bir lüks değil, bir zorunluluktur.',
-      context: 'Eğitim hakkı üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_2.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_2.CONTEXT`,
     },
     {
-      text: 'Ben sadece haklarım için konuşan bir kızım. Eğitim hakkım, barış içinde yaşama hakkım, eşit muamele görme hakkım.',
-      context: 'BBC röportajı',
+      text: `${this.keyPrefix}.QUOTES.ITEM_3.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_3.CONTEXT`,
     },
     {
-      text: 'Zayıflık, korku ve umutsuzluk öldü. Güç, cesaret ve şevk doğdu.',
-      context: 'Saldırıdan sonra',
+      text: `${this.keyPrefix}.QUOTES.ITEM_4.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_4.CONTEXT`,
     },
     {
-      text: 'Teröristler kitaplarımdan ve kalemlerimden korkuyorlar. Eğitimin gücü onları korkutuyor.',
-      context: "Taliban'a mesajı",
+      text: `${this.keyPrefix}.QUOTES.ITEM_5.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_5.CONTEXT`,
     },
     {
-      text: 'Sessiz kaldığımızda öldürülürüz. Konuştuğumuzda da öldürülürüz. O zaman konuşalım.',
-      context: 'Cesaret üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_6.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_6.CONTEXT`,
     },
   ];
 
   books = [
-    { title: 'Ben Malala (I Am Malala)', year: '2013', genre: 'Otobiyografi' },
-    { title: "Malala'nın Sihirli Kalemi", year: '2017', genre: 'Çocuk Kitabı' },
-    { title: 'Yer Açın: 12 Kadının Değişim Hikayeleri', year: '2019', genre: 'Biyografi' },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_1.TITLE`, year: '2013', genre: `${this.keyPrefix}.BOOKS.ITEM_1.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_2.TITLE`, year: '2017', genre: `${this.keyPrefix}.BOOKS.ITEM_2.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_3.TITLE`, year: '2019', genre: `${this.keyPrefix}.BOOKS.ITEM_3.GENRE` },
   ];
 }

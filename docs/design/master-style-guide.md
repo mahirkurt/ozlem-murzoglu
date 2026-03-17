@@ -17,6 +17,7 @@ Tüm dosyalar aynı klasördedir ve görev bazlı okunur:
 4. Motion / Shape / A11y: [md3-motion-shape-accessibility.md](./md3-motion-shape-accessibility.md)
 5. Agent çalışma akışları: [md3-agent-workflows.md](./md3-agent-workflows.md)
 6. MD3 uygunluk matrisi: [md3-compliance-matrix.md](./md3-compliance-matrix.md)
+7. Anasayfa harici sayfa şablonu: [md3-non-home-page-template.md](./md3-non-home-page-template.md)
 
 ---
 
@@ -28,6 +29,7 @@ Tüm dosyalar aynı klasördedir ve görev bazlı okunur:
 3. [md3-components-patterns.md](./md3-components-patterns.md) içinden bileşen anatomisini uygula.
 4. [md3-motion-shape-accessibility.md](./md3-motion-shape-accessibility.md) ile erişilebilirlik/motion kontrolü yap.
 5. [md3-compliance-matrix.md](./md3-compliance-matrix.md) ile MD3 uyumunu işaretle.
+6. İç sayfa ise [md3-non-home-page-template.md](./md3-non-home-page-template.md) ile layout/header standardını doğrula.
 
 ### Tek cümle karar kuralı
 **Hex / hardcoded shadow / tekil component override yerine semantic MD3 token kullan.**

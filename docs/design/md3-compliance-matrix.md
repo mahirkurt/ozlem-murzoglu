@@ -41,6 +41,59 @@ Durum anahtarı:
 
 ## 3) Zorunlu iyileştirme önceliği
 
-1. [src/app/pages/services/service-base-styles.css](../../src/app/pages/services/service-base-styles.css), [src/app/pages/services/bright-futures-program/bright-futures-program.component.css](../../src/app/pages/services/bright-futures-program/bright-futures-program.component.css), [src/app/pages/services/sos-feeding/sos-feeding.component.css](../../src/app/pages/services/sos-feeding/sos-feeding.component.css) içinde hardcoded renk/token override kalıntılarını MD3 semantic role-first ilkesine hizala.
+1. ✅ Tamamlandı: [src/app/pages/services/service-base-styles.css](../../src/app/pages/services/service-base-styles.css), [src/app/pages/services/bright-futures-program/bright-futures-program.component.css](../../src/app/pages/services/bright-futures-program/bright-futures-program.component.css), [src/app/pages/services/sos-feeding/sos-feeding.component.css](../../src/app/pages/services/sos-feeding/sos-feeding.component.css) içinde MD3 semantic role-first hizalaması uygulandı.
 2. ✅ Tamamlandı: [src/app/pages/kaynaklar/kaynaklar.component.css](../../src/app/pages/kaynaklar/kaynaklar.component.css), [src/app/pages/saygiyla/saygiyla.css](../../src/app/pages/saygiyla/saygiyla.css) ve [src/app/pages/saygiyla/*/*.component.css](../../src/app/pages/saygiyla/) için hardcoded renk/shadow kalıpları temizlendi.
-3. Playwright doğrulama stabilizasyonu: [tests/e2e/test-md3-global-styles.spec.js](../../tests/e2e/test-md3-global-styles.spec.js) `beforeEach` yüklenme bekleme stratejisini (networkidle bağımlılığı) ve CLS eşiğini CI gerçekliğine göre yeniden kalibre et.
+3. ✅ Faz 6’da kapatıldı (Playwright stabilizasyonu): [tests/e2e/test-md3-compliance.spec.js](../../tests/e2e/test-md3-compliance.spec.js) ve [tests/e2e/md3-visual-test.spec.js](../../tests/e2e/md3-visual-test.spec.js) için `networkidle` bağımlılığı kaldırıldı, stabil navigasyon (`domcontentloaded + load + body visible`) akışına geçildi, screenshot tutarlılığı için yükseklik stabilizasyonu eklendi. Chromium doğrulaması: `34/34 passed` (workers=4).
+4. ✅ Faz 7’de kapatıldı (resources yardımcı stil katmanı): [src/app/pages/resources/resource-content-styles.css](../../src/app/pages/resources/resource-content-styles.css), [src/app/pages/resources/clean-resource-styles.css](../../src/app/pages/resources/clean-resource-styles.css), [src/app/pages/resources/resource-utilities.css](../../src/app/pages/resources/resource-utilities.css), [src/app/pages/resources/base-resource-styles.css](../../src/app/pages/resources/base-resource-styles.css) içinde legacy `--color-*` alias ve hardcoded hex/`white` kullanımları semantic `--md-sys-color-*` rollerine taşındı; MD3 level token dışı shadow kalıntısı bırakılmadı.
+
+## 4) Faz 5 kapanış notu (2026-03-16)
+
+- Build kapısı geçti: `npm run build`.
+- Route + CTA smoke (Chromium) geçti: [tests/e2e/route-cta-smoke.spec.js](../../tests/e2e/route-cta-smoke.spec.js).
+- CTA spacing görsel/smoke kontrolü geçti: [tests/e2e/test-cta-spacing-simple.spec.js](../../tests/e2e/test-cta-spacing-simple.spec.js).
+- Kapsamlı MD3 doğrulama akışında stabilizasyon riski doğrulandı: [tests/e2e/test-md3-compliance.spec.js](../../tests/e2e/test-md3-compliance.spec.js), [tests/e2e/md3-visual-test.spec.js](../../tests/e2e/md3-visual-test.spec.js).
+
+## 5) Faz 6 Playwright stabilizasyon kapanışı (2026-03-16)
+
+- Anayasa bağı: [master-style-guide.md](./master-style-guide.md) non-negotiable `state-layer-first` + kalite kapıları, hareket/erişilebilirlik doğrulama disiplinleri.
+- Belge zinciri bağı: [md3-foundation-principles.md](./md3-foundation-principles.md) → [md3-token-governance.md](./md3-token-governance.md) → [md3-components-patterns.md](./md3-components-patterns.md) → [md3-motion-shape-accessibility.md](./md3-motion-shape-accessibility.md) → bu matrix.
+
+Doğrulama kanıtları:
+
+| Kontrol | Sonuç |
+|---|---|
+| Hedefli stabilizasyon doğrulaması (`test-md3-compliance` kritik 3 test) | `3/3 passed` |
+| Tam compliance suite (Chromium, workers=1) | `21/21 passed` |
+| Birleşik suite (`test-md3-compliance` + `md3-visual-test`, Chromium, workers=4) | `34/34 passed` |
+
+Kapanan riskler:
+
+1. `networkidle` tabanlı flake/crash tetikleyicisi kaldırıldı.
+2. `page.goto: Page crashed` ve timeout kök nedeni olarak görülen kırılgan navigasyon akışı stabilize edildi.
+3. Full-page screenshot yüksekliği dalgalanması, test içi yükseklik stabilizasyonu ile deterministik hale getirildi.
+
+## 6) Faz 7 Resources yardımcı stil katmanı kapanışı (2026-03-17)
+
+- Anayasa bağı: [master-style-guide.md](./master-style-guide.md) non-negotiable `semantic role-first token usage`, `state-layer-first` ve `tonal surface` önceliği.
+- Belge zinciri bağı: [md3-foundation-principles.md](./md3-foundation-principles.md) → [md3-token-governance.md](./md3-token-governance.md) → [md3-components-patterns.md](./md3-components-patterns.md) → [md3-motion-shape-accessibility.md](./md3-motion-shape-accessibility.md) → bu matrix.
+
+Uygulama kapsamı:
+
+- [src/app/pages/resources/resource-content-styles.css](../../src/app/pages/resources/resource-content-styles.css)
+- [src/app/pages/resources/clean-resource-styles.css](../../src/app/pages/resources/clean-resource-styles.css)
+- [src/app/pages/resources/resource-utilities.css](../../src/app/pages/resources/resource-utilities.css)
+- [src/app/pages/resources/base-resource-styles.css](../../src/app/pages/resources/base-resource-styles.css)
+
+Doğrulama kanıtları:
+
+| Kontrol | Sonuç |
+|---|---|
+| Token bypass / hardcoded tarama (`var(--color-*)`, `#hex`, `white`) | `0 sonuç` (hedef 4 dosyada) |
+| Build kapısı | `npm run build` → çıkış kodu `0` |
+| Route + CTA smoke (Chromium) | `15/15 passed` |
+
+Kapanan riskler:
+
+1. Resources yardımcı stil katmanındaki legacy `--color-*` alias kullanımları kaldırıldı.
+2. Hardcoded hex/`white` değerleri semantic role tokenlarına taşındı.
+3. Yüzey ayrışması tonal container rolleriyle korundu; etkileşim katmanlarında MD3 uyumlu renk/elevation disiplini sürdürüldü.

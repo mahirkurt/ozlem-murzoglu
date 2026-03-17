@@ -12,107 +12,114 @@ import { HeroSectionComponent } from '../../../components/shared/hero-section/he
   styleUrl: './virginia-apgar.component.css',
 })
 export class VirginiaApgarComponent {
+  private readonly keyPrefix = 'SAYGIYLA.PIONEERS.VIRGINIA_APGAR';
+
   breadcrumbs = [
-    { label: 'Ana Sayfa', link: '/' },
-    { label: 'Saygıyla', link: '/saygiyla' },
-    { label: 'Virginia Apgar' }
+    { label: 'HEADER.NAV_HOME', link: '/' },
+    { label: 'HEADER.NAV_RESPECT', link: '/saygiyla' },
+    { label: `${this.keyPrefix}.NAME` }
   ];
   timeline = [
-    { year: '1909', event: "7 Haziran - New Jersey, ABD'de doğdu" },
-    { year: '1929', event: "Mount Holyoke College'dan mezun oldu" },
-    { year: '1933', event: "Columbia Üniversitesi Tıp Fakültesi'nden mezun oldu" },
-    { year: '1937', event: 'Anesteziyoloji uzmanlığına başladı' },
-    { year: '1938', event: "Columbia'da anesteziyoloji bölümünü kurdu" },
-    { year: '1949', event: "Columbia'da ilk kadın profesör oldu" },
-    { year: '1952', event: 'Apgar Skorunu geliştirdi' },
-    { year: '1953', event: 'Apgar Skoru yöntemini yayınladı' },
-    { year: '1959', event: "Johns Hopkins'te Halk Sağlığı yüksek lisansı yaptı" },
-    { year: '1959', event: "March of Dimes'ta çalışmaya başladı" },
-    { year: '1973', event: "Ulusal Kadın Onur Listesi'ne girdi" },
-    { year: '1974', event: '7 Ağustos - 65 yaşında vefat etti' },
+    { year: '1909', event: `${this.keyPrefix}.TIMELINE.ITEM_1` },
+    { year: '1929', event: `${this.keyPrefix}.TIMELINE.ITEM_2` },
+    { year: '1933', event: `${this.keyPrefix}.TIMELINE.ITEM_3` },
+    { year: '1937', event: `${this.keyPrefix}.TIMELINE.ITEM_4` },
+    { year: '1938', event: `${this.keyPrefix}.TIMELINE.ITEM_5` },
+    { year: '1949', event: `${this.keyPrefix}.TIMELINE.ITEM_6` },
+    { year: '1952', event: `${this.keyPrefix}.TIMELINE.ITEM_7` },
+    { year: '1953', event: `${this.keyPrefix}.TIMELINE.ITEM_8` },
+    { year: '1959', event: `${this.keyPrefix}.TIMELINE.ITEM_9` },
+    { year: '1959', event: `${this.keyPrefix}.TIMELINE.ITEM_10` },
+    { year: '1973', event: `${this.keyPrefix}.TIMELINE.ITEM_11` },
+    { year: '1974', event: `${this.keyPrefix}.TIMELINE.ITEM_12` },
   ];
 
   contributions = [
     {
       icon: 'child_care',
-      title: 'Apgar Skoru',
-      description: 'Yenidoğan sağlığını değerlendiren evrensel skorlama sistemini geliştirdi.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_1.DESCRIPTION`,
     },
     {
       icon: 'local_hospital',
-      title: 'Anesteziyoloji Öncüsü',
-      description: 'Anesteziyolojiyi tıbbi bir uzmanlık alanı haline getirdi.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_2.DESCRIPTION`,
     },
     {
       icon: 'pregnant_woman',
-      title: 'Obstetrik Anestezi',
-      description: 'Doğum anestezisinde çığır açan çalışmalar yaptı.',
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_3.DESCRIPTION`,
     },
     {
       icon: 'campaign',
-      title: 'Doğum Kusurları Savunucusu',
-      description: "March of Dimes'ta doğum kusurlarının önlenmesi için çalıştı.",
+      title: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.TITLE`,
+      description: `${this.keyPrefix}.CONTRIBUTIONS.ITEM_4.DESCRIPTION`,
     },
   ];
 
   quotes = [
     {
-      text: 'Hiç kimse senden yola koyulmanı beklemez. Sadece git ve yap.',
-      context: 'Kadınların tıptaki yeri üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_1.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_1.CONTEXT`,
     },
     {
-      text: 'Her bebek yaşama şansını hak eder.',
-      context: 'Yenidoğan bakımı üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_2.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_2.CONTEXT`,
     },
     {
-      text: 'Doğru yapılan her şey basittir.',
-      context: "Apgar Skoru'nun basitliği üzerine",
+      text: `${this.keyPrefix}.QUOTES.ITEM_3.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_3.CONTEXT`,
     },
     {
-      text: 'Eğer bir çocuğun hayatını kurtarabiliyorsanız, bütün dünyayı kurtarmış olursunuz.',
-      context: 'Pediatrik tıbbın önemi üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_4.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_4.CONTEXT`,
     },
     {
-      text: 'Bilim, cinsiyet tanımaz. Sadece merak ve azim tanır.',
-      context: 'Bilimde kadın olmak üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_5.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_5.CONTEXT`,
     },
     {
-      text: 'En iyi tıp, önleyici tıptır.',
-      context: 'Halk sağlığı üzerine',
+      text: `${this.keyPrefix}.QUOTES.ITEM_6.TEXT`,
+      context: `${this.keyPrefix}.QUOTES.ITEM_6.CONTEXT`,
     },
   ];
 
   apgarScore = [
     {
-      criterion: 'Appearance (Görünüm)',
-      score0: 'Tüm vücut soluk/mavi',
-      score1: 'Pembe gövde, mavi ekstremiteler',
-      score2: 'Tamamen pembe',
-    },
-    { criterion: 'Pulse (Nabız)', score0: 'Yok', score1: '<100/dk', score2: '>100/dk' },
-    {
-      criterion: 'Grimace (Refleks)',
-      score0: 'Tepki yok',
-      score1: 'Yüz buruşturma',
-      score2: 'Ağlama, öksürme',
+      criterion: `${this.keyPrefix}.APGAR_SCORE.ITEM_1.CRITERION`,
+      score0: `${this.keyPrefix}.APGAR_SCORE.ITEM_1.SCORE_0`,
+      score1: `${this.keyPrefix}.APGAR_SCORE.ITEM_1.SCORE_1`,
+      score2: `${this.keyPrefix}.APGAR_SCORE.ITEM_1.SCORE_2`,
     },
     {
-      criterion: 'Activity (Aktivite)',
-      score0: 'Gevşek',
-      score1: 'Biraz hareket',
-      score2: 'Aktif hareket',
+      criterion: `${this.keyPrefix}.APGAR_SCORE.ITEM_2.CRITERION`,
+      score0: `${this.keyPrefix}.APGAR_SCORE.ITEM_2.SCORE_0`,
+      score1: `${this.keyPrefix}.APGAR_SCORE.ITEM_2.SCORE_1`,
+      score2: `${this.keyPrefix}.APGAR_SCORE.ITEM_2.SCORE_2`,
     },
     {
-      criterion: 'Respiration (Solunum)',
-      score0: 'Yok',
-      score1: 'Yavaş, düzensiz',
-      score2: 'İyi, ağlama',
+      criterion: `${this.keyPrefix}.APGAR_SCORE.ITEM_3.CRITERION`,
+      score0: `${this.keyPrefix}.APGAR_SCORE.ITEM_3.SCORE_0`,
+      score1: `${this.keyPrefix}.APGAR_SCORE.ITEM_3.SCORE_1`,
+      score2: `${this.keyPrefix}.APGAR_SCORE.ITEM_3.SCORE_2`,
+    },
+    {
+      criterion: `${this.keyPrefix}.APGAR_SCORE.ITEM_4.CRITERION`,
+      score0: `${this.keyPrefix}.APGAR_SCORE.ITEM_4.SCORE_0`,
+      score1: `${this.keyPrefix}.APGAR_SCORE.ITEM_4.SCORE_1`,
+      score2: `${this.keyPrefix}.APGAR_SCORE.ITEM_4.SCORE_2`,
+    },
+    {
+      criterion: `${this.keyPrefix}.APGAR_SCORE.ITEM_5.CRITERION`,
+      score0: `${this.keyPrefix}.APGAR_SCORE.ITEM_5.SCORE_0`,
+      score1: `${this.keyPrefix}.APGAR_SCORE.ITEM_5.SCORE_1`,
+      score2: `${this.keyPrefix}.APGAR_SCORE.ITEM_5.SCORE_2`,
     },
   ];
 
   books = [
-    { title: 'Is My Baby All Right?', year: '1972', genre: 'Tıbbi Rehber' },
-    { title: 'Birth Defects: The Tragedy and the Hope', year: '1967', genre: 'Tıbbi Araştırma' },
-    { title: 'Manual of Anesthesia', year: '1954', genre: 'Tıbbi Ders Kitabı' },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_1.TITLE`, year: '1972', genre: `${this.keyPrefix}.BOOKS.ITEM_1.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_2.TITLE`, year: '1967', genre: `${this.keyPrefix}.BOOKS.ITEM_2.GENRE` },
+    { title: `${this.keyPrefix}.BOOKS.ITEM_3.TITLE`, year: '1954', genre: `${this.keyPrefix}.BOOKS.ITEM_3.GENRE` },
   ];
 }

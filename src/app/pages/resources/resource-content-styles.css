@@ -33,7 +33,7 @@
   display: block;
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--md-sys-color-primary);
   margin: 2rem 0 1rem;
   font-family: var(--md-sys-typescale-font-brand);
 }
@@ -49,12 +49,12 @@
 
 /* Ensure links are visible */
 .content-body a {
-  color: var(--color-primary);
+  color: var(--md-sys-color-primary);
   text-decoration: underline;
 }
 
 .content-body a:hover {
-  color: var(--color-primary-dark);
+  color: var(--md-sys-color-primary);
   text-decoration: none;
 }
 
@@ -62,12 +62,12 @@
 .content-body table:last-of-type {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid #dee2e6;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
 }
 
 .content-body table:last-of-type p {
   font-size: 0.875rem;
-  color: #6c757d;
+  color: var(--md-sys-color-on-surface-variant);
   text-align: center;
 }
 

@@ -1,4 +1,4 @@
-<section class="triple-p-page">
+<section class="triple-p-page standard-page-main">
   <app-hero-section
     [title]="'SERVICES.SERVICE_TRIPLE_P.HERO_TITLE' | translate"
     [subtitle]="'SERVICES.SERVICE_TRIPLE_P.HERO_SUBTITLE' | translate"
@@ -45,7 +45,10 @@
 
         <div class="intro-visual">
           <div class="logo-container">
-            <img src="/images/Triple_P_Logo.svg" alt="Triple P Logo" class="triple-p-logo">
+            <img
+              src="/images/Triple_P_Logo.svg"
+              [attr.alt]="'SERVICES.SERVICE_TRIPLE_P.LOGO_ALT' | translate"
+              class="triple-p-logo">
           </div>
 
           <div class="program-stats">

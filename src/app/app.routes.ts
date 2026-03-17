@@ -12,6 +12,7 @@ export const routes: Routes = [
   { path: 'hakkimizda', loadComponent: () => import('./pages/about/about').then(m => m.AboutComponent), data: { animation: 'About' } },
   { path: 'hakkimizda/dr-ozlem-murzoglu', loadComponent: () => import('./pages/about/dr-ozlem-murzoglu/dr-ozlem-murzoglu.component').then(m => m.DrOzlemMurzogluComponent), data: { animation: 'DrOzlem' } },
   { path: 'hakkimizda/klinigimiz', loadComponent: () => import('./pages/about/klinigimiz/klinigimiz.component').then(m => m.KlinigimizComponent), data: { animation: 'Clinic' } },
+  { path: 'hakkimizda/klinik-tasarimi', loadComponent: () => import('./pages/about/klinik-tasarimi/klinik-tasarimi.component').then(m => m.KlinikTasarimiComponent), data: { animation: 'ClinicDesign' } },
   { path: 'hakkimizda/sss', loadComponent: () => import('./pages/faq/faq').then(m => m.FaqComponent), data: { animation: 'FAQ' } },
   { path: 'sss', redirectTo: 'hakkimizda/sss', pathMatch: 'full' },
   { path: 'hizmetlerimiz', loadComponent: () => import('./pages/services/services').then(m => m.ServicesComponent), data: { animation: 'Services' } },
@@ -26,7 +27,18 @@ export const routes: Routes = [
   { path: 'blog', loadComponent: () => import('./pages/blog/blog').then(m => m.BlogComponent), data: { animation: 'Blog' } },
   { path: 'blog/:slug', loadComponent: () => import('./components/blog-article/blog-article.component').then(m => m.BlogArticleComponent), data: { animation: 'BlogArticle' } },
   { path: 'saygiyla', loadComponent: () => import('./pages/saygiyla/saygiyla').then(m => m.SaygiylaComponent), data: { animation: 'Saygiyla' } },
+  { path: 'saygiyla/ataturk', loadComponent: () => import('./pages/saygiyla/ataturk/ataturk.component').then(m => m.AtaturkComponent), data: { animation: 'Ataturk' } },
+  { path: 'saygiyla/ihsan-dogramaci', loadComponent: () => import('./pages/saygiyla/ihsan-dogramaci/ihsan-dogramaci.component').then(m => m.IhsanDogramaciComponent), data: { animation: 'IhsanDogramaci' } },
+  { path: 'saygiyla/jonas-salk', loadComponent: () => import('./pages/saygiyla/jonas-salk/jonas-salk.component').then(m => m.JonasSalkComponent), data: { animation: 'JonasSalk' } },
+  { path: 'saygiyla/louis-pasteur', loadComponent: () => import('./pages/saygiyla/louis-pasteur/louis-pasteur.component').then(m => m.LouisPasteurComponent), data: { animation: 'LouisPasteur' } },
+  { path: 'saygiyla/malala-yousafzai', loadComponent: () => import('./pages/saygiyla/malala-yousafzai/malala-yousafzai.component').then(m => m.MalalaYousafzaiComponent), data: { animation: 'Malala' } },
+  { path: 'saygiyla/nils-rosen', loadComponent: () => import('./pages/saygiyla/nils-rosen/nils-rosen.component').then(m => m.NilsRosenComponent), data: { animation: 'NilsRosen' } },
+  { path: 'saygiyla/turkan-saylan', loadComponent: () => import('./pages/saygiyla/turkan-saylan/turkan-saylan.component').then(m => m.TurkanSaylanComponent), data: { animation: 'TurkanSaylan' } },
+  { path: 'saygiyla/ursula-leguin', loadComponent: () => import('./pages/saygiyla/ursula-leguin/ursula-leguin.component').then(m => m.UrsulaLeguinComponent), data: { animation: 'UrsulaLeguin' } },
+  { path: 'saygiyla/virginia-apgar', loadComponent: () => import('./pages/saygiyla/virginia-apgar/virginia-apgar.component').then(m => m.VirginiaApgarComponent), data: { animation: 'VirginiaApgar' } },
+  { path: 'saygiyla/waldo-nelson', loadComponent: () => import('./pages/saygiyla/waldo-nelson/waldo-nelson.component').then(m => m.WaldoNelsonComponent), data: { animation: 'WaldoNelson' } },
   { path: 'kaynaklar', loadComponent: () => import('./pages/resources/resources.component').then(m => m.ResourcesComponent), data: { animation: 'Resources' } },
+  { path: 'kaynaklar/bright-futures-yolculugu', loadComponent: () => import('./pages/resources/bright-futures-journey/bright-futures-journey.component').then(m => m.BrightFuturesJourneyComponent), data: { animation: 'BrightFuturesJourney' } },
   { path: 'bilgi-merkezi', redirectTo: 'kaynaklar', pathMatch: 'full' },
   { path: 'bilgi-merkezi/:category', redirectTo: 'kaynaklar/:category', pathMatch: 'full' },
   { path: 'bilgi-merkezi/:category/:doc', redirectTo: 'kaynaklar/:category/:doc', pathMatch: 'full' },
@@ -40,5 +52,5 @@ export const routes: Routes = [
   { path: 'yasal/gizlilik', redirectTo: 'legal/privacy', pathMatch: 'full' },
   { path: 'yasal/kullanim-kosullari', redirectTo: 'legal/terms', pathMatch: 'full' },
   { path: 'yasal/kvkk', redirectTo: 'legal/kvkk', pathMatch: 'full' },
-  { path: '**', redirectTo: '' }
+  { path: '**', loadComponent: () => import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent), data: { animation: 'NotFound' } }
 ];

@@ -138,9 +138,9 @@ Hedef kabul kapıları:
 
 ### Açık (önceliklendirilmiş)
 
-1. Kaynak yardımcı stillerinde (özellikle `resource-content-styles.css`) kalan legacy/token-bypass temizliği.
-2. Saygıyla + Klinik Tasarımı içeriklerinde i18n hardcoded metin temizliği.
-3. Focus-visible, reduced-motion ve forced-colors yatay kapanışının kalan yüzeylerde tamamlanması.
+1. Playwright/Chromium doğrulama stabilizasyonu (`page.goto: Page crashed`, `networkidle` bağımlılığı, timeout) — [test-md3-compliance.spec.js](../../tests/e2e/test-md3-compliance.spec.js), [md3-visual-test.spec.js](../../tests/e2e/md3-visual-test.spec.js).
+2. Kaynak yardımcı stil katmanında kalan legacy/token-bypass temizliği — [resource-content-styles.css](../../src/app/pages/resources/resource-content-styles.css), [clean-resource-styles.css](../../src/app/pages/resources/clean-resource-styles.css), [resource-utilities.css](../../src/app/pages/resources/resource-utilities.css), [base-resource-styles.css](../../src/app/pages/resources/base-resource-styles.css).
+3. EN editoryal harmonizasyon backlog’u: Saygıyla içerik anahtarlarında `tr/en` birebir kalan metinlerin editoryal çeviri dalgası.
 
 ---
 
@@ -314,6 +314,50 @@ Kapanış ölçütü:
 - Görünür tüm metinler translate key üzerinden.
 - Hardcoded `aria-label` / `title` metinleri kapalı.
 
+### Faz 3 Uygulama Sonucu (2026-03-16)
+
+Uygulama kapsamı:
+
+- [bright-futures-journey.component.html](../../src/app/pages/resources/bright-futures-journey/bright-futures-journey.component.html)
+- [klinik-tasarimi.component.html](../../src/app/pages/about/klinik-tasarimi/klinik-tasarimi.component.html)
+- [ataturk.component.html](../../src/app/pages/saygiyla/ataturk/ataturk.component.html)
+- [ihsan-dogramaci.component.html](../../src/app/pages/saygiyla/ihsan-dogramaci/ihsan-dogramaci.component.html)
+- [jonas-salk.component.html](../../src/app/pages/saygiyla/jonas-salk/jonas-salk.component.html)
+- [louis-pasteur.component.html](../../src/app/pages/saygiyla/louis-pasteur/louis-pasteur.component.html)
+- [malala-yousafzai.component.html](../../src/app/pages/saygiyla/malala-yousafzai/malala-yousafzai.component.html)
+- [nils-rosen.component.html](../../src/app/pages/saygiyla/nils-rosen/nils-rosen.component.html)
+- [turkan-saylan.component.html](../../src/app/pages/saygiyla/turkan-saylan/turkan-saylan.component.html)
+- [ursula-leguin.component.html](../../src/app/pages/saygiyla/ursula-leguin/ursula-leguin.component.html)
+- [virginia-apgar.component.html](../../src/app/pages/saygiyla/virginia-apgar/virginia-apgar.component.html)
+- [waldo-nelson.component.html](../../src/app/pages/saygiyla/waldo-nelson/waldo-nelson.component.html)
+
+Kapanış metrikleri (uygulama sonrası):
+
+| Kontrol | Sonuç |
+|---|---|
+| Faz 3 hedef dosya taraması (raw `alt/title/subtitle/aria-label`) | `RAW_ATTR_COUNT=0` |
+| Faz 3 hedef dosya taraması (visible raw text node, icon tokenları hariç) | `RAW_TEXT_COUNT=0` |
+| i18n senkronizasyonu | `Missing keys=0`, `Used keys=1152` |
+| Build kapısı | `npm run build` → çıkış kodu `0` |
+| Route + CTA smoke (chromium) | `15/15 passed` |
+
+Doğrulama kanıtları:
+
+- i18n sync kapısı geçti: `npm run i18n:sync` (missing key bulunmadı).
+- Build kapısı geçti: `npm run build` (çıkış kodu 0).
+- Route + CTA smoke (chromium) geçti: `npx playwright test tests/e2e/route-cta-smoke.spec.js --config tests/config/playwright.config.js --project=chromium`.
+- Saygıyla kalan son raw attribute kapatıldı: [jonas-salk.component.html](../../src/app/pages/saygiyla/jonas-salk/jonas-salk.component.html) içinde `alt="Dr. Jonas Salk"` -> `[alt]="'SAYGIYLA.PIONEERS.JONAS_SALK.NAME' | translate"`.
+
+Kalan riskler / sonraki dalga:
+
+- Saygıyla detay içerik anahtarlarında (`SAYGIYLA.PIONEERS.*.CONTENT.TEXT_*`) `tr/en` değerleri birebir aynı: `194` anahtar.
+- Bu durum teknik i18n kapanışını etkilemiyor; ancak içerik kalitesi ve dil doğruluğu açısından P2 backlog maddesi olarak EN editoryal çeviri dalgası önerilir.
+
+Compliance matrix etkisi:
+
+- Faz 3 kapsamındaki `hardcoded text/aria/title` kapanış hedefi, hedef dosya kümesinde kapatıldı.
+- Matrix üzerinde açık kalan madde: EN editoryal kalite harmonizasyonu (i18n teknik doğrulama dışında içerik seviyesi aksiyon).
+
 ## Faz 4 — A11y Kapıları (Yatay Dalga)
 
 **Süre:** 1 gün  
@@ -327,6 +371,47 @@ Kapanış ölçütü:
 
 - `missing-focus-visible` ve `missing-reduced-motion` bulguları sıfırlanır.
 
+### Faz 4 Uygulama Sonucu (2026-03-16)
+
+Anayasa ve belge zinciri bağı:
+
+- Non-negotiable: state-layer-first + erişilebilirlik kapıları ([master-style-guide.md](../design/master-style-guide.md)).
+- Motion/a11y kapıları: `focus-visible`, `prefers-reduced-motion`, `forced-colors` ([md3-motion-shape-accessibility.md](../design/md3-motion-shape-accessibility.md)).
+
+Uygulama kapsamı:
+
+- [faq.scss](../../src/app/pages/faq/faq.scss)
+- [resources.component.scss](../../src/app/pages/resources/resources.component.scss)
+- [shared-styles.css](../../src/app/pages/resources/shared-styles.css)
+
+Kapanış metrikleri (uygulama sonrası):
+
+| Dosya | focus-visible | prefers-reduced-motion | forced-colors |
+|---|---:|---:|---:|
+| [faq.scss](../../src/app/pages/faq/faq.scss) | 12 | 1 | 1 |
+| [resources.component.scss](../../src/app/pages/resources/resources.component.scss) | 10 | 1 | 1 |
+| [shared-styles.css](../../src/app/pages/resources/shared-styles.css) | 10 | 1 | 1 |
+
+Teknik doğrulama sonuçları:
+
+| Kontrol | Sonuç |
+|---|---|
+| Hedef dosya pattern taraması (`outline: none`, `focus-visible`, `prefers-reduced-motion`, `forced-colors`) | Geçti |
+| Build kapısı | `npm run build` → çıkış kodu `0` |
+| Route + CTA smoke (chromium) | `15/15 passed` |
+
+Doğrulama kanıtları:
+
+- Pattern taraması: `grep -nE "outline:[[:space:]]*none|focus-visible|prefers-reduced-motion|forced-colors" src/app/pages/faq/faq.scss src/app/pages/resources/resources.component.scss src/app/pages/resources/shared-styles.css`
+- A11y metrik taraması: `for f in src/app/pages/faq/faq.scss src/app/pages/resources/resources.component.scss src/app/pages/resources/shared-styles.css; do ...; done`
+- Build kapısı: `npm run build`
+- Route + CTA smoke (chromium): `npx playwright test tests/e2e/route-cta-smoke.spec.js --config tests/config/playwright.config.js --project=chromium`
+
+Compliance matrix etkisi:
+
+- Faz 4 hedef dalgada `missing-focus-visible`, `missing-reduced-motion` ve forced-colors eksikleri kapatıldı.
+- A11y yatay kapanış, Faz 5 matrix/doğrulama dalgasına taşınabilir durumda.
+
 ## Faz 5 — Doğrulama, Matrix Güncellemesi, Yayın Hazırlığı
 
 **Süre:** 0.5 gün  
@@ -335,6 +420,110 @@ Kapanış ölçütü:
 - Build + route smoke + gerekli görsel regresyon testleri.
 - [MD3 Compliance Matrix](../design/md3-compliance-matrix.md) güncellemesi.
 - Kalan risk listesi ve sonraki dalga backlog’u.
+
+### Faz 5 Uygulama Sonucu (2026-03-16)
+
+Anayasa ve belge zinciri bağı:
+
+- Karar önceliği ve kalite kapıları: [master-style-guide.md](../design/master-style-guide.md)
+- Motion/a11y doğrulama kapıları: [md3-motion-shape-accessibility.md](../design/md3-motion-shape-accessibility.md)
+- Workflow A/Faz 5 matrix işaretleme adımı: [md3-agent-workflows.md](../design/md3-agent-workflows.md)
+
+Doğrulama sonuçları:
+
+| Kontrol | Sonuç |
+|---|---|
+| Build kapısı | `npm run build` → çıkış kodu `0` |
+| Route + CTA smoke (Chromium) | `15/15 passed` |
+| CTA spacing görsel/smoke | `1/1 passed` |
+| Kapsamlı MD3 compliance suite | `21 failed` *(ortam/stabilizasyon riski)* |
+| Tekil MD3 a11y visual testi | `1 failed` *(Chromium page crash)* |
+
+Faz 5’te güncellenen dokümanlar:
+
+- Matrix güncellendi: [md3-compliance-matrix.md](../design/md3-compliance-matrix.md)
+  - Faz 1/2/4 kapanışları matrixte “tamamlandı” olarak işlendi.
+  - Açık riskler netleştirildi: Playwright stabilizasyonu + resources yardımcı stil katmanı token-bypass kalıntıları.
+
+Kalan risk listesi (Faz 6 backlog önerisi):
+
+1. Playwright stabilizasyonu:
+   - [test-md3-global-styles.spec.js](../../tests/e2e/test-md3-global-styles.spec.js)
+   - [test-md3-compliance.spec.js](../../tests/e2e/test-md3-compliance.spec.js)
+   - Gözlem: `page.goto: Page crashed`, timeout, `networkidle` bağımlılığı.
+2. ✅ Kapatıldı (2026-03-17): Resources yardımcı stil katmanı token-bypass temizliği:
+   - [resource-content-styles.css](../../src/app/pages/resources/resource-content-styles.css): `hardcoded_hex=0`, `legacy_color_alias=0`
+   - [clean-resource-styles.css](../../src/app/pages/resources/clean-resource-styles.css): `hardcoded_hex=0`, `legacy_color_alias=0`, `hardcoded_white=0`
+   - [resource-utilities.css](../../src/app/pages/resources/resource-utilities.css): `hardcoded_hex=0`, `legacy_color_alias=0`, `hardcoded_white=0`
+   - [base-resource-styles.css](../../src/app/pages/resources/base-resource-styles.css): `hardcoded_hex=0`, `legacy_color_alias=0`, `hardcoded_white=0`
+
+Yayın hazırlığı durumu:
+
+- Kritik doğrulama kapıları (build + route smoke) **geçti**.
+- Matrix izlenebilirliği **güncel**.
+- Residual riskler dokümante edilerek Faz 6 backlog’una taşındı.
+
+### Faz 6 Uygulama Sonucu (2026-03-16)
+
+Anayasa ve belge zinciri bağı:
+
+- Karar önceliği ve kalite kapıları: [master-style-guide.md](../design/master-style-guide.md)
+- Token/disiplin ve etkileşim güvenliği: [md3-token-governance.md](../design/md3-token-governance.md), [md3-motion-shape-accessibility.md](../design/md3-motion-shape-accessibility.md)
+- Workflow A doğrulama-matrix işaretleme adımı: [md3-agent-workflows.md](../design/md3-agent-workflows.md)
+
+Uygulama kapsamı (Playwright stabilizasyon):
+
+- [test-md3-compliance.spec.js](../../tests/e2e/test-md3-compliance.spec.js)
+  - `networkidle` bağımlılığı kaldırıldı; stabil navigasyon yardımcısı (`domcontentloaded + load + body visible`) standardize edildi.
+  - A11y oran kontrolü, dekoratif görsel istisnalarını kapsayacak şekilde güvenli hale getirildi.
+  - Görsel regresyon adımına sayfa yükseklik stabilizasyonu ve deterministik screenshot hazırlığı eklendi.
+- [md3-visual-test.spec.js](../../tests/e2e/md3-visual-test.spec.js)
+  - Aynı stabil navigasyon/timeout disipliniyle hizalandı.
+  - Snapshot ve locator kırılganlıkları azaltıldı.
+
+Doğrulama sonuçları:
+
+| Kontrol | Sonuç |
+|---|---|
+| Hedefli compliance kırılımı (3 kritik test) | `3/3 passed` |
+| Tam compliance suite (Chromium, workers=1) | `21/21 passed` |
+| Birleşik suite: compliance + visual (Chromium, workers=4) | `34/34 passed` |
+
+Kök neden kapanış özeti:
+
+1. `page.goto` crash/timeout semptomlarını tetikleyen kırılgan bekleme modeli kaldırıldı.
+2. `networkidle` odaklı flake yüzeyi elimine edildi.
+3. Full-page screenshot yükseklik dalgalanması test içinde normalize edilerek paralel koşumda stabil hale getirildi.
+
+### Faz 7 Uygulama Sonucu (2026-03-17)
+
+Anayasa ve belge zinciri bağı:
+
+- Non-negotiable karar önceliği: [master-style-guide.md](../design/master-style-guide.md)
+- Semantic role-first / token governance: [md3-token-governance.md](../design/md3-token-governance.md)
+- Bileşen ve yüzey davranışı: [md3-components-patterns.md](../design/md3-components-patterns.md)
+- Erişilebilirlik ve motion güvenliği: [md3-motion-shape-accessibility.md](../design/md3-motion-shape-accessibility.md)
+
+Uygulama kapsamı (resources helper CSS backlog kapanışı):
+
+- [resource-content-styles.css](../../src/app/pages/resources/resource-content-styles.css)
+- [clean-resource-styles.css](../../src/app/pages/resources/clean-resource-styles.css)
+- [resource-utilities.css](../../src/app/pages/resources/resource-utilities.css)
+- [base-resource-styles.css](../../src/app/pages/resources/base-resource-styles.css)
+
+Kapanış özeti:
+
+1. Legacy `--color-*` kullanımları `--md-sys-color-*` semantic role tokenlarına taşındı.
+2. Hardcoded `#hex` ve `white` kullanımları temizlenerek tonal surface/container rolleri ile hizalandı.
+3. Etkileşim yüzeylerinde state/elevation kararları MD3 uyumlu token seti içinde tutuldu.
+
+Doğrulama sonuçları:
+
+| Kontrol | Sonuç |
+|---|---|
+| Hedef dosyalarda token-bypass taraması (`var(--color-*)`, `#hex`, `white`) | `0 sonuç` |
+| Build kapısı | `npm run build` → çıkış kodu `0` |
+| Route + CTA smoke (Chromium) | `15/15 passed` |
 
 ---
 

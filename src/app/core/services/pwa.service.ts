@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
+import { TranslateService } from '@ngx-translate/core';
 import { filter, map } from 'rxjs/operators';
 import { interval } from 'rxjs';
 
@@ -12,6 +13,7 @@ import { interval } from 'rxjs';
 })
 export class PwaService {
   private swUpdate = inject(SwUpdate);
+  private translate = inject(TranslateService);
 
   // Update check interval (6 hours)
   private readonly UPDATE_CHECK_INTERVAL = 6 * 60 * 60 * 1000;
@@ -96,7 +98,10 @@ export class PwaService {
   private handleOnline(): void {
     console.log('Application is online');
     this.syncOfflineData();
-    this.showNotification('Bağlantı yeniden kuruldu', 'İnternet bağlantınız aktif');
+    this.showNotification(
+      this.translate.instant('PWA.ONLINE_TITLE'),
+      this.translate.instant('PWA.ONLINE_BODY')
+    );
   }
 
   /**
@@ -105,8 +110,8 @@ export class PwaService {
   private handleOffline(): void {
     console.log('Application is offline');
     this.showNotification(
-      'Çevrimdışı mod',
-      'İnternet bağlantısı yok, bazı özellikler kısıtlı olabilir'
+      this.translate.instant('PWA.OFFLINE_TITLE'),
+      this.translate.instant('PWA.OFFLINE_BODY')
     );
   }
 
@@ -257,7 +262,10 @@ export class PwaService {
       // Clear pending appointments
       await this.clearPendingAppointments();
 
-      this.showNotification('Senkronizasyon tamamlandı', 'Bekleyen randevularınız gönderildi');
+      this.showNotification(
+        this.translate.instant('PWA.SYNC_COMPLETE_TITLE'),
+        this.translate.instant('PWA.SYNC_COMPLETE_BODY')
+      );
     } catch (error) {
       console.error('Failed to sync appointments:', error);
     }
@@ -328,7 +336,7 @@ export class PwaService {
    * Prompt user to update app
    */
   private promptUserToUpdate(): void {
-    if (confirm('Yeni bir güncelleme mevcut. Şimdi yüklemek ister misiniz?')) {
+    if (confirm(this.translate.instant('PWA.UPDATE_PROMPT'))) {
       this.updateApp();
     }
   }
@@ -403,8 +411,8 @@ export class PwaService {
    */
   private notifyUserOfUpdate(): void {
     this.showNotification(
-      'Uygulama güncellendi',
-      'Yeni özellikler ve iyileştirmeler kullanıma hazır'
+      this.translate.instant('PWA.UPDATED_TITLE'),
+      this.translate.instant('PWA.UPDATED_BODY')
     );
   }
 

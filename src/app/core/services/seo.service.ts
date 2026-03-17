@@ -34,23 +34,31 @@ export class SeoService {
   private router = inject(Router);
   private translate = inject(TranslateService);
 
-  private readonly defaultSeo: SeoData = {
-    title: 'Çocuk Doktoru Ataşehir | Uzm. Dr. Özlem Murzoğlu',
-    description:
-      'Ataşehir çocuk doktoru Uzm. Dr. Özlem Murzoğlu. Aşı takibi, gelişim kontrolü, uyku danışmanlığı ve 7 uzmanlık alanında hizmet. Randevu: 0216 688 44 83',
-    keywords:
-      'çocuk doktoru ataşehir, ataşehir çocuk doktoru, pediatrist ataşehir, bebek doktoru ataşehir, Dr. Özlem Murzoğlu, çocuk sağlığı uzmanı ataşehir',
-    ogType: 'website',
-    ogImage: 'https://ozlemmurzoglu.com/assets/images/og-image.jpg',
-    twitterCard: 'summary_large_image',
-    author: 'Dr. Özlem Murzoğlu',
-    robots: 'index, follow',
-  };
-
   private readonly baseUrl = 'https://ozlemmurzoglu.com';
 
   constructor() {
     this.initializeRouterEvents();
+  }
+
+  private get brandName(): string {
+    return this.translate.instant('HEADER.BRAND_NAME');
+  }
+
+  private get clinicName(): string {
+    return this.translate.instant('COMMON.CLINIC_NAME');
+  }
+
+  private get defaultSeo(): SeoData {
+    return {
+      title: this.translate.instant('SEO.PAGES.HOME.TITLE'),
+      description: this.translate.instant('SEO.PAGES.HOME.DESCRIPTION'),
+      keywords: this.translate.instant('SEO.PAGES.HOME.KEYWORDS'),
+      ogType: 'website',
+      ogImage: 'https://ozlemmurzoglu.com/assets/images/og-image.jpg',
+      twitterCard: 'summary_large_image',
+      author: this.brandName,
+      robots: 'index, follow',
+    };
   }
 
   updateTags(data: Partial<SeoData>): void {
@@ -58,9 +66,9 @@ export class SeoService {
 
     // Update title
     if (seoData.title) {
-      const fullTitle = seoData.title.includes('Dr. Özlem Murzoğlu')
+      const fullTitle = seoData.title.includes(this.brandName)
         ? seoData.title
-        : `${seoData.title} | Dr. Özlem Murzoğlu`;
+        : `${seoData.title} | ${this.brandName}`;
       this.title.setTitle(fullTitle);
       this.meta.updateTag({ property: 'og:title', content: fullTitle });
       this.meta.updateTag({ name: 'twitter:title', content: fullTitle });
@@ -153,7 +161,7 @@ export class SeoService {
     this.updateMetaTag('og:type', data.ogType || this.defaultSeo.ogType);
     this.updateMetaTag('og:url', data.canonical || this.getCanonicalUrl());
     this.updateMetaTag('og:locale', data.locale || this.getCurrentLocale());
-    this.updateMetaTag('og:site_name', 'Dr. Özlem Murzoğlu');
+    this.updateMetaTag('og:site_name', this.brandName);
 
     // Twitter Card
     this.updateMetaTag('twitter:card', data.twitterCard || this.defaultSeo.twitterCard);
@@ -217,63 +225,58 @@ export class SeoService {
   setPageSeo(pageName: string): void {
     const pageSeoMap: Record<string, SeoData> = {
       home: {
-        title: 'Çocuk Doktoru Ataşehir | Uzm. Dr. Özlem Murzoğlu',
-        description:
-          'Ataşehir çocuk doktoru Uzm. Dr. Özlem Murzoğlu. Aşı takibi, gelişim kontrolü, uyku danışmanlığı ve 7 uzmanlık alanında hizmet. Randevu: 0216 688 44 83',
-        keywords: 'çocuk doktoru ataşehir, ataşehir çocuk doktoru, pediatrist ataşehir, bebek doktoru ataşehir, Dr. Özlem Murzoğlu, çocuk sağlığı uzmanı ataşehir',
+        title: this.translate.instant('SEO.PAGES.HOME.TITLE'),
+        description: this.translate.instant('SEO.PAGES.HOME.DESCRIPTION'),
+        keywords: this.translate.instant('SEO.PAGES.HOME.KEYWORDS'),
         jsonLd: this.getHomePageSchema(),
       },
       about: {
-        title: 'Dr. Özlem Murzoğlu | Sosyal Pediatri Uzmanı Ataşehir',
-        description:
-          'Uzm. Dr. Özlem Murzoğlu - Sosyal pediatri alanında uzman çocuk doktoru. Bright Futures sertifikalı, AAP standartlarında hizmet. Ataşehir Uphill Towers.',
+        title: this.translate.instant('SEO.PAGES.ABOUT.TITLE'),
+        description: this.translate.instant('SEO.PAGES.ABOUT.DESCRIPTION'),
         ogType: 'profile',
       },
       services: {
-        title: 'Çocuk Sağlığı Hizmetleri Ataşehir | 7 Uzmanlık Alanı',
-        description:
-          'Aşı takibi, Bright Futures gelişim programı, uyku danışmanlığı, beslenme terapisi, Triple P ebeveynlik ve laboratuvar hizmetleri. Hemen randevu alın.',
+        title: this.translate.instant('SEO.PAGES.SERVICES.TITLE'),
+        description: this.translate.instant('SEO.PAGES.SERVICES.DESCRIPTION'),
         jsonLd: this.getServicesSchema(),
       },
       contact: {
-        title: 'İletişim ve Randevu | Dr. Özlem Murzoğlu Ataşehir',
-        description: 'Ataşehir Uphill Towers\'da çocuk doktoru randevusu alın. Telefon: 0216 688 44 83. WhatsApp ile hızlı randevu.',
+        title: this.translate.instant('SEO.PAGES.CONTACT.TITLE'),
+        description: this.translate.instant('SEO.PAGES.CONTACT.DESCRIPTION'),
         jsonLd: this.getContactSchema(),
       },
       resources: {
-        title: 'Ebeveyn Kaynakları | Dr. Özlem Murzoğlu',
-        description:
-          'Çocuk sağlığı, gelişim rehberleri, aşı takvimi ve beslenme önerileri. Uzman pediatrist tavsiyesiyle güvenilir bilgi.',
+        title: this.translate.instant('SEO.PAGES.RESOURCES.TITLE'),
+        description: this.translate.instant('SEO.PAGES.RESOURCES.DESCRIPTION'),
       },
       'bright-futures': {
-        title: 'Bright Futures Gelişim Takibi Ataşehir | Dr. Özlem Murzoğlu',
-        description:
-          'AAP standartlarında Bright Futures gelişim takip programı. Yaşa özel değerlendirmeler ve kişisel gelişim planı. Ataşehir\'de uzman pediatrist.',
-        jsonLd: this.getServiceSchema('Bright Futures'),
+        title: this.translate.instant('SEO.PAGES.BRIGHT_FUTURES.TITLE'),
+        description: this.translate.instant('SEO.PAGES.BRIGHT_FUTURES.DESCRIPTION'),
+        jsonLd: this.getServiceSchema(
+          this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.TITLE')
+        ),
       },
       'triple-p': {
-        title: 'Triple P Ebeveynlik Programı İstanbul | Dr. Özlem Murzoğlu',
-        description:
-          'Triple P Pozitif Ebeveynlik Programı ile çocuğunuzun davranışlarını anlayın. Sertifikalı uzman desteği, Ataşehir.',
-        jsonLd: this.getServiceSchema('Triple P'),
+        title: this.translate.instant('SEO.PAGES.TRIPLE_P.TITLE'),
+        description: this.translate.instant('SEO.PAGES.TRIPLE_P.DESCRIPTION'),
+        jsonLd: this.getServiceSchema(this.translate.instant('SERVICES.SERVICE_TRIPLE_P.TITLE')),
       },
       'sos-feeding': {
-        title: 'Çocuk Beslenme Terapisi | SOS Feeding Ataşehir',
-        description:
-          'Çocuğunuz yemek yemiyor mu? SOS Feeding ile duyusal entegrasyon yaklaşımıyla oyun temelli beslenme terapisi. Uzm. Dr. Özlem Murzoğlu.',
-        jsonLd: this.getServiceSchema('SOS Feeding'),
+        title: this.translate.instant('SEO.PAGES.SOS_FEEDING.TITLE'),
+        description: this.translate.instant('SEO.PAGES.SOS_FEEDING.DESCRIPTION'),
+        jsonLd: this.getServiceSchema(
+          this.translate.instant('SERVICES.SERVICE_SOS_FEEDING.TITLE')
+        ),
       },
       'saglikli-uykular': {
-        title: 'Bebek Uyku Danışmanlığı İstanbul | Sağlıklı Uykular',
-        description:
-          'Bebeğiniz uyumakta zorlanıyor mu? Sağlıklı Uykular programı ile kişisel uyku planı ve uzman takibi. Ataşehir\'de pediatrist desteği.',
-        jsonLd: this.getServiceSchema('Sağlıklı Uykular'),
+        title: this.translate.instant('SEO.PAGES.HEALTHY_SLEEP.TITLE'),
+        description: this.translate.instant('SEO.PAGES.HEALTHY_SLEEP.DESCRIPTION'),
+        jsonLd: this.getServiceSchema(this.translate.instant('SERVICES.SERVICE_SLEEP.TITLE')),
       },
       'laboratuvar-goruntuleme': {
-        title: 'Çocuk Laboratuvar ve Görüntüleme Ataşehir | Dr. Özlem Murzoğlu',
-        description:
-          'Çocuklara özel kan tahlili, idrar testi, görüntüleme ve alerji testleri. Ataşehir\'de pediatri kliniğinde hızlı sonuç.',
-        jsonLd: this.getServiceSchema('Laboratuvar ve Görüntüleme'),
+        title: this.translate.instant('SEO.PAGES.LAB.TITLE'),
+        description: this.translate.instant('SEO.PAGES.LAB.DESCRIPTION'),
+        jsonLd: this.getServiceSchema(this.translate.instant('SERVICES.SERVICE_LAB.TITLE')),
       },
     };
 
@@ -364,9 +367,9 @@ export class SeoService {
       '@context': 'https://schema.org',
       '@type': 'MedicalClinic',
       '@id': `${this.baseUrl}/#clinic`,
-      name: 'Dr. Özlem Murzoğlu Kliniği',
-      alternateName: 'Ataşehir Çocuk Doktoru - Dr. Özlem Murzoğlu',
-      description: "Ataşehir İstanbul'da çocuk sağlığı ve hastalıkları kliniği. Bright Futures gelişim takibi, Triple P ebeveyn desteği, beslenme ve uyku danışmanlığı.",
+      name: this.clinicName,
+      alternateName: this.translate.instant('SEO.SCHEMA.CLINIC_ALT_NAME'),
+      description: this.translate.instant('SEO.SCHEMA.CLINIC_DESCRIPTION'),
       url: this.baseUrl,
       telephone: '+902166884483',
       email: 'klinik@drmurzoglu.com',
@@ -377,8 +380,8 @@ export class SeoService {
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Barbaros Mah. Ak Zambak Sok. No:3, Uphill Towers A Blok Daire 30',
-        addressLocality: 'Ataşehir',
-        addressRegion: 'İstanbul',
+        addressLocality: this.translate.instant('SEO.LOCATIONS.ATASEHIR'),
+        addressRegion: this.translate.instant('SEO.LOCATIONS.ISTANBUL'),
         postalCode: '34746',
         addressCountry: 'TR',
       },
@@ -409,11 +412,11 @@ export class SeoService {
         'https://www.youtube.com/@ozlemmurzoglu',
       ],
       areaServed: [
-        { '@type': 'City', name: 'Ataşehir' },
-        { '@type': 'City', name: 'Kadıköy' },
-        { '@type': 'City', name: 'Ümraniye' },
-        { '@type': 'City', name: 'Maltepe' },
-        { '@type': 'City', name: 'İstanbul' },
+        { '@type': 'City', name: this.translate.instant('SEO.LOCATIONS.ATASEHIR') },
+        { '@type': 'City', name: this.translate.instant('SEO.LOCATIONS.KADIKOY') },
+        { '@type': 'City', name: this.translate.instant('SEO.LOCATIONS.UMRANIYE') },
+        { '@type': 'City', name: this.translate.instant('SEO.LOCATIONS.MALTEPE') },
+        { '@type': 'City', name: this.translate.instant('SEO.LOCATIONS.ISTANBUL') },
       ],
     };
   }
@@ -425,41 +428,41 @@ export class SeoService {
     return {
       '@context': 'https://schema.org',
       '@type': 'MedicalBusiness',
-      name: 'Dr. Özlem Murzoğlu - Pediatri Hizmetleri',
+      name: this.translate.instant('SEO.SCHEMA.SERVICES_BUSINESS_NAME'),
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Pediatri Hizmetleri',
+        name: this.translate.instant('SEO.SCHEMA.SERVICES_CATALOG_NAME'),
         itemListElement: [
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'MedicalProcedure',
-              name: 'Bright Futures Programı',
-              description: 'AAP gelişim takip programı',
+              name: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.TITLE'),
+              description: this.translate.instant('SEO.SCHEMA.SERVICE_DESCRIPTIONS.BRIGHT_FUTURES'),
             },
           },
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'MedicalProcedure',
-              name: 'Triple P Ebeveyn Desteği',
-              description: 'Pozitif ebeveynlik programı',
+              name: this.translate.instant('SERVICES.SERVICE_TRIPLE_P.TITLE'),
+              description: this.translate.instant('SEO.SCHEMA.SERVICE_DESCRIPTIONS.TRIPLE_P'),
             },
           },
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'MedicalProcedure',
-              name: 'SOS Feeding',
-              description: 'Beslenme danışmanlığı',
+              name: this.translate.instant('SERVICES.SERVICE_SOS_FEEDING.TITLE'),
+              description: this.translate.instant('SEO.SCHEMA.SERVICE_DESCRIPTIONS.SOS_FEEDING'),
             },
           },
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'MedicalProcedure',
-              name: 'Uyku Danışmanlığı',
-              description: 'Bebek ve çocuk uyku danışmanlığı',
+              name: this.translate.instant('SERVICES.SERVICE_SLEEP.TITLE'),
+              description: this.translate.instant('SEO.SCHEMA.SERVICE_DESCRIPTIONS.HEALTHY_SLEEP'),
             },
           },
         ],
@@ -477,14 +480,14 @@ export class SeoService {
       mainEntity: {
         '@type': 'MedicalClinic',
         '@id': `${this.baseUrl}/#clinic`,
-        name: 'Dr. Özlem Murzoğlu Kliniği',
+        name: this.clinicName,
         telephone: '+902166884483',
         email: 'klinik@drmurzoglu.com',
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Barbaros Mah. Ak Zambak Sok. No:3, Uphill Towers A Blok Daire 30',
-          addressLocality: 'Ataşehir',
-          addressRegion: 'İstanbul',
+          addressLocality: this.translate.instant('SEO.LOCATIONS.ATASEHIR'),
+          addressRegion: this.translate.instant('SEO.LOCATIONS.ISTANBUL'),
           postalCode: '34746',
           addressCountry: 'TR',
         },
@@ -500,14 +503,14 @@ export class SeoService {
       '@context': 'https://schema.org',
       '@type': 'MedicalProcedure',
       name: serviceName,
-      procedureType: 'Pediatric Consultation',
+      procedureType: this.translate.instant('SEO.SCHEMA.PROCEDURE_TYPE'),
       provider: {
         '@type': 'Person',
-        name: 'Dr. Özlem Murzoğlu',
-        jobTitle: 'Çocuk Sağlığı ve Hastalıkları Uzmanı',
+        name: this.brandName,
+        jobTitle: this.translate.instant('SEO.SCHEMA.PROVIDER_JOB_TITLE'),
         worksFor: {
           '@type': 'MedicalClinic',
-          name: 'Dr. Özlem Murzoğlu Kliniği',
+          name: this.clinicName,
         },
       },
     };
@@ -547,14 +550,14 @@ export class SeoService {
       description: article.description,
       author: {
         '@type': 'Person',
-        name: article.author || 'Dr. Özlem Murzoğlu',
+        name: article.author || this.brandName,
       },
       datePublished: article.datePublished || new Date().toISOString(),
       dateModified: article.dateModified || new Date().toISOString(),
       image: article.image || `${this.baseUrl}/assets/images/og-image.jpg`,
       publisher: {
         '@type': 'Organization',
-        name: 'Dr. Özlem Murzoğlu',
+        name: this.brandName,
         logo: {
           '@type': 'ImageObject',
           url: `${this.baseUrl}/logos/OM-Wide-Color.svg`,

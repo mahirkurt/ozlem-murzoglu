@@ -1,12 +1,12 @@
-<div class="journey-page">
+<div class="journey-page standard-page-main">
   <app-page-header
-    [title]="'Bright Futures Yolculuğu'"
-    [subtitle]="'Doğumdan Ergenliğe Sağlıklı Büyüme Rehberi'">
+    [title]="'BRIGHT_FUTURES.JOURNEY_TITLE' | translate"
+    [subtitle]="'BRIGHT_FUTURES.JOURNEY_SUBTITLE' | translate">
   </app-page-header>
 
   <section class="journey-intro">
     <div class="container">
-      <p>Çocuğunuzun her gelişim aşamasında yanınızdayız. Bright Futures programı ile doğumdan 21 yaşına kadar çocuğunuzun sağlıklı büyümesini destekliyoruz.</p>
+      <p>{{ 'BRIGHT_FUTURES.JOURNEY.INTRO' | translate }}</p>
     </div>
   </section>
 
@@ -16,28 +16,28 @@
       <div class="phase-selector">
         <button class="phase-btn" [class.active]="activePhase === 'bebek'" (click)="setActivePhase('bebek')">
           <span class="material-icons-rounded">child_care</span>
-          <span class="phase-label">Bebek</span>
-          <span class="phase-range">0-12 ay</span>
+          <span class="phase-label">{{ 'BRIGHT_FUTURES.PHASE_BABY' | translate }}</span>
+          <span class="phase-range">{{ 'BRIGHT_FUTURES.PHASE_BABY_RANGE' | translate }}</span>
         </button>
         <button class="phase-btn" [class.active]="activePhase === 'yurume'" (click)="setActivePhase('yurume')">
           <span class="material-icons-rounded">directions_walk</span>
-          <span class="phase-label">Yürüme Çağı</span>
-          <span class="phase-range">12-24 ay</span>
+          <span class="phase-label">{{ 'BRIGHT_FUTURES.PHASE_TODDLER' | translate }}</span>
+          <span class="phase-range">{{ 'BRIGHT_FUTURES.PHASE_TODDLER_RANGE' | translate }}</span>
         </button>
         <button class="phase-btn" [class.active]="activePhase === 'okul-oncesi'" (click)="setActivePhase('okul-oncesi')">
           <span class="material-icons-rounded">toys</span>
-          <span class="phase-label">Okul Öncesi</span>
-          <span class="phase-range">2-5 yaş</span>
+          <span class="phase-label">{{ 'BRIGHT_FUTURES.PHASE_PRESCHOOL' | translate }}</span>
+          <span class="phase-range">{{ 'BRIGHT_FUTURES.PHASE_PRESCHOOL_RANGE' | translate }}</span>
         </button>
         <button class="phase-btn" [class.active]="activePhase === 'okul'" (click)="setActivePhase('okul')">
           <span class="material-icons-rounded">school</span>
-          <span class="phase-label">Okul Çağı</span>
-          <span class="phase-range">6-12 yaş</span>
+          <span class="phase-label">{{ 'BRIGHT_FUTURES.PHASE_SCHOOL' | translate }}</span>
+          <span class="phase-range">{{ 'BRIGHT_FUTURES.PHASE_SCHOOL_RANGE' | translate }}</span>
         </button>
         <button class="phase-btn" [class.active]="activePhase === 'ergen'" (click)="setActivePhase('ergen')">
           <span class="material-icons-rounded">psychology</span>
-          <span class="phase-label">Ergenlik</span>
-          <span class="phase-range">13-21 yaş</span>
+          <span class="phase-label">{{ 'BRIGHT_FUTURES.PHASE_ADOLESCENT' | translate }}</span>
+          <span class="phase-range">{{ 'BRIGHT_FUTURES.PHASE_ADOLESCENT_RANGE' | translate }}</span>
         </button>
       </div>
     </div>
@@ -50,8 +50,8 @@
       <!-- Bebek Phase (0-12 months) -->
       <div class="timeline-phase" *ngIf="activePhase === 'bebek'">
         <div class="phase-header">
-          <h2>Bebek Dönemi</h2>
-          <p>İlk bir yıldaki önemli kontroller ve gelişim aşamaları</p>
+          <h2>{{ 'BRIGHT_FUTURES.JOURNEY.PHASE_HEADERS.BABY_TITLE' | translate }}</h2>
+          <p>{{ 'BRIGHT_FUTURES.JOURNEY.PHASE_HEADERS.BABY_DESCRIPTION' | translate }}</p>
         </div>
         
         <div class="timeline-track">
@@ -61,12 +61,12 @@
               <span class="material-icons-rounded">pregnant_woman</span>
             </div>
             <div class="timeline-content-box">
-              <h3>Doğum Öncesi</h3>
-              <p class="visit-description">Doğum öncesi hazırlık ve beklentiler</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.PRENATAL' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.PRENATAL_PREPARATION' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/1-ay-aile-in-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/1-ay-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -75,15 +75,15 @@
           <!-- Newborn (First 48 hours) -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">0-2 gün</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.ZERO_TO_TWO_DAYS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>Yenidoğan (İlk 48 saat)</h3>
-              <p class="visit-description">Hastanede ilk muayene ve tarama testleri</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.NEWBORN_FORTY_EIGHT_HOURS' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.HOSPITAL_SCREENING' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/1-ay-aile-in-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/1-ay-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -92,15 +92,15 @@
           <!-- 1 Week -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">1 hafta</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.ONE_WEEK' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>1. Hafta Kontrolü</h3>
-              <p class="visit-description">İlk hafta değerlendirmesi, sarılık kontrolü, emzirme desteği</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.ONE_WEEK_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.FIRST_WEEK_EVALUATION' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/1-ay-aile-in-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/1-ay-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -109,15 +109,15 @@
           <!-- 1 Month -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">1 ay</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.ONE_MONTH' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>1. Ay Kontrolü</h3>
-              <p class="visit-description">İlk ay değerlendirmesi</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.ONE_MONTH_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.FIRST_MONTH_EVALUATION' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/1-ay-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/1-ay-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -126,15 +126,15 @@
           <!-- 2 Months -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">2 ay</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.TWO_MONTHS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>2. Ay Kontrolü</h3>
-              <p class="visit-description">Aşılar ve gelişim takibi</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.TWO_MONTH_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.VACCINE_AND_DEVELOPMENT' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/2-ay-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/2-ay-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -143,15 +143,15 @@
           <!-- 4 Months -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">4 ay</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.FOUR_MONTHS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>4. Ay Kontrolü</h3>
-              <p class="visit-description">Uyku düzeni ve beslenme</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.FOUR_MONTH_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.SLEEP_AND_NUTRITION' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/4-ay-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/4-ay-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -160,15 +160,15 @@
           <!-- 6 Months -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">6 ay</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.SIX_MONTHS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>6. Ay Kontrolü</h3>
-              <p class="visit-description">Ek gıdaya geçiş</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.SIX_MONTH_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.SOLID_FOOD_TRANSITION' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/6-ay-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/6-ay-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -177,15 +177,15 @@
           <!-- 9 Months -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">9 ay</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.NINE_MONTHS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>9. Ay Kontrolü</h3>
-              <p class="visit-description">Hareket gelişimi</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.NINE_MONTH_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.MOTOR_DEVELOPMENT' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/9-ay-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/9-ay-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -194,15 +194,15 @@
           <!-- 12 Months -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">12 ay</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.TWELVE_MONTHS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>1 Yaş Kontrolü</h3>
-              <p class="visit-description">İlk yaş değerlendirmesi</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.ONE_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.FIRST_YEAR_EVALUATION' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/12-ay-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/12-ay-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -213,23 +213,23 @@
       <!-- Yürüme Phase (12-24 months) -->
       <div class="timeline-phase" *ngIf="activePhase === 'yurume'">
         <div class="phase-header">
-          <h2>Yürüme Çağı</h2>
-          <p>Bağımsızlığın ilk adımları</p>
+          <h2>{{ 'BRIGHT_FUTURES.PHASE_TODDLER' | translate }}</h2>
+          <p>{{ 'BRIGHT_FUTURES.JOURNEY.PHASE_HEADERS.TODDLER_DESCRIPTION' | translate }}</p>
         </div>
         
         <div class="timeline-track">
           <!-- 15 Months -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">15 ay</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.FIFTEEN_MONTHS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>15. Ay Kontrolü</h3>
-              <p class="visit-description">Yürüme ve konuşma gelişimi</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.FIFTEEN_MONTH_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.WALKING_AND_SPEECH' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/15-ay-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/15-ay-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -238,15 +238,15 @@
           <!-- 18 Months -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">18 ay</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.EIGHTEEN_MONTHS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>18. Ay Kontrolü</h3>
-              <p class="visit-description">Dil gelişimi ve sosyal beceriler</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.EIGHTEEN_MONTH_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.LANGUAGE_AND_SOCIAL' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/18-ay-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/18-ay-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -255,15 +255,15 @@
           <!-- 2 Years -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">2 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.TWO_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>2 Yaş Kontrolü</h3>
-              <p class="visit-description">İki yaş değerlendirmesi</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.TWO_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.TWO_YEAR_EVALUATION' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/2-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/2-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -272,15 +272,15 @@
           <!-- 2.5 Years -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">2.5 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.TWO_HALF_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>2.5 Yaş Kontrolü</h3>
-              <p class="visit-description">Tuvalet eğitimi</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.TWO_HALF_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.TOILET_TRAINING' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/2-yas-aile-icin-bilgiler-v2" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/2-ya-aile-in-bilgiler-v2" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -291,23 +291,23 @@
       <!-- Okul Öncesi Phase (3-5 years) -->
       <div class="timeline-phase" *ngIf="activePhase === 'okul-oncesi'">
         <div class="phase-header">
-          <h2>Okul Öncesi Dönem</h2>
-          <p>Keşif ve öğrenme yılları</p>
+          <h2>{{ 'BRIGHT_FUTURES.JOURNEY.PHASE_HEADERS.PRESCHOOL_TITLE' | translate }}</h2>
+          <p>{{ 'BRIGHT_FUTURES.JOURNEY.PHASE_HEADERS.PRESCHOOL_DESCRIPTION' | translate }}</p>
         </div>
         
         <div class="timeline-track">
           <!-- 3 Years -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">3 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.THREE_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>3 Yaş Kontrolü</h3>
-              <p class="visit-description">Okul öncesi hazırlık</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.THREE_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.PRESCHOOL_PREPARATION' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/3-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/3-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -316,15 +316,15 @@
           <!-- 4 Years -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">4 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.FOUR_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>4 Yaş Kontrolü</h3>
-              <p class="visit-description">Sosyal ve duygusal gelişim</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.FOUR_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.SOCIAL_AND_EMOTIONAL' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/4-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/4-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -333,15 +333,15 @@
           <!-- 5 Years -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">5 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.FIVE_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>5 Yaş Kontrolü</h3>
-              <p class="visit-description">Okula hazırlık</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.FIVE_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.SCHOOL_READINESS' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/5-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/5-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -352,23 +352,23 @@
       <!-- Okul Phase (6-12 years) -->
       <div class="timeline-phase" *ngIf="activePhase === 'okul'">
         <div class="phase-header">
-          <h2>Okul Çağı</h2>
-          <p>Öğrenme ve arkadaşlık yılları</p>
+          <h2>{{ 'BRIGHT_FUTURES.PHASE_SCHOOL' | translate }}</h2>
+          <p>{{ 'BRIGHT_FUTURES.JOURNEY.PHASE_HEADERS.SCHOOL_DESCRIPTION' | translate }}</p>
         </div>
         
         <div class="timeline-track">
           <!-- 6 Years -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">6 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.SIX_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>6 Yaş Kontrolü</h3>
-              <p class="visit-description">İlkokul başlangıcı</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.SIX_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.PRIMARY_SCHOOL_START' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/6-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/6-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -377,19 +377,19 @@
           <!-- 7 Years -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">7 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.SEVEN_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>7 Yaş Kontrolü</h3>
-              <p class="visit-description">Akademik gelişim</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.SEVEN_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.ACADEMIC_DEVELOPMENT' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/7-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/7-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
-                <a routerLink="/bilgi-merkezi/bright-futures-cocuk/7-yas-cocuk-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-cocuk/7-ya-ocuk-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">face</span>
-                  <span>Çocuk İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.CHILD' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -398,19 +398,19 @@
           <!-- 8 Years -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">8 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.EIGHT_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>8 Yaş Kontrolü</h3>
-              <p class="visit-description">Bağımsızlık ve sorumluluk</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.EIGHT_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.INDEPENDENCE_AND_RESPONSIBILITY' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/8-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/8-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
-                <a routerLink="/bilgi-merkezi/bright-futures-cocuk/8-yas-cocuk-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-cocuk/8-ya-ocuk-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">face</span>
-                  <span>Çocuk İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.CHILD' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -419,19 +419,19 @@
           <!-- 9 Years -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">9 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.NINE_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>9 Yaş Kontrolü</h3>
-              <p class="visit-description">Arkadaşlık ve sosyal beceriler</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.NINE_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.FRIENDSHIP_AND_SOCIAL' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/9-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/9-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
-                <a routerLink="/bilgi-merkezi/bright-futures-cocuk/9-yas-cocuk-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-cocuk/9-ya-ocuk-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">face</span>
-                  <span>Çocuk İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.CHILD' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -440,19 +440,19 @@
           <!-- 10 Years -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">10 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.TEN_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>10 Yaş Kontrolü</h3>
-              <p class="visit-description">Ergenlik öncesi</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.TEN_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.PRE_ADOLESCENCE' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/10-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/10-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
-                <a routerLink="/bilgi-merkezi/bright-futures-cocuk/10-yas-cocuk-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-cocuk/10-ya-ocuk-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">face</span>
-                  <span>Çocuk İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.CHILD' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -461,19 +461,19 @@
           <!-- 11 Years -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">11 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.ELEVEN_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>11 Yaş Kontrolü</h3>
-              <p class="visit-description">Ergenliğe hazırlık</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.ELEVEN_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.PREPARING_FOR_ADOLESCENCE' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/11-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/11-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
-                <a routerLink="/bilgi-merkezi/bright-futures-cocuk/11-yas-cocuk-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-cocuk/11-ya-ocuk-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">face</span>
-                  <span>Çocuk İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.CHILD' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -482,19 +482,19 @@
           <!-- 12 Years -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">12 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.TWELVE_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>12 Yaş Kontrolü</h3>
-              <p class="visit-description">Ergenlik başlangıcı</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.TWELVE_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.PUBERTY_ONSET' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/12-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/12-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
-                <a routerLink="/bilgi-merkezi/bright-futures-cocuk/12-yas-cocuk-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-cocuk/12-ya-ocuk-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">face</span>
-                  <span>Çocuk İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.CHILD' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -505,23 +505,23 @@
       <!-- Ergen Phase (13-21 years) -->
       <div class="timeline-phase" *ngIf="activePhase === 'ergen'">
         <div class="phase-header">
-          <h2>Ergenlik Dönemi</h2>
-          <p>Büyük değişimler ve yetişkinliğe hazırlık</p>
+          <h2>{{ 'BRIGHT_FUTURES.JOURNEY.PHASE_HEADERS.ADOLESCENT_TITLE' | translate }}</h2>
+          <p>{{ 'BRIGHT_FUTURES.JOURNEY.PHASE_HEADERS.ADOLESCENT_DESCRIPTION' | translate }}</p>
         </div>
         
         <div class="timeline-track">
           <!-- 13 Years -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">13 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.THIRTEEN_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>13 Yaş Kontrolü</h3>
-              <p class="visit-description">Ergenlik değişimleri</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.THIRTEEN_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.PUBERTY_CHANGES' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-cocuk/13-yas-cocuk-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-cocuk/13-ya-ocuk-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">face</span>
-                  <span>Ergen İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.ADOLESCENT' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -530,19 +530,19 @@
           <!-- 14 Years -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">14 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.FOURTEEN_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>14 Yaş Kontrolü</h3>
-              <p class="visit-description">Kimlik gelişimi</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.FOURTEEN_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.IDENTITY_DEVELOPMENT' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/14-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/14-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
-                <a routerLink="/bilgi-merkezi/bright-futures-cocuk/14-yas-cocuk-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-cocuk/14-ya-ocuk-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">face</span>
-                  <span>Ergen İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.ADOLESCENT' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -551,19 +551,19 @@
           <!-- 15 Years -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">15 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.FIFTEEN_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>15 Yaş Kontrolü</h3>
-              <p class="visit-description">Bağımsızlık ve sorumluluk</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.FIFTEEN_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.INDEPENDENCE_AND_RESPONSIBILITY' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/15-yas-aile-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-aile/15-ya-aile-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.FAMILY' | translate }}</span>
                 </a>
-                <a routerLink="/bilgi-merkezi/bright-futures-cocuk/15-yas-cocuk-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-cocuk/15-ya-ocuk-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">face</span>
-                  <span>Ergen İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.ADOLESCENT' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -572,32 +572,26 @@
           <!-- 16 Years -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">16 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.SIXTEEN_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>16 Yaş Kontrolü</h3>
-              <p class="visit-description">Gelecek planları</p>
-              <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/16-yas-aile-icin-bilgiler" class="resource-link">
-                  <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
-                </a>
-              </div>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.SIXTEEN_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.FUTURE_PLANNING' | translate }}</p>
             </div>
           </div>
 
           <!-- 17 Years -->
           <div class="timeline-item">
             <div class="timeline-marker">
-              <span class="age-label">17 yaş</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.SEVENTEEN_YEARS' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>17 Yaş Kontrolü</h3>
-              <p class="visit-description">Üniversite hazırlığı</p>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.SEVENTEEN_YEAR_CHECK' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.UNIVERSITY_PREPARATION' | translate }}</p>
               <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-cocuk/17-yas-cocuk-icin-bilgiler" class="resource-link">
+                <a routerLink="/kaynaklar/bright-futures-cocuk/17-ya-ocuk-in-bilgiler" class="resource-link">
                   <span class="material-icons-rounded">face</span>
-                  <span>Genç İçin Bilgiler</span>
+                  <span>{{ 'BRIGHT_FUTURES.JOURNEY.LABELS.YOUTH' | translate }}</span>
                 </a>
               </div>
             </div>
@@ -606,39 +600,33 @@
           <!-- 18-21 Years -->
           <div class="timeline-item milestone">
             <div class="timeline-marker">
-              <span class="age-label">18-21</span>
+              <span class="age-label">{{ 'BRIGHT_FUTURES.JOURNEY.AGES.EIGHTEEN_TO_TWENTY_ONE' | translate }}</span>
             </div>
             <div class="timeline-content-box">
-              <h3>Genç Yetişkinlik</h3>
-              <p class="visit-description">Yetişkinliğe geçiş</p>
-              <div class="resource-links">
-                <a routerLink="/bilgi-merkezi/bright-futures-aile/18-21-yas-aile-icin-bilgiler" class="resource-link">
-                  <span class="material-icons-rounded">family_restroom</span>
-                  <span>Aile İçin Bilgiler</span>
-                </a>
-              </div>
+              <h3>{{ 'BRIGHT_FUTURES.JOURNEY.VISITS.YOUNG_ADULTHOOD' | translate }}</h3>
+              <p class="visit-description">{{ 'BRIGHT_FUTURES.JOURNEY.VISIT_DESCRIPTIONS.TRANSITION_TO_ADULTHOOD' | translate }}</p>
             </div>
           </div>
         </div>
 
         <!-- Special Resources for Teens -->
         <div class="special-resources">
-          <h3>Ergenler İçin Özel Kaynaklar</h3>
+          <h3>{{ 'BRIGHT_FUTURES.JOURNEY.SPECIAL_RESOURCES.TITLE' | translate }}</h3>
           <div class="resource-grid">
-            <a routerLink="/bilgi-merkezi/bright-futures-cocuk/akne-hakkinda-bilmen-gerekenler" class="special-resource-card">
+            <a routerLink="/kaynaklar/bright-futures-cocuk/akne-hakk-nda-bilmen-gerekenler" class="special-resource-card">
               <span class="material-icons-rounded">face_retouching_natural</span>
-              <h4>Akne Hakkında</h4>
-              <p>Cilt bakımı ve tedavi yöntemleri</p>
+              <h4>{{ 'BRIGHT_FUTURES.JOURNEY.SPECIAL_RESOURCES.ACNE_TITLE' | translate }}</h4>
+              <p>{{ 'BRIGHT_FUTURES.JOURNEY.SPECIAL_RESOURCES.ACNE_DESCRIPTION' | translate }}</p>
             </a>
-            <a routerLink="/bilgi-merkezi/bright-futures-cocuk/ergenlik-donemi-buyuk-degisimlere-hazir-ol" class="special-resource-card">
+            <a routerLink="/kaynaklar/bright-futures-cocuk/ergenlik-d-nemi-b-y-k-de-i-imlere-haz-r-ol" class="special-resource-card">
               <span class="material-icons-rounded">trending_up</span>
-              <h4>Ergenlik Değişimleri</h4>
-              <p>Büyük değişimlere hazır ol</p>
+              <h4>{{ 'BRIGHT_FUTURES.JOURNEY.SPECIAL_RESOURCES.PUBERTY_TITLE' | translate }}</h4>
+              <p>{{ 'BRIGHT_FUTURES.JOURNEY.SPECIAL_RESOURCES.PUBERTY_DESCRIPTION' | translate }}</p>
             </a>
-            <a routerLink="/bilgi-merkezi/bright-futures-cocuk/genc-ergene-doktorundan-mektup" class="special-resource-card">
+            <a routerLink="/kaynaklar/bright-futures-cocuk/gen-ergene-doktorundan-mektup" class="special-resource-card">
               <span class="material-icons-rounded">mail</span>
-              <h4>Doktorundan Mektup</h4>
-              <p>Genç ergene özel mesajlar</p>
+              <h4>{{ 'BRIGHT_FUTURES.JOURNEY.SPECIAL_RESOURCES.DOCTOR_LETTER_TITLE' | translate }}</h4>
+              <p>{{ 'BRIGHT_FUTURES.JOURNEY.SPECIAL_RESOURCES.DOCTOR_LETTER_DESCRIPTION' | translate }}</p>
             </a>
           </div>
         </div>
@@ -655,8 +643,8 @@
           <span class="material-icons-rounded">info</span>
         </div>
         <div class="info-text">
-          <h3>Bright Futures Programı Hakkında</h3>
-          <p>Bright Futures, Amerikan Pediatri Akademisi tarafından geliştirilen, çocukların doğumdan 21 yaşına kadar sağlıklı büyümelerini destekleyen kapsamlı bir rehberlik programıdır. Her yaş dönemine özel hazırlanmış bilgi föyleri ile hem ailelere hem de çocuklara yol gösterir.</p>
+          <h3>{{ 'BRIGHT_FUTURES.JOURNEY.ABOUT.TITLE' | translate }}</h3>
+          <p>{{ 'BRIGHT_FUTURES.JOURNEY.ABOUT.DESCRIPTION' | translate }}</p>
         </div>
       </div>
     </div>
