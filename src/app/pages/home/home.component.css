@@ -4,13 +4,13 @@
 
 .home-page {
   display: grid;
-  gap: var(--md-sys-spacing-8);
+  gap: 0;
 }
 
 .home-page__hero,
 .home-page__section {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .home-page__hero {
@@ -22,8 +22,4 @@
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .home-page {
-    gap: var(--md-sys-spacing-6);
-  }
-}
+/* Mobile gap removed — sections manage their own internal padding */

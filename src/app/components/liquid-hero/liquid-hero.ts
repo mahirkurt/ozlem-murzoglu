@@ -17,6 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
       </div>
       <div class="hero-pattern-overlay" aria-hidden="true"></div>
       <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="hero-bottom-fade" aria-hidden="true"></div>
       <div class="liquid-hero__content">
         <div class="liquid-hero__layout">
           <div class="hero-text-column">

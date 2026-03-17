@@ -12,8 +12,8 @@
   border-top: none;
   box-shadow: none;
 
-  /* Warmer/Lighter Background for "Bilimsel Sıcaklık" color balance */
-  background: var(--md-sys-color-surface-container-low);
+  /* Unified surface for seamless page flow */
+  background: var(--md-sys-color-surface-container-lowest);
   overflow: hidden;
 
   --doctor-bio-photo-max-width: calc(var(--md-sys-spacing-28) * 4);

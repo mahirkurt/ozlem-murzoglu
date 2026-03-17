@@ -37,7 +37,7 @@ blockquote:not([class]),
 }
 
 // Link hover underline animation (excludes buttons, nav links, card links)
-a:not(.md3-button):not(.nav-link):not(.hero-button):not(.btn-primary):not(.btn-secondary):not(.service-link):not(.profile-link):not(.details-link):not(.cta-button):not([class*="card"]):not([routerLink]) {
+a:not(.md3-button):not(.nav-link):not(.hero-button):not(.btn-primary):not(.btn-secondary):not(.service-link):not(.profile-link):not(.details-link):not(.cta-button):not([class*="card"]):not([routerLink]):not(.skip-to-content) {
   position: relative;
 
   &::after {
@@ -652,13 +652,8 @@ app-home section,
 app-home .section,
 app-home > div[scrollReveal] {
   margin: 0;
-  padding: 100px 0;
+  padding: 0; /* Sections manage own internal padding via component SCSS */
   position: relative;
-}
-
-/* Alternating backgrounds */
-app-home > div[scrollReveal]:nth-child(even) {
-  background-color: var(--md-sys-color-surface-container);
 }
 
 app-approach-section { background: var(--md-sys-color-surface); }
@@ -697,9 +692,6 @@ app-testimonial-section {
 @media (max-width: 768px) {
   section,
   .section,
-  app-home section,
-  app-home .section,
-  app-home > div[scrollReveal],
   .approach-section,
   .services-section,
   .appointment-section,

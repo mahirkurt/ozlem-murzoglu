@@ -1,4 +1,28 @@
 /* =========================================
+   SKIP-TO-CONTENT (scoped for encapsulation)
+   ========================================= */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--md-sys-spacing-4) var(--md-sys-spacing-6);
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border-radius: var(--md-sys-shape-corner-medium, 12px);
+  font-weight: 500;
+  z-index: 9999;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:focus {
+    top: var(--md-sys-spacing-4);
+    outline: 3px solid var(--md-sys-color-outline);
+    outline-offset: 2px;
+  }
+}
+
+/* =========================================
    FRESH HEADER CONTAINER (FLOATING LOGIC)
    ========================================= */
 .fresh-header-container {

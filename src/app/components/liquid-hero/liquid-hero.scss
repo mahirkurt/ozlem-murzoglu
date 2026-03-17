@@ -249,6 +249,23 @@
   z-index: 0;
 }
 
+// ── Hero bottom fade — seamless transition to content ──
+.hero-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: clamp(var(--md-sys-spacing-16), 12vh, var(--md-sys-spacing-24));
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in oklch, var(--md-sys-color-surface-container-lowest) 40%, transparent) 50%,
+    var(--md-sys-color-surface-container-lowest) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
 .liquid-hero__content {
   position: relative;
   z-index: var(--md-layout-z-sticky);
