@@ -9,17 +9,6 @@
     transparent
   );
   --md-sys-hero-text-shadow: oklch(from var(--md-sys-color-shadow) l c h / 0.12);
-  --hero-highlight-marker: color-mix(
-    in oklch,
-    var(--md-sys-color-tertiary) 68%,
-    var(--md-sys-color-tertiary-container) 32%
-  );
-  --hero-highlight-marker-strong: color-mix(
-    in oklch,
-    var(--md-sys-color-tertiary) 84%,
-    var(--md-sys-color-tertiary-container) 16%
-  );
-  --hero-highlight-glow: oklch(from var(--md-sys-color-tertiary) l c h / 0.36);
   --hero-title-halo: color-mix(
     in oklch,
     var(--md-sys-color-primary-container) 56%,
@@ -249,22 +238,6 @@
   z-index: 0;
 }
 
-// ── Hero bottom fade — seamless transition to content ──
-.hero-bottom-fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: clamp(var(--md-sys-spacing-16), 12vh, var(--md-sys-spacing-24));
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    color-mix(in oklch, var(--md-sys-color-surface-container-lowest) 40%, transparent) 50%,
-    var(--md-sys-color-surface-container-lowest) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
 
 .liquid-hero__content {
   position: relative;
@@ -284,7 +257,7 @@
   @include container-padding;
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
   gap: clamp(var(--md-sys-spacing-6), 4vw, var(--md-sys-spacing-10));
   align-items: center;
   text-align: left;
@@ -314,29 +287,13 @@
   text-transform: uppercase;
   color: var(--md-sys-hero-text-secondary);
   margin: 0 0 var(--md-sys-spacing-3) 0;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--md-sys-spacing-2);
-
-  &::before {
-    content: '';
-    display: inline-block;
-    width: var(--md-sys-spacing-6);
-    height: var(--md-sys-spacing-0-5);
-    background: linear-gradient(
-      to right,
-      var(--md-sys-color-tertiary),
-      color-mix(in oklch, var(--md-sys-color-tertiary) 40%, transparent)
-    );
-    border-radius: var(--md-sys-shape-corner-full);
-  }
 }
 
 .liquid-visual-root .hero-title {
   font-family: var(--md-sys-typescale-display-large-font) !important;
   font-size: var(--md-sys-typescale-display-large-size) !important;
   line-height: var(--md-sys-typescale-display-large-line-height) !important;
-  font-weight: var(--md-sys-typescale-display-large-weight) !important;
+  font-weight: 500 !important; /* Medium — stronger first impression for trust */
   letter-spacing: var(--md-sys-typescale-display-large-tracking) !important;
   color: var(--md-sys-hero-text-primary) !important;
   text-shadow: 0 18px 48px var(--md-sys-hero-text-shadow);
@@ -353,48 +310,26 @@
   word-break: normal;
 }
 
+// Editorial-style subtle underline accent — refined, not marker
 .hero-title .hero-highlight {
   position: relative;
-  display: inline-block;
-  padding: 0 var(--md-sys-spacing-1) var(--md-sys-spacing-0-5);
-  white-space: nowrap;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  z-index: 0;
+  display: inline;
 }
 
-.hero-title .hero-highlight::before,
 .hero-title .hero-highlight::after {
   content: '';
   position: absolute;
-  left: calc(-1 * var(--md-sys-spacing-0-5));
-  right: calc(-1 * var(--md-sys-spacing-0-5));
-  border-radius: var(--md-sys-shape-corner-large);
+  left: 0;
+  right: 0;
+  bottom: 0.05em;
+  height: 3px;
   background: linear-gradient(
-    110deg,
-    transparent 0%,
-    var(--hero-highlight-marker) 18%,
-    var(--hero-highlight-marker-strong) 55%,
-    var(--hero-highlight-marker) 82%,
-    transparent 100%
+    90deg,
+    var(--md-sys-color-tertiary),
+    color-mix(in oklch, var(--md-sys-color-tertiary) 60%, var(--md-sys-color-secondary))
   );
-  z-index: -1;
-}
-
-.hero-title .hero-highlight::before {
-  top: 60%;
-  bottom: var(--md-sys-spacing-0-5);
-  opacity: 0.86;
-  filter: saturate(1.25) blur(0.4px);
-  transform: rotate(-1.6deg);
-}
-
-.hero-title .hero-highlight::after {
-  top: 64%;
-  bottom: var(--md-sys-spacing-1);
-  opacity: 0.55;
-  filter: saturate(1.15) blur(0.8px);
-  transform: rotate(0.8deg);
+  border-radius: var(--md-sys-shape-corner-full);
+  opacity: 0.75;
 }
 
 .liquid-visual-root .hero-subtitle {
@@ -414,7 +349,7 @@
   gap: var(--md-sys-spacing-hero-cta-gap);
   justify-content: flex-start;
   width: 100%;
-  margin-top: var(--md-sys-spacing-4);
+  margin-top: var(--md-sys-spacing-6);
 }
 
 
@@ -443,7 +378,7 @@
 // ── Growth Tree illustration ──
 .growth-tree {
   width: 100%;
-  max-width: 360px;
+  max-width: 320px;
   height: auto;
   transform-origin: bottom center;
   object-fit: contain;
@@ -452,7 +387,7 @@
 // ── Tablet scaling (840-1200px) ──
 @include bp-expanded-only {
   .growth-tree {
-    max-width: 80%;
+    max-width: 70%;
   }
 }
 
@@ -782,17 +717,6 @@
     var(--md-sys-color-primary) 28%,
     transparent
   );
-  --hero-highlight-marker: color-mix(
-    in oklch,
-    var(--md-sys-color-tertiary) 72%,
-    var(--md-sys-color-tertiary-container) 28%
-  );
-  --hero-highlight-marker-strong: color-mix(
-    in oklch,
-    var(--md-sys-color-tertiary) 88%,
-    var(--md-sys-color-tertiary-container) 12%
-  );
-  --hero-highlight-glow: oklch(from var(--md-sys-color-tertiary) l c h / 0.52);
   --hero-microcopy-color: color-mix(
     in oklch,
     var(--md-sys-color-on-surface) 72%,

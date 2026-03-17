@@ -528,7 +528,8 @@
       "NURSING": "Nursing room",
       "PLAY_AREA": "Children's play area",
       "PLAY_CORNER": "Play corner",
-      "WAITING_AREA": "Clinic waiting area"
+      "WAITING_AREA": "Clinic waiting area",
+      "MONTESSORI_TOYS": "[EN] Montessori Toys"
     },
     "BABY_ROOM": "We also created a baby care and breastfeeding room. We tried to create a comfortable and peaceful atmosphere in this room.",
     "CLINIC_AREAS": "Our Clinic Areas",
@@ -713,7 +714,10 @@
       "DARK": "Theme: Dark",
       "LIGHT": "Theme: Light"
     },
-    "WARNING": "Warning"
+    "WARNING": "Warning",
+    "SKIP_LINKS": {
+      "MAIN_CONTENT": "Skip to main content"
+    }
   },
   "ACCESSIBILITY": {
     "CLINIC_ARIA_LABEL": "Dr. Özlem Murzoğlu Pediatrics Clinic",
@@ -940,7 +944,8 @@
     "SEARCH_PLACEHOLDER": "Search your question...",
     "SEND_MESSAGE": "Send Message",
     "SUBTITLE": "Get detailed information about topics you're curious about",
-    "TITLE": "Frequently Asked Questions"
+    "TITLE": "Frequently Asked Questions",
+    "CATEGORY_": "[EN] Category "
   },
   "FAVORITES": {
     "ACTIONS": {
@@ -1659,7 +1664,7 @@
     "HERO_BADGE_SOCIAL_PED": "Social Pediatrics PhD",
     "HERO_BADGE_TRIPLE_P": "Triple P® Licensed",
     "HERO_MICROCOPY": "Schedule the time that suits you for appointments or information requests.",
-    "HERO_OVERLINE": "Evidence-Based Social Pediatrics",
+    "HERO_OVERLINE": "Spec.Dr. Özlem Murzoğlu Pediatric Clinic",
     "HERO_TITLE": "Healthy children growing with <span class=\"hero-highlight\">science</span> and <span class=\"hero-highlight\">compassion</span>",
     "STATS_AAP": "AAP Aligned",
     "STATS_CERTS": "Certifications",
@@ -2154,7 +2159,81 @@
         "title": "Rotavirus Vaccine Information"
       }
     },
-    "VIEW_ALL": "View All"
+    "VIEW_ALL": "View All",
+    "HASTALIKLAR": {
+      "ATES": "[EN] Ates",
+      "ISHAL": "[EN] Ishal",
+      "KABIZLIK": "[EN] Kabizlik",
+      "KUSMA": "[EN] Kusma",
+      "OKSURUK": "[EN] Oksuruk",
+      "BURUN_AKINTISI": "[EN] Burun Akintisi",
+      "KULAK_AGRISI": "[EN] Kulak Agrisi",
+      "BOGAZ_AGRISI": "[EN] Bogaz Agrisi",
+      "DERI_DOKUNTULERI": "[EN] Deri Dokuntuleri",
+      "ALERJILER": "[EN] Alerjiler"
+    },
+    "ASILAR": {
+      "ASI_TAKVIMI": "[EN] Asi Takvimi",
+      "HEPATIT_B": "[EN] Hepatit B",
+      "BCG": "[EN] Bcg",
+      "DBT_IPA_HIB": "[EN] Dbt Ipa Hib",
+      "KONJUGE_PNOMOKOK": "[EN] Konjuge Pnomokok",
+      "ORAL_POLIO": "[EN] Oral Polio",
+      "KKK": "[EN] Kkk",
+      "SU_CICEGI": "[EN] Su Cicegi",
+      "HEPATIT_A": "[EN] Hepatit A",
+      "HPV": "[EN] Hpv"
+    },
+    "BESLENME": {
+      "ANNE_SUTU": "[EN] Anne Sutu",
+      "EK_GIDAYA_GECIS": "[EN] Ek Gidaya Gecis",
+      "ALTI_AY": "[EN] Alti Ay",
+      "YEDI_DOKUZ_AY": "[EN] Yedi Dokuz Ay",
+      "ON_ONIKI_AY": "[EN] On Oniki Ay",
+      "BIR_UC_YAS": "[EN] Bir Uc Yas",
+      "VITAMIN_MINERAL": "[EN] Vitamin Mineral",
+      "YEMEK_REDDI": "[EN] Yemek Reddi",
+      "OBEZITE": "[EN] Obezite",
+      "BESIN_ALERJILERI": "[EN] Besin Alerjileri"
+    },
+    "UYKU": {
+      "UYKU_DUZENI": "[EN] Uyku Duzeni",
+      "UC_AY": "[EN] Uc Ay",
+      "UC_ALTI_AY": "[EN] Uc Alti Ay",
+      "ALTI_ONIKI_AY": "[EN] Alti Oniki Ay",
+      "BIR_UC_YAS": "[EN] Bir Uc Yas",
+      "UYKU_EGITIMI": "[EN] Uyku Egitimi",
+      "UYKU_SORUNLARI": "[EN] Uyku Sorunlari",
+      "GECE_UYANMALARI": "[EN] Gece Uyanmalari",
+      "UYKU_ORTAMI": "[EN] Uyku Ortami",
+      "GUNDUZ_UYKUSU": "[EN] Gunduz Uykusu"
+    },
+    "GENEL_BILGILER": {
+      "YENIDOGAN_BAKIMI": "[EN] Yenidogan Bakimi",
+      "DIS_BAKIM": "[EN] Dis Bakim",
+      "TUVALET_EGITIMI": "[EN] Tuvalet Egitimi",
+      "OKULA_HAZIRLIK": "[EN] Okula Hazirlik",
+      "ERGENLIK": "[EN] Ergenlik",
+      "GUVENLIK": "[EN] Guvenlik",
+      "OYUN_AKTIVITE": "[EN] Oyun Aktivite",
+      "EKRAN_SURESI": "[EN] Ekran Suresi",
+      "SOSYAL_GELISIM": "[EN] Sosyal Gelisim",
+      "DIL_GELISIMI": "[EN] Dil Gelisimi"
+    },
+    "AILE_MEDYA_PLANI": {
+      "MEDYA_PLANI": "[EN] Medya Plani",
+      "EKRAN_SURESI_REHBERI": "[EN] Ekran Suresi Rehberi",
+      "DIJITAL_GUVENLIK": "[EN] Dijital Guvenlik",
+      "SOSYAL_MEDYA": "[EN] Sosyal Medya",
+      "OYUN_BAGIMLILIGI": "[EN] Oyun Bagimliligi"
+    },
+    "GEBELIK_DONEMI": {
+      "GEBELIK_TAKIBI": "[EN] Gebelik Takibi",
+      "DOGUMA_HAZIRLIK": "[EN] Doguma Hazirlik",
+      "EMZIRME": "[EN] Emzirme",
+      "BEBEK_BAKIMI": "[EN] Bebek Bakimi",
+      "DOGUM_SONRASI": "[EN] Dogum Sonrasi"
+    }
   },
   "REVIEWS": {
     "TIME_AGO": {
@@ -2488,7 +2567,8 @@
             "TITLE": "The Survival of the Wisest",
             "GENRE": "Social View"
           }
-        }
+        },
+        "SUBTITLE": "[EN] Subtitle"
       },
       "LOUIS_PASTEUR": {
         "LIFESPAN": "1822-1895",
@@ -4042,7 +4122,8 @@
     "VIEW_ALL": "View All Services",
     "VIEW_DETAILS": "View Details",
     "SERVICE_SOS_FEEDING": {
-      "TITLE": "[EN] Title"
+      "TITLE": "[EN] Title",
+      "DESC": "[EN] Desc"
     }
   },
   "SERVICE_SOS_FEEDING": {
@@ -4195,5 +4276,15 @@
     "VIEW_ALL_REVIEWS": "View All Reviews",
     "VIEW_ON_MAPS": "View on Maps",
     "WRITE_REVIEW": "Write a Review"
+  },
+  "ACTIONS": {
+    "PRINT": "[EN] Print",
+    "DOWNLOAD": "[EN] Download",
+    "SHARE": "[EN] Share",
+    "BOOKMARKED": "[EN] Bookmarked",
+    "BOOKMARK": "[EN] Bookmark",
+    "WAS_HELPFUL": "[EN] Was Helpful",
+    "YES": "[EN] Yes",
+    "NO": "[EN] No"
   }
 }

@@ -12,8 +12,8 @@
   border-top: none;
   box-shadow: none;
 
-  /* Unified surface for seamless page flow */
-  background: var(--md-sys-color-surface-container-lowest);
+  /* Alternating surface tier for visual rhythm */
+  background: var(--md-sys-color-surface-container-low);
   overflow: hidden;
 
   --doctor-bio-photo-max-width: calc(var(--md-sys-spacing-28) * 4);
