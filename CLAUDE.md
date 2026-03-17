@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Angular 18 pediatric clinic website with Material Design 3 (pure CSS), i18n (Turkish/English), and Firebase/Vercel hosting.
+Angular 18 pediatric clinic website with Material Design 3 (pure CSS), i18n (Turkish/English), and Firebase hosting.
 
 ## Development Commands
 
@@ -121,13 +121,12 @@ Top-level key groups: `META`, `COMMON`, `HEADER`, `HOME`, `ABOUT`, `SERVICES`, `
 
 ## Build Output
 
-`dist/angular-app/browser` — used by both Firebase and Vercel
+`dist/angular-app/browser` — used by Firebase hosting
 
 ## Deployment
 
 - **Firebase**: `npm run deploy` or `firebase deploy` (predeploy runs i18n:check + build)
 - **Preview**: `firebase hosting:channel:deploy preview`
-- **Vercel**: Auto-deploys on push with build command `npm ci && npm run build`
 
 ## Code Style
 
