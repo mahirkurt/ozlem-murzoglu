@@ -12,14 +12,14 @@
     var(--md-sys-color-primary) 10%,
     transparent
   );
-  --services-ambient-tertiary: color-mix(
+  --services-ambient-secondary: color-mix(
     in oklch,
-    var(--md-sys-color-tertiary) 12%,
+    var(--md-sys-color-secondary) 12%,
     transparent
   );
   --services-cta-shadow: oklch(from var(--md-sys-color-shadow) l c h / 0.16);
-  --services-ambient-blur-primary: calc(var(--md-sys-glass-blur-xl) * 2);
-  --services-ambient-blur-tertiary: calc(var(--md-sys-glass-blur-xl) * 1.5);
+  --services-ambient-blur-primary: 64px;
+  --services-ambient-blur-secondary: 48px;
 
   /* Aurora Background Flow */
   &::before {
@@ -45,9 +45,9 @@
     width: 55%;
     height: 65%;
     background: radial-gradient(circle at center,
-      var(--services-ambient-tertiary) 0%,
+      var(--services-ambient-secondary) 0%,
       transparent 70%);
-    filter: blur(var(--services-ambient-blur-tertiary));
+    filter: blur(var(--services-ambient-blur-secondary));
     z-index: 0;
     pointer-events: none;
   }
@@ -83,29 +83,43 @@
   }
 }
 
-/* Service Card - Left Color Strip Design */
+/* Service Card - Tonal Surface Design */
 .service-card {
   position: relative;
   height: 100%;
-  border-left: 3px solid var(--service-accent-color, var(--md-sys-color-primary));
-  background: var(--md-sys-color-surface-container-lowest);
-  border-radius: 0 var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-large) 0;
+  // Tonal surface — bold tint by service accent color
+  background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 10%, var(--md-sys-color-surface-container-low));
+  border: 1px solid color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 18%, transparent);
+  // Left accent strip
+  border-left: 3px solid color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 60%, transparent);
+  border-radius: var(--md-sys-shape-corner-extra-large);
   overflow: hidden;
   transition:
-    border-left-width var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
-    transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
-    box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
-
-  box-shadow: var(--md-sys-elevation-level1);
+    background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+    border-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+    border-left-width var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+    box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
 
   &:hover {
-    border-left-width: 6px;
-    transform: translateY(-4px);
-    box-shadow: var(--md-sys-elevation-level2);
+    background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 16%, var(--md-sys-color-surface-container));
+    border-color: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 30%, transparent);
+    border-left-width: 5px;
+    border-left-color: var(--service-accent-color, var(--md-sys-color-primary));
+    box-shadow: 0 0 20px color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 8%, transparent);
   }
 
-  &:active {
-    transform: translateY(-2px);
+  // Dark mode — daha belirgin tonal tint
+  :host-context([data-theme='dark']) & {
+    background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 18%, var(--md-sys-color-surface-container-low));
+    border-color: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 22%, transparent);
+    border-left-color: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 70%, transparent);
+  }
+
+  :host-context([data-theme='dark']) &:hover {
+    background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 24%, var(--md-sys-color-surface-container));
+    border-color: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 35%, transparent);
+    border-left-color: var(--service-accent-color, var(--md-sys-color-primary));
+    box-shadow: 0 0 24px color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 12%, transparent);
   }
 
   /* Color strip assignments via data attribute */
@@ -117,8 +131,8 @@
     --service-accent-color: var(--md-sys-color-secondary);
   }
 
-  &[data-service-color="tertiary"] {
-    --service-accent-color: var(--md-sys-color-tertiary);
+  &[data-service-color="secondary"] {
+    --service-accent-color: var(--md-sys-color-secondary);
   }
 
   &[data-service-color="success"] {
@@ -133,6 +147,8 @@
 .service-link {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   padding: var(--md-sys-spacing-8) var(--md-sys-spacing-6);
   text-decoration: none;
   color: inherit;
@@ -143,33 +159,50 @@
   &:focus-visible {
     outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
     outline-offset: var(--md-sys-state-focus-ring-offset);
-    border-radius: 0 var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-large) 0;
+    border-radius: var(--md-sys-shape-corner-extra-large);
   }
 }
 
-/* SVG Icon Wrapper */
+/* SVG Icon Wrapper — bold container (direct accent color bg) */
 .service-icon-wrapper {
   flex-shrink: 0;
-  width: var(--md-sys-touch-target-min);
-  height: var(--md-sys-touch-target-min);
-  color: var(--service-accent-color, var(--md-sys-color-primary));
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--md-sys-shape-corner-large);
+  background: var(--service-accent-color, var(--md-sys-color-primary));
+  color: white;
+  transition:
+    background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  .service-card:hover & {
+    background: color-mix(
+      in oklch,
+      var(--service-accent-color, var(--md-sys-color-primary)) 85%,
+      var(--md-sys-color-shadow)
+    );
+  }
 }
 
 .service-icon-svg {
-  width: 100%;
-  height: 100%;
+  width: 32px;
+  height: 32px;
   display: block;
+  color: white;
 
   .accent {
-    color: var(--service-accent-color, var(--md-sys-color-primary));
+    color: white;
   }
 }
 
-/* Content Area */
+/* Content Area — centered */
 .service-content {
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--md-sys-spacing-3);
 }
 
@@ -183,17 +216,9 @@
   margin: 0;
 }
 
-/* Teal Mini Divider */
+/* Divider hidden — clean centered layout */
 .service-divider {
-  width: 40px;
-  height: 2px;
-  border: none;
-  margin: 0;
-  background: linear-gradient(
-    to right,
-    var(--md-sys-color-primary),
-    transparent
-  );
+  display: none;
 }
 
 .service-description {
@@ -206,10 +231,10 @@
   line-height: var(--md-sys-typescale-body-medium-line-height);
 }
 
-/* Card Footer - Coral Detail Link */
+/* Card Footer - Amber Detail Link */
 .card-footer {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   margin-top: auto;
   padding-top: var(--md-sys-spacing-5);
@@ -219,11 +244,11 @@
   font-family: var(--md-sys-typescale-label-large-font);
   font-size: var(--md-sys-typescale-label-large-size);
   font-weight: 600;
-  color: var(--md-sys-color-tertiary);
+  color: var(--md-sys-color-secondary);
   transition: color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
 
   .service-card:hover & {
-    color: color-mix(in oklch, var(--md-sys-color-tertiary) 80%, var(--md-sys-color-shadow));
+    color: color-mix(in oklch, var(--md-sys-color-secondary) 80%, var(--md-sys-color-shadow));
   }
 }
 
@@ -240,8 +265,8 @@
   min-width: var(--md-sys-touch-target-min);
   padding: 0 var(--md-sys-spacing-10);
   min-height: var(--md-sys-touch-target-comfortable);
-  background: var(--md-sys-color-tertiary);
-  color: var(--md-sys-color-on-tertiary);
+  background: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
   border-radius: var(--md-sys-shape-corner-full);
   text-decoration: none;
   font-weight: 600;
@@ -255,8 +280,8 @@
   &:hover {
     transform: translateY(calc(-1 * var(--md-sys-spacing-1)));
     box-shadow: var(--md-sys-elevation-level3);
-    background: color-mix(in oklch, var(--md-sys-color-tertiary) 88%, var(--md-sys-color-shadow));
-    color: var(--md-sys-color-on-tertiary);
+    background: color-mix(in oklch, var(--md-sys-color-secondary) 88%, var(--md-sys-color-shadow));
+    color: var(--md-sys-color-on-secondary);
   }
 
   &:active {

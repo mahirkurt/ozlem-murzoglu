@@ -2,7 +2,7 @@
 
 // ============================================================================
 // Why Social Pediatrics Section
-// Ambient aurora background, elevated cards with hover lift, icon containers
+// Open-air card grid with tonal surface hierarchy and accent top bars
 // ============================================================================
 
 :host {
@@ -17,27 +17,7 @@
   padding-inline: var(--md-responsive-padding);
   overflow: hidden;
 
-  --why-sp-panel-bg: linear-gradient(
-    160deg,
-    color-mix(
-      in oklch,
-      var(--md-sys-color-glass-surface-bright) 72%,
-      var(--md-sys-color-surface-container-low) 28%
-    ),
-    color-mix(
-      in oklch,
-      var(--md-sys-color-glass-surface) 72%,
-      var(--md-sys-color-surface-container-lowest) 28%
-    )
-  );
-  --why-sp-panel-border: color-mix(
-    in oklch,
-    var(--md-sys-color-glass-border) 72%,
-    var(--md-sys-color-outline) 28%
-  );
-  --why-sp-panel-shadow: var(--md-sys-elevation-level1);
-
-  // Ambient aurora glow (matches doctor-bio / services-section pattern)
+  // Ambient aurora glow
   &::before,
   &::after {
     content: '';
@@ -57,7 +37,7 @@
       color-mix(in oklch, var(--md-sys-color-primary) 10%, transparent),
       transparent 70%
     );
-    filter: blur(calc(var(--md-sys-glass-blur-xl) * 1.5));
+    filter: blur(48px);
   }
 
   &::after {
@@ -67,10 +47,10 @@
     left: -5%;
     background: radial-gradient(
       ellipse at center,
-      color-mix(in oklch, var(--md-sys-color-tertiary) 8%, transparent),
+      color-mix(in oklch, var(--md-sys-color-secondary) 8%, transparent),
       transparent 70%
     );
-    filter: blur(calc(var(--md-sys-glass-blur-xl) * 1.2));
+    filter: blur(38px);
   }
 
   &__container {
@@ -80,52 +60,14 @@
     margin: 0 auto;
   }
 
-  // Unified section header (same as services-section, google-reviews)
+  // Unified section header
   .section-header {
     @include section-header-unified;
     margin-block-end: clamp(
       var(--md-sys-spacing-8),
       4.5vw,
-      var(--md-sys-spacing-10)
+      var(--md-sys-spacing-12)
     );
-  }
-
-  &__panel {
-    position: relative;
-    z-index: 1;
-    isolation: isolate;
-    overflow: hidden;
-    padding: clamp(
-      var(--md-sys-spacing-5),
-      2.4vw,
-      var(--md-sys-spacing-7)
-    );
-    border-radius: var(--md-sys-shape-corner-extra-large);
-    border: 1px solid var(--why-sp-panel-border);
-    background: var(--why-sp-panel-bg);
-    backdrop-filter: blur(var(--md-sys-glass-blur-sm)) saturate(1.05);
-    -webkit-backdrop-filter: blur(var(--md-sys-glass-blur-sm)) saturate(1.05);
-    box-shadow: var(--why-sp-panel-shadow);
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0 0 auto;
-      block-size: min(110px, 24%);
-      pointer-events: none;
-      z-index: 0;
-      background: linear-gradient(
-        180deg,
-        color-mix(in oklch, var(--md-sys-color-primary) 10%, transparent),
-        transparent
-      );
-    }
-
-    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      background: var(--md-sys-color-surface-container-low);
-    }
   }
 
   &__grid {
@@ -133,17 +75,17 @@
     z-index: 1;
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--md-sys-spacing-4);
+    gap: var(--md-sys-spacing-5);
 
     @include bp-medium {
       grid-template-columns: repeat(3, 1fr);
-      gap: var(--md-sys-spacing-5);
+      gap: var(--md-sys-spacing-6);
     }
   }
 
-  // Card surface with tonal hierarchy + state layer first interaction
+  // ── Card ──────────────────────────────────────────────────────────────
   &__card {
-    --why-sp-card-accent: var(--md-sys-color-primary);
+    --_card-accent: var(--md-sys-color-primary);
 
     @include state-layer-on-surface;
 
@@ -151,136 +93,107 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-height: 100%;
-    padding: var(--md-sys-spacing-6) var(--md-sys-spacing-4);
-    background: color-mix(
-      in oklch,
-      var(--md-sys-color-surface-container-low) 88%,
-      var(--md-sys-color-surface) 12%
-    );
-    border: 1px solid color-mix(
-      in oklch,
-      var(--md-sys-color-outline-variant) 64%,
-      transparent
-    );
-    border-radius: var(--md-sys-shape-corner-large);
-    box-shadow: var(--md-sys-elevation-level0);
+    padding: var(--md-sys-spacing-8) var(--md-sys-spacing-6) var(--md-sys-spacing-7);
+    // Tonal surface — each card tinted by its brand hue
+    background: color-mix(in oklch, var(--_card-accent) 8%, var(--md-sys-color-surface-container-low));
+    border: 1px solid color-mix(in oklch, var(--_card-accent) 18%, transparent);
+    border-radius: var(--md-sys-shape-corner-extra-large);
     transition:
-      transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
       background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
-      box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard),
-      border-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+      border-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+      box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+    // Accent top bar — visible on hover
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: var(--md-sys-spacing-6);
+      right: var(--md-sys-spacing-6);
+      height: 3px;
+      border-radius: 0 0 var(--md-sys-shape-corner-small) var(--md-sys-shape-corner-small);
+      background: var(--_card-accent);
+      opacity: 0;
+      transition: opacity var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+      z-index: 3;
+    }
 
     > * {
       position: relative;
       z-index: 2;
     }
 
-    &::after {
-      content: '';
-      position: absolute;
-      inset-block-start: 0;
-      inset-inline: 0;
-      block-size: 3px;
-      border-radius: inherit;
-      background: linear-gradient(
-        90deg,
-        color-mix(in oklch, var(--why-sp-card-accent) 72%, transparent),
-        color-mix(in oklch, var(--why-sp-card-accent) 42%, transparent)
-      );
-      opacity: 0.92;
-      pointer-events: none;
-      z-index: 2;
-    }
-
     &:hover {
-      transform: translateY(calc(-1 * var(--md-sys-spacing-1)));
-      background: var(--md-sys-color-surface-container);
-      box-shadow: var(--md-sys-elevation-level1);
-      border-color: color-mix(
-        in oklch,
-        var(--why-sp-card-accent) 34%,
-        transparent
-      );
+      background: color-mix(in oklch, var(--_card-accent) 14%, var(--md-sys-color-surface-container));
+      border-color: color-mix(in oklch, var(--_card-accent) 35%, transparent);
+      box-shadow: 0 0 20px color-mix(in oklch, var(--_card-accent) 8%, transparent);
+
+      &::before {
+        opacity: 1;
+      }
     }
 
-    &:active {
-      transform: translateY(0);
-      box-shadow: var(--md-sys-elevation-level0);
+    // Dark mode — daha belirgin tonal tint ve border
+    :host-context([data-theme='dark']) & {
+      background: color-mix(in oklch, var(--_card-accent) 15%, var(--md-sys-color-surface-container-low));
+      border-color: color-mix(in oklch, var(--_card-accent) 25%, transparent);
+    }
+
+    :host-context([data-theme='dark']) &:hover {
+      background: color-mix(in oklch, var(--_card-accent) 22%, var(--md-sys-color-surface-container));
+      border-color: color-mix(in oklch, var(--_card-accent) 45%, transparent);
+      box-shadow: 0 0 24px color-mix(in oklch, var(--_card-accent) 12%, transparent);
     }
   }
 
   &__card--evidence {
-    --why-sp-card-accent: var(--md-sys-color-primary);
+    --_card-accent: var(--md-sys-color-primary);
   }
 
   &__card--family {
-    --why-sp-card-accent: var(--md-sys-color-tertiary);
+    --_card-accent: var(--md-sys-color-secondary);
   }
 
   &__card--growth {
-    --why-sp-card-accent: var(--md-sys-color-secondary);
+    --_card-accent: var(--md-sys-color-tertiary);
   }
 
-  // Icon container with colored background (matches doctor-bio qualification cards)
+  // ── Icon container ────────────────────────────────────────────────────
   &__icon-wrap {
-    width: 68px;
-    height: 68px;
+    width: 76px;
+    height: 76px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--md-sys-shape-corner-large);
-    margin-bottom: var(--md-sys-spacing-4);
-    border: 1px solid color-mix(
-      in oklch,
-      var(--md-sys-color-outline-variant) 58%,
-      transparent
-    );
+    border-radius: var(--md-sys-shape-corner-extra-large);
+    margin-bottom: var(--md-sys-spacing-5);
     transition:
       transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
-      background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
-      border-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+      background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
 
     .why-sp__card:hover & {
-      transform: translateY(calc(-1 * var(--md-sys-spacing-1))) scale(1.03);
-      border-color: color-mix(
-        in oklch,
-        var(--why-sp-card-accent) 44%,
-        transparent
-      );
+      transform: translateY(calc(-1 * var(--md-sys-spacing-1))) scale(1.05);
     }
   }
 
   &__icon-wrap--evidence {
-    background: color-mix(
-      in oklch,
-      var(--md-sys-color-primary-container) 72%,
-      var(--md-sys-color-surface) 28%
-    );
+    background: var(--md-sys-color-primary-container);
     color: var(--md-sys-color-on-primary-container);
   }
 
   &__icon-wrap--family {
-    background: color-mix(
-      in oklch,
-      var(--md-sys-color-tertiary-container) 72%,
-      var(--md-sys-color-surface) 28%
-    );
-    color: var(--md-sys-color-on-tertiary-container);
-  }
-
-  &__icon-wrap--growth {
-    background: color-mix(
-      in oklch,
-      var(--md-sys-color-secondary-container) 72%,
-      var(--md-sys-color-surface) 28%
-    );
+    background: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
   }
 
+  &__icon-wrap--growth {
+    background: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-on-tertiary-container);
+  }
+
   &__icon {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
 
     svg {
@@ -289,13 +202,14 @@
     }
   }
 
+  // ── Typography ────────────────────────────────────────────────────────
   &__card-title {
-    font-family: var(--md-sys-typescale-title-medium-font);
-    font-size: var(--md-sys-typescale-title-medium-size);
-    line-height: var(--md-sys-typescale-title-medium-line-height);
-    font-weight: var(--md-sys-typescale-title-medium-weight);
-    letter-spacing: var(--md-sys-typescale-title-medium-tracking);
-    color: var(--md-sys-color-on-surface);
+    font-family: var(--md-sys-typescale-title-large-font);
+    font-size: var(--md-sys-typescale-title-large-size);
+    line-height: var(--md-sys-typescale-title-large-line-height);
+    font-weight: 600;
+    letter-spacing: var(--md-sys-typescale-title-large-tracking);
+    color: var(--_card-accent);
     margin-bottom: var(--md-sys-spacing-2);
     text-wrap: balance;
   }
@@ -313,17 +227,13 @@
   }
 }
 
+// ── Accessibility overrides ───────────────────────────────────────────────
+
 @media (prefers-contrast: more) {
   .why-sp {
-    &__panel {
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      background: var(--md-sys-color-surface-container-low);
-      border-color: var(--md-sys-color-outline);
-    }
-
     &__card {
       border-color: var(--md-sys-color-outline);
+      box-shadow: none;
 
       &:hover {
         border-color: var(--md-sys-color-primary);
@@ -343,18 +253,11 @@
       display: none;
     }
 
-    &__panel {
-      background: Canvas;
-      border-color: CanvasText;
-      box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-    }
-
     &__card {
       background: Canvas;
       border-color: CanvasText;
       forced-color-adjust: auto;
+      box-shadow: none;
 
       &::before,
       &::after {
@@ -375,7 +278,6 @@
   }
 }
 
-// Reduced motion
 @include reduced-motion {
   .why-sp {
     &::before,
@@ -383,7 +285,6 @@
       filter: none;
     }
 
-    &__panel,
     &__card,
     &__icon-wrap {
       transition: none;
@@ -393,16 +294,16 @@
       &:hover,
       &:active {
         transform: none;
-        box-shadow: var(--md-sys-elevation-level0);
+      }
+
+      &::before,
+      &::after {
+        transition: none;
       }
     }
 
     &__card:hover .why-sp__icon-wrap {
       transform: none;
-    }
-
-    &__card::before {
-      transition: none;
     }
   }
 }
