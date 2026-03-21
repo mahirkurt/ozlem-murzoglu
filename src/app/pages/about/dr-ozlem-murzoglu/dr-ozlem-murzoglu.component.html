@@ -1,14 +1,15 @@
-<div class="doctor-profile-page standard-page">
-  <app-page-header
-    [title]="'ABOUT.DR_PAGE.HERO_TITLE' | translate"
-    [subtitle]="'ABOUT.DR_PAGE.HERO_SUBTITLE' | translate"
-    [breadcrumbs]="breadcrumbs">
-  </app-page-header>
+<div class="standard-page standard-page--expressive-moderate">
+  <app-hero-section
+    title="ABOUT.DR_PAGE.HERO_TITLE"
+    subtitle="ABOUT.DR_PAGE.HERO_SUBTITLE"
+    [breadcrumbs]="breadcrumbs"
+    colorTheme="teal">
+  </app-hero-section>
 
-  <main class="standard-page-main">
-    <!-- Simplified Intro Section -->
-    <section class="content-section">
-      <div class="container">
+  <main class="standard-page-main" id="main-content">
+    <!-- Section 1: Profile Intro (surface-container-lowest) -->
+    <section class="standard-page-section content-section">
+      <div class="standard-page-container standard-page-container--content">
         <div class="profile-layout">
           <div class="profile-image-section">
             <img src="images/drmurzoglu_fish.png" [alt]="'COMMON.DOCTOR_NAME' | translate" class="profile-image">
@@ -32,9 +33,9 @@
       </div>
     </section>
 
-    <!-- Visual Timeline -->
-    <section class="timeline-section" aria-labelledby="timeline-title">
-      <div class="container">
+    <!-- Section 2: Timeline (surface-container-low) -->
+    <section class="standard-page-section timeline-section" aria-labelledby="timeline-title">
+      <div class="standard-page-container standard-page-container--content">
         <h2 id="timeline-title" class="timeline-heading">{{ 'ABOUT.DR_PAGE.TIMELINE_TITLE' | translate }}</h2>
         <div class="timeline">
           <div class="timeline-item">
@@ -80,9 +81,9 @@
       </div>
     </section>
 
-    <!-- Philosophy Blockquote -->
-    <section class="philosophy-section">
-      <div class="container">
+    <!-- Section 3: Philosophy (surface-container-lowest) -->
+    <section class="standard-page-section philosophy-section">
+      <div class="standard-page-container standard-page-container--narrow">
         <blockquote class="philosophy-quote">
           <p>{{ 'ABOUT.PHILOSOPHY_QUOTE' | translate }}</p>
           <footer class="philosophy-author">

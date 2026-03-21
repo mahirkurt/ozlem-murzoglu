@@ -1,19 +1,6 @@
-/* Doctor Profile Page — MD3 Token-Compliant */
-.doctor-profile-page {
-  background: var(--md-sys-color-surface);
-}
-
-/* Content Section — Profile intro */
+/* Content Section — Profile intro (tonal alternans: lowest) */
 .content-section {
-  padding: var(--md-sys-spacing-12) 0;
   background: var(--md-sys-color-surface-container-lowest);
-}
-
-/* Container — uses MD3 content width pattern */
-.container {
-  max-width: var(--md-sys-spacing-text-max-width, 1200px);
-  margin: 0 auto;
-  padding: 0 var(--md-responsive-padding, var(--md-sys-spacing-6));
 }
 
 /* Profile Layout */
@@ -321,14 +308,6 @@ h3.timeline-title {
 /* ============================================
    Dark Mode
    ============================================ */
-:host-context([data-theme='dark']) .doctor-profile-page {
-  background: linear-gradient(180deg, var(--md-sys-color-surface) 0%, var(--md-sys-color-surface-container) 100%);
-}
-
-:host-context([data-theme='dark']) .profile-image {
-  border-color: var(--md-sys-color-primary);
-}
-
 :host-context([data-theme='dark']) .credential-item {
   background: color-mix(in oklch, var(--md-sys-color-primary-container) 25%, var(--md-sys-color-surface-container-high));
   border-color: color-mix(in oklch, var(--md-sys-color-outline) 35%, transparent);
