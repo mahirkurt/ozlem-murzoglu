@@ -280,11 +280,11 @@
   min-width: 200px;
   padding: var(--md-sys-spacing-2);
   border-radius: var(--md-sys-shape-corner-large);
-  box-shadow: 0 10px 40px -10px oklch(from var(--md-sys-color-shadow) l c h / 0.15);
+  box-shadow: var(--md-sys-elevation-level3);
   opacity: 0;
   visibility: hidden;
   transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
-  border: 1px solid oklch(from var(--md-sys-color-shadow) l c h / 0.08);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-outline-variant) 30%, transparent);
 
   /* SAFE HOVER BRIDGE */
   /* This invisible pseudo-element fills the gap between the nav item and the dropdown
@@ -460,9 +460,7 @@
 :host-context([data-theme='dark']) .glass-island {
   background: var(--md-sys-color-surface-container-high);
   border: 1px solid var(--md-sys-color-outline);
-  box-shadow:
-    0 6px 12px oklch(from var(--md-sys-color-shadow) l c h / 0.5),
-    0 16px 32px oklch(from var(--md-sys-color-shadow) l c h / 0.45);
+  box-shadow: var(--md-sys-elevation-level3);
 }
 
 :host-context([data-theme='dark']) .fresh-header-container.scrolled .glass-island {
@@ -474,7 +472,7 @@
 :host-context([data-theme='dark']) .island-dropdown {
   background: var(--md-sys-color-surface-container-high);
   border-color: color-mix(in oklch, var(--md-sys-color-outline) 32%, transparent);
-  box-shadow: 0 14px 36px oklch(from var(--md-sys-color-shadow) l c h / 0.55);
+  box-shadow: var(--md-sys-elevation-level5);
 }
 
 :host-context([data-theme='dark']) .island-mobile-toggle:hover {
@@ -542,9 +540,7 @@
       var(--md-sys-color-surface-container-lowest) 94%,
       transparent
     );
-    box-shadow:
-      0 10px 24px oklch(from var(--md-sys-color-shadow) l c h / 0.12),
-      var(--md-sys-elevation-level1);
+    box-shadow: var(--md-sys-elevation-level2);
     backdrop-filter: blur(16px) saturate(120%);
     -webkit-backdrop-filter: blur(16px) saturate(120%);
   }
@@ -877,31 +873,239 @@
 }
 
 :host-context([data-theme='dark']) .fresh-header-container {
+  // Dark mode: hero bg is always dark teal, so text must be light for contrast
   --utility-row-text: color-mix(
     in oklch,
-    var(--app-hero-on) 96%,
-    white 4%
+    var(--md-sys-color-on-surface) 90%,
+    transparent
   );
   --utility-row-muted: color-mix(
     in oklch,
-    var(--app-hero-on) 74%,
+    var(--md-sys-color-on-surface) 55%,
     transparent
   );
-  --utility-row-link-hover: var(--app-hero-on);
+  --utility-row-link-hover: var(--md-sys-color-on-surface);
 }
 
 @media (prefers-color-scheme: dark) {
   .fresh-header-container {
     --utility-row-text: color-mix(
       in oklch,
-      var(--app-hero-on) 96%,
-      white 4%
+      var(--md-sys-color-on-surface) 90%,
+      transparent
     );
     --utility-row-muted: color-mix(
       in oklch,
-      var(--app-hero-on) 74%,
+      var(--md-sys-color-on-surface) 55%,
       transparent
     );
-    --utility-row-link-hover: var(--app-hero-on);
+    --utility-row-link-hover: var(--md-sys-color-on-surface);
+  }
+}
+
+// ==========================================================================
+// Reduced Motion
+// ==========================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .fresh-header-container {
+    transition: none;
+  }
+
+  .utility-row {
+    transition: none;
+  }
+
+  .fresh-header-container.scrolled .utility-row {
+    transition: none;
+    transform: none;
+  }
+
+  .glass-island {
+    transition: none;
+  }
+
+  .island-logo img {
+    transition: none;
+  }
+
+  .island-link {
+    transition: none;
+  }
+
+  .dropdown-arrow {
+    transition: none;
+  }
+
+  .island-dropdown {
+    transition: none;
+  }
+
+  .island-nav-item:hover .island-dropdown {
+    transform: translateX(-50%);
+  }
+
+  .theme-toggle {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .island-cta {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .island-mobile-toggle {
+    transition: none;
+  }
+
+  .utility-link {
+    transition: none;
+  }
+
+  .dropdown-item {
+    transition: none;
+  }
+
+  @media (max-width: 991px) {
+    .mobile-menu {
+      transition: none;
+
+      &.active {
+        transform: none;
+      }
+    }
+
+    .mobile-menu-close {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    .mobile-menu-link {
+      transition: none;
+    }
+
+    .mobile-submenu-link {
+      transition: none;
+    }
+
+    .switch-button {
+      transition: none;
+    }
+
+    .switch-thumb {
+      transition: none;
+    }
+  }
+}
+
+// ==========================================================================
+// Forced Colors
+// ==========================================================================
+
+@media (forced-colors: active) {
+  .glass-island {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+    box-shadow: none;
+  }
+
+  .island-link {
+    color: LinkText;
+
+    &:hover,
+    &.active {
+      background: Highlight;
+      color: HighlightText;
+    }
+  }
+
+  .island-dropdown {
+    background: Canvas;
+    border-color: CanvasText;
+    box-shadow: none;
+  }
+
+  .dropdown-item {
+    color: LinkText;
+
+    &:hover {
+      background: Highlight;
+      color: HighlightText;
+    }
+  }
+
+  .island-cta {
+    background: ButtonFace;
+    color: ButtonText;
+    border: 1px solid ButtonText;
+    box-shadow: none;
+
+    &:hover {
+      background: Highlight;
+      color: HighlightText;
+      box-shadow: none;
+    }
+  }
+
+  .theme-toggle {
+    background: ButtonFace;
+    color: ButtonText;
+    border-color: ButtonText;
+    box-shadow: none;
+  }
+
+  .skip-to-content {
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .utility-link {
+    color: LinkText;
+  }
+
+  @media (max-width: 991px) {
+    .mobile-menu {
+      background: Canvas;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .mobile-menu-link {
+      color: LinkText;
+    }
+
+    .mobile-submenu-link {
+      color: LinkText;
+      background: Canvas;
+    }
+
+    .mobile-appointment-btn {
+      background: ButtonFace;
+      color: ButtonText;
+      border: 1px solid ButtonText;
+      box-shadow: none;
+    }
+
+    .mobile-menu-close {
+      background: ButtonFace;
+      color: ButtonText;
+      border-color: ButtonText;
+    }
+
+    .glass-island {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
   }
 }

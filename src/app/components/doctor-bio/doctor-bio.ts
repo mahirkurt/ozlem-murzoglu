@@ -8,12 +8,12 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, TranslateModule, RouterLink],
   template: `
-    <section class="doctor-bio">
+    <section class="doctor-bio" aria-labelledby="doctor-bio-title">
       <div class="container">
         <!-- Section Header -->
         <div class="section-header">
           <span class="section-label">{{ 'DOCTOR_BIO.LABEL' | translate }}</span>
-          <h2 class="section-title">{{ 'DOCTOR_BIO.SECTION_TITLE' | translate }}</h2>
+          <h2 id="doctor-bio-title" class="section-title">{{ 'DOCTOR_BIO.SECTION_TITLE' | translate }}</h2>
         </div>
 
         <!-- 2-Column Grid Layout -->
@@ -49,7 +49,7 @@ import { RouterLink } from '@angular/router';
             <div class="qualifications-grid">
               <div class="qualification-card">
                 <div class="qual-icon">
-                  <span class="material-icons-rounded">school</span>
+                  <span class="material-icons-rounded" aria-hidden="true">school</span>
                 </div>
                 <div class="qual-content">
                   <span class="qual-title">{{ 'DOCTOR_BIO.MEDICAL_EDUCATION' | translate }}</span>
@@ -59,7 +59,7 @@ import { RouterLink } from '@angular/router';
 
               <div class="qualification-card">
                 <div class="qual-icon secondary">
-                  <span class="material-icons-rounded">medical_services</span>
+                  <span class="material-icons-rounded" aria-hidden="true">medical_services</span>
                 </div>
                 <div class="qual-content">
                   <span class="qual-title">{{ 'DOCTOR_BIO.SPECIALIZATION' | translate }}</span>
@@ -68,8 +68,8 @@ import { RouterLink } from '@angular/router';
               </div>
 
               <div class="qualification-card">
-                <div class="qual-icon tertiary">
-                  <span class="material-icons-rounded">psychology</span>
+                <div class="qual-icon secondary">
+                  <span class="material-icons-rounded" aria-hidden="true">psychology</span>
                 </div>
                 <div class="qual-content">
                   <span class="qual-title">{{ 'DOCTOR_BIO.DOCTORATE' | translate }}</span>
@@ -79,7 +79,7 @@ import { RouterLink } from '@angular/router';
 
               <div class="qualification-card">
                 <div class="qual-icon">
-                  <span class="material-icons-rounded">child_care</span>
+                  <span class="material-icons-rounded" aria-hidden="true">child_care</span>
                 </div>
                 <div class="qual-content">
                   <span class="qual-title">{{ 'DOCTOR_BIO.BACHELOR' | translate }}</span>

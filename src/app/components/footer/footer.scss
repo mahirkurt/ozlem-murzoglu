@@ -15,17 +15,22 @@
 .footer-curve {
   pointer-events: auto;
   position: relative;
+
+  // Footer-scoped deep teal (aligned with primary hue 194°)
+  --_footer-base: oklch(32% 0.10 194);
+  --_footer-base-light: oklch(40% 0.12 194);
+
   background: linear-gradient(
     145deg,
-    color-mix(in oklch, var(--md-sys-color-primary) 85%, var(--md-sys-color-shadow)) 0%,
-    color-mix(in oklch, var(--md-sys-color-primary) 40%, var(--md-sys-color-shadow)) 100%
+    var(--_footer-base-light) 0%,
+    var(--_footer-base) 100%
   );
   border-radius: var(--md-sys-shape-corner-extra-large-top);
   padding: var(--md-sys-spacing-20) 0 var(--md-sys-spacing-10);
   color: var(--md-sys-color-on-primary);
   overflow: hidden;
 
-  // Aurora + coral bridge glow
+  // Aurora + amber bridge glow
   &::before {
     content: '';
     position: absolute;
@@ -36,12 +41,12 @@
     background:
       radial-gradient(
         ellipse 50% 40% at 80% 10%,
-        color-mix(in oklch, var(--md-sys-color-tertiary) 12%, transparent) 0%,
+        color-mix(in oklch, var(--md-sys-color-secondary) 12%, transparent) 0%,
         transparent 60%
       ),
       radial-gradient(
         circle at 50% 50%,
-        color-mix(in srgb, var(--md-sys-color-tertiary-container) 10%, transparent) 0%,
+        color-mix(in oklch, var(--md-sys-color-secondary-container) 10%, transparent) 0%,
         transparent 70%
       );
     opacity: 0.5;
@@ -101,7 +106,7 @@
   font-family: var(--md-sys-typescale-body-medium-font);
   font-size: var(--md-sys-typescale-body-medium-size);
   line-height: 1.6;
-  color: color-mix(in srgb, var(--md-sys-color-on-primary) 80%, transparent);
+  color: color-mix(in oklch, var(--md-sys-color-on-primary) 80%, transparent);
   margin: 0;
   max-width: 320px;
 }
@@ -117,11 +122,10 @@
 }
 
 .social-orb {
-  width: 40px;
-  height: 40px;
+  width: var(--md-a11y-touch-target-min, 48px);
+  height: var(--md-a11y-touch-target-min, 48px);
   border-radius: 50%;
-  background: color-mix(in srgb, var(--md-sys-color-on-primary) 10%, transparent);
-  backdrop-filter: blur(8px);
+  background: color-mix(in oklch, var(--md-sys-color-on-primary) 12%, transparent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,7 +135,7 @@
     background var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard),
     color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard),
     box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
-  border: 1px solid color-mix(in srgb, var(--md-sys-color-on-primary) 10%, transparent);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-on-primary) 10%, transparent);
 
   svg {
     width: 18px;
@@ -144,8 +148,8 @@
     color: var(--md-sys-color-primary);
     transform: translateY(-4px) scale(1.08);
     box-shadow:
-      0 8px 20px oklch(from var(--md-sys-color-shadow) l c h / 0.25),
-      0 0 0 3px color-mix(in srgb, var(--md-sys-color-on-primary) 15%, transparent);
+      var(--md-sys-elevation-level2),
+      0 0 0 3px color-mix(in oklch, var(--md-sys-color-on-primary) 15%, transparent);
 
     svg {
       transform: scale(1.1);
@@ -201,14 +205,15 @@
 
 // Footer links with animated underline
 .footer-link {
-  color: color-mix(in srgb, var(--md-sys-color-on-primary) 70%, transparent);
+  color: color-mix(in oklch, var(--md-sys-color-on-primary) 70%, transparent);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: var(--md-sys-spacing-2);
+  min-height: var(--md-a11y-touch-target-min, 48px);
   font-size: var(--md-sys-typescale-body-medium-size);
   position: relative;
-  padding-bottom: 2px;
+  padding: var(--md-sys-spacing-2) var(--md-sys-spacing-3);
   transition:
     color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
     transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
@@ -241,20 +246,17 @@
 }
 
 // ==========================================================================
-// Contact Card — enhanced glassmorphism
+// Contact Card
 // ==========================================================================
 
 .contact-card {
-  background: color-mix(in srgb, var(--md-sys-color-on-primary) 7%, transparent);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: color-mix(in oklch, var(--md-sys-color-on-primary) 8%, transparent);
   border-radius: var(--md-sys-shape-corner-extra-large);
   padding: var(--md-sys-spacing-6);
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-5);
-  border: 1px solid color-mix(in srgb, var(--md-sys-color-on-primary) 12%, transparent);
-  box-shadow: 0 4px 24px oklch(from var(--md-sys-color-shadow) l c h / 0.08);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-on-primary) 15%, transparent);
 }
 
 .contact-row {
@@ -270,7 +272,7 @@
   .icon-box {
     width: 40px;
     height: 40px;
-    background: color-mix(in srgb, var(--md-sys-color-on-primary) 10%, transparent);
+    background: color-mix(in oklch, var(--md-sys-color-on-primary) 14%, transparent);
     border-radius: var(--md-sys-shape-corner-medium);
     display: flex;
     align-items: center;
@@ -283,7 +285,7 @@
 
     .material-icons-rounded {
       font-size: 20px;
-      color: var(--md-sys-color-tertiary-container);
+      color: var(--md-sys-color-on-primary);
     }
   }
 
@@ -296,26 +298,26 @@
       font-size: var(--md-sys-typescale-label-small-size);
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: color-mix(in srgb, var(--md-sys-color-on-primary) 50%, transparent);
+      color: color-mix(in oklch, var(--md-sys-color-on-primary) 50%, transparent);
     }
 
     .value {
       font-size: var(--md-sys-typescale-label-large-size);
-      color: color-mix(in srgb, var(--md-sys-color-on-primary) 90%, transparent);
+      color: color-mix(in oklch, var(--md-sys-color-on-primary) 90%, transparent);
       line-height: 1.4;
       transition: color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
     }
   }
 
   &:hover {
-    background: color-mix(in srgb, var(--md-sys-color-on-primary) 5%, transparent);
+    background: color-mix(in oklch, var(--md-sys-color-on-primary) 5%, transparent);
 
     .icon-box {
-      background: var(--md-sys-color-tertiary-container);
+      background: var(--md-sys-color-secondary-container);
       transform: scale(1.08);
-      box-shadow: 0 6px 16px oklch(from var(--md-sys-color-tertiary) l c h / 0.20);
+      box-shadow: 0 6px 16px oklch(from var(--md-sys-color-secondary) l c h / 0.20);
 
-      .material-icons-rounded { color: var(--md-sys-color-on-tertiary-container); }
+      .material-icons-rounded { color: var(--md-sys-color-on-secondary-container); }
     }
 
     .value {
@@ -340,9 +342,9 @@
   border-top: 1px solid transparent;
   background-image: linear-gradient(
     to right,
-    color-mix(in srgb, var(--md-sys-color-on-primary) 0%, transparent),
-    color-mix(in srgb, var(--md-sys-color-on-primary) 15%, transparent) 50%,
-    color-mix(in srgb, var(--md-sys-color-on-primary) 0%, transparent)
+    color-mix(in oklch, var(--md-sys-color-on-primary) 0%, transparent),
+    color-mix(in oklch, var(--md-sys-color-on-primary) 15%, transparent) 50%,
+    color-mix(in oklch, var(--md-sys-color-on-primary) 0%, transparent)
   );
   background-size: 100% 1px;
   background-repeat: no-repeat;
@@ -353,7 +355,7 @@
   position: relative;
   z-index: 1;
 
-  @media (max-width: 768px) {
+  @include bp-below-expanded {
     flex-direction: column;
     gap: var(--md-sys-spacing-6);
     text-align: center;
@@ -365,7 +367,7 @@
   align-items: center;
   gap: var(--md-sys-spacing-4);
 
-  @media (max-width: 768px) {
+  @include bp-below-expanded {
     flex-direction: column;
     gap: var(--md-sys-spacing-3);
   }
@@ -375,12 +377,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--md-sys-spacing-10);
-  height: var(--md-sys-spacing-10);
+  width: var(--md-a11y-touch-target-min, 48px);
+  height: var(--md-a11y-touch-target-min, 48px);
   padding: 0;
   border-radius: var(--md-sys-shape-corner-full);
-  border: 1px solid color-mix(in srgb, var(--md-sys-color-on-primary) 20%, transparent);
-  background: color-mix(in srgb, var(--md-sys-color-on-primary) 10%, transparent);
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-on-primary) 20%, transparent);
+  background: color-mix(in oklch, var(--md-sys-color-on-primary) 10%, transparent);
   color: var(--md-sys-color-on-primary);
   font-family: var(--md-sys-typescale-label-medium-font);
   font-size: var(--md-sys-typescale-label-medium-size);
@@ -409,16 +411,22 @@
 
 .copyright {
   font-size: var(--md-sys-typescale-label-medium-size);
-  color: color-mix(in srgb, var(--md-sys-color-on-primary) 50%, transparent);
+  color: color-mix(in oklch, var(--md-sys-color-on-primary) 50%, transparent);
 }
 
 .legal-links {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--md-sys-spacing-6);
 
   .legal-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--md-a11y-touch-target-min, 48px);
+    padding: var(--md-sys-spacing-2) var(--md-sys-spacing-3);
     font-size: var(--md-sys-typescale-label-medium-size);
-    color: color-mix(in srgb, var(--md-sys-color-on-primary) 50%, transparent);
+    color: color-mix(in oklch, var(--md-sys-color-on-primary) 50%, transparent);
     text-decoration: none;
     position: relative;
     transition: color var(--md-sys-motion-duration-short4);
@@ -447,7 +455,7 @@
 .legal-links .legal-link:focus-visible {
   outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
   outline-offset: var(--md-sys-state-focus-ring-offset);
-  border-radius: var(--md-sys-shape-corner-small);
+  border-radius: var(--md-sys-shape-corner-medium);
 }
 
 // ==========================================================================
@@ -455,10 +463,13 @@
 // ==========================================================================
 
 :host-context([data-theme='dark']) .footer-curve {
+  --_footer-base: oklch(20% 0.06 194);
+  --_footer-base-light: oklch(26% 0.08 194);
+
   background: linear-gradient(
     145deg,
-    color-mix(in oklch, var(--md-sys-color-primary) 35%, var(--md-sys-color-shadow)) 0%,
-    color-mix(in oklch, var(--md-sys-color-primary) 15%, var(--md-sys-color-shadow)) 100%
+    var(--_footer-base-light) 0%,
+    var(--_footer-base) 100%
   );
   color: var(--md-sys-color-on-surface);
 
@@ -467,7 +478,7 @@
     background:
       radial-gradient(
         ellipse 50% 40% at 80% 10%,
-        color-mix(in oklch, var(--md-sys-color-tertiary) 16%, transparent) 0%,
+        color-mix(in oklch, var(--md-sys-color-secondary) 16%, transparent) 0%,
         transparent 60%
       ),
       radial-gradient(
@@ -509,15 +520,15 @@
   background: var(--md-sys-color-on-surface);
   color: var(--md-sys-color-surface);
   box-shadow:
-    0 0 0 1px oklch(from var(--md-sys-color-primary) l c h / 0.3),
-    0 12px 24px oklch(from var(--md-sys-color-shadow) l c h / 0.45),
-    0 0 20px oklch(from var(--md-sys-color-primary) l c h / 0.15);
+    0 0 0 1px color-mix(in oklch, var(--md-sys-color-primary) 30%, transparent),
+    var(--md-sys-elevation-level3),
+    0 0 20px color-mix(in oklch, var(--md-sys-color-primary) 15%, transparent); // branded glow
 }
 
 :host-context([data-theme='dark']) .contact-card {
   background: color-mix(in oklch, var(--md-sys-color-on-surface) 6%, transparent);
   border-color: color-mix(in oklch, var(--md-sys-color-outline) 30%, transparent);
-  box-shadow: 0 4px 32px oklch(from var(--md-sys-color-shadow) l c h / 0.20);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 :host-context([data-theme='dark']) .contact-row .icon-box {
@@ -533,12 +544,12 @@
 }
 
 :host-context([data-theme='dark']) .contact-row:hover .icon-box {
-  background: var(--md-sys-color-tertiary);
-  box-shadow: 0 10px 20px oklch(from var(--md-sys-color-tertiary) l c h / 0.35);
+  background: var(--md-sys-color-secondary);
+  box-shadow: 0 10px 20px oklch(from var(--md-sys-color-secondary) l c h / 0.35);
 }
 
 :host-context([data-theme='dark']) .contact-row:hover .icon-box .material-icons-rounded {
-  color: var(--md-sys-color-on-tertiary);
+  color: var(--md-sys-color-on-secondary);
 }
 
 :host-context([data-theme='dark']) .footer-bottom {
@@ -576,4 +587,150 @@
   background: var(--md-sys-color-on-surface);
   color: var(--md-sys-color-surface);
   box-shadow: 0 0 16px oklch(from var(--md-sys-color-primary) l c h / 0.25);
+}
+
+// ==========================================================================
+// Reduced Motion
+// ==========================================================================
+
+@include reduced-motion {
+  .social-orb {
+    transition: none;
+
+    svg {
+      transition: none;
+    }
+
+    &:hover {
+      transform: none;
+
+      svg {
+        transform: none;
+      }
+    }
+  }
+
+  .social-orbs:hover .social-orb {
+    transition-delay: 0ms;
+  }
+
+  .footer-link {
+    transition: none;
+
+    &::after {
+      transition: none;
+    }
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .contact-row {
+    transition: none;
+
+    .icon-box {
+      transition: none;
+    }
+
+    .contact-text .value {
+      transition: none;
+    }
+
+    &:hover .icon-box {
+      transform: none;
+    }
+  }
+
+  .footer-theme-toggle {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .legal-links .legal-link {
+    transition: none;
+
+    &::after {
+      transition: none;
+    }
+  }
+}
+
+// ==========================================================================
+// Forced Colors
+// ==========================================================================
+
+@media (forced-colors: active) {
+  .footer-curve {
+    background: Canvas;
+    color: CanvasText;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .social-orb {
+    background: ButtonFace;
+    color: ButtonText;
+    border-color: ButtonText;
+    box-shadow: none;
+    forced-color-adjust: auto;
+
+    &:hover {
+      background: Highlight;
+      color: HighlightText;
+      box-shadow: none;
+    }
+  }
+
+  .footer-link {
+    color: LinkText;
+
+    &::after {
+      background: LinkText;
+    }
+  }
+
+  .contact-card {
+    background: Canvas;
+    border-color: CanvasText;
+  }
+
+  .contact-row .icon-box {
+    background: Canvas;
+    border: 1px solid CanvasText;
+    box-shadow: none;
+
+    .material-icons-rounded {
+      color: CanvasText;
+    }
+  }
+
+  .contact-row:hover .icon-box {
+    box-shadow: none;
+  }
+
+  .footer-theme-toggle {
+    background: ButtonFace;
+    color: ButtonText;
+    border-color: ButtonText;
+    box-shadow: none;
+  }
+
+  .legal-links .legal-link {
+    color: LinkText;
+  }
+
+  .copyright {
+    color: CanvasText;
+  }
+
+  .col-title,
+  .footer-title {
+    color: CanvasText;
+  }
 }

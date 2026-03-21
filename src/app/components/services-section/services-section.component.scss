@@ -83,52 +83,43 @@
   }
 }
 
-/* Service Card - Tonal Surface Design */
+/* Service Card — Floating Icon + Full Tint (B design) */
 .service-card {
   position: relative;
   height: 100%;
-  // Tonal surface — bold tint by service accent color
-  background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 10%, var(--md-sys-color-surface-container-low));
-  border: 1px solid color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 18%, transparent);
-  // Left accent strip
-  border-left: 3px solid color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 60%, transparent);
+  // Full tint bg — accent color at higher saturation for visible differentiation
+  background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 10%, oklch(97% 0.005 194));
+  border: 1px solid color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 20%, transparent);
   border-radius: var(--md-sys-shape-corner-extra-large);
   overflow: hidden;
   transition:
-    background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+    background-color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
     border-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
-    border-left-width var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
-    box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+    transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+    box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
 
   &:hover {
-    background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 16%, var(--md-sys-color-surface-container));
+    background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 16%, oklch(95% 0.005 194));
     border-color: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 30%, transparent);
-    border-left-width: 5px;
-    border-left-color: var(--service-accent-color, var(--md-sys-color-primary));
-    box-shadow: 0 0 20px color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 8%, transparent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 15%, transparent);
   }
 
-  // Dark mode — daha belirgin tonal tint
+  // Dark mode
   :host-context([data-theme='dark']) & {
-    background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 18%, var(--md-sys-color-surface-container-low));
-    border-color: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 22%, transparent);
-    border-left-color: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 70%, transparent);
+    background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 15%, oklch(18% 0.005 194));
+    border-color: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 25%, transparent);
   }
 
   :host-context([data-theme='dark']) &:hover {
-    background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 24%, var(--md-sys-color-surface-container));
-    border-color: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 35%, transparent);
-    border-left-color: var(--service-accent-color, var(--md-sys-color-primary));
-    box-shadow: 0 0 24px color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 12%, transparent);
+    background: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 22%, oklch(22% 0.005 194));
+    border-color: color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 40%, transparent);
+    box-shadow: 0 8px 32px color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 20%, transparent);
   }
 
-  /* Color strip assignments via data attribute */
+  /* Color assignments via data attribute */
   &[data-service-color="primary"] {
     --service-accent-color: var(--md-sys-color-primary);
-  }
-
-  &[data-service-color="secondary"] {
-    --service-accent-color: var(--md-sys-color-secondary);
   }
 
   &[data-service-color="secondary"] {
@@ -149,7 +140,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: var(--md-sys-spacing-8) var(--md-sys-spacing-6);
+  padding: var(--md-sys-spacing-10) var(--md-sys-spacing-6);
   text-decoration: none;
   color: inherit;
   gap: var(--md-sys-spacing-4);
@@ -163,32 +154,31 @@
   }
 }
 
-/* SVG Icon Wrapper — bold container (direct accent color bg) */
+/* SVG Icon Wrapper — floating orb with accent shadow */
 .service-icon-wrapper {
   flex-shrink: 0;
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--md-sys-shape-corner-large);
+  border-radius: var(--md-sys-shape-corner-extra-large);
   background: var(--service-accent-color, var(--md-sys-color-primary));
   color: white;
+  box-shadow: 0 6px 20px color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 30%, transparent);
   transition:
-    background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+    transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+    box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
 
   .service-card:hover & {
-    background: color-mix(
-      in oklch,
-      var(--service-accent-color, var(--md-sys-color-primary)) 85%,
-      var(--md-sys-color-shadow)
-    );
+    transform: scale(1.08);
+    box-shadow: 0 8px 28px color-mix(in oklch, var(--service-accent-color, var(--md-sys-color-primary)) 40%, transparent);
   }
 }
 
 .service-icon-svg {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   display: block;
   color: white;
 
@@ -307,5 +297,50 @@
   .section-cta .cta-button:hover,
   .section-cta .cta-button:active {
     transform: none;
+  }
+
+  .service-card:hover .service-icon-wrapper {
+    transform: none;
+  }
+}
+
+// ==========================================================================
+// Forced Colors
+// ==========================================================================
+
+@media (forced-colors: active) {
+  .services-section {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .service-card {
+    background: Canvas;
+    border-color: CanvasText;
+    box-shadow: none;
+    forced-color-adjust: auto;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .service-icon-wrapper {
+    background: Canvas;
+    border: 1px solid CanvasText;
+    box-shadow: none;
+  }
+
+  .details-link {
+    color: LinkText;
+  }
+
+  .section-cta .cta-button {
+    background: ButtonFace;
+    color: ButtonText;
+    border: 1px solid ButtonText;
+    box-shadow: none;
   }
 }

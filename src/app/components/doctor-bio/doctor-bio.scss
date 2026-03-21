@@ -27,7 +27,7 @@
   background-image: 
     radial-gradient(at 0% 50%, color-mix(in oklch, var(--md-sys-color-primary) 8%, transparent) 0px, transparent 60%),
     radial-gradient(at 90% 10%, color-mix(in oklch, var(--md-sys-color-secondary) 14%, transparent) 0px, transparent 60%),
-    radial-gradient(at 50% 90%, color-mix(in oklch, var(--md-sys-color-tertiary) 5%, transparent) 0px, transparent 60%);
+    radial-gradient(at 50% 90%, color-mix(in oklch, var(--md-sys-color-secondary) 5%, transparent) 0px, transparent 60%);
 }
 
 .container {
@@ -142,7 +142,7 @@
     border-radius: var(--md-sys-shape-corner-extra-large);
   
   /* Subtle amber tint for "Bilimsel Sıcaklık" warmth */
-  background: color-mix(in oklch, var(--md-sys-color-secondary) 5%, transparent);
+  background: var(--md-sys-color-surface-container-low);
   border: 1px solid transparent;
     transition:
       background-color var(--md-sys-transition-standard),
@@ -154,32 +154,60 @@
 .qualification-card:hover {
   background: var(--md-sys-color-surface);
   box-shadow: var(--md-sys-elevation-level1);
-  border-color: color-mix(in oklch, var(--md-sys-color-secondary) 30%, transparent);
+  border-color: var(--md-sys-color-outline-variant);
   transform: translateY(-2px);
 }
 
 .qual-icon {
-  width: var(--md-sys-touch-target-min);
-  height: var(--md-sys-touch-target-min);
-  border-radius: var(--md-sys-shape-corner-large);
+  width: 52px;
+  height: 52px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-primary);
   font-size: var(--md-icon-size-md);
-  background: var(--md-sys-color-primary); /* Default */
+  background: color-mix(
+    in oklch,
+    var(--md-sys-color-primary-container) 72%,
+    var(--md-sys-color-surface) 28%
+  );
   flex-shrink: 0;
+  transition:
+    transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+    background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  .qualification-card:hover & {
+    transform: scale(1.06);
+    background: var(--md-sys-color-primary-container);
+  }
 }
 
-/* Icon Variants */
+/* Icon Variants — tonal container style */
 .qualification-card:nth-child(2) .qual-icon {
-  background: var(--md-sys-color-secondary);
-  color: var(--md-sys-color-on-secondary);
+  background: color-mix(
+    in oklch,
+    var(--md-sys-color-secondary-container) 72%,
+    var(--md-sys-color-surface) 28%
+  );
+  color: var(--md-sys-color-secondary);
+
+  .qualification-card:hover & {
+    background: var(--md-sys-color-secondary-container);
+  }
 }
 
 .qualification-card:nth-child(3) .qual-icon {
-  background: var(--md-sys-color-tertiary);
-  color: var(--md-sys-color-on-tertiary);
+  background: color-mix(
+    in oklch,
+    var(--md-sys-color-secondary-container) 72%,
+    var(--md-sys-color-surface) 28%
+  );
+  color: var(--md-sys-color-secondary);
+
+  .qualification-card:hover & {
+    background: var(--md-sys-color-secondary-container);
+  }
 }
 
 .qual-content {
@@ -238,14 +266,14 @@
 .btn-secondary {
   background: transparent;
   color: var(--md-sys-color-primary);
-  border: var(--md-sys-spacing-0-5) solid color-mix(in oklch, var(--md-sys-color-primary) 20%, transparent);
+  border: var(--md-sys-spacing-0-5) solid var(--md-sys-color-outline-variant);
   @include state-layer(var(--md-sys-color-primary));
   @include ripple-effect(var(--md-sys-color-primary));
 }
 
   .btn-secondary:hover {
     border-color: var(--md-sys-color-primary);
-    background: color-mix(in oklch, var(--md-sys-color-primary) 5%, transparent);
+    background: var(--md-sys-color-primary-container);
   }
 
   .btn-primary:focus-visible,
@@ -323,5 +351,54 @@
 
   .photo-frame:hover .doctor-photo {
     transform: none;
+  }
+}
+
+// ==========================================================================
+// Forced Colors
+// ==========================================================================
+
+@media (forced-colors: active) {
+  .doctor-bio {
+    &::before {
+      display: none;
+    }
+  }
+
+  .photo-frame {
+    border-color: CanvasText;
+    box-shadow: none;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .qualification-card {
+    background: Canvas;
+    border-color: CanvasText;
+    box-shadow: none;
+    forced-color-adjust: auto;
+  }
+
+  .qual-icon {
+    background: Canvas;
+    border: 1px solid CanvasText;
+    color: CanvasText;
+  }
+
+  .btn-primary {
+    background: ButtonFace;
+    color: ButtonText;
+    border: 1px solid ButtonText;
+    box-shadow: none;
+  }
+
+  .btn-secondary {
+    background: Canvas;
+    color: ButtonText;
+    border-color: ButtonText;
+    box-shadow: none;
   }
 }

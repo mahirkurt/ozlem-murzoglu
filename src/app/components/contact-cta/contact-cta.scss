@@ -13,18 +13,17 @@
     calc(var(--md-sys-spacing-section-vertical-sm) + var(--cta-footer-underlap));
   margin: 0;
 
-  // Coral palette tokens (scoped)
-  --cta-bg-from: var(--md-sys-color-tertiary);
-  --cta-bg-to: color-mix(in oklch, var(--md-sys-color-tertiary) 65%, var(--md-sys-color-shadow));
-  --cta-glow-teal: color-mix(in oklch, var(--md-sys-color-primary) 28%, transparent);
-  --cta-glow-deep: color-mix(in oklch, var(--md-ref-palette-tertiary30) 30%, transparent);
-  --cta-text: var(--md-sys-color-on-tertiary);
-  --cta-text-secondary: color-mix(in oklch, var(--md-sys-color-on-tertiary) 80%, transparent);
+  // Warm Gold CTA palette — token-driven
+  --cta-bg-from: var(--md-ref-palette-secondary70);
+  --cta-bg-to: var(--md-sys-color-secondary);
+  --cta-glow-teal: color-mix(in oklch, var(--md-sys-color-primary) 16%, transparent);
+  --cta-glow-deep: color-mix(in oklch, var(--md-ref-palette-secondary80) 18%, transparent);
+  --cta-text: var(--md-sys-color-on-secondary);
+  --cta-text-secondary: var(--md-ref-palette-secondary95);
   --cta-transition-height: var(--md-sys-spacing-20);
   --cta-label-font-size: var(--md-sys-typescale-label-medium-size);
   --cta-label-letter-spacing: var(--md-sys-typescale-label-medium-tracking);
   --cta-secondary-border-width: var(--md-sys-spacing-0-5);
-  --cta-secondary-blur: var(--md-sys-glass-blur-sm);
   --cta-motion-lift: var(--md-sys-spacing-1);
 
   background:
@@ -43,7 +42,7 @@
       var(--cta-bg-from) 0%,
       var(--cta-bg-to) 100%
     );
-  border-top: 1px solid color-mix(in oklch, var(--md-sys-color-on-tertiary) 12%, transparent);
+  border-top: 1px solid color-mix(in oklch, white 12%, transparent);
 }
 
 // Noise overlay
@@ -80,7 +79,7 @@
 .cta-blob--1 {
   width: clamp(180px, 22vw, 320px);
   aspect-ratio: 1.15;
-  background: color-mix(in oklch, var(--md-sys-color-on-tertiary) 24%, transparent);
+  background: color-mix(in oklch, white 20%, transparent);
   top: -18%;
   left: -6%;
   animation: _cta-blob-a 20s var(--md-sys-motion-easing-standard) infinite;
@@ -89,7 +88,7 @@
 .cta-blob--2 {
   width: clamp(140px, 16vw, 260px);
   aspect-ratio: 0.9;
-  background: color-mix(in oklch, var(--md-sys-color-tertiary-container) 36%, transparent);
+  background: color-mix(in oklch, var(--md-ref-palette-secondary80) 28%, transparent);
   bottom: -14%;
   right: -4%;
   animation: _cta-blob-b 24s var(--md-sys-motion-easing-standard) infinite;
@@ -146,14 +145,6 @@
   }
 }
 
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .btn-secondary {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    background: color-mix(in oklch, var(--md-sys-color-on-tertiary) 14%, transparent);
-  }
-}
-
 // ==========================================================================
 // Transition band (coral → teal fade)
 // ==========================================================================
@@ -164,11 +155,13 @@
   left: 0;
   right: 0;
   height: var(--cta-transition-height);
+  // Bridge amber CTA → teal footer — avoid green hue interpolation
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    color-mix(in oklch, var(--md-sys-color-primary) 40%, var(--md-sys-color-tertiary) 60%) 50%,
-    color-mix(in oklch, var(--md-sys-color-primary) 75%, var(--md-sys-color-shadow)) 100%
+    var(--md-ref-palette-secondary30) 30%,
+    color-mix(in oklch, var(--md-ref-palette-secondary30) 50%, var(--md-ref-palette-primary30)) 60%,
+    oklch(32% 0.10 194) 100%
   );
   pointer-events: none;
   z-index: 2;
@@ -226,9 +219,9 @@
 .section-label {
   display: inline-block;
   padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
-  background: color-mix(in oklch, var(--md-sys-color-on-tertiary) 16%, transparent);
-  color: var(--cta-text);
-  border: 1px solid color-mix(in oklch, var(--md-sys-color-on-tertiary) 24%, transparent);
+  background: var(--md-ref-palette-secondary90);
+  color: var(--md-ref-palette-secondary30);
+  border: 1px solid color-mix(in oklch, white 24%, transparent);
   border-radius: var(--md-sys-shape-corner-full);
   font-family: var(--md-sys-typescale-label-large-font);
   font-size: var(--cta-label-font-size);
@@ -236,8 +229,6 @@
   text-transform: uppercase;
   letter-spacing: var(--cta-label-letter-spacing);
   margin-bottom: var(--md-sys-spacing-4);
-  backdrop-filter: blur(var(--md-sys-glass-blur-sm));
-  box-shadow: var(--md-sys-elevation-level1);
 }
 
 // ==========================================================================
@@ -275,14 +266,14 @@
   outline-offset: var(--md-sys-state-focus-ring-offset);
 }
 
-// Primary: white bg + coral text
+// Primary: white bg + amber text
 .btn-primary {
-  background: var(--md-sys-color-on-tertiary);
-  color: var(--md-sys-color-tertiary);
+  background: white;
+  color: var(--md-ref-palette-secondary30);
   border: none;
   box-shadow: var(--md-sys-elevation-level2);
-  @include state-layer(var(--md-sys-color-tertiary));
-  @include ripple-effect(var(--md-sys-color-tertiary));
+  @include state-layer(var(--md-ref-palette-secondary30));
+  @include ripple-effect(var(--md-ref-palette-secondary30));
 
   &:hover {
     transform: translateY(calc(-1 * var(--cta-motion-lift)));
@@ -296,18 +287,16 @@
 
 // Secondary: transparent outline + white text
 .btn-secondary {
-  background: color-mix(in oklch, var(--md-sys-color-on-tertiary) 10%, transparent);
-  color: var(--md-sys-color-on-tertiary);
-  border: var(--cta-secondary-border-width) solid color-mix(in oklch, var(--md-sys-color-on-tertiary) 45%, transparent);
-  backdrop-filter: blur(var(--cta-secondary-blur));
-  -webkit-backdrop-filter: blur(var(--cta-secondary-blur));
-  @include state-layer(var(--md-sys-color-on-tertiary));
-  @include ripple-effect(var(--md-sys-color-on-tertiary));
+  background: color-mix(in oklch, white 12%, transparent);
+  color: white;
+  border: var(--cta-secondary-border-width) solid color-mix(in oklch, white 45%, transparent);
+  @include state-layer(white);
+  @include ripple-effect(white);
 
   &:hover {
     transform: translateY(calc(-1 * var(--cta-motion-lift)));
-    background: color-mix(in oklch, var(--md-sys-color-on-tertiary) 18%, transparent);
-    border-color: color-mix(in oklch, var(--md-sys-color-on-tertiary) 60%, transparent);
+    background: color-mix(in oklch, white 22%, transparent);
+    border-color: color-mix(in oklch, white 60%, transparent);
   }
 
   &:active {
@@ -354,20 +343,18 @@
 // ==========================================================================
 
 :host-context([data-theme='dark']) .contact-cta {
-  // Lighten coral background — keep warmth but avoid murky darkness
-  --cta-bg-from: color-mix(in oklch, var(--md-sys-color-tertiary) 88%, var(--md-sys-color-shadow));
-  --cta-bg-to: color-mix(in oklch, var(--md-sys-color-tertiary) 58%, var(--md-sys-color-shadow));
-  --cta-glow-teal: color-mix(in oklch, var(--md-sys-color-primary) 20%, transparent);
-  --cta-glow-deep: color-mix(in oklch, var(--md-ref-palette-tertiary30) 18%, transparent);
-  // Force light text — CTA is a colored section, must keep white text in both modes
-  --cta-text: var(--md-ref-palette-tertiary99);
-  --cta-text-secondary: color-mix(in oklch, var(--md-ref-palette-tertiary99) 78%, transparent);
-  border-top-color: color-mix(in oklch, var(--md-ref-palette-tertiary99) 10%, transparent);
+  --cta-bg-from: var(--md-sys-color-secondary);
+  --cta-bg-to: var(--md-ref-palette-secondary30);
+  --cta-glow-teal: color-mix(in oklch, var(--md-sys-color-primary) 14%, transparent);
+  --cta-glow-deep: color-mix(in oklch, var(--md-ref-palette-secondary80) 12%, transparent);
+  --cta-text: var(--md-sys-color-on-secondary);
+  --cta-text-secondary: var(--md-ref-palette-secondary90);
+  border-top-color: color-mix(in oklch, white 8%, transparent);
 }
 
 :host-context([data-theme='dark']) .section-label {
-  background: color-mix(in oklch, var(--md-ref-palette-tertiary99) 14%, transparent);
-  border-color: color-mix(in oklch, var(--md-ref-palette-tertiary99) 22%, transparent);
+  background: color-mix(in oklch, white 14%, transparent);
+  border-color: color-mix(in oklch, white 22%, transparent);
 }
 
 :host-context([data-theme='dark']) .cta-blob {
@@ -379,14 +366,15 @@
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    color-mix(in oklch, var(--md-sys-color-primary) 30%, var(--md-sys-color-shadow)) 50%,
-    color-mix(in oklch, var(--md-sys-color-primary) 50%, var(--md-sys-color-shadow)) 100%
+    var(--md-ref-palette-secondary20) 30%,
+    color-mix(in oklch, var(--md-ref-palette-secondary20) 50%, var(--md-ref-palette-primary20)) 60%,
+    oklch(20% 0.06 194) 100%
   );
 }
 
 :host-context([data-theme='dark']) .btn-primary {
-  background: var(--md-ref-palette-tertiary99);
-  color: var(--md-sys-color-tertiary);
+  background: var(--md-ref-palette-secondary99);
+  color: var(--md-ref-palette-secondary30);
   box-shadow: var(--md-sys-elevation-level2);
 
   &:hover {
@@ -395,13 +383,44 @@
 }
 
 :host-context([data-theme='dark']) .btn-secondary {
-  color: var(--md-ref-palette-tertiary99);
-  border-color: color-mix(in oklch, var(--md-ref-palette-tertiary99) 35%, transparent);
+  color: white;
+  border-color: color-mix(in oklch, white 35%, transparent);
 
   &:hover {
-    color: var(--md-ref-palette-tertiary99);
-    border-color: color-mix(in oklch, var(--md-ref-palette-tertiary99) 50%, transparent);
-    background: color-mix(in oklch, var(--md-ref-palette-tertiary99) 16%, transparent);
-    box-shadow: var(--md-sys-elevation-level1);
+    border-color: color-mix(in oklch, white 50%, transparent);
+    background: color-mix(in oklch, white 16%, transparent);
+  }
+}
+
+// ==========================================================================
+// Forced Colors
+// ==========================================================================
+
+@media (forced-colors: active) {
+  .cta-section {
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .cta-blob {
+    display: none;
+  }
+
+  .btn-primary {
+    background: ButtonFace;
+    color: ButtonText;
+    border: 1px solid ButtonText;
+    box-shadow: none;
+  }
+
+  .btn-secondary {
+    background: Canvas;
+    color: ButtonText;
+    border-color: ButtonText;
+    box-shadow: none;
+  }
+
+  .cta-transition {
+    display: none;
   }
 }

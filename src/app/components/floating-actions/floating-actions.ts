@@ -25,6 +25,8 @@ import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
            rel="noopener noreferrer"
            class="fab-action whatsapp"
            data-track="whatsapp_click" data-track-category="conversion" data-track-label="floating_actions"
+           [attr.aria-hidden]="!isExpanded"
+           [attr.tabindex]="isExpanded ? 0 : -1"
            [style.transform]="isExpanded ? 'scale(1) translateY(0)' : 'scale(0) translateY(20px)'"
            [style.transition-delay]="isExpanded ? '0.1s' : '0s'">
           <svg viewBox="0 0 24 24" width="24" height="24">
@@ -36,6 +38,8 @@ import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
         <a [href]="phoneUrl"
            class="fab-action phone"
            data-track="phone_click" data-track-category="conversion" data-track-label="floating_actions"
+           [attr.aria-hidden]="!isExpanded"
+           [attr.tabindex]="isExpanded ? 0 : -1"
            [style.transform]="isExpanded ? 'scale(1) translateY(0)' : 'scale(0) translateY(20px)'"
            [style.transition-delay]="isExpanded ? '0.2s' : '0s'">
           <span class="material-icons-rounded">phone</span>
@@ -44,6 +48,8 @@ import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
         
         <a href="/randevu" 
            class="fab-action appointment"
+           [attr.aria-hidden]="!isExpanded"
+           [attr.tabindex]="isExpanded ? 0 : -1"
            [style.transform]="isExpanded ? 'scale(1) translateY(0)' : 'scale(0) translateY(20px)'"
            [style.transition-delay]="isExpanded ? '0.3s' : '0s'">
           <span class="material-icons-rounded">calendar_month</span>
@@ -132,8 +138,22 @@ import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
       transition:
         background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
         box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
-        transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+        transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+        opacity var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+        visibility var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
       position: relative;
+    }
+
+    .floating-actions:not(.expanded) .fab-action {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .floating-actions.expanded .fab-action {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
 
     .fab-action:hover {

@@ -1,4 +1,4 @@
-<section class="contact-cta">
+<section class="contact-cta" aria-labelledby="contact-cta-title">
   <!-- Decorative blobs -->
   <div class="cta-blobs" aria-hidden="true">
     <div class="cta-blob cta-blob--1"></div>
@@ -9,17 +9,17 @@
     <div class="cta-content">
       <div class="cta-header">
         <span class="section-label">{{ 'CONTACT_CTA.LABEL' | translate }}</span>
-        <h2>{{ 'CONTACT_CTA.TITLE' | translate }}</h2>
+        <h2 id="contact-cta-title">{{ 'CONTACT_CTA.TITLE' | translate }}</h2>
         <p>{{ 'CONTACT_CTA.DESCRIPTION' | translate }}</p>
       </div>
 
       <div class="cta-actions">
         <a routerLink="/iletisim" class="btn-primary">
-          <span class="material-icons-rounded">calendar_today</span>
+          <span class="material-icons-rounded" aria-hidden="true">calendar_today</span>
           {{ 'CONTACT_CTA.APPOINTMENT' | translate }}
         </a>
         <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-track="whatsapp_click" data-track-category="conversion" data-track-label="cta_section">
-          <span class="material-icons-rounded">chat</span>
+          <span class="material-icons-rounded" aria-hidden="true">chat</span>
           {{ 'CONTACT_CTA.WHATSAPP' | translate }}
         </a>
       </div>

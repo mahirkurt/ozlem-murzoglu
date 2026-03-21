@@ -9,7 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [CommonModule, RouterModule, TranslateModule],
   encapsulation: ViewEncapsulation.None,
   template: `
-    <section class="liquid-visual-root hero-container homepage-hero">
+    <section class="liquid-visual-root hero-container homepage-hero" aria-labelledby="hero-title">
       <div class="hero-floats" aria-hidden="true">
         <div class="hero-float hero-float--1"></div>
         <div class="hero-float hero-float--2"></div>
@@ -21,7 +21,7 @@ import { TranslateModule } from '@ngx-translate/core';
         <div class="liquid-hero__layout">
           <div class="hero-text-column">
             <p class="hero-supertitle">{{ 'HOME.HERO_OVERLINE' | translate }}</p>
-            <h1 class="hero-title" [innerHTML]="'HOME.HERO_TITLE' | translate"></h1>
+            <h1 id="hero-title" class="hero-title" [innerHTML]="'HOME.HERO_TITLE' | translate"></h1>
 
             <div class="liquid-hero__cta">
               <a routerLink="/randevu" class="hero-button hero-button--primary">

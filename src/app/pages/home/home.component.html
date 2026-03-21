@@ -1,25 +1,25 @@
 <main class="home-page">
-  <section class="home-page__hero">
+  <section class="home-page__hero" aria-label="Hero">
     <app-liquid-hero></app-liquid-hero>
   </section>
 
-  <section class="home-page__section" scrollReveal="fade-up" [scrollDelay]="100">
+  <section class="home-page__section" [attr.aria-label]="'HOME.WHY_SP_SECTION_LABEL' | translate" scrollReveal="fade-up" [scrollDelay]="100">
     <app-why-social-pediatrics></app-why-social-pediatrics>
   </section>
 
-  <section class="home-page__section" scrollReveal="fade-up" [scrollDelay]="150">
+  <section class="home-page__section" [attr.aria-label]="'HOME.DOCTOR_BIO.SECTION_LABEL' | translate" scrollReveal="fade-up" [scrollDelay]="150">
     <app-doctor-bio></app-doctor-bio>
   </section>
 
-  <section class="home-page__section" scrollReveal="fade-up" [scrollDelay]="200">
+  <section class="home-page__section" [attr.aria-label]="'HOME.SERVICES.SECTION_LABEL' | translate" scrollReveal="fade-up" [scrollDelay]="200">
     <app-services-section></app-services-section>
   </section>
 
-  <section class="home-page__section" scrollReveal="fade-up" [scrollDelay]="250">
+  <section class="home-page__section" [attr.aria-label]="'HOME.REVIEWS.SECTION_LABEL' | translate" scrollReveal="fade-up" [scrollDelay]="250">
     <app-google-business-reviews></app-google-business-reviews>
   </section>
 
-  <section class="home-page__section" scrollReveal="fade-up" [scrollDelay]="300">
+  <section class="home-page__section" [attr.aria-label]="'HOME.CONTACT.SECTION_LABEL' | translate" scrollReveal="fade-up" [scrollDelay]="300">
     <app-contact-cta></app-contact-cta>
   </section>
 </main>

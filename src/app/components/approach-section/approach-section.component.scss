@@ -1,24 +1,22 @@
-/* Approach Section - Glass & Aurora Redesign (Phase 9) */
-@import 'styles/md3/index';
+/* Approach Section — MD3 Compliant Refactor */
+@use 'styles/md3/index' as *;
 
 .approach-section {
   position: relative;
-  padding: 120px 0; /* More breathing room */
-  background: var(--md-sys-color-surface); /* Fallback */
+  padding: var(--md-sys-spacing-28) 0;
+  background: var(--md-sys-color-surface);
   overflow: hidden;
-  
-  /* LIGHT AURORA BACKGROUND */
-  /* A lighter, brighter version of the hero to signal a new section but keep continuity */
-  background-image: 
-    radial-gradient(at 10% 10%, rgba(var(--md-sys-color-primary-rgb), 0.05) 0px, transparent 50%),
-    radial-gradient(at 90% 90%, rgba(var(--md-sys-color-secondary-rgb), 0.05) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, rgba(255, 255, 255, 1) 0px, transparent 100%);
+
+  /* Aurora background using MD3 tokens */
+  background-image:
+    radial-gradient(at 10% 10%, color-mix(in oklch, var(--md-sys-color-primary) 5%, transparent) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, color-mix(in oklch, var(--md-sys-color-secondary) 5%, transparent) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, var(--md-sys-color-surface-container-lowest) 0px, transparent 100%);
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+  @include content-width;
+  @include container-padding;
   position: relative;
   z-index: 2;
 }
@@ -26,7 +24,7 @@
 /* SECTION HEADER */
 .section-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: var(--md-sys-spacing-20);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -34,150 +32,130 @@
 
 .section-label {
   display: inline-block;
-  padding: 8px 16px;
-  background: rgba(var(--md-sys-color-primary-rgb), 0.1);
+  padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
+  background: color-mix(in oklch, var(--md-sys-color-primary-container) 80%, var(--md-sys-color-surface));
   color: var(--md-sys-color-primary);
-  border-radius: 100px;
+  border-radius: var(--md-sys-shape-corner-full);
   font-family: var(--md-sys-typescale-label-large-font);
-  font-size: 13px;
+  font-size: var(--md-sys-typescale-label-large-size);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 24px; /* Space between label and title */
-  backdrop-filter: blur(4px);
+  margin-bottom: var(--md-sys-spacing-6);
 }
 
 .section-title {
   font-family: var(--md-sys-typescale-display-small-font);
   font-size: var(--md-sys-typescale-display-small-size);
-  font-weight: 700; 
+  font-weight: 700;
   letter-spacing: -0.5px;
   color: var(--md-sys-color-primary);
-  margin: 0 0 16px 0; /* Space below title */
+  margin: 0 0 var(--md-sys-spacing-4) 0;
 }
 
 .section-description {
   font-family: var(--md-sys-typescale-body-large-font);
-  font-size: 18px; /* Slightly larger for main description */
+  font-size: var(--md-sys-typescale-body-large-size);
   color: var(--md-sys-color-on-surface-variant);
   margin: 0 auto;
   max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
+  line-height: var(--md-sys-typescale-body-large-line-height);
 }
 
 /* GRID LAYOUT */
 .approach-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: var(--md-sys-spacing-8);
 }
 
-/* GLASS CARDS - DYNAMIC COLOR */
+/* CARDS — Tonal Surface (no glassmorphism) */
 .approach-card {
+  --_card-accent: var(--md-sys-color-primary);
+
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 48px 32px;
+  padding: var(--md-sys-spacing-12) var(--md-sys-spacing-8);
   text-decoration: none;
-  border-radius: 32px;
-  
-  /* Initial State: Subtle Tint */
-  background: linear-gradient(
-    145deg, 
-    rgba(255, 255, 255, 0.9), 
-    rgba(255, 255, 255, 0.6)
-  );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  
-  /* Border: Default Subtle */
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.05),
-    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
-    
-  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+
+  background: var(--md-sys-color-surface-container-lowest);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: none;
+
+  transition:
+    background-color var(--md-sys-transition-standard),
+    border-color var(--md-sys-transition-standard),
+    box-shadow var(--md-sys-transition-standard),
+    transform var(--md-sys-transition-emphasized);
   overflow: hidden;
 }
 
 /* Dynamic Card Themes */
 .approach-card--primary {
-  --card-theme: var(--md-sys-color-primary);
-  --card-theme-rgb: var(--md-sys-color-primary-rgb);
+  --_card-accent: var(--md-sys-color-primary);
 }
+
 .approach-card--secondary {
-  --card-theme: var(--md-sys-color-secondary);
-  --card-theme-rgb: var(--md-sys-color-secondary-rgb);
-}
-.approach-card--tertiary {
-  --card-theme: var(--md-sys-color-tertiary);
-  --card-theme-rgb: var(--md-sys-color-tertiary-rgb);
+  --_card-accent: var(--md-sys-color-secondary);
 }
 
 .approach-card:hover {
-  transform: translateY(-12px);
-  /* Stronger Tint on Hover */
-  background: linear-gradient(
-    145deg, 
-    rgba(255, 255, 255, 0.95), 
-    rgba(var(--card-theme-rgb), 0.15)
-  );
-  border-color: var(--card-theme); /* Colored Border */
-  box-shadow: 
-    0 24px 48px rgba(var(--card-theme-rgb), 0.2), /* Colored Shadow */
-    0 0 0 2px rgba(var(--card-theme-rgb), 0.1) inset;
+  transform: translateY(-8px);
+  background: var(--md-sys-color-surface-container);
+  border-color: var(--_card-accent);
+  box-shadow:
+    var(--md-sys-elevation-level2),
+    0 0 0 1px color-mix(in oklch, var(--_card-accent) 10%, transparent) inset;
 }
 
 /* CARD ICON CONTAINERS */
 .card-header {
-  margin-bottom: 32px;
+  margin-bottom: var(--md-sys-spacing-8);
 }
 
 .card-icon {
   width: 96px;
   height: 96px;
-  border-radius: 28px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 40px;
-  
-  /* Vibrant Icon Backgrounds */
-  background: var(--card-theme);
-  color: white; /* Always white icon on colored bg */
-  box-shadow: 0 8px 20px rgba(var(--card-theme-rgb), 0.3);
-  
-  transition: all 0.4s ease;
+
+  background: var(--_card-accent);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: var(--md-sys-elevation-level1);
+
+  transition:
+    transform var(--md-sys-transition-emphasized),
+    box-shadow var(--md-sys-transition-standard);
 }
 
 .approach-card:hover .card-icon {
   transform: scale(1.15) rotate(-5deg);
-  box-shadow: 0 12px 32px rgba(var(--card-theme-rgb), 0.4);
+  box-shadow: var(--md-sys-elevation-level3);
 }
-
-/* Remove separate color classes for icon since we used variable */
-/* ... */
 
 /* CONTENT */
 .card-title {
   font-family: var(--md-sys-typescale-headline-small-font);
   font-size: var(--md-sys-typescale-headline-small-size);
-  color: var(--card-theme); /* Title matches brand color */
-  margin-bottom: 16px;
+  color: var(--_card-accent);
+  margin-bottom: var(--md-sys-spacing-4);
   font-weight: 700;
-  transition: color 0.3s;
+  transition: color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
 }
 
 .card-description {
   font-family: var(--md-sys-typescale-body-large-font);
   font-size: var(--md-sys-typescale-body-large-size);
-  line-height: 1.6;
+  line-height: var(--md-sys-typescale-body-large-line-height);
   color: var(--md-sys-color-on-surface-variant);
-  margin-bottom: 32px;
+  margin-bottom: var(--md-sys-spacing-8);
 }
 
 /* ACTION PILL */
@@ -185,30 +163,31 @@
   margin-top: auto;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 100px;
-  
-  background: rgba(var(--card-theme-rgb), 0.1);
-  color: var(--card-theme);
-  
+  gap: var(--md-sys-spacing-2);
+  padding: var(--md-sys-spacing-3) var(--md-sys-spacing-6);
+  border-radius: var(--md-sys-shape-corner-full);
+
+  background: color-mix(in oklch, var(--_card-accent) 10%, transparent);
+  color: var(--_card-accent);
+
   font-weight: 700;
-  font-size: 14px;
+  font-size: var(--md-sys-typescale-label-large-size);
   font-family: var(--md-sys-typescale-label-large-font);
-  opacity: 1; /* Always visible but subtle */
-  transform: translateY(0);
-  transition: all 0.3s ease;
+  transition:
+    background-color var(--md-sys-transition-standard),
+    color var(--md-sys-transition-standard),
+    box-shadow var(--md-sys-transition-standard);
 }
 
 .approach-card:hover .card-action {
-  background: var(--card-theme);
-  color: white;
-  box-shadow: 0 4px 12px rgba(var(--card-theme-rgb), 0.3);
+  background: var(--_card-accent);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .action-icon {
   font-size: 18px;
-  transition: transform 0.2s ease;
+  transition: transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
 }
 
 .approach-card:hover .action-icon {
@@ -216,39 +195,95 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 992px) {
+@include bp-below-expanded {
   .approach-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
-  .approach-section { padding: 80px 0; }
-  
-  .approach-grid {
-    grid-template-columns: 1fr; /* Stack on mobile */
-    gap: 24px;
+@include bp-below-medium {
+  .approach-section {
+    padding: var(--md-sys-spacing-20) 0;
   }
-  
+
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: var(--md-sys-spacing-6);
+  }
+
   .approach-card {
-    padding: 32px 24px;
-    align-items: flex-start; /* Left align on mobile for better reading */
+    padding: var(--md-sys-spacing-8) var(--md-sys-spacing-6);
+    align-items: flex-start;
     text-align: left;
   }
-  
+
   .card-icon {
     width: 64px;
     height: 64px;
     font-size: 28px;
-    border-radius: 20px;
+    border-radius: var(--md-sys-shape-corner-large);
   }
-  
+
   .card-action {
-    opacity: 1; /* Always visible on mobile */
-    transform: none;
     background: transparent;
     padding: 0;
     box-shadow: none;
     color: var(--md-sys-color-primary);
+  }
+}
+
+/* Reduced Motion */
+@include reduced-motion {
+  .approach-card,
+  .card-icon,
+  .card-title,
+  .card-action,
+  .action-icon {
+    transition: none;
+  }
+
+  .approach-card:hover {
+    transform: none;
+  }
+
+  .approach-card:hover .card-icon {
+    transform: none;
+  }
+
+  .approach-card:hover .action-icon {
+    transform: none;
+  }
+}
+
+/* Forced Colors */
+@media (forced-colors: active) {
+  .approach-section {
+    background: Canvas;
+  }
+
+  .approach-card {
+    background: Canvas;
+    border-color: CanvasText;
+    box-shadow: none;
+    forced-color-adjust: auto;
+  }
+
+  .card-icon {
+    background: ButtonFace;
+    color: ButtonText;
+    border: 1px solid ButtonText;
+    box-shadow: none;
+  }
+
+  .card-action {
+    background: ButtonFace;
+    color: ButtonText;
+    border: 1px solid ButtonText;
+  }
+
+  .approach-card:hover .card-action {
+    background: Highlight;
+    color: HighlightText;
+    box-shadow: none;
   }
 }

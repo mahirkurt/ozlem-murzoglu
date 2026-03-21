@@ -6,6 +6,7 @@ import { DoctorBioComponent } from '../../components/doctor-bio/doctor-bio';
 import { ContactCtaComponent } from '../../components/contact-cta/contact-cta.component';
 import { WhySocialPediatricsComponent } from '../../components/why-social-pediatrics/why-social-pediatrics.component';
 import { GoogleBusinessReviewsComponent } from '../../components/google-business-reviews/google-business-reviews.component';
+import { TranslateModule } from '@ngx-translate/core';
 import { SeoService } from '../../core/services/seo.service';
 
 
@@ -19,7 +20,8 @@ import { SeoService } from '../../core/services/seo.service';
     DoctorBioComponent,
     ContactCtaComponent,
     WhySocialPediatricsComponent,
-    GoogleBusinessReviewsComponent
+    GoogleBusinessReviewsComponent,
+    TranslateModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

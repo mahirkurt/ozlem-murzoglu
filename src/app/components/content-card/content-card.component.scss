@@ -10,10 +10,10 @@
   container-name: content-card;
 
   &--elevated {
-    box-shadow: var(--elevation-medium);
+    box-shadow: var(--md-sys-elevation-level2);
 
     &:hover {
-      box-shadow: var(--elevation-high);
+      box-shadow: var(--md-sys-elevation-level3);
     }
   }
 
@@ -108,7 +108,7 @@
         background: var(--md-sys-color-surface);
         border-radius: var(--radius-md);
         overflow: hidden;
-        box-shadow: var(--elevation-low);
+        box-shadow: var(--md-sys-elevation-level1);
 
         thead {
           background: var(--md-sys-color-primary-container);
@@ -146,11 +146,11 @@
       blockquote {
         margin: var(--spacing-lg) 0;
         padding: var(--spacing-md) var(--spacing-lg);
-        background: var(--md-sys-color-tertiary-container);
-        border-left: 4px solid var(--md-sys-color-tertiary);
+        background: var(--md-sys-color-secondary-container);
+        border-left: 4px solid var(--md-sys-color-secondary);
         border-radius: var(--radius-sm);
         font-style: italic;
-        color: var(--md-sys-color-on-tertiary-container);
+        color: var(--md-sys-color-on-secondary-container);
 
         p:last-child {
           margin-bottom: 0;
@@ -204,7 +204,7 @@
         height: auto;
         border-radius: var(--radius-md);
         margin: var(--spacing-lg) 0;
-        box-shadow: var(--elevation-low);
+        box-shadow: var(--md-sys-elevation-level1);
       }
 
       // Horizontal rules
@@ -228,8 +228,8 @@
         }
 
         &--success {
-          background: var(--md-sys-color-tertiary-container);
-          border-left-color: var(--md-sys-color-tertiary);
+          background: var(--md-sys-color-secondary-container);
+          border-left-color: var(--md-sys-color-secondary);
         }
       }
     }
