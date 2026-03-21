@@ -1,7 +1,4 @@
-/* Import Global CTA Styles */
-@import url('../../../styles/cta-section.css');
-
-/* Doctor Profile Page - Using Global Premium Styles */
+/* Doctor Profile Page — MD3 Token-Compliant */
 .doctor-profile-page {
   min-height: 100vh;
   background: linear-gradient(180deg, var(--md-sys-color-surface) 0%, var(--md-sys-color-surface-container-low) 100%);
@@ -76,24 +73,16 @@
   align-items: center;
   justify-content: center;
   gap: var(--md-sys-spacing-3);
-  background: color-mix(in oklch, var(--md-sys-color-primary) 8%, transparent);
-  border: 1px solid color-mix(in oklch, var(--md-sys-color-primary) 20%, transparent);
+  background: color-mix(in oklch, var(--md-sys-color-primary-container) 60%, var(--md-sys-color-surface-container-lowest));
+  border: 1px solid color-mix(in oklch, var(--md-sys-color-outline-variant) 40%, transparent);
   border-radius: var(--md-sys-shape-corner-full);
   padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
   font-family: var(--md-sys-typescale-label-large-font);
   font-size: var(--md-sys-typescale-label-large-size);
   font-weight: var(--md-sys-typescale-label-large-weight);
   color: var(--md-sys-color-on-surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: background var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
               transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
-}
-
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .credential-item {
-    background: color-mix(in oklch, var(--md-sys-color-primary) 15%, var(--md-sys-color-surface-container));
-  }
 }
 
 .credential-item:hover {
@@ -179,8 +168,8 @@
 
 /* Highlighted milestones */
 .timeline-item.milestone-highlight::before {
-  background: var(--md-sys-color-tertiary);
-  box-shadow: 0 0 0 4px var(--md-sys-color-tertiary-container);
+  background: var(--md-sys-color-secondary);
+  box-shadow: 0 0 0 4px var(--md-sys-color-secondary-container);
 }
 
 .timeline-year {
@@ -330,5 +319,79 @@ h3.timeline-title {
 
   .credential-item:hover {
     transform: none;
+  }
+}
+
+/* ============================================
+   Dark Mode
+   ============================================ */
+:host-context([data-theme='dark']) .doctor-profile-page {
+  background: linear-gradient(180deg, var(--md-sys-color-surface) 0%, var(--md-sys-color-surface-container) 100%);
+}
+
+:host-context([data-theme='dark']) .profile-image {
+  border-color: var(--md-sys-color-primary);
+}
+
+:host-context([data-theme='dark']) .credential-item {
+  background: color-mix(in oklch, var(--md-sys-color-primary-container) 25%, var(--md-sys-color-surface-container-high));
+  border-color: color-mix(in oklch, var(--md-sys-color-outline) 35%, transparent);
+}
+
+:host-context([data-theme='dark']) .timeline-section {
+  background: var(--md-sys-color-surface-container);
+}
+
+:host-context([data-theme='dark']) .timeline::before {
+  opacity: 0.4;
+}
+
+:host-context([data-theme='dark']) .timeline-item.milestone-highlight::before {
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--md-sys-color-secondary) 30%, transparent);
+}
+
+:host-context([data-theme='dark']) .philosophy-section {
+  background: var(--md-sys-color-surface-container-high);
+}
+
+:host-context([data-theme='dark']) .philosophy-quote {
+  background: var(--md-sys-color-surface-container);
+  border-left-color: var(--md-sys-color-primary);
+}
+
+/* ============================================
+   Forced Colors
+   ============================================ */
+@media (forced-colors: active) {
+  .profile-image {
+    border-color: CanvasText;
+    box-shadow: none;
+  }
+
+  .credential-item {
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+    forced-color-adjust: auto;
+  }
+
+  .timeline::before {
+    background: CanvasText;
+    opacity: 1;
+  }
+
+  .timeline-item::before {
+    background: Highlight;
+    box-shadow: none;
+  }
+
+  .timeline-item.milestone-highlight::before {
+    background: Highlight;
+    box-shadow: none;
+  }
+
+  .philosophy-quote {
+    background: Canvas;
+    border-left-color: Highlight;
   }
 }

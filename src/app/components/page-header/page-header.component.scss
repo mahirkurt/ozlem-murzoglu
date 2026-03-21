@@ -132,3 +132,27 @@
     gap: var(--md-sys-spacing-4);
   }
 }
+
+// ==========================================================================
+// Forced Colors
+// ==========================================================================
+
+@media (forced-colors: active) {
+  .page-header {
+    background: Canvas;
+    color: CanvasText;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .aurora-overlay {
+    display: none;
+  }
+
+  .md3-page-header-title,
+  .md3-page-header-subtitle {
+    color: CanvasText !important;
+  }
+}
