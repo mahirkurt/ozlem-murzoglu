@@ -933,7 +933,7 @@
     "CAROUSEL_STATUS": "{{index}} / {{total}} yorum",
     "EMPTY": "Şu anda gösterilecek yorum bulunamadı.",
     "GO_TO_REVIEW": "{{total}} yorum içinde {{index}}. yoruma git",
-    "LABEL": "Google İşletme Profili",
+    "LABEL": "Yorumlar",
     "LOADING": "Google yorumları yükleniyor...",
     "NEXT_ARIA": "Sonraki yorumu göster",
     "NO_TEXT": "Bu değerlendirmede metin bulunmuyor.",
@@ -941,7 +941,7 @@
     "RATING_ARIA": "Ortalama puan: {{rating}} / 5",
     "REVIEW_COUNT": "{{count}} değerlendirme",
     "SUBTITLE": "Google yorumları ve puanlamalarıyla şeffaf, güvenilir geri bildirimler",
-    "TITLE": "Ailelerimizin deneyimleri",
+    "TITLE": "Ailelerimizin Deneyimleri",
     "VIEW_ALL": "Tüm yorumları Google'da gör",
     "VIEW_PROFILE": "Google profilimizi aç"
   },

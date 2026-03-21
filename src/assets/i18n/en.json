@@ -933,7 +933,7 @@
     "CAROUSEL_STATUS": "Review {{index}} of {{total}}",
     "EMPTY": "There are no reviews to display right now.",
     "GO_TO_REVIEW": "Go to review {{index}} of {{total}}",
-    "LABEL": "Google Business Profile",
+    "LABEL": "Reviews",
     "LOADING": "Loading Google reviews...",
     "NEXT_ARIA": "Show next review",
     "NO_TEXT": "This rating does not include written feedback.",
@@ -941,7 +941,7 @@
     "RATING_ARIA": "Average rating: {{rating}} / 5",
     "REVIEW_COUNT": "{{count}} reviews",
     "SUBTITLE": "Transparent and trustworthy feedback powered by Google ratings and reviews",
-    "TITLE": "Families share their experience",
+    "TITLE": "Families Share Their Experience",
     "VIEW_ALL": "View all reviews on Google",
     "VIEW_PROFILE": "Open our Google profile"
   },
