@@ -177,35 +177,35 @@
   transition: width var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
 }
 
-// Profile link
+// Profile link — compact text link style
 .profile-link {
   display: inline-flex;
   align-items: center;
-  gap: var(--md-sys-spacing-2);
-  padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
-  border-radius: var(--md-sys-shape-corner-full);
-  background: color-mix(in oklch, var(--md-sys-color-primary) 10%, transparent);
+  gap: var(--md-sys-spacing-1);
+  padding: 0;
+  background: none;
   color: var(--md-sys-color-primary);
   text-decoration: none;
-  font-family: var(--md-sys-typescale-label-large-font);
-  font-size: var(--md-sys-typescale-label-large-size);
+  font-family: var(--md-sys-typescale-label-medium-font);
+  font-size: var(--md-sys-typescale-label-medium-size);
   font-weight: 600;
   min-height: var(--md-sys-touch-target-min);
-  transition:
-    background-color var(--md-sys-transition-standard),
-    color var(--md-sys-transition-standard);
+  white-space: nowrap;
+  transition: color var(--md-sys-transition-standard);
 
   .material-icons-rounded {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   &:hover {
-    background: color-mix(in oklch, var(--md-sys-color-primary) 18%, transparent);
+    color: var(--md-sys-color-on-primary-container);
+    text-decoration: underline;
   }
 
   &:focus-visible {
     outline: var(--md-sys-state-focus-ring-width) solid var(--md-sys-state-focus-ring-color);
     outline-offset: var(--md-sys-state-focus-ring-offset);
+    border-radius: var(--md-sys-shape-corner-small);
   }
 }
 
@@ -255,7 +255,7 @@
   color: var(--md-sys-color-on-surface);
   margin: var(--md-sys-spacing-6) 0 var(--md-sys-spacing-6);
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-wrap: pretty;
