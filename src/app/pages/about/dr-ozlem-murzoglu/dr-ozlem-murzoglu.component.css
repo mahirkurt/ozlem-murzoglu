@@ -151,44 +151,6 @@ h3.timeline-title {
 }
 
 /* ============================================
-   Philosophy Blockquote Section
-   ============================================ */
-.philosophy-section {
-  padding: var(--md-sys-spacing-16) 0;
-  background: var(--md-sys-color-surface-container-lowest);
-}
-
-.philosophy-quote {
-  max-width: 800px;
-  margin: 0 auto;
-  border-left: 3px solid var(--md-sys-color-primary);
-  background: var(--md-sys-color-surface-container-lowest);
-  padding: var(--md-sys-spacing-8);
-  border-radius: 0 var(--md-sys-shape-corner-medium) var(--md-sys-shape-corner-medium) 0;
-}
-
-.philosophy-quote p {
-  font-style: italic;
-  font-family: var(--md-sys-typescale-body-large-font);
-  font-size: var(--md-sys-typescale-body-large-size);
-  line-height: var(--md-sys-typescale-body-large-line-height);
-  color: var(--md-sys-color-on-surface);
-  margin: 0 0 var(--md-sys-spacing-4) 0;
-}
-
-.philosophy-author {
-  text-align: right;
-}
-
-.philosophy-author cite {
-  font-family: var(--md-sys-typescale-title-medium-font);
-  font-size: var(--md-sys-typescale-title-medium-size);
-  font-weight: var(--md-sys-typescale-title-medium-weight);
-  color: var(--md-sys-color-primary);
-  font-style: normal;
-}
-
-/* ============================================
    Responsive Design
    ============================================ */
 @media (max-width: 1024px) {
@@ -226,8 +188,7 @@ h3.timeline-title {
     padding: var(--md-sys-spacing-8) 0;
   }
 
-  .timeline-section,
-  .philosophy-section {
+  .timeline-section {
     padding: var(--md-sys-spacing-12) 0;
   }
 
@@ -284,15 +245,6 @@ h3.timeline-title {
   box-shadow: 0 0 0 4px color-mix(in oklch, var(--md-sys-color-secondary) 30%, transparent);
 }
 
-:host-context([data-theme='dark']) .philosophy-section {
-  background: var(--md-sys-color-surface-container);
-}
-
-:host-context([data-theme='dark']) .philosophy-quote {
-  background: var(--md-sys-color-surface-container);
-  border-left-color: var(--md-sys-color-primary);
-}
-
 /* ============================================
    Forced Colors
    ============================================ */
@@ -317,8 +269,4 @@ h3.timeline-title {
     box-shadow: none;
   }
 
-  .philosophy-quote {
-    background: Canvas;
-    border-left-color: Highlight;
-  }
 }
