@@ -1,35 +1,26 @@
 /* Doctor Profile Page — MD3 Token-Compliant */
 .doctor-profile-page {
-  min-height: 100vh;
-  background: linear-gradient(180deg, var(--md-sys-color-surface) 0%, var(--md-sys-color-surface-container-low) 100%);
-  padding-bottom: 0;
+  background: var(--md-sys-color-surface);
 }
 
-/* Content Section */
+/* Content Section — Profile intro */
 .content-section {
-  padding: clamp(32px, 6vw, 96px) 0;
-  position: relative;
-  background: transparent;
+  padding: var(--md-sys-spacing-12) 0;
+  background: var(--md-sys-color-surface-container-lowest);
 }
 
-/* Container */
+/* Container — uses MD3 content width pattern */
 .container {
-  max-width: 1200px;
+  max-width: var(--md-sys-spacing-text-max-width, 1200px);
   margin: 0 auto;
-  padding: 0 var(--md-sys-spacing-8);
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 var(--md-sys-spacing-5);
-  }
+  padding: 0 var(--md-responsive-padding, var(--md-sys-spacing-6));
 }
 
 /* Profile Layout */
 .profile-layout {
   display: grid;
   grid-template-columns: minmax(280px, 360px) 1fr;
-  gap: clamp(24px, 4vw, 48px);
+  gap: var(--md-sys-spacing-10);
   align-items: center;
 }
 
@@ -110,8 +101,8 @@
    Timeline Section
    ============================================ */
 .timeline-section {
-  padding: clamp(32px, 6vw, 80px) 0;
-  background: var(--md-sys-color-surface-container-lowest);
+  padding: var(--md-sys-spacing-16) 0;
+  background: var(--md-sys-color-surface-container-low);
 }
 
 .timeline-heading {
@@ -122,12 +113,12 @@
   letter-spacing: var(--md-sys-typescale-display-small-tracking);
   color: var(--md-sys-color-on-surface);
   text-align: center;
-  margin-bottom: clamp(32px, 4vw, 56px);
+  margin-bottom: var(--md-sys-spacing-10);
 }
 
 .timeline {
   position: relative;
-  padding-left: clamp(32px, 4vw, 48px);
+  padding-left: var(--md-sys-spacing-10);
   max-width: 800px;
   margin: 0 auto;
 }
@@ -146,7 +137,7 @@
 
 .timeline-item {
   position: relative;
-  padding-bottom: clamp(24px, 3vw, 40px);
+  padding-bottom: var(--md-sys-spacing-8);
 }
 
 .timeline-item:last-child {
@@ -157,7 +148,7 @@
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: calc(-1 * clamp(32px, 4vw, 48px) + 1px);
+  left: calc(-1 * var(--md-sys-spacing-10) + 1px);
   top: 4px;
   width: 12px;
   height: 12px;
@@ -206,8 +197,8 @@ h3.timeline-title {
    Philosophy Blockquote Section
    ============================================ */
 .philosophy-section {
-  padding: clamp(32px, 6vw, 80px) 0;
-  background: var(--md-sys-color-surface-container-low);
+  padding: var(--md-sys-spacing-16) 0;
+  background: var(--md-sys-color-surface-container-lowest);
 }
 
 .philosophy-quote {
@@ -215,7 +206,7 @@ h3.timeline-title {
   margin: 0 auto;
   border-left: 3px solid var(--md-sys-color-primary);
   background: var(--md-sys-color-surface-container-lowest);
-  padding: clamp(20px, 3vw, 32px);
+  padding: var(--md-sys-spacing-8);
   border-radius: 0 var(--md-sys-shape-corner-medium) var(--md-sys-shape-corner-medium) 0;
 }
 
@@ -283,6 +274,11 @@ h3.timeline-title {
     padding: var(--md-sys-spacing-8) 0;
   }
 
+  .timeline-section,
+  .philosophy-section {
+    padding: var(--md-sys-spacing-12) 0;
+  }
+
   .timeline {
     padding-left: 28px;
   }
@@ -338,8 +334,12 @@ h3.timeline-title {
   border-color: color-mix(in oklch, var(--md-sys-color-outline) 35%, transparent);
 }
 
-:host-context([data-theme='dark']) .timeline-section {
+:host-context([data-theme='dark']) .content-section {
   background: var(--md-sys-color-surface-container);
+}
+
+:host-context([data-theme='dark']) .timeline-section {
+  background: var(--md-sys-color-surface-container-high);
 }
 
 :host-context([data-theme='dark']) .timeline::before {
@@ -351,7 +351,7 @@ h3.timeline-title {
 }
 
 :host-context([data-theme='dark']) .philosophy-section {
-  background: var(--md-sys-color-surface-container-high);
+  background: var(--md-sys-color-surface-container);
 }
 
 :host-context([data-theme='dark']) .philosophy-quote {
