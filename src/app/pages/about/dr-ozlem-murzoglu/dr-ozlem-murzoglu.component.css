@@ -38,36 +38,6 @@
   transform: scale(1.02);
 }
 
-/* Credentials - Glassmorphism Pills */
-.credentials {
-  display: flex;
-  flex-direction: column;
-  gap: var(--md-sys-spacing-3);
-  margin-top: 0;
-}
-
-.credential-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--md-sys-spacing-3);
-  background: color-mix(in oklch, var(--md-sys-color-primary-container) 60%, var(--md-sys-color-surface-container-lowest));
-  border: 1px solid color-mix(in oklch, var(--md-sys-color-outline-variant) 40%, transparent);
-  border-radius: var(--md-sys-shape-corner-full);
-  padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
-  font-family: var(--md-sys-typescale-label-large-font);
-  font-size: var(--md-sys-typescale-label-large-size);
-  font-weight: var(--md-sys-typescale-label-large-weight);
-  color: var(--md-sys-color-on-surface);
-  transition: background var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
-              transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
-}
-
-.credential-item:hover {
-  background: color-mix(in oklch, var(--md-sys-color-primary) 14%, transparent);
-  transform: translateY(-2px);
-}
-
 /* Intro Section */
 .intro-section {
   display: flex;
@@ -246,11 +216,6 @@ h3.timeline-title {
     max-width: 320px;
   }
 
-  .credentials {
-    width: 100%;
-    max-width: 420px;
-  }
-
   .intro-text {
     text-align: center;
   }
@@ -291,7 +256,6 @@ h3.timeline-title {
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
   .profile-image,
-  .credential-item,
   .timeline-item::before {
     transition: none;
   }
@@ -299,20 +263,11 @@ h3.timeline-title {
   .profile-image:hover {
     transform: none;
   }
-
-  .credential-item:hover {
-    transform: none;
-  }
 }
 
 /* ============================================
    Dark Mode
    ============================================ */
-:host-context([data-theme='dark']) .credential-item {
-  background: color-mix(in oklch, var(--md-sys-color-primary-container) 25%, var(--md-sys-color-surface-container-high));
-  border-color: color-mix(in oklch, var(--md-sys-color-outline) 35%, transparent);
-}
-
 :host-context([data-theme='dark']) .content-section {
   background: var(--md-sys-color-surface-container);
 }
@@ -345,13 +300,6 @@ h3.timeline-title {
   .profile-image {
     border-color: CanvasText;
     box-shadow: none;
-  }
-
-  .credential-item {
-    background: Canvas;
-    border-color: CanvasText;
-    color: CanvasText;
-    forced-color-adjust: auto;
   }
 
   .timeline::before {
