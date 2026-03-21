@@ -3,46 +3,27 @@
   background: var(--md-sys-color-surface-container-lowest);
 }
 
-/* Profile Layout */
-.profile-layout {
-  display: grid;
-  grid-template-columns: minmax(280px, 360px) 1fr;
-  gap: var(--md-sys-spacing-10);
-  align-items: center;
-}
-
-/* Profile Image Section */
-.profile-image-section {
-  position: sticky;
-  top: calc(var(--header-height-desktop, 96px) + var(--md-sys-spacing-4));
-  align-self: start;
+/* Profile Intro — centered single column */
+.profile-intro {
   display: flex;
   flex-direction: column;
-  gap: var(--md-sys-spacing-4);
-  width: 100%;
-  max-width: 360px;
+  align-items: center;
+  gap: var(--md-sys-spacing-8);
+  text-align: center;
 }
 
 .profile-image {
   width: 100%;
-  max-width: 100%;
-  border-radius: var(--md-sys-shape-corner-large);
+  max-width: 360px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   border: 2px solid var(--md-sys-color-primary);
   box-shadow: var(--md-sys-elevation-level2);
-  margin-bottom: 0;
-  transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
   display: block;
+  transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
 }
 
 .profile-image:hover {
   transform: scale(1.02);
-}
-
-/* Intro Section */
-.intro-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .intro-text {
@@ -52,13 +33,13 @@
   font-weight: var(--md-sys-typescale-title-large-weight);
   color: var(--md-sys-color-on-surface);
   margin: 0;
+  max-width: 680px;
 }
 
 /* ============================================
-   Timeline Section
+   Timeline Section (tonal alternans: low)
    ============================================ */
 .timeline-section {
-  padding: var(--md-sys-spacing-16) 0;
   background: var(--md-sys-color-surface-container-low);
 }
 
@@ -153,43 +134,14 @@ h3.timeline-title {
 /* ============================================
    Responsive Design
    ============================================ */
-@media (max-width: 1024px) {
-  .profile-layout {
-    grid-template-columns: minmax(240px, 300px) 1fr;
-    gap: var(--md-sys-spacing-8);
-  }
-}
-
-@media (max-width: 839px) {
-  .profile-layout {
-    grid-template-columns: 1fr;
-    gap: var(--md-sys-spacing-6);
-  }
-
-  .profile-image-section {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 100%;
-  }
-
+@media (max-width: 599px) {
   .profile-image {
-    max-width: 320px;
+    max-width: 280px;
   }
 
   .intro-text {
-    text-align: center;
-  }
-}
-
-@media (max-width: 599px) {
-  .content-section {
-    padding: var(--md-sys-spacing-8) 0;
-  }
-
-  .timeline-section {
-    padding: var(--md-sys-spacing-12) 0;
+    font-size: var(--md-sys-typescale-title-medium-size);
+    line-height: var(--md-sys-typescale-title-medium-line-height);
   }
 
   .timeline {
@@ -204,11 +156,6 @@ h3.timeline-title {
     left: -28px;
     width: 10px;
     height: 10px;
-  }
-
-  .intro-text {
-    font-size: var(--md-sys-typescale-title-medium-size);
-    line-height: var(--md-sys-typescale-title-medium-line-height);
   }
 }
 
@@ -268,5 +215,4 @@ h3.timeline-title {
     background: Highlight;
     box-shadow: none;
   }
-
 }
