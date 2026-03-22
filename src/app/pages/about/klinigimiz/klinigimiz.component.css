@@ -50,7 +50,7 @@
 }
 
 .mission-icon-wrapper .material-icons-rounded {
-  font-size: 40px;
+  font-size: var(--md-icon-size-xl);
   color: var(--md-sys-color-primary);
 }
 
@@ -133,7 +133,7 @@
 }
 
 .card-icon .material-icons-rounded {
-  font-size: 32px;
+  font-size: var(--md-icon-size-lg);
   color: var(--md-sys-color-primary);
 }
 
@@ -261,7 +261,7 @@
 }
 
 .safety-card .material-icons-rounded {
-  font-size: 32px;
+  font-size: var(--md-icon-size-lg);
   color: var(--md-sys-color-secondary);
   margin-bottom: var(--md-sys-spacing-3);
 }
@@ -278,7 +278,7 @@
 }
 
 .baby-room-info .material-icons-rounded {
-  font-size: 32px;
+  font-size: var(--md-icon-size-lg);
   color: var(--md-sys-color-on-secondary-container);
   flex-shrink: 0;
 }
@@ -303,7 +303,7 @@
 }
 
 .hygiene-header .icon-large {
-  font-size: 48px;
+  font-size: var(--md-icon-size-2xl);
   color: var(--md-sys-color-secondary);
   margin-bottom: var(--md-sys-spacing-6);
   display: block;
@@ -349,7 +349,7 @@
 }
 
 .card-header .material-icons-rounded {
-  font-size: 28px;
+  font-size: var(--md-icon-size-md);
   color: var(--md-sys-color-secondary);
 }
 
@@ -425,7 +425,7 @@
 
 .gallery-overlay .material-icons-rounded {
   color: var(--md-sys-color-on-primary);
-  font-size: 24px;
+  font-size: var(--md-icon-size-md);
 }
 
 .gallery-overlay span {
