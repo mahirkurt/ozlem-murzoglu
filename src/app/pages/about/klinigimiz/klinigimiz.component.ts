@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HeroSectionComponent } from '../../../components/shared/hero-section/hero-section.component';
+import { ContactCtaComponent } from '../../../components/contact-cta/contact-cta.component';
 
 @Component({
   selector: 'app-klinigimiz',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslateModule, HeroSectionComponent],
+  imports: [CommonModule, RouterModule, TranslateModule, HeroSectionComponent, ContactCtaComponent],
   templateUrl: './klinigimiz.component.html',
   styleUrl: './klinigimiz.component.css',
 })
