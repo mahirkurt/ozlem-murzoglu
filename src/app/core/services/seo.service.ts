@@ -276,7 +276,20 @@ export class SeoService {
       'laboratuvar-goruntuleme': {
         title: this.translate.instant('SEO.PAGES.LAB.TITLE'),
         description: this.translate.instant('SEO.PAGES.LAB.DESCRIPTION'),
-        jsonLd: this.getServiceSchema(this.translate.instant('SERVICES.SERVICE_LAB.TITLE')),
+        jsonLd: [
+          this.getServiceSchema(this.translate.instant('SERVICES.SERVICE_LAB.TITLE')),
+          this.generateFaqSchema([
+            { question: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_Q1'), answer: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_A1') },
+            { question: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_Q2'), answer: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_A2') },
+            { question: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_Q3'), answer: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_A3') },
+            { question: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_Q4'), answer: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_A4') },
+            { question: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_Q5'), answer: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_A5') },
+            { question: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_Q6'), answer: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_A6') },
+            { question: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_Q7'), answer: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_A7') },
+            { question: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_Q8'), answer: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_A8') },
+            { question: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_Q9'), answer: this.translate.instant('SERVICES.SERVICE_LAB_IMAGING.FAQ_A9') },
+          ]),
+        ],
       },
     };
 
@@ -513,6 +526,24 @@ export class SeoService {
           name: this.clinicName,
         },
       },
+    };
+  }
+
+  /**
+   * FAQ sayfası schema.org yapılandırması (FAQPage rich snippet)
+   */
+  generateFaqSchema(items: Array<{ question: string; answer: string }>): any {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: items.map(item => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
     };
   }
 
