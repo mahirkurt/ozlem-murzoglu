@@ -1,0 +1,200 @@
+<section class="vaccine-page standard-page-main">
+  <!-- Hero Section -->
+  <app-hero-section
+    title="SERVICES.SERVICE_VACCINES.HERO_TITLE"
+    subtitle="SERVICES.SERVICE_VACCINES.HERO_SUBTITLE"
+    [breadcrumbs]="[
+      { label: 'HEADER.NAV_HOME', link: '/' },
+      { label: 'HEADER.NAV_SERVICES', link: '/hizmetlerimiz' },
+      { label: 'SERVICES.SERVICE_VACCINES.HERO_TITLE' }
+    ]"
+    colorTheme="teal">
+  </app-hero-section>
+
+  <!-- Introduction Section -->
+  <section class="intro-section" aria-labelledby="intro-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="intro-heading">{{ 'SERVICES.SERVICE_VACCINES.INTRO_TITLE' | translate }}</h2>
+        <p class="section-description" [innerHTML]="'SERVICES.SERVICE_VACCINES.INTRO_DESC' | translate"></p>
+      </div>
+
+      <div class="benefits-grid" role="list">
+        <div class="benefit-item" role="listitem">
+          <span class="material-icons-rounded benefit-icon" aria-hidden="true">shield</span>
+          <span>{{ 'SERVICES.SERVICE_VACCINES.BENEFIT_PROTECT' | translate }}</span>
+        </div>
+        <div class="benefit-item" role="listitem">
+          <span class="material-icons-rounded benefit-icon" aria-hidden="true">groups</span>
+          <span>{{ 'SERVICES.SERVICE_VACCINES.BENEFIT_HERD' | translate }}</span>
+        </div>
+        <div class="benefit-item" role="listitem">
+          <span class="material-icons-rounded benefit-icon" aria-hidden="true">verified</span>
+          <span>{{ 'SERVICES.SERVICE_VACCINES.BENEFIT_SAFE' | translate }}</span>
+        </div>
+        <div class="benefit-item" role="listitem">
+          <span class="material-icons-rounded benefit-icon" aria-hidden="true">calendar_month</span>
+          <span>{{ 'SERVICES.SERVICE_VACCINES.BENEFIT_TRACKING' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- National Vaccine Schedule Table -->
+  <section class="schedule-section" aria-labelledby="schedule-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="schedule-heading">{{ 'SERVICES.SERVICE_VACCINES.SCHEDULE_TITLE' | translate }}</h2>
+        <p class="section-description">{{ 'SERVICES.SERVICE_VACCINES.SCHEDULE_DESC' | translate }}</p>
+      </div>
+
+      <div class="schedule-table-wrapper">
+        <table class="schedule-table" [attr.aria-label]="'SERVICES.SERVICE_VACCINES.SCHEDULE_TITLE' | translate">
+          <thead>
+            <tr>
+              <th scope="col">{{ 'SERVICES.SERVICE_VACCINES.SCHEDULE_COL_AGE' | translate }}</th>
+              <th scope="col">{{ 'SERVICES.SERVICE_VACCINES.SCHEDULE_COL_VACCINES' | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of scheduleRows">
+              <td><strong>{{ row.ageKey | translate }}</strong></td>
+              <td>{{ row.vaccinesKey | translate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-callout">
+        <span class="material-icons-rounded" aria-hidden="true">info</span>
+        <p>{{ 'SERVICES.SERVICE_VACCINES.SCHEDULE_NOTE' | translate }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vaccine Details Accordion -->
+  <section class="details-section" aria-labelledby="details-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="details-heading">{{ 'SERVICES.SERVICE_VACCINES.DETAILS_TITLE' | translate }}</h2>
+        <p class="section-description">{{ 'SERVICES.SERVICE_VACCINES.DETAILS_DESC' | translate }}</p>
+      </div>
+
+      <div class="detail-accordion" role="list">
+        <div *ngFor="let vaccine of vaccineDetails"
+             class="accordion-item"
+             [class.open]="vaccine.isOpen"
+             role="listitem">
+          <button class="accordion-header"
+                  (click)="toggleDetail(vaccine)"
+                  [attr.aria-expanded]="vaccine.isOpen"
+                  [attr.aria-controls]="'vaccine-' + vaccine.id"
+                  type="button">
+            <div class="accordion-title">
+              <span class="material-icons-rounded accordion-icon" aria-hidden="true">{{ vaccine.icon }}</span>
+              <h3>{{ vaccine.titleKey | translate }}</h3>
+            </div>
+            <span class="material-icons-rounded accordion-chevron" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="accordion-body"
+               [id]="'vaccine-' + vaccine.id"
+               role="region">
+            <div class="accordion-content" [innerHTML]="vaccine.contentKey | translate"></div>
+            <div *ngIf="vaccine.infoBoxKey" class="info-callout">
+              <span class="material-icons-rounded" aria-hidden="true">lightbulb</span>
+              <p [innerHTML]="vaccine.infoBoxKey | translate"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extra Recommended Vaccines -->
+  <section class="extra-section" aria-labelledby="extra-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="extra-heading">{{ 'SERVICES.SERVICE_VACCINES.EXTRA_TITLE' | translate }}</h2>
+        <p class="section-description">{{ 'SERVICES.SERVICE_VACCINES.EXTRA_DESC' | translate }}</p>
+      </div>
+
+      <div class="extra-grid" role="list">
+        <div *ngFor="let vaccine of extraVaccines" class="extra-card" role="listitem">
+          <div class="extra-card-header">
+            <div class="extra-icon primary-container">
+              <span class="material-icons-rounded" aria-hidden="true">{{ vaccine.icon }}</span>
+            </div>
+            <div class="extra-badge">{{ vaccine.badgeKey | translate }}</div>
+          </div>
+          <h3>{{ vaccine.titleKey | translate }}</h3>
+          <p>{{ vaccine.descKey | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vaccine Safety Section -->
+  <section class="safety-section" aria-labelledby="safety-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="safety-heading">{{ 'SERVICES.SERVICE_VACCINES.SAFETY_TITLE' | translate }}</h2>
+        <p class="section-description">{{ 'SERVICES.SERVICE_VACCINES.SAFETY_DESC' | translate }}</p>
+      </div>
+
+      <div class="safety-grid" role="list">
+        <div class="safety-card" role="listitem">
+          <span class="material-icons-rounded safety-icon" aria-hidden="true">science</span>
+          <h3>{{ 'SERVICES.SERVICE_VACCINES.SAFETY_TESTING_TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.SERVICE_VACCINES.SAFETY_TESTING_DESC' | translate }}</p>
+        </div>
+        <div class="safety-card" role="listitem">
+          <span class="material-icons-rounded safety-icon" aria-hidden="true">thermostat</span>
+          <h3>{{ 'SERVICES.SERVICE_VACCINES.SAFETY_SIDE_EFFECTS_TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.SERVICE_VACCINES.SAFETY_SIDE_EFFECTS_DESC' | translate }}</p>
+        </div>
+        <div class="safety-card" role="listitem">
+          <span class="material-icons-rounded safety-icon" aria-hidden="true">warning</span>
+          <h3>{{ 'SERVICES.SERVICE_VACCINES.SAFETY_WHEN_CALL_TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.SERVICE_VACCINES.SAFETY_WHEN_CALL_DESC' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="faq-heading">{{ 'SERVICES.SERVICE_VACCINES.FAQ_TITLE' | translate }}</h2>
+      </div>
+
+      <div class="detail-accordion faq-accordion" role="list">
+        <div *ngFor="let faq of faqItems; let i = index"
+             class="accordion-item"
+             [class.open]="faq.isOpen"
+             role="listitem">
+          <button class="accordion-header"
+                  (click)="toggleFaq(faq)"
+                  [attr.aria-expanded]="faq.isOpen"
+                  [attr.aria-controls]="'faq-' + i"
+                  type="button">
+            <div class="accordion-title">
+              <span class="material-icons-rounded accordion-icon" aria-hidden="true">help_outline</span>
+              <h3>{{ faq.questionKey | translate }}</h3>
+            </div>
+            <span class="material-icons-rounded accordion-chevron" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="accordion-body"
+               [id]="'faq-' + i"
+               role="region">
+            <div class="accordion-content">
+              <p [innerHTML]="faq.answerKey | translate"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-contact-cta></app-contact-cta>
+</section>

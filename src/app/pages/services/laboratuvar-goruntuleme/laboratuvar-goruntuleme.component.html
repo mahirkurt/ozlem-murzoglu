@@ -14,117 +14,36 @@
   <!-- Laboratory Services Section -->
   <section class="laboratory-section" aria-labelledby="lab-heading">
     <div class="container">
-      <!-- Section Header -->
       <div class="section-header">
         <h2 id="lab-heading">{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_SERVICES' | translate }}</h2>
         <p class="section-description" [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC' | translate"></p>
       </div>
 
-      <!-- Biruni Partner Card (Compact) -->
-      <article class="partner-compact biruni-card">
-        <div class="partner-compact-header">
-          <img src="/assets/program_logos/Biruni.png" [alt]="'SERVICES.SERVICE_LAB_IMAGING.BIRUNI_LOGO_ALT' | translate" class="partner-compact-logo" />
-          <div class="partner-compact-info">
-            <h3>{{ 'SERVICES.SERVICE_LAB_IMAGING.BIRUNI_TITLE' | translate }}</h3>
-            <span class="partner-compact-label">{{ 'SERVICES.SERVICE_LAB_IMAGING.CORPORATE_PARTNER' | translate }}</span>
-          </div>
+      <!-- Biruni Partner Card -->
+      <article class="partner-card biruni-card">
+        <div class="partner-card-visual">
+          <img src="/assets/program_logos/Biruni.png"
+               [alt]="'SERVICES.SERVICE_LAB_IMAGING.BIRUNI_LOGO_ALT' | translate"
+               class="partner-card-logo" />
         </div>
-        <ul class="partner-chips" role="list">
-          <li role="listitem"><span class="material-icons-rounded" aria-hidden="true">verified</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.INTERNATIONAL_ACCREDITATION' | translate }}</li>
-          <li role="listitem"><span class="material-icons-rounded" aria-hidden="true">science</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.TEST_VARIETY' | translate }}</li>
-          <li role="listitem"><span class="material-icons-rounded" aria-hidden="true">location_on</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.SAMPLE_COLLECTION' | translate }}</li>
-        </ul>
-        <div class="partner-compact-actions">
-          <a href="https://biruni.com.tr/" target="_blank" rel="noopener noreferrer" class="btn-compact-primary">
-            <span class="material-icons-rounded" aria-hidden="true">open_in_new</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ABOUT_BIRUNI' | translate }}
-          </a>
-          <a href="https://biruni.com.tr/sonuc" target="_blank" rel="noopener noreferrer" class="btn-compact-secondary">
-            <span class="material-icons-rounded" aria-hidden="true">assignment</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ONLINE_RESULTS' | translate }}
-          </a>
+        <div class="partner-card-body">
+          <h3>{{ 'SERVICES.SERVICE_LAB_IMAGING.BIRUNI_TITLE' | translate }}</h3>
+          <span class="partner-card-label">{{ 'SERVICES.SERVICE_LAB_IMAGING.CORPORATE_PARTNER' | translate }}</span>
+          <ul class="partner-card-chips" role="list">
+            <li role="listitem"><span class="material-icons-rounded" aria-hidden="true">verified</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.INTERNATIONAL_ACCREDITATION' | translate }}</li>
+            <li role="listitem"><span class="material-icons-rounded" aria-hidden="true">science</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.TEST_VARIETY' | translate }}</li>
+            <li role="listitem"><span class="material-icons-rounded" aria-hidden="true">location_on</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.SAMPLE_COLLECTION' | translate }}</li>
+          </ul>
+          <div class="partner-card-actions">
+            <a href="https://biruni.com.tr/" target="_blank" rel="noopener noreferrer" class="btn-compact-primary">
+              <span class="material-icons-rounded" aria-hidden="true">open_in_new</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ABOUT_BIRUNI' | translate }}
+            </a>
+            <a href="https://biruni.com.tr/sonuc" target="_blank" rel="noopener noreferrer" class="btn-compact-secondary">
+              <span class="material-icons-rounded" aria-hidden="true">assignment</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ONLINE_RESULTS' | translate }}
+            </a>
+          </div>
         </div>
       </article>
-
-      <!-- Laboratory Services Grid -->
-      <div class="services-grid" role="list" [attr.aria-label]="'SERVICES.SERVICE_LAB_IMAGING.ARIA_LAB_SERVICES' | translate">
-        <div class="service-card" role="listitem">
-          <div class="service-icon primary-container">
-            <span class="material-icons-rounded" aria-hidden="true">biotech</span>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.BIOCHEMISTRY' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.BIOCHEMISTRY_DESC' | translate }}</p>
-        </div>
-
-        <div class="service-card" role="listitem">
-          <div class="service-icon tertiary-container">
-            <span class="material-icons-rounded" aria-hidden="true">coronavirus</span>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.MICROBIOLOGY' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.MICROBIOLOGY_DESC' | translate }}</p>
-        </div>
-
-        <div class="service-card" role="listitem">
-          <div class="service-icon secondary-container">
-            <span class="material-icons-rounded" aria-hidden="true">vaccines</span>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.ANTIBODY_ANTIGEN' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.ANTIBODY_DESC' | translate }}</p>
-        </div>
-
-        <div class="service-card" role="listitem">
-          <div class="service-icon tertiary-container">
-            <span class="material-icons-rounded" aria-hidden="true">bloodtype</span>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.HEMATOLOGY' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.HEMATOLOGY_DESC' | translate }}</p>
-        </div>
-
-        <div class="service-card" role="listitem">
-          <div class="service-icon primary-container">
-            <span class="material-icons-rounded" aria-hidden="true">science</span>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.HORMONE' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.HORMONE_DESC' | translate }}</p>
-        </div>
-
-        <div class="service-card" role="listitem">
-          <div class="service-icon secondary-container">
-            <span class="material-icons-rounded" aria-hidden="true">local_florist</span>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.ALLERGY' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.ALLERGY_DESC' | translate }}</p>
-        </div>
-      </div>
-
-      <!-- Process Cards -->
-      <div class="process-cards" role="list" [attr.aria-label]="'SERVICES.SERVICE_LAB_IMAGING.ARIA_LAB_PROCESSES' | translate">
-        <div class="process-card" role="listitem">
-          <div class="process-icon primary-container">
-            <span class="material-icons-rounded" aria-hidden="true">schedule</span>
-          </div>
-          <div>
-            <h5>{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULTS' | translate }}</h5>
-            <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.LAB_DESC3' | translate }}</p>
-          </div>
-        </div>
-        <div class="process-card" role="listitem">
-          <div class="process-icon secondary-container">
-            <span class="material-icons-rounded" aria-hidden="true">mark_email_read</span>
-          </div>
-          <div>
-            <h5>{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULT_NOTIFICATION' | translate }}</h5>
-            <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.RESULT_EMAIL' | translate }}</p>
-          </div>
-        </div>
-        <div class="process-card" role="listitem">
-          <div class="process-icon tertiary-container">
-            <span class="material-icons-rounded" aria-hidden="true">verified_user</span>
-          </div>
-          <div>
-            <h5>{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_SERVICES' | translate }}</h5>
-            <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.INSURANCE_PROCESS' | translate }}</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -170,113 +89,45 @@
   <!-- Imaging Services Section -->
   <section class="imaging-section" aria-labelledby="imaging-heading">
     <div class="container">
-      <!-- Section Header -->
       <div class="section-header">
         <h2 id="imaging-heading">{{ 'SERVICES.SERVICE_LAB_IMAGING.IMAGING_SERVICES' | translate }}</h2>
         <p class="section-description" [innerHTML]="'SERVICES.SERVICE_LAB_IMAGING.IMAGING_DESC' | translate"></p>
       </div>
 
-      <!-- Sonomed Partner Card (Compact) -->
-      <article class="partner-compact sonomed-card">
-        <div class="partner-compact-header">
-          <img src="/assets/program_logos/Sonomed.png" [alt]="'SERVICES.SERVICE_LAB_IMAGING.SONOMED_LOGO_ALT' | translate" class="partner-compact-logo" />
-          <div class="partner-compact-info">
-            <h3>{{ 'SERVICES.SERVICE_LAB_IMAGING.SONOMED_TITLE' | translate }}</h3>
-            <span class="partner-compact-label">{{ 'SERVICES.SERVICE_LAB_IMAGING.SONOMED_BRANCH_LABEL' | translate }} · {{ 'SERVICES.SERVICE_LAB_IMAGING.NEAR_LOCATION' | translate }}</span>
-          </div>
+      <!-- Sonomed Partner Card -->
+      <article class="partner-card sonomed-card">
+        <div class="partner-card-visual">
+          <img src="/assets/program_logos/Sonomed.png"
+               [alt]="'SERVICES.SERVICE_LAB_IMAGING.SONOMED_LOGO_ALT' | translate"
+               class="partner-card-logo" />
         </div>
-        <div class="partner-compact-contact">
-          <div class="compact-contact-item">
-            <span class="material-icons-rounded" aria-hidden="true">location_on</span>
-            <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.SONOMED_ADDRESS_DETAIL' | translate }}</span>
+        <div class="partner-card-body">
+          <h3>{{ 'SERVICES.SERVICE_LAB_IMAGING.SONOMED_TITLE' | translate }}</h3>
+          <span class="partner-card-label">{{ 'SERVICES.SERVICE_LAB_IMAGING.SONOMED_BRANCH_LABEL' | translate }} · {{ 'SERVICES.SERVICE_LAB_IMAGING.NEAR_LOCATION' | translate }}</span>
+          <div class="partner-card-contact">
+            <span class="partner-contact-item">
+              <span class="material-icons-rounded" aria-hidden="true">location_on</span>
+              {{ 'SERVICES.SERVICE_LAB_IMAGING.SONOMED_ADDRESS_DETAIL' | translate }}
+            </span>
+            <span class="partner-contact-item">
+              <span class="material-icons-rounded" aria-hidden="true">phone</span>
+              0216 456 28 23
+            </span>
+            <span class="partner-contact-item">
+              <span class="material-icons-rounded" aria-hidden="true">schedule</span>
+              {{ 'SERVICES.SERVICE_LAB_IMAGING.WORKING_HOURS_DETAIL' | translate }}
+            </span>
           </div>
-          <div class="compact-contact-item">
-            <span class="material-icons-rounded" aria-hidden="true">phone</span>
-            <span>0216 456 28 23</span>
+          <div class="partner-card-actions">
+            <a href="https://maps.app.goo.gl/xyz" target="_blank" rel="noopener noreferrer" class="btn-compact-primary">
+              <span class="material-icons-rounded" aria-hidden="true">directions</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.GET_DIRECTIONS' | translate }}
+            </a>
+            <a href="https://sonomed.com.tr/tr/sonomed-atasehir-subesi/" target="_blank" rel="noopener noreferrer" class="btn-compact-secondary">
+              <span class="material-icons-rounded" aria-hidden="true">open_in_new</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ABOUT_SONOMED' | translate }}
+            </a>
           </div>
-          <div class="compact-contact-item">
-            <span class="material-icons-rounded" aria-hidden="true">schedule</span>
-            <span>{{ 'SERVICES.SERVICE_LAB_IMAGING.WORKING_HOURS_DETAIL' | translate }}</span>
-          </div>
-        </div>
-        <div class="partner-compact-actions">
-          <a href="https://maps.app.goo.gl/xyz" target="_blank" rel="noopener noreferrer" class="btn-compact-primary">
-            <span class="material-icons-rounded" aria-hidden="true">directions</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.GET_DIRECTIONS' | translate }}
-          </a>
-          <a href="https://sonomed.com.tr/tr/sonomed-atasehir-subesi/" target="_blank" rel="noopener noreferrer" class="btn-compact-secondary">
-            <span class="material-icons-rounded" aria-hidden="true">open_in_new</span>{{ 'SERVICES.SERVICE_LAB_IMAGING.ABOUT_SONOMED' | translate }}
-          </a>
         </div>
       </article>
-
-      <!-- Imaging Services Grid -->
-      <div class="imaging-grid" role="list" [attr.aria-label]="'SERVICES.SERVICE_LAB_IMAGING.ARIA_IMAGING_SERVICES' | translate">
-        <div class="imaging-card" role="listitem">
-          <div class="imaging-header">
-            <div class="imaging-icon primary-container">
-              <span class="material-icons-rounded" aria-hidden="true">blur_circular</span>
-            </div>
-            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_MR_3_TESLA' | translate }}</div>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_IMAGING' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.MR_DESC' | translate }}</p>
-        </div>
-
-        <div class="imaging-card" role="listitem">
-          <div class="imaging-header">
-            <div class="imaging-icon tertiary-container">
-              <span class="material-icons-rounded" aria-hidden="true">center_focus_strong</span>
-            </div>
-            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_CT_128_SLICE' | translate }}</div>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_SCAN' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.CT_DESC' | translate }}</p>
-        </div>
-
-        <div class="imaging-card" role="listitem">
-          <div class="imaging-header">
-            <div class="imaging-icon secondary-container">
-              <span class="material-icons-rounded" aria-hidden="true">monitor_heart</span>
-            </div>
-            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_USG_4D' | translate }}</div>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.ULTRASOUND_DESC' | translate }}</p>
-        </div>
-
-        <div class="imaging-card" role="listitem">
-          <div class="imaging-header">
-            <div class="imaging-icon primary-container">
-              <span class="material-icons-rounded" aria-hidden="true">filter_center_focus</span>
-            </div>
-            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_DIGITAL' | translate }}</div>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.XRAY_DESC' | translate }}</p>
-        </div>
-
-        <div class="imaging-card" role="listitem">
-          <div class="imaging-header">
-            <div class="imaging-icon tertiary-container">
-              <span class="material-icons-rounded" aria-hidden="true">favorite</span>
-            </div>
-            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_DOPPLER_ECHO' | translate }}</div>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.ECHO' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.ECHO_DESC' | translate }}</p>
-        </div>
-
-        <div class="imaging-card" role="listitem">
-          <div class="imaging-header">
-            <div class="imaging-icon secondary-container">
-              <span class="material-icons-rounded" aria-hidden="true">description</span>
-            </div>
-            <div class="tech-badge">{{ 'SERVICES.SERVICE_LAB_IMAGING.BADGE_EXPERT_RADIOLOGIST' | translate }}</div>
-          </div>
-          <h4>{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING' | translate }}</h4>
-          <p>{{ 'SERVICES.SERVICE_LAB_IMAGING.REPORTING_DESC' | translate }}</p>
-        </div>
-      </div>
     </div>
   </section>
 

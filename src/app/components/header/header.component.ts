@@ -1,15 +1,23 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, ElementRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { AppointmentModalComponent } from '../appointment-modal/appointment-modal.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ComingSoonNoticeService } from '../../core/services/coming-soon-notice.service';
 import { ThemeService } from '../../services/theme.service';
 import { CONTACT_CONFIG, CONTACT_HELPERS } from '../../config/contact.config';
+
+interface NavigationItem {
+  labelKey?: string;
+  label?: string;
+  href: string;
+  fragment?: string;
+  children?: NavigationItem[];
+}
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, AppointmentModalComponent, TranslateModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -18,6 +26,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @Output() localeChange = new EventEmitter<string>();
   
   private translate = inject(TranslateService);
+  private comingSoonNotice = inject(ComingSoonNoticeService);
   private themeService = inject(ThemeService);
   private el = inject(ElementRef);
 
@@ -26,7 +35,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isScrolled = false;
   activeDropdown: string | null = null;
   isAnimating = false;
-  isAppointmentModalOpen = false;
+  private readonly boundScrollHandler = this.handleScroll.bind(this);
 
   contactInfo = {
     phone: CONTACT_CONFIG.phone.display,
@@ -36,7 +45,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     whatsappUrl: CONTACT_HELPERS.getWhatsAppApiUrl(),
   };
 
-  navigation: any[] = [
+  navigation: NavigationItem[] = [
     {
       labelKey: 'HEADER.NAV_ABOUT',
       href: '/hakkimizda',
@@ -50,6 +59,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       labelKey: 'HEADER.NAV_SERVICES',
       href: '/hizmetlerimiz',
       children: [
+        { labelKey: 'SERVICES.SERVICE_VACCINATION.TITLE', href: '/hizmetlerimiz/asi-takibi' },
         { labelKey: 'SERVICES.SERVICE_LAB.TITLE', href: '/hizmetlerimiz/laboratuvar-goruntuleme' },
         { labelKey: 'SERVICES.SERVICE_TRIPLE_P.TITLE', href: '/hizmetlerimiz/triple-p' },
         { labelKey: 'SERVICES.SERVICE_SLEEP.TITLE', href: '/hizmetlerimiz/saglikli-uykular' },
@@ -62,15 +72,32 @@ export class HeaderComponent implements OnInit, OnDestroy {
       href: '/kaynaklar',
       children: [
         { labelKey: 'RESOURCES.ALL_RESOURCES', href: '/kaynaklar' },
-        { labelKey: 'RESOURCES.CATEGORIES.VACCINES', href: '/kaynaklar/asilar' },
-        { labelKey: 'RESOURCES.CATEGORIES.DEVELOPMENT', href: '/kaynaklar/gelisim-rehberleri' },
-        { labelKey: 'RESOURCES.CATEGORIES.GENERAL_INFO', href: '/kaynaklar/genel-bilgiler' },
-        { labelKey: 'RESOURCES.CATEGORIES.MEDIA_PLAN', href: '/kaynaklar/aile-medya-plani' }
+        { labelKey: 'BLOG.TITLE', href: '/kaynaklar/blog' },
+        { labelKey: 'BRIGHT_FUTURES.JOURNEY.PAGE_TITLE', href: '/kaynaklar/bright-futures-yolculugu' },
+        { labelKey: 'RESOURCES.SUBNAV.PREGNANCY_PREP', href: '/kaynaklar', fragment: 'gebelik-ve-hazirlik' },
+        { labelKey: 'RESOURCES.SUBNAV.INFANCY', href: '/kaynaklar', fragment: 'yasam-0-12-ay' },
+        { labelKey: 'RESOURCES.SUBNAV.EARLY_YEARS', href: '/kaynaklar', fragment: 'yasam-1-5-yas' },
+        { labelKey: 'RESOURCES.SUBNAV.SCHOOL_AGE', href: '/kaynaklar', fragment: 'yasam-6-12-yas' },
+        { labelKey: 'RESOURCES.SUBNAV.ADOLESCENCE', href: '/kaynaklar', fragment: 'yasam-ergenlik' },
+        { labelKey: 'RESOURCES.SUBNAV.HEALTH_PROTECTION', href: '/kaynaklar', fragment: 'asilar-ve-hastaliklar' },
+        { labelKey: 'RESOURCES.SUBNAV.GROWTH_TRACKING', href: '/kaynaklar', fragment: 'buyume-egrileri' }
       ]
     },
     {
       labelKey: 'HEADER.NAV_RESPECT',
-      href: '/saygiyla'
+      href: '/saygiyla',
+      children: [
+        { labelKey: 'SAYGIYLA.PIONEERS.ATATURK.NAME', href: '/saygiyla/ataturk' },
+        { labelKey: 'SAYGIYLA.PIONEERS.IHSAN_DOGRAMACI.NAME', href: '/saygiyla/ihsan-dogramaci' },
+        { labelKey: 'SAYGIYLA.PIONEERS.JONAS_SALK.NAME', href: '/saygiyla/jonas-salk' },
+        { labelKey: 'SAYGIYLA.PIONEERS.LOUIS_PASTEUR.NAME', href: '/saygiyla/louis-pasteur' },
+        { labelKey: 'SAYGIYLA.PIONEERS.MALALA_YOUSAFZAI.NAME', href: '/saygiyla/malala-yousafzai' },
+        { labelKey: 'SAYGIYLA.PIONEERS.NILS_ROSEN.NAME', href: '/saygiyla/nils-rosen' },
+        { labelKey: 'SAYGIYLA.PIONEERS.TURKAN_SAYLAN.NAME', href: '/saygiyla/turkan-saylan' },
+        { labelKey: 'SAYGIYLA.PIONEERS.URSULA_LEGUIN.NAME', href: '/saygiyla/ursula-leguin' },
+        { labelKey: 'SAYGIYLA.PIONEERS.VIRGINIA_APGAR.NAME', href: '/saygiyla/virginia-apgar' },
+        { labelKey: 'SAYGIYLA.PIONEERS.WALDO_NELSON.NAME', href: '/saygiyla/waldo-nelson' }
+      ]
     },
     {
       labelKey: 'HEADER.NAV_CONTACT',
@@ -84,7 +111,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', this.handleScroll.bind(this));
+      window.addEventListener('scroll', this.boundScrollHandler);
     }
     
     // Set the current language
@@ -93,7 +120,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     if (typeof window !== 'undefined') {
-      window.removeEventListener('scroll', this.handleScroll.bind(this));
+      window.removeEventListener('scroll', this.boundScrollHandler);
     }
     this.deactivateFocusTrap();
   }
@@ -167,6 +194,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.activeDropdown = label;
   }
 
+  navLabel(item: NavigationItem): string {
+    return item.labelKey ?? item.label ?? item.href;
+  }
+
   handleLanguageChange() {
     this.isAnimating = true;
     
@@ -184,19 +215,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.translate.use(lang);
   }
 
-  openAppointmentModal() {
-    this.isAppointmentModalOpen = true;
-    // Close mobile menu if open
-    this.isMobileMenuOpen = false;
-    if (typeof document !== 'undefined') {
-      document.body.style.overflow = 'hidden';
-    }
-  }
+  showAppointmentComingSoon(closeMobileMenu: boolean = false) {
+    this.comingSoonNotice.show();
 
-  closeAppointmentModal() {
-    this.isAppointmentModalOpen = false;
-    if (typeof document !== 'undefined') {
-      document.body.style.overflow = '';
+    if (closeMobileMenu && this.isMobileMenuOpen) {
+      this.toggleMobileMenu();
     }
   }
 

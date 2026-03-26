@@ -93,9 +93,10 @@
   color: var(--md-sys-color-on-surface-variant);
   line-height: var(--md-sys-typescale-body-large-line-height);
   max-width: var(--md-sys-spacing-text-max-width, 800px);
-  margin: 0 auto;
+  margin: 0 auto var(--md-sys-spacing-2);
   font-family: var(--md-sys-typescale-body-large-font);
   font-size: var(--md-sys-typescale-body-large-size);
+  text-align: center;
 
   strong {
     color: var(--md-sys-color-primary);
@@ -104,14 +105,15 @@
 }
 
 /* =====================================================
-   PARTNER COMPACT CARDS — Slim inline layout
+   PARTNER CARDS — Horizontal logo + content layout
    ===================================================== */
 
-.partner-compact {
+.partner-card {
+  display: flex;
+  gap: var(--md-sys-spacing-6);
   background: var(--md-sys-color-surface-container);
   border-radius: var(--md-sys-shape-corner-extra-large);
-  padding: var(--md-sys-spacing-5) var(--md-sys-spacing-6);
-  margin: var(--md-sys-spacing-6) 0;
+  padding: var(--md-sys-spacing-6) var(--md-sys-spacing-8);
   border: 1px solid var(--md-sys-color-outline-variant);
   transition: border-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
   position: relative;
@@ -122,11 +124,15 @@
   }
 
   @include bp-below-medium {
-    padding: var(--md-sys-spacing-4) var(--md-sys-spacing-5);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--md-sys-spacing-6) var(--md-sys-spacing-5);
+    gap: var(--md-sys-spacing-4);
   }
 }
 
-/* Aurora ambient glow — subtle */
+/* Aurora ambient glow */
 .biruni-card::after,
 .sonomed-card::after {
   content: '';
@@ -147,56 +153,72 @@
   background: radial-gradient(circle at center, color-mix(in oklch, var(--md-sys-color-secondary) 6%, transparent), transparent 60%);
 }
 
-.partner-compact-header {
+.partner-card-visual {
   display: flex;
   align-items: center;
-  gap: var(--md-sys-spacing-4);
+  justify-content: center;
+  flex-shrink: 0;
   position: relative;
   z-index: 1;
 }
 
-.partner-compact-logo {
-  width: 80px;
+.partner-card-logo {
+  width: 160px;
   height: auto;
   object-fit: contain;
-  flex-shrink: 0;
   background: var(--md-sys-color-surface-container-lowest);
-  border-radius: var(--md-sys-shape-corner-medium);
-  padding: var(--md-sys-spacing-2);
+  border-radius: var(--md-sys-shape-corner-large);
+  padding: var(--md-sys-spacing-3) var(--md-sys-spacing-4);
 
   @include bp-below-medium {
-    width: 64px;
+    width: 140px;
   }
 }
 
-.partner-compact-info {
+.partner-card-body {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+
   h3 {
     color: var(--md-sys-color-on-surface);
-    font-family: var(--md-sys-typescale-title-medium-font);
-    font-size: var(--md-sys-typescale-title-medium-size);
-    font-weight: var(--md-sys-typescale-title-medium-weight);
-    line-height: var(--md-sys-typescale-title-medium-line-height);
+    font-family: var(--md-sys-typescale-headline-small-font);
+    font-size: var(--md-sys-typescale-headline-small-size);
+    font-weight: var(--md-sys-typescale-headline-small-weight);
+    line-height: var(--md-sys-typescale-headline-small-line-height);
     margin: 0 0 var(--md-sys-spacing-1);
+
+    @include bp-below-medium {
+      font-family: var(--md-sys-typescale-title-large-font);
+      font-size: var(--md-sys-typescale-title-large-size);
+      font-weight: var(--md-sys-typescale-title-large-weight);
+    }
   }
 }
 
-.partner-compact-label {
+.partner-card-label {
+  display: block;
   color: var(--md-sys-color-on-surface-variant);
-  font-family: var(--md-sys-typescale-label-medium-font);
-  font-size: var(--md-sys-typescale-label-medium-size);
-  font-weight: var(--md-sys-typescale-label-medium-weight);
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  margin-bottom: var(--md-sys-spacing-3);
 }
 
-/* Compact chips row */
-.partner-chips {
+/* Chips (Biruni) */
+.partner-card-chips {
   display: flex;
   flex-wrap: wrap;
   gap: var(--md-sys-spacing-2);
-  margin: var(--md-sys-spacing-3) 0;
   list-style: none;
   padding: 0;
-  position: relative;
-  z-index: 1;
+  margin: 0 0 var(--md-sys-spacing-4);
+
+  @include bp-below-medium {
+    justify-content: center;
+  }
 
   li {
     display: inline-flex;
@@ -218,47 +240,43 @@
   }
 }
 
-/* Compact contact row (Sonomed) */
-.partner-compact-contact {
+/* Contact items (Sonomed) */
+.partner-card-contact {
   display: flex;
   flex-wrap: wrap;
   gap: var(--md-sys-spacing-2) var(--md-sys-spacing-5);
-  margin: var(--md-sys-spacing-3) 0;
-  position: relative;
-  z-index: 1;
+  margin-bottom: var(--md-sys-spacing-4);
 
   @include bp-below-medium {
-    flex-direction: column;
+    justify-content: center;
     gap: var(--md-sys-spacing-2);
   }
 }
 
-.compact-contact-item {
+.partner-contact-item {
   display: inline-flex;
   align-items: center;
-  gap: var(--md-sys-spacing-2);
+  gap: var(--md-sys-spacing-1);
   color: var(--md-sys-color-on-surface-variant);
-  font-family: var(--md-sys-typescale-body-small-font);
-  font-size: var(--md-sys-typescale-body-small-size);
-  line-height: var(--md-sys-typescale-body-small-line-height);
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
 
   .material-icons-rounded {
-    font-size: var(--md-icon-size-xs, 16px);
+    font-size: var(--md-icon-size-sm, 20px);
     color: var(--md-sys-color-secondary);
     flex-shrink: 0;
   }
 }
 
-/* Compact action buttons */
-.partner-compact-actions {
+/* Actions */
+.partner-card-actions {
   display: flex;
-  gap: var(--md-sys-spacing-2);
-  margin-top: var(--md-sys-spacing-3);
-  position: relative;
-  z-index: 1;
+  gap: var(--md-sys-spacing-3);
 
   @include bp-below-medium {
-    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 

@@ -273,6 +273,37 @@ export class SeoService {
         description: this.translate.instant('SEO.PAGES.HEALTHY_SLEEP.DESCRIPTION'),
         jsonLd: this.getServiceSchema(this.translate.instant('SERVICES.SERVICE_SLEEP.TITLE')),
       },
+      'bright-futures-program': {
+        title: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.HERO_TITLE') + ' | Dr. Özlem Murzoğlu',
+        description: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.HERO_SUBTITLE'),
+        jsonLd: [
+          this.getServiceSchema(this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.HERO_TITLE')),
+          this.generateFaqSchema([
+            { question: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_Q1'), answer: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_A1') },
+            { question: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_Q2'), answer: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_A2') },
+            { question: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_Q3'), answer: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_A3') },
+            { question: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_Q4'), answer: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_A4') },
+            { question: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_Q5'), answer: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_A5') },
+            { question: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_Q6'), answer: this.translate.instant('SERVICES.SERVICE_BRIGHT_FUTURES.FAQ_A6') },
+          ]),
+        ],
+      },
+      'asi-takibi': {
+        title: this.translate.instant('SERVICES.SERVICE_VACCINES.HERO_TITLE') + ' | Dr. Özlem Murzoğlu',
+        description: this.translate.instant('SERVICES.SERVICE_VACCINES.HERO_SUBTITLE'),
+        jsonLd: [
+          this.getServiceSchema(this.translate.instant('SERVICES.SERVICE_VACCINES.HERO_TITLE')),
+          this.generateFaqSchema([
+            { question: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_Q1'), answer: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_A1') },
+            { question: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_Q2'), answer: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_A2') },
+            { question: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_Q3'), answer: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_A3') },
+            { question: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_Q4'), answer: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_A4') },
+            { question: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_Q5'), answer: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_A5') },
+            { question: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_Q6'), answer: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_A6') },
+            { question: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_Q7'), answer: this.translate.instant('SERVICES.SERVICE_VACCINES.FAQ_A7') },
+          ]),
+        ],
+      },
       'laboratuvar-goruntuleme': {
         title: this.translate.instant('SEO.PAGES.LAB.TITLE'),
         description: this.translate.instant('SEO.PAGES.LAB.DESCRIPTION'),

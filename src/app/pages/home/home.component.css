@@ -11,6 +11,8 @@
 .home-page__section {
   margin: 0 !important;
   padding: 0 !important;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .home-page__hero {
@@ -20,6 +22,11 @@
 .home-page__hero app-liquid-hero {
   display: block;
   width: 100%;
+}
+
+/* CTA section needs bottom spacing before footer */
+.home-page__section:last-child {
+  padding-bottom: var(--md-sys-spacing-16, 64px) !important;
 }
 
 /* Mobile gap removed — sections manage their own internal padding */

@@ -1,42 +1,61 @@
-<div class="healthy-sleep-page standard-page-main">
-  <app-page-header
+<section class="sleep-page standard-page-main">
+  <app-hero-section
     [title]="'SERVICES.SERVICE_SLEEP.HERO_TITLE' | translate"
     [subtitle]="'SERVICES.SERVICE_SLEEP.HERO_SUBTITLE' | translate"
-    [breadcrumbs]="breadcrumbs">
-  </app-page-header>
+    [breadcrumbs]="[
+      {label: 'HEADER.NAV_HOME', link: '/'},
+      {label: 'HEADER.NAV_SERVICES', link: '/hizmetlerimiz'},
+      {label: 'SERVICES.SERVICE_SLEEP.BREADCRUMB'}
+    ]"
+    colorTheme="teal">
+  </app-hero-section>
 
-  <main class="page-content standard-page-main">
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 1 — Introduction
+       ═══════════════════════════════════════════════════ -->
+  <section class="sp-section sp-section--surface" aria-labelledby="sp-intro-title">
+    <div class="sp-container">
+      <div class="sp-intro-grid">
+        <div class="sp-intro-content">
+          <img src="assets/images/programs/saglikli_uykular.svg"
+               alt="Sağlıklı Uykular Programı"
+               class="sp-program-logo" />
+          <div class="sp-badge">
+            <span class="material-symbols-rounded" aria-hidden="true">verified</span>
+            <span>{{ 'SERVICES.SERVICE_SLEEP.INTRO_BADGE' | translate }}</span>
+          </div>
 
-  <!-- Introduction Section -->
-  <section class="intro-section">
-    <div class="md3-container">
-      <div class="md3-section-header md3-text-center">
-        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.INTRO_TITLE' | translate }}</h2>
-        <p class="section-lead">{{ 'SERVICES.SERVICE_SLEEP.INTRO_LEAD' | translate }}</p>
-      </div>
+          <h2 id="sp-intro-title" class="sp-intro-title">{{ 'SERVICES.SERVICE_SLEEP.INTRO_TITLE' | translate }}</h2>
+          <p class="sp-intro-lead">{{ 'SERVICES.SERVICE_SLEEP.INTRO_LEAD' | translate }}</p>
+          <p class="sp-intro-desc">{{ 'SERVICES.SERVICE_SLEEP.INTRO_DESC' | translate }}</p>
 
-      <div class="md3-grid md3-grid-2">
-        <div class="md3-card md3-card-elevated">
-          <div class="md3-card-content">
-            <h3 class="md3-title-large">{{ 'SERVICES.SERVICE_SLEEP.PHILOSOPHY_TITLE' | translate }}</h3>
-            <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.PHILOSOPHY_TEXT' | translate }}</p>
+          <div class="sp-certification">
+            <div class="sp-certification__icon">
+              <span class="material-symbols-rounded" aria-hidden="true">local_hospital</span>
+            </div>
+            <div class="sp-certification__content">
+              <h4>{{ 'SERVICES.SERVICE_SLEEP.INTRO_MEDICAL_TITLE' | translate }}</h4>
+              <p>{{ 'SERVICES.SERVICE_SLEEP.INTRO_MEDICAL_DESC' | translate }}</p>
+            </div>
           </div>
         </div>
-        <div class="md3-card md3-card-elevated">
-          <div class="md3-card-content">
-            <div class="md3-list">
-              <div class="md3-list-item">
-                <span class="material-icons-rounded md3-list-icon">check_circle</span>
-                <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.PERSONALIZED_APPROACH' | translate }}</span>
-              </div>
-              <div class="md3-list-item">
-                <span class="material-icons-rounded md3-list-icon">check_circle</span>
-                <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.SCIENTIFIC_METHODS' | translate }}</span>
-              </div>
-              <div class="md3-list-item">
-                <span class="material-icons-rounded md3-list-icon">check_circle</span>
-                <span class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.CONTINUOUS_SUPPORT' | translate }}</span>
-              </div>
+
+        <div class="sp-intro-visual">
+          <div class="sp-values" role="list">
+            <div class="sp-value-card" role="listitem">
+              <span class="material-symbols-rounded sp-value-card__icon" aria-hidden="true">science</span>
+              <h4>{{ 'SERVICES.SERVICE_SLEEP.VALUE_EVIDENCE' | translate }}</h4>
+              <p>{{ 'SERVICES.SERVICE_SLEEP.VALUE_EVIDENCE_DESC' | translate }}</p>
+            </div>
+            <div class="sp-value-card" role="listitem">
+              <span class="material-symbols-rounded sp-value-card__icon" aria-hidden="true">favorite</span>
+              <h4>{{ 'SERVICES.SERVICE_SLEEP.VALUE_COMPASSION' | translate }}</h4>
+              <p>{{ 'SERVICES.SERVICE_SLEEP.VALUE_COMPASSION_DESC' | translate }}</p>
+            </div>
+            <div class="sp-value-card" role="listitem">
+              <span class="material-symbols-rounded sp-value-card__icon" aria-hidden="true">tune</span>
+              <h4>{{ 'SERVICES.SERVICE_SLEEP.VALUE_PERSONALIZED' | translate }}</h4>
+              <p>{{ 'SERVICES.SERVICE_SLEEP.VALUE_PERSONALIZED_DESC' | translate }}</p>
             </div>
           </div>
         </div>
@@ -44,335 +63,454 @@
     </div>
   </section>
 
-  <!-- Sleep Science Section -->
-  <section class="science-section">
-    <div class="md3-container">
-      <div class="md3-section-header md3-text-center">
-        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.SCIENCE_TITLE' | translate }}</h2>
-        <p class="section-subtitle">{{ 'SERVICES.SERVICE_SLEEP.SCIENCE_SUBTITLE' | translate }}</p>
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 2 — Sleep Science
+       ═══════════════════════════════════════════════════ -->
+  <section class="sp-section sp-section--surface-low" aria-labelledby="sp-science-title">
+    <div class="sp-container">
+      <div class="sp-section-header sp-section-header--center">
+        <div class="sp-badge sp-badge--secondary">
+          <span class="material-symbols-rounded" aria-hidden="true">neurology</span>
+          <span>{{ 'SERVICES.SERVICE_SLEEP.SCIENCE_BADGE' | translate }}</span>
+        </div>
+        <h2 id="sp-science-title" class="sp-section-title">{{ 'SERVICES.SERVICE_SLEEP.SCIENCE_TITLE' | translate }}</h2>
+        <p class="sp-section-subtitle">{{ 'SERVICES.SERVICE_SLEEP.SCIENCE_SUBTITLE' | translate }}</p>
       </div>
 
-      <div class="md3-grid md3-grid-3">
-        <!-- Sleep Architecture Card -->
-        <div class="md3-card md3-card-elevated md3-card-interactive">
-          <div class="md3-card-media">
-            <div class="md3-icon-container md3-icon-tertiary">
-              <span class="material-icons-rounded">bedtime</span>
+      <div class="sp-science-grid">
+        <!-- Sleep Architecture -->
+        <article class="sp-science-card sp-science-card--1">
+          <div class="sp-science-card__header">
+            <span class="material-symbols-rounded" aria-hidden="true">bedtime</span>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.ARCHITECTURE_TITLE' | translate }}</h3>
+          </div>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.ARCHITECTURE_DESC' | translate }}</p>
+          <div class="sp-stats-row">
+            <div class="sp-stat">
+              <span class="sp-stat__value">{{ 'SERVICES.SERVICE_SLEEP.ARCHITECTURE_STAT_CYCLE' | translate }}</span>
+              <span class="sp-stat__label">{{ 'SERVICES.SERVICE_SLEEP.ARCHITECTURE_STAT_CYCLE_LABEL' | translate }}</span>
+            </div>
+            <div class="sp-stat">
+              <span class="sp-stat__value">{{ 'SERVICES.SERVICE_SLEEP.ARCHITECTURE_STAT_REM' | translate }}</span>
+              <span class="sp-stat__label">{{ 'SERVICES.SERVICE_SLEEP.ARCHITECTURE_STAT_REM_LABEL' | translate }}</span>
             </div>
           </div>
-          <div class="md3-card-content">
-            <h3 class="md3-title-large">{{ 'SERVICES.SERVICE_SLEEP.ARCHITECTURE_TITLE' | translate }}</h3>
-            <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.ARCHITECTURE_DESC' | translate }}</p>
+        </article>
 
-            <div class="md3-stats">
-              <div class="md3-stat">
-                <span class="md3-stat-value">45-60</span>
-                <span class="md3-stat-label">{{ 'SERVICES.SERVICE_SLEEP.CYCLE_MINUTES' | translate }}</span>
-              </div>
-              <div class="md3-stat">
-                <span class="md3-stat-value">50%</span>
-                <span class="md3-stat-label">{{ 'SERVICES.SERVICE_SLEEP.REM_PERCENTAGE' | translate }}</span>
-              </div>
-            </div>
+        <!-- Circadian Rhythm -->
+        <article class="sp-science-card sp-science-card--2">
+          <div class="sp-science-card__header">
+            <span class="material-symbols-rounded" aria-hidden="true">wb_sunny</span>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.CIRCADIAN_TITLE' | translate }}</h3>
           </div>
-        </div>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.CIRCADIAN_DESC' | translate }}</p>
+          <div class="sp-chip-group">
+            <span class="sp-chip">
+              <span class="material-symbols-rounded" aria-hidden="true">light_mode</span>
+              {{ 'SERVICES.SERVICE_SLEEP.CIRCADIAN_CHIP_LIGHT' | translate }}
+            </span>
+            <span class="sp-chip">
+              <span class="material-symbols-rounded" aria-hidden="true">dark_mode</span>
+              {{ 'SERVICES.SERVICE_SLEEP.CIRCADIAN_CHIP_MELATONIN' | translate }}
+            </span>
+          </div>
+        </article>
 
-        <!-- Circadian Rhythm Card -->
-        <div class="md3-card md3-card-elevated md3-card-interactive">
-          <div class="md3-card-media">
-            <div class="md3-icon-container md3-icon-primary">
-              <span class="material-icons-rounded">wb_sunny</span>
+        <!-- Sleep Pressure -->
+        <article class="sp-science-card sp-science-card--3">
+          <div class="sp-science-card__header">
+            <span class="material-symbols-rounded" aria-hidden="true">hourglass_empty</span>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.PRESSURE_TITLE' | translate }}</h3>
+          </div>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.PRESSURE_DESC' | translate }}</p>
+          <div class="sp-progress-indicator">
+            <span class="sp-progress-text">{{ 'SERVICES.SERVICE_SLEEP.PRESSURE_ADENOSINE' | translate }}</span>
+            <div class="sp-linear-progress">
+              <div class="sp-linear-progress-bar"></div>
             </div>
           </div>
-          <div class="md3-card-content">
-            <h3 class="md3-title-large">{{ 'SERVICES.SERVICE_SLEEP.CIRCADIAN_TITLE' | translate }}</h3>
-            <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.CIRCADIAN_DESC' | translate }}</p>
-
-            <div class="md3-chip-group md3-chip-group-small">
-              <span class="md3-chip md3-chip-suggestion">
-                <span class="material-icons-rounded">light_mode</span>
-                {{ 'SERVICES.SERVICE_SLEEP.DAYLIGHT' | translate }}
-              </span>
-              <span class="md3-chip md3-chip-suggestion">
-                <span class="material-icons-rounded">dark_mode</span>
-                {{ 'SERVICES.SERVICE_SLEEP.MELATONIN' | translate }}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sleep Pressure Card -->
-        <div class="md3-card md3-card-elevated md3-card-interactive">
-          <div class="md3-card-media">
-            <div class="md3-icon-container md3-icon-secondary">
-              <span class="material-icons-rounded">hourglass_empty</span>
-            </div>
-          </div>
-          <div class="md3-card-content">
-            <h3 class="md3-title-large">{{ 'SERVICES.SERVICE_SLEEP.PRESSURE_TITLE' | translate }}</h3>
-            <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.PRESSURE_DESC' | translate }}</p>
-
-            <div class="md3-progress-indicator">
-              <div class="md3-progress-text">{{ 'SERVICES.SERVICE_SLEEP.ADENOSINE' | translate }}</div>
-              <div class="md3-linear-progress">
-                <div class="md3-linear-progress-bar"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </article>
       </div>
 
       <!-- Comparison Table -->
-      <div class="comparison-table-wrapper">
-        <h3 class="subsection-title">{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_TITLE' | translate }}</h3>
-        <div class="md3-card md3-card-outlined">
-          <div class="md3-card-content">
-            <div class="md3-data-table">
-              <table class="md3-table">
-                <thead>
-                  <tr>
-                    <th>{{ 'SERVICES.SERVICE_SLEEP.FEATURE' | translate }}</th>
-                    <th>{{ 'SERVICES.SERVICE_SLEEP.BABY_SLEEP' | translate }}</th>
-                    <th>{{ 'SERVICES.SERVICE_SLEEP.ADULT_SLEEP' | translate }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{{ 'SERVICES.SERVICE_SLEEP.CYCLE_DURATION' | translate }}</td>
-                    <td>45-60 {{ 'SERVICES.SERVICE_SLEEP.MINUTES' | translate }}</td>
-                    <td>90-120 {{ 'SERVICES.SERVICE_SLEEP.MINUTES' | translate }}</td>
-                  </tr>
-                  <tr>
-                    <td>{{ 'SERVICES.SERVICE_SLEEP.REM_RATIO' | translate }}</td>
-                    <td>50%</td>
-                    <td>20-25%</td>
-                  </tr>
-                  <tr>
-                    <td>{{ 'SERVICES.SERVICE_SLEEP.NIGHT_WAKINGS' | translate }}</td>
-                    <td>{{ 'SERVICES.SERVICE_SLEEP.NORMAL_FREQUENT' | translate }}</td>
-                    <td>{{ 'SERVICES.SERVICE_SLEEP.RARE' | translate }}</td>
-                  </tr>
-                  <tr>
-                    <td>{{ 'SERVICES.SERVICE_SLEEP.SLEEP_ONSET' | translate }}</td>
-                    <td>{{ 'SERVICES.SERVICE_SLEEP.REM_FIRST' | translate }}</td>
-                    <td>{{ 'SERVICES.SERVICE_SLEEP.NREM_FIRST' | translate }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+      <div class="sp-comparison">
+        <h3 class="sp-subsection-title">{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_TITLE' | translate }}</h3>
+        <div class="sp-table-card">
+          <table class="sp-table">
+            <thead>
+              <tr>
+                <th>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_FEATURE' | translate }}</th>
+                <th>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_BABY' | translate }}</th>
+                <th>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_ADULT' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_CYCLE' | translate }}</td>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_CYCLE_BABY' | translate }}</td>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_CYCLE_ADULT' | translate }}</td>
+              </tr>
+              <tr>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_REM' | translate }}</td>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_REM_BABY' | translate }}</td>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_REM_ADULT' | translate }}</td>
+              </tr>
+              <tr>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_WAKINGS' | translate }}</td>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_WAKINGS_BABY' | translate }}</td>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_WAKINGS_ADULT' | translate }}</td>
+              </tr>
+              <tr>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_ONSET' | translate }}</td>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_ONSET_BABY' | translate }}</td>
+                <td>{{ 'SERVICES.SERVICE_SLEEP.COMPARISON_ONSET_ADULT' | translate }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Approaches Section -->
-  <section class="approaches-section">
-    <div class="md3-container">
-      <div class="md3-section-header md3-text-center">
-        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.APPROACHES_TITLE' | translate }}</h2>
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 3 — Safety & Foundations (NEW)
+       ═══════════════════════════════════════════════════ -->
+  <section class="sp-section sp-section--surface" aria-labelledby="sp-safety-title">
+    <div class="sp-container">
+      <div class="sp-section-header sp-section-header--center">
+        <span class="sp-section-icon">
+          <span class="material-symbols-rounded" aria-hidden="true">shield</span>
+        </span>
+        <h2 id="sp-safety-title" class="sp-section-title">{{ 'SERVICES.SERVICE_SLEEP.SAFETY_TITLE' | translate }}</h2>
+        <p class="sp-section-subtitle">{{ 'SERVICES.SERVICE_SLEEP.SAFETY_SUBTITLE' | translate }}</p>
       </div>
 
-      <div class="md3-grid md3-grid-2">
-        <!-- Possums Approach -->
-        <div class="md3-card md3-card-elevated">
-          <div class="md3-card-header">
-            <div class="md3-badge md3-badge-primary">{{ 'SERVICES.SERVICE_SLEEP.BIOLOGICAL' | translate }}</div>
-          </div>
-          <div class="md3-card-content">
-            <h3 class="md3-headline-medium">{{ 'SERVICES.SERVICE_SLEEP.POSSUMS_TITLE' | translate }}</h3>
-            <p class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.POSSUMS_DESC' | translate }}</p>
+      <div class="sp-badge sp-badge--center">
+        <span class="material-symbols-rounded" aria-hidden="true">verified_user</span>
+        <span>{{ 'SERVICES.SERVICE_SLEEP.SAFETY_BADGE' | translate }}</span>
+      </div>
 
-            <div class="md3-divider"></div>
-
-            <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.KEY_PRINCIPLES' | translate }}</h4>
-            <ul class="md3-list md3-list-compact">
-              <li class="md3-list-item">
-                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
-                {{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_1' | translate }}
-              </li>
-              <li class="md3-list-item">
-                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
-                {{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_2' | translate }}
-              </li>
-              <li class="md3-list-item">
-                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
-                {{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_3' | translate }}
-              </li>
-              <li class="md3-list-item">
-                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
-                {{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_4' | translate }}
-              </li>
-            </ul>
+      <div class="sp-safety-grid">
+        <article class="sp-safety-card">
+          <div class="sp-safety-card__header">
+            <span class="material-symbols-rounded" aria-hidden="true">airline_seat_flat</span>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.SAFETY_SUPINE_TITLE' | translate }}</h3>
           </div>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.SAFETY_SUPINE_DESC' | translate }}</p>
+        </article>
+
+        <article class="sp-safety-card">
+          <div class="sp-safety-card__header">
+            <span class="material-symbols-rounded" aria-hidden="true">single_bed</span>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.SAFETY_SURFACE_TITLE' | translate }}</h3>
+          </div>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.SAFETY_SURFACE_DESC' | translate }}</p>
+        </article>
+
+        <article class="sp-safety-card">
+          <div class="sp-safety-card__header">
+            <span class="material-symbols-rounded" aria-hidden="true">crib</span>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.SAFETY_EMPTY_TITLE' | translate }}</h3>
+          </div>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.SAFETY_EMPTY_DESC' | translate }}</p>
+        </article>
+
+        <article class="sp-safety-card">
+          <div class="sp-safety-card__header">
+            <span class="material-symbols-rounded" aria-hidden="true">meeting_room</span>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.SAFETY_ROOM_TITLE' | translate }}</h3>
+          </div>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.SAFETY_ROOM_DESC' | translate }}</p>
+        </article>
+
+        <article class="sp-safety-card">
+          <div class="sp-safety-card__header">
+            <span class="material-symbols-rounded" aria-hidden="true">health_and_safety</span>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.SAFETY_OTHER_TITLE' | translate }}</h3>
+          </div>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.SAFETY_OTHER_DESC' | translate }}</p>
+        </article>
+      </div>
+
+      <!-- Routine & Environment -->
+      <div class="sp-foundations-grid">
+        <article class="sp-foundation-card">
+          <div class="sp-foundation-card__header">
+            <span class="material-symbols-rounded" aria-hidden="true">event_repeat</span>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.ROUTINE_TITLE' | translate }}</h3>
+          </div>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.ROUTINE_DESC' | translate }}</p>
+        </article>
+
+        <article class="sp-foundation-card">
+          <div class="sp-foundation-card__header">
+            <span class="material-symbols-rounded" aria-hidden="true">bedroom_parent</span>
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.ENVIRONMENT_TITLE' | translate }}</h3>
+          </div>
+          <div class="sp-environment-items">
+            <div class="sp-environment-item">
+              <span class="material-symbols-rounded" aria-hidden="true">dark_mode</span>
+              <div>
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.ENVIRONMENT_DARK_TITLE' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.ENVIRONMENT_DARK_DESC' | translate }}</p>
+              </div>
+            </div>
+            <div class="sp-environment-item">
+              <span class="material-symbols-rounded" aria-hidden="true">graphic_eq</span>
+              <div>
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.ENVIRONMENT_NOISE_TITLE' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.ENVIRONMENT_NOISE_DESC' | translate }}</p>
+              </div>
+            </div>
+            <div class="sp-environment-item">
+              <span class="material-symbols-rounded" aria-hidden="true">thermostat</span>
+              <div>
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.ENVIRONMENT_TEMP_TITLE' | translate }}</h4>
+                <p>{{ 'SERVICES.SERVICE_SLEEP.ENVIRONMENT_TEMP_DESC' | translate }}</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 4 — Approaches
+       ═══════════════════════════════════════════════════ -->
+  <section class="sp-section sp-section--surface-low" aria-labelledby="sp-approaches-title">
+    <div class="sp-container">
+      <div class="sp-section-header sp-section-header--center">
+        <div class="sp-badge">
+          <span class="material-symbols-rounded" aria-hidden="true">psychology</span>
+          <span>{{ 'SERVICES.SERVICE_SLEEP.APPROACHES_BADGE' | translate }}</span>
         </div>
+        <h2 id="sp-approaches-title" class="sp-section-title">{{ 'SERVICES.SERVICE_SLEEP.APPROACHES_TITLE' | translate }}</h2>
+        <p class="sp-section-subtitle">{{ 'SERVICES.SERVICE_SLEEP.APPROACHES_SUBTITLE' | translate }}</p>
+      </div>
 
-        <!-- GeMSS Approach -->
-        <div class="md3-card md3-card-elevated">
-          <div class="md3-card-header">
-            <div class="md3-badge md3-badge-secondary">{{ 'SERVICES.SERVICE_SLEEP.BEHAVIORAL' | translate }}</div>
+      <div class="sp-approaches-grid">
+        <!-- Possums -->
+        <article class="sp-approach-card">
+          <div class="sp-approach-card__badge">
+            <span class="sp-badge sp-badge--primary">{{ 'SERVICES.SERVICE_SLEEP.POSSUMS_BADGE' | translate }}</span>
           </div>
-          <div class="md3-card-content">
-            <h3 class="md3-headline-medium">{{ 'SERVICES.SERVICE_SLEEP.GEMSS_TITLE' | translate }}</h3>
-            <p class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.GEMSS_DESC' | translate }}</p>
+          <h3>{{ 'SERVICES.SERVICE_SLEEP.POSSUMS_TITLE' | translate }}</h3>
+          <p class="sp-approach-card__desc">{{ 'SERVICES.SERVICE_SLEEP.POSSUMS_DESC' | translate }}</p>
+          <div class="sp-divider"></div>
+          <h4>{{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLES' | translate }}</h4>
+          <ul class="sp-principle-list">
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>{{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_1' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>{{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_2' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>{{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_3' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>{{ 'SERVICES.SERVICE_SLEEP.POSSUMS_PRINCIPLE_4' | translate }}</li>
+          </ul>
+        </article>
 
-            <div class="md3-divider"></div>
-
-            <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.KEY_TECHNIQUES' | translate }}</h4>
-            <ul class="md3-list md3-list-compact">
-              <li class="md3-list-item">
-                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
-                {{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_1' | translate }}
-              </li>
-              <li class="md3-list-item">
-                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
-                {{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_2' | translate }}
-              </li>
-              <li class="md3-list-item">
-                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
-                {{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_3' | translate }}
-              </li>
-              <li class="md3-list-item">
-                <span class="material-icons-rounded md3-list-icon-small">arrow_right</span>
-                {{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_4' | translate }}
-              </li>
-            </ul>
+        <!-- GeMSS -->
+        <article class="sp-approach-card">
+          <div class="sp-approach-card__badge">
+            <span class="sp-badge sp-badge--secondary">{{ 'SERVICES.SERVICE_SLEEP.GEMSS_BADGE' | translate }}</span>
           </div>
-        </div>
+          <h3>{{ 'SERVICES.SERVICE_SLEEP.GEMSS_TITLE' | translate }}</h3>
+          <p class="sp-approach-card__desc">{{ 'SERVICES.SERVICE_SLEEP.GEMSS_DESC' | translate }}</p>
+          <div class="sp-divider"></div>
+          <h4>{{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUES' | translate }}</h4>
+          <ul class="sp-principle-list">
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>{{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_1' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>{{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_2' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>{{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_3' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>{{ 'SERVICES.SERVICE_SLEEP.GEMSS_TECHNIQUE_4' | translate }}</li>
+          </ul>
+        </article>
       </div>
 
       <!-- Combined Approach -->
-      <div class="combined-approach-card">
-        <div class="md3-card md3-card-elevated md3-card-primary">
-          <div class="md3-card-content">
-            <div class="md3-icon-container md3-icon-primary-container">
-              <span class="material-icons-rounded">hub</span>
+      <div class="sp-combined-card">
+        <div class="sp-combined-card__icon">
+          <span class="material-symbols-rounded" aria-hidden="true">hub</span>
+        </div>
+        <h3>{{ 'SERVICES.SERVICE_SLEEP.COMBINED_TITLE' | translate }}</h3>
+        <p>{{ 'SERVICES.SERVICE_SLEEP.COMBINED_DESC' | translate }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 5 — Holistic Method (NEW)
+       ═══════════════════════════════════════════════════ -->
+  <section class="sp-section sp-section--surface" aria-labelledby="sp-method-title">
+    <div class="sp-container">
+      <div class="sp-section-header sp-section-header--center">
+        <div class="sp-badge">
+          <span class="material-symbols-rounded" aria-hidden="true">route</span>
+          <span>{{ 'SERVICES.SERVICE_SLEEP.METHOD_BADGE' | translate }}</span>
+        </div>
+        <h2 id="sp-method-title" class="sp-section-title">{{ 'SERVICES.SERVICE_SLEEP.METHOD_TITLE' | translate }}</h2>
+        <p class="sp-section-subtitle">{{ 'SERVICES.SERVICE_SLEEP.METHOD_SUBTITLE' | translate }}</p>
+      </div>
+
+      <div class="sp-method-steps">
+        <article class="sp-method-step">
+          <div class="sp-method-step__number">{{ 'SERVICES.SERVICE_SLEEP.STEP1_NUMBER' | translate }}</div>
+          <div class="sp-method-step__content">
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.STEP1_TITLE' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.STEP1_DESC' | translate }}</p>
+            <div class="sp-method-details">
+              <div class="sp-method-detail">
+                <span class="material-symbols-rounded" aria-hidden="true">stethoscope</span>
+                <div>
+                  <h4>{{ 'SERVICES.SERVICE_SLEEP.STEP1_MEDICAL_TITLE' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_SLEEP.STEP1_MEDICAL_DESC' | translate }}</p>
+                </div>
+              </div>
+              <div class="sp-method-detail">
+                <span class="material-symbols-rounded" aria-hidden="true">wb_sunny</span>
+                <div>
+                  <h4>{{ 'SERVICES.SERVICE_SLEEP.STEP1_BIO_TITLE' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_SLEEP.STEP1_BIO_DESC' | translate }}</p>
+                </div>
+              </div>
             </div>
-            <h3 class="md3-headline-medium">{{ 'SERVICES.SERVICE_SLEEP.COMBINED_TITLE' | translate }}</h3>
-            <p class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.COMBINED_DESC' | translate }}</p>
+          </div>
+        </article>
+
+        <article class="sp-method-step">
+          <div class="sp-method-step__number">{{ 'SERVICES.SERVICE_SLEEP.STEP2_NUMBER' | translate }}</div>
+          <div class="sp-method-step__content">
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.STEP2_TITLE' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.STEP2_DESC' | translate }}</p>
+            <div class="sp-method-goals">
+              <div class="sp-method-goal">
+                <span class="material-symbols-rounded" aria-hidden="true">sync</span>
+                <div>
+                  <h4>{{ 'SERVICES.SERVICE_SLEEP.STEP2_PROCESS_TITLE' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_SLEEP.STEP2_PROCESS_DESC' | translate }}</p>
+                </div>
+              </div>
+              <div class="sp-method-goal">
+                <span class="material-symbols-rounded" aria-hidden="true">target</span>
+                <div>
+                  <h4>{{ 'SERVICES.SERVICE_SLEEP.STEP2_OUTCOME_TITLE' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_SLEEP.STEP2_OUTCOME_DESC' | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="sp-method-step">
+          <div class="sp-method-step__number">{{ 'SERVICES.SERVICE_SLEEP.STEP3_NUMBER' | translate }}</div>
+          <div class="sp-method-step__content">
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.STEP3_TITLE' | translate }}</h3>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.STEP3_DESC' | translate }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 6 — 13-Day Program
+       ═══════════════════════════════════════════════════ -->
+  <section class="sp-section sp-section--surface-low" aria-labelledby="sp-program-title">
+    <div class="sp-container">
+      <div class="sp-section-header sp-section-header--center">
+        <div class="sp-badge sp-badge--secondary">
+          <span class="material-symbols-rounded" aria-hidden="true">calendar_month</span>
+          <span>{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_BADGE' | translate }}</span>
+        </div>
+        <h2 id="sp-program-title" class="sp-section-title">{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_TITLE' | translate }}</h2>
+        <p class="sp-section-subtitle">{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_SUBTITLE' | translate }}</p>
+      </div>
+
+      <div class="sp-timeline">
+        <div class="sp-timeline-item">
+          <div class="sp-timeline-marker sp-timeline-marker--1">
+            <span>{{ 'SERVICES.SERVICE_SLEEP.PHASE1_DAYS' | translate }}</span>
+          </div>
+          <div class="sp-timeline-content">
+            <h4>{{ 'SERVICES.SERVICE_SLEEP.PHASE1_TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.PHASE1_DESC' | translate }}</p>
+            <p class="sp-timeline-actions">{{ 'SERVICES.SERVICE_SLEEP.PHASE1_ACTIONS' | translate }}</p>
+          </div>
+        </div>
+
+        <div class="sp-timeline-item">
+          <div class="sp-timeline-marker sp-timeline-marker--2">
+            <span>{{ 'SERVICES.SERVICE_SLEEP.PHASE2_DAYS' | translate }}</span>
+          </div>
+          <div class="sp-timeline-content">
+            <h4>{{ 'SERVICES.SERVICE_SLEEP.PHASE2_TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.PHASE2_DESC' | translate }}</p>
+            <p class="sp-timeline-actions">{{ 'SERVICES.SERVICE_SLEEP.PHASE2_ACTIONS' | translate }}</p>
+          </div>
+        </div>
+
+        <div class="sp-timeline-item">
+          <div class="sp-timeline-marker sp-timeline-marker--3">
+            <span>{{ 'SERVICES.SERVICE_SLEEP.PHASE3_DAYS' | translate }}</span>
+          </div>
+          <div class="sp-timeline-content">
+            <h4>{{ 'SERVICES.SERVICE_SLEEP.PHASE3_TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.PHASE3_DESC' | translate }}</p>
+            <p class="sp-timeline-actions">{{ 'SERVICES.SERVICE_SLEEP.PHASE3_ACTIONS' | translate }}</p>
+          </div>
+        </div>
+
+        <div class="sp-timeline-item">
+          <div class="sp-timeline-marker sp-timeline-marker--4">
+            <span>{{ 'SERVICES.SERVICE_SLEEP.PHASE4_DAYS' | translate }}</span>
+          </div>
+          <div class="sp-timeline-content">
+            <h4>{{ 'SERVICES.SERVICE_SLEEP.PHASE4_TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.PHASE4_DESC' | translate }}</p>
+            <p class="sp-timeline-actions">{{ 'SERVICES.SERVICE_SLEEP.PHASE4_ACTIONS' | translate }}</p>
+          </div>
+        </div>
+
+        <div class="sp-timeline-item sp-timeline-item--complete">
+          <div class="sp-timeline-marker sp-timeline-marker--complete">
+            <span class="material-symbols-rounded" aria-hidden="true">check</span>
+          </div>
+          <div class="sp-timeline-content">
+            <h4>{{ 'SERVICES.SERVICE_SLEEP.PHASE5_TITLE' | translate }}</h4>
+            <p>{{ 'SERVICES.SERVICE_SLEEP.PHASE5_DESC' | translate }}</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 13-Day Program Section -->
-  <section class="program-section">
-    <div class="md3-container">
-      <div class="md3-section-header md3-text-center">
-        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_TITLE' | translate }}</h2>
-        <p class="section-subtitle">{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_SUBTITLE' | translate }}</p>
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 7 — Challenges (Accordion)
+       ═══════════════════════════════════════════════════ -->
+  <section class="sp-section sp-section--surface" aria-labelledby="sp-challenges-title">
+    <div class="sp-container">
+      <div class="sp-section-header sp-section-header--center">
+        <span class="sp-section-icon sp-section-icon--secondary">
+          <span class="material-symbols-rounded" aria-hidden="true">help_center</span>
+        </span>
+        <h2 id="sp-challenges-title" class="sp-section-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGES_TITLE' | translate }}</h2>
       </div>
 
-      <!-- Program Timeline -->
-      <div class="md3-timeline">
-        <div class="md3-timeline-item">
-          <div class="md3-timeline-marker md3-timeline-marker-primary">
-            <span>1-3</span>
-          </div>
-          <div class="md3-timeline-content">
-            <div class="md3-card md3-card-outlined">
-              <div class="md3-card-content">
-                <h4 class="md3-title-large">{{ 'SERVICES.SERVICE_SLEEP.BEDSIDE' | translate }}</h4>
-                <ul class="md3-list-compact">
-                  <li>{{ 'SERVICES.SERVICE_SLEEP.TOUCH' | translate }}</li>
-                  <li>{{ 'SERVICES.SERVICE_SLEEP.SHUSH' | translate }}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="md3-timeline-item">
-          <div class="md3-timeline-marker md3-timeline-marker-secondary">
-            <span>4-6</span>
-          </div>
-          <div class="md3-timeline-content">
-            <div class="md3-card md3-card-outlined">
-              <div class="md3-card-content">
-                <h4 class="md3-title-large">{{ 'SERVICES.SERVICE_SLEEP.HALFWAY' | translate }}</h4>
-                <ul class="md3-list-compact">
-                  <li>{{ 'SERVICES.SERVICE_SLEEP.MINIMAL_TOUCH' | translate }}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="md3-timeline-item">
-          <div class="md3-timeline-marker md3-timeline-marker-tertiary">
-            <span>7-9</span>
-          </div>
-          <div class="md3-timeline-content">
-            <div class="md3-card md3-card-outlined">
-              <div class="md3-card-content">
-                <h4 class="md3-title-large">{{ 'SERVICES.SERVICE_SLEEP.DOORWAY' | translate }}</h4>
-                <ul class="md3-list-compact">
-                  <li>{{ 'SERVICES.SERVICE_SLEEP.VOICE_ONLY' | translate }}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="md3-timeline-item">
-          <div class="md3-timeline-marker md3-timeline-marker-success">
-            <span>10-12</span>
-          </div>
-          <div class="md3-timeline-content">
-            <div class="md3-card md3-card-outlined">
-              <div class="md3-card-content">
-                <h4 class="md3-title-large">{{ 'SERVICES.SERVICE_SLEEP.CORRIDOR' | translate }}</h4>
-                <ul class="md3-list-compact">
-                  <li>{{ 'SERVICES.SERVICE_SLEEP.INTERMITTENT' | translate }}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="md3-timeline-item">
-          <div class="md3-timeline-marker md3-timeline-marker-complete">
-            <span class="material-icons-rounded">check</span>
-          </div>
-          <div class="md3-timeline-content">
-            <div class="md3-card md3-card-filled md3-card-success">
-              <div class="md3-card-content">
-                <h4 class="md3-title-large">{{ 'SERVICES.SERVICE_SLEEP.INDEPENDENCE' | translate }}</h4>
-                <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.INDEPENDENCE_DESC' | translate }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Challenges Section with MD3 Accordion -->
-  <section class="challenges-section">
-    <div class="md3-container">
-      <div class="md3-section-header md3-text-center">
-        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGES_TITLE' | translate }}</h2>
-      </div>
-
-      <div class="md3-accordion">
+      <div class="sp-accordion">
         <!-- Nap Challenges -->
-        <div class="md3-accordion-item">
-          <button class="md3-accordion-header" (click)="toggleAccordion($event)">
-            <span class="material-icons-rounded">hotel</span>
-            <span class="md3-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_NAP' | translate }}</span>
-            <span class="material-icons-rounded md3-accordion-icon">expand_more</span>
+        <div class="sp-accordion-item">
+          <button class="sp-accordion-header" (click)="toggleAccordion($event)">
+            <span class="material-symbols-rounded" aria-hidden="true">hotel</span>
+            <span class="sp-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_NAP_TITLE' | translate }}</span>
+            <span class="material-symbols-rounded sp-accordion-icon">expand_more</span>
           </button>
-          <div class="md3-accordion-content">
-            <div class="md3-accordion-body">
-              <p class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_NAP_DESC' | translate }}</p>
-
-              <div class="md3-solution-card">
-                <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.SOLUTION' | translate }}</h4>
-                <ul class="md3-list">
-                  <li class="md3-list-item">{{ 'SERVICES.SERVICE_SLEEP.NAP_SOLUTION_1' | translate }}</li>
-                  <li class="md3-list-item">{{ 'SERVICES.SERVICE_SLEEP.NAP_SOLUTION_2' | translate }}</li>
-                  <li class="md3-list-item">{{ 'SERVICES.SERVICE_SLEEP.NAP_SOLUTION_3' | translate }}</li>
+          <div class="sp-accordion-content">
+            <div class="sp-accordion-body">
+              <p>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_NAP_DESC' | translate }}</p>
+              <div class="sp-solution-card">
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_NAP_SOLUTION_TITLE' | translate }}</h4>
+                <ul>
+                  <li>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_NAP_SOLUTION_1' | translate }}</li>
+                  <li>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_NAP_SOLUTION_2' | translate }}</li>
+                  <li>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_NAP_SOLUTION_3' | translate }}</li>
                 </ul>
               </div>
             </div>
@@ -380,22 +518,21 @@
         </div>
 
         <!-- Separation Anxiety -->
-        <div class="md3-accordion-item">
-          <button class="md3-accordion-header" (click)="toggleAccordion($event)">
-            <span class="material-icons-rounded">child_care</span>
-            <span class="md3-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_SEPARATION' | translate }}</span>
-            <span class="material-icons-rounded md3-accordion-icon">expand_more</span>
+        <div class="sp-accordion-item">
+          <button class="sp-accordion-header" (click)="toggleAccordion($event)">
+            <span class="material-symbols-rounded" aria-hidden="true">child_care</span>
+            <span class="sp-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_SEPARATION_TITLE' | translate }}</span>
+            <span class="material-symbols-rounded sp-accordion-icon">expand_more</span>
           </button>
-          <div class="md3-accordion-content">
-            <div class="md3-accordion-body">
-              <p class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_SEPARATION_DESC' | translate }}</p>
-
-              <div class="md3-solution-card">
-                <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.SOLUTION' | translate }}</h4>
-                <ul class="md3-list">
-                  <li class="md3-list-item">{{ 'SERVICES.SERVICE_SLEEP.SEPARATION_SOLUTION_1' | translate }}</li>
-                  <li class="md3-list-item">{{ 'SERVICES.SERVICE_SLEEP.SEPARATION_SOLUTION_2' | translate }}</li>
-                  <li class="md3-list-item">{{ 'SERVICES.SERVICE_SLEEP.SEPARATION_SOLUTION_3' | translate }}</li>
+          <div class="sp-accordion-content">
+            <div class="sp-accordion-body">
+              <p>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_SEPARATION_DESC' | translate }}</p>
+              <div class="sp-solution-card">
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_SEPARATION_SOLUTION_TITLE' | translate }}</h4>
+                <ul>
+                  <li>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_SEPARATION_SOLUTION_1' | translate }}</li>
+                  <li>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_SEPARATION_SOLUTION_2' | translate }}</li>
+                  <li>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_SEPARATION_SOLUTION_3' | translate }}</li>
                 </ul>
               </div>
             </div>
@@ -403,49 +540,40 @@
         </div>
 
         <!-- Feeding Association -->
-        <div class="md3-accordion-item">
-          <button class="md3-accordion-header" (click)="toggleAccordion($event)">
-            <span class="material-icons-rounded">restaurant</span>
-            <span class="md3-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING' | translate }}</span>
-            <span class="material-icons-rounded md3-accordion-icon">expand_more</span>
+        <div class="sp-accordion-item">
+          <button class="sp-accordion-header" (click)="toggleAccordion($event)">
+            <span class="material-symbols-rounded" aria-hidden="true">restaurant</span>
+            <span class="sp-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_TITLE' | translate }}</span>
+            <span class="material-symbols-rounded sp-accordion-icon">expand_more</span>
           </button>
-          <div class="md3-accordion-content">
-            <div class="md3-accordion-body">
-              <p class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_DESC' | translate }}</p>
-
-              <div class="md3-strategy-timeline">
-                <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.FEEDING_STRATEGY' | translate }}</h4>
-                <div class="md3-timeline-horizontal">
-                  <div class="md3-timeline-step">
-                    <div class="md3-timeline-step-marker">1</div>
-                    <div class="md3-timeline-step-content">
-                      <span class="md3-label-large">{{ 'SERVICES.SERVICE_SLEEP.BEDTIME' | translate }}</span>
-                      <span class="md3-body-small">20:00</span>
-                    </div>
+          <div class="sp-accordion-content">
+            <div class="sp-accordion-body">
+              <p>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_DESC' | translate }}</p>
+              <div class="sp-strategy-timeline">
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_STRATEGY_TITLE' | translate }}</h4>
+                <div class="sp-horizontal-steps">
+                  <div class="sp-h-step">
+                    <div class="sp-h-step__marker">1</div>
+                    <span class="sp-h-step__label">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_STEP_1' | translate }}</span>
+                    <span class="sp-h-step__time">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_STEP_1_TIME' | translate }}</span>
                   </div>
-                  <div class="md3-timeline-connector"></div>
-                  <div class="md3-timeline-step">
-                    <div class="md3-timeline-step-marker">2</div>
-                    <div class="md3-timeline-step-content">
-                      <span class="md3-label-large">{{ 'SERVICES.SERVICE_SLEEP.FEED_FIRST' | translate }}</span>
-                      <span class="md3-body-small">19:30</span>
-                    </div>
+                  <div class="sp-h-step-connector"></div>
+                  <div class="sp-h-step">
+                    <div class="sp-h-step__marker">2</div>
+                    <span class="sp-h-step__label">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_STEP_2' | translate }}</span>
+                    <span class="sp-h-step__time">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_STEP_2_TIME' | translate }}</span>
                   </div>
-                  <div class="md3-timeline-connector"></div>
-                  <div class="md3-timeline-step">
-                    <div class="md3-timeline-step-marker">3</div>
-                    <div class="md3-timeline-step-content">
-                      <span class="md3-label-large">{{ 'SERVICES.SERVICE_SLEEP.ROUTINE' | translate }}</span>
-                      <span class="md3-body-small">{{ 'SERVICES.SERVICE_SLEEP.OTHER_ACTIVITIES' | translate }}</span>
-                    </div>
+                  <div class="sp-h-step-connector"></div>
+                  <div class="sp-h-step">
+                    <div class="sp-h-step__marker">3</div>
+                    <span class="sp-h-step__label">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_STEP_3' | translate }}</span>
+                    <span class="sp-h-step__time">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_STEP_3_TIME' | translate }}</span>
                   </div>
-                  <div class="md3-timeline-connector"></div>
-                  <div class="md3-timeline-step">
-                    <div class="md3-timeline-step-marker">4</div>
-                    <div class="md3-timeline-step-content">
-                      <span class="md3-label-large">{{ 'SERVICES.SERVICE_SLEEP.SLEEP_TIME' | translate }}</span>
-                      <span class="md3-body-small">{{ 'SERVICES.SERVICE_SLEEP.AWAKE_BED' | translate }}</span>
-                    </div>
+                  <div class="sp-h-step-connector"></div>
+                  <div class="sp-h-step">
+                    <div class="sp-h-step__marker">4</div>
+                    <span class="sp-h-step__label">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_STEP_4' | translate }}</span>
+                    <span class="sp-h-step__time">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_FEEDING_STEP_4_TIME' | translate }}</span>
                   </div>
                 </div>
               </div>
@@ -453,30 +581,47 @@
           </div>
         </div>
 
-        <!-- Illness Periods -->
-        <div class="md3-accordion-item">
-          <button class="md3-accordion-header" (click)="toggleAccordion($event)">
-            <span class="material-icons-rounded">medical_services</span>
-            <span class="md3-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_ILLNESS' | translate }}</span>
-            <span class="material-icons-rounded md3-accordion-icon">expand_more</span>
+        <!-- Illness -->
+        <div class="sp-accordion-item">
+          <button class="sp-accordion-header" (click)="toggleAccordion($event)">
+            <span class="material-symbols-rounded" aria-hidden="true">medical_services</span>
+            <span class="sp-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_ILLNESS_TITLE' | translate }}</span>
+            <span class="material-symbols-rounded sp-accordion-icon">expand_more</span>
           </button>
-          <div class="md3-accordion-content">
-            <div class="md3-accordion-body">
-              <p class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_ILLNESS_DESC' | translate }}</p>
+          <div class="sp-accordion-content">
+            <div class="sp-accordion-body">
+              <p>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_ILLNESS_DESC' | translate }}</p>
+              <div class="sp-illness-grid">
+                <div class="sp-illness-card">
+                  <h4>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_ILLNESS_DURING_TITLE' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_ILLNESS_DURING_DESC' | translate }}</p>
+                </div>
+                <div class="sp-illness-card">
+                  <h4>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_ILLNESS_RECOVERY_TITLE' | translate }}</h4>
+                  <p>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_ILLNESS_RECOVERY_DESC' | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-              <div class="md3-grid md3-grid-2">
-                <div class="md3-card md3-card-outlined">
-                  <div class="md3-card-content">
-                    <h5 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.DURING_ILLNESS' | translate }}</h5>
-                    <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.DURING_ILLNESS_DESC' | translate }}</p>
-                  </div>
-                </div>
-                <div class="md3-card md3-card-outlined">
-                  <div class="md3-card-content">
-                    <h5 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.RECOVERY' | translate }}</h5>
-                    <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.RECOVERY_DESC' | translate }}</p>
-                  </div>
-                </div>
+        <!-- Developmental (NEW) -->
+        <div class="sp-accordion-item">
+          <button class="sp-accordion-header" (click)="toggleAccordion($event)">
+            <span class="material-symbols-rounded" aria-hidden="true">trending_up</span>
+            <span class="sp-accordion-title">{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_DEVELOPMENTAL_TITLE' | translate }}</span>
+            <span class="material-symbols-rounded sp-accordion-icon">expand_more</span>
+          </button>
+          <div class="sp-accordion-content">
+            <div class="sp-accordion-body">
+              <p>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_DEVELOPMENTAL_DESC' | translate }}</p>
+              <div class="sp-solution-card">
+                <h4>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_DEVELOPMENTAL_SOLUTION_TITLE' | translate }}</h4>
+                <ul>
+                  <li>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_DEVELOPMENTAL_SOLUTION_1' | translate }}</li>
+                  <li>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_DEVELOPMENTAL_SOLUTION_2' | translate }}</li>
+                  <li>{{ 'SERVICES.SERVICE_SLEEP.CHALLENGE_DEVELOPMENTAL_SOLUTION_3' | translate }}</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -485,155 +630,126 @@
     </div>
   </section>
 
-  <!-- Package Options Section -->
-  <section class="package-section">
-    <div class="md3-container">
-      <div class="md3-section-header md3-text-center">
-        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.PACKAGE_TITLE' | translate }}</h2>
+  <!-- Mid-content CTA -->
+  <app-contact-cta></app-contact-cta>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 8 — Packages
+       ═══════════════════════════════════════════════════ -->
+  <section class="sp-section sp-section--surface" aria-labelledby="sp-packages-title">
+    <div class="sp-container">
+      <div class="sp-section-header sp-section-header--center">
+        <span class="sp-section-icon">
+          <span class="material-symbols-rounded" aria-hidden="true">inventory_2</span>
+        </span>
+        <h2 id="sp-packages-title" class="sp-section-title">{{ 'SERVICES.SERVICE_SLEEP.PACKAGES_TITLE' | translate }}</h2>
       </div>
 
-      <div class="md3-grid md3-grid-3">
-        <!-- Consultation Package -->
-        <div class="md3-package-card">
-          <div class="md3-package-header">
-            <h3 class="md3-headline-medium">{{ 'SERVICES.SERVICE_SLEEP.CONSULTATION_PACKAGE' | translate }}</h3>
-            <span class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.SINGLE_SESSION' | translate }}</span>
+      <div class="sp-packages-grid">
+        <!-- Consultation -->
+        <article class="sp-package-card">
+          <div class="sp-package-card__header">
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.CONSULTATION_TITLE' | translate }}</h3>
+            <span>{{ 'SERVICES.SERVICE_SLEEP.CONSULTATION_SUBTITLE' | translate }}</span>
           </div>
-          <div class="md3-package-content">
-            <ul class="md3-package-features">
-              <li class="md3-package-feature">
-                <span class="material-icons-rounded">check</span>
-                {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_1' | translate }}
-              </li>
-              <li class="md3-package-feature">
-                <span class="material-icons-rounded">check</span>
-                {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_2' | translate }}
-              </li>
-              <li class="md3-package-feature">
-                <span class="material-icons-rounded">check</span>
-                {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_3' | translate }}
-              </li>
-            </ul>
-          </div>
-          <div class="md3-package-action">
-            <a href="https://wa.me/905466884483?text=Sağlıklı%20Uykular%20Danışmanlık%20Paketi%20hakkında%20bilgi%20almak%20istiyorum"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="md3-button md3-button-outlined md3-button-full-width"
-               data-track="whatsapp_click" data-track-category="conversion" data-track-label="sleep_program">
-              <span class="material-icons-rounded">chat</span>
-              {{ 'SERVICES.SERVICE_SLEEP.GET_INFO' | translate }}
-            </a>
-          </div>
-        </div>
+          <ul class="sp-package-features">
+            <li><span class="material-symbols-rounded" aria-hidden="true">check</span>{{ 'SERVICES.SERVICE_SLEEP.CONSULTATION_FEATURE_1' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check</span>{{ 'SERVICES.SERVICE_SLEEP.CONSULTATION_FEATURE_2' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check</span>{{ 'SERVICES.SERVICE_SLEEP.CONSULTATION_FEATURE_3' | translate }}</li>
+          </ul>
+          <a href="https://wa.me/905466884483?text=Sağlıklı%20Uykular%20Danışmanlık%20Paketi%20hakkında%20bilgi%20almak%20istiyorum"
+             target="_blank" rel="noopener noreferrer"
+             class="sp-package-btn sp-package-btn--outlined"
+             data-track="whatsapp_click" data-track-category="conversion" data-track-label="sleep_consultation">
+            <span class="material-symbols-rounded" aria-hidden="true">chat</span>
+            {{ 'SERVICES.SERVICE_SLEEP.GET_INFO' | translate }}
+          </a>
+        </article>
 
-        <!-- 13-Day Program Package -->
-        <div class="md3-package-card md3-package-featured">
-          <div class="md3-package-header">
-            <h3 class="md3-headline-medium">{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_PACKAGE' | translate }}</h3>
-            <span class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.THIRTEEN_DAYS' | translate }}</span>
+        <!-- 13-Day Program (Featured) -->
+        <article class="sp-package-card sp-package-card--featured">
+          <div class="sp-package-card__header">
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_PACKAGE_TITLE' | translate }}</h3>
+            <span>{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_PACKAGE_SUBTITLE' | translate }}</span>
           </div>
-          <div class="md3-package-content">
-            <ul class="md3-package-features">
-              <li class="md3-package-feature">
-                <span class="material-icons-rounded">check</span>
-                {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_4' | translate }}
-              </li>
-              <li class="md3-package-feature">
-                <span class="material-icons-rounded">check</span>
-                {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_5' | translate }}
-              </li>
-              <li class="md3-package-feature">
-                <span class="material-icons-rounded">check</span>
-                {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_6' | translate }}
-              </li>
-              <li class="md3-package-feature">
-                <span class="material-icons-rounded">check</span>
-                {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_7' | translate }}
-              </li>
-            </ul>
-          </div>
-          <div class="md3-package-action">
-            <a href="https://wa.me/905466884483?text=13%20Günlük%20Uyku%20Programı%20hakkında%20bilgi%20almak%20istiyorum"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="md3-button md3-button-filled md3-button-full-width"
-               data-track="whatsapp_click" data-track-category="conversion" data-track-label="sleep_program">
-              <span class="material-icons-rounded">chat</span>
-              {{ 'SERVICES.SERVICE_SLEEP.GET_INFO' | translate }}
-            </a>
-          </div>
-        </div>
+          <ul class="sp-package-features">
+            <li><span class="material-symbols-rounded" aria-hidden="true">check</span>{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_FEATURE_1' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check</span>{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_FEATURE_2' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check</span>{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_FEATURE_3' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check</span>{{ 'SERVICES.SERVICE_SLEEP.PROGRAM_FEATURE_4' | translate }}</li>
+          </ul>
+          <a href="https://wa.me/905466884483?text=13%20Günlük%20Uyku%20Programı%20hakkında%20bilgi%20almak%20istiyorum"
+             target="_blank" rel="noopener noreferrer"
+             class="sp-package-btn sp-package-btn--filled"
+             data-track="whatsapp_click" data-track-category="conversion" data-track-label="sleep_program">
+            <span class="material-symbols-rounded" aria-hidden="true">chat</span>
+            {{ 'SERVICES.SERVICE_SLEEP.GET_INFO' | translate }}
+          </a>
+        </article>
 
-        <!-- Follow-up Package -->
-        <div class="md3-package-card">
-          <div class="md3-package-header">
-            <h3 class="md3-headline-medium">{{ 'SERVICES.SERVICE_SLEEP.FOLLOWUP_PACKAGE' | translate }}</h3>
-            <span class="md3-body-large">{{ 'SERVICES.SERVICE_SLEEP.MONTHLY' | translate }}</span>
+        <!-- Follow-up -->
+        <article class="sp-package-card">
+          <div class="sp-package-card__header">
+            <h3>{{ 'SERVICES.SERVICE_SLEEP.FOLLOWUP_TITLE' | translate }}</h3>
+            <span>{{ 'SERVICES.SERVICE_SLEEP.FOLLOWUP_SUBTITLE' | translate }}</span>
           </div>
-          <div class="md3-package-content">
-            <ul class="md3-package-features">
-              <li class="md3-package-feature">
-                <span class="material-icons-rounded">check</span>
-                {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_8' | translate }}
-              </li>
-              <li class="md3-package-feature">
-                <span class="material-icons-rounded">check</span>
-                {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_9' | translate }}
-              </li>
-              <li class="md3-package-feature">
-                <span class="material-icons-rounded">check</span>
-                {{ 'SERVICES.SERVICE_SLEEP.PACKAGE_FEATURE_10' | translate }}
-              </li>
-            </ul>
-          </div>
-          <div class="md3-package-action">
-            <a href="https://wa.me/905466884483?text=Uyku%20Takip%20Paketi%20hakkında%20bilgi%20almak%20istiyorum"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="md3-button md3-button-outlined md3-button-full-width"
-               data-track="whatsapp_click" data-track-category="conversion" data-track-label="sleep_program">
-              <span class="material-icons-rounded">chat</span>
-              {{ 'SERVICES.SERVICE_SLEEP.GET_INFO' | translate }}
-            </a>
-          </div>
-        </div>
+          <ul class="sp-package-features">
+            <li><span class="material-symbols-rounded" aria-hidden="true">check</span>{{ 'SERVICES.SERVICE_SLEEP.FOLLOWUP_FEATURE_1' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check</span>{{ 'SERVICES.SERVICE_SLEEP.FOLLOWUP_FEATURE_2' | translate }}</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check</span>{{ 'SERVICES.SERVICE_SLEEP.FOLLOWUP_FEATURE_3' | translate }}</li>
+          </ul>
+          <a href="https://wa.me/905466884483?text=Uyku%20Takip%20Paketi%20hakkında%20bilgi%20almak%20istiyorum"
+             target="_blank" rel="noopener noreferrer"
+             class="sp-package-btn sp-package-btn--outlined"
+             data-track="whatsapp_click" data-track-category="conversion" data-track-label="sleep_followup">
+            <span class="material-symbols-rounded" aria-hidden="true">chat</span>
+            {{ 'SERVICES.SERVICE_SLEEP.GET_INFO' | translate }}
+          </a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section class="faq-section">
-    <div class="md3-container">
-      <div class="md3-section-header md3-text-center">
-        <h2 class="section-title">{{ 'SERVICES.SERVICE_SLEEP.FAQ_TITLE' | translate }}</h2>
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 9 — FAQ
+       ═══════════════════════════════════════════════════ -->
+  <section class="sp-section sp-section--surface-low" aria-labelledby="sp-faq-title">
+    <div class="sp-container">
+      <div class="sp-section-header sp-section-header--center">
+        <span class="sp-section-icon">
+          <span class="material-symbols-rounded" aria-hidden="true">quiz</span>
+        </span>
+        <h2 id="sp-faq-title" class="sp-section-title">{{ 'SERVICES.SERVICE_SLEEP.FAQ_TITLE' | translate }}</h2>
       </div>
 
-      <div class="md3-faq-grid">
-        <div class="md3-faq-item">
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.FAQ_Q1' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.FAQ_A1' | translate }}</p>
+      <div class="sp-faq-grid">
+        <div class="sp-faq-item">
+          <h4>{{ 'SERVICES.SERVICE_SLEEP.FAQ_Q1' | translate }}</h4>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.FAQ_A1' | translate }}</p>
         </div>
-
-        <div class="md3-faq-item">
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.FAQ_Q2' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.FAQ_A2' | translate }}</p>
+        <div class="sp-faq-item">
+          <h4>{{ 'SERVICES.SERVICE_SLEEP.FAQ_Q2' | translate }}</h4>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.FAQ_A2' | translate }}</p>
         </div>
-
-        <div class="md3-faq-item">
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.FAQ_Q3' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.FAQ_A3' | translate }}</p>
+        <div class="sp-faq-item">
+          <h4>{{ 'SERVICES.SERVICE_SLEEP.FAQ_Q3' | translate }}</h4>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.FAQ_A3' | translate }}</p>
         </div>
-
-        <div class="md3-faq-item">
-          <h4 class="md3-title-medium">{{ 'SERVICES.SERVICE_SLEEP.FAQ_Q4' | translate }}</h4>
-          <p class="md3-body-medium">{{ 'SERVICES.SERVICE_SLEEP.FAQ_A4' | translate }}</p>
+        <div class="sp-faq-item">
+          <h4>{{ 'SERVICES.SERVICE_SLEEP.FAQ_Q4' | translate }}</h4>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.FAQ_A4' | translate }}</p>
+        </div>
+        <div class="sp-faq-item">
+          <h4>{{ 'SERVICES.SERVICE_SLEEP.FAQ_Q5' | translate }}</h4>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.FAQ_A5' | translate }}</p>
+        </div>
+        <div class="sp-faq-item">
+          <h4>{{ 'SERVICES.SERVICE_SLEEP.FAQ_Q6' | translate }}</h4>
+          <p>{{ 'SERVICES.SERVICE_SLEEP.FAQ_A6' | translate }}</p>
         </div>
       </div>
     </div>
   </section>
-
-  </main>
 
   <app-contact-cta></app-contact-cta>
-</div>
+</section>

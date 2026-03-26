@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BrightFuturesProgramComponent } from './bright-futures-program.component';
+import { provideStandaloneTestbed } from '../../../testing/standalone-testbed';
 
 describe('BrightFuturesProgramComponent', () => {
   let component: BrightFuturesProgramComponent;
@@ -8,7 +9,8 @@ describe('BrightFuturesProgramComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BrightFuturesProgramComponent]
+      imports: [BrightFuturesProgramComponent],
+      providers: provideStandaloneTestbed(),
     })
     .compileComponents();
 

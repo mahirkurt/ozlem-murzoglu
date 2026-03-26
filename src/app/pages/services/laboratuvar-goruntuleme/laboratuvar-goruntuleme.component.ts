@@ -73,8 +73,7 @@ export class LaboratuvarGoruntulemeComponent implements OnInit {
   prepSteps: PrepStep[] = [
     { number: 1, icon: 'restaurant', titleKey: 'SERVICES.SERVICE_LAB_IMAGING.PREP_FASTING_TITLE', contentKey: 'SERVICES.SERVICE_LAB_IMAGING.PREP_FASTING_CONTENT' },
     { number: 2, icon: 'psychology', titleKey: 'SERVICES.SERVICE_LAB_IMAGING.PREP_PSYCH_TITLE', contentKey: 'SERVICES.SERVICE_LAB_IMAGING.PREP_PSYCH_CONTENT' },
-    { number: 3, icon: 'healing', titleKey: 'SERVICES.SERVICE_LAB_IMAGING.PREP_EMLA_TITLE', contentKey: 'SERVICES.SERVICE_LAB_IMAGING.PREP_EMLA_CONTENT' },
-    { number: 4, icon: 'schedule', titleKey: 'SERVICES.SERVICE_LAB_IMAGING.PREP_RESULTS_TITLE', contentKey: 'SERVICES.SERVICE_LAB_IMAGING.PREP_RESULTS_CONTENT' },
+    { number: 3, icon: 'schedule', titleKey: 'SERVICES.SERVICE_LAB_IMAGING.PREP_RESULTS_TITLE', contentKey: 'SERVICES.SERVICE_LAB_IMAGING.PREP_RESULTS_CONTENT' },
   ];
 
   newbornScreenings: NewbornScreening[] = [

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LaboratuvarGoruntulemeComponent } from './laboratuvar-goruntuleme.component';
+import { provideStandaloneTestbed } from '../../../testing/standalone-testbed';
 
 describe('LaboratuvarGoruntulemeComponent', () => {
   let component: LaboratuvarGoruntulemeComponent;
@@ -8,7 +9,8 @@ describe('LaboratuvarGoruntulemeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LaboratuvarGoruntulemeComponent]
+      imports: [LaboratuvarGoruntulemeComponent],
+      providers: provideStandaloneTestbed(),
     })
     .compileComponents();
 
